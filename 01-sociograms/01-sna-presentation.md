@@ -9,8 +9,8 @@ Overview
 
 1. Background
 2. Key Terms
-3. Lit Review
-4. Sociograms 
+3. Network Visualization
+4. Lit Review
 
 A little background
 ========================================================
