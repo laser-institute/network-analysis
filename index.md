@@ -1,37 +1,61 @@
-## Welcome to GitHub Pages
+# Social Network Analysis in STEM Ed Research
 
-You can use the [editor on GitHub](https://github.com/laser-institute/network-analysis/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+Although social network analysis and its educational antecedents date back to the early 1900s, the popularity of social networking sites like Twitter and Facebook have raised awareness of and renewed interests in networks and their influence. As the use of digital resources continues expand in education, data collected by these educational technologies has also greatly facilitated the application of network analysis to teaching and learning. These introductory modules are designed to prepare STEM   Education researchers and practitioners to apply network analysis in order to better understand and improve student learning and the contexts in which learning occurs. This course will provide LASER  scholars with an overview of social network theory, examples of network analysis in educational contexts, and applied experience with widely adopted tools and techniques. As participants gain experience in the collection, analysis, and reporting of data throughout the course, they will be better prepared help educational organizations understand and improve both online and blended learning environments.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## SUMMER INSTITUTE
 
-### Markdown
+### SNA Module 1: An Introduction to SNA in STEM
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Learning Lab 1: Tidy Text, Tokens, & Twitter. We take a closer look at the literature and research questions that will be guiding our analysis; importing data through Twitter's developer API; and wrangling our data into a one-token-per-row tidy text format.
 
-```markdown
-Syntax highlighted code block
+Presentation | Tutorial | Practice
 
-# Header 1
-## Header 2
-### Header 3
+Learning Lab 2: Word Counts, Clouds & Correlations. For our second lab, we use simple summary statistics, data visualization, and word correlations to explore our data and see what insight they provides in response to our questions.
 
-- Bulleted
-- List
+Presentation | Tutorial | Practice
 
-1. Numbered
-2. List
+Learning Lab 3: Sentiment Analysis & School Reform. We focus on the use of lexicons to compare the sentiment of tweets about the NGSS and CCSS state standards in order to better understand public reaction to these two curriculum reform efforts. 
 
-**Bold** and _Italic_ and `Code` text
+Presentation | Tutorial | Practice
 
-[Link](url) and ![Image](src)
-```
+Learning Lab 4: Select, Polish, & Narrate. We wrap our look at public sentiment around STEM state curriculum standards by selecting an analysis that provides some unique insight; refining or polishing a data product, such as a graph or table in static or interactive form; and writing a brief narrative explaining the ways in which the data product helps answer the research question.
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+Presentation | Tutorial | Practice
 
-### Jekyll Themes
+## ONLINE COMMUNITY
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/laser-institute/network-analysis/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+### TM Module 2: STEM Ed in the News
 
-### Support or Contact
+Learning Lab 1: Screen Scraping & STEM Reporting. Lorem ipsum dolor…
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+Presentation | Tutorial | Practice
+
+Learning Lab 2: Topic Models & Tea Leaves. In Part 2 we introduce an approach to identify "topics" by examining how words cohere into different latent themes based on patterns of co-occurrence of words within documents.
+
+Presentation | Tutorial | Practice
+
+Learning Lab 3: Examining & Refining Our Models. Lorem ipsum dolor… 
+
+Presentation | Tutorial | Practice
+
+Learning Lab 4: Select, Polish, & Narrate. We wrap our look at public reporting around STEM education by selecting an analysis that provides some unique insight; refining or polishing a data product, such as a graph or table in static or interactive form; and writing a brief narrative explaining the ways in which the data product helps answer the research question.
+
+Presentation | Tutorial | Practice
+
+### TM Module 3: Text Classification & Prediction
+
+Learning Lab 1: TBD. Lorem ipsum dolor…
+
+Presentation | Tutorial | Practice
+
+Learning Lab 2: TBD. Lorem ipsum dolor…
+
+Presentation | Tutorial | Practice
+
+Learning Lab 3: TBD. Lorem ipsum dolor… 
+
+Presentation | Tutorial | Practice
+
+Learning Lab 4: TBD. Lorem ipsum dolor…
+
+Presentation | Tutorial | Practice
