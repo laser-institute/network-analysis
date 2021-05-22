@@ -1,37 +1,42 @@
-01-sna-presentation
+Learning Lab 1: Sociograms
 ========================================================
 author: LASER Institute
 date: 
 autosize: true
 
-First Slide
+Overview
 ========================================================
 
-For more details on authoring R presentations please visit <https://support.rstudio.com/hc/en-us/articles/200486468>.
+1. Background
+2. Key Terms
+3. Lit Review
+4. Sociograms 
 
-- Bullet 1
-- Bullet 2
-- Bullet 3
+A little background
+========================================================
+type: section 
 
-Slide With Code
+- Topic 1
+- Topic 2
+
+
+
+Topic 1
 ========================================================
 
 
-```r
-summary(cars)
-```
 
-```
-     speed           dist       
- Min.   : 4.0   Min.   :  2.00  
- 1st Qu.:12.0   1st Qu.: 26.00  
- Median :15.0   Median : 36.00  
- Mean   :15.4   Mean   : 42.98  
- 3rd Qu.:19.0   3rd Qu.: 56.00  
- Max.   :25.0   Max.   :120.00  
-```
-
-Slide With Plot
+Key Concepts & Terminology
 ========================================================
+type: section 
 
-![plot of chunk unnamed-chunk-2](01-sna-presentation-figure/unnamed-chunk-2-1.png)
+- Topic 1
+- Topic 2
+
+
+Sociograms
+========================================================
+type: section 
+
+- Topic 1
+- Topic 2

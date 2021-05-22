@@ -1,28 +1,42 @@
-01-sna-presentation
+Learning Lab 1: Sociograms
 ========================================================
 author: LASER Institute
 date: 
 autosize: true
 
-First Slide
+Overview
 ========================================================
 
-For more details on authoring R presentations please visit <https://support.rstudio.com/hc/en-us/articles/200486468>.
+1. Background
+2. Key Terms
+3. Lit Review
+4. Sociograms 
 
-- Bullet 1
-- Bullet 2
-- Bullet 3
+A little background
+========================================================
+type: section 
 
-Slide With Code
+- Topic 1
+- Topic 2
+
+
+
+Topic 1
 ========================================================
 
-```{r}
-summary(cars)
-```
 
-Slide With Plot
+
+Key Concepts & Terminology
 ========================================================
+type: section 
 
-```{r, echo=FALSE}
-plot(cars)
-```
+- Topic 1
+- Topic 2
+
+
+Sociograms
+========================================================
+type: section 
+
+- Topic 1
+- Topic 2
