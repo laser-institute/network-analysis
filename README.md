@@ -4,7 +4,7 @@ Although social network analysis and its educational antecedents date back to th
 
 ## SUMMER INSTITUTE
 
-### SNA Module 1: An Introduction to SNA in STEM Ed
+### SNA Module 1: The Social Network Perspective & MOOC-Eds
 
 **Learning Lab 1: Tidy Text, Tokens, & Twitter.** We take a closer look at the literature and research questions that will be guiding our analysis; importing data through Twitter's developer API; and wrangling our data into a one-token-per-row tidy text format.
 
