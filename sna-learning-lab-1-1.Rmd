@@ -28,7 +28,7 @@ Despite educational research lagging behind other fields, an increase in the use
 
 -   **Learning Lab 2: Sociograms & Network Visualization.** For our second lab, we discuss the goals of network visualization and ways to explore data network data visually.
 
--   **Learning Lab 3: Cores, Cliques, & Communities.** We wrap up SNA Module 1 with quick look at both bottoms-up and topc-down . 
+-   **Learning Lab 3: Cores, Cliques, & Communities.** We wrap up SNA Module 1 with quick look at both "bottom-up" and "top-down" approaches to groups within a network. 
 
 ### 1a. Review the Research
 
