@@ -1,9 +1,10 @@
 ---
-title: 'SNA Learning Lab 1.1'
-subtitle: 'Actors, Edge-Lists, & Sociograms Oh My!'
+title: 'Attributes, Edge-Lists, & igraphs, Oh My!'
+subtitle: 'SNA Learning Lab 1.1'
 author: "LASER Institute"
 date: "`r format(Sys.Date(),'%B %e, %Y')`"
 output:
+  html_notebook:
   html_document:
     toc: yes
     toc_depth: 5
@@ -17,21 +18,17 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## 1. PREPARE
 
-Although social network analysis and its educational antecedents date back to the early 1900s, public and scholarly interest in social network analysis did not really take off until the turn of the century [@carolan2014]. Applications of social network analysis has experienced exponential growth, and across a wide range of phenomena, as documented by a number of studies. Despite educational research lagging behind other fields, an increase in the use of digital learning resources and data collected by these educational technologies, as well as improved access to training and tools for collecting and analyzing these data, has greatly facilitated the application of network analysis to teaching and learning.
+Although social network analysis (SNA) and its educational antecedents date back to the early 1900s, public and scholarly interest in social network analysis did not really take off until the turn of the century[@carolan2014]. Applications of social network analysis has experienced exponential growth, and across a wide range of phenomena, as documented by a number of studies.
 
-**SNA Module 1: The Social Network Perspective and MOOC-Eds** is designed to introduce STEM education researchers and practitioners to social network analysis in order to better understand and improve student learning and the contexts in which learning occurs. The three Learning Labs in this module will e on preparing relational data for analysis, putting together some basic network descriptives, and plotting a network visualization to help illustrate key findings.
+Despite educational research lagging behind other fields, an increase in the use of digital learning resources and data collected by these educational technologies, as well as improved access to training and tools for collecting and analyzing these data, has greatly facilitated the application of network analysis to teaching and learning.
 
-Specifically, Learning Lab 1 will cover the following topics:
+**SNA Module 1: The Social Network Perspective and MOOC-Eds** is designed to prepare LASER Institute scholars for collecting, processing, and analyzing relational data from a real-world study. Specifically, the three Learning Labs that make up this module address the following topics:
 
-1.  **Prepare**: Prior to analysis, we'll take a look at the context from which our data came, formulate some research questions, and get introduced the {igraph} R package for network analysis.
+-   **Learning Lab 1: Attributes, Edge-Lists, & igraphs, Oh My!** In our first lab, we prepare for analysis by gaining some context about our data; learning how to wrangle network data structures; and examining network descriptives.
 
-2.  **Wrangle**: In section 2 we focus on importing network data, converting our familiar data frames into a network object that can be analyzed and graphed, and learn about "simple graphs."
+-   **Learning Lab 2: Sociograms & Network Visualization.** For our second lab, we discuss the goals of network visualization and ways to explore data network data visually.
 
-3.  **Explore**: In section 3, we calculate some basic network descriptives and learn how to illustrate some of these stats through network visualization.
-
-4.  **Model**: While we won't dig into approaches for modeling network data until Unit 3, we will take a quick look at some approaches used in the study guiding this walkthrough.
-
-5.  **Communicate**: We'll learn more about communicating key findings next week, but for now you will be introduced to the basic components of a data product.
+-   **Learning Lab 3: Cores, Cliques, & Communities.** We wrap up SNA Module 1 with quick look at both bottoms-up and topc-down . 
 
 ### 1a. Review the Research
 
