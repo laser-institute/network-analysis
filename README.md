@@ -1,61 +1,19 @@
 # Social Network Analysis in STEM Ed Research
 
-Although social network analysis and its educational antecedents date back to the early 1900s, the popularity of social networking sites like Twitter and Facebook have raised awareness of and renewed interests in networks and their influence. As the use of digital resources continues expand in education, data collected by these educational technologies has also greatly facilitated the application of network analysis to teaching and learning. These introductory modules are designed to prepare STEM education researchers and practitioners to apply network analysis in order to better understand and improve student learning and the contexts in which learning occurs. Collectively, the SNA learning labs provide LASER scholars with an overview of social network theory, examples of network analysis in educational contexts, and applied experience with widely adopted tools and techniques. As participants gain experience in the collection, analysis, and reporting of data throughout the Summer Institute and Online Community, they will be better prepared help educational organizations understand and improve both online and blended learning environments.
+Although social network analysis (SNA) and its educational antecedents date back to the early 1900s, public and scholarly interest in social network analysis did not really take off until the turn of the century. Applications of social network analysis has experienced exponential growth, and across a wide range of phenomena, as documented by a number of studies. Despite educational research lagging behind other fields in it's application of SNA, an increase in the use of digital learning resources and data collected by these educational technologies, as well as improved access to training and tools for collecting and analyzing these data, has greatly facilitated the application of network analysis to teaching and learning.
 
-## SUMMER INSTITUTE
+## SNA Module 1: The Social Network Perspective & MOOC-Eds
 
-### SNA Module 1: The Social Network Perspective & MOOC-Eds
+Module 1 is designed to prepare LASER Institute scholars for collecting, processing, and analyzing relational data from a real-world study. Specifically, the three Learning Labs that make up this module address the following topics:
 
-**Learning Lab 1: Tidy Text, Tokens, & Twitter.** We take a closer look at the literature and research questions that will be guiding our analysis; importing data through Twitter's developer API; and wrangling our data into a one-token-per-row tidy text format.
-
-Presentation \| Tutorial \| Practice
-
-**Learning Lab 2: Community Engagement.** For our second lab, we use simple summary statistics, data visualization, and word correlations to explore our data and see what insight they provides in response to our questions.
+**Learning Lab 1: Attributes, Edge-Lists, & igraphs, Oh My!** In our first lab, we prepare for analysis by gaining some context about our data; learning how to wrangle network data structures; and examining network descriptives such as network size, node degree and edge weights.
 
 Presentation \| Tutorial \| Practice
 
-**Learning Lab 3: Sentiment Analysis & School Reform.** We focus on the use of lexicons to compare the sentiment of tweets about the NGSS and CCSS state standards in order to better understand public reaction to these two curriculum reform efforts.
+**Learning Lab 2: Sociograms & Network Visualization.** For our second lab, we discuss the goals of network visualization and ways to explore relational data visually, including both static and dynamic network visualizations.
 
 Presentation \| Tutorial \| Practice
 
-Learning Lab 4: Select, Polish, & Narrate. We wrap our look at public sentiment around STEM state curriculum standards by selecting an analysis that provides some unique insight; refining or polishing a data product, such as a graph or table in static or interactive form; and writing a brief narrative explaining the ways in which the data product helps answer the research question.
-
-Presentation \| Tutorial \| Practice
-
-ONLINE COMMUNITY
-
-TM Module 2: STEM Ed in the News
-
-Learning Lab 1: Screen Scraping & STEM Reporting. Lorem ipsum dolor…
-
-Presentation \| Tutorial \| Practice
-
-Learning Lab 2: Topic Models & Tea Leaves. In Part 2 we introduce an approach to identify "topics" by examining how words cohere into different latent themes based on patterns of co-occurrence of words within documents.
-
-Presentation \| Tutorial \| Practice
-
-Learning Lab 3: Examining & Refining Our Models. Lorem ipsum dolor…
-
-Presentation \| Tutorial \| Practice
-
-Learning Lab 4: Select, Polish, & Narrate. We wrap our look at public reporting around STEM education by selecting an analysis that provides some unique insight; refining or polishing a data product, such as a graph or table in static or interactive form; and writing a brief narrative explaining the ways in which the data product helps answer the research question.
-
-Presentation \| Tutorial \| Practice
-
-TM Module 3: Text Classification & Prediction
-
-Learning Lab 1: TBD. Lorem ipsum dolor…
-
-Presentation \| Tutorial \| Practice
-
-Learning Lab 2: TBD. Lorem ipsum dolor…
-
-Presentation \| Tutorial \| Practice
-
-Learning Lab 3: TBD. Lorem ipsum dolor…
-
-Presentation \| Tutorial \| Practice
-
-Learning Lab 4: TBD. Lorem ipsum dolor…
+**Learning Lab 3: Cores, Cliques, & Communities.** We wrap up SNA Module 1 with a quick look at both "bottom-up" and "top-down" approaches to identifying groups within a network and why that might be of interest to researchers.
 
 Presentation \| Tutorial \| Practice

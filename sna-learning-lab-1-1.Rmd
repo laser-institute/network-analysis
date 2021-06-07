@@ -18,17 +18,17 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## 1. PREPARE
 
-Although social network analysis (SNA) and its educational antecedents date back to the early 1900s, public and scholarly interest in social network analysis did not really take off until the turn of the century[@carolan2014]. Applications of social network analysis has experienced exponential growth, and across a wide range of phenomena, as documented by a number of studies.
+Although social network analysis (SNA) and its educational antecedents date back to the early 1900s, public and scholarly interest in social network analysis did not really take off until the turn of the century[@carolan2014]. Applications of social network analysis has experienced exponential growth, and across a wide range of phenomena, as documented by a number of studies. One fun example of applied SNA is study by @bioglio2018 at the University of Turn who used network measures of centrality to identify The *Wizard of Oz* as the most influential film of all time in a study published in the open access journal *Applied Network Science*.
 
-Despite educational research lagging behind other fields, an increase in the use of digital learning resources and data collected by these educational technologies, as well as improved access to training and tools for collecting and analyzing these data, has greatly facilitated the application of network analysis to teaching and learning.
+While educational research lagging behind other fields in the application of SNA, an increase in the use of digital learning resources and data collected by these educational technologies, as well as improved access to training and tools for collecting and analyzing these data, has greatly facilitated the application of network analysis to teaching and learning.
 
 **SNA Module 1: The Social Network Perspective and MOOC-Eds** is designed to prepare LASER Institute scholars for collecting, processing, and analyzing relational data from a real-world study. Specifically, the three Learning Labs that make up this module address the following topics:
 
--   **Learning Lab 1: Attributes, Edge-Lists, & igraphs, Oh My!** In our first lab, we prepare for analysis by gaining some context about our data; learning how to wrangle network data structures; and examining network descriptives.
+-   **Learning Lab 1: Attributes, Edge-Lists, & igraphs, Oh My!** In our first lab, we prepare for analysis by gaining some context about our data; learning how to wrangle network data structures; and examining network descriptives such as network size, node degree and edge weights.
 
--   **Learning Lab 2: Sociograms & Network Visualization.** For our second lab, we discuss the goals of network visualization and ways to explore data network data visually.
+-   **Learning Lab 2: Sociograms & Network Visualization.** For our second lab, we discuss the goals of network visualization and ways to explore relational data visually, including both static and dynamic network visualizations.
 
--   **Learning Lab 3: Cores, Cliques, & Communities.** We wrap up SNA Module 1 with quick look at both "bottom-up" and "top-down" approaches to groups within a network. 
+-   **Learning Lab 3: Cores, Cliques, & Communities.** We wrap up SNA Module 1 with a quick look at both "bottom-up" and "top-down" approaches to identifying groups within a network and why that might be of interest to researchers.
 
 ### 1a. Review the Research
 
@@ -102,7 +102,9 @@ A Social Network Perspective on Peer Supported Learning in MOOC-Eds was framed b
 
 For our very first walkthrough, we are going to focus exclusively on RQ1 from the original study and our question of interest about our discussion network is:
 
-> To what extent, did educators engage with other participants in the discussion forums?
+1.  To what extent, did educators engage with other participants in the discussion forums?
+
+2.  Who are the most central actors in our discussion network?
 
 #### **👉 Your Turn** **⤵**
 
