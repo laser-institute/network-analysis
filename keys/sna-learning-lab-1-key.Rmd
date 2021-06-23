@@ -12,7 +12,7 @@ bibliography: lit/references.bib
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, error=TRUE)
 ```
 
 ## PREPARE
@@ -419,7 +419,7 @@ weighted_network <- simplify(network,
 
 Let's take a look at the output and ignore the error message for now:
 
-```{r, eval=FALSE}
+```{r}
 weighted_network
 ```
 
@@ -448,11 +448,6 @@ One thing I took away from this learning lab:
 One thing I want to learn more about:
 
 -   YOUR RESPONSE HERE
-
-If you wanted, you could save the processed data set to your data folder. The `write_csv()` function is useful for this. The following code is set to not run, as we wanted to ensure that everyone had the data set needed to begin the second learning lab, but if you're confident in your prepared data, you can save it with the following:
-
-```{r, eval = FALSE} write_csv(time_spent, "data/time_spent_hours.csv")}
-```
 
 Congratulations - you've completed the first network analysis learning lab! To complete your work, you can click the drop down arrow at the top of the file, then select "Knit top HTML". This will create a report in your Files pane that serves as a record of your code and its output you can open or share.
 

@@ -1,0 +1,479 @@
+---
+title: 'Attributes, Edge-Lists, & igraph, Oh My!'
+subtitle: 'SNA Learning Lab 1'
+author: "LASER Institute"
+date: "`r format(Sys.Date(),'%B %e, %Y')`"
+output:
+  html_document:
+    toc: yes
+    toc_depth: 5
+    toc_float: yes
+bibliography: lit/references.bib
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, error=TRUE)
+```
+
+## PREPARE
+
+Although social network analysis (SNA) and its educational antecedents date back to the early 1900s, public and scholarly interest in social network analysis did not really take off until the turn of the century [@carolan2014]. Applications of social network analysis has experienced exponential growth, and across a wide range of phenomena, as documented by a number of studies. One fun example of applied SNA is a study by @bioglio2018 at the University of Turn who used network measures of centrality to identify The *Wizard of Oz* as the most influential film of all time in a study published in the open access journal *Applied Network Science*.
+
+While educational research lagging behind other fields in the application of SNA, an increase in the use of digital learning resources and data collected by these educational technologies, as well as improved access to training and tools for collecting and analyzing these data, has greatly facilitated the application of network analysis to teaching and learning.
+
+**SNA Module 1: The Social Network Perspective and MOOC-Eds** is designed to prepare LASER Institute scholars for collecting, processing, and analyzing relational data and introduce a common application of SNA to help understand peer interaction in a discussion forum. Specifically, the two Learning Labs that make up this module address the following learning objectives:
+
+-   **Learning Lab 1: Attributes, Edge-Lists, & igraphs, Oh My!** In our first lab, we prepare for analysis by gaining some context about our data; learning how to wrangle network data structures; and examining network descriptives such as network size, node degree and edge weights.
+
+-   **Learning Lab 2: Network Measures & Sociograms.** For our second lab, we discuss the goals of network visualization and ways to explore relational data visually, including both static and dynamic network visualizations.
+
+### Review the Research
+
+In Social Network Analysis and Education: Theory, Methods & Applications, @carolan2014 notes that:
+
+> the **social network perspective** is one concerned with the structure of relations and the implication this structure has on individual or group behavior and attitudes
+
+More specifically, Carolyn cites the following four features used by Freeman (2004) to define the social network perspective:
+
+1.  Social network analysis is **motivated by a relational intuition** based on ties connecting social actors.
+
+2.  It is firmly **grounded in systematic empirical data**.
+
+3.  It **makes** **use of graphic imagery** to represent actors and their relations with one another.
+
+4.  It **relies** **on** **mathematical and/or computational models** to succinctly represent the complexity of social life.
+
+For Unit 1, our walkthrough will be guided by previous research and evaluation work conducted by the Friday Institute for Educational Innovation as part of the Massively Open Online Courses for Educators (MOOC-Ed) initiative. The study introduced next and the hands-on analysis with R in this walkthrough will help to illustrate these four defining features of the social network perspective.
+
+#### A Social Network Perspective in MOOC-Eds
+
+![](img/irrodl-article.png){width="30%"}
+
+Kellogg, S., Booth, S., & Oliver, K. (2014). [A social network perspective on peer supported learning in MOOCs for educators](https://github.com/sbkellogg/eci-589/blob/main/unit-1/lit/sna_mooc_irrodl_bjet_articles.pdf). *International Review of Research in Open and Distributed Learning*, *15*(5), 263-289.
+
+##### Research Context
+
+In the spring of 2013, The Friday Institute launched the MOOC-Ed Initiative to explore the potential of delivering personalized, high-quality professional development to educators at scale (Kleiman et al., 2013). In collaboration with the Alliance for Excellent Education, the Friday Institute launched this initiative with a 6-week pilot course called Planning for the Digital Learning Transition in K-12 Schools (DLT 1), which was offered again in September 2013 (DLT 2). This course was designed to help school and district leaders plan and implement K-12 digital learning initiatives.
+
+Academics, as well as pundits from traditional and new media, have raised a number of concerns about MOOCs, including the lack of instructional and social supports. Among the core design principles of MOOC-Eds are collaboration and peer-supported learning. It is an assumption of this study that challenges arising form this problem of scale can be addressed by leveraging these massive numbers to develop robust online learning communities.
+
+This mixed-methods case study used both SNA and qualitative methods to better understand peer support in MOOC-Eds through an examination of the characteristics, mechanisms, and outcomes of peer networks. Findings from this study demonstrate that even with technology as basic as a discussion forum, MOOCs can be leveraged to foster these networks and facilitate peer-supported learning. Although this study was limited to two unique cases along the wide spectrum of MOOCs, the methods applied provide other researchers with an approach for better understanding the dynamic process of peer supported learning in MOOCs.
+
+##### Data Sources
+
+**MOOC-Ed registration form.** All participants completed a registration form for each MOOC-Ed course. The registration form consists of self-reported demographic data, including information related to their professional role and work setting, years of experience in education, and personal learning goals.
+
+**MOOC-Ed discussion forums.** All peer interaction, including peer discussion, feedback, and reactions (e.g., likes), take place within the forum area of MOOC-Eds, which are powered by Vanilla Forums. Because of the specific focus on peer supported learning, postings to or from course facilitators and staff were removed from the data set. Finally, analyses described below exclude more passive forms of interactions (i.e., read and reaction logs), and include only postings among peers.
+
+For our Unit 1 walkthrough, we'll take a look at data from the original Digital Learning Transition in K-12 Schools (DLT 1) that was not included in this study to allow for comparisons to the findings in this study. For your independent analysis next week, you may want to consider working with the DLT 2 data to see if you can replicate some of the findings from this paper!
+
+**Note**: In the data we're using, instructors have not yet been removed and only direct replies to forum posts have been included, though "weaker" ties like reactions with emoticons and even views of posts were captured in this study.
+
+#### [**Your Turn**]{style="color: green;"} **⤵** {style="caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none;"}
+
+Take a quick look at the *Description of the Dataset* section from the [Massively Open Online Course for Educators (MOOC-Ed) network dataset](https://github.com/sbkellogg/eci-589/blob/main/unit-1/lit/bjet_12312_Rev.pdf) BJET article and the accompanying data sets stored on [Harvard Dataverse](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/ZZH3UB) that we'll be using for this walkthrough.
+
+In the space below, type a brief response to the following questions:
+
+1.  What were some of the steps necessary to construct this dataset?
+
+    -   
+
+2.  What two "node attributes" from the dataset that might be useful for predicting participants who may be more engaged or central to the network? Why did you select those two?
+
+    -   
+
+3.  What else do you notice/wonder about this dataset?
+
+    -   
+
+### Identify Questions
+
+A Social Network Perspective on Peer Supported Learning in MOOC-Eds was framed by three primary research questions related to peer supported learning:
+
+1.  What are the patterns of peer interaction and the structure of peer networks that emerge over the course of a MOOC-Ed?
+
+2.  To what extent do participant and network attributes (e.g., homophily, reciprocity, transitivity) account for the structure of these networks?
+
+3.  To what extent do these networks result in the co-construction of new knowledge?
+
+For our very first walkthrough, we are going to focus exclusively on RQ1 from the original study and our question of interest about our discussion network is:
+
+1.  To what extent, did educators engage with other participants in the discussion forums?
+
+2.  Who are the most central actors in our discussion network?
+
+#### [**Your Turn**]{style="color: green;"} **⤵** {style="caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none;"}
+
+Based on what you know about networks and the context so far, what other research questions might ask we ask in this context that a social network perspective might be able to answer?
+
+In the space below, type a brief response:
+
+-   YOUR RESPONSE HERE
+
+We'll revisit your response towards the end and provide an opportunity to refine your research question after you know the data a little better.
+
+### Load Libraries
+
+As highlighted in Chapter 6 of Data Science in Education Using R [@estrellado2020e]:
+
+> Packages are shareable collections of R code that can contain functions, data, and/or documentation. Packages increase the functionality of R by providing access to additional functions to suit a variety of needs.
+
+**RStudio Tip:** You can always check to see which packages have already been installed and loaded into RStudio Cloud by looking at the the Files, Plots, & Packages Pane in the lower right hand corner of RStudio as shown in the following screenshot:
+
+![](img/packages-pane.png){width="90%"}
+
+You should see installed some familiar tidytext packages from our Getting Started assignment like {dplyr} and {readr} which we'll be using again shortly. You should also see an important package call {igraph} that we will rely on heavily for our network analyses in this course.
+
+If you are working in RStudio Desktop, or notice that the packages have not been installed and/or loaded, run the following `install.packages()` function code to install the {tidyverse} and {igraph} packages:
+
+```{r, eval=FALSE}
+install.packages("tidyverse")
+install.packages("igraph") 
+```
+
+Let's go ahead and use the `library()` function for the {tidyverse} package and review which packages from the [tidyverse collection of packages](https://www.tidyverse.org) that this package also loads.
+
+Click the green arrow to run the following code and load our {tidyverse} and {here} packages:
+
+```{r}
+library(tidyverse)
+library(here)
+```
+
+#### 📦 The igraph Package
+
+![](img/igraph.png){width="30%"}
+
+For our Unit 1 Walkthrough, we will rely heavily on the [igraph network analysis package](https://igraph.org). The main goals of the igraph package and the collection of network analysis tools it contains are to provide a set of data types and functions for:
+
+1.  pain-free implementation of graph algorithms,
+
+2.  fast handling of large graphs, with millions of vertices (i.e., actors or nodes) and edges,
+
+3.  allowing rapid prototyping via high level languages like R.
+
+Run the code chunk below to load the {igraph} library:
+
+```{r}
+library(igraph)
+```
+
+#### [**Your Turn**]{style="color: green;"} **⤵** {style="caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none;"}
+
+Take a look at the messages from the output after loading the igraph library. What tidyverse packages share identically named functions with igraph?
+
+Write your response in the space below.
+
+-   YOUR RESPONSE HERE
+
+------------------------------------------------------------------------
+
+## WRANGLE
+
+In general, data wrangling involves some combination of cleaning, reshaping, transforming, and merging data @wickham2016r. The importance of data wrangling is difficult to overstate, as it involves the initial steps of going from the raw data to a dataset that can be explored and modeled @krumm2018.
+
+For our data wrangling in Lab 1, we're keeping it simple since working with network data is a bit of a departure from our working with rectangular data frames. Our primary goals for Unit 1 are learning how to:
+
+a.  **Import Data**. An obvious and also important first step, we need to "read" our data into R and learn about formatting for edge-lists and node attribute files.
+
+b.  **Create a Network Object**. Before performing network analyses, we'll need to convert our data frames into special data format for working with relational data.
+
+c.  **Simplify Network**. Finally, we'll learn about a handy `simplify()` function in the {igraph} package for collapsing multiple ties between actors and removing "self-loops."
+
+### Import Data
+
+#### The Edge-List Format
+
+To get started, we need to import, or "read", our data into R. The function used to import your data will depend on the file format of the data you are trying to import, but R is pretty adept at working with many files types.
+
+Take a look in the `/data` folder in your Files pane. You should see the following .csv files:
+
+-   `dlt1-edgelist.csv`
+
+-   `dlt1-nodes.csv`
+
+As its name implies, the first file `dlt1-edgelist.csv` is an edge-list that contains information about each tie, or relation between two actors in a network. In this context, a "tie" is a reply by one participant in the discussion forum to the post of another participant -- or in some cases to their own post! These ties between a single actor are called "self-loops" and as we'll see later in this section, igraph has a special function to remove these self loops from a sociogram, or network visualization.
+
+The edge-list format is slightly different than other formats you have likely worked with before in that the values in the first two columns of each row represent a dyad, or tie between two nodes in a network. An edge-list can also contain other information regarding the strength, duration, or frequency of the relationship, sometime called "weight", in addition to other "edge attributes."
+
+In addition to our `Sender` and `Reciever` dyad pairs, our DLT 1 dataset contains the following edge attributes:
+
+-   `Sender` = Unique identifier of author of comment
+
+-   `Receiver` = Unique identifier of identified recipient of comment
+
+-   `Timestamp` = Time post or reply was posted
+
+-   `Parent` = Primary category or topic of thread
+
+-   `Category` = Subcategory or subtopic of thread
+
+-   `Thread_id` = Unique identifier of a thread
+
+-   `Comment_id` = Unique identifier of a comment\\
+
+Let's use the `read_csv()` function from the {readr} package introduced in the Getting Started walkthrough to read in our edge-list and print the new `ties` data frame:
+
+```{r}
+ties <- read_csv(here("data", "dlt1-edgelist.csv"), 
+                 col_types = cols(Sender = col_character(), 
+                                  Receiver = col_character(), 
+                                  `Category Text` = col_skip(), 
+                                  `Comment ID` = col_character(), 
+                                  `Discussion ID` = col_character()))
+
+ties
+```
+
+Note the addition of the `col_types =` argument for changing the column types to character strings since the numbers for those particular columns indicate actors (`Sender` and `Reciever`) and attributes (`Comment_ID` and `Discussion_Id`). We also skipped the `Category Text` since this was left blank for deidentification purposes.
+
+**RStudio Tip:** Importing data and dealing with data types can be a bit tricky, especially for beginners. Fortunately, RStudio has an "Import Dataset" feature in the Environment Pane that can help you use the {readr} package and associated functions to greatly facilitate this process.
+
+![](img/import-data.png)
+
+#### [**Your Turn**]{style="color: green;"} **⤵** {style="caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none;"}
+
+Consider the example pictured below of a discussion thread from the Planning for the Digital Learning Transition in K-12 Schools (DLT 1) where our data orginated. This thread was initiated by participant I, so the comments by J and N are considered to be directed at I. The comment of B, however, is a direct response to the comment by N as signaled by the use of the quote-feature as well as the explicit mentioning of N's name within B's comment.
+
+![](img/discussion-thread.png)
+
+Now answer the following questions as they relate to the DLT 1 edge-list we just read into R.
+
+1.  Which actors in this thread are the `Sender` and the `Reciever`? Which actor is both?
+
+    -   
+
+2.  How many dyads are in this thread? Which pairs of actors are dyads?
+
+    -   
+
+**Sidebar:** Unfortunately, these types of nuances in discussion forum data as illustrated by this simple example are rarely captured through automated approaches to constructing networks. Fortunately, the dataset you are working with was carefully reviewed to try and capture more accurately the intended recipients of each reply.
+
+#### Node Attributes
+
+The second file we'll be using contains all the nodes or actors (i.e., participants who posted to the discussion forum) as well as some of their attributes such as gender and years of experience in education.
+
+Carolyn (2013) notes that most social network analyses include variables that describe attributes of actors, ones that are either categorical (e.g., gender, ethnicity, etc.) or continuous in nature (e.g., test scores, number of times absent, etc.). These attributes that can be incorporated into a network graph or model, making it more informative and can aid in testing or generating hypotheses.
+
+These attribute variables are typically included in a rectangular array, or dataframe, that mimics the actor-by-attribute that is the dominant convention in social science, i.e. rows represent cases, columns represent variables, and cells consist of values on those variables.
+
+As an aside, Carolyn also refers to this historical preference by researchers for "actor-by-attribute" data, in the absence of relational data in which the actor has been removed their social context, as the "sociological meatgrinder" in action. Specifically, this historical approach assumes that the actor does not interact with anyone else in the study and that outcomes are solely dependent of the characteristics of the individual.
+
+Regardless, let's read in our node attribute file and take a look at the `actors` and their attributes included in our dataset:
+
+```{r}
+actors <- read_csv(here("data", "dlt1-nodes.csv"), 
+                   col_types = cols(UID = col_character(), 
+                                    Facilitator = col_character(), 
+                                    expert = col_character(), 
+                                    connect = col_character()))
+```
+
+#### [**Your Turn**]{style="color: green;"} **⤵** {style="caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none;"}
+
+Use the code chunk below to take a look at the `actors` data frame:
+
+```{r}
+actors
+```
+
+Match up the attributes included in the node file with the following codebook descriptors. The first one has been done as an example.
+
+-   `Facilitator` = Identification of course facilitator (1 **=** instructor)
+-   Dummy variable for whether participants listed networking/collaboration with others as one of their course goals on the registration form
+-   Identifier of "expert panelists" invited to course to share experience through recorded Q&A
+-   Identification of course facilitator (1 **=** instructor)
+-   Professional role (eg, teacher, librarian, administrator)
+-   Years of experience as an educator
+-   Works with elementary, middle, and/or high school students
+-   Initial assignment of discussion group
+
+**RStudio Tip:** To highlight a `variable` as shown above, add a backtick \` punctuation mark immediately before and after the word or phrase.
+
+### Create Network Object
+
+Before we can begin using many of the functions from the {igraph} package for summarizing and visualizing our DLT 1 network, we first need to convert the data frames that we imported into an igraph network object, or an igraph graph. 🤷‍
+
+#### Convert to igraph Graph
+
+To do that, we will use the `graph_from_data_frame()` function. Note that I included the `eval=FALSE` argument in the code block below to prevent this code from running when we knit our final document. Otherwise it will produce an error since we can't include help documentation in our knitted HTML file.
+
+Run the following code to take a look at the help documentation for this function:
+
+```{r, eval=FALSE}
+?graph_from_data_frame
+```
+
+You probably saw that this particular function takes the following three arguments, two of which are data frames:
+
+-   **d** describes the edges of the network. The first two columns are the IDs of the source and the target node for each edge, in our case the `Sender` and `Reviever` of a discussion post -- the order matters! The following columns are edge attributes such as weight, type, label, or anything else.
+
+-   **vertices** starts with a column of node IDs and any following columns are interpreted as node attributes.
+
+-   **directed** determines whether or not to create a directed graph.
+
+Run the following code to specify our `ties` data frame as the edges of our network, our `actors` data frame for the vertices of our network and their attributes, and indicate that this is indeed a directed network.
+
+```{r}
+network <- graph_from_data_frame(d = ties, 
+                                 vertices = actors, 
+                                 directed = T) 
+
+network
+```
+
+Carolyn (2013) reminds us that one of the simplest and often ignored structural property of a social network is its size and explains that:
+
+> **size** is simply a measure of the number of nodes in the network.
+
+He notes that the size of a network plays an important role in determining what happens in the network. For example, in a classroom of 30 students, it is not hard to imagine that the pattern of who communicates with whom will look much different than if the network consisted of hundreds or even thousands of students like in a MOOC.
+
+#### [**Your Turn**]{style="color: green;"} **⤵** {style="caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none;"}
+
+Take a look at the very first line of the output which contains some basic information about our network and answer the following questions:
+
+1.  How many nodes and edges are in our network? Is this consistent with the number of observations in our data frames? **Hint:** Check the Environment pane.
+
+    -   
+
+2.  The "D" and the "N" indicate that this is a **D**irected network and has the **N**ame vertex attributes set. Why do the two spaces that follow these letters have dashes? **Hint:** check the help files.
+
+    -   
+
+3.  Which vertex attribute did igraph interpret as numeric?
+
+    -   
+
+#### Simplify Graph
+
+As you saw from the `network` output, our dataset has 2529 edges or ties and just a quick scan of the edges in the network shows that edges like 356 -\> 444 occur at least more than once. So we know that participant 356 has replied to participant 444 at least twice.
+
+Fortunately, the {igraph} package has a `simplify()` function for collapsing multiple edges so they are not represented more than once when we want visually depict our network with a sociogram.
+
+Let's use that function to simplify our network and save it as a `simple_network,` or a simple graph, which contains no self-loops or duplicate edges and which by default the `simplify()` function removes:
+
+```{r}
+simple_network <- simplify(network, remove.loops = TRUE) 
+
+simple_network
+```
+
+Note that `simplify()` removes self-loops by default, this does not really need to be included. If you wanted to keep them, you would simply set this to `FALSE`.
+
+#### [**Your Turn**]{style="color: green;"} **⤵** {style="caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none;"}
+
+Take a look at the output for our simple graph now and answer the following questions:
+
+1.  How many unique edges are in the network? Why do you think this is considerably less than our total edges?
+
+    -   
+
+2.  Did we potentially lose any important or useful information by collapsing multiple edges into a single edge or by removing self-loops?
+
+    -   
+
+### Add Edge Weights
+
+We noted earlier that edges can also contain attributes such as strength, duration or frequency, sometime called "weight." These weights can not only help us better understand the relationship between two actors, but also aid in visualization and modeling later on.
+
+When we used the `simplify()` function earlier, it collapsed our duplicate edges but we lost some vital information as a result, namely the frequency of replies among pairs of educators in our discussion forum.
+
+Fortunately, the `simplify()` function contains an argument that will allow us to count the number of ties between two actors, similar to how we might use the `count()` function in the {dplyr} package like so:
+
+```{r}
+edge_weights <- count(ties, Sender, Receiver)
+
+edge_weights
+```
+
+In this case, we see that participant 1 replied to participant 144 twice throughout the course.
+
+To add weights to our simplified network, we first need to add a `weight` variable to the edges in our original `network` igraph object.
+
+The {igraph} package has a unique syntax for working with attributes of network objects. To add a weight attribute to the `E()` edges in our `network` we'll use the `$` operator which can be used to create a new `weight` variable -- or select a variable as we'll see later on -- and we'll use the `<-` assignment operator to add an initial value of `1` for the weight of each edge.
+
+Let's put that all together and run the code to add a weight of 1 to each edge in our network
+
+```{r}
+E(network)$weight <- 1  
+```
+
+Now let's take a look at our igraph network object again:
+
+```{r}
+network
+```
+
+We can see that our network is now weighted as indicated by the "W" and that our new `weight` attribute has been added.
+
+We can now use the `edge.attr.comb =` argument to "sum" the weights for each occurrence of a pair of actors, so if 1 replied to participant 144 five times over the course of the MOOC-Ed, there would be a weight of 5 for that pair.
+
+Run the code to simplify our weighted network:
+
+```{r}
+weighted_network <- simplify(network,
+                             edge.attr.comb = list(weight="sum")
+                             )
+```
+
+Let's take a look at the output and ignore the error message for now:
+
+```{r}
+weighted_network
+```
+
+If you received an error message, you can ignore that for now. It will not impact our analysis.
+
+#### [**Your Turn**]{style="color: green;"} **⤵** {style="caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none;"}
+
+Take a look at the output for our simple graph now and answer the following questions:
+
+1.  How does the number of total edges and unique edges this compare to the totals reported for the DLT 2 course in our [guiding study](https://github.com/sbkellogg/eci-589/blob/main/unit-1/lit/sna_mooc_irrodl_bjet_articles.pdf)?
+
+    -   YOUR RESPONSE HERE
+
+2.  What might explain the differences?
+
+    -   YOUR RESPONSE HERE
+
+## COMMUNICATE
+
+In this learning lab, we focused on gaining some context about our data; learning how to wrangle network data structures; and examining basic but important network descriptives such as network size, node degree and edge weights.. Below, add a few notes in response to the following prompts.
+
+One thing I took away from this learning lab:
+
+-   YOUR RESPONSE HERE
+
+One thing I want to learn more about:
+
+-   YOUR RESPONSE HERE
+
+Congratulations - you've completed the first network analysis learning lab! To complete your work, you can click the drop down arrow at the top of the file, then select "Knit top HTML". This will create a report in your Files pane that serves as a record of your code and its output you can open or share.
+
+## Reach (Optional)
+
+For this learning lab, your reach is to prepare a network graph object using either your own data or data from second MOOC-Ed course iteration of the *The Digital Learning Transition in K-12 Schools*. Note, this data is also included in your data folder but can be downloaded from [Harvard Dataverse](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/ZZH3UB) as well.
+
+Please (optionally) start on this work right here, including reading data, preparing it, and then creating a faceted plot using data of your choosing. If you do this, re-knit your document when complete or at a stopping point so you have a record of your work!
+
+```{r}
+ties_2 <- read_csv(here("data", "dlt2-edgelist.csv"))
+                 
+
+actors_2 <- read_csv(here("data", "dlt2-nodes.csv"))
+
+network_2 <- graph_from_data_frame(d = ties_2, 
+                                 vertices = actors_2, 
+                                 directed = T) 
+
+E(network_2)$weight <- 1  
+
+weighted_network_2 <- simplify(network_2,
+                             edge.attr.comb = list(weight="sum")
+                             )
+
+weighted_network_2
+```
+
+Another option is to click "Tutorial" in the top right corner of your RStudio window and to begin one of the {learnr} tutorials. If you start one of these, take a note on this work here as a record of what you've began.

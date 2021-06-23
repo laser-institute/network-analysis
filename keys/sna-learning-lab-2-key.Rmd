@@ -12,7 +12,7 @@ bibliography: lit/references.bib
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, error=TRUE)
 ```
 
 ## EXPLORE
@@ -58,6 +58,8 @@ weighted_network <- simplify(network,
 
 # View Network
 weighted_network
+
+# And again, ignore the Error in attrs message. This won't impact our analysis. 
 ```
 
 **RStudio Tip:** We have another reason for reviewing and running our code from the previous lab. Each R Markdown document is a self-contained file. In order to be able to knit a share a markdown file, all code required to run an analysis must be present in the document even if those objects and packages are loaded and save in your environment.
@@ -355,6 +357,8 @@ As we saw upon just a basic visual inspection of our network during the Explore 
 
 To address Question 2, this study use the exponential family of random graph models (ERGM; also known as p\* models), which provide a statistical approach to network modeling that addresses the complex dependencies within networks. ERGMs predict network ties and determine the statistical likelihood of a given network structure, based on an assumed dependency structure, the attributes of the individuals (e.g., gender, popularity, location, previous ties) and prior states of the network.
 
+Finally, if you're interested interested in learning more about ERGMs and selection processes in networks, highly recommend the very entertaining and informative introduction to ERGMs by Benjamin Lind, [Lessons on exponential random graph modeling from Grey's Anatomy hook-ups](https://badhessian.org/2012/09/lessons-on-exponential-random-graph-modeling-from-greys-anatomy-hook-ups/).
+
 #### [**Your Turn**]{style="color: green;"} **⤵** {style="caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none;"}
 
 Recall from SNA Learning Lab 1 that you were asked to identify two "node attributes" from the dataset that might be useful for predicting participants who may be more engaged or central to the network.
@@ -365,7 +369,7 @@ Take look at page 276 of [A social network perspective on peer supported learni
 
 ## COMMUNICATE
 
-In this learning lab, we focused on gaining some context about our data; learning how to wrangle network data structures; and examining basic but important network descriptives such as network size, node degree and edge weights.. Below, add a few notes in response to the following prompts.
+In this learning lab, we learned some new functions for retrieving basic network descriptives related to our research question and used some of these metrics to create and refine a network visualization that helps illustrate key findings. Below, add a few notes in response to the following prompts.
 
 One thing I took away from this learning lab:
 
@@ -375,52 +379,16 @@ One thing I want to learn more about:
 
 -   YOUR RESPONSE HERE
 
-If you wanted, you could save the processed data set to your data folder. The `write_csv()` function is useful for this. The following code is set to not run, as we wanted to ensure that everyone had the data set needed to begin the second learning lab, but if you're confident in your prepared data, you can save it with the following:
-
-```{r, eval = FALSE} write_csv(time_spent, "data/time_spent_hours.csv")}
-```
-
-Congratulations - you've completed the first network analysis learning lab! To complete your work, you can click the drop down arrow at the top of the file, then select "Knit top HTML". This will create a report in your Files pane that serves as a record of your code and its output you can open or share.
+Congratulations - you've completed SNA Module 1: The Social Network Perspective and MOOC-Eds! To complete your work, you can click the drop down arrow at the top of the file, then select "Knit top HTML". This will create a report in your Files pane that serves as a record of your code and its output you can open or share.
 
 ## Reach (Optional)
 
-For this learning lab, your reach is to prepare a network graph object using either your own data or data from second MOOC-Ed course iteration of the *The Digital Learning Transition in K-12 Schools*. Note, this data is also included in your data folder but can be downloaded from [Harvard Dataverse](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/ZZH3UB) as well.
+We've only scratched the surface of network visualization. For you reach, we encourage you to try out some of the other graphing options from from Katya Ognyanova's tutorial on [Static and Dynamic Network Visualization with R](https://kateto.net/network-visualization/).
 
 Please (optionally) start on this work right here, including reading data, preparing it, and then creating a faceted plot using data of your choosing. If you do this, re-knit your document when complete or at a stopping point so you have a record of your work!
 
 ```{r}
-ties_2 <- read_csv(here("data", "dlt2-edgelist.csv"))
-                 
 
-actors_2 <- read_csv(here("data", "dlt2-nodes.csv"))
-
-network_2 <- graph_from_data_frame(d = ties_2, 
-                                 vertices = actors_2, 
-                                 directed = T) 
-
-E(network_2)$weight <- 1  
-
-weighted_network_2 <- simplify(network_2,
-                             edge.attr.comb = list(weight="sum")
-                             )
-
-weighted_network_2
 ```
 
 Another option is to click "Tutorial" in the top right corner of your RStudio window and to begin one of the {learnr} tutorials. If you start one of these, take a note on this work here as a record of what you've began.
-
-### 🧶 Knit & Check ✅
-
-Congrats! You made it to the end of the SNA Learning Lab 2 and are ready to learn a little about network modeling! Before proceeding further, knit your document and check to see if you encounter any errors.
-
-### 🧗🏾‍ Reach & Read 📚
-
-Now that you've finished your first SNA Learning Lab,
-
-#### Independent Practice
-
-You're also welcome to try out some of the other graphing options from from Katya Ognyanova's tutorial on [Static and Dynamic Network Visualization with R](https://kateto.net/network-visualization/).
-
-#### Readings and Resources
-
-Also, you may be interested in further exploring the following books, articles and resources cited in this lab:
