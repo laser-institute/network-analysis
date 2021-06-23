@@ -275,7 +275,7 @@ actors <- read_csv(here("data", "dlt1-nodes.csv"),
 Use the code chunk below to take a look at the `actors` data frame:
 
 ```{r}
-actors
+# YOUR CODE HERE
 ```
 
 Match up the attributes included in the node file with the following codebook descriptors. The first one has been done as an example.

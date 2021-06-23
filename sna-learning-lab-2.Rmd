@@ -32,31 +32,31 @@ Before we explore, we'll need to reload our libraries from the previous lab and 
 In the code chunk below, add comments following the `#` symbol used for commenting code that provides a brief description of the function of the lines of code that follow each hashtag:
 
 ```{r}
-# Load Packages
+# YOUR COMMENT HERE
 library(tidyverse) 
 library(here) 
 library(igraph)
 
-# Import Data
+# YOUR COMMENT HERE
 
 ties <- read_csv(here("data", "dlt1-edgelist.csv"))
                  
 actors <- read_csv(here("data", "dlt1-nodes.csv"))
 
-# Create an igraph graph or network object
+# YOUR COMMENT HERE
 network <- graph_from_data_frame(d = ties, 
                                  vertices = actors, 
                                  directed = T) 
 
-# Add a "weight" of 1 to each edge in network
+# YOUR COMMENT HERE
 E(network)$weight <- 1  
 
-# Remove duplicate edges and loops and add weights for each dyad
+# YOUR COMMENT HERE
 weighted_network <- simplify(network,
                              edge.attr.comb = list(weight="sum")
                              )
 
-# View Network
+# YOUR COMMENT HERE
 weighted_network
 
 # And again, ignore the Error in attrs message. This won't impact our analysis. 
@@ -120,11 +120,8 @@ Again, most participants received a reply from small number of individuals.
 Use the code chunk below to examine the distribution, mean and median of `out_degree`:
 
 ```{r}
-out_degree <- degree(weighted_network, mode="out")
+# YOUR CODE HERE
 
-hist(out_degree, breaks = 30)
-mean(out_degree)
-median(out_degree)
 ```
 
 In the space below, write your interpretation of these results.
@@ -151,11 +148,13 @@ It looks like the vast majority or participants either sent or received a reply 
 
 The use of the `$` is actually standard across R and a very useful operator.
 
-Use the code chunk below to create a histogram and calculate the mean and median from the edge weighs created earlier in the [Add Edge Weights] section by using the `edge_weights` data frame, the `$` operator, and column `n` which contains the counts for each unique edge.
+Use the code chunk below to create a histogram and calculate the mean and median from the edge weights created earlier by using the `edge_weights` data frame, the `$` operator, and column `n` which contains the counts for each unique edge.
+
+The function has been provided for you but you will need to supply the appropriate argument. **Hint:** Every think you need is supplied in the above paragraph.
 
 ```{r}
-mean(edge_weights$n)
-median(edge_weights$n)
+# YOUR CODE HERE
+
 ```
 
 Are these results consistent with our summary of edge weights we created above?
@@ -180,7 +179,6 @@ Let's run the code and see what we get without any tweaking and see what the plo
 
 ```{r}
 plot(weighted_network)
-
 ```
 
 Yikes! That's not very helpful!!
@@ -334,16 +332,13 @@ Try modifying the code below by tweaking the included arguments/parameters or [a
 There are no right or wrong answers, just have some fun trying out different approaches!
 
 ```{r}
-plot(weighted_network,vertex.label = NA,
-     vertex.size = node_degree*.05,
-     edge.arrow.size = .05,
-     edge.width = E(weighted_network)$weight/5,
-     layout = layout_with_fr)
+# YOUR CODE HERE
+
 ```
 
 ### Other Applications of Models in SNA
 
-We will not explore the use of models for SNA , but recall from A Social Network Perspective in MOOC-Edswas guided by the following questions:
+Recall from A Social Network Perspective in MOOC-Edswas guided by the following questions:
 
 1.  What are the patterns of peer interaction and the structure of peer networks that emerge over the course of a MOOC-Ed?
 
