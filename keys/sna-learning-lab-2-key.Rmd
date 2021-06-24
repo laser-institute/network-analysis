@@ -17,13 +17,13 @@ knitr::opts_chunk$set(echo = TRUE, error=TRUE)
 
 ## EXPLORE
 
-As noted in the Getting Started Walkthrough, exploratory data analysis involves the processes of describing your data (such as by calculating the means and standard deviations of numeric variables, or counting the frequency of categorical variables) and, often, visualizing your data prior to modeling.
+As noted in the Getting Started lab, exploratory data analysis involves the processes of describing your data (such as by calculating the means and standard deviations of numeric variables, or counting the frequency of categorical variables) and, often, visualizing your data prior to modeling.
 
 In Learning Lab 2, we pickup right where we left off with our data wrangling. We'll learn some new functions for retrieving basic network descriptives related to our research question and use some of these metrics to create and refine a network visualization that helps illustrate key findings. Specifically, in this section we'll learn to:
 
-a.  **Examine Basic Descriptives**. We focus primarily on actors and edges in this walkthrough, including the edges wights we added in the previous section as well as node degree, and import and fairly intuitive measure of centrality.
+a.  **Examine Basic Descriptives**. We focus primarily on actors and edges in this lab, including the edges wights we added in the previous section as well as node degree, and import and fairly intuitive measure of centrality.
 
-b.  **Make a Sociogram**. Finally, we wrap up the explore phases by learning to plot a network and tweak key elements like the size, shape, and position of nodes and edges to better at communicating key findings.
+b.  **Make a Sociogram**. Finally, we wrap up exploratory analysis by learning to plot a network and tweak key elements like the size, shape, and position of nodes and edges to better at communicating key findings.
 
 Before we explore, we'll need to reload our libraries from the previous lab and rebuild our network object.
 
@@ -62,7 +62,7 @@ weighted_network
 # And again, ignore the Error in attrs message. This won't impact our analysis. 
 ```
 
-**RStudio Tip:** We have another reason for reviewing and running our code from the previous lab. Each R Markdown document is a self-contained file. In order to be able to knit a share a markdown file, all code required to run an analysis must be present in the document even if those objects and packages are loaded and save in your environment.
+**RStudio Tip:** We have another reason for reviewing and running our code from the previous lab. Each R Markdown document is a self-contained file. In order to be able to knit a share a markdown file, all code required to run an analysis must be present in the document even if those objects and packages are loaded and saved in your environment.
 
 ### Examine Basic Descriptives
 
@@ -70,9 +70,9 @@ Many analyses of social networks are primarily descriptive. As Carolyn (2013) no
 
 #### Node Degree
 
-A key structural property of networks is the concept of centralization. A network that is highly centralized is one in which relations are focused on a small number of actors or even a single actor in a network, whereas ties in a decentralized network are diffuse and spread over a number of actors. One of the most common descriptives reported in network studies and a primary measure of centralization is **degree**.
+A key structural property of networks is the concept of **centralization**. A network that is highly centralized is one in which relations are focused on a small number of actors or even a single actor in a network, whereas ties in a decentralized network are diffuse and spread over a number of actors. One of the most common descriptives reported in network studies and a primary measure of centralization is **degree**.
 
-> Degree is the number of ties to and from an ego. In a directed network, in-degree is the number of ties received, whereas out-degree is the number of ties sent.
+> Degree is the number of ties to and from an actor. In a directed network, in-degree is the number of ties received, whereas out-degree is the number of ties sent.
 
 The {igraph} package has an aptly named function `degree()` for retrieving degree, in-degree, and out-degree for all actors in a network.
 
@@ -82,9 +82,9 @@ Run the following code to extract measures and save to `node_degree` which we'll
 node_degree <- degree(weighted_network, mode = "all")
 ```
 
-**Note**. We set the `mode =` argument in this function to "all" which give us the total number of participants that each actor in our network sent or received a reply.
+**Note**. We set the `mode =` argument in this function to "all" which gives us the total number of participants that each actor in our network sent or received a reply.
 
-Let's take a look at the distribution of `node_degree` in our network by using R's built in `hist()` function for creating histograms. I set the value of `breaks =`, or bins in our histogram, to 30 since I already know some actors in this network have a very high degree.
+Let's take a look at the distribution of `node_degree` in our network by using R's built in `hist()` function for creating histograms. We set the value of `breaks =`, or bins in our histogram, to 30 since I already know some actors in this network have a very high degree.
 
 ```{r}
 hist(node_degree, breaks = 30)
@@ -151,7 +151,9 @@ It looks like the vast majority or participants either sent or received a reply 
 
 The use of the `$` is actually standard across R and a very useful operator.
 
-Use the code chunk below to create a histogram and calculate the mean and median from the edge weighs created earlier in the [Add Edge Weights] section by using the `edge_weights` data frame, the `$` operator, and column `n` which contains the counts for each unique edge.
+Use the code chunk below to create a histogram and calculate the mean and median from the edge weights created earlier by using the `edge_weights` data frame, the `$` operator, and column `n` which contains the counts for each unique edge.
+
+The function has been provided for you but you will need to supply the appropriate argument. **Hint:** Every thing you need is supplied in the above paragraph.
 
 ```{r}
 mean(edge_weights$n)
@@ -172,7 +174,7 @@ Network visualization can be used for a variety of purposes, ranging from highli
 
 ![](img/viz-goals.jpeg){width="80%"}
 
-These visual representations of the actors and their relations, i.e. the network, are called a sociogram. Actors who are most central to the network, such as those with higher node degrees, are usually placed in the center of the sociogram and their ties are placed near them. As we'll see in just a bit, those two actors with hundreds of ties will be placed by most graph layout algorithms in the center of the graph.
+These visual representations of the actors and their relations, i.e. the network, are called a **sociogram**. Actors who are most central to the network, such as those with higher node degrees, are usually placed in the center of the sociogram and their ties are placed near them. As we'll see in just a bit, those two actors with hundreds of ties will be placed by most graph layout algorithms in the center of the graph.
 
 For this lab, we'll be using the `plot()` function from R's built in {graphics} package to make a sociogram.
 
@@ -185,7 +187,7 @@ plot(weighted_network)
 
 Yikes! That's not very helpful!!
 
-If this had been a smaller network like one generated from a teacher professional development workshop, this might have been useful, but for large networks like our MOOC-Ed discussion forums, this doesn't communicate much. In fact, it's visualizations like these that give sociograms the unflattering nickname of "hair ball" plots.
+If this had been a smaller network like one generated from a teacher professional development workshop, this might have been useful, but for large networks like our MOOC-Ed discussion forums, this doesn't communicate much. In fact, it's visualizations like these that give sociograms the unflattering nickname of "hair ball" plots!
 
 Fortunately, the {igraph} package includes a [plethora of plotting parameters](https://igraph.org/r/doc/plot.common.html) for improving the layout and visual design of network graphs!
 
@@ -285,11 +287,9 @@ plot(weighted_network,
 
 Better, but since we know most edges have a weight of 1 there really isn't too much to work with here.
 
-Let's move on to changing graph layout!
-
 ## MODEL
 
-As highlighted in [Chapter 3 of Data Science in Education Using R](https://datascienceineducation.com/c03.html), the **Model** step of the data science process entails "using statistical models, from simple to complex, to understand trends and patterns in the data." The authors note that while descriptive statistics and data visualization during the **Explore** step can help us to identify patterns and relationships in our data, statistical models can be used to help us determine if relationships, patterns and trends are actually meaningful.
+As highlighted in [Chapter 3 of Data Science in Education Using R](https://datascienceineducation.com/c03.html), the **Model** step of the data science process entails "using statistical models, from simple to complex, to understand trends and patterns in the data."
 
 ### Graph Layout Algorithms
 
@@ -325,7 +325,7 @@ plot(weighted_network,
 
 Interesting but not terribly useful!
 
-There are many other [igraph layout functions](https://igraph.org/r/doc/layout_.html), some more useful than others depending on the context. We've only scratched the surface of what's possible with network plotting but hopefully this have given you a sense of what required to avoid the dreaded "hair ball" plot and create a network viz that communicates something useful.
+There are many other [igraph layout functions](https://igraph.org/r/doc/layout_.html), some more useful than others depending on the context. We've only scratched the surface of what's possible with network plotting but hopefully this have given you a sense of what is required to avoid the dreaded "hair ball" plot and create a network viz that communicates something useful.
 
 #### [**Your Turn**]{style="color: green;"} **⤵** {style="caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-style: normal; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none;"}
 
@@ -343,7 +343,7 @@ plot(weighted_network,vertex.label = NA,
 
 ### Other Applications of Models in SNA
 
-We will not explore the use of models for SNA , but recall from A Social Network Perspective in MOOC-Edswas guided by the following questions:
+Recall that our guiding study, A Social Network Perspective in MOOC-Eds, investigated the following questions:
 
 1.  What are the patterns of peer interaction and the structure of peer networks that emerge over the course of a MOOC-Ed?
 
