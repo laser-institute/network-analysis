@@ -1,26 +1,34 @@
 ---
 title: "Selection Processes in Networks"
-subtitle: "A LASER workshop"
+subtitle: "LASER Institute Learning Lab 4"
 author: "Joshua Rosenberg"
 institute: "LASER and the University of Tennessee, Knoxville"
 date: "2021/11/10 (last updated: `r Sys.Date()`)"
 output:
   xaringan::moon_reader:
+    css:
+       - default
+       - css/laser.css
+       - css/laser-fonts.css
     lib_dir: libs
+    seal: false
     nature:
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
+      slideNumberFormat: |
+         <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+         </div>
 ---
 
-```{r setup, include=FALSE}
-options(htmltools.dir.version = FALSE)
-```
+class: clear, title-slide, inverse, center, top, middle
 
-```{r, echo = FALSE, out.width="70%", fig.align='center'}
-knitr::include_graphics("https://pbs.twimg.com/media/EkSxP2AXcAEZqDq?format=png&name=900x900")
-```
-
+# `r rmarkdown::metadata$title`
+## `r rmarkdown::metadata$subtitle`
+### `r rmarkdown::metadata$author`
+###  2021/08/11 (updated: `r Sys.Date()`)
 ---
 
 # Objectives
@@ -32,20 +40,6 @@ knitr::include_graphics("https://pbs.twimg.com/media/EkSxP2AXcAEZqDq?format=png&
 - Identify resources for learning more
 
 Slides: https://laser-institute.github.io/laser-institute-selection-processes-workshop
-
----
-
-# Welcome!
-
-- I'm Joshua Rosenberg
-- I'm an Assistant Professor of STEM Education at the University of Tennessee
-- Most importantly:
-- Husband to Katie
-- Dad to a little one
-
-```{r, echo = FALSE, out.width="50%", fig.align='center'}
-knitr::include_graphics("img/joro-bsf.jpg")
-```
 
 ---
 

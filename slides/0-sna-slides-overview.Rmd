@@ -3,7 +3,7 @@ title: "Social Network Analysis and STEM Education"
 subtitle: "A Brief Overview & Demo"
 author: "Dr. Joshua Rosenberg, University of Tennessee, Knoxville"
 institute: "The LASER Institute"
-date: "2021/08/11 (updated: `r Sys.Date()`)"
+date: "2021-08-11 (updated: `r format(Sys.Date(),'%B %e, %Y')`)"
 output:
   xaringan::moon_reader:
     css:
@@ -69,7 +69,7 @@ class: clear, inverse, center, middle
 
 ## For young people
 
-- Peers _impact_ young people (and students) directly and indirectly
+- Peers _influence_ young people (and students) directly and indirectly
 - Older students _selecting_ particular students to reply to in a discussion forum 
 
 ## For educators
