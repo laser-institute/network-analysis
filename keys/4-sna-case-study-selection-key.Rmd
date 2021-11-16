@@ -1,5 +1,5 @@
 ---
-title: 'SNA Case Study: School Leader Selection'
+title: 'SNA Case Study 4: School Leader Selection'
 subtitle: "LASER Institute Learning Labs"
 author: "Dr. Shaun Kellogg"
 date: "`r format(Sys.Date(),'%B %e, %Y')`"
