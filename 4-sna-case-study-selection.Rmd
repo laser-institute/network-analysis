@@ -21,14 +21,15 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # 1. PREPARE
 
-**SNA Case Study: School Leader Selection** is once again visit guided
-by Alan Daly and colleagues and attempts to replicate the analyses
-described in Chapter 9: Network Data and Statistical Models from Social
-Network Analysis and Education [@carolan2014]. In this case study we'll
-revisit the visual and mathematical descriptions of networks explored in
-previous case studies to help uncover, and then empirically test,
-generative processes that attempt to explain how school leaders select
-peers for collaboration or confidential exchanges.
+**SNA Case Study: School Leader Selection** is guided by [Alan
+Daly](https://scholar.google.com/citations?user=zgbarXQAAAAJ&hl=en) and
+colleagues and attempts to replicate the analyses described in Chapter
+9: Network Data and Statistical Models from *Social Network Analysis and
+Education* [@carolan2014]. In this case study we'll revisit the visual
+and mathematical descriptions of networks explored in previous case
+studies to help uncover, and then empirically test, generative processes
+that attempt to explain how school leaders select peers for
+collaboration or confidential exchanges.
 
 More specifically, this case study will cover the following topics
 pertaining to each data-intensive workflow process:
