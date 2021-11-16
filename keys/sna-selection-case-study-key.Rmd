@@ -1,6 +1,6 @@
 ---
-title: 'Unit 3 Walkthrough: School Leader Selection Mechanism'
-subtitle: "ECI 589 Social Network Analysis and Education"
+title: 'SNA Case Study: School Leader Selection'
+subtitle: "LASER Institute Learning Labs"
 author: "Dr. Shaun Kellogg"
 date: "`r format(Sys.Date(),'%B %e, %Y')`"
 output:
@@ -8,6 +8,7 @@ output:
     toc: yes
     toc_depth: 4
     toc_float: yes
+    code_folding: show
 editor_options:
   markdown:
     wrap: 72
@@ -20,21 +21,21 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # 1. PREPARE
 
-For the Unit 3 Walkthrough: School Leader Selection Mechanisms is once
-again visit guided by Alan Daly and colleagues as we attempt to
-replicate some of the analyses described in Chapter 9: Network Data and
-Statistical Models from Social Network Analysis and Education
-[@carolan2014]. In this walkthrough we'll revisit and then move beyond
-the visual and mathematical descriptions of networks explored so far to
-uncover generative processes, or mechanisms, that attempt to explain how
-school leaders select peers for collaboration or confidential exchanges.
+**SNA Case Study: School Leader Selection** is once again visit guided
+by Alan Daly and colleagues and attempts to replicate the analyses
+described in Chapter 9: Network Data and Statistical Models from Social
+Network Analysis and Education [@carolan2014]. In this case study we'll
+revisit the visual and mathematical descriptions of networks explored in
+previous case studies to help uncover, and then empirically test,
+generative processes that attempt to explain how school leaders select
+peers for collaboration or confidential exchanges.
 
-More specifically, this walkthrough will cover the following topics
+More specifically, this case study will cover the following topics
 pertaining to each data-intensive workflow process:
 
 1.  **Prepare**: Prior to analysis, we'll take a look at the context
-    from which our data came, formulate some research questions, and get
-    introduced the {statnet} R package for ERGMs.
+    from which our data came, formulate some research questions, and
+    introduce the {statnet} R package for ERGMs.
 
 2.  **Wrangle**: In section 2 we will learn how to work with matrices,
     how to dichotomize matrices, and how to convert matrices into more
@@ -43,15 +44,15 @@ pertaining to each data-intensive workflow process:
 3.  **Explore**: In section 3, we once again use the {tidygraph} package
     and the companion {ggraph} package to calculate basic summary stats
     for our network and will try to replicate and ideally improve upon
-    the sociogram in our course text.
+    the sociogram in @carolan2014.
 
 4.  **Model**: We wrap up our analysis in Section 4 by introducing
     exponential random graph modules used in Chapter 9 of @carolan2014,
     learn to check how well our model "fits our data" and examine
     diagnostics that might indicate our model has issues.
 
-5.  **Communicate**: We briefly reflect on our walkthrough in
-    preparation for our independent analysis next week.
+5.  **Communicate**: We briefly reflect on our case study in preparation
+    for our independent analysis next week.
 
 ## 1a. Review the Research
 
@@ -81,7 +82,7 @@ for collaboration and confidential exchanges.
 
 ### Research Questions
 
-For this walkthrough, we will be using school leadership data were
+For this case study, we will be using school leadership data were
 collected at two school districts over 3 consecutive years that was used
 to answer the following research questions:
 
@@ -161,7 +162,7 @@ confidential exchanges) at a later point in time."
 
 ### **👉 Your Turn** **⤵**
 
-For our Unit 3 Walkthrough, we focus specifically on generative
+For our Unit 3 case study, we focus specifically on generative
 processes, or micro-level mechanisms, the might help explain who school
 leaders select to collaborate with or engage in confidential exchanges.
 Review Chapter 9 of SNA and Education and report out on the findings
@@ -183,7 +184,7 @@ be tested using using ERGMs:
 -   YOUR RESPONSE HERE
 
 Save this question for later as you'll have a chance to empirically test
-it by the end of this walkthrough.
+it by the end of this case study.
 
 ## **1c.** Load Libraries
 
@@ -194,7 +195,7 @@ already been installed and loaded into RStudio Cloud by looking at the
 the Files, Plots, & Packages Pane in the lower right hand corner.
 
 Let's go ahead and load the packages from Units 1 & 2 since we'll be
-using them again in this walkthrough:
+using them again in this case study:
 
 ```{r}
 library(readxl)
@@ -237,7 +238,7 @@ networks. Within this framework, one can---among other tasks:
     implied by the fitted model.
 
 Let's load the {statnet} package that we'll be using in the Model
-section of our walkthrough for bullets 1-3 above:
+section of our case study for bullets 1-3 above:
 
 ```{r}
 library(statnet)
@@ -294,8 +295,8 @@ is linked below:
     leaders. Following the first ID column, the matrix includes an
     efficacy score, trust score, and indicators for whether one works at
     the district-level and is male (1 = yes, 0 = no). These attribute
-    variables will be used as covariates in our ERGMs later in this
-    walkthrough.
+    variables will be used as covariates in our ERGMs later in this case
+    study.
 
 Since we are working with Excel files, we'll need to use the
 `read_excel()` function from {readxl} tidyverse package to import our
@@ -452,10 +453,10 @@ colnames(leader_matrix) <- leader_nodes$ID
 
 ## 2c. Create Network with Attributes
 
-To date in this course, we have only worked with edge-lists as a data
-format for storing network data. Recall that edge-lists contain a row
-for each dyad consisting of at minimum two columns with the name of each
-actor, and which conveniently can also contain other information or
+To date in these learning labs, we have only worked with edge-lists as a
+data format for storing network data. Recall that edge-lists contain a
+row for each dyad consisting of at minimum two columns with the name of
+each actor, and which conveniently can also contain other information or
 attributes about the relationship such as edge weight, timestamps, or
 other contextual information as demonstrated in Unit 1.
 
@@ -543,7 +544,7 @@ descriptives and the {ggraph} package to create a network visualization
 to help illustrate these metrics. Specifically, in this section we will:
 
 a.  **Examine Basic Descriptives**. We focus primarily on actors and
-    edges in this walkthrough, including whether or not ties were
+    edges in this case study, including whether or not ties were
     reciprocated and node degree, an important and fairly intuitive
     measure of centrality.
 
@@ -562,7 +563,7 @@ or to characterize network properties through network measures.
 In the analyses described in Chapter 9, descriptives were limited to the
 mean and standard deviation for: in-degree, out-degree, trust and
 efficacy measures. The proportion of male leaders was also reported. For
-section 3a, let's see if we can reproduce these descriptives.
+section 3a, we will try to reproduce these descriptives.
 
 ### Calculate Node Degree
 
@@ -704,14 +705,17 @@ How close your result to those reported by Carolyn Table 9.1?
 
 -   YOUR RESPONSE HERE
 
+### Add Edge Attributes
+
 ## 3b. Visualize Network
 
-In Chapter 9, @carolan2014 depictgs a directed and dichotomous sociogram
-of the **collaboration** network for year 3 is shown in .
+In Chapter 9, @carolan2014 depicts a directed and dichotomous sociogram
+of the **collaboration** network for year 3 is shown in Figure 9.1
+copied below.
 
 ![](img/figure-9-1.jpg){width="90%"}
 
-### **👉 Your Turn** **⤵**
+### \*\* 👉 Your Turn\*\* **⤵**
 
 Try creating a **Year 3 Confidential Exchange Network** by modifying the
 code below and tweaking the included function/arguments or adding new
@@ -773,13 +777,13 @@ this section we will explore the following questions:
 
 ## 4a. Loading Network Data
 
-As we've discovered in this course, network data can come in many
-different forms --- ties can be stored as edgelists or matrices, saved
-as .csv or excel files, and converted to a variety of network R objects;
-attributes for the nodes, ties and dyads in can also various forms and
-added in various ways to objects in R. For the {ergm} package, however,
-data will need to be transformed into a `network` object --- the format
-that statnet uses to store and work with network data.
+As we've discovered in these learning labs, network data can come in
+many different forms --- ties can be stored as edgelists or matrices,
+saved as .csv or excel files, and converted to a variety of network R
+objects; attributes for the nodes, ties and dyads in can also various
+forms and added in various ways to objects in R. For the {ergm} package,
+however, data will need to be transformed into a `network` object ---
+the format that statnet uses to store and work with network data.
 
 Fortunately, we have already prepared our data for quick conversion to a
 `network` object and can supply just a couple arguments to the
@@ -862,8 +866,8 @@ and 36 reciprocated dyads.
 
 Since the `ergm()` function automatically uses a stochastic MCMC-based
 estimation algorithm, use the `set.seed()` function and set the value to
-589 (note this could be any number besides our course number) so we
-produce the same results each time.
+589 (note this could be any number) so we produce the same results each
+time.
 
 Now let's estimate our model, save the results as `ergm_mod_1`, and use
 the `summary()` function again to take a look at our estimates. Also,
@@ -1140,8 +1144,8 @@ data is collected?
 
 ### 🧶 Knit & Check ✅
 
-Congrats! You've finished the Unit 3 Guided Walkthrough and are ready
-for your independent analysis next week!
+Congrats! You've finished the Unit 3 Guided case study and are ready for
+your independent analysis next week!
 
 To complete this assignment, knit your document and send me an email at
 sbkellog\@ncsu.edu letting me know you're all set.
