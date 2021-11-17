@@ -1,4 +1,4 @@
-<img src="img/laser-logo.jpg" width="40%"/>
+<img src="img/laser-logo.jpeg" width="40%"/>
 
 # Social Network Analysis in STEM Ed Research
 
@@ -10,4 +10,4 @@ Although social network analysis (SNA) and its educational antecedents date back
 
 **SNA Learning Lab 3: Coming Soon!**
 
-**SNA Learning Lab 4: Network Selection Processes** wraps up our work with SNA with a focus network selection and Exponential Random Graph Models (ERGMs), which provide a way to determine whether network properties (e.g., reciprocity, homophily, popularity) occur more frequently than you could expect from chance alone. Our SNA Case Study: School Leader Selection Mechanisms, once again guided by Alan Daly and colleagues, revisits visual and mathematical descriptions of networks explored so far to help uncover, and then empirically test, processes that attempt to explain how district and school-level leaders select peers for collaboration or confidential exchanges.
+**SNA Learning Lab 4: Network Selection Processes** wraps up our work with SNA with a focus network selection and Exponential Random Graph Models (ERGMs), which provide a way to determine whether network properties (e.g., reciprocity, homophily, popularity) occur more frequently than you could expect from chance alone. Our SNA Case Study: School Leader Selection Mechanisms, once again is guided by Alan Daly and colleagues, revisits visual and mathematical descriptions of networks explored so far to help uncover, and then empirically test, processes that attempt to explain how district and school-level leaders select peers for collaboration or confidential exchanges.
