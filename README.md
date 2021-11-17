@@ -1,4 +1,4 @@
-<img src="img/laser-logo.jpg" width="40%"/>
+<img src="img/laser-logo.jpeg" width="40%"/>
 
 # Social Network Analysis in STEM Ed Research
 
