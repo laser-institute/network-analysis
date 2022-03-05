@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Selection Processes in Networks</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Joshua Rosenberg" />
+    <script src="libs/header-attrs-2.10/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/laser.css" type="text/css" />
+    <link rel="stylesheet" href="css/laser-fonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+class: clear, title-slide, inverse, center, top, middle
+
+# Selection Processes in Networks
+## LASER Institute Learning Lab 4
+### Joshua Rosenberg
+###  2021/08/11 (updated: 2021-11-16)
+---
+
+# Objectives
+
+- Gain an understanding of two key network processes, _influence_ and _selection_
+- Understand examples of research questions and research studies that focus on selection processes
+- View some code for estimating selection models
+- Discuss some ideas for social network studies that involve selection effects
+- Identify resources for learning more
+
+Slides: https://laser-institute.github.io/laser-institute-selection-processes-workshop
+
+---
+
+# Social networks are commonplace!
+
+We are often impacted by our networks
+
+- Josh’s friend Ryan Estrellado sharing about Ted Lasso on Slack
+- Seeing how colleagues negotiate speaking up in a department meeting
+- TikTok dance competitions
+
+---
+
+# Discussion of social network analysis interests
+
+&lt;img src="https://image.freepik.com/free-vector/illustration-with-young-people-talking_52683-29824.jpg" width="35%" style="display: block; margin: auto;" /&gt;
+
+In what are you interested relating to **social networks/social network analysis**?
+
+
+---
+
+# Many analyses assume this structure
+
+&lt;img src="img/sna-pres_3.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# HLM/Multi-level modeling allow for this
+
+&lt;img src="img/sna-pres_2.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Social network analyses takes a different perspective
+
+&lt;img src="img/sna-pres_1.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Put another way, we can focus deeply on these
+
+&lt;img src="https://ideas.ted.com/wp-content/uploads/sites/3/2018/06/featured_art_istock1.jpg?resize=1536,922" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# The Big Picture
+
+Human social networks involve _actors_ and _ties_
+
+Ties represent either resource flows or relationships
+
+So, what's different? 
+
+Ties (in the context of actors) --- and _what explains them_ and _what they produce_
+
+---
+
+# The social network perspective 
+
+More specifically, one foundational way of viewing social networks is in terms of two _processes_
+
+Two key processes are _selection_ and _influence_ ([Frank, 1998](https://journals.sagepub.com/doi/abs/10.3102/0091732x023001171))
+
+We can think of processes as what drive the creation and change of a network
+
+***N.b.*: This is very different from focusing on the attributes of whole networks**
+
+---
+
+# Influence
+
+- Influence has long been a key construct in network analysis (Sweet, 2018). 
+- For instance, sociologists developing the social influence approach used statistical models to understand how social capital (i.e., resources inherent to and available through relationships) exerted power (Bourdieu, 1980) 
+- In short, influence may be thought of in terms of how individuals affect one another (Frank, 1998)
+- Another way to consider influence is in the following terms:
+
+**Network -&gt; Individuals’ actions, beliefs, and achieved outcomes**
+
+---
+
+# [Frank et al. (2004)](https://journals.sagepub.com/doi/abs/10.1177/003804070407700203)
+
+- Frank et al. (2004) examined how the use of innovative digital technologies, namely the use of computers for different purposes, were adopted by teachers throughout a district when teachers identified as leaders among their peers adopted and used them
+- Collected network data from all of the teachers in the district by asking them to nominate up to ten individuals who they go to for help
+- *Found that more variance in computer use was explained by social influence measures*—who teachers went to for help—than the more traditional, psychologically-focused measures of teachers’ value for computers
+
+---
+
+# Selection
+
+- Selection models aim to understand who interacts with whom (Fincham et al., 2018) - these models are different from but related to those we estimate when concerned with influence 
+- These selection processes are contemporarily estimated using powerful extensions of inferential statistical techniques such as logistic regressions, Exponential Random Graph Models (e.g., Gašević et al., 2019)
+- Another way to consider selection is in the following terms:
+
+**Individuals’ actions and beliefs -&gt; A network**
+
+---
+
+# [Rosenberg et al. (2020)](https://onlinelibrary.wiley.com/doi/full/10.1002/tea.21660)
+
+- NGSSchat is a social media-based professional network
+- We sought to understand whether individuals from _different profesional roles_ interacted
+
+&lt;img src="img/sna-pres_5.png" width="70%" style="display: block; margin: auto;" /&gt;
+
+- Found that individuals from different professional roles were somewhat more likely to engage in substantive interactions, but that the effects were relatively small
+
+---
+
+# Research questions related to selection
+
+&lt;img src="https://image.freepik.com/free-vector/illustration-with-young-people-talking_52683-29824.jpg" width="35%" style="display: block; margin: auto;" /&gt;
+
+What are some ideas you have for research studies related to selection? How do these relate to different research designs (i.e., descriptive, intervention)
+
+---
+
+# How to estimate selection
+
+There are many ways; this is an active area of research (see [Hoff, 2015](https://arxiv.org/abs/1506.08237), [Xu, 2021](https://journal.r-project.org/archive/2021/RJ-2021-069/RJ-2021-069.pdf))
+
+1. [Descriptive](https://journals.sagepub.com/doi/pdf/10.1177/0038040713501147)
+2. [Logistic regression and extensions of logistic regression](https://onlinelibrary.wiley.com/doi/pdf/10.1002/tea.21660)
+3. [Exponential Random Graph Model (ERGM)](https://cran.r-project.org/web/packages/ergm/index.html)
+4. [Latent space](https://journal.r-project.org/archive/2021/RJ-2021-069/RJ-2021-069.pdf)
+
+We'll focus on the first today.
+
+---
+
+# The context for these examples
+
+A social network analysis survey of hybrid and face-to-face doctoral students:
+
+&lt;img src="img/sna-pres_4.png" width="70%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Loading, setting up
+
+
+```r
+library(tidyverse)
+library(here)
+
+d &lt;- read_csv(here("data", "modality-data.csv"))
+
+d
+```
+
+```
+## # A tibble: 284 × 5
+##    sender receiver weight mode_sender mode_receiver
+##     &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;        
+##  1  13101    13107   10   hybrid      hybrid       
+##  2  13101    12102    6.4 hybrid      hybrid       
+##  3  13101    16207    8.1 hybrid      online       
+##  4  13107    13101    6.4 hybrid      hybrid       
+##  5  13107    13110    8.1 hybrid      hybrid       
+##  6  13107    14103    2.5 hybrid      online       
+##  7  13107    13109   10   hybrid      hybrid       
+##  8  13107    11101    4.9 hybrid      &lt;NA&gt;         
+##  9  13107    11104    1.6 hybrid      &lt;NA&gt;         
+## 10  13107    14102    3.6 hybrid      hybrid       
+## # … with 274 more rows
+```
+---
+
+# Descriptive
+
+
+```r
+d %&gt;% 
+  mutate(same_mode = if_else(mode_sender == mode_receiver, 1, 0)) %&gt;% 
+  summarize(sum_same_mode = sum(same_mode, na.rm = TRUE) / n())
+```
+
+```
+## # A tibble: 1 × 1
+##   sum_same_mode
+##           &lt;dbl&gt;
+## 1         0.549
+```
+
+```r
+d %&gt;% 
+  mutate(same_mode = if_else(mode_sender == mode_receiver, 1, 0)) %&gt;% 
+  filter(!is.na(same_mode)) %&gt;% 
+  summarize(sum_same_mode = sum(same_mode, na.rm = TRUE) / n())
+```
+
+```
+## # A tibble: 1 × 1
+##   sum_same_mode
+##           &lt;dbl&gt;
+## 1         0.672
+```
+
+---
+
+# Descriptive (part 2a)
+
+
+```r
+d %&gt;% 
+  count(mode_sender, mode_receiver) %&gt;% 
+  mutate(proportion = n / sum(n))
+```
+
+```
+## # A tibble: 6 × 4
+##   mode_sender mode_receiver     n proportion
+##   &lt;chr&gt;       &lt;chr&gt;         &lt;int&gt;      &lt;dbl&gt;
+## 1 hybrid      hybrid           78     0.275 
+## 2 hybrid      online           42     0.148 
+## 3 hybrid      &lt;NA&gt;             26     0.0915
+## 4 online      hybrid           34     0.120 
+## 5 online      online           78     0.275 
+## 6 online      &lt;NA&gt;             26     0.0915
+```
+
+Let's remove the NA (missing) modes
+
+---
+
+# Descriptive (part 2b)
+
+
+```r
+d %&gt;% 
+  filter(!is.na(mode_receiver)) %&gt;% 
+  count(mode_sender, mode_receiver) %&gt;% 
+  mutate(proportion = n / sum(n))
+```
+
+```
+## # A tibble: 4 × 4
+##   mode_sender mode_receiver     n proportion
+##   &lt;chr&gt;       &lt;chr&gt;         &lt;int&gt;      &lt;dbl&gt;
+## 1 hybrid      hybrid           78      0.336
+## 2 hybrid      online           42      0.181
+## 3 online      hybrid           34      0.147
+## 4 online      online           78      0.336
+```
+
+---
+
+# What's next
+
+- We could predict the presence of ties
+
+  - Specifically, we could _model_ these relationships using logistic regressions, ERGMs, or latent space models
+
+- We could examine other characteristics that may produce ties
+
+- What else?
+
+---
+
+
+# Learning more
+
+Two highly recommended overviews:
+
+- Frank, K. A. (1998). Chapter 5: Quantitative methods for studying social context in multilevels and through interpersonal relations. *Review of Research in Education, 23*(1), 171-216.
+
+- Sweet, T. (2018). Social Network Analysis. In *The Reviewer’s Guide to Quantitative Methods in the Social Sciences* (pp. 434-444). Routledge.
+
+Two examples that utilize selection models:
+
+- Horn, I., Garner, B., Chen, I. C., &amp; Frank, K. A. (2020). Seeing colleagues as learning resources: The influence of mathematics teacher meetings on advice-seeking social networks. *AERA Open, 6*(2), 2332858420914898.
+
+- Spillane, J. P., Kim, C. M., &amp; Frank, K. A. (2012). Instructional advice and information providing and receiving behavior in elementary schools: Exploring tie formation as a building block in social capital development. *American Educational Research Journal, 49*(6), 1112-1145.
+---
+
+# Recap
+
+Our goals were to:
+
+- Gain an understanding of two key network processes, _influence_ and _selection_
+- Understand examples of research questions and research studies that focus on selection processes
+- View some code for estimating selection models
+- Discuss some ideas for social network studies that involve selection effects
+- Identify resources for learning more
+
+---
+
+# Discussion
+
+&lt;img src="https://image.freepik.com/free-vector/illustration-with-young-people-talking_52683-29824.jpg" width="35%" style="display: block; margin: auto;" /&gt;
+
+What are you interested in doing next?
+
+What would you need help with?
+
+What venues (journals/conferences) might be interested in early stage work?
+
+---
+
+# Thanks!
+
+Let's stay in touch; what do you want to work on (together?)?
+
+Joshua Rosenberg (jmrosenberg@utk.edu), [@jrosenberg6432](https://twitter.com/jrosenberg6432) on Twitter, @Josh on Slack!
+
+Slides: https://laser-institute.github.io/laser-institute-selection-processes-workshop
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"slideNumberFormat": "<div class=\"progress-bar-container\">\n <div class=\"progress-bar\" style=\"width: calc(%current% / %total% * 100%);\">\n </div>\n</div>"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
