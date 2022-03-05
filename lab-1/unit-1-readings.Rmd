@@ -1,0 +1,247 @@
+---
+title: 'Unit 1 Readings: What is SNA?'
+subtitle: "ECI 589 Social Network Analysis and Education"
+author: "Dr. Shaun Kellogg"
+date: "`r format(Sys.Date(),'%B %e, %Y')`"
+output:
+  html_document:
+    toc: yes
+    toc_depth: 2
+    toc_float: yes
+editor_options:
+  markdown:
+    wrap: 72
+bibliography: lit/references.bib
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Overview
+
+Our primary goal in this unit is to build a basic understanding of
+social network analysis (SNA) as an approach to understand and improve
+learning processes and outcomes. The required and self-selected readings
+provide an introduction to SNA in the field of education, including the
+historical, theoretical, and analytical foundations of a social network
+perspective.
+
+A secondary goal of readings and discussion is to help you start
+generating ideas for independent application of network analysis. As
+part of our discussion, you'll be asked to generate a basic research
+question about a population of interest and that could be answered using
+relational data.
+
+Course readings, discussion guidelines, and assessment criteria are
+further described in [this
+document](https://sbkellogg.github.io/eci-589/unit-1/unit-1-readings.html).
+If you have any questions about this assignment, don't hesitate to send
+me an email or schedule a time to talk at
+[calendly.com/sbkellogg](calendly.com/sbkellogg).
+
+## Readings
+
+For Unit read chapters 1 and 2 from [Social Network Analysis and
+Education](https://catalog.lib.ncsu.edu/catalog/NCSU2803782)
+[@carolan2014] and locate one additional research article, presentation,
+or informal study to help address our discussion questions for the week.
+
+### SNA and Education Part I: Theory and Concepts
+
+The following readings for this unit illustrate how social network
+analysis provides educational researchers with a different way of
+thinking about and measuring an learning processes and outcomes by that
+explicitly account for the importance of one's relationships with
+others, as well as the larger pattern in which these relationships are
+embedded.
+
+1.  [Chapter 1: The Social Network Perspective and Educational Research
+    Introduction](https://methods-sagepub-com.prox.lib.ncsu.edu/book/social-network-analysis-and-education/n1.xml)
+
+2.  [Chapter 2: Historical, Theoretical, and Analytical
+    Foundations](https://methods-sagepub-com.prox.lib.ncsu.edu/book/social-network-analysis-and-education/n2.xml)
+
+3.  [Chapter
+    3](https://methods.sagepub.com/book/social-network-analysis-and-education/n3.xml):
+    [Basic
+    Concepts](https://methods.sagepub.com/book/social-network-analysis-and-education/n3.xml)
+
+### Self-Selected Study
+
+Use the [NCSU Library](https://www.lib.ncsu.edu/#articles), [Google
+Scholar](https://scholar.google.com/) or search engine to locate a
+research or practitioner-focused article, presentation, or resource that
+demonstrates the application of social network analysis to study a
+context or topic of interest. You are also welcome to select one of the
+research papers listed in
+the [syllabus](https://sbkellogg.github.io/eci-589/) or in our [course
+text](https://catalog.lib.ncsu.edu/catalog/NCSU2803782) that may have
+peaked your interest. Your selection should address one or more of the
+discussion topics/questions (see below) and you're welcome to identify
+SNA resources outside of the field of education.
+
+## Discussion
+
+In lieu of the peer interaction and discussion of course materials that
+normally take place "in-class", you'll be asked to log in this
+week and engage with other members of our learning community through
+this discussion forum. **With the exception of the Self-Selected Study
+questions, you are not required to address every guiding question**,
+particularly if you feel others in the class have thoroughly addressed
+the topic or questions. Our aim for these discussions is to collectively
+build our understanding of these readings through back-and-forth
+dialogue and avoid a "collective monologue" in which we see 20
+variations of effectively the same post.
+
+To create a new post in response to one or more of the guiding questions
+listed below, click "Add a new discussion topic" located below the forum
+overview text and add a descriptive title for the subject line. In the
+message box, includes the question(s) your post is addressing, as well
+as your response to the selected questions. Remember, you are not
+required to address every guiding question with the exception of the
+Self-Selected Study questions for which you must create one new
+discussion topic and respond to the discussion prompt and required
+questions.
+
+### Guiding Questions
+
+To help guide our discussions, we will collectively address a set of
+guiding questions provided below. You are also welcome to add your own
+topics or questions for the class to discuss.
+
+#### Chapter 1: The Social Network Perspective and Educational Research Introduction
+
+1.  Consider a network of which you are a part. Who are the network's
+    actors? What ties connect these actors? Are there any groups within
+    this network? What relations within this network might be of
+    interest to a researcher? Finally, what makes this collection of
+    actors a social network?
+
+2.  Using the same question from the previous response, explain the
+    analytical level at which these data would need to be collected and
+    analyzed.
+
+#### Chapter 2: Historical, Theoretical, and Analytical Foundations
+
+Draft a research question for a population you may be interested in
+studying, or that would be of interest to educational researchers, and
+that would require the collection of relational data. Share your
+research question and then answer the following questions:
+
+1.  What relational data would need to be collected? 
+
+2.  For what reason would relational data need to be collected in order
+    to address this question?
+
+3.  Explain the analytical level at which these data would need to be
+    collected and analyzed.
+
+4.  How does this differ from the ways in which individual or group
+    behavior is typically conceptualized and modeled in conventional
+    educational research?
+
+#### Chapter 3: Basic Concepts
+
+Refer to the graph below to answer the following questions:
+
+1.  Is this graph directed or undirected? Are the lines arcs or edges?
+    Given your responses to these questions, what type of relation might
+    this graph represent?
+
+2.  Based on what you see in this graph, is this relation valued or
+    binary?
+
+3.  What attribute data might you want to incorporate into analysis?
+
+Bonus Questions:
+
+Create a matrix that represents the relational data evident in the graph
+and answer the following questions:
+
+1.  How many actors are in this matrix?
+
+2.  How many rows and columns are in this matrix?
+
+3.  What type of data are in the cells of this matrix?
+
+4.  Is this matrix symmetric? Explain the values on the diagonal of the
+    matrix.
+
+![](img/graph.jpeg){width="100%"}
+
+#### Self-Selected Study: The Four Hallmarks of SNA
+
+**Required**
+
+For your self-selected study, provide a APA citation and abstract, then
+briefly answer the following questions:
+
+1.  To what degree does the study emphasize one or more of the
+    following:
+
+    -   individuals and their actions are viewed as interdependent;
+
+    -   relational ties between individuals are opportunities for
+        transmission of resources;
+
+    -   the pattern of relations among individuals---the social
+        structure---is an environment that can provide either
+        opportunities for or constraints on individual action; and (4)
+        social structure as an enduring pattern of relations among
+        actors?
+
+2.  At which level are the social network data measured and collected:
+    ego, dyad, triad, or complete?
+
+3.  What relations have been measured among actors? Why were these
+    relations measured and others excluded?
+
+4.  How and to what degree does the study reflects the four hallmarks of
+    social network analysis: 
+
+    -   emphasis on structuralism based on ties among actors, 
+
+    -   firmly grounded in empirical data, 
+
+    -   use of graphical imagery, and 
+
+    -   mathematically based.
+
+Bonus Questions:
+
+1.  How does the study straddle qualitative and quantitative paradigms?
+
+2.  How does the use of the social network analysis bridge the gap
+    between sociological theory and empirical reality?
+
+## Assessment
+
+Grading for this assignment is fairly lenient, provided that it's clear
+from your posts that you've done the required reading. Readings and
+discussion for each unit are worth 6 points and judged based on quantity
+and quality of your posts.
+
+In term of **quantity** (3 points), you'll be expected to create a new
+discussion topic your self-selected study and add at least 3 new posts
+and/or replies for a total of 4 posts. So others will have an
+opportunity to read and respond to your posts, your posts should be
+spread out over the course of the week and across at least two different
+days, preferably not the last two days.
+
+In terms of **quality** (3 points), your posts over the next week should
+provide new or insightful contributions to that question or topic.
+There is no requisite for the length of each posting, in fact short
+conversational exchanges (1-3 paragraphs) are highly encouraged. I
+strongly recommend taking a look at Table 1 of [the productive online
+discussion
+model](https://moodle-courses2122.wolfware.ncsu.edu/pluginfile.php/287931/mod_forum/post/6203/Gao%2C%20Wang%2C%20Sun%20-%202009%20-%20A%20new%20model%20of%20productive%20online%20discussion%20and%20its%20implications%20for%20research%20and%20instruction.pdf) [@gao2009]
+for ways to contribute to the conversation. 
+
+At minimum, your collective posts should also help us interpret or
+elaborate on discussion topics, questions, or ideas others have shared
+by "making connection to the learning materials" and should reference at
+some point each of the required chapters and your self-selected reading
+or resource.
+
+## References
