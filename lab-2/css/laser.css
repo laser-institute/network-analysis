@@ -1,0 +1,402 @@
+/* this css theme adapts the metropolis xaringan theme to
+the nc state branding palettes and incorporates some additional
+formatting based on examples from Silvia Canelon's workshop on
+Sharing your work with xaringan:
+https://spcanelon.github.io/xaringan-basics-and-beyond/index.html */
+:root {
+/* core palette */
+--black:   #000000;
+--white:   #FFFFFF;
+
+/* logo colors */
+
+--light-orange:     #e77225;
+--medium-orange:    #dc5b26;
+--dark-orange:      #d34126;
+--red:              #cb2026;
+--dark-red:         #8f303b;
+--burgundy:         #59334c;
+--navy:             #143156;
+
+}
+
+/*-- LINKS/ANCHORS --*/
+a {
+  color:              var(--dark-red);
+  border-bottom:      1px solid var(--dark-red);
+  line-height:        2.5rem;
+}
+
+a:hover { border-bottom: none; }
+
+.remark-slide-content {
+  background-color: var(--white);
+  border-top: 80px solid var(--dark-red);
+  font-size: 22px; /* change default text size here*/
+  font-weight: 300;
+  line-height: 1.5;
+  padding: 1em 2em 1em 2em;
+  background-image: url(../img/LASERLogoB.png); 
+  background-position: 95% 100%; 
+  background-size: 15%;
+}
+
+.title-slide .inverse .remark-slide-content {
+  background-color: var(--navy);
+}
+
+.inverse {
+  background-color: var(--navy);
+  background-image: none;
+  text-shadow: none;
+}
+
+.footnote {
+    position: absolute;
+    bottom: 3em;
+    padding-right: 4em;
+    font-size: 70%;
+}
+
+.no-logo {
+    background-image: none;
+}
+
+.laser {
+  background-image: url(../img/LASERBackground.png);
+  background-position: -10% 0%;
+  background-size: 100%;
+}
+
+.laser .quote {
+  float: right;
+  width: 40%;
+  color: var(--navy);
+  text-shadow: none;
+  padding: 20px;
+}
+
+.laser .author {
+  float: right;
+  width: 60%;
+  margin-top: 10px;
+  text-align: right;
+  color: var(--dark-orange);
+}
+
+.laser .pull-right{
+  float: right;
+  width: 40%;
+}
+
+/* Removes colored bar from top of the slide resulting in a clear slide */
+.clear{
+  border-top: 0px solid var(--white);
+}
+
+h1 {
+  font-weight: normal;
+  margin-top: -100px;
+  margin-left: -00px;
+  color: var(--white);
+}
+
+h2, h3, h4 {
+  padding-top: -15px;
+  padding-bottom: 00px;
+  color: var(--navy);
+  text-shadow: none;
+  font-weight: 400;
+  text-align: left;
+  margin-left: 00px;
+  margin-bottom: -10px;
+}
+
+.remark-slide-content h1 {
+  font-size: 45px;
+}
+
+.remark-slide-content h2 {
+  font-size: 35px;
+}
+
+.remark-slide-content h3 {
+  font-size: 30px;
+}
+
+.left-column h2, .left-column h3, .left-column h4 {
+  color: var(--dark-orange);
+}
+
+.left-column h2:last-of-type, .left-column h3:last-child {
+  color: var(--dark-orange);
+}
+
+.title-slide {
+  background-color: var(--white);
+  background-image: url(../img/LASERLogoB.png); 
+  background-position: 95% 100%; 
+  background-size: 40%;
+}
+
+.title-slide h1  {
+  color: var(--dark-red);
+  font-size: 40px;
+  text-shadow: none;
+  font-weight: 500;
+  text-align: left;
+  margin-left: 15px;
+  padding-top: 80px;
+}
+
+.title-slide h2  {
+  margin-top: -25px;
+  padding-bottom: -20px;
+  color: var(--navy);
+  text-shadow: none;
+  font-weight: 300;
+  font-size: 35px;
+  text-align: left;
+  margin-left: 15px;
+}
+.title-slide h3  {
+  color: var(--navy);
+  text-shadow: none;
+  font-weight: 300;
+  font-size: 25px;
+  text-align: left;
+  margin-left: 15px;
+  margin-bottom: -30px;
+}
+
+hr, .title-slide h2::after, .mline h1::after {
+  content: '';
+  display: block;
+  border: none;
+  background-color: var(--light-orange);
+  color: var(--light-orange);
+  height: 1px;
+}
+
+hr, .mline h1::after {
+  margin: 1em 15px 0 15px;
+}
+
+.title-slide h2::after {
+  margin: 10px 15px 35px 0;
+}
+
+.mline h1::after {
+  margin: 10px 15px 0 15px;
+}
+
+.remark-slide-number {
+  font-size: 13pt;
+  color: var(--red);
+  opacity: 1;
+}
+.inverse .remark-slide-number {
+  font-size: 13pt;
+  color: var(--white);
+  opacity: 1;
+}
+
+.inverse .remark-inline-code {
+  color: var(--navy);
+}
+
+/* turns off slide numbers for title page: https://github.com/gnab/remark/issues/298 */
+.title-slide .remark-slide-number {
+  display: none;
+}
+
+.remark-inline-code {
+  /* background: #F5F5F5; /* lighter */
+  background: #e7e8e2; /* darker */
+  border-radius: 3px;
+  padding: 4px;
+}
+
+.code10 .remark-code {
+  font-size: 10%;
+}
+
+.code20 .remark-code {
+  font-size: 20%;
+}
+
+.code30 .remark-code {
+  font-size: 30%;
+}
+
+.code40 .remark-code {
+  font-size: 40%;
+}
+
+.code50 .remark-code {
+  font-size: 50%;
+}
+
+.code60 .remark-code {
+  font-size: 60%;
+}
+
+.code70 .remark-code {
+  font-size: 70%;
+}
+
+.code80 .remark-code {
+  font-size: 80%;
+}
+
+.code90 .remark-code {
+  font-size: 90%;
+}
+
+.code100 .remark-code {
+  font-size: 100%;
+}
+
+.font10 {
+  font-size: 10%;
+}
+
+.font20 {
+  font-size: 20%;
+}
+
+.font30 {
+  font-size: 30%;
+}
+
+.font40 {
+  font-size: 40%;
+}
+
+.font50 {
+  font-size: 50%;
+}
+
+.font60 {
+  font-size: 60%;
+}
+
+.font70 {
+  font-size: 70%;
+}
+
+.font80 {
+  font-size: 80%;
+}
+
+.font90 {
+  font-size: 90%;
+}
+
+.font100 {
+  font-size: 100%;
+}
+
+.font110 {
+  font-size: 110%;
+}
+
+.font120 {
+  font-size: 120%;
+}
+
+.font130 {
+  font-size: 130%;
+}
+
+.font140 {
+  font-size: 140%;
+}
+
+.font150 {
+  font-size: 150%;
+}
+
+.font160 {
+  font-size: 160%;
+}
+.font170 {
+  font-size: 170%;
+}
+.font180 {
+  font-size: 180%;
+}
+.font190 {
+  font-size: 190%;
+}
+.font200 {
+  font-size: 200%;
+}
+
+/*-- Custom classes for text emphasis --*/
+.navy       { color:  var(--navy) }
+.orange      { color:  var(--medium-orange) }
+.red        { color:  var(--red) }
+.white      { color:  var(--white)}
+.burgundy { color:  var(--burgundy) }
+
+/*-- PROGRESS BAR IN FOOTER --*/
+/* https://github.com/yihui/xaringan/wiki/Progressbar */
+
+.remark-slide-number { position: inherit; }
+
+.remark-slide-number .progress-bar-container {
+  position:           absolute;
+  bottom:             0;
+  height:             5px;
+  display:            block;
+  left:               0;
+  right:              0;
+}
+
+.remark-slide-number .progress-bar {
+  height: 100%;
+  background-color: var(--dark-red);
+}
+
+/*-- 3 column layout --*/
+.left-col {
+  width: 29%;
+  text-align: left;
+  padding-left: 20px;
+  padding-right: 20px;
+  float: left;
+}
+
+.center-col {
+  width: 29%;
+  text-align: left;
+  padding-left: 20px;
+  padding-right: 20px;
+  float: left;
+}
+
+.right-col {
+  width: 29%;
+  text-align: left;
+  padding-left: 20px;
+  padding-right: 20px;
+  float: left;
+}
+
+.pull-left {
+  padding-top: 0px;
+}
+
+.pull-left-narrow {
+  float: left;
+  width: 20%;
+}
+
+.pull-right-wide {
+  float: right;
+  width: 75%;
+}
+
+/* Clear floats after the columns */
+.pull-right-wide + * { clear: both; }

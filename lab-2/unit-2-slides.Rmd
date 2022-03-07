@@ -8,8 +8,8 @@
     xaringan::moon_reader:
       css:
        - default
-       - css/wolfpack.css
-       - css/wolfpack-fonts.css
+       - css/laser.css
+       - css/laser-fonts.css
       lib_dir: libs                        # creates directory for libraries
       seal: false                          # false: custom title slide
       nature:
