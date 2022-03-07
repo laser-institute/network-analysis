@@ -1,5 +1,5 @@
 ---
-  title: "Unit 2: Management & Measurement"
+  title: "SNA Lab 2: Network Data Management & Measurement"
   subtitle: "Test"
   author: "**Dr. Shaun Kellogg**"
   institute: "LASER Institute"
@@ -67,7 +67,7 @@ xaringanExtra::use_tile_view()
 ## Conceptual Overview
 Data Management
 - Collection
-- Management  
+- Management
 - Quality  
 ]
 
@@ -75,7 +75,7 @@ Data Management
 ## R Code-Along
 Network Measurement 
 - Density
-- Centrality 
+- Centrality
 - Reciprocity
 
 ]

@@ -32,7 +32,7 @@ a:hover { border-bottom: none; }
 .remark-slide-content {
   background-color: var(--white);
   border-top: 80px solid var(--dark-red);
-  font-size: 22px; /* change default text size here*/
+  font-size: 28px; /* change default text size here*/
   font-weight: 300;
   line-height: 1.5;
   padding: 1em 2em 1em 2em;
