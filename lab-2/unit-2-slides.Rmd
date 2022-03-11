@@ -80,6 +80,34 @@ Network Measurement
 
 ]
 
+???
+
+Recall that the key difference between data used in typical STEM Ed Research and data used for social network analysis is the focus on relationships between individual rather than the individual themselves. As a result, this presents some unique issues inherent in how we manage of social network data, as well as the measurements derived from this data. 
+
+For this workshop... 
+
+---
+# A Quick Refresher
+
+.pull-left[
+
+This longitudinal case study **examines reform-related knowledge, advice, and innovation network structures** among administrators in a districcde fg
+t sanction for under-performance and engaging a districtwide reform.
+
+]
+
+.pull-right[
+
+
+.center[<img src="img/nodes-edges.jpeg" height="400px"/>]
+
+]
+
+
+???
+
+Recall that the key difference between data we might typically focus on for STEM Education Research and data used for social network analysis is the focus on relationships between individual rather than the individual themselves. Therefore therefore, the methodological issues inherent to the collection and management of social network data are somewhat unique in several different ways.
+
 
 ---
 # Data Collection
@@ -503,15 +531,6 @@ autograph(year_1_network) +
 ]
 ]
 ]
-
----
-
-
-class: clear, wolfhead
-
-.quote[In its simplest form,  network density is **the proportion of existing ties in network to all possible ties** that could potentially exist, regardless of whether they do.]
-.author[~ Network Density]
-
 
 ---
 # What's Next
