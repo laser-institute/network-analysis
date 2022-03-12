@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>SNA Lab 2: Network Data Management &amp; Measurement</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Dr. Shaun Kellogg" />
+    <meta name="date" content="2022-03-12" />
+    <script src="libs/header-attrs-2.11/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/panelset-0.2.6/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset-0.2.6/panelset.js"></script>
+    <script src="libs/clipboard-2.0.6/clipboard.min.js"></script>
+    <link href="libs/xaringanExtra-clipboard-0.2.6/xaringanExtra-clipboard.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-clipboard-0.2.6/xaringanExtra-clipboard.js"></script>
+    <script>window.xaringanExtraClipboard(null, {"button":"<i class=\"fa fa-clipboard\"><\/i>","success":"<i class=\"fa fa-check\" style=\"color: #90BE6D\"><\/i>","error":"Press Ctrl+C to Copy"})</script>
+    <link href="libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+    <link href="libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+    <link href="libs/tile-view-0.2.6/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view-0.2.6/tile-view.js"></script>
+    <link rel="stylesheet" href="css/laser.css" type="text/css" />
+    <link rel="stylesheet" href="css/laser-fonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+class: clear, title-slide, inverse, center, top, middle
+
+
+
+
+
+
+
+
+
+
+# SNA Lab 2: Network Data Management &amp; Measurement
+----
+### **Dr. Shaun Kellogg**
+### March 12, 2022
+
+---
+# Agenda
+
+.pull-left[
+## Conceptual Overview
+Data Management
+- Collection
+- Management
+- Quality  
+]
+
+.pull-right[
+
+## R Code-Along
+Network Measurement 
+- Density
+- Centrality
+- Reciprocity
+
+]
+
+???
+
+Recall that the key difference between data used in typical STEM Ed Research and data used for social network analysis is the focus on relationships between individual rather than the individual themselves. As a result, this presents some unique issues inherent in how we manage of social network data, as well as the measurements derived from this data. 
+
+For this workshop... 
+
+---
+# A Quick Refresher
+
+
+.pull-left[
+## Network Theory
+
+1. Social relations are often more important than individual attributes.
+
+1. Social networks affect individual beliefs, perceptions, and behaviors.
+
+1. Relations are not static but rather occur as part of a dynamic process.
+
+]
+
+.pull-right[
+## Network Terms
+.center[
+&lt;img src="img/nodes-edges.jpeg" height="350px"/&gt;
+]
+
+]
+
+
+???
+
+Social relations are often more important for understanding behaviors and attitudes than are such attributes related to one's background (e.g., age, gender, etc.)
+ 
+---
+# Discuss
+
+Consider a network which you are a part of and think about the following:
+- Who are the network's actors? 
+- What ties connect these actors? 
+- Are there any groups within this network? 
+- What relations within this network might be of interest to a researcher? 
+- Finally, what makes this collection of actors a social network?
+
+
+---
+class: clear, inverse, middle, center
+
+# Part 1: Conceptual Overview
+
+
+How do collect, manage
+
+
+---
+# Data Collection
+
+So how exactly do researchers capture these relations? 
+
+1. Specify the **boundary** of our network . 
+
+1. 
+
+
+
+???
+
+1. In complete-network studies, you select the set of actors that serves as the study's bounded population. Informed by either positional or event-based approaches to network boundary specification, these studies typically measure a small number of relations between each pair of the network's actors.
+
+The collection of network data —specifically, relational data on a set of actors —is primarily informed by whether you are interested in a complete–or ego–level of analyses. 
+
+
+---
+# Data Management
+
+
+---
+# Data Quality
+
+.footnote[
+Krumm, A. et al. (2018). [Learning analytics goes to school.](https://www.taylorfrancis.com/books/mono/10.4324/9781315650722/learning-analytics-goes-school-andrew-krumm-barbara-means-marie-bienkowski).
+]
+
+---
+class: clear, inverse, middle, center
+
+# part_2(r, code-along)
+
+
+Network Measures
+
+---
+# Literature Review
+
+.panelset[
+
+.panel[.panel-name[Context]
+
+.pull-left[
+
+This longitudinal case study **examines reform-related knowledge, advice, and innovation network structures** among administrators in a districcde fg
+t sanction for under-performance and engaging a districtwide reform.
+]
+
+.pull-right[
+
+.center[&lt;img src="img/daly-net.jpeg" height="320px"/&gt;]
+]
+
+]
+
+.panel[.panel-name[Questions]
+
+This study involves quantifying and graphically displaying the ties and overall structure of informal networks to answer the following research questions: 
+
+1. In what ways have reform-related social networks between district and site leaders evolved over a 2-year period? 
+2. How do district and school leaders perceive the evolution of the social networks and its effect on the exchange of reform-related resources within the district?
+]
+
+.panel[.panel-name[Data]
+To answer RQ1, Daly and Finnigan administered **online survey consisting of network relations and demographic questions** asking participants to:
+- select the administrators in the La Estasis network that you go to for knowledge
+- to assess their relationships on a 5-point interaction scale ranging from 1 (no interaction) to 5 (1 to 2 times a week).
+- 
+
+]
+
+.panel[.panel-name[Key Findings]
+
+Findings indicate that over time, the networks **increased the number of superficial interactions**, but more frequent exchanges remained unchanged, resulting in a centralized network structure.
+]
+
+
+
+
+]
+
+
+.footnote[
+Daly, A. et al. (2011). The ebb and flow of social network ties between district leaders.
+]
+
+---
+# Load Packages
+
+.panelset[
+
+.panel[.panel-name[Load Libraries]
+
+Let's start by loading the following packages introduced in previous units:          
+
+
+```r
+library(readxl)
+library(tidyverse)
+library(tidygraph)
+library(ggraph)
+```
+
+
+]
+
+.panel[.panel-name[igraph 📦]
+
+The {igraph} &lt;img src="img/igraph.png" height="40px"/&gt; package and its collection of network analysis tools provide:
+
+1. pain-free implementation of graph algorithms, 
+1. 
+1. fast handling of large graphs, with millions of vertices and edges, and
+
+Both {tidygraph} and {ggraph} used in the previous unit and this unit depend heavily on the {igraph} package. 
+
+]
+
+
+.panel[.panel-name[Your Turn]
+
+Load the {igraph} package.
+
+
+
+
+```r
+# YOUR CODE HERE
+```
+
+]
+
+]
+
+---
+
+# Import Data   
+
+.panelset[
+
+.panel[.panel-name[Import Data]
+
+Let's import two Excel files from the Social Network Analysis and Education companion site. year_1_collaboration.xlsx 
+
+
+```r
+year_1_collaboration &lt;- read_excel("data/year_1_collaboration.xlsx", 
+                                   col_names = FALSE)
+```
+
+
+]
+
+.panel[.panel-name[Inspect Data]
+
+In the corresponding line of your R script, take a look at the data file we just imported:
+
+
+```r
+# ADD CODE BELOW
+#
+#
+```
+
+
+]
+
+.panel[.panel-name[Discuss]
+
+Think about the questions below and be prepared to share your response:              
+
+1. What type of data structure is used to store this network data? 
+1. What do you think the rows and columns represent? what about the values in each cell?  
+1. 
+
+]
+
+.panel[.panel-name[Answer]
+
+- This adjacency matrix reports on **"collaboration" ties among 43 school leaders** in year 1 of a three-year study. 
+
+- This is **a directed valued (weighted) network** measured on five-point scale ranging from 0 to 4, with higher values indicating more frequent collaborations (1–2 times/week).
+]
+]
+
+---
+# Wrangle Data  
+
+.panelset[
+
+.panel[.panel-name[Convert Matrix]
+
+Before we can begin analyzing our network data in R, we need to convert to a network class R object. Run the following code in your R script:
+
+
+```r
+year_1_matrix &lt;- as.matrix(year_1_collaboration)
+
+rownames(year_1_matrix) &lt;- 1:43
+
+colnames(year_1_matrix) &lt;- 1:43
+
+
+year_1_network &lt;- as_tbl_graph(year_1_matrix, directed = TRUE)
+```
+
+
+]
+
+.panel[.panel-name[View Network]
+
+In the corresponding line of your R script, type the name of network object we just created and run the code:
+
+
+```r
+# ADD CODE BELOW
+#
+#
+```
+
+
+]
+
+.panel[.panel-name[Discuss]
+
+Think about the questions below and be prepared to share your response:              
+
+1. What size of the Year 1 collaborationnetwork?
+1. What else do you notice about this network?
+1. What questions do have about this network?
+]
+
+.panel[.panel-name[Extra]
+
+- This adjacency matrix reports on **"collaboration" ties among 43 school leaders** in year 1 of a three-year study. 
+
+- This is **a directed valued (weighted) network** measured on five-point scale ranging from 0 to 4, with higher values indicating more frequent collaborations (1–2 times/week).
+]
+]
+
+
+
+---
+
+# Network Density 
+
+.panelset[
+
+.panel[.panel-name[Definition]
+
+.pull-left[ In its simplest form,  network density is **the ratio of existing ties in a network to all possible ties** that could potentially exist, regardless of whether they do.
+]
+
+.pull-right[ .center[&lt;img src="img/density.jpeg" height="150px"/&gt;
+
+Which of these two networks has a higher density?
+]
+ 
+]
+
+]
+
+.panel[.panel-name[Significance]
+In education, dense networks have been associated with:   
+- healthy learning communities   
+- other
+- other
+
+For better or worse, **dense networks reinforce prevailing norms** and behaviors and insulate one from outside influences (Carolan, 2011). 
+
+]
+
+.panel[.panel-name[Implementation]
+The {igraph} package has a simple `edge_density()` function for calculating network density. Let's apply to our `year_1_network`:
+
+
+```r
+edge_density(year_1_network)
+```
+
+```
+## [1] 0.04540421
+```
+
+How would you interpret this measure?
+]
+
+.panel[.panel-name[Discuss]
+
+.pull-left[We know there 82 edges in the Year 1 network (pictured right), but **how many possible edges** could there be?   
+
+**Hint**: The number of all possible edges in a directed network is V(V-1) where V is the # of vertices.
+
+&lt;!-- How many possible edges if this were an undirect network? --&gt;
+] 
+
+.pull-right[
+![](unit-2-slides_files/figure-html/examine-density-1.png)&lt;!-- --&gt;
+]
+]
+]
+
+
+
+---
+
+# Network Centralization 
+
+.panelset[
+
+.panel[.panel-name[Definition]
+
+.pull-left[A key structural property of complete networks is the concept of centralization, or **the extent to which relations are focused on one or a small set of actors**. 
+]
+
+.pull-right[ .center[&lt;img src="img/density.jpeg" height="150px"/&gt;
+
+Which of these two networks is more centralized?
+]
+ 
+]
+
+]
+
+.panel[.panel-name[Significance]
+In education, dense networks have been associated with:   
+- healthy learning communities   
+- other
+- other
+
+For better or worse, **dense networks reinforce prevailing norms** and behaviors and insulate one from outside influences (Carolan, 2011). 
+
+]
+
+.panel[.panel-name[Implementation]
+
+.pull-left[
+The {igraph} package has a simple `edge_density()` function for calculating network density. 
+
+Let's apply to our `year_1_network`:]
+
+.pull-right[
+
+```r
+centr_degree(year_1_network, mode = "all")
+```
+
+```
+## $res
+##  [1] 5 0 5 3 3 3 4 8 4 7 4 1 0 4 4 3 2 5 4 4 5 4 3 6 4 4 4 3 8 4 4 3 3 6 3 3 4 3 6 2 3 4 2
+## 
+## $centralization
+## [1] 0.05102041
+## 
+## $theoretical_max
+## [1] 3528
+```
+
+How would you interpret this measure?
+]
+]
+
+.panel[.panel-name[Discuss]
+
+.pull-left[We know there 82 edges in the Year 1 network (pictured right), but **how many possible edges** could there be?   
+
+**Hint**: The number of all possible edges in a directed network is V(V-1) where V is the # of vertices.
+
+&lt;!-- How many possible edges if this were an undirect network? --&gt;
+] 
+
+.pull-right[
+![](unit-2-slides_files/figure-html/examine-centrality-1.png)&lt;!-- --&gt;
+]
+]
+]
+
+---
+
+# Network Reciprocity 
+
+.panelset[
+
+.panel[.panel-name[Definition]
+
+.pull-left[A key structural property of complete networks is the concept of centralization, or **the extent to which relations are focused on one or a small set of actors**
+
+]
+
+.pull-right[ .center[&lt;img src="img/density.jpeg" height="150px"/&gt;
+
+Which of these two networks is more centralized?
+]
+ 
+]
+
+]
+
+.panel[.panel-name[Significance]
+Reciprocity is an important measure because it reveals the direction through which resources in networks flow and whether or not it flows in both directions. 
+
+In education, reciprocity has been associated with:   
+- healthy learning communities   
+- other
+- other
+
+]
+
+.panel[.panel-name[Implementation]
+
+.pull-left[
+At the network-level, reciprocity is a measure of the likelihood of vertices in a directed network to be mutually linked. The {igraph} package has a simple `reciprocity()` function for calculating network density. 
+
+Let's apply to our `year_1_network`:]
+
+.pull-right[
+
+```r
+reciprocity(year_1_network)
+```
+
+```
+## [1] 0.1707317
+```
+
+How would you interpret this measure? What does it indicate abotu our network? 
+]
+]
+
+.panel[.panel-name[Discuss]
+
+.pull-left[We know there 82 edges in the Year 1 network (pictured right), but **how many possible edges** could there be?   
+
+**Hint**: The number of all possible edges in a directed network is V(V-1) where V is the # of vertices.
+
+&lt;!-- How many possible edges if this were an undirect network? --&gt;
+] 
+
+.pull-right[
+![](unit-2-slides_files/figure-html/examine-reciprocity-1.png)&lt;!-- --&gt;
+]
+]
+]
+
+---
+# What's Next
+
+.pull-left[
+## Readings &amp; Discussion
+
+- Collection
+- Management  
+- Quality  
+]
+
+.pull-right[
+## Case Study
+
+- Density
+- Centrality 
+- Reciprocity
+
+]
+
+
+
+
+
+---
+class: clear, center
+
+## .font130[.center[**Thank you!**]]
+&lt;br/&gt;
+.center[&lt;img style="border-radius: 80%;" src="img/kellogg.jpeg" height="200px"/&gt;&lt;br/&gt;**Dr. Shaun Kellogg**&lt;br/&gt;&lt;mailto:sbkellog@ncsu.edu&gt;]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "default",
+"highlightLines": true,
+"highlightLanguage": "r",
+"countIncrementalSlides": false,
+"ratio": "16:9",
+"slideNumberFormat": "<div class=\"progress-bar-container\">\n <div class=\"progress-bar\" style=\"width: calc(%current% / %total% * 100%);\">\n </div>\n</div>"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

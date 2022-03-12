@@ -1,0 +1,29 @@
+---
+title: 'Unit 4 Analysis: Tie Prediction'
+subtitle: "ECI 589 Social Network Analysis and Education"
+author: "Dr. Shaun Kellogg"
+date: "`r format(Sys.Date(),'%B %e, %Y')`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Assignment
+
+The final week of each unit is designed to provide you some space for independent analysis. For this assignment, you are to demonstrate your ability to formulate a basic research question, wrangle and analyze relational data, and create a simple data product to illustrate key findings. **Your primary goal for this analysis is to examine node or network characteristics that product tie formation** by applying the knowledge and skills acquired from the course readings and case study. Grading for this week is fairly lenient and you'll receive 1 point (6 points total) for completing each of the following tasks:
+
+1.  **Identify a data source.** I've included a data folder located the Unit 4 Analysis Project in our [RStudio Cloud ECI 589 Workspace](https://rstudio.cloud/spaces/146919/join?access_code=VgotVV692OpRoxZvrOp9oW8a2EThPX5kHkJ7Vgf8) that contains datasets I've created, as well as those from our SNA and Education course text described [here](https://studysites.sagepub.com/carolan/study/resources.htm). You are welcome to chose from those or to identify your own data source related to an area of professional interest.
+
+2.  **Formulate a question.** I recommend keeping this simple and limiting to no more than one or two questions. Your question(s) should be appropriate to your data set and ideally be answered by applying concepts and skills from our course readings and case study. For example, you may be interested in determining whether gender predicts confidential exchanges between school and district leaders using the Alan Daly school leader dataset.
+
+3.  **Analyze the data.** I highly recommend creating a new R script in the Unit 4 Analysis project space to use as you work through data wrangling and analysis. Your R script will likely contain code that doesn't make it into your R Markdown presentation or report since you will likely experiment with different approaches and figure out code that works and code that does not.
+
+4.  **Create a data product.** When you feel you've wrangled and analyzed the data to your satisfaction, create an R Markdown file that includes a polished sociogram and/or data table and a narrative highlighting your research question, data source, and key findings and potential implications. Your R Markdown file should include a polished sociogram and/or table, a title and narrative, and all code necessary to read, wrangle, and explore your data.
+
+5.  **Share your findings.** Knit your data product to a desired output format. This may be a simple [HTML](https://bookdown.org/yihui/rmarkdown/html-document.html), [PDF](https://bookdown.org/yihui/rmarkdown/pdf-document.html), or [MS Word](https://bookdown.org/yihui/rmarkdown/word-document.html) file; or something more complex like [HTML5 slides](https://bookdown.org/yihui/rmarkdown/ioslides-presentation.html), a [Tufte-style handout](https://bookdown.org/yihui/rmarkdown/tufte-handouts.html), [dashboard](https://rmarkdown.rstudio.com/flexdashboard/), or [website](https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html). Then create a new forum post below to share your analysis. Include in the post your published web link (e.g., via [RPubs](https://rpubs.com/about/getting-started) or [GitHub](https://towardsdatascience.com/how-to-create-a-free-github-pages-website-53743d7524e1)) or attached file (e.g. HTML or PDF) and add a short reflection including one thing you learned and one thing you'd like to explore further.
+
+6.  **Provide feedback.** Finally, take look at the posted data products and provide some brief (1 paragraph) but constructive feedback to at least two of your peers. Your feedback should include one thing you liked about their data product and why and one suggestion for improvement or extension of the analysis.
+
+If you have any questions about the assignment or run into any technical issues, don't hesitate to email me at sbkellog\@ncsu.edu or set up a Zoom meeting at calendly.com/sbkellogg.
