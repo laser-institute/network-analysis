@@ -78,7 +78,6 @@ Network Measurement
 - Density
 - Centrality
 - Reciprocity
-
 ]
 
 ???
@@ -114,16 +113,6 @@ For this workshop...
 ???
 
 Social relations are often more important for understanding behaviors and attitudes than are such attributes related to one's background (e.g., age, gender, etc.)
- 
----
-# Discuss
-
-Consider a network which you are a part of and think about the following:
-- Who are the network's actors? 
-- What ties connect these actors? 
-- Are there any groups within this network? 
-- What relations within this network might be of interest to a researcher? 
-- Finally, what makes this collection of actors a social network?
 
 
 ---
@@ -141,12 +130,12 @@ Data Collection, Management, and Quality
 
 .panel[.panel-name[Specify Boundary]
 
-
-So how exactly do researchers capture these relations? 
+One important  before collecting data  data collection Where do you set the limits when collecting relational data when, in theory, there are no limits (Barnes, 1979; Knoke & Yang, 2008)? There are three generic approaches to addressing this issue: positional, relational, and event-based.
 
 1. Specify the **boundary** of our network . 
-
 1. 
+
+
 
 ]
 
@@ -157,11 +146,7 @@ So how exactly do researchers capture these relations?
 ]
 
 
-???
 
-1. In complete-network studies, you select the set of actors that serves as the study's bounded population. Informed by either positional or event-based approaches to network boundary specification, these studies typically measure a small number of relations between each pair of the network's actors.
-
-The collection of network data —specifically, relational data on a set of actors —is primarily informed by whether you are interested in a complete–or ego–level of analyses. 
 
 
 .panel[.panel-name[Identify Instrument]
@@ -170,16 +155,25 @@ The collection of network data —specifically, relational data on a set of acto
 ]
 
 
-
-
 .panel[.panel-name[Discuss]
 
-
-
+Consider a network you may be interested in researching and consider:
+- Who are the network's actors? 
+- What is the boundary of this network? 
+- What ties connect these actors? 
+- Are there any groups within this network? 
+- What relations within this network might be of interest to a researcher? 
+- Finally, what makes this collection of actors a social network?
 
 ]
 
 ]
+
+???
+
+Boundary Specification 
+
+
 
 ---
 # Data Management
@@ -195,7 +189,7 @@ Krumm, A. et al. (2018). [Learning analytics goes to school.](https://www.taylor
 ---
 class: clear, inverse, middle, center
 
-# part_2(r, code-along)
+# part_2(R, code_along)
 
 
 Network Measures
