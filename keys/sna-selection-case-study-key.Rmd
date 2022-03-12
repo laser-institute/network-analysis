@@ -211,8 +211,8 @@ library(janitor)
 ![](img/statnetlogo.png){width="20%"}
 
 Similar to the collection of packages contained in the {tidyverse}
-package, the Statnet Team [@handcock:statnet] has developed a suite of R
-packages for the management, exploration, statistical analysis,
+package, the Statnet Team [\@handcock:statnet] has developed a suite of
+R packages for the management, exploration, statistical analysis,
 simulation and vizualization of network data. The statistical modeling
 framework used in {statnet} relies on Exponential-family Random Graph
 Models (ERGMs).
