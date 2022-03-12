@@ -72,6 +72,7 @@ Data Management
 ]
 
 .pull-right[
+
 ## R Code-Along
 Network Measurement 
 - Density
@@ -88,6 +89,7 @@ For this workshop...
 
 ---
 # A Quick Refresher
+
 
 .pull-left[
 ## Network Theory
@@ -113,12 +115,30 @@ For this workshop...
 
 Social relations are often more important for understanding behaviors and attitudes than are such attributes related to one's background (e.g., age, gender, etc.)
  
+---
+# Discuss
+
+Consider a network which you are a part of and think about the following:
+- Who are the network's actors? 
+- What ties connect these actors? 
+- Are there any groups within this network? 
+- What relations within this network might be of interest to a researcher? 
+- Finally, what makes this collection of actors a social network?
+
+
+---
+class: clear, inverse, middle, center
+
+# Part 1: Conceptual Overview
+
+
+How do collect, manage
 
 
 ---
 # Data Collection
 
-So how exactly do research capture these relations? 
+So how exactly do researchers capture these relations? 
 
 1. Specify the **boundary** of our network . 
 
@@ -143,10 +163,11 @@ The collection of network data —specifically, relational data on a set of acto
 .footnote[
 Krumm, A. et al. (2018). [Learning analytics goes to school.](https://www.taylorfrancis.com/books/mono/10.4324/9781315650722/learning-analytics-goes-school-andrew-krumm-barbara-means-marie-bienkowski).
 ]
+
 ---
 class: clear, inverse, middle, center
 
-# RStudio Code-Along
+# part_2(r, code-along)
 
 
 Network Measures
