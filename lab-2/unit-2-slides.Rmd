@@ -132,11 +132,15 @@ class: clear, inverse, middle, center
 # Part 1: Conceptual Overview
 
 
-How do collect, manage
-
+Data Collection, Management, and Quality
 
 ---
 # Data Collection
+
+.panelset[
+
+.panel[.panel-name[Specify Boundary]
+
 
 So how exactly do researchers capture these relations? 
 
@@ -144,6 +148,13 @@ So how exactly do researchers capture these relations?
 
 1. 
 
+]
+
+.panel[.panel-name[Define Ties]
+
+
+
+]
 
 
 ???
@@ -152,6 +163,23 @@ So how exactly do researchers capture these relations?
 
 The collection of network data —specifically, relational data on a set of actors —is primarily informed by whether you are interested in a complete–or ego–level of analyses. 
 
+
+.panel[.panel-name[Identify Instrument]
+
+
+]
+
+
+
+
+.panel[.panel-name[Discuss]
+
+
+
+
+]
+
+]
 
 ---
 # Data Management

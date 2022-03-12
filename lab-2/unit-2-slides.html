@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="author" content="Dr. Shaun Kellogg" />
     <meta name="date" content="2022-03-12" />
-    <script src="libs/header-attrs-2.11/header-attrs.js"></script>
+    <script src="libs/header-attrs-2.13/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/panelset-0.2.6/panelset.css" rel="stylesheet" />
     <script src="libs/panelset-0.2.6/panelset.js"></script>
@@ -111,11 +111,15 @@ class: clear, inverse, middle, center
 # Part 1: Conceptual Overview
 
 
-How do collect, manage
-
+Data Collection, Management, and Quality
 
 ---
 # Data Collection
+
+.panelset[
+
+.panel[.panel-name[Specify Boundary]
+
 
 So how exactly do researchers capture these relations? 
 
@@ -123,6 +127,13 @@ So how exactly do researchers capture these relations?
 
 1. 
 
+]
+
+.panel[.panel-name[Define Ties]
+
+
+
+]
 
 
 ???
@@ -131,6 +142,23 @@ So how exactly do researchers capture these relations?
 
 The collection of network data —specifically, relational data on a set of actors —is primarily informed by whether you are interested in a complete–or ego–level of analyses. 
 
+
+.panel[.panel-name[Identify Instrument]
+
+
+]
+
+
+
+
+.panel[.panel-name[Discuss]
+
+
+
+
+]
+
+]
 
 ---
 # Data Management
@@ -465,7 +493,10 @@ centr_degree(year_1_network, mode = "all")
 
 ```
 ## $res
-##  [1] 5 0 5 3 3 3 4 8 4 7 4 1 0 4 4 3 2 5 4 4 5 4 3 6 4 4 4 3 8 4 4 3 3 6 3 3 4 3 6 2 3 4 2
+##  [1] 5 0 5 3 3 3 4 8 4 7 4 1 0
+## [14] 4 4 3 2 5 4 4 5 4 3 6 4 4
+## [27] 4 3 8 4 4 3 3 6 3 3 4 3 6
+## [40] 2 3 4 2
 ## 
 ## $centralization
 ## [1] 0.05102041
