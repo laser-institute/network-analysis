@@ -141,6 +141,21 @@ How do you determine **who's in the network** that you will collect data about?
 
 .panel[.panel-name[Define Ties]
 
+.pull-left[
+### Relationship & Strength
+- Friendships
+- Co-Author
+- 
+]
+
+
+.pull-right[
+### Interactions & Frequency
+-
+-
+-
+
+]
 
 
 ]
