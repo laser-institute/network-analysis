@@ -43,8 +43,8 @@ class: clear, title-slide, inverse, center, top, middle
 # Agenda
 
 .pull-left[
-## Conceptual Overview
-Data Management
+## Part 1: Conceptual Overview
+### Data Management
 - Collection
 - Management
 - Quality  
@@ -52,8 +52,8 @@ Data Management
 
 .pull-right[
 
-## R Code-Along
-Network Measurement 
+## Part 2: R Code-Along
+#### Network Measurement 
 - Density
 - Centrality
 - Reciprocity
@@ -124,8 +124,107 @@ How do you determine **who's in the network** that you will collect data about?
 
 ### Relationship &amp; Strength
 - Friendships (friend, best friend)
+- Co-Author/Presenter (# of pubs)
 - Assignment Partner
-- Co-Author/Prenter
+- Committee Members
+
+]
+
+
+.pull-right[
+
+### Interactions &amp; Frequency
+- Online Discussion (# of replies/DMs)
+- Support Seeking (how often)
+- Confidential Exchanges
+- Communications
+
+]
+
+
+]
+
+
+.panel[.panel-name[Identify Source]
+
+.pull-left[
+
+### Archives
+- Email Accounts
+- Discussion Forums
+- Social Network Platforms
+- School Records 
+
+]
+
+
+.pull-right[
+
+### Sociometric Instrument
+- [Survey](https://ncsu.qualtrics.com/jfe/preview/SV_5w2Ayiu2UriAz3M?Q_CHL=preview&amp;Q_SurveyVersionID=current) or Interview Protocol
+- Nomination or Roster
+- Binary or Ordinal
+- Simple or Multiplex
+
+
+]
+
+]
+
+.panel[.panel-name[Discuss]
+
+Consider the following quesions about a network you may be interested in studying:
+- What is the boundary of this network? 
+- What relations within this network might be of interest to your research? 
+- What attributes about actors in this network might you want to 
+- How might you collect data about these actors and their relations? 
+
+Record your response here: 
+
+]
+
+]
+
+???
+
+Boundary Specification 
+
+---
+# Discuss
+
+
+Consider a network you may be interested in studying and consider the following questions:
+- Who are the network's actors? 
+- What specifies the boundary of this network? 
+- What relations within this network might be of interest to you? 
+- Finally, what makes this collection of actors a social network?
+
+
+---
+# Data Management
+
+.panelset[
+
+.panel[.panel-name[Storage]
+
+How do you determine **who's in the network** that you will collect data about?    
+
+- Occupy a **position** in a social structure (e.g., leaders in a district)
+- Participate in an **event** at specific time and place (e.g., attendees at an academic conference)
+- Indicate a specific **relation** to other actors (e.g., ) 
+
+
+]
+
+.panel[.panel-name[Define Ties]
+
+.pull-left[
+
+### Relationship &amp; Strength
+- Friendships (friend, best friend)
+- Co-Author/Presenter (# of pubs)
+- Assignment Partner
+- Committee Members
 
 ]
 
@@ -135,6 +234,7 @@ How do you determine **who's in the network** that you will collect data about?
 ### Interactions &amp; Frequency
 - Online Discussion (# of replies/DMs)
 - Advice Seeking (how often)
+- Confidential Exchanges
 - 
 
 ]
@@ -151,7 +251,6 @@ How do you determine **who's in the network** that you will collect data about?
 
 ]
 
-
 .panel[.panel-name[Discuss]
 
 Consider a network you may be interested in studying and consider the following:
@@ -167,12 +266,6 @@ Consider a network you may be interested in studying and consider the following:
 ???
 
 Boundary Specification 
-
-
-
----
-# Data Management
-
 
 ---
 # Data Quality
@@ -503,8 +596,7 @@ centr_degree(year_1_network, mode = "all")
 
 ```
 ## $res
-##  [1] 5 0 5 3 3 3 4 8 4 7 4 1 0 4 4 3 2 5 4 4 5 4 3 6 4 4 4 3 8 4 4 3 3 6 3 3 4 3
-## [39] 6 2 3 4 2
+##  [1] 5 0 5 3 3 3 4 8 4 7 4 1 0 4 4 3 2 5 4 4 5 4 3 6 4 4 4 3 8 4 4 3 3 6 3 3 4 3 6 2 3 4 2
 ## 
 ## $centralization
 ## [1] 0.05102041
