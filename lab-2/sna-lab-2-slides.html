@@ -4,7 +4,7 @@
     <title>SNA Lab 2: Network Data Management &amp; Measurement</title>
     <meta charset="utf-8" />
     <meta name="author" content="Dr. Shaun Kellogg" />
-    <meta name="date" content="2022-03-13" />
+    <meta name="date" content="2022-03-15" />
     <script src="libs/header-attrs-2.11/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/panelset-0.2.6/panelset.css" rel="stylesheet" />
@@ -37,7 +37,7 @@ class: clear, title-slide, inverse, center, top, middle
 # SNA Lab 2: Network Data Management &amp; Measurement
 ----
 ### **Dr. Shaun Kellogg**
-### March 13, 2022
+### March 15, 2022
 
 ---
 # Agenda
@@ -46,8 +46,8 @@ class: clear, title-slide, inverse, center, top, middle
 ## Part 1: Conceptual Overview
 ### Data Management
 - Collection
-- Management
-- Quality  
+- Storage 
+- Quality
 ]
 
 .pull-right[
@@ -63,7 +63,7 @@ class: clear, title-slide, inverse, center, top, middle
 
 Recall that the key difference between data used in typical STEM Ed Research and data used for social network analysis is the focus on relationships between individual rather than the individual themselves. As a result, this presents some unique issues inherent in how we manage of social network data, as well as the measurements derived from this data. 
 
-For this workshop... 
+This workshop is divided into two parts. In Part I, we focus on data management, including how to collect and store network data, as well as approaches to help ensure the quality of the data we collect. In Part II, we take a quick look at a study by Alan Daly that illustrates some of these approaches, and will then learn about some basic network-level measures such as dessity, centrality, and reciprocity that are commonly used to describe our networks mathematically. 
 
 ---
 # A Quick Refresher
@@ -91,18 +91,29 @@ For this workshop...
 
 ???
 
-Social relations are often more important for understanding behaviors and attitudes than are such attributes related to one's background (e.g., age, gender, etc.)
+### Network Theory
+Social Network Theory rests on a few key assumptions that are fairly intuitive but also supported by ample research in education: 
+1. Social relations are often more important for understanding behaviors and attitudes than are such attributes related to one's background (e.g., age, gender, etc.). The complex patterns of relations among individuals, unlike their attributes, change from context to context, condition educators and students apart from their attributes, therefore offers a deeper and broader explanation for a wide range of educational opportunities and outcomes.
+2. The second assumption is what motivates a wide array of network studies in education and encourages researchers to uncover the mechanisms through which relations affect actors and to identify the conditions under which these mechanisms operate in specific contexts.
+3. The last assumption is that relations are not static but rather occur as part of a dynamic process. For example, a study by Atteberry &amp; Bryk (2010) demoonstrated how the communication patterns between teachers and the their school's literacy coach affected the successful implementation of a school-level reform initiative. These relations, in turn, altered the flow of information among teachers and created further opportunities or constraints on future interactions and whether the intervention was ultimately a success.
 
+### Network Terms
+
+Networks are often depicted as a **sociogram**, or network graph, that consists of nodes and edges representing indiviudals, their relations, and structural properting of the entire network.  
+
+- **Node.** Nodes are frequently referred to as actors or vertices and typically illustrated by circles, but the shape, color and size can vary depening on what the researcher wants to illustrate abotu the data. 
+- **Edges.** are frequently referred to as relations or ties. The are usually depicted by lines that represent some kind of relationship between individuals and that often have arrows indicating directionality. For example, in a communication network, arrows may illustrate a reply to a discussion thread or an email sent.  
 
 ---
 class: clear, inverse, middle, center
 
-# Part 1: Conceptual Overview
+# Part 1: Network Data Management
 
 
-Data Collection, Management, and Quality
+Data Collection, Storage, Quality
 
 ---
+
 # Data Collection
 
 .panelset[
@@ -187,55 +198,75 @@ Record your response here:
 
 ???
 
-Boundary Specification 
+Prior to data collection, there are a number of decisions research have to make regarding the boundary of the network, relations to capture, and means of collecting data. 
 
----
-# Discuss
-
-
-Consider a network you may be interested in studying and consider the following questions:
-- Who are the network's actors? 
-- What specifies the boundary of this network? 
-- What relations within this network might be of interest to you? 
-- Finally, what makes this collection of actors a social network?
+### Boundary Specification 
+- Specifying answers the question: Where do you set the limits when collecting relational data when, in theory, there are no limits? I'm going to quickly run through three generic approaches to addressing this issue.
+- The **positional approach** defines a set of actors that occupy a similar position in some social structure. For example, in the study we'll take a look at in a little bit, actors in the network of study consisted of school and district level leaders at a school district placed under sanction and undergoing major school reforms. 
+- The **event-based approach** to specifying a network's boundary falls delineate a network's boundaries by selecting only those actors who participated in an “event” at a specific time and place. For example, you may be interested in observing fellow researchers participating in an academic conference or attendees at local board of education meetings. As opposed to positional approaches that focus on actors’ behavior or role, the criterion for inclusion through this approach is an event rooted in time and place.
+-  The **relational approach** is typically used in egocentric studies, which we don't address here, either based on a researcher's knowledge about relations among a set of actors or relies on the actors themselves to nominate additional actors for inclusion. For example, I'm currently evaluating network of agricultural research networks and we compiled a master list of the networks involved then asked the PIs about these network to identify the actors invovled, or likely to be involved in research and training collaboration between the networks.
 
 
 ---
-# Data Management
+# Data Storage
 
 .panelset[
 
-.panel[.panel-name[Storage]
 
-How do you determine **who's in the network** that you will collect data about?    
-
-- Occupy a **position** in a social structure (e.g., leaders in a district)
-- Participate in an **event** at specific time and place (e.g., attendees at an academic conference)
-- Indicate a specific **relation** to other actors (e.g., ) 
-
-
-]
-
-.panel[.panel-name[Define Ties]
+.panel[.panel-name[Node-List]
 
 .pull-left[
 
-### Relationship &amp; Strength
-- Friendships (friend, best friend)
-- Co-Author/Presenter (# of pubs)
-- Assignment Partner
-- Committee Members
+Consistent with typical data storage, node-lists often include:
+- **Name or ID of nodes**
+- Demographic info (gender, age) 
+- Socio-economic info (job, income)
+- Substantative info (grades)
+- **Nominated alters**
 
 ]
 
 
 .pull-right[
 
-### Interactions &amp; Frequency
-- Online Discussion (# of replies/DMs)
-- Advice Seeking (how often)
-- Confidential Exchanges
-- 
+
+| UID|role1         | experience|region    |
+|---:|:-------------|----------:|:---------|
+|   1|libmedia      |          1|South     |
+|   2|classteaching |          1|South     |
+|   3|districtadmin |          2|Northeast |
+|   4|classteaching |          2|South     |
+|   5|otheredprof   |          3|South     |
+|   6|classteaching |          1|South     |
+
+]
+
+
+]
+
+.panel[.panel-name[Edge-List]
+
+.pull-left[
+
+Radically different than typical data storage, edge-lists include:
+- **ego and an alter**
+- tie strength or frequency
+- edge attributes (time, event, text)
+
+]
+
+
+.pull-right[
+
+
+| Sender| Receiver|Timestamp    |
+|------:|--------:|:------------|
+|    360|      444|4/4/13 16:32 |
+|    356|      444|4/4/13 18:45 |
+|    356|      444|4/4/13 18:47 |
+|    344|      444|4/4/13 18:55 |
+|    392|      444|4/4/13 19:13 |
+|    219|      444|4/4/13 19:16 |
 
 ]
 
@@ -243,21 +274,43 @@ How do you determine **who's in the network** that you will collect data about?
 ]
 
 
+.panel[.panel-name[Adjacency Matrix]
+
+.pull-left[
+
+Also radically different, an adjacency matrix includes:
+- Column for each actor
+- Row for each actor
+- A Value indicate the presence/strength of a relation 
+
+]
 
 
+.pull-right[
 
-.panel[.panel-name[Identify Instrument]
 
+```
+##   1 2 3 4 5 6 7 8
+## 1 0 0 3 0 0 0 0 0
+## 2 0 0 0 0 0 0 0 0
+## 3 4 0 0 0 0 0 0 0
+## 4 0 0 0 0 0 0 0 0
+## 5 0 0 0 0 0 0 0 0
+## 6 3 0 0 0 0 0 0 0
+## 7 0 0 0 0 0 0 0 0
+## 8 0 0 0 0 0 0 0 0
+```
+
+]
 
 ]
 
 .panel[.panel-name[Discuss]
 
-Consider a network you may be interested in studying and consider the following:
-- Who are the network's actors? 
-- What is the boundary of this network? 
-- What relations within this network might be of interest to you? 
-- Finally, what makes this collection of actors a social network?
+Take a look at one of the newtwork datasets located [here]() and consider the following:
+- What format is this data set stored as? 
+- What are some things you notice about this dataset? 
+- What questions do you have about this dataset? 
 
 ]
 
@@ -267,12 +320,83 @@ Consider a network you may be interested in studying and consider the following:
 
 Boundary Specification 
 
+
+
 ---
 # Data Quality
 
-.footnote[
-Krumm, A. et al. (2018). [Learning analytics goes to school.](https://www.taylorfrancis.com/books/mono/10.4324/9781315650722/learning-analytics-goes-school-andrew-krumm-barbara-means-marie-bienkowski).
+.panelset[
+
+.panel[.panel-name[Reliability]
+
+Recall that reliability is the **extent to which an instrument yields a similar results** every time its applied to the same participant.    
+
+- A common approaches in SNA is **Test-Retest reliability**. 
+- Closer ties tend to be reported more reliably than weaker ones
+- Reciprocated relations may be more trustworthy.
+
 ]
+
+
+.panel[.panel-name[Validity]
+
+While research on whether reported relations measure actual relations is slim, and participant recall considered suspect, **ways to improve instrument validity** include:   
+
+1. Focus on more stable relations, as opposed to ones that are time specific;
+1.  Limit the number of alters one can nominate;
+1.  Ask respondents to try to answer what the others would say;
+1.  Consider observations or archival data (e.g. logs, student records). 
+
+
+.panel[.panel-name[Measurement Error]
+
+.pull-left[ 
+### Measurement Issues
+1. Recall vs. Recognition 
+1. Fixed- vs. Free-Choice (Quantity)
+1. Ratings vs. Rankings (Intensity)
+1. Missing Data
+
+]
+
+
+.pull-right[
+
+### Possible Solutions
+1. Use a roster if network size &lt; 50
+1. No consensus, consider both
+1. Ranking if network size &lt; 20
+1. Avoid if possible ;) 
+
+
+]
+
+]
+
+]
+
+.panel[.panel-name[Discuss]
+
+Consider the following quesions about a network you may be interested in studying:
+- What might be some threats to the quality of your data? 
+- How might you address these threats? 
+- 
+
+Record your response here: 
+
+]
+
+]
+
+???
+
+Similar to data we might typically collect about individual participants in our research, the quality of relational data also depends on reliability, validity, accuracy, and measurement error.
+
+### Reliability
+-  
+
+
+
 
 ---
 class: clear, inverse, middle, center
