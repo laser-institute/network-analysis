@@ -32,7 +32,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ```{r, echo=FALSE}
 # then load all the relevant packages
-pacman::p_load(pacman, knitr)
+pacman::p_load(pacman, knitr, tidyverse, readxl)
 ```
 
 ```{r xaringan-panelset, echo=FALSE}
@@ -67,8 +67,9 @@ xaringanExtra::use_tile_view()
 ## Part 1: Conceptual Overview
 ### Data Management
 - Collection
-- Management
-- Quality  
+- Storage 
+- Quality
+
 ]
 
 .pull-right[
@@ -80,11 +81,12 @@ xaringanExtra::use_tile_view()
 - Reciprocity
 ]
 
+
 ???
 
 Recall that the key difference between data used in typical STEM Ed Research and data used for social network analysis is the focus on relationships between individual rather than the individual themselves. As a result, this presents some unique issues inherent in how we manage of social network data, as well as the measurements derived from this data. 
 
-For this workshop... 
+This workshop is divided into two parts. In Part I, we focus on data management, including how to collect and store network data, as well as approaches to help ensure the quality of the data we collect. In Part II, we take a quick look at a study by Alan Daly that illustrates some of these approaches, and will then learn about some basic network-level measures such as dessity, centrality, and reciprocity that are commonly used to describe our networks mathematically. 
 
 ---
 # A Quick Refresher
@@ -112,18 +114,29 @@ For this workshop...
 
 ???
 
-Social relations are often more important for understanding behaviors and attitudes than are such attributes related to one's background (e.g., age, gender, etc.)
+### Network Theory
+Social Network Theory rests on a few key assumptions that are fairly intuitive but also supported by ample research in education: 
+1. Social relations are often more important for understanding behaviors and attitudes than are such attributes related to one's background (e.g., age, gender, etc.). The complex patterns of relations among individuals, unlike their attributes, change from context to context, condition educators and students apart from their attributes, therefore offers a deeper and broader explanation for a wide range of educational opportunities and outcomes.
+2. The second assumption is what motivates a wide array of network studies in education and encourages researchers to uncover the mechanisms through which relations affect actors and to identify the conditions under which these mechanisms operate in specific contexts.
+3. The last assumption is that relations are not static but rather occur as part of a dynamic process. For example, a study by Atteberry & Bryk (2010) demoonstrated how the communication patterns between teachers and the their school's literacy coach affected the successful implementation of a school-level reform initiative. These relations, in turn, altered the flow of information among teachers and created further opportunities or constraints on future interactions and whether the intervention was ultimately a success.
 
+### Network Terms
+
+Networks are often depicted as a **sociogram**, or network graph, that consists of nodes and edges representing indiviudals, their relations, and structural properting of the entire network.  
+
+- **Node.** Nodes are frequently referred to as actors or vertices and typically illustrated by circles, but the shape, color and size can vary depening on what the researcher wants to illustrate abotu the data. 
+- **Edges.** are frequently referred to as relations or ties. The are usually depicted by lines that represent some kind of relationship between individuals and that often have arrows indicating directionality. For example, in a communication network, arrows may illustrate a reply to a discussion thread or an email sent.  
 
 ---
 class: clear, inverse, middle, center
 
-# Part 1: Conceptual Overview
+# Part 1: Network Data Management
 
 
-Data Collection, Management, and Quality
+Data Collection, Storage, Quality
 
 ---
+
 # Data Collection
 
 .panelset[
@@ -132,9 +145,9 @@ Data Collection, Management, and Quality
 
 How do you determine **who's in the network** that you will collect data about?    
 
-- Occupy a **position** in a social structure (e.g., leaders in a district)
-- Participate in an **event** at specific time and place (e.g., attendees at an academic conference)
-- Indicate a specific **relation** to other actors (e.g., ) 
+- Actors occupy a specific **position** in a social structure (e.g., leaders in a district)
+- Determined by participation in an **event** at specific time and place (e.g., attendees at an academic conference)
+- Defined by a specific **relation** know to the research or actors themselves.
 
 
 ]
@@ -200,7 +213,7 @@ Consider the following quesions about a network you may be interested in studyin
 - What attributes about actors in this network might you want to 
 - How might you collect data about these actors and their relations? 
 
-Record your response here: 
+Record your response in the chat. 
 
 ]
 
@@ -208,55 +221,73 @@ Record your response here:
 
 ???
 
-Boundary Specification 
+Prior to data collection, there are a number of decisions research have to make regarding the boundary of the network, relations to capture, and means of collecting data. 
 
----
-# Discuss
-
-
-Consider a network you may be interested in studying and consider the following questions:
-- Who are the network's actors? 
-- What specifies the boundary of this network? 
-- What relations within this network might be of interest to you? 
-- Finally, what makes this collection of actors a social network?
+### Boundary Specification 
+- Specifying answers the question: Where do you set the limits when collecting relational data when, in theory, there are no limits? I'm going to quickly run through three generic approaches to addressing this issue.
+- The **positional approach** defines a set of actors that occupy a similar position in some social structure. For example, in the study we'll take a look at in a little bit, actors in the network of study consisted of school and district level leaders at a school district placed under sanction and undergoing major school reforms. 
+- The **event-based approach** to specifying a network's boundary falls delineate a network's boundaries by selecting only those actors who participated in an “event” at a specific time and place. For example, you may be interested in observing fellow researchers participating in an academic conference or attendees at local board of education meetings. As opposed to positional approaches that focus on actors’ behavior or role, the criterion for inclusion through this approach is an event rooted in time and place.
+-  The **relational approach** is typically used in egocentric studies, which we don't address here, either based on a researcher's knowledge about relations among a set of actors or relies on the actors themselves to nominate additional actors for inclusion. For example, I'm currently evaluating network of agricultural research networks and we compiled a master list of the networks involved then asked the PIs about these network to identify the actors invovled, or likely to be involved in research and training collaboration between the networks.
 
 
 ---
-# Data Management
+# Data Storage
 
 .panelset[
 
-.panel[.panel-name[Storage]
 
-How do you determine **who's in the network** that you will collect data about?    
-
-- Occupy a **position** in a social structure (e.g., leaders in a district)
-- Participate in an **event** at specific time and place (e.g., attendees at an academic conference)
-- Indicate a specific **relation** to other actors (e.g., ) 
-
-
-]
-
-.panel[.panel-name[Define Ties]
+.panel[.panel-name[Node-List]
 
 .pull-left[
 
-### Relationship & Strength
-- Friendships (friend, best friend)
-- Co-Author/Presenter (# of pubs)
-- Assignment Partner
-- Committee Members
+Consistent with typical data storage, node-lists often include:
+- **Name or ID of nodes**
+- Demographic info (gender, age) 
+- Socio-economic info (job, income)
+- Substantative info (grades)
+- **Nominated alters**
 
 ]
 
 
 .pull-right[
 
-### Interactions & Frequency
-- Online Discussion (# of replies/DMs)
-- Advice Seeking (how often)
-- Confidential Exchanges
-- 
+```{r node-list, echo=FALSE, message=FALSE, warning=FALSE}
+dlt1_nodes <- read_csv("data/dlt1-nodes.csv")
+
+dlt1_nodes |>
+  head() |>
+  select(UID, role1, experience, region) |>
+  kable()
+```
+
+]
+
+
+]
+
+.panel[.panel-name[Edge-List]
+
+.pull-left[
+
+Radically different than typical data storage, edge-lists include:
+- **ego and an alter**
+- tie strength or frequency
+- edge attributes (time, event, text)
+
+]
+
+
+.pull-right[
+
+```{r edge-list, echo=FALSE, message=FALSE, warning=FALSE}
+dlt1_edges <- read_csv("data/dlt1-edges.csv")
+
+dlt1_edges |>
+  head() |>
+  select(Sender, Receiver, Timestamp) |>
+  kable()
+```
 
 ]
 
@@ -264,21 +295,44 @@ How do you determine **who's in the network** that you will collect data about?
 ]
 
 
+.panel[.panel-name[Adjacency Matrix]
+
+.pull-left[
+
+Also radically different, an adjacency matrix includes:
+- Column for each actor
+- Row for each actor
+- A Value indicate the presence/strength of a relation 
+
+]
 
 
+.pull-right[
 
-.panel[.panel-name[Identify Instrument]
+```{r adjaency-matrix, echo=FALSE, message=FALSE, warning=FALSE}
 
+year_1_collaboration <- read_excel("data/year_1_collaboration.xlsx", 
+                                   col_names = FALSE)
+
+year_1_matrix <- as.matrix(year_1_collaboration)
+
+rownames(year_1_matrix) <- 1:43
+
+colnames(year_1_matrix) <- 1:43
+
+year_1_matrix[1:8, 1:8]
+```
+
+]
 
 ]
 
 .panel[.panel-name[Discuss]
 
-Consider a network you may be interested in studying and consider the following:
-- Who are the network's actors? 
-- What is the boundary of this network? 
-- What relations within this network might be of interest to you? 
-- Finally, what makes this collection of actors a social network?
+Take a look at one of the newtwork datasets located [here](https://github.com/laser-institute/network-analysis/tree/main/lab-2/data) and consider the following:
+- What format is this data set stored as? 
+- What are some things you notice about this dataset? 
+- What questions do you have about this dataset? 
 
 ]
 
@@ -286,22 +340,101 @@ Consider a network you may be interested in studying and consider the following:
 
 ???
 
-Boundary Specification 
+
 
 ---
 # Data Quality
 
-.footnote[
-Krumm, A. et al. (2018). [Learning analytics goes to school.](https://www.taylorfrancis.com/books/mono/10.4324/9781315650722/learning-analytics-goes-school-andrew-krumm-barbara-means-marie-bienkowski).
+.panelset[
+
+.panel[.panel-name[Reliability]
+
+Recall that reliability is the **extent to which an instrument yields a similar results** every time its applied to the same participant.    
+
+- A common approaches in SNA is **Test-Retest reliability**. 
+- Closer ties tend to be reported more reliably than weaker ones
+- Reciprocated relations may be more trustworthy.
+
 ]
+
+
+.panel[.panel-name[Validity]
+
+While research on whether reported relations measure actual relations is slim, and participant recall considered suspect, **ways to improve instrument validity** include:   
+
+1. Focus on more stable relations, as opposed to ones that are time specific;
+1.  Limit the number of alters one can nominate;
+1.  Ask respondents to try to answer what the others would say;
+1.  Consider observations or archival data (e.g. logs, student records). 
+
+
+.panel[.panel-name[Measurement Error]
+
+.pull-left[ 
+### Measurement Issues
+1. Recall vs. Recognition 
+1. Fixed- vs. Free-Choice (Quantity)
+1. Ratings vs. Rankings (Intensity)
+1. Missing Data
+
+]
+
+
+.pull-right[
+
+### Possible Solutions
+1. Use a roster if network size < 50
+1. No consensus, consider both
+1. Ranking if network size < 20
+1. Avoid if possible ;) 
+
+
+]
+
+]
+
+]
+
+.panel[.panel-name[Discuss]
+
+Consider the following questions about your network interest described earlier:
+- What might be some threats to the quality of your data? 
+- How might you address or avoid these threats? 
+
+Record your response in the chat.  
+
+]
+
+]
+
+???
+
+Similar to data we might typically collect about individual participants in our research, the quality of relational data also depends on reliability, validity, accuracy, and measurement error.
+
+### Reliability
+- Social network researchers can rely on several common reliability measures, including interobserver reliability, internal consistency reliability, and **test–retest reliability**. The latter, however, is the most commonly used. For example, we may ask a teacher nominates all those other teachers from whom he or she seeks advice about professional matters. The retest repeats the same (or similar) request at a later time. Highly correlated responses indicate high reliability.
+- One thing to note when designing a network study or data collection instrument is that closer ties tend to be reported more reliably than weaker ones. 
+- Also, for self-reported ties, reciprocated ties are more trustworthy than non reciprocated. For example, one study asking college students to report whom they spend time with found that only 58% recalled spending time with each other. 
+
+### Validity
+
+Sadly, there has not been a lot of research on the validity of measures of network concepts. This issue is especially relevant to data collected by participant recall. For example, a research may ask students to list five classmates with whom they study, but actual observed behavior may indicate something totally different.
+
+Ways to improve validity include: 
+- Focusing on more stable relations, as opposed to ones that are time specific. For example, asking a respondent to identify who one regularly studies with as opposed to asking who one studied with this past month might be the better option.
+- Limit the number of people one can nominate in order to counteract a tendency to under/overreport the number of relations one has
+- Follow up on respondents’ reports, or explicitly asking respondents to try to answer what the others would say as well as what they themselves think and tell respondents that some information may be confirmed with others.
+- Avoid self-report data altogether. If you sources like public records, email, participation in social networking platforms, and school transcripts, you don't need to directly ask respondents to report on their network. Instead, the network is reconstructed from these records and a number of different relations can be captured. For example, using the public Facebook profiles of a set of students in the same school, it is possible to construct a network of who bullies whom, so long as you can precisely define how bullying is measured.
+
 
 ---
 class: clear, inverse, middle, center
 
 # part_2(R, code_along)
 
+Measuring 
 
-Network Measures
+[Learning Lab Workspace](https://rstudio.cloud/spaces/140883/join?access_code=3g8mCNU2Rags4v4U_-r-8lHdF0XAQSq-1p1tkyIz)
 
 ---
 # Literature Review
@@ -312,8 +445,7 @@ Network Measures
 
 .pull-left[
 
-This longitudinal case study **examines reform-related knowledge, advice, and innovation network structures** among administrators in a districcde fg
-t sanction for under-performance and engaging a districtwide reform.
+This longitudinal case study **examines reform-related knowledge, advice, and innovation network structures** among administrators in a district under sanction for under-performance and engaging in district-wide reform efforts.
 ]
 
 .pull-right[
@@ -333,26 +465,28 @@ This study involves quantifying and graphically displaying the ties and overall 
 
 .panel[.panel-name[Data]
 To answer RQ1, Daly and Finnigan administered **online survey consisting of network relations and demographic questions** asking participants to:
-- select the administrators in the La Estasis network that you go to for knowledge
-- to assess their relationships on a 5-point interaction scale ranging from 1 (no interaction) to 5 (1 to 2 times a week).
-- 
+- select the administrators in the La Estasis network that they interact with for the purpose of advise seeking, collaboration, confidential exchanges, etc.
+- assess their relationships on a 5-point interaction scale ranging from 1 (no interaction) to 5 (1 to 2 times a week).
 
 ]
 
 .panel[.panel-name[Key Findings]
 
-Findings indicate that over time, the networks **increased the number of superficial interactions**, but more frequent exchanges remained unchanged, resulting in a centralized network structure.
+Ovearall, the findings from SNA and qualitative interviews indicate that over time: 
+- Networks **increased the number of superficial interactions**.
+- More frequent exchanges, however, remained unchanged. 
+- The result was a centralized network structure.
 ]
-
-
-
 
 ]
 
 
 .footnote[
-Daly, A. et al. (2011). The ebb and flow of social network ties between district leaders.
+Daly, A. et al. (2011). [The ebb and flow of social network ties between district leaders.](https://github.com/laser-institute/network-analysis/blob/main/lab-2/lit/daly-ebb-flow.pdf)
 ]
+
+???
+
 
 ---
 # Load Packages
@@ -377,9 +511,8 @@ library(ggraph)
 
 The {igraph} <img src="img/igraph.png" height="40px"/> package and its collection of network analysis tools provide:
 
-1. pain-free implementation of graph algorithms, 
-1. 
-1. fast handling of large graphs, with millions of vertices and edges, and
+- pain-free implementation of graph algorithms
+- fast handling of large graphs, with millions of vertices and edges
 
 Both {tidygraph} and {ggraph} used in the previous unit and this unit depend heavily on the {igraph} package. 
 
@@ -441,8 +574,10 @@ In the corresponding line of your R script, take a look at the data file we just
 Think about the questions below and be prepared to share your response:              
 
 1. What type of data structure is used to store this network data? 
-1. What do you think the rows and columns represent? what about the values in each cell?  
-1. 
+1. What do you think the rows and columns represent? 
+1. What do the values in each cell represent?
+
+Type your response in the chat. 
 
 ]
 
@@ -495,19 +630,17 @@ In the corresponding line of your R script, type the name of network object we j
 
 .panel[.panel-name[Discuss]
 
-Think about the questions below and be prepared to share your response:              
+Think about the questions below:              
 
-1. What size of the Year 1 collaborationnetwork?
+1. What size of the Year 1 collaboration network?
 1. What else do you notice about this network?
-1. What questions do have about this network?
+1. What questions, if any, do have about this network?
+
+Type your responses in the chat.
+
 ]
 
-.panel[.panel-name[Extra]
 
-- This adjacency matrix reports on **"collaboration" ties among 43 school leaders** in year 1 of a three-year study. 
-
-- This is **a directed valued (weighted) network** measured on five-point scale ranging from 0 to 4, with higher values indicating more frequent collaborations (1–2 times/week).
-]
 ]
 
 
@@ -558,7 +691,7 @@ How would you interpret this measure?
 
 **Hint**: The number of all possible edges in a directed network is V(V-1) where V is the # of vertices.
 
-<!-- How many possible edges if this were an undirect network? -->
+<!-- How many possible edges if this were an undirected network? -->
 ] 
 
 .pull-right[
@@ -593,12 +726,10 @@ Which of these two networks is more centralized?
 ]
 
 .panel[.panel-name[Significance]
-In education, dense networks have been associated with:   
-- healthy learning communities   
-- other
-- other
 
-For better or worse, **dense networks reinforce prevailing norms** and behaviors and insulate one from outside influences (Carolan, 2011). 
+- A network's centralization affects the process through which resources traverse the network. 
+- Central actors likely wield a disproportionate amount of influence on the network. 
+- High centralization provides fewer actors with more power and control.
 
 ]
 
@@ -658,12 +789,9 @@ Which of these two networks is more centralized?
 ]
 
 .panel[.panel-name[Significance]
-Reciprocity is an important measure because it reveals the direction through which resources in networks flow and whether or not it flows in both directions. 
-
-In education, reciprocity has been associated with:   
-- healthy learning communities   
-- other
-- other
+- This property is important because it reveals the direction through which resources such as help, advice, and support flow. 
+- It also indicates the network's stability, as reciprocated ties tend to be more stable over time. 
+- Networks with high reciprocity may be more “equal,” while those with lower reciprocity may be more hierarchical.
 
 ]
 
@@ -679,25 +807,15 @@ Let's apply to our `year_1_network`:]
 reciprocity(year_1_network)
 ```
 
-How would you interpret this measure? What does it indicate abotu our network? 
 ]
 ]
 
 .panel[.panel-name[Discuss]
 
-.pull-left[We know there 82 edges in the Year 1 network (pictured right), but **how many possible edges** could there be?   
+- How would you interpret this measure? 
+- What does it indicate about our network? 
 
-**Hint**: The number of all possible edges in a directed network is V(V-1) where V is the # of vertices.
 
-<!-- How many possible edges if this were an undirect network? -->
-] 
-
-.pull-right[
-```{r examine-reciprocity, strip.white=TRUE, echo=FALSE}
-autograph(year_1_network) +
-  theme_graph()
-```
-]
 ]
 ]
 
