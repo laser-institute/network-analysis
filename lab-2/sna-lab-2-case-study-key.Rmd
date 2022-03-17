@@ -15,7 +15,7 @@ bibliography: lit/references.bib
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, messages = FALSE, warning = FALSE)
 ```
 
 ## 1. Prepare
