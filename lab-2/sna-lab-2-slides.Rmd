@@ -667,9 +667,9 @@ Which of these two networks has a higher density?
 
 .panel[.panel-name[Significance]
 In education, dense networks have been associated with:   
-- healthy learning communities   
-- other
-- other
+- community health
+- flow of resources within a network
+- student achievement
 
 For better or worse, **dense networks reinforce prevailing norms** and behaviors and insulate one from outside influences (Carolan, 2011). 
 
@@ -727,7 +727,7 @@ Which of these two networks is more centralized?
 
 .panel[.panel-name[Significance]
 
-- A network's centralization affects the process through which resources traverse the network. 
+- A network's centralization affects the process through which resources flow through the network. 
 - Central actors likely wield a disproportionate amount of influence on the network. 
 - High centralization provides fewer actors with more power and control.
 
@@ -775,13 +775,13 @@ autograph(year_1_network) +
 
 .panel[.panel-name[Definition]
 
-.pull-left[A key structural property of complete networks is the concept of centralization, or **the extent to which relations are focused on one or a small set of actors**
+.pull-left[Reciprocity is the **degree to which actors in a directed network select one another** or the mutuality of the network's ties.
 
 ]
 
-.pull-right[ .center[<img src="img/density.jpeg" height="150px"/>
+.pull-right[ .center[<img src="img/reciprocated-ties.png" height="210px"/>
 
-Which of these two networks is more centralized?
+Which of these two networks is more directed? Which ties are reciprocated?
 ]
  
 ]
@@ -792,6 +792,7 @@ Which of these two networks is more centralized?
 - This property is important because it reveals the direction through which resources such as help, advice, and support flow. 
 - It also indicates the network's stability, as reciprocated ties tend to be more stable over time. 
 - Networks with high reciprocity may be more “equal,” while those with lower reciprocity may be more hierarchical.
+- In educational contexts, reciprocity has been associated with problem solving, knowledge exchange, risky behavior and drug use. 
 
 ]
 
@@ -800,9 +801,11 @@ Which of these two networks is more centralized?
 .pull-left[
 At the network-level, reciprocity is a measure of the likelihood of vertices in a directed network to be mutually linked. The {igraph} package has a simple `reciprocity()` function for calculating network density. 
 
-Let's apply to our `year_1_network`:]
+]
 
 .pull-right[
+Let's apply to our `year_1_network`:
+
 ```{r reciprocity, echo=TRUE}
 reciprocity(year_1_network)
 ```
@@ -825,17 +828,15 @@ reciprocity(year_1_network)
 .pull-left[
 ## Readings & Discussion
 
-- Collection
-- Management  
-- Quality  
+- [Collecting and Managing Network Data](https://via.hypothes.is/https://drive.google.com/file/d/1qe1y5Ik4XgBbCcMr-CB8TH7xSW9ip3Ji/view?usp=sharing)
+- [Structural Measures for Complete Networks](https://via.hypothes.is/https://drive.google.com/file/d/1qdxvH85jmozCHJgJcYFZKfjvxbCP6SxG/view?usp=sharing)  
 ]
 
 .pull-right[
 ## Case Study
 
-- Density
-- Centrality 
-- Reciprocity
+- [Birds of a Feather Lead Together](https://laser-institute.github.io/network-analysis/lab-2/sna-lab-2-case-study-key.html)
+- [The Ebb and Flow of Social Network Ties Between District Leaders Under High-Stakes Accountability]()
 
 ]
 

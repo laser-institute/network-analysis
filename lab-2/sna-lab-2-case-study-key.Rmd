@@ -20,10 +20,10 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## 1. Prepare
 
-Our *Unit 2 Case Study: Collaboration Ties over Time* revisits the
+Our *Lab 2 Case Study: Collaboration Ties over Time* revisits the
 research of Dr. Alan Daly and centers around the impact No Child Left
 Behind reform efforts on school and district leadership networks. In
-this unit we move beyond visual depictions of networks from our previous
+this lab we move beyond visual depictions of networks from our previous
 SNA case study and learn to describe networks using common network-level
 measures. Our analyses are guided by research conducted by Daly and
 Finnagan @daly2011ebb who examined the ebb and flow of social network
@@ -196,7 +196,7 @@ reshaping, transforming, and merging data[@wickham2016r]. As highlighted
 in Estrellado et al. @estrellado2020e, wrangling network data can be
 even more challenging than other data sources since network data often
 includes variables about both individuals and their relationships. For
-data wrangling in this unit, we're keeping it simple since working with
+data wrangling in this lab, we're keeping it simple since working with
 relational data, especially in the form of matrices, is a bit of a
 departure from our working with rectangular data frames.
 
@@ -1071,7 +1071,7 @@ NARRATIVE GOES HERE...
 
 ### 🧶 Knit & Check ✅
 
-Congratulations - you've completed the Unit 2 case study! To share your
+Congratulations - you've completed the Lab 2 case study! To share your
 work, click the drop down arrow next to the ball of yarn that says
 "Knit" at the top of this markdown file, then select "Knit top HTML".
 Assuming your code contains no errors, this will create a web page in
