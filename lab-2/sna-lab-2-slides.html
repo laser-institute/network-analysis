@@ -4,7 +4,7 @@
     <title>SNA Lab 2: Network Data Management &amp; Measurement</title>
     <meta charset="utf-8" />
     <meta name="author" content="Dr. Shaun Kellogg" />
-    <meta name="date" content="2022-03-16" />
+    <meta name="date" content="2022-03-17" />
     <script src="libs/header-attrs-2.13/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/panelset-0.2.6/panelset.css" rel="stylesheet" />
@@ -37,7 +37,7 @@ class: clear, title-slide, inverse, center, top, middle
 # SNA Lab 2: Network Data Management &amp; Measurement
 ----
 ### **Dr. Shaun Kellogg**
-### March 16, 2022
+### March 17, 2022
 
 ---
 # Agenda
@@ -340,7 +340,7 @@ Recall that reliability is the **extent to which an instrument yields a similar 
 
 .panel[.panel-name[Validity]
 
-While research on whether reported relations measure actual relations is slim, and participant recall considered suspect, **ways to improve instrument validity** include:   
+While research on construct validity is slim, and participant recall is suspect, **approaches to improve instrument validity** include:   
 
 1. Focus on more stable relations, as opposed to ones that are time specific;
 1.  Limit the number of alters one can nominate;
@@ -412,7 +412,7 @@ class: clear, inverse, middle, center
 
 # part_2(R, code_along)
 
-Measuring 
+Network-Level Density, Centrality, and Reciprocity 
 
 [Learning Lab Workspace](https://rstudio.cloud/spaces/140883/join?access_code=3g8mCNU2Rags4v4U_-r-8lHdF0XAQSq-1p1tkyIz)
 
@@ -437,16 +437,16 @@ This longitudinal case study **examines reform-related knowledge, advice, and in
 
 .panel[.panel-name[Questions]
 
-This study involves quantifying and graphically displaying the ties and overall structure of informal networks to answer the following research questions: 
+This study involves **quantifying and visualizing the ties and overall structure** of informal networks to answer the following research questions: 
 
-1. In what ways have reform-related social networks between district and site leaders evolved over a 2-year period? 
-2. How do district and school leaders perceive the evolution of the social networks and its effect on the exchange of reform-related resources within the district?
+1. In what ways have reform-related social networks between district and site leaders evolved **over a 2-year period**? 
+2. How do district and school leaders perceive the evolution of the social networks and its **effect on the exchange of reform-related resources** within the district?
 ]
 
 .panel[.panel-name[Data]
 To answer RQ1, Daly and Finnigan administered **online survey consisting of network relations and demographic questions** asking participants to:
-- select the administrators in the La Estasis network that they interact with for the purpose of advise seeking, collaboration, confidential exchanges, etc.
-- assess their relationships on a 5-point interaction scale ranging from 1 (no interaction) to 5 (1 to 2 times a week).
+- select the administrators in the La Estasis network that they interact with for the purpose of **advise seeking, collaboration, confidential exchanges**,
+- assess their relationships on a **5-point interaction scale** ranging from 1 (no interaction) to 5 (1 to 2 times a week).
 
 ]
 
@@ -475,7 +475,7 @@ Daly, A. et al. (2011). [The ebb and flow of social network ties between distric
 
 .panel[.panel-name[Load Libraries]
 
-Let's start by loading the following packages introduced in previous units:          
+Let's start by creating a new R script and loading the following packages introduced in the previous lab:          
 
 
 ```r
@@ -495,7 +495,7 @@ The {igraph} &lt;img src="img/igraph.png" height="40px"/&gt; package and its col
 - pain-free implementation of graph algorithms
 - fast handling of large graphs, with millions of vertices and edges
 
-Both {tidygraph} and {ggraph} used in the previous unit and this unit depend heavily on the {igraph} package. 
+Both {tidygraph} and {ggraph} used in the previous lab depend heavily on the {igraph} package. 
 
 ]
 
@@ -728,8 +728,10 @@ centr_degree(year_1_network, mode = "all")
 
 ```
 ## $res
-##  [1] 5 0 5 3 3 3 4 8 4 7 4 1 0 4 4 3 2 5 4 4 5 4 3 6 4 4 4 3 8 4 4 3 3 6 3 3 4 3
-## [39] 6 2 3 4 2
+##  [1] 5 0 5 3 3 3 4 8 4 7 4 1 0
+## [14] 4 4 3 2 5 4 4 5 4 3 6 4 4
+## [27] 4 3 8 4 4 3 3 6 3 3 4 3 6
+## [40] 2 3 4 2
 ## 
 ## $centralization
 ## [1] 0.05102041
