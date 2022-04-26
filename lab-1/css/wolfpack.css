@@ -1,0 +1,462 @@
+/* this css theme adapts the metropolis xaringan theme to
+the nc state branding palettes and incorporates some additional
+formatting based on examples from Silvia Canelon's workshop on
+Sharing your work with xaringan:
+https://spcanelon.github.io/xaringan-basics-and-beyond/index.html */
+:root {
+/* core palette */
+--wolfpack-red:     #CC0000;
+--wolfpack-black:   #000000;
+--wolfpack-white:   #FFFFFF;
+
+/* expanded palette */
+
+--reynolds-red:     #990000;
+--pyroman-flame:    #d14905;
+--hunt-yellow:      #fac800;
+--genomic-green:    #6f7d1c;
+--carmichael-aqua:  #008473;
+--innovation-blue:  #427e93;
+--bio-indigo:       #4156a1;
+
+/* tints and shades */
+
+/* reds */
+--red-100:          #ea1500;
+--red-200:          #cc0000; /*same as wolfpack-red */
+--red-300:          #b40000;
+--red-400:          #990000; /*same as reynolds-red */
+--red-500:          #7e0000;
+--red-600:          #5e0000;
+--red-700:          #3e0000;
+
+/* oranges (flames) */
+--orange-100:       #f8a812;
+--orange-200:       #f28c0d;
+--orange-300:       #e16408;
+--orange-400:       #d14905; /*same as pyroman-flame */
+--orange-500:       #c03003;
+--orange-600:       #a91b02;
+--orange-700:       #910e01;
+
+/* yellows */
+--yellow-100:       #fef8cb;
+--yellow-200:       #fde565;
+--yellow-300:       #f8da3e;
+--yellow-400:       #fac800; /*same as hunt-yello */
+--yellow-500:       #d7a700;
+--yellow-600:       #b88800;
+--yellow-700:       #966d00;
+
+/* greens */
+--green-100:       #bfcc46;
+--green-200:       #a2b729;
+--green-300:       #8d9e2b;
+--green-400:       #6f7d1c; /*same as genomic-green */
+--green-500:       #586800;
+--green-600:       #424c09;
+--green-700:       #2f3a03;
+
+/* aquas */
+--aqua-100:        #91f2cb;
+--aqua-200:        #57dab1;
+--aqua-300:        #2db597;
+--aqua-400:        #008473; /*same as carmichael-aqua */
+--aqua-500:        #00716d;
+--aqua-600:        #005b5f;
+--aqua-700:        #00444c;
+
+/* blues */
+--blue-100:       #80c3d4;
+--blue-200:       #6fb2c5;
+--blue-300:       #599baf;
+--blue-400:       #427e93; /*same as innovation-blue */
+--blue-500:       #2d637a;
+--blue-600:       #1d4b61;
+--blue-700:       #12394d;
+
+/* indigos */
+--indigo-100:       #84a0dc;
+--indigo-200:       #728bcf;
+--indigo-300:       #5b73bb;
+--indigo-400:       #4156a1; /*same as bio-indigo */
+--indigo-500:       #344891;
+--indigo-600:       #24347b;
+--indigo-700:       #192668;
+
+/* grays */
+/* for white use wolfpack-white and black use wolfpack-black */
+--gray-100:        #e5e5e5;
+--gray-200:        #cccccc;
+--gray-300:        #b2b2b2;
+--gray-400:        #999999;
+--gray-500:        #808080;
+--gray-600:        #666666;
+--gray-700:        #4d4d4d;
+--gray-800:        #333333;
+--gray-900:        #1a1a1a;
+}
+
+/*-- LINKS/ANCHORS --*/
+a {
+  color:              var(--wolfpack-red);
+  border-bottom:      1px solid var(--wolfpack-red);
+  line-height:        2.5rem;
+}
+
+a:hover { border-bottom: none; }
+
+.remark-slide-content {
+  background-color: var(--wolfpack-white);
+  border-top: 80px solid var(--wolfpack-red);
+  font-size: 30px; /* change default text size here*/
+  font-weight: 300;
+  line-height: 1.5;
+  padding: 1em 2em 1em 2em;
+  background-image: url(../img/fi-logo.png); /*alternatively can be ncstate-text.png */
+  background-position: 95% 95%; 
+  background-size: 25%;
+}
+
+.title-slide .inverse .remark-slide-content {
+  background-color: var(--wolfpack-black);
+}
+
+.inverse {
+  background-color: var(--gray-900);
+  text-shadow: none;
+}
+
+.wolfhead {
+  background-image: url(../img/wolf-head.png);
+  background-position: -15% 95%; 
+  background-size: 50%;
+}
+
+.wolfhead .quote {
+  float: right;
+  width: 50%;
+  background-color: var(--gray-100);
+  border-radius: 5px 5px 5px 5px;
+  color: var(--wolfpack-black);
+  text-shadow: none;
+  padding: 20px;
+}
+.wolfhead .author {
+  float: right;
+  width: 50%;
+  text-align: right;
+  color: var(--wolfpack-red);
+}
+
+
+.footnote {
+    position: absolute;
+    bottom: 1em;
+    padding-right: 4em;
+    font-size: 60%;
+}
+
+/* Removes colored bar from top of the slide resulting in a clear slide */
+.clear{
+  border-top: 0px solid var(--wolfpack-white);
+}
+
+h1 {
+  font-weight: normal;
+  margin-top: -100px;
+  margin-left: -00px;
+  color: var(--wolfpack-white);
+}
+
+h2, h3, h4 {
+  padding-top: -15px;
+  padding-bottom: 00px;
+  color: var(--wolfpack-black);
+  text-shadow: none;
+  font-weight: 400;
+  text-align: left;
+  margin-left: 00px;
+  margin-bottom: -10px;
+}
+
+.remark-slide-content h1 {
+  font-size: 45px;
+}
+
+.remark-slide-content h2 {
+  font-size: 35px;
+}
+
+.remark-slide-content h3 {
+  font-size: 30px;
+}
+
+.left-column h2, .left-column h3, .left-column h4 {
+  color: #777;
+}
+
+.left-column h2:last-of-type, .left-column h3:last-child {
+  color: #1A292C;
+}
+
+.title-slide {
+  background-color: var(--wolfpack-white);
+  border-top: 80px solid var(--wolfpack-white);
+}
+
+.title-slide h1  {
+  color: var(--wolfpack-red);
+  font-size: 50px;
+  text-shadow: none;
+  font-weight: 400;
+  text-align: left;
+  margin-left: 15px;
+  padding-top: -100px;
+}
+.title-slide h2  {
+  margin-top: -25px;
+  padding-bottom: -20px;
+  color: var(--wolfpack-black);
+  text-shadow: none;
+  font-weight: 300;
+  font-size: 35px;
+  text-align: left;
+  margin-left: 15px;
+}
+.title-slide h3  {
+  color: var(--wolfpack-black);
+  text-shadow: none;
+  font-weight: 300;
+  font-size: 25px;
+  text-align: left;
+  margin-left: 15px;
+  margin-bottom: -30px;
+}
+
+hr, .title-slide h2::after, .mline h1::after {
+  content: '';
+  display: block;
+  border: none;
+  background-color: var(--wolfpack-black);
+  color: var(--wolfpack-black);
+  height: 1px;
+}
+
+hr, .mline h1::after {
+  margin: -1em 15px 0 15px;
+}
+
+.title-slide h2::after {
+  margin: 10px 15px 35px 0;
+}
+
+.mline h1::after {
+  margin: 10px 15px 0 15px;
+}
+
+.remark-slide-number {
+  font-size: 13pt;
+  color: var(--reynolds-red);
+  opacity: 1;
+}
+.inverse .remark-slide-number {
+  font-size: 13pt;
+  color: var(--wolfpack-white);
+  opacity: 1;
+}
+
+/* turns off slide numbers for title page: https://github.com/gnab/remark/issues/298 */
+.title-slide .remark-slide-number {
+  display: none;
+}
+
+.remark-inline-code {
+  /* background: #F5F5F5; /* lighter */
+  background: #e7e8e2; /* darker */
+  border-radius: 3px;
+  padding: 4px;
+}
+
+.code10 .remark-code {
+  font-size: 10%;
+}
+
+.code20 .remark-code {
+  font-size: 20%;
+}
+
+.code30 .remark-code {
+  font-size: 30%;
+}
+
+.code40 .remark-code {
+  font-size: 40%;
+}
+
+.code50 .remark-code {
+  font-size: 50%;
+}
+
+.code60 .remark-code {
+  font-size: 60%;
+}
+
+.code70 .remark-code {
+  font-size: 70%;
+}
+
+.code80 .remark-code {
+  font-size: 80%;
+}
+
+.code90 .remark-code {
+  font-size: 90%;
+}
+
+.code100 .remark-code {
+  font-size: 100%;
+}
+
+.font10 {
+  font-size: 10%;
+}
+
+.font20 {
+  font-size: 20%;
+}
+
+.font30 {
+  font-size: 30%;
+}
+
+.font40 {
+  font-size: 40%;
+}
+
+.font50 {
+  font-size: 50%;
+}
+
+.font60 {
+  font-size: 60%;
+}
+
+.font70 {
+  font-size: 70%;
+}
+
+.font80 {
+  font-size: 80%;
+}
+
+.font90 {
+  font-size: 90%;
+}
+
+.font100 {
+  font-size: 100%;
+}
+
+.font110 {
+  font-size: 110%;
+}
+
+.font120 {
+  font-size: 120%;
+}
+
+.font130 {
+  font-size: 130%;
+}
+
+.font140 {
+  font-size: 140%;
+}
+
+.font150 {
+  font-size: 150%;
+}
+
+.font160 {
+  font-size: 160%;
+}
+.font170 {
+  font-size: 170%;
+}
+.font180 {
+  font-size: 180%;
+}
+.font190 {
+  font-size: 190%;
+}
+.font200 {
+  font-size: 200%;
+}
+
+/*-- Custom classes for text emphasis --*/
+.blue       { color:  var(--bio-indigo) }
+.green      { color:  var(--genomic-green) }
+.red        { color:  var(--reynolds-red) }
+.warmyellow { color:  var(--yellow-600) }
+
+/*-- PROGRESS BAR IN FOOTER --*/
+/* https://github.com/yihui/xaringan/wiki/Progressbar */
+
+.remark-slide-number { position: inherit; }
+
+.remark-slide-number .progress-bar-container {
+  position:           absolute;
+  bottom:             0;
+  height:             5px;
+  display:            block;
+  left:               0;
+  right:              0;
+}
+
+.remark-slide-number .progress-bar {
+  height: 100%;
+  background-color: var(--wolfpack-red);
+}
+
+/*-- 3 column layout --*/
+.left-col {
+  width: 29%;
+  text-align: left;
+  padding-left: 20px;
+  padding-right: 20px;
+  float: left;
+}
+
+.center-col {
+  width: 29%;
+  text-align: left;
+  padding-left: 20px;
+  padding-right: 20px;
+  float: left;
+}
+
+.right-col {
+  width: 29%;
+  text-align: left;
+  padding-left: 20px;
+  padding-right: 20px;
+  float: left;
+}
+
+.pull-left {
+  padding-top: 0px;
+}
+
+.pull-left-narrow {
+  float: left;
+  width: 20%;
+}
+
+.pull-right-wide {
+  float: right;
+  width: 75%;
+}
+
+/* Clear floats after the columns */
+.pull-right-wide + * { clear: both; }

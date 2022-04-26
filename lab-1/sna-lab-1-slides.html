@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>SNA Lab 2: Network Data Management &amp; Measurement</title>
+    <title>SNA Lab 1: Network Data Management &amp; Measurement</title>
     <meta charset="utf-8" />
     <meta name="author" content="Dr. Shaun Kellogg" />
-    <meta name="date" content="2022-04-24" />
+    <meta name="date" content="2022-04-26" />
     <script src="libs/header-attrs-2.13/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/panelset-0.2.6/panelset.css" rel="stylesheet" />
@@ -34,20 +34,20 @@ class: clear, title-slide, inverse, center, top, middle
 
 
 
-# SNA Lab 2: Network Data Management &amp; Measurement
+# SNA Lab 1: Network Data Management &amp; Measurement
 ----
 ### **Dr. Shaun Kellogg**
-### April 24, 2022
+### April 26, 2022
 
 ---
 # Agenda
 
 .pull-left[
 ## Part 1: Conceptual Overview
-### Data Management
+### Data Basics
 - Collection
 - Storage 
-- Quality
+- Visualization
 
 ]
 
@@ -101,7 +101,7 @@ Social Network Theory rests on a few key assumptions that are fairly intuitive b
 
 ### Network Terms
 
-Networks are often depicted as a **sociogram**, or network graph, that consists of nodes and edges representing indiviudals, their relations, and structural properting of the entire network.  
+Networks are often depicted as a **sociogram**, or network graph, that consists of nodes and edges representing individuals, their relations, and structural properties of the entire network.  
 
 - **Node.** Nodes are frequently referred to as actors or vertices and typically illustrated by circles, but the shape, color and size can vary depening on what the researcher wants to illustrate abotu the data. 
 - **Edges.** are frequently referred to as relations or ties. The are usually depicted by lines that represent some kind of relationship between individuals and that often have arrows indicating directionality. For example, in a communication network, arrows may illustrate a reply to a discussion thread or an email sent.  
@@ -112,7 +112,7 @@ class: clear, inverse, middle, center
 # Part 1: Network Data Management
 
 
-Data Collection, Storage, Quality
+Data Collection, Storage, and Visualization
 
 ---
 
@@ -323,22 +323,18 @@ Take a look at one of the newtwork datasets located [here](https://github.com/la
 
 
 ---
-# Data Quality
+# Data Visualization 
 
 .panelset[
 
-.panel[.panel-name[Reliability]
+.panel[.panel-name[Nodes]
 
-Recall that reliability is the **extent to which an instrument yields a similar results** every time its applied to the same participant.    
-
-- A common approaches in SNA is **Test-Retest reliability**. 
-- Closer ties tend to be reported more reliably than weaker ones
-- Reciprocated relations may be more trustworthy.
+- **Node.** Nodes are frequently referred to as actors or vertices and typically illustrated by circles, but the shape, color and size can vary depening on what the researcher wants to illustrate abotu the data. 
 
 ]
 
 
-.panel[.panel-name[Validity]
+.panel[.panel-name[Edges]
 
 While research on construct validity is slim, and participant recall is suspect, **approaches to improve instrument validity** include:   
 
@@ -348,7 +344,7 @@ While research on construct validity is slim, and participant recall is suspect,
 1.  Consider observations or archival data (e.g. logs, student records). 
 
 
-.panel[.panel-name[Measurement Error]
+.panel[.panel-name[Direction]
 
 .pull-left[ 
 ### Measurement Issues
@@ -377,11 +373,13 @@ While research on construct validity is slim, and participant recall is suspect,
 
 .panel[.panel-name[Discuss]
 
-Consider the following questions about your network interest described earlier:
+.pull-left[Consider the following **sociogram**, or network graph, that consists of 
+- nodes and 
+- edges representing 
 - What might be some threats to the quality of your data? 
 - How might you address or avoid these threats? 
 
-Record your response in the chat.  
+Record your response in the chat.  ]
 
 ]
 
@@ -645,9 +643,9 @@ Which of these two networks has a higher density?
 
 .panel[.panel-name[Significance]
 In education, dense networks have been associated with:   
-- community health
-- flow of resources within a network
-- student achievement
+- healthy learning communities   
+- other
+- other
 
 For better or worse, **dense networks reinforce prevailing norms** and behaviors and insulate one from outside influences (Carolan, 2011). 
 
@@ -678,7 +676,7 @@ How would you interpret this measure?
 ] 
 
 .pull-right[
-![](sna-lab-2-slides_files/figure-html/examine-density-1.png)&lt;!-- --&gt;
+![](sna-lab-1-slides_files/figure-html/examine-density-1.png)&lt;!-- --&gt;
 ]
 ]
 ]
@@ -707,7 +705,7 @@ Which of these two networks is more centralized?
 
 .panel[.panel-name[Significance]
 
-- A network's centralization affects the process through which resources flow through the network. 
+- A network's centralization affects the process through which resources traverse the network. 
 - Central actors likely wield a disproportionate amount of influence on the network. 
 - High centralization provides fewer actors with more power and control.
 
@@ -728,8 +726,8 @@ centr_degree(year_1_network, mode = "all")
 
 ```
 ## $res
-##  [1] 5 0 5 3 3 3 4 8 4 7 4 1 0 4 4 3 2 5 4 4 5 4 3 6 4 4 4 3 8 4 4 3 3
-## [34] 6 3 3 4 3 6 2 3 4 2
+##  [1] 5 0 5 3 3 3 4 8 4 7 4 1 0 4 4 3 2 5 4 4 5 4 3 6 4 4 4 3 8 4 4 3 3 6 3 3 4 3 6 2 3
+## [42] 4 2
 ## 
 ## $centralization
 ## [1] 0.05102041
@@ -752,7 +750,7 @@ How would you interpret this measure?
 ] 
 
 .pull-right[
-![](sna-lab-2-slides_files/figure-html/examine-centrality-1.png)&lt;!-- --&gt;
+![](sna-lab-1-slides_files/figure-html/examine-centrality-1.png)&lt;!-- --&gt;
 ]
 ]
 ]
@@ -765,13 +763,13 @@ How would you interpret this measure?
 
 .panel[.panel-name[Definition]
 
-.pull-left[Reciprocity is the **degree to which actors in a directed network select one another** or the mutuality of the network's ties.
+.pull-left[A key structural property of complete networks is the concept of centralization, or **the extent to which relations are focused on one or a small set of actors**
 
 ]
 
-.pull-right[ .center[&lt;img src="img/reciprocated-ties.png" height="210px"/&gt;
+.pull-right[ .center[&lt;img src="img/density.jpeg" height="150px"/&gt;
 
-Which of these two networks is more directed? Which ties are reciprocated?
+Which of these two networks is more centralized?
 ]
  
 ]
@@ -782,7 +780,6 @@ Which of these two networks is more directed? Which ties are reciprocated?
 - This property is important because it reveals the direction through which resources such as help, advice, and support flow. 
 - It also indicates the network's stability, as reciprocated ties tend to be more stable over time. 
 - Networks with high reciprocity may be more “equal,” while those with lower reciprocity may be more hierarchical.
-- In educational contexts, reciprocity has been associated with problem solving, knowledge exchange, risky behavior and drug use. 
 
 ]
 
@@ -791,11 +788,9 @@ Which of these two networks is more directed? Which ties are reciprocated?
 .pull-left[
 At the network-level, reciprocity is a measure of the likelihood of vertices in a directed network to be mutually linked. The {igraph} package has a simple `reciprocity()` function for calculating network density. 
 
-]
+Let's apply to our `year_1_network`:]
 
 .pull-right[
-Let's apply to our `year_1_network`:
-
 
 ```r
 reciprocity(year_1_network)
@@ -823,15 +818,17 @@ reciprocity(year_1_network)
 .pull-left[
 ## Readings &amp; Discussion
 
-- [Collecting and Managing Network Data](https://via.hypothes.is/https://drive.google.com/file/d/1qe1y5Ik4XgBbCcMr-CB8TH7xSW9ip3Ji/view?usp=sharing)
-- [Structural Measures for Complete Networks](https://via.hypothes.is/https://drive.google.com/file/d/1qdxvH85jmozCHJgJcYFZKfjvxbCP6SxG/view?usp=sharing)  
+- Collection
+- Management  
+- Quality  
 ]
 
 .pull-right[
 ## Case Study
 
-- [Birds of a Feather Lead Together](https://laser-institute.github.io/network-analysis/lab-2/sna-lab-2-case-study-key.html)
-- [The Ebb and Flow of Social Network Ties Between District Leaders Under High-Stakes Accountability]()
+- Density
+- Centrality 
+- Reciprocity
 
 ]
 
