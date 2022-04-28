@@ -1,5 +1,5 @@
 ---
-  title: "SNA Lab 1: Network Data Management & Measurement"
+  title: "SNA Lab 1: Data Collection, Storage, & Visualization"
   subtitle: "Test"
   author: "**Dr. Shaun Kellogg**"
   institute: "LASER Institute"
@@ -130,7 +130,7 @@ Networks are often depicted as a **sociogram**, or network graph, that consists 
 ---
 class: clear, inverse, middle, center
 
-# Part 1: Network Data Management
+# Part 1: Conceptual Overview
 
 
 Data Collection, Storage, and Visualization
@@ -426,16 +426,7 @@ Ways to improve validity include:
 
 
 ---
-class: clear, inverse, middle, center
-
-# part_2(R, code_along)
-
-Network-Level Density, Centrality, and Reciprocity 
-
-[Learning Lab Workspace](https://rstudio.cloud/spaces/140883/join?access_code=3g8mCNU2Rags4v4U_-r-8lHdF0XAQSq-1p1tkyIz)
-
----
-# Literature Review
+# A Research Exemplar
 
 .panelset[
 
@@ -484,6 +475,14 @@ Daly, A. et al. (2011). [The ebb and flow of social network ties between distric
 ]
 
 ???
+
+---
+class: clear, inverse, middle, center
+
+# part_2(R, code_along)
+
+Network Packages, Objects, and Sociograms
+
 
 
 ---
