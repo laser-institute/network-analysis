@@ -65,7 +65,7 @@ xaringanExtra::use_tile_view()
 
 .pull-left[
 ## Part 1: Core Concepts
-### Inference
+### Inference in Networks
 - Applications of Inference
 - Questions & Models
 - A Selection Model Example
@@ -75,7 +75,7 @@ xaringanExtra::use_tile_view()
 .pull-right[
 
 ## Part 2: R Code-Along
-#### ERGMs
+#### Exponential Random Graph Models
 - {statnet} Package
 - Model Parameters
 - Interpreting Outputs
@@ -95,28 +95,32 @@ xaringanExtra::use_tile_view()
 .pull-left[
 ## Network Visualization
 .center[
+REPLACE THIS
 <img src="img/nodes-edges.jpeg" height="350px"/>
-network viz with  legend   
+]
 ]
 
-]
 
 .pull-right[
-## Network Descrptives
+## Network Measures
 
-- 
+- degree and betweeness **Centrality**
 
+- **Reciprocity** in directed networks
 
+- complete network, group, or neighborhood **Density**
 ]
 
 
 ???
 
 ### Network Theory
-- Recall that in previous labs we focused on ways in which data visualization and measurement can be used to describe properties of egos, groups, and complete networks.  networks being described by creating indicators for their structure (e.g., density, reciprocity, etc.) and the members of networks characterized by their position (e.g., centrality). 
-These measures convey the image of a fixed network with attitudes or behaviors passing through it, much like airplanes flying to and from different airports. In reality, unlike airports, networks change, and in some instances quickly. Teachers confer with new colleagues and no longer do so with old ones. Some students seek extra help for the first time, while others quit after receiving that help for some time. 
-- 
-
+- Recall that in previous labs we focused on ways in which data visualization and network measurement can be used to describe properties of complete networks, groups within a network, or even indidviduals within a network.  
+- Network visualizations like this sociogram of school and district leaders, for example, can be a very useful tool for showing what your network looks like and highlighting network properties. For example, just like with this network, sociograms are usually constructed in such a way so that actor that are more central to the network are place in the center of the graph. 
+- Network Measures, on the other hand, help to describe mathematically what your network "looks like." 
+- For example, measures of centrality can put a number on how much a network as whole centers around a handful of individuals, and which individuals are more central to the network.  
+- In directed networks, measures of reciprocity can inform about the flow of information in a network or potential hierarchies in a network.  
+- And measures of density, whether for a whole network, group, or even individual actors' "neighborhoods" can can help describe how well connected individuals are in a network. 
 
 
 ---
@@ -125,13 +129,14 @@ class: clear, inverse, middle, center
 # Part 1: Core Concepts
 
 
-Applications, Models, and Example 
+Inference, Models, and Exemplar 
 
 ???
 
-- networks being described by creating indicators for their structure (e.g., density, reciprocity, etc.) and the members of networks characterized by their position (e.g., centrality). 
-These measures convey the image of a fixed network with attitudes or behaviors passing through it, much like airplanes flying to and from different airports. In reality, unlike airports, networks change, and in some instances quickly. Teachers confer with new colleagues and no longer do so with old ones. Some students seek extra help for the first time, while others quit after receiving that help for some time.
-- 
+- One downside to relying just on visualization and descriptive measures is that they convey the image of a fixed network with information or behaviors passing through it, much like airplanes flying to and from different airports.
+- In reality, unlike airports, networks change, sometimes very frequently. If you've ever taught in a classroom, you know students friendships can be in a constant state of flux. Teachers collaborate with new colleagues all the time and no longer do so with old ones.
+- In addition, properties of these representations of networks 
+- In Part 1, you'll be introduced to about the ways in which statistical inference has evolved in order to move social network analysis beyond the social scientific goal of description and closer to explanation and ultimately prediction.
 
 ---
 
@@ -225,7 +230,6 @@ Consistent with typical data storage, node-lists often include:
 - Socio-economic info (job, income)
 - Substantative info (grades)
 - **Nominated alters**
-
 ]
 
 
@@ -241,8 +245,6 @@ dlt1_nodes |>
 ```
 
 ]
-
-
 ]
 
 .panel[.panel-name[MR-QAP]
