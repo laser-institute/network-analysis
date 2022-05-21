@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>SNA Lab 1: Data Collection, Storage, &amp; Visualization</title>
+    <title>SNA Lab 4: Statistical Inference &amp; Network Models</title>
     <meta charset="utf-8" />
     <meta name="author" content="Dr. Shaun Kellogg" />
-    <meta name="date" content="2022-04-28" />
+    <meta name="date" content="2022-05-02" />
     <script src="libs/header-attrs-2.13/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/panelset-0.2.6/panelset.css" rel="stylesheet" />
@@ -34,17 +34,17 @@ class: clear, title-slide, inverse, center, top, middle
 
 
 
-# SNA Lab 1: Data Collection, Storage, &amp; Visualization
+# SNA Lab 4: Statistical Inference &amp; Network Models
 ----
 ### **Dr. Shaun Kellogg**
-### April 28, 2022
+### May 02, 2022
 
 ---
 # Agenda
 
 .pull-left[
-## Part 1: Conceptual Overview
-### Data Basics
+## Part 1: Core Concepts
+### Data Management
 - Collection
 - Storage 
 - Visualization
@@ -54,8 +54,8 @@ class: clear, title-slide, inverse, center, top, middle
 .pull-right[
 
 ## Part 2: R Code-Along
-#### Network Measurement 
-- Density
+#### Exponential Randomm Graph Models
+- Packages 
 - Centrality
 - Reciprocity
 ]
@@ -109,10 +109,10 @@ Networks are often depicted as a **sociogram**, or network graph, that consists 
 ---
 class: clear, inverse, middle, center
 
-# Part 1: Conceptual Overview
+# Part 1: Core Concepts
 
 
-Data Collection, Storage, and Visualization
+Data Collection, Storage, and Quality
 
 ---
 
@@ -725,8 +725,8 @@ centr_degree(year_1_network, mode = "all")
 
 ```
 ## $res
-##  [1] 5 0 5 3 3 3 4 8 4 7 4 1 0 4 4 3 2 5 4 4 5 4 3 6 4 4 4 3 8 4 4 3 3 6 3 3 4 3 6 2 3
-## [42] 4 2
+##  [1] 5 0 5 3 3 3 4 8 4 7 4 1 0 4 4 3 2 5 4 4 5 4 3 6 4 4 4 3 8 4 4 3 3
+## [34] 6 3 3 4 3 6 2 3 4 2
 ## 
 ## $centralization
 ## [1] 0.05102041
