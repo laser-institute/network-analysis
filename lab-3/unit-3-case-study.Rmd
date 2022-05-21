@@ -707,8 +707,8 @@ been developed, including cliques, clans, plexes, and cores
 Examining cliques is one bottom-up approach that reveals how groups are
 distributed in the network and which actors belong to which groups.
 
-> A **clique** is a maximally connected subgraph of nodes (> 2) in which
-> all nodes are connected to each other.
+> A **clique** is a maximally connected subgraph of nodes (\> 2) in
+> which all nodes are connected to each other.
 
 Similar to our component analysis, the {igraph} function has a simple
 `clique_num()` function for identifying number of completely connected
