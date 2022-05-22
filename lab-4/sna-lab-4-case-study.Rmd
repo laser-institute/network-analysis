@@ -1,5 +1,5 @@
 ---
-title: 'SNA Case Study 4: School Leader Selection'
+title: 'SNA Case Study 4: Birds of a Feather Lead Together'
 subtitle: "LASER Institute Learning Labs"
 author: "Dr. Shaun Kellogg"
 date: "November 16, 2021 (updated: `r format(Sys.Date(),'%B %e, %Y')`)"
@@ -21,7 +21,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # 1. PREPARE
 
-**SNA Case Study: School Leader Selection** is guided by [Alan
+**SNA Case Study: Birds of a Feather Lead Together** is guided once
+again by the work of [Alan
 Daly](https://scholar.google.com/citations?user=zgbarXQAAAAJ&hl=en) and
 colleagues and attempts to replicate the analyses described in Chapter
 9: Network Data and Statistical Models from *Social Network Analysis and
@@ -212,11 +213,11 @@ library(janitor)
 ![](img/statnetlogo.png){width="20%"}
 
 Similar to the collection of packages contained in the {tidyverse}
-<<<<<<< HEAD:keys/sna-selection-case-study-key.Rmd
-package, the Statnet Team $$\@handcock:statnet$$ has developed a suite
-of R packages for the management, exploration, statistical analysis,
-simulation and vizualization of network data. The statistical modeling
-framework used in {statnet} relies on Exponential-family Random Graph Models.
+\<\<\<\<\<\<\< HEAD:keys/sna-selection-case-study-key.Rmd package, the
+Statnet Team $$\@handcock:statnet$$ has developed a suite of R packages
+for the management, exploration, statistical analysis, simulation and
+vizualization of network data. The statistical modeling framework used
+in {statnet} relies on Exponential-family Random Graph Models.
 
 As noted in the [statnet
 tutorial](http://statnet.org/Workshops/ergm_tutorial.html#The_statnet_Project)
@@ -756,11 +757,11 @@ question that follows.
 ## 3b. Visualize Network
 
 In Chapter 9, @carolan2014 depicts a directed and dichotomous sociogram
-of the **Year 3 [Collaboration]{.ul} Network** shown in Figure 9.1
-copied below. Each directed line represents a collaboration tie between
-school leaders. Female school leaders are represented circles and males
-by square nodes; and nodes of district-level leaders are clear, while
-school-level leaders are filled in.
+of the **Year 3 [Collaboration]{.underline} Network** shown in Figure
+9.1 copied below. Each directed line represents a collaboration tie
+between school leaders. Female school leaders are represented circles
+and males by square nodes; and nodes of district-level leaders are
+clear, while school-level leaders are filled in.
 
 ![](img/figure-9-1.jpg){width="90%"}
 
@@ -790,9 +791,9 @@ sociograms.
 ### 👉 Your Turn **⤵**
 
 Try creating a similar, or ideally even better, sociogram for the **Year
-3 [Confidential]{.ul} Exchange Network** by modifying the network graph
-template code below and tweaking the included function/arguments or
-adding new ones for
+3 [Confidential]{.underline} Exchange Network** by modifying the network
+graph template code below and tweaking the included function/arguments
+or adding new ones for
 [layouts](https://ggraph.data-imaginist.com/articles/Layouts.html),
 [nodes](https://ggraph.data-imaginist.com/articles/Nodes.html), and
 [edges](https://ggraph.data-imaginist.com/articles/Edges.html) to make
@@ -855,10 +856,11 @@ this section we will explore the following questions:
 As we've discovered in these learning labs, network data can come in
 many different forms --- ties can be stored as edgelists or matrices,
 saved as .csv or excel files, and converted to a variety of network R
-objects; attributes for the nodes, ties and dyads in can also various
-forms and added in various ways to objects in R. For the {ergm} package,
-however, data will need to be transformed into a `network` object ---
-the format that statnet uses to store and work with network data.
+objects; attributes for the nodes, ties and dyads can also take various
+forms and be added in various ways to objects in R. For the {ergm}
+package, however, data will need to be transformed into a `network`
+object --- the format that statnet uses to store and work with network
+data.
 
 Fortunately, we have already prepared our data for quick conversion to a
 `network` object and can supply just a couple arguments to the

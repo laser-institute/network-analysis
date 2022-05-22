@@ -4,7 +4,7 @@
     <title>SNA Lab 4: Statistical Inference &amp; Network Models</title>
     <meta charset="utf-8" />
     <meta name="author" content="Dr. Shaun Kellogg" />
-    <meta name="date" content="2022-05-21" />
+    <meta name="date" content="2022-05-22" />
     <script src="libs/header-attrs-2.13/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/panelset-0.2.6/panelset.css" rel="stylesheet" />
@@ -37,7 +37,7 @@ class: clear, title-slide, inverse, center, top, middle
 # SNA Lab 4: Statistical Inference &amp; Network Models
 ----
 ### **Dr. Shaun Kellogg**
-### May 21, 2022
+### May 22, 2022
 
 ---
 # Agenda
@@ -93,8 +93,7 @@ REPLACE THIS
 
 ???
 
-### Network Theory
-- Recall that in previous labs we focused on ways in which data visualization and network measurement can be used to describe properties of complete networks, groups within a network, or even indidviduals within a network.  
+- Recall that in previous labs we focused on ways in which data visualization and network measurement can be used to describe properties of complete networks, groups within a network, or even individual's place within a network.  
 - Network visualizations like this sociogram of school and district leaders, for example, can be a very useful tool for showing what your network looks like and highlighting network properties. For example, just like with this network, sociograms are usually constructed in such a way so that actor that are more central to the network are place in the center of the graph. 
 - Network Measures, on the other hand, help to describe mathematically what your network "looks like." 
 - For example, measures of centrality can put a number on how much a network as whole centers around a handful of individuals, and which individuals are more central to the network.  
@@ -112,10 +111,8 @@ Inference, Models, and Exemplar
 
 ???
 
-- One downside to relying just on visualization and descriptive measures is that they convey the image of a fixed network with information or behaviors passing through it, much like airplanes flying to and from different airports.
-- In reality, unlike airports, networks change, sometimes very frequently. If you've ever taught in a classroom, you know students friendships can be in a constant state of flux. Teachers collaborate with new colleagues all the time and no longer do so with old ones.
-- In addition, properties of these representations of networks 
-- In Part 1, you'll be introduced to about the ways in which statistical inference has evolved in order to move social network analysis beyond the social scientific goal of description and closer to explanation and ultimately prediction.
+- In Part 1, we move beyond network visualization and measurement and learn how the evolution of statistical inference and models allow social network analysis to not just describe networks and their properties, but attempt to explain and make predictions about them. 
+- We'll then take a close look at a study by Alan Daly and colleagues that illustrated how these statistical models for netowrk analysis can be used to gain insight into educational settings. 
 
 ---
 
@@ -123,56 +120,60 @@ Inference, Models, and Exemplar
 
 .panelset[
 
-.panel[.panel-name[Beyond Description]
+.panel[.panel-name[Evolution]
 
-move social network analysis beyond the social scientific goal of description and closer to explanation and ultimately prediction.
+.pull-left[### Aim of Inference
+1. Examine "relationships"
 
- 
-- we need a way to simultaneously analyze changes in networks and behaviors
-- a different statistical approach was needed that did not assume the independence of a network's actors. 
+1. Test hypotheses
 
+1. Analyze change
+]
 
+.pull-right[### Obstacles to Overcome
+1. Violation of assumptions
 
+1. Conventional formulas
 
+1. Network dynamism 
+]
 ]
 
 .panel[.panel-name[Permutations]
 
 .pull-left[
-- Network data violates two core assumptions. Guesses?
-- Enter the permutation (and other nonparametric tests). 
+
 - Matrices are rearranged over and over (even thousands of times!)
-- Permutations compared to your data      
-- If often similar, likely due to chance.
+
+- Permutations are then compared to your observed data
+
+- If network properties of interest occur often, likely due to chance.
+
 ]
 
 .pull-right[
-
-insert matrix
+INSERT MATRIX
+]
 ]
 
 
-]
-
-
-.panel[.panel-name[Research Questions]
+.panel[.panel-name[Applications]
 
 1. Is there a relationship between the frequency of collaboration between school leaders and their discussion of confidential issues? 
 2. Do school leaders prefer to collaborate with those with whom they have collaborated in the past? 
 3. Does gender or some other individual attribute predicts confidential exchanges between school leaders, or does some previous relation have a stronger effect? 
 4. Does collaboration between leaders explain one's level of trust in colleagues? 
-
 5. Can we distinguish among different groups of school leaders based on how frequently they collaborate, and if so, are these groupings related to the level at which they work (school versus district)?
 
 ]
 
 .panel[.panel-name[Discussion]
 
-Consider the following quesions about a network you may be interested in studying:
-- What is the boundary of this network? 
-- What relations within this network might be of interest to your research? 
-- What attributes about actors in this network might you want to 
-- How might you collect data about these actors and their relations? 
+Think about a network you are a part of or may be interested in studying. What research question(s) might you ask about the following relationship between:  
+- different types of ties
+- actor attributes and ties
+- network properties and actor attributes
+- groups in the network
 
 Record your response in the chat. 
 
@@ -181,14 +182,13 @@ Record your response in the chat.
 ]
 
 ???
-
-Prior to data collection, there are a number of decisions research have to make regarding the boundary of the network, relations to capture, and means of collecting data. 
-
-### Boundary Specification 
-- Specifying answers the question: Where do you set the limits when collecting relational data when, in theory, there are no limits? I'm going to quickly run through three generic approaches to addressing this issue.
-- The **positional approach** defines a set of actors that occupy a similar position in some social structure. For example, in the study we'll take a look at in a little bit, actors in the network of study consisted of school and district level leaders at a school district placed under sanction and undergoing major school reforms. 
-- The **event-based approach** to specifying a network's boundary falls delineate a network's boundaries by selecting only those actors who participated in an “event” at a specific time and place. For example, you may be interested in observing fellow researchers participating in an academic conference or attendees at local board of education meetings. As opposed to positional approaches that focus on actors’ behavior or role, the criterion for inclusion through this approach is an event rooted in time and place.
--  The **relational approach** is typically used in egocentric studies, which we don't address here, either based on a researcher's knowledge about relations among a set of actors or relies on the actors themselves to nominate additional actors for inclusion. For example, I'm currently evaluating network of agricultural research networks and we compiled a master list of the networks involved then asked the PIs about these network to identify the actors invovled, or likely to be involved in research and training collaboration between the networks.
+## Evolution
+### Aims of Inference
+- note 
+### Obstacles to Overcome
+- note
+## Permutations
+- note
 
 
 ---
@@ -199,90 +199,60 @@ Prior to data collection, there are a number of decisions research have to make 
 
 .panel[.panel-name[QAP]
 
-Is there a relationship between the frequency of collaboration between school leaders and how often they discuss issues of a confidential nature?
+*Is there a relationship between the frequency of collaboration between school leaders and how often they discuss issues of a confidential nature?*
 
 .pull-left[
-
-Consistent with typical data storage, node-lists often include:
-- **Name or ID of nodes**
-- Demographic info (gender, age) 
-- Socio-economic info (job, income)
-- Substantative info (grades)
-- **Nominated alters**
+INSERT COLLABORATION GRAPH Y1
 ]
 
 
 .pull-right[
+INSERT CONFIDENTIAL EXCHANGES Y3
 
-
-| UID|role1         | experience|region    |
-|---:|:-------------|----------:|:---------|
-|   1|libmedia      |          1|South     |
-|   2|classteaching |          1|South     |
-|   3|districtadmin |          2|Northeast |
-|   4|classteaching |          2|South     |
-|   5|otheredprof   |          3|South     |
-|   6|classteaching |          1|South     |
 
 ]
 ]
 
 .panel[.panel-name[MR-QAP]
 
+*Do school leaders prefer to collaborate with those with whom they have collaborated in the past or with those that they have discussed confidential issues?*
+
+INSERT OUTPUT TABLE 9.3
+
+
+]
+
+
+.panel[.panel-name[P1 &amp; P-Star]
+
+*Does gender or some other individual attribute predicts confidential exchanges between school leaders, or does some previous relation have a stronger effect?*
+
 .pull-left[
 
-Radically different than typical data storage, edge-lists include:
-- **ego and an alter**
-- tie strength or frequency
-- edge attributes (time, event, text)
+INSERT NETWORK
 
 ]
 
 
 .pull-right[
-
-
-| Sender| Receiver|Timestamp    |
-|------:|--------:|:------------|
-|    360|      444|4/4/13 16:32 |
-|    356|      444|4/4/13 18:45 |
-|    356|      444|4/4/13 18:47 |
-|    344|      444|4/4/13 18:55 |
-|    392|      444|4/4/13 19:13 |
-|    219|      444|4/4/13 19:16 |
+INSERT OUTPUT TABLE 9.4
 
 ]
 
-
 ]
 
+.panel[.panel-name[Regression]
 
-.panel[.panel-name[P* (P-Star)]
-
+*Does collaboration between leaders explain one's level of trust in colleagues?*
 .pull-left[
 
-Also radically different, an adjacency matrix includes:
-- Column for each actor
-- Row for each actor
-- A Value indicate the presence/strength of a relation 
+INSERT NETWORK
 
 ]
 
 
 .pull-right[
-
-
-```
-##   1 2 3 4 5 6 7 8
-## 1 0 0 3 0 0 0 0 0
-## 2 0 0 0 0 0 0 0 0
-## 3 4 0 0 0 0 0 0 0
-## 4 0 0 0 0 0 0 0 0
-## 5 0 0 0 0 0 0 0 0
-## 6 3 0 0 0 0 0 0 0
-## 7 0 0 0 0 0 0 0 0
-## 8 0 0 0 0 0 0 0 0
-```
+INSERT Node LIST
 
 ]
 
@@ -290,100 +260,23 @@ Also radically different, an adjacency matrix includes:
 
 .panel[.panel-name[Discuss]
 
-Take a look at one of the newtwork datasets located [here](https://github.com/laser-institute/network-analysis/tree/main/lab-2/data) and consider the following:
-- What format is this data set stored as? 
-- What are some things you notice about this dataset? 
-- What questions do you have about this dataset? 
+Think about a network you are a part of or may be interested in studying. What research question(s) might you ask about the following relationship between:  
+- different types of ties
+- actor attributes and ties
+- network properties and actor attributes
+- groups in the network
 
+Record your response in the chat. 
 ]
 
 ]
 
 ???
+## QAP
+- The quadratic assignment procedure developed by Hubert (1987) and Krackhardt (1987b) tests the null hypothesis of no correlation between the two networks and adjusts for this dependence between networks by repeatedly permuting the order of rows and columns of one of the networks while keeping the other network intact.
+- It is useful, for example, in determining whether there is a relationship between collaboration among school leaders in year 1 and how often they engage in confidential exchanges in year 3. Or you could examine the relationship between how frequently school leaders turn to each other to discuss issues of a confidential nature in year 1 and collaboration in year 3.
+- 
 
-
-
----
-# Data Visualization 
-
-.panelset[
-
-.panel[.panel-name[Nodes]
-
-- **Node.** Nodes are frequently referred to as actors or vertices and typically illustrated by circles, but the shape, color and size can vary depening on what the researcher wants to illustrate abotu the data. 
-
-]
-
-
-.panel[.panel-name[Edges]
-
-While research on construct validity is slim, and participant recall is suspect, **approaches to improve instrument validity** include:   
-
-1. Focus on more stable relations, as opposed to ones that are time specific;
-1.  Limit the number of alters one can nominate;
-1.  Ask respondents to try to answer what the others would say;
-1.  Consider observations or archival data (e.g. logs, student records). 
-
-
-.panel[.panel-name[Direction]
-
-.pull-left[ 
-### Measurement Issues
-1. Recall vs. Recognition 
-1. Fixed- vs. Free-Choice (Quantity)
-1. Ratings vs. Rankings (Intensity)
-1. Missing Data
-
-]
-
-
-.pull-right[
-
-### Possible Solutions
-1. Use a roster if network size &lt; 50
-1. No consensus, consider both
-1. Ranking if network size &lt; 20
-1. Avoid if possible ;) 
-
-
-]
-
-]
-
-]
-
-.panel[.panel-name[Discuss]
-
-.pull-left[Consider the following **sociogram**, or network graph, that consists of 
-- nodes and 
-- edges representing 
-- What might be some threats to the quality of your data? 
-- How might you address or avoid these threats? 
-
-Record your response in the chat.  ]
-
-]
-
-]
-
-???
-
-Similar to data we might typically collect about individual participants in our research, the quality of relational data also depends on reliability, validity, accuracy, and measurement error.
-
-### Reliability
-- Social network researchers can rely on several common reliability measures, including interobserver reliability, internal consistency reliability, and **test–retest reliability**. The latter, however, is the most commonly used. For example, we may ask a teacher nominates all those other teachers from whom he or she seeks advice about professional matters. The retest repeats the same (or similar) request at a later time. Highly correlated responses indicate high reliability.
-- One thing to note when designing a network study or data collection instrument is that closer ties tend to be reported more reliably than weaker ones. 
-- Also, for self-reported ties, reciprocated ties are more trustworthy than non reciprocated. For example, one study asking college students to report whom they spend time with found that only 58% recalled spending time with each other. 
-
-### Validity
-
-Sadly, there has not been a lot of research on the validity of measures of network concepts. This issue is especially relevant to data collected by participant recall. For example, a research may ask students to list five classmates with whom they study, but actual observed behavior may indicate something totally different.
-
-Ways to improve validity include: 
-- Focusing on more stable relations, as opposed to ones that are time specific. For example, asking a respondent to identify who one regularly studies with as opposed to asking who one studied with this past month might be the better option.
-- Limit the number of people one can nominate in order to counteract a tendency to under/overreport the number of relations one has
-- Follow up on respondents’ reports, or explicitly asking respondents to try to answer what the others would say as well as what they themselves think and tell respondents that some information may be confirmed with others.
-- Avoid self-report data altogether. If you sources like public records, email, participation in social networking platforms, and school transcripts, you don't need to directly ask respondents to report on their network. Instead, the network is reconstructed from these records and a number of different relations can be captured. For example, using the public Facebook profiles of a set of students in the same school, it is possible to construct a network of who bullies whom, so long as you can precisely define how bullying is measured.
 
 
 ---
@@ -461,14 +354,15 @@ library(readxl)
 library(tidyverse)
 library(tidygraph)
 library(ggraph)
+library(statnet)
 ```
 
 
 ]
 
-.panel[.panel-name[igraph 📦]
+.panel[.panel-name[ergm 📦]
 
-The {igraph} &lt;img src="img/igraph.png" height="40px"/&gt; package and its collection of network analysis tools provide:
+The {ergm} &lt;img src="img/igraph.png" height="40px"/&gt; package and its collection of network analysis tools provide:
 
 - pain-free implementation of graph algorithms
 - fast handling of large graphs, with millions of vertices and edges
@@ -480,7 +374,7 @@ Both {tidygraph} and {ggraph} used in the previous lab depend heavily on the {ig
 
 .panel[.panel-name[Your Turn]
 
-Load the {igraph} package.
+Load the {ergm} package.
 
 
 
@@ -529,12 +423,11 @@ In the corresponding line of your R script, take a look at the data file we just
 .panel[.panel-name[Discuss]
 
 Think about the questions below and be prepared to share your response:              
+1. What do you notice about this data? 
+1. What do you wonder about this data?
+1. Why do you think our originally valued edges have been reduced to 1's and 0's, or **dichotmoized**?
 
-1. What type of data structure is used to store this network data? 
-1. What do you think the rows and columns represent? 
-1. What do the values in each cell represent?
-
-Type your response in the chat. 
+Type your response to one of these questions in the chat. 
 
 ]
 
@@ -551,7 +444,8 @@ Type your response in the chat.
 
 .panelset[
 
-.panel[.panel-name[Convert Matrix]
+
+.panel[.panel-name[Network Objects]
 
 Before we can begin analyzing our network data in R, we need to convert to a network class R object. Run the following code in your R script:
 

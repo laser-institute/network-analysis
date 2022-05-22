@@ -1,6 +1,6 @@
 ---
-title: 'Unit 4 Case Study: Birds of a Feather Lead Together'
-subtitle: "ECI 589 Social Network Analysis and Education"
+title: 'SNA Case Study: Birds of a Feather Lead Together'
+subtitle: "LASER Institute SNA Learning Lab 4"
 author: "Dr. Shaun Kellogg"
 date: "`r format(Sys.Date(),'%B %e, %Y')`"
 output:
@@ -21,14 +21,14 @@ knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
 
 ## 1. PREPARE
 
-For the **Unit 4 Case Study: Birds of Feather Lead Together**, we once
-again visit the work of Alan Daly and colleagues as we attempt to
-replicate some of the analyses described in Chapter 9: Network Data and
-Statistical Models from Social Network Analysis and Education
-[@carolan2014]. In this case study move beyond the visual and
-mathematical descriptions of networks explored so far to uncover
-generative processes, or mechanisms, that attempt to explain how school
-leaders select peers for collaboration or confidential exchanges.
+*SNA Case Study: Birds of a Feather Lead Together* is guided once again
+by the work of Alan Daly and colleagues and attempts to replicate the
+analyses described in Chapter 9: Network Data and Statistical Models
+from Social Network Analysis and Education [@carolan2014]. In this case
+study we'll revisit the visual and mathematical descriptions of networks
+explored in previous case studies to help uncover, and then empirically
+test, generative processes that attempt to explain how school leaders
+select peers for collaboration or confidential exchanges.
 
 More specifically, this case study will cover the following topics
 pertaining to each data-intensive workflow process:
@@ -824,10 +824,11 @@ in Chapter 9:
 As we've discovered in this course, network data can come in many
 different forms --- ties can be stored as edgelists or matrices, saved
 as .csv or excel files, and converted to a variety of network R objects.
-Attributes for the nodes, ties and dyads in can also various forms and
-added in various ways to objects in R. For the {ergm} package, however,
-data will need to be transformed into a object of the class "network"
---- the format that statnet uses to store and work with network data.
+Attributes for the nodes, ties and dyads can also take various forms and
+be added in various ways to objects in R. For the {ergm} package,
+however, data will need to be transformed into a object of the class
+"network" --- the format that statnet uses to store and work with
+network data.
 
 Fortunately, we have already prepared our data for quick conversion to a
 `network` object and can supply just a couple arguments to the
