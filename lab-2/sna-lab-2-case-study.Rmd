@@ -329,7 +329,7 @@ R.
 
 ```{r as_matrix}
 
-year_1_matrix <- as.matrix(year_1_collaboration )
+year_1_matrix <- as.matrix(year_1_collaboration)
 
 ```
 

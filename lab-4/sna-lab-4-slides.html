@@ -4,7 +4,7 @@
     <title>SNA Lab 4: Statistical Inference &amp; Network Models</title>
     <meta charset="utf-8" />
     <meta name="author" content="Dr. Shaun Kellogg" />
-    <meta name="date" content="2022-05-22" />
+    <meta name="date" content="2022-05-23" />
     <script src="libs/header-attrs-2.13/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/panelset-0.2.6/panelset.css" rel="stylesheet" />
@@ -37,7 +37,7 @@ class: clear, title-slide, inverse, center, top, middle
 # SNA Lab 4: Statistical Inference &amp; Network Models
 ----
 ### **Dr. Shaun Kellogg**
-### May 22, 2022
+### May 23, 2022
 
 ---
 # Agenda
@@ -74,8 +74,7 @@ class: clear, title-slide, inverse, center, top, middle
 .pull-left[
 ## Network Visualization
 .center[
-REPLACE THIS
-&lt;img src="img/nodes-edges.jpeg" height="350px"/&gt;
+&lt;img src="sna-lab-4-slides_files/figure-html/unnamed-chunk-2-1.png" width="400px" /&gt;
 ]
 ]
 
@@ -152,7 +151,18 @@ Inference, Models, and Exemplar
 ]
 
 .pull-right[
-INSERT MATRIX
+
+```
+##   1 2 3 4 5 6 7 8
+## 1 0 0 3 0 0 0 0 0
+## 2 0 0 0 0 0 0 0 0
+## 3 4 0 0 0 0 0 0 0
+## 4 0 0 0 0 0 0 0 0
+## 5 0 0 0 0 0 0 0 0
+## 6 3 0 0 0 0 0 0 0
+## 7 0 0 0 0 0 0 0 0
+## 8 0 0 0 0 0 0 0 0
+```
 ]
 ]
 
@@ -199,15 +209,13 @@ Record your response in the chat.
 
 .panel[.panel-name[QAP]
 
-*Is there a relationship between the frequency of collaboration between school leaders and how often they discuss issues of a confidential nature?*
-
 .pull-left[
-INSERT COLLABORATION GRAPH Y1
+&lt;img src="sna-lab-4-slides_files/figure-html/y1-collaboration-1.png" width="350px" /&gt;
 ]
 
 
 .pull-right[
-INSERT CONFIDENTIAL EXCHANGES Y3
+&lt;img src="sna-lab-4-slides_files/figure-html/y3-confidential-1.png" width="350px" /&gt;
 
 
 ]
@@ -215,27 +223,28 @@ INSERT CONFIDENTIAL EXCHANGES Y3
 
 .panel[.panel-name[MR-QAP]
 
+.pull-left[
 *Do school leaders prefer to collaborate with those with whom they have collaborated in the past or with those that they have discussed confidential issues?*
+]
 
-INSERT OUTPUT TABLE 9.3
-
-
+.pull-right[
+.center[&lt;img src="img/qap-table.png" height="350px"/&gt;]
+]
 ]
 
 
 .panel[.panel-name[P1 &amp; P-Star]
 
-*Does gender or some other individual attribute predicts confidential exchanges between school leaders, or does some previous relation have a stronger effect?*
 
 .pull-left[
 
-INSERT NETWORK
+*Does gender or some other individual attribute predicts confidential exchanges between school leaders, or does some previous relation have a stronger effect?*
 
 ]
 
 
 .pull-right[
-INSERT OUTPUT TABLE 9.4
+.center[&lt;img src="img/p-star-table.png" height="350px"/&gt;]
 
 ]
 
@@ -243,16 +252,27 @@ INSERT OUTPUT TABLE 9.4
 
 .panel[.panel-name[Regression]
 
-*Does collaboration between leaders explain one's level of trust in colleagues?*
-.pull-left[
 
-INSERT NETWORK
+.pull-left-narrow[
+
+*Does collaboration between leaders explain one's level of trust in colleagues?*
 
 ]
 
 
-.pull-right[
-INSERT Node LIST
+.pull-right-wide[
+
+```
+## # A tibble: 6 × 7
+##      id efficacy trust district_site  male in_degree out_degree
+##   &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;
+## 1     1     6.06  4                1     0         5          0
+## 2     2     6.56  5.63             1     0         1          0
+## 3     3     7.39  4.63             1     0         7          5
+## 4     4     4.89  4                1     0         2          4
+## 5     5     6.06  5.75             0     1         3          1
+## 6     6     7.39  4.38             0     0         1          0
+```
 
 ]
 
@@ -313,9 +333,25 @@ To answer RQ1, Daly and Finnigan administered **online survey consisting of netw
 
 ]
 
+
+.panel[.panel-name[Analysis]
+
+.pull-left[
+### QAP
+- We conducted a series of QAP correlations using UCINET software
+]
+
+.pull-right[
+
+.center[&lt;img src="img/daly-net.jpeg" height="320px"/&gt;]
+]
+
+]
+
+
 .panel[.panel-name[Key Findings]
 
-Ovearall, the findings from SNA and qualitative interviews indicate that over time: 
+Overall, the findings from SNA and qualitative interviews indicate that over time: 
 - Networks **increased the number of superficial interactions**.
 - More frequent exchanges, however, remained unchanged. 
 - The result was a centralized network structure.
@@ -325,7 +361,7 @@ Ovearall, the findings from SNA and qualitative interviews indicate that over ti
 
 
 .footnote[
-Daly, A. et al. (2011). [The ebb and flow of social network ties between district leaders.](https://github.com/laser-institute/network-analysis/blob/main/lab-2/lit/daly-ebb-flow.pdf)
+Daly, A. et al. (2011). [The ebb and flow of social network ties between district leaders.](https://github.com/laser-institute/network-analysis/blob/main/lab-4/lit/daly-ebb-flow.pdf)
 ]
 
 ???
@@ -340,9 +376,15 @@ Network Packages, Objects, and Sociograms
 
 
 ---
-# Load Packages
+# Prepare
 
 .panelset[
+
+.panel[.panel-name[Research Question]
+
+*Does gender or some other individual attribute predict confidential exchanges between school leaders?*
+
+]
 
 .panel[.panel-name[Load Libraries]
 
@@ -354,7 +396,7 @@ library(readxl)
 library(tidyverse)
 library(tidygraph)
 library(ggraph)
-library(statnet)
+library(janitor)
 ```
 
 
@@ -399,8 +441,9 @@ Let's import two Excel files from the Social Network Analysis and Education comp
 
 
 ```r
-year_1_collaboration &lt;- read_excel("data/year_1_collaboration.xlsx", 
-                                   col_names = FALSE)
+leader_nodes &lt;- read_csv("data/school-leader-nodes.csv")
+
+leader_edges &lt;- read_csv("data/school-leader-edges.csv")
 ```
 
 
@@ -408,7 +451,7 @@ year_1_collaboration &lt;- read_excel("data/year_1_collaboration.xlsx",
 
 .panel[.panel-name[Inspect Data]
 
-In the corresponding line of your R script, take a look at the data file we just imported:
+In the corresponding line of your R script, take a look at the node and edge lists we just imported:
 
 
 ```r
@@ -423,9 +466,12 @@ In the corresponding line of your R script, take a look at the data file we just
 .panel[.panel-name[Discuss]
 
 Think about the questions below and be prepared to share your response:              
-1. What do you notice about this data? 
-1. What do you wonder about this data?
-1. Why do you think our originally valued edges have been reduced to 1's and 0's, or **dichotmoized**?
+1. What do you think the values for each tie represent?
+1. What do you think the "trust" and "efficacy" variables represent?
+1. What else do you notice about this data? 
+1. What else do you wonder about this data?
+
+Hint: Take a look at the SNA in Ed [companion site](https://studysites-sagepub-com.prox.lib.ncsu.edu/carolan/study/resources.htm) 
 
 Type your response to one of these questions in the chat. 
 
@@ -433,35 +479,83 @@ Type your response to one of these questions in the chat.
 
 .panel[.panel-name[Answer]
 
-- This adjacency matrix reports on **"collaboration" ties among 43 school leaders** in year 1 of a three-year study. 
-
-- This is **a directed valued (weighted) network** measured on five-point scale ranging from 0 to 4, with higher values indicating more frequent collaborations (1–2 times/week).
+- Edge values indicate the frequency of interactions leaders have with nominated individuals on a four-point frequency scale ranging from 1 (the least frequent) to 4 (1–2 times a week). 
+- `efficacy` measures a belief in their ability to have an effect derived from a scale that includes 18 items rated on a 9-point Likert scale ranging from 1 (None at all) to 9 (A great deal). 
+- `trust` measures perceptions of the level of trust their school and district is a composite score based on scale contains eight items rated on a 7-point Likert scale ranging from 1 (Strongly disagree) to 7 (Strongly agree). 
 ]
 ]
 
 ---
-# Wrangle Data  
+# Wrangle  
 
 .panelset[
 
 
-.panel[.panel-name[Network Objects]
+.panel[.panel-name[as.network() function]
+
+The {ergm} package requires an object of the class "network" — the format that {statnet} uses to store and work with network data.
+
+The `as.network()` function does just that and takes the following arguments:
+
+`x` = a matrix giving the network structure in adjacency, incidence, or edgelist form;
+
+`vertices =` an optional data.frame containing the vertex attributes. The first column is assigned to the "vertex.names" and additional columns are used to set vertex attributes using their column names.
+
+Run the following code in your consul to pull up the help page for teh :
+
+
+```r
+?as.network
+```
+
+
+]
+
+.panel[.panel-name[Convert to Network]
 
 Before we can begin analyzing our network data in R, we need to convert to a network class R object. Run the following code in your R script:
 
 
 ```r
-year_1_matrix &lt;- as.matrix(year_1_collaboration)
+leader_network &lt;- as.network(leader_edges,
+                             vertices = leader_nodes)
 
-rownames(year_1_matrix) &lt;- 1:43
+leader_network
+```
 
-colnames(year_1_matrix) &lt;- 1:43
-
-
-year_1_network &lt;- as_tbl_graph(year_1_matrix, directed = TRUE)
+```
+##  Network attributes:
+##   vertices = 43 
+##   directed = TRUE 
+##   hyper = FALSE 
+##   loops = FALSE 
+##   multiple = FALSE 
+##   bipartite = FALSE 
+##   total edges= 143 
+##     missing edges= 0 
+##     non-missing edges= 143 
+## 
+##  Vertex attribute names: 
+##     district_site efficacy male trust vertex.names 
+## 
+## No edge attributes
 ```
 
 
+]
+
+.panel[.panel-name[Check Class]
+
+Before we can begin analyzing our network data in R, we need to convert to a network class R object. Run the following code in your R script:
+
+
+```r
+class(leader_network)
+```
+
+```
+## [1] "network"
+```
 ]
 
 .panel[.panel-name[View Network]
@@ -478,233 +572,166 @@ In the corresponding line of your R script, type the name of network object we j
 
 ]
 
-.panel[.panel-name[Discuss]
-
-Think about the questions below:              
-
-1. What size of the Year 1 collaboration network?
-1. What else do you notice about this network?
-1. What questions, if any, do have about this network?
-
-Type your responses in the chat.
 
 ]
-
-
-]
-
-
 
 ---
-
-# Network Density 
+# Model
 
 .panelset[
 
-.panel[.panel-name[Definition]
 
-.pull-left[ In its simplest form,  network density is **the ratio of existing ties in a network to all possible ties** that could potentially exist, regardless of whether they do.
-]
+.panel[.panel-name[Model Specification]
 
-.pull-right[ .center[&lt;img src="img/density.jpeg" height="150px"/&gt;
+The syntax for specifying a model in the `ergm` package follows **R**'s
+formula convention:
+`my_network ~ ergm_term_1 + ergm_term_2 + ergm_term_3` and so forth.
 
-Which of these two networks has a higher density?
-]
- 
-]
+In the Help tab, search for "ergm-terms" and select the `ergm::ergm-terms` help page to take a quick peek at the plethora of parameters you can include in your model. 
 
 ]
 
-.panel[.panel-name[Significance]
-In education, dense networks have been associated with:   
-- healthy learning communities   
-- other
-- other
+.panel[.panel-name[ERGM 1]
 
-For better or worse, **dense networks reinforce prevailing norms** and behaviors and insulate one from outside influences (Carolan, 2011). 
-
-]
-
-.panel[.panel-name[Implementation]
-The {igraph} package has a simple `edge_density()` function for calculating network density. Let's apply to our `year_1_network`:
+Let's start with with a simple model that contains the following ergm-terms 
+- **`edges`** a required term that represents the total number of edges in the network, and the ergm-term
+- **`mutual`** examines the tendency for ties to be reciprocated,
+i.e. "mutuality".
 
 
 ```r
-edge_density(year_1_network)
+# ensure reproducibility of our model
+set.seed(589) 
+
+# fit our ergm model 
+ergm_mod_1 &lt;-ergm(leader_network ~ edges + mutual) 
+
+# get summary statistics for our model
+summary(ergm_mod_1) 
 ```
 
 ```
-## [1] 0.04540421
-```
-
-How would you interpret this measure?
-]
-
-.panel[.panel-name[Discuss]
-
-.pull-left[We know there 82 edges in the Year 1 network (pictured right), but **how many possible edges** could there be?   
-
-**Hint**: The number of all possible edges in a directed network is V(V-1) where V is the # of vertices.
-
-&lt;!-- How many possible edges if this were an undirected network? --&gt;
-] 
-
-.pull-right[
-![](sna-lab-4-slides_files/figure-html/examine-density-1.png)&lt;!-- --&gt;
-]
-]
-]
-
-
-
----
-
-# Network Centralization 
-
-.panelset[
-
-.panel[.panel-name[Definition]
-
-.pull-left[A key structural property of complete networks is the concept of centralization, or **the extent to which relations are focused on one or a small set of actors**. 
-]
-
-.pull-right[ .center[&lt;img src="img/density.jpeg" height="150px"/&gt;
-
-Which of these two networks is more centralized?
-]
- 
-]
-
-]
-
-.panel[.panel-name[Significance]
-
-- A network's centralization affects the process through which resources traverse the network. 
-- Central actors likely wield a disproportionate amount of influence on the network. 
-- High centralization provides fewer actors with more power and control.
-
-]
-
-.panel[.panel-name[Implementation]
-
-.pull-left[
-The {igraph} package has a simple `edge_density()` function for calculating network density. 
-
-Let's apply to our `year_1_network`:]
-
-.pull-right[
-
-```r
-centr_degree(year_1_network, mode = "all")
-```
-
-```
-## $res
-##  [1] 5 0 5 3 3 3 4 8 4 7 4 1 0 4 4 3 2 5 4 4 5 4 3 6 4 4 4 3 8 4 4 3 3 6 3 3 4 3 6 2 3 4 2
+## Call:
+## ergm(formula = leader_network ~ edges + mutual)
 ## 
-## $centralization
-## [1] 0.05102041
+## Monte Carlo Maximum Likelihood Results:
 ## 
-## $theoretical_max
-## [1] 3528
+##        Estimate Std. Error MCMC % z value Pr(&gt;|z|)    
+## edges   -3.1101     0.1283      0  -24.23   &lt;1e-04 ***
+## mutual   3.1246     0.3003      0   10.40   &lt;1e-04 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+##      Null Deviance: 2503.6  on 1806  degrees of freedom
+##  Residual Deviance:  891.8  on 1804  degrees of freedom
+##  
+## AIC: 895.8  BIC: 906.8  (Smaller is better. MC Std. Err. = 0.7447)
 ```
 
-How would you interpret this measure?
-]
-]
-
-.panel[.panel-name[Discuss]
-
-.pull-left[We know there 82 edges in the Year 1 network (pictured right), but **how many possible edges** could there be?   
-
-**Hint**: The number of all possible edges in a directed network is V(V-1) where V is the # of vertices.
-
-&lt;!-- How many possible edges if this were an undirect network? --&gt;
-] 
-
-.pull-right[
-![](sna-lab-4-slides_files/figure-html/examine-centrality-1.png)&lt;!-- --&gt;
-]
-]
-]
-
----
-
-# Network Reciprocity 
-
-.panelset[
-
-.panel[.panel-name[Definition]
-
-.pull-left[A key structural property of complete networks is the concept of centralization, or **the extent to which relations are focused on one or a small set of actors**
 
 ]
 
-.pull-right[ .center[&lt;img src="img/density.jpeg" height="150px"/&gt;
+.panel[.panel-name[ERGM 2]
 
-Which of these two networks is more centralized?
-]
- 
-]
+Let's now test for homophily -- or the "birds of a feather" phenomenon -- in our network. The `ergm()` function now includes a `nodematch()` term to answer the following question:
 
-]
+*Are school leaders more likely to confide in colleagues of their own gender or who work at the same site level (e.g., school vs. central office)?*
 
-.panel[.panel-name[Significance]
-- This property is important because it reveals the direction through which resources such as help, advice, and support flow. 
-- It also indicates the network's stability, as reciprocated ties tend to be more stable over time. 
-- Networks with high reciprocity may be more “equal,” while those with lower reciprocity may be more hierarchical.
-
-]
-
-.panel[.panel-name[Implementation]
-
-.pull-left[
-At the network-level, reciprocity is a measure of the likelihood of vertices in a directed network to be mutually linked. The {igraph} package has a simple `reciprocity()` function for calculating network density. 
-
-Let's apply to our `year_1_network`:]
-
-.pull-right[
 
 ```r
-reciprocity(year_1_network)
+# fit our ergm model 
+ergm_mod_2 &lt;-ergm(leader_network ~ edges + mutual + nodematch('male') + nodematch('district_site')) 
+
+# get summary statistics for our model
+summary(ergm_mod_2) 
 ```
 
 ```
-## [1] 0.1707317
+## Call:
+## ergm(formula = leader_network ~ edges + mutual + nodematch("male") + 
+##     nodematch("district_site"))
+## 
+## Monte Carlo Maximum Likelihood Results:
+## 
+##                         Estimate Std. Error MCMC % z value Pr(&gt;|z|)    
+## edges                    -3.6000     0.1935      0 -18.606   &lt;1e-04 ***
+## mutual                    2.9423     0.2998      0   9.813   &lt;1e-04 ***
+## nodematch.male           -0.1056     0.1428      0  -0.740     0.46    
+## nodematch.district_site   0.9321     0.1877      0   4.965   &lt;1e-04 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+##      Null Deviance: 2503.6  on 1806  degrees of freedom
+##  Residual Deviance:  857.2  on 1802  degrees of freedom
+##  
+## AIC: 865.2  BIC: 887.2  (Smaller is better. MC Std. Err. = 0.4403)
+```
+]
+
+.panel[.panel-name[ERGM 3]
+
+Let's now test for homophily -- or the "birds of a feather" phenomenon -- in our network. The `ergm()` function now includes a `nodematch()` term to answer the following question:
+
+*Are school leaders with higher levels of trust more likely to have confidential exchanges?*
+
+
+```r
+# fit our ergm model 
+ergm_mod_3 &lt;-ergm(leader_network ~ edges + mutual + nodematch('male') + nodematch('district_site') + nodecov('trust')) 
+
+# get summary statistics for our model
+summary(ergm_mod_3) 
 ```
 
+```
+## Call:
+## ergm(formula = leader_network ~ edges + mutual + nodematch("male") + 
+##     nodematch("district_site") + nodecov("trust"))
+## 
+## Monte Carlo Maximum Likelihood Results:
+## 
+##                         Estimate Std. Error MCMC % z value Pr(&gt;|z|)    
+## edges                   -4.52881    0.74295      0  -6.096   &lt;1e-04 ***
+## mutual                   2.93453    0.30500      0   9.621   &lt;1e-04 ***
+## nodematch.male          -0.10860    0.14527      0  -0.748    0.455    
+## nodematch.district_site  0.95062    0.18518      0   5.134   &lt;1e-04 ***
+## nodecov.trust            0.09530    0.07575      0   1.258    0.208    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+##      Null Deviance: 2503.6  on 1806  degrees of freedom
+##  Residual Deviance:  855.5  on 1801  degrees of freedom
+##  
+## AIC: 865.5  BIC: 893  (Smaller is better. MC Std. Err. = 0.9979)
+```
 ]
 ]
 
-.panel[.panel-name[Discuss]
-
-- How would you interpret this measure? 
-- What does it indicate about our network? 
 
 
-]
-]
+
+
 
 ---
 # What's Next
 
 .pull-left[
-## Readings &amp; Discussion
+## Essential Readings
 
-- Collection
-- Management  
-- Quality  
-]
+- Reading 1: [Statistical Inference With Network Data](https://via.hypothes.is/https://drive.google.com/file/d/1-zf90wAZGm2uM7qX-2HoeWTLmxn2ndJz/view?usp=sharing)
+
+- Reading 2: [Network Data and Statistical Models](https://via.hypothes.is/https://drive.google.com/file/d/104zBHOcZL0Nj1Snm2KR1QAKOk96dtZfH/view?usp=sharing)  
+
+] 
 
 .pull-right[
 ## Case Study
 
-- Density
-- Centrality 
-- Reciprocity
+- SNA Case Study: [Birds of a Feather Lead Together](https://laser-institute.github.io/network-analysis/lab-4/sna-lab-4-case-key.html)
+
+- Guiding Study: [The ebb and flow of social network ties between district leaders.](https://github.com/laser-institute/network-analysis/blob/main/lab-4/lit/daly-ebb-flow.pdf)
 
 ]
-
 
 
 

@@ -900,7 +900,7 @@ class(leader_network)
 
 So far so good! Let's start building our first ERGM model!
 
-## 4b. Estimate the ERGM Model
+## 4b. Estimate the ERGM
 
 We'll begin by running a simple model both to demonstrate the most
 commonly used functions for ERGMs and also to replicate the approach in
@@ -1172,7 +1172,7 @@ hence our model did not fail to converge.
 ### **👉 Your Turn** **⤵**
 
 Use the code chunk below to check the model fit and diagnostics for the
-model the you created in [4b. Estimate the ERGM Model]:
+model the you created in [4b. Estimate the ERGM]:
 
 ```{r}
 #YOUR CODE HERE
