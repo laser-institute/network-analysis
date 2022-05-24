@@ -4,7 +4,7 @@
     <title>SNA Lab 4: Statistical Inference &amp; Network Models</title>
     <meta charset="utf-8" />
     <meta name="author" content="Dr. Shaun Kellogg" />
-    <meta name="date" content="2022-05-23" />
+    <meta name="date" content="2022-05-24" />
     <script src="libs/header-attrs-2.13/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/panelset-0.2.6/panelset.css" rel="stylesheet" />
@@ -37,7 +37,7 @@ class: clear, title-slide, inverse, center, top, middle
 # SNA Lab 4: Statistical Inference &amp; Network Models
 ----
 ### **Dr. Shaun Kellogg**
-### May 23, 2022
+### May 24, 2022
 
 ---
 # Agenda
@@ -179,10 +179,10 @@ Inference, Models, and Exemplar
 
 .panel[.panel-name[Discussion]
 
-Think about a network you are a part of or may be interested in studying. What research question(s) might you ask about the following relationship between:  
-- different types of ties
-- actor attributes and ties
-- network properties and actor attributes
+Think about a network you are a part of or may be interested in studying. What research question(s) might you ask about the relationship between:  
+- different types of **ties** (e.g., relationship or interaction)
+- actor **attributes** (e.g., attitudes, test scores) and **ties**
+- **network properties** (e.g., centrality, density) and actor **attributes**
 - groups in the network
 
 Record your response in the chat. 
@@ -280,11 +280,12 @@ Record your response in the chat.
 
 .panel[.panel-name[Discuss]
 
-Think about a network you are a part of or may be interested in studying. What research question(s) might you ask about the following relationship between:  
-- different types of ties
-- actor attributes and ties
-- network properties and actor attributes
-- groups in the network
+Think about potential research questions we raised in the previous slide. What model might be appropriate for answering that question?
+
+Hint: think about the what relationship is being tested:    
+- **ties-ties**: QAP/MR-QAP
+- **attributes-ties**: P1 &amp; P-Star
+- **network properties-attributes**: t-tests, anova, regression
 
 Record your response in the chat. 
 ]
@@ -328,28 +329,31 @@ This study involves **quantifying and visualizing the ties and overall structure
 
 .panel[.panel-name[Data]
 To answer RQ1, Daly and Finnigan administered **online survey consisting of network relations and demographic questions** asking participants to:
-- select the administrators in the La Estasis network that they interact with for the purpose of **advise seeking, collaboration, confidential exchanges**,
+- select the administrators in the La Estasis network that they interact with for the purpose of **advice seeking, collaboration, knowledge exchanges**,
 - assess their relationships on a **5-point interaction scale** ranging from 1 (no interaction) to 5 (1 to 2 times a week).
 
 ]
 
 
-.panel[.panel-name[Analysis]
+.panel[.panel-name[Model Findings]
 
 .pull-left[
 ### QAP
-- We conducted a series of QAP correlations using UCINET software
+- weak correlation between knowledge and innovation and advice and innovation
+- leaders with knowledge ties also likely to have advice relations
 ]
 
 .pull-right[
 
-.center[&lt;img src="img/daly-net.jpeg" height="320px"/&gt;]
+### P-Star (SIENA)
+- Leaders with more experience more likely to be selected for reform-related advice
+- over time, leaders tended to create ties with those frequently identified as resources for innovative practices
 ]
 
 ]
 
 
-.panel[.panel-name[Key Findings]
+.panel[.panel-name[Takeaways]
 
 Overall, the findings from SNA and qualitative interviews indicate that over time: 
 - Networks **increased the number of superficial interactions**.
@@ -361,7 +365,7 @@ Overall, the findings from SNA and qualitative interviews indicate that over tim
 
 
 .footnote[
-Daly, A. et al. (2011). [The ebb and flow of social network ties between district leaders.](https://github.com/laser-institute/network-analysis/blob/main/lab-4/lit/daly-ebb-flow.pdf)
+Daly, A. et al. (2011). [The ebb and flow of social network ties between district leaders.](https://via.hypothes.is/https://drive.google.com/file/d/1RPDTFTGlYV5RfN1EflPS8f8o_7giVGhX/view?usp=sharing)
 ]
 
 ???
@@ -371,7 +375,7 @@ class: clear, inverse, middle, center
 
 # part_2(R, code_along)
 
-Network Packages, Objects, and Sociograms
+ERGM, Model Specification, and Interpretation
 
 
 
@@ -386,37 +390,23 @@ Network Packages, Objects, and Sociograms
 
 ]
 
-.panel[.panel-name[Load Libraries]
-
-Let's start by creating a new R script and loading the following packages introduced in the previous lab:          
-
-
-```r
-library(readxl)
-library(tidyverse)
-library(tidygraph)
-library(ggraph)
-library(janitor)
-```
-
-
-]
 
 .panel[.panel-name[ergm 📦]
 
-The {ergm} &lt;img src="img/igraph.png" height="40px"/&gt; package and its collection of network analysis tools provide:
-
-- pain-free implementation of graph algorithms
-- fast handling of large graphs, with millions of vertices and edges
-
-Both {tidygraph} and {ggraph} used in the previous lab depend heavily on the {igraph} package. 
+- ERGMs are the primary building blocks of statistically testing network structural effects.
+- Uses simulation to determine the probability of network feature (e.g., reciprocity, clique, homophily)
+- Evolved to allow actor attributes for covariates
+- The {ergm} package is used to fit exponential-family random graph models (ERGMs) in R
 
 ]
 
 
 .panel[.panel-name[Your Turn]
 
-Load the {ergm} package.
+Let's start by creating a new R script and loading the following packages:
+- readxl
+- ergm
+- statnet
 
 
 
@@ -428,6 +418,11 @@ Load the {ergm} package.
 ]
 
 ]
+
+???
+
+### ERGM
+Suppose an empirical network consists of 100 teachers and 1,000 ties among them, for a density value of 10%. We might be interested in examining whether there is a tendency for reciprocity: If Teacher A nominated B, was B more likely to nominate A? To figure out whether there is a tendency toward reciprocal relations, hundreds or perhaps even thousands of networks are generated with the same number of actors and ties as in the empirical network—100 actors and 1,000 ties. The average of the simulated distribution of reciprocal ties is calculated and then compared to the value in the empirical (observed) network. Then, if the reciprocity in the empirical network differs from the average reciprocity in the simulated networks more than it would be expected to by chance, we can conclude that there is indeed a tendency towards reciprocity.
 
 ---
 
@@ -495,13 +490,7 @@ Type your response to one of these questions in the chat.
 
 The {ergm} package requires an object of the class "network" — the format that {statnet} uses to store and work with network data.
 
-The `as.network()` function does just that and takes the following arguments:
-
-`x` = a matrix giving the network structure in adjacency, incidence, or edgelist form;
-
-`vertices =` an optional data.frame containing the vertex attributes. The first column is assigned to the "vertex.names" and additional columns are used to set vertex attributes using their column names.
-
-Run the following code in your consul to pull up the help page for teh :
+The `as.network()` function does just that. Run the following code in your console to pull up the help page for the `as.network()` function and let's take a look:
 
 
 ```r
@@ -513,32 +502,12 @@ Run the following code in your consul to pull up the help page for teh :
 
 .panel[.panel-name[Convert to Network]
 
-Before we can begin analyzing our network data in R, we need to convert to a network class R object. Run the following code in your R script:
+Run the following code in your R script to combine our edge and node lists into a single "network" object: 
 
 
 ```r
 leader_network &lt;- as.network(leader_edges,
                              vertices = leader_nodes)
-
-leader_network
-```
-
-```
-##  Network attributes:
-##   vertices = 43 
-##   directed = TRUE 
-##   hyper = FALSE 
-##   loops = FALSE 
-##   multiple = FALSE 
-##   bipartite = FALSE 
-##   total edges= 143 
-##     missing edges= 0 
-##     non-missing edges= 143 
-## 
-##  Vertex attribute names: 
-##     district_site efficacy male trust vertex.names 
-## 
-## No edge attributes
 ```
 
 
@@ -546,7 +515,7 @@ leader_network
 
 .panel[.panel-name[Check Class]
 
-Before we can begin analyzing our network data in R, we need to convert to a network class R object. Run the following code in your R script:
+Now let's use the `class()` function to verify that it is indeed a network object/data structure:
 
 
 ```r
@@ -594,7 +563,7 @@ In the Help tab, search for "ergm-terms" and select the `ergm::ergm-terms` help 
 .panel[.panel-name[ERGM 1]
 
 Let's start with with a simple model that contains the following ergm-terms 
-- **`edges`** a required term that represents the total number of edges in the network, and the ergm-term
+- **`edges`** a required term that represents the total number of edges in the network
 - **`mutual`** examines the tendency for ties to be reciprocated,
 i.e. "mutuality".
 
@@ -729,7 +698,7 @@ summary(ergm_mod_3)
 
 - SNA Case Study: [Birds of a Feather Lead Together](https://laser-institute.github.io/network-analysis/lab-4/sna-lab-4-case-key.html)
 
-- Guiding Study: [The ebb and flow of social network ties between district leaders.](https://github.com/laser-institute/network-analysis/blob/main/lab-4/lit/daly-ebb-flow.pdf)
+- Guiding Study: [The ebb and flow of social network ties between district leaders.](https://via.hypothes.is/https://drive.google.com/file/d/1RPDTFTGlYV5RfN1EflPS8f8o_7giVGhX/view?usp=sharing)
 
 ]
 
