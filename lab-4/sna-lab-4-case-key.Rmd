@@ -44,7 +44,7 @@ pertaining to each data-intensive workflow process:
 3.  **Explore**: In section 3, we once again use the {tidygraph} package
     and the companion {ggraph} package to calculate basic summary stats
     for our network and will try to replicate and ideally improve upon
-    the sociogram from our course text.
+    the sociogram from our readings.
 
 4.  **Model**: We wrap up our analysis in Section 4 by introducing
     exponential random graph modules used in Chapter 9 of @carolan2014,
@@ -74,12 +74,12 @@ statistical approaches to social network analysis:
     observed pattern" with the goal of explaining and ultimately
     predicting network structures and outcomes.
 
-For Unit 4, we move beyond previous "mathematical approaches" used so
-far and explore the use of ERGMs as a "statistical approach" to network
-analysis. Specifically, we will try to replicate the P\* models used in
-Chapter 9 of @carolan2014 in order to test hypotheses about individual
-and network characteristics that may explain who school leaders select
-for collaboration and confidential exchanges.
+For Learning Lab 4, we move beyond previous "mathematical approaches"
+used so far and explore the use of ERGMs as a "statistical approach" to
+network analysis. Specifically, we will try to replicate the P\* models
+used in Chapter 9 of @carolan2014 in order to test hypotheses about
+individual and network characteristics that may explain who school
+leaders select for collaboration and confidential exchanges.
 
 #### Research Questions
 
@@ -180,7 +180,7 @@ confidential exchanges) at a later point in time."
 
 #### 👉 Your Turn ⤵
 
-For our Unit 4 case study, we focus specifically on generative
+For our Learning Lab 4 case study, we focus specifically on generative
 processes, or micro-level mechanisms, the might help explain who school
 leaders select to collaborate with or engage in confidential exchanges.
 Review Chapter 9 of SNA and Education and report out on the findings
@@ -479,14 +479,14 @@ Recall that edge-lists contain a row for each dyad consisting of at
 minimum two columns with the name of each actor, and which conveniently
 can also contain other information or attributes about the relationship
 such as edge weight, timestamps, or other contextual information as
-demonstrated in Unit 1.
+demonstrated in Learning Lab 1.
 
 Edge-lists also have the advantage of being easier to work with when
 using network packages in R.
 
 #### Get Edges
 
-The {igraph} package introduced in Unit 1 has a convenient
+The {igraph} package introduced in Learning Lab 1 has a convenient
 `get.data.frame()` function for extracting an edge list from a matrix,
 but first we need to convert our matrix to an igraph network object.
 
@@ -520,13 +520,13 @@ leader_edges
 
 #### 👉 Your Turn ⤵
 
-Recall from Unit 2 that we introduced the {tidygraph} package for
-preparing and summarizing our Twitter network. Tidygraph includes the
-full functionality of `igraph` in a tidy API giving you access to almost
-all of the `dplyr` verbs plus a few more, developed for use with
+Recall from Learning Lab 2 that we introduced the {tidygraph} package
+for preparing and summarizing our Twitter network. Tidygraph includes
+the full functionality of `igraph` in a tidy API giving you access to
+almost all of the `dplyr` verbs plus a few more, developed for use with
 relational data.
 
-Similar to Unit 2, use the `tbl_graph()` function to convert our
+Similar to Learning Lab 2, use the `tbl_graph()` function to convert our
 `leader_edges` and `leader_nodes` data frames into a network graph
 object, by including the following arguments and supplying the
 appropriate code:
@@ -643,10 +643,10 @@ leader_measures
 #### Summarize Node Measures
 
 We can also use the `activate()` function combined with the
-`as_tibble()` function introduced in our previous unit to extract our
-new measures to a separate data frame we'll call `node_measures` so we
-can inspect our nodes individually and later use to calculate some
-summary stats:
+`as_tibble()` function introduced in our previous Learning Lab to
+extract our new measures to a separate data frame we'll call
+`node_measures` so we can inspect our nodes individually and later use
+to calculate some summary stats:
 
 ```{r create-tibble}
 node_measures <- leader_measures |> 
@@ -821,13 +821,13 @@ in Chapter 9:
 
 ### 4a. Loading Network Data
 
-As we've discovered in this course, network data can come in many
-different forms --- ties can be stored as edgelists or matrices, saved
-as .csv or excel files, and converted to a variety of network R objects.
-Attributes for the nodes, ties and dyads can also take various forms and
-be added in various ways to objects in R. For the {ergm} package,
-however, data will need to be transformed into a object of the class
-"network" --- the format that statnet uses to store and work with
+As we've discovered in previous learning labs, network data can come in
+many different forms --- ties can be stored as edgelists or matrices,
+saved as .csv or excel files, and converted to a variety of network R
+objects. Attributes for the nodes, ties and dyads can also take various
+forms and be added in various ways to objects in R. For the {ergm}
+package, however, data will need to be transformed into a object of the
+class "network" --- the format that statnet uses to store and work with
 network data.
 
 Fortunately, we have already prepared our data for quick conversion to a
@@ -910,15 +910,14 @@ We see from our summary that our `leader_network` consists of 143 edges
 and 36 reciprocated dyads.
 
 Since the `ergm()` function uses a stochastic MCMC-based estimation
-algorithm, use the `set.seed()` function and set the value to 589 (note
-this could be any number besides our course number) so we produce the
-same results each time.
+algorithm, use the `set.seed()` function and set the value to 2022 (note
+this could be any number) so we produce the same results each time.
 
 Now let's estimate our model, save the results as `ergm_mod_1`, and use
 the `summary()` function again to take a look at our estimates. Also,
 
 ```{r ergm-1, message=FALSE}
-set.seed(589)
+set.seed(2022)
 
 ergm_mod_1 <-ergm(leader_network ~ edges + mutual)
 
@@ -1158,11 +1157,11 @@ mcmc.diagnostics(ergm_4)
 
 ## 5. COMMUNICATE
 
-For your final Your Turn, your goal is to distill our analysis from
-above into a simple "data product" designed to illustrate key findings
-about changes in the collaboration network over time. For the purposes
-of this task, imagine that your audience consists of the developers and
-facilitators of the DLT MOOC-Eds who have limited background in SNA and
+Our goal is to distill the analysis from above into a simple "data
+product" designed to illustrate key findings about changes in the
+collaboration network over time. For the purposes of this task, imagine
+that your audience consists of state policy makers interested in
+district-wide reform efforts and have limited background in SNA and
 adapt the following steps accordingly:
 
 1.  **Select.** Select your ERGM analysis from above, or a new analysis
@@ -1172,8 +1171,8 @@ adapt the following steps accordingly:
 2.  **Polish.** Create and polish a data visualization and/or data table
     to communicate your selected findings.
 
-3.  **Narrate.** Write a brief narrative (2-3 paragraphs) to accompany
-    your visualization and/or table that includes the following:
+3.  **Narrate.** Write a brief narrative to accompany your visualization
+    and/or table that includes the following:
 
     -   The question or questions guiding the analysis;
 
@@ -1203,11 +1202,11 @@ NARRATIVE GOES HERE...
 
 ### 🧶 Knit & Check ✅
 
-Congratulations - you've completed the Unit 3 case study! To share your
-work, click the drop down arrow next to the ball of yarn that says
-"Knit" at the top of this markdown file, then select "Knit top HTML".
-Assuming your code contains no errors, this will create a web page in
-your Files pane that serves as a record of your work.
+Congratulations - you've completed the Learning Lab 4 case study! To
+share your work, click the drop down arrow next to the ball of yarn that
+says "Knit" at the top of this markdown file, then select "Knit top
+HTML". Assuming your code contains no errors, this will create a web
+page in your Files pane that serves as a record of your work.
 
 Once your file has been knitted, you can publish this file online using
 RPubs, or share the HTML file through another means.
