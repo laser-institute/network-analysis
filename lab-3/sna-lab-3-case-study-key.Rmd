@@ -1,6 +1,6 @@
 ---
 title: 'Components, Cliques, & Key Actors'
-subtitle: "SNA Learning Lab 2 Case Study"
+subtitle: "SNA Learning Lab 3 Case Study"
 author: "Dr. Shaun Kellogg"
 date: "`r format(Sys.Date(),'%B %e, %Y')`"
 output:
