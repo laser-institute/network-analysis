@@ -1,0 +1,311 @@
+---
+title: "Social Network Analysis and STEM Education"
+subtitle: "A Brief Overview & Demo"
+author: "Dr. Joshua Rosenberg, University of Tennessee, Knoxville"
+institute: "The LASER Institute"
+date: "2021/08/11 (updated: `r Sys.Date()`)"
+output:
+  xaringan::moon_reader:
+    css:
+       - default
+       - css/laser.css
+       - css/laser-fonts.css
+    lib_dir: libs
+    seal: false
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      slideNumberFormat: |
+         <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+         </div>
+---
+class: clear, title-slide, inverse, center, top, middle
+
+# `r rmarkdown::metadata$title`
+## `r rmarkdown::metadata$subtitle`
+### `r rmarkdown::metadata$author`
+###  2021/08/11 (updated: `r Sys.Date()`)
+
+---
+# Agenda: Two parts
+
+1. Brief overview of network analysis (20 min.)
+  - Introducing five ideas 
+2. Walkthrough of a network analysis learning lab (20 min.)
+  - You running code using RStudio Cloud for a social network analysis
+
+---
+
+class: clear, inverse, center, middle
+
+# 1. Short presentation
+
+---
+
+# 1. Overview 
+
+1. Why use network analysis?
+1. What is network analysis?
+1. What are common techniques used for network analysis? 
+1. What are some of the technical and ethical considerations? 
+1. Summary
+
+---
+class: clear, inverse, center, middle
+
+# 1.1. Why use network anaylsis?
+
+---
+
+# Networks matter
+
+## Personally
+
+- _Choosing_ to interact with certain departmental colleagues expanded my network
+- My friend Ryan Estrellado sharing about Ted Lasso _influenced_ me
+
+## For young people
+
+- Peers _impact_ young people (and students) directly and indirectly
+- Older students _selecting_ particular students to reply to in a discussion forum 
+
+## For educators
+
+- More experienced colleagues _shape_ what teachers perceive to be effective
+- New ideas about teaching _diffusing_ through social media
+
+---
+
+class: clear, inverse, center, middle
+
+What are some aspects of networks that may matter to your own life&mdash;and research and teaching?
+
+---
+
+# But, we often focus on individuals
+
+- This is for good reason in STEM education research&mdash;as individual educator and student characteristics matter
+- But, there is often a great deal of unexplained variation in the things we care about, even when we account for _dependencies_ at the multiple levels at which educators and students are impacted
+
+```{r, echo = FALSE, out.width='60%', fig.align='center'}
+knitr::include_graphics("img/tpack.png")
+```
+
+.footnote[
+[Koehler and
+Mishra (2005)](https://journals.sagepub.com/doi/abs/10.2190/0EW7-01WB-BKHL-QDYV)
+]
+
+---
+
+# Relationships matter
+
+- One place to look is at the **interdependencies** among educators, students, and others
+- In other words, relationships are another potential source of variation
+  - They may also be a phenomenon of interest independent of how well they explain variation
+- There is an extensive tradition of qualitative lines of inquiry on how interactions and relations matter and social network analyses may complement these analyses 
+
+
+.footnote[
+[Frank (1998)](https://scholar.google.com/scholar?hl=en&as_sdt=0%2C43&q=frank+quantitative+kenneth&btnG=&oq=frank), [Schwarz et al. (2009)](https://onlinelibrary.wiley.com/doi/abs/10.1002/tea.20311)
+]
+
+--
+
+<h3>Idea #1: Though we often focus on individuals (or the dependencies between individuals), social network analysis allows us to focus on relationships between individuals</h3>
+
+---
+
+class: clear, inverse, center, middle
+
+# Zoom poll question
+
+Question 1: *Which of the following has to do with a social relationship?*
+
+---
+class: clear, inverse, center, middle
+
+# 1.2. What is social network analysis?
+
+---
+# All about relationships
+
+- We can think of network analysis as a collection of techniques for examining relationships which can take many different forms:
+  - Face-to-face relationships between educators
+  - Online relationships among students
+--
+
+- The data we use as input, too, can take different forms:
+  - Self-reported relationships (e.g., [Coburn et al., 2012](https://www.journals.uchicago.edu/doi/full/10.1086/667699), [Horn et al., 2020](https://journals.sagepub.com/doi/full/10.1177/2332858420914898), and [Spillane et al. (2012)](https://journals.sagepub.com/doi/full/10.3102/0002831212459339))
+  - Relationships inferred from digital sources of data (e.g., [Chen and Huang, 2020](https://onlinelibrary.wiley.com/doi/full/10.1111/jcal.12355), [Hu et al., 2018](https://scholar.google.com/scholar?hl=en&as_sdt=0%2C43&q=pinterest+torphy&btnG=), [Kellogg et al., 2014](https://www.erudit.org/en/journals/irrodl/1900-v1-n1-irrodl04945/1065545ar/abstract/), and [Staudt Willet & Carpenter, 2020](https://www.tandfonline.com/doi/full/10.1080/15391523.2020.1722978))
+
+--
+
+<h3>Idea #2: The kinds of relationships we investigate depend on our research questions&mdash;prior research and theory can guide us</h3>
+
+---
+
+# Not one method
+
+- Moreover, the technique we can use to study these relationships take different forms:
+  - *Visualizing networks* through network visualizations, or sociograms
+  - *Describing networks* through the use of individual or network statistics
+  - *Using network models* for key processes, such as selection and influence
+- These methods go by many names:
+  - Social network analysis (SNA)
+  - Network analysis
+  - Network science
+
+--
+
+<h3>Idea #3: Social network analysis is a collection of methods for visualizing, describing, and modeling social network data&mdash; which technique(s) you choose depends on the claims you want to make</h3>
+
+---
+
+class: clear, inverse, center, middle
+
+What are some ways you could gather data on relationships? 
+
+---
+class: clear, inverse, center, middle
+
+# 1.3. What are common techniques used for social network analysis
+
+---
+
+# Collecting and Creating Data
+
+- **Self-reported relationships**: Asking people about who they turn to for advice about teaching mathematics ([Horn et al., 2020](https://journals.sagepub.com/doi/full/10.1177/2332858420914898))
+  - The *nominator* refers to the person asked
+  - The *nominees* refer to the people the nominator indicated they turn to for advice
+  - What can we say about those who are the nominees of many people?
+
+---
+
+# Collecting and Creating Data
+
+- **Inferred relationships from digital data**: Using digital social media data as records of who interacted with whom ([Rosenberg et al., 2020](https://onlinelibrary.wiley.com/doi/full/10.1002/tea.21660))
+  - The *nominator* refers to the person who initiated&mdash;or _sent_&mdash;an interaction
+  - The _nominee_ refers to the person who was the recipient of the interaction
+  - What can we say about those who are the nominees of many people?
+
+--
+
+<h3>Idea #4: Relationships can be measured using self-reported and&mdash;increasingly&mdash;digital data sources</h3>
+
+---
+
+# Analyzing data
+
+- For analyzing social network data (self-reported or digital), R is open-source, free, and feature-rich, especially with respect to network analysis
+  - [tidygraph](https://tidygraph.data-imaginist.com/) for creating graph "objects"
+  - [ggraph](https://ggraph.data-imaginist.com/) for visualizing networks
+  - the [statnet](https://statnet.org/) collection of packages for preparing and modeling data, including [ergm](https://cran.r-project.org/web/packages/ergm/index.html)
+        
+---
+
+class: clear, inverse, center, middle
+
+What are your goals for analyzing social network data?
+
+---
+
+class: clear, inverse, center, middle
+
+# 1.4. What are some of the technical and ethical considerations for social network analysis? 
+
+---
+
+# Technical considerations
+
+- In most analyses, preparing data takes time; this is (perhaps especially) true of network for social network analyses
+- Regardless of whether the data is self-reported or digital, a useful way to structure data is in terms of an **edgelist**
+  - An edgelist contains two columns, one for the _nominator_ and one for the _nominee_
+  - In most cases, both nominators and nominees appear many times in each of the two columns
+  - Additionally, there may be other columns that represent information on the particular relationship
+  
+--
+
+<h3>Idea #5: An edgelist is a key data structure that can position us to visualize, describe, and model social network data</h3>
+
+---
+
+#  Ethical considerations
+
+- When collecting self-report data, a high response rate is often important
+  - To achieve this, building trust with experts working within schools and districts is often essential 
+- Privacy can matter a great deal for social network data (self-reported _and_ digital)
+  - Consider anonymizing individuals' names or do not include their names
+- Follow Institutional Review Boards guidelines, but consider ethics beyond what IRBs mandate
+  - Ask, _should I collect this data?_ What are the _risks_ and _potential benefits_?
+  - Balance [open science and privacy](https://link.springer.com/article/10.1007/s11423-020-09860-8) is a challenge
+  
+---
+
+class: clear, inverse, center, middle
+
+How might ethical challenges intersect with your social network analysis research?
+
+---
+
+# 1.5. Summary of ideas
+
+- Though we often focus on individuals (or the dependencies between individuals), **social network analysis allows us to focus on relationships between individuals**
+
+--
+
+- **The kinds of relationships we investigate depend on our research questions**&mdash;prior research and theory can guide us  
+
+--
+
+- Social network analysis is a collection of methods for visualizing, describing, and modeling social network data&mdash;**which technique(s) you choose depends on the claims you want to make**
+
+--
+
+- **Relationships can be measured using self-reported and&mdash;increasingly&mdash;digital data sources**
+
+--
+
+- **An edgelist is a key data structure** that can position us to visualize, describe, and model social network data
+
+
+---
+
+# Walkthrough
+
+Let's head over to [the AERA-ICPSR LASER Workshop](https://rstudio.cloud/spaces/159154/projects) space in RStudio Cloud to start the walkthrough.
+
+Click on `sna-demo.Rmd` _within the Learning Lab Demos project_ (the same one you have been using) to begin!
+
+---
+
+# Conclusion
+
+Thank you for attending our workshop today!
+
+## Resources
+
+- [Learning Analytics Goes to School](https://www.routledge.com/Learning-Analytics-Goes-to-School-A-Collaborative-Approach-to-Improving/Krumm-Means-Bienkowski/p/book/9781138121836)
+- [Learning Analytics 101](https://steinhardt.nyu.edu/learning-analytics-101)
+- [Data Science in Education Using R](https://datascienceineducation.com/)
+
+## The LASER Institute
+
+- [Homepage and interest form](https://www.fi.ncsu.edu/projects/laser-institute/)
+- [Resources for this workshop](https://github.com/laser-institute/aera-workshop)
+- [Resources for the LASER Institute](https://github.com/laser-institute)
+
+---
+
+# Contact
+
+[Homepage and interest form](https://www.fi.ncsu.edu/projects/laser-institute/)
+
+- Shaun B. Kellogg, North Carolina State University  
+- Rob Moore, University of Florida  
+- Shiyan Jiang, North Carolina State University  
+- Joshua M. Rosenberg, University of Tennessee, Knoxville  
+- Jennifer Houchins, North Carolina State University  
