@@ -1,6 +1,6 @@
 ---
-title: 'Unit 4 Analysis: Tie Prediction'
-subtitle: "ECI 589 Social Network Analysis and Education"
+title: 'Models & Inference Badge'
+subtitle: "LASER Institute SNA Learning Lab 4"
 author: "Dr. Shaun Kellogg"
 date: "`r format(Sys.Date(),'%B %e, %Y')`"
 output: html_document
@@ -10,7 +10,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Assignment
+## SNA Lab 4: Models & Inference Badge
 
 The final week of each unit is designed to provide you some space for independent analysis. For this assignment, you are to demonstrate your ability to formulate a basic research question, wrangle and analyze relational data, and create a simple data product to illustrate key findings. **Your primary goal for this analysis is to examine node or network characteristics that predict tie formation** by applying the knowledge and skills acquired from the course readings and case study. Grading for this week is fairly lenient and you'll receive 1 point (6 points total) for completing each of the following tasks:
 
