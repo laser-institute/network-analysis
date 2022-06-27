@@ -1,5 +1,5 @@
 ---
-title: 'Collaboration Ties over Time'
+title: 'A Tale of Two MOOC-Eds'
 subtitle: "SNA Learning Lab 2 Case Study"
 author: "LASER Institute"
 date: "`r format(Sys.Date(),'%B %e, %Y')`"
@@ -20,16 +20,7 @@ knitr::opts_chunk$set(echo = TRUE, messages = FALSE, warning = FALSE)
 
 ## 1. Prepare
 
-Our *Lab 2 Case Study: Collaboration Ties over Time* revisits the
-research of Dr. Alan Daly and centers around the impact No Child Left
-Behind reform efforts on school and district leadership networks. In
-this lab we move beyond visual depictions of networks from our previous
-SNA case study and learn to describe networks using common network-level
-measures. Our analyses are guided by research conducted by Daly and
-Finnagan @daly2011ebb who examined the ebb and flow of social network
-ties between district leaders under high-stakes accountability. As we
-work through each step of the data-intensive workflow [@krumm2018], we
-will focus on the following topics:
+Our SNA Learning Lab 2 Case Study, *A Tale of Two MOOC-Eds*,
 
 1.  **Prepare**: Prior to analysis, we'll take a look at the context
     from which our data came and load various R packages for data

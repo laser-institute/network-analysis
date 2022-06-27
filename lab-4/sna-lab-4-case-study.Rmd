@@ -21,21 +21,39 @@ knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
 
 ## 1. PREPARE
 
+In [Social Network Analysis and Education: Theory, Methods &
+Applications](https://methods.sagepub.com/book/social-network-analysis-and-education)
+@carolan2014 makes the following distinctions between mathematical and
+statistical approaches to social network analysis:
+
+1.  **Mathematical approaches** focus on what a network of actors "looks
+    like" by describing the network using sociograms and/or network
+    measures such as reciprocity, centrality, and density. However,
+    these approaches "tend to regard the measured relationships and
+    their strengths as accurately reflecting the real, final, or
+    equilibrium status of the network."
+
+2.  **Statistical approaches**, or statistical inference, on the other
+    hand, focuses on "assessing the reproducibility or likelihood of an
+    observed pattern" with the goal of explaining and ultimately
+    predicting network structures and outcomes.
+
 *SNA Case Study: Birds of a Feather Lead Together* is guided once again
-by the work of Alan Daly and colleagues and attempts to replicate the
-analyses described in Chapter 9: Network Data and Statistical Models
-from Social Network Analysis and Education [@carolan2014]. In this case
-study we'll revisit the visual and mathematical descriptions of networks
-explored in previous case studies to help uncover, and then empirically
-test, generative processes that attempt to explain how school leaders
-select peers for collaboration or confidential exchanges.
+by the work of Alan Daly and colleagues and moves beyond "mathematical
+approaches" highlighted in previous labs and introduces the use of ERGMs
+as a "statistical approach" to network analysis. Specifically, we will
+try to replicate the P\* models used in Chapter 9 of @carolan2014 in
+order to test hypotheses about individual and network characteristics
+that may explain who school leaders select for collaboration and
+confidential exchanges.
 
 More specifically, this case study will cover the following topics
 pertaining to each data-intensive workflow process:
 
-1.  **Prepare**: Prior to analysis, we'll take a look at the context
-    from which our data came, formulate some research questions, and get
-    introduced the {statnet} R package for ERGMs.
+1.  **Prepare**: Prior to analysis, we'll take a look at look at the
+    study by Daly and Finnigan from whence our data was derived,
+    formulate some research questions, and get introduced the {statnet}
+    R package for ERGMs.
 
 2.  **Wrangle**: In section 2 we will learn how to work with matrices,
     how to dichotomize matrices, and how to convert matrices into more
@@ -57,29 +75,57 @@ pertaining to each data-intensive workflow process:
 
 ### 1a. Review the Research
 
-In [Social Network Analysis and Education: Theory, Methods &
-Applications](https://methods.sagepub.com/book/social-network-analysis-and-education)
-@carolan2014 makes the following distinctions between mathematical and
-statistical approaches to social network analysis:
+### 
 
-1.  **Mathematical approaches** focus on what a network of actors "looks
-    like" by describing the network using sociograms and/or network
-    measures such as reciprocity, centrality, and density. However,
-    these approaches "tend to regard the measured relationships and
-    their strengths as accurately reflecting the real, final, or
-    equilibrium status of the network."
+![](img/ebb-flow.png){width="40%"}
 
-2.  **Statistical approaches**, or statistical inference, on the other
-    hand, focuses on "assessing the reproducibility or likelihood of an
-    observed pattern" with the goal of explaining and ultimately
-    predicting network structures and outcomes.
+Daly, A. J., & Finnigan, K. S. (2011). The ebb and flow of social
+network ties between district leaders under high-stakes accountability.
+*American Educational Research Journal*, *48*(1), 39-79.
 
-For Learning Lab 4, we move beyond previous "mathematical approaches"
-used so far and explore the use of ERGMs as a "statistical approach" to
-network analysis. Specifically, we will try to replicate the P\* models
-used in Chapter 9 of @carolan2014 in order to test hypotheses about
-individual and network characteristics that may explain who school
-leaders select for collaboration and confidential exchanges.
+#### Abstract
+
+Recent scholarship suggests the importance of school district offices in
+supporting reform. These studies provide strategies for building
+relations between central offices and sites in order to improve change
+efforts. However, what is frequently overlooked is that organizational
+reform efforts are socially constructed. Therefore, examining the
+underlying reform-related social networks may provide insight into how
+relational structures support or constrain efforts at reform. This
+longitudinal case study draws upon social network analysis and
+interviews to examine the reform-related knowledge, advice, and
+innovation network structures of central office and site leaders in a
+district facing sanction for underperformance and engaging a
+districtwide reform. Findings indicate that over time, the networks
+increased the number of superficial interactions, and more frequent
+exchanges remained unchanged, resulting in a centralized network
+structure.
+
+### 👉 Your Turn ⤵
+
+Take a look at the article *The Ebb and Flow of Social Network Ties
+Between District Leaders Under High-Stakes Accountability* located in
+the lit folder of your files pane and answer the following questions:
+
+1.  What research questions were the authors of this study trying to
+    address and why did they consider these questions important?
+
+    -   YOUR RESPONSE HERE
+
+2.  How were participants selected for this study and what was the
+    rationale?
+
+    -   YOUR RESPONSE HERE
+
+3.  How did the authors collect social network data for this study and
+    what specific information about actors and ties were collected?
+
+    -   YOUR RESPONSE HERE
+
+4.  What models were employed in this study and how was statistical
+    inference used to address the research questions?
+
+    -   YOUR RESPONSE HERE
 
 #### Research Questions
 

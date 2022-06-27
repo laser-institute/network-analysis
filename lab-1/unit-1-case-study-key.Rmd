@@ -1,6 +1,6 @@
 ---
-title: 'Unit 1 Case Study: Hashtag Common Core'
-subtitle: "ECI 589 Social Network Analysis and Education"
+title: 'Components, Cliques, & Key Actors'
+subtitle: "SNA Learning Lab 3 Case Study"
 author: "Dr. Shaun Kellogg"
 date: "`r format(Sys.Date(),'%B %e, %Y')`"
 output:
@@ -22,7 +22,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # 1. PREPARE
 
-Our Unit 4 Case Study: Hashtag Common Core is inspired by the work of
+Our first SNA case study, Hashtag Common Core is inspired by the work of
 Jonathan Supovitz, Alan Daly, Miguel del Fresno and Christian Kolouch
 who examined the intense debate surrounding the Common Core State
 Standards education reform as it played out on Twitter. As noted on
@@ -64,8 +64,8 @@ to each data-intensive workflow process:
 
 Recall from [Social Network Analysis and Education: Theory, Methods &
 Applications](https://methods.sagepub.com/book/social-network-analysis-and-education)
-that Carolyn (2013) cited the following four features used by Freeman
-(2004) to define the social network perspective:
+that the following four features used by Freeman (2004) to define the
+social network perspective:
 
 1.  Social network analysis is **motivated by a relational intuition**
     based on ties connecting social actors.
@@ -154,7 +154,7 @@ boundaries are somewhat porous). For lexical tendencies, the authors
 used the Linguistic Inquiry and Word Count (LIWC) lexicons to determine
 psychological drive, diagnose their level of conviction, make inferences
 about thinking styles, and even determine sentiment similar to what we
-examined in Unit 2.
+examine in the Text Mining Learning Lab 2.
 
 For a nice summary of the data used for the analysis, as well as the
 samples of actors and tweets, the keywords, and the methods that were
@@ -218,20 +218,20 @@ Click on each of the boxes for a select time period and in the space
 below list a couple Twitter users identified by their analysis as the
 following:
 
--   **Transmitters:**
+-   **Transmitters:** YOUR RESPONSE HERE
 
--   **Transceivers:**
+-   **Transceivers:** YOUR RESPONSE HERE
 
--   **Transcenders:**
+-   **Transcenders:** YOUR RESPONSE HERE
 
 Now visit Act 2 of the methods section and In the space below, identify
 the network measure used for the first two central actors (hint: it's
 italicized) and copy their definition used. Note, Transcenders has been
 completed for you.
 
--   ***Transmitters***
+-   ***Transmitters*** YOUR RESPONSE HERE
 
--   ***Transceivers***
+-   ***Transceivers*** YOUR RESPONSE HERE
 
 -   ***Transcenders*** is measured by *degree* and consists of actors
     (i.e. Twitter uers) who have both high out-degree, as well as
@@ -372,20 +372,20 @@ library(igraph)
 
 ### Import Data
 
-Finally, we'll be using a fresh data download from twitter that only
-includes relatively small set of tweets from the past week to help keep
-things simple. Network graphs can quickly get unwieldy as the nodes in
-your network grow. The #commoncore project does an excellent job
-visualizing large networks using advanced techniques. We'll focus on a
-relatively small network since we'll be introduce some very basic
-techniques for visualization.
+Finally, we'll be using a data download from twitter that only includes
+relatively small set of tweets from one week to help keep things simple.
+Network graphs can quickly get unwieldy as the nodes in your network
+grow. The #commoncore project does an excellent job visualizing large
+networks using advanced techniques. We'll focus on a relatively small
+network since we'll be introduce some very basic techniques for
+visualization.
 
 Run the following code to use the `read_csv()` function from the {readr}
 package to read the `ccss-tweets-fresh.csv` file from the data folder
 and assign to a new data frame named `ccss_tweets`:
 
 ```{r}
-ccss_tweets <- read_csv("data/ccss-tweets-fresh.csv")
+ccss_tweets <- read_csv("data/ccss-tweets-simple.csv")
 ```
 
 ------------------------------------------------------------------------
@@ -692,11 +692,11 @@ is mutual or reciprocated.
 
 # 3. EXPLORE
 
-As noted in in our course readings, exploratory data analysis involves
-the processes of describing your data (such as by calculating the means
-and standard deviations of numeric variables, or counting the frequency
-of categorical variables) and, often, visualizing your data prior to
-modeling.
+As noted in in our essential readings, exploratory data analysis
+involves the processes of describing your data (such as by calculating
+the means and standard deviations of numeric variables, or counting the
+frequency of categorical variables) and, often, visualizing your data
+prior to modeling.
 
 In Section 3, we use the {tidygraph} package for retrieving network
 descriptives and introduce the {ggraph} package to create a network
@@ -725,12 +725,13 @@ Many analyses of social networks are primarily descriptive. As
 
 ### Centrality
 
-A key structural property of networks is the concept of centralization.
-A network that is highly centralized is one in which relations are
-focused on a small number of actors or even a single actor in a network,
-whereas ties in a decentralized network are diffuse and spread over a
-number of actors. One of the most common descriptives reported in
-network studies and a primary measure of centralization is **degree**.
+As we learned in our previous learning lab, a key structural property of
+networks is the concept of centralization. A network that is highly
+centralized is one in which relations are focused on a small number of
+actors or even a single actor in a network, whereas ties in a
+decentralized network are diffuse and spread over a number of actors.
+One of the most common descriptives reported in network studies and a
+primary measure of centralization is **degree**.
 
 > **Degree** is the number of ties to and from an ego. In a directed
 > network, in-degree is the number of ties received, whereas out-degree
@@ -1165,6 +1166,28 @@ definitely is colorful!!
 ------------------------------------------------------------------------
 
 # 5. COMMUNICATE
+
+The final step in our workflow/process is sharing the results of our
+analysis with wider audience. Krumm et al. (2018) have outlined the
+following 3-step process for communicating with education stakeholders
+findings from an analysis:
+
+1.  **Select.** Communicating what one has learned involves selecting
+    among those analyses that are most important and most useful to an
+    intended audience, as well as selecting a form for displaying that
+    information, such as a graph or table in static or interactive form,
+    i.e. a "data product."
+
+2.  **Polish**. After creating initial versions of data products,
+    research teams often spend time refining or polishing them, by
+    adding or editing titles, labels, and notations and by working with
+    colors and shapes to highlight key points.
+
+3.  **Narrate.** Writing a narrative to accompany the data products
+    involves, at a minimum, pairing a data product with its related
+    research question, describing how best to interpret the data
+    product, and explaining the ways in which the data product helps
+    answer the research question.
 
 In this case study, we focused on the literature guiding our analysis;
 wrangling our data into a network object; examining basic network
