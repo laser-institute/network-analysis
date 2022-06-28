@@ -69,7 +69,4 @@ Congratulations, you've completed your Models & Inference Badge! Complete the fo
 1.  Click the yarn icon above to knit your data product to a [HTML](https://bookdown.org/yihui/rmarkdown/html-document.html) file that will be saved in your R Project folder.
 2.  Commit your changes in GitHub Desktop and push them to your online GitHub repository.
 3.  Locate and copy the link to your to your GitHub web page ([See here for instructions](https://towardsdatascience.com/how-to-create-a-free-github-pages-website-53743d7524e1)).
-4.  Post a new discussion on GitHub to our SNA Badges discussion forum. In your post, include:
-    -   the link to your published web page
-
-    -   a short reflection including one thing you learned from this lab and one thing you'd like to explore further.
+4.  Post a new discussion on GitHub to our SNA Badges discussion forum. In your post, include the link to your published web page and a short reflection including one thing you learned from this lab and one thing you'd like to explore further.
