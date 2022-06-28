@@ -1,6 +1,6 @@
 ---
-title: 'SNA Learning Lab X Badge'
-subtitle: "LASER Institute Independent Analysis"
+title: 'SNA Capstone Badge'
+subtitle: "LASER Institute SNA Learning Labs"
 author: "Dr. Shaun Kellogg"
 date: "`r format(Sys.Date(),'%B %e, %Y')`"
 output: html_document
@@ -10,52 +10,20 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Independent Analysis
+## SNA Capstone Badge
 
-The culminating activity for SNA in STEM Ed is designed to provide you with some space for independent analysis. To earn your SNA Capstone Badge, you are required to demonstrate your ability to formulate a basic research question appropriate to a social network context, wrangle and analyze relational data, and. **Your primary goal for this analysis is to create a simple data product to illustrate key findings from a social network analysis** by applying the knowledge and skills acquired from the course readings and case studies from the SNA Learning Labs.
+The final week of each unit is designed to provide you some space for independent analysis. For this assignment, you are to demonstrate your ability to formulate a basic research question, wrangle and analyze relational data, and create a simple data product to illustrate key findings. **Your primary goal for this analysis is to examine node or network characteristics that predict tie formation** by applying the knowledge and skills acquired from the course readings and case study. Grading for this week is fairly lenient and you'll receive 1 point (6 points total) for completing each of the following tasks:
 
-1.  **Identify a data source.** We highly encouraged you to use your own data or identify a new data source related to an area of professional interest. However, you are welcome to select datasets that we have created or curated for our learning labs, or those from the SNA and Education book described [here](https://studysites.sagepub.com/carolan/study/resources.htm).
+1.  **Identify a data source.** I've included a data folder located the Unit 4 Analysis Project in our [RStudio Cloud ECI 589 Workspace](https://rstudio.cloud/spaces/146919/join?access_code=VgotVV692OpRoxZvrOp9oW8a2EThPX5kHkJ7Vgf8) that contains datasets I've created, as well as those from our SNA and Education course text described [here](https://studysites.sagepub.com/carolan/study/resources.htm). You are welcome to chose from those or to identify your own data source related to an area of professional interest.
 
-2.  **Formulate a question.** I recommend keeping this simple and limiting to no more than one or two questions. Your question(s) should be appropriate to your data set and ideally be answered by applying concepts and skills from our course readings and case study. For example, you may be interested in determining whether gender predicts discussion forum replies among using the MOOC-Ed dataset created by Kellogg & Edelmann.
+2.  **Formulate a question.** I recommend keeping this simple and limiting to no more than one or two questions. Your question(s) should be appropriate to your data set and ideally be answered by applying concepts and skills from our course readings and case study. For example, you may be interested in determining whether gender predicts confidential exchanges between school and district leaders using the Alan Daly school leader dataset.
 
-3.  **Analyze the data.** I highly recommend creating a new R script for your analysis to use as you work through data wrangling and analysis. Your R script will likely contain code that doesn't make it into your R Markdown presentation or report since you will likely experiment with different approaches and figure out code that works and code that does not.
+3.  **Analyze the data.** I highly recommend creating a new R script in the Unit 4 Analysis project space to use as you work through data wrangling and analysis. Your R script will likely contain code that doesn't make it into your R Markdown presentation or report since you will likely experiment with different approaches and figure out code that works and code that does not.
 
 4.  **Create a data product.** When you feel you've wrangled and analyzed the data to your satisfaction, create an R Markdown file that includes a polished sociogram and/or data table and a narrative highlighting your research question, data source, and key findings and potential implications. Your R Markdown file should include a polished sociogram and/or table, a title and narrative, and all code necessary to read, wrangle, and explore your data.
 
-5.  **Share your findings.** Knit your data product to a desired output format. This may be a simple [HTML](https://bookdown.org/yihui/rmarkdown/html-document.html), [PDF](https://bookdown.org/yihui/rmarkdown/pdf-document.html), or [MS Word](https://bookdown.org/yihui/rmarkdown/word-document.html) file; or something more complex like [HTML5 slides](https://bookdown.org/yihui/rmarkdown/ioslides-presentation.html), a [Tufte-style handout](https://bookdown.org/yihui/rmarkdown/tufte-handouts.html), [dashboard](https://rmarkdown.rstudio.com/flexdashboard/), or [website](https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html). Then create a new discussion post below to share your analysis. Include in the post your published web link (e.g., via [RPubs](https://rpubs.com/about/getting-started) or [GitHub](https://towardsdatascience.com/how-to-create-a-free-github-pages-website-53743d7524e1)) or attached file (e.g. HTML or PDF) and add a short reflection including one thing you learned and one thing you'd like to explore further.
+5.  **Share your findings.** Knit your data product to a desired output format. This may be a simple [HTML](https://bookdown.org/yihui/rmarkdown/html-document.html), [PDF](https://bookdown.org/yihui/rmarkdown/pdf-document.html), or [MS Word](https://bookdown.org/yihui/rmarkdown/word-document.html) file; or something more complex like [HTML5 slides](https://bookdown.org/yihui/rmarkdown/ioslides-presentation.html), a [Tufte-style handout](https://bookdown.org/yihui/rmarkdown/tufte-handouts.html), [dashboard](https://rmarkdown.rstudio.com/flexdashboard/), or [website](https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html). Then create a new forum post below to share your analysis. Include in the post your published web link (e.g., via [RPubs](https://rpubs.com/about/getting-started) or [GitHub](https://towardsdatascience.com/how-to-create-a-free-github-pages-website-53743d7524e1)) or attached file (e.g. HTML or PDF) and add a short reflection including one thing you learned and one thing you'd like to explore further.
 
-## Research Applications
+6.  **Provide feedback.** Finally, take look at the posted data products and provide some brief (1 paragraph) but constructive feedback to at least two of your peers. Your feedback should include one thing you liked about their data product and why and one suggestion for improvement or extension of the analysis.
 
-### Option A: Find a Study
-
-Use the [NCSU Library](https://www.lib.ncsu.edu/#articles), [Google Scholar](https://scholar.google.com/) or search engine to locate a research or practitioner-focused article, presentation, or resource that applies social network analysis to an educational context or topic of interest. More specifically, **locate an egocentric network study OR a study that identifies a network's groups and/or positions.** You are also welcome to select one of the research papers listed in the [syllabus](https://sbkellogg.github.io/eci-589/) or in our [course text](https://catalog.lib.ncsu.edu/catalog/NCSU2803782) that may have peaked your interest. Your selection should address one or more of the discussion topics/questions (see below) and you're welcome to identify SNA resources outside of the field of education.
-
-For your self-selected study, provide an APA citation and abstract, then briefly answer the following questions depending on whether your article focused on group, positional, or egocentric analysis:
-
-**Group or Positional Analysis**
-
-1.  How has a group been defined and measured? Were any alternatives considered? Does this definition of a group make sense given the network's actors and relations among them? Is this definition restrictive or flexible?
-
-2.  Was a "top-down" or "bottom-up" approach used? Both?
-
-3.  How were the network's positions defined and measured? How do these positions differ from the network's groups? Is this difference made evident? What definition of equivalence informed the definition and measurement of the network's positions? Was a reduced-form network presented? What does it indicate about the network's hierarchy?
-
-**Egocentric Analysis**
-
-1.  What makes this an egocentric network study? How were the egocentric network data collected? What measures of egos' networks were included in the analysis?
-
-2.  Assume you wanted to examine whether a student's popularity was associated with her or his attachment to school. How could you use a measure introduced in this chapter to capture "popularity"? Why did you select this measure over any others? Would you simply need ego-to-alter data or also alter-to-alter data?
-
-3.  If you wanted to examine the process through which a school reform initiative spreads throughout a school district, which egocentric concepts and measures would you employ?Chapter 5: Structural Measures for Complete Networks
-
-### Option B: Plan A Study
-
-Consider a network of which you are a part or a network you might be interested in studying and answer the following questions:
-
-1.  What types of groups and/or unique positions do you think might be identified through relational data (e.g., friendships, advice seeking, co-authorship, communication, collaboration, etc.)?
-
-2.  How might membership in those groups, or occupying certain positions, "influence" attitudes, behaviors, or outcomes for those individuals?
-
-3.  How might characteristics or attributes differ between groups or positions?
-
-4.  What research question(s) could you explore for this network?
+If you have any questions about the assignment or run into any technical issues, don't hesitate to email me at sbkellog\@ncsu.edu or set up a Zoom meeting at calendly.com/sbkellogg.
