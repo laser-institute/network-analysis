@@ -116,8 +116,7 @@ focused on group, positional, or egocentric analysis:
     positions differ from the network's groups? Is this difference made
     evident? What definition of equivalence informed the definition and
     measurement of the network's positions? Was a reduced-form network
-    presented? What does it indicate about the network's
-    hierarchy?Chapter 4: Basic Concepts (Required)
+    presented? What does it indicate about the network's hierarchy?
 
 **Egocentric Analysis**
 
