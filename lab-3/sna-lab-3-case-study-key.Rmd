@@ -13,7 +13,7 @@ output:
 editor_options:
   markdown:
     wrap: 72
-bibliography: lit/references.bib
+bibliography: references.bib
 ---
 
 ```{r setup, include=FALSE}
@@ -22,21 +22,23 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # 1. PREPARE
 
-Our first SNA case study, Hashtag Common Core is inspired by the work of
-Jonathan Supovitz, Alan Daly, Miguel del Fresno and Christian Kolouch
-who examined the intense debate surrounding the Common Core State
-Standards education reform as it played out on Twitter. As noted on
-their expansive and interactive website for the [#COMMONCORE
-Project](https://www.hashtagcommoncore.com), the Common Core was a major
-education policy initiative of the early 21st century. A primary aim of
-the Common Core was to strengthen education systems across the United
-States through a set of specific and challenging education standards.
-Although these standards once enjoyed bipartisan support, we saw in our
-previous case study how these standards have become a political punching
-bag.
+Our third SNA case study, *Components, Cliques, & Key Actors,* is
+inspired by the work of Jonathan Supovitz, Alan Daly, Miguel del Fresno
+and Christian Kolouch who examined the intense debate surrounding the
+Common Core State Standards education reform as it played out on
+Twitter. As noted on their expansive and interactive website for the
+[#COMMONCORE Project](https://www.hashtagcommoncore.com), the Common
+Core was a major education policy initiative of the early 21st century.
+A primary aim of the Common Core was to strengthen education systems
+across the United States through a set of specific and challenging
+education standards. Although these standards once enjoyed bipartisan
+support, we saw in our previous case study how these standards have
+become a political punching bag.
 
-In Unit 4, we continue our investigation of tweets around the these
-controversial state standards through social network analysis.
+In our Text Mining Lab 2 case study, we examined public sentiment around
+the Common Core and Next Generation Science Standards. This analysis
+compliments that investigation by examining groups and central actors in
+networks that developed around tweets about the common core.
 Specifically, this case study will cover the following topics pertaining
 to each data-intensive workflow process:
 
@@ -50,15 +52,15 @@ to each data-intensive workflow process:
     transforming, and merging network data.
 
 3.  **Explore**: With our network data tidied, we learn to calculate
-    some key network measures and to illustrate some of these stats
-    through network visualization.
+    some key measures for individuals in our network and illustrate key
+    actors through network visualization.
 
 4.  **Model**: We conclude our analysis by introducing community
     detection algorithms for identifying groups and revisiting sentiment
     about the common core.
 
-5.  **Communicate**: We briefly reflect on our walkthrough in and what
-    we learned from our analysis.
+5.  **Communicate**: Finally, we clean up our analysis create a polished
+    data product to help communicate some key findings.
 
 ## 1a. Review the Research
 
@@ -122,16 +124,18 @@ interact and communicate on Twitter.
 
 To collect data on keywords related to the Common Core, the project used
 a customized data collection tool developed by two of our co-authors,
-Miguel del Fresno and Alan J. Daly, called *Social Runner
-Lab^TM^*. Similar to an approach we used in Unit 3, the authors
-downloaded data in real time directly from Twitter's Application
-Programming Interface (API) based on tweets using specified keywords,
-keyphrases, or hashtags and then restricted their analysis to the
-following terms: *commoncore*, *ccss* and *stopcommoncore.* They also
-captured Twitter profile names, or user names, as well as the tweets,
-retweets, and mentions posted. Data included messages that are public on
-twitter, but not private direct messages between individuals, nor from
-accounts which users have made private.
+Miguel del Fresno and Alan J. Daly, called *Social Runner Lab*. Similar
+to an approach we used in the Text Mining Lab 2 case study, [*Twitter
+Sentiment and School
+Reform*](https://sbkellogg.github.io/eci-588/unit-2/unit-2-walkthrough.html#2_WRANGLE),
+the authors downloaded data in real time directly from Twitter's
+Application Programming Interface (API) based on tweets using specified
+keywords, keyphrases, or hashtags and then restricted their analysis to
+the following terms: *commoncore*, *ccss* and *stopcommoncore.* They
+also captured Twitter profile names, or user names, as well as the
+tweets, retweets, and mentions posted. Data included messages that are
+public on twitter, but not private direct messages between individuals,
+nor from accounts which users have made private.
 
 #### Analyses
 
@@ -154,7 +158,7 @@ boundaries are somewhat porous). For lexical tendencies, the authors
 used the Linguistic Inquiry and Word Count (LIWC) lexicons to determine
 psychological drive, diagnose their level of conviction, make inferences
 about thinking styles, and even determine sentiment similar to what we
-examine in the Text Mining Learning Lab 2.
+examine in the Text Mining Lab 2 case study.
 
 For a nice summary of the data used for the analysis, as well as the
 samples of actors and tweets, the keywords, and the methods that were
@@ -207,8 +211,8 @@ following:
 
 ### **👉 Your Turn** **⤵**
 
-For our Unit 4 Walkthrough, we'll apply some of the same techniques used
-by this study including calculating some basic network measures of
+For our SNA Lab 3 case study, we'll apply some of the same techniques
+used by this study including calculating some basic network measures of
 centrality. For example, take a look at the [*Explore the
 Networks*](https://www.hashtagcommoncore.com/#2-1){style="font-size: 10pt;"}
 section from Act 2: Central Actors and the Transmitters, Transceivers
@@ -250,7 +254,9 @@ ambitious but inspired by this work:
 
 1.  Who are the transmitters, transceivers, and transcenders in our
     Common Core Twitter network?
+
 2.  What subgroups, or factions, exist in our network?
+
 3.  Which actors in our network tend to be more opposed to the Common
     Core?
 
@@ -277,13 +283,14 @@ RStudio. Recall that:
 > A **Project** is the home for all of the files, images, reports, and
 > code that are used in any given project
 
-Since we are working in RStudio Cloud, a Project has already been set up
-for you as indicated by the `.Rproj` file in your main directory in the
-Files pane.
+In the `network-analysis` GitHub repository you clonded, an RStudio
+Project has already been set up for you as indicated by the `.Rproj`
+file in your main directory in the Files pane. Got there and see if you
+can locate it.
 
 ### Load Libraries
 
-In Unit 1, we also learned about **packages**, or libraries, which are
+In Lab 1, we also learned about **packages**, or libraries, which are
 shareable collections of R code that can contain functions, data, and/or
 documentation and extend the functionality of R. You can always check to
 see which packages have already been installed and loaded into RStudio
@@ -292,82 +299,17 @@ right hand corner.
 
 ### **👉 Your Turn** **⤵**
 
-First, load the {tidyverse}, {tidytext} and {vader} packages from
-previous case studies. We'll be using several of these packages to
-wrangling and explore our data later sections:
+First, load the {tidyverse}, {tidygraph}, {gggraph}, {igraph} and {here}
+packages introduced in previous case studies. We'll be using several of
+these packages to wrangling and explore our data later sections:
 
-```{r}
+```{r load-packages}
+#YOUR CODE HERE
 library(tidyverse)
-library(tidytext)
-library(here)
-```
-
-Next, we will introduce a few new packages that will help us with our
-social network analyses.
-
-### tidygraph 📦
-
-![](img/tidygraph.png){width="20%"}
-
-The {[tidygraph](https://tidygraph.data-imaginist.com)} package is a
-huge package that exports 280 different functions and methods, including
-access to almost all of the `dplyr` verbs plus a few more, developed for
-use with relational data. While network data itself is not tidy, it can
-be envisioned as two tidy tables, one for node data and one for edge
-data. The {tidygraph} package provides a way to switch between the two
-tables and uses `dplyr` verbs to manipulate them. Furthermore it
-provides access to a lot of graph algorithms with return values that
-facilitate their use in a tidy workflow.
-
-Let's go ahead and load the {tidygraph} library:
-
-```{r}
-library(tidygraph)
-```
-
-### ggraph 📦
-
-![](img/ggraph.png){width="20%"}
-
-Created by the same developer as {tidygraph},
-{[ggraph](https://ggraph.data-imaginist.com/index.html)} -- pronounced
-gg-raph or g-giraffe hence the logo -- is an extension of
-{[ggplot](https://ggplot2.tidyverse.org)} aimed at supporting relational
-data structures such as networks, graphs, and trees. Both packages are
-more modern and widely adopted approaches data visualization in R.
-
-While ggraph builds upon the foundation of ggplot and its API, it comes
-with its own self-contained set of geoms, facets, etc., as well as
-adding the concept of *layouts* to the [grammar of
-graphics](https://ggplot2-book.org/introduction.html?q=grammar#what-is-the-grammar-of-graphics),
-i.e. the "gg" in ggplot and ggraph.
-
-Let's go ahead and load the {ggraph} library:
-
-```{r}
-library(ggraph)
-```
-
-### igraph Package **📦**
-
-![](img/igraph.png){width="20%"}
-
-Both {tidygraph} and {ggraph} depend heavily [igraph network analysis
-package](https://igraph.org). The main goals of the igraph package and
-the collection of network analysis tools it contains are to provide a
-set of data types and functions for:
-
-1.  pain-free implementation of graph algorithms,
-
-2.  fast handling of large graphs, with millions of vertices (i.e.,
-    actors or nodes) and edges,
-
-3.  allowing rapid prototyping via high level languages like R.
-
-Run the code chunk below to load the {igraph} library:
-
-```{r}
 library(igraph)
+library(tidygraph)
+library(ggraph)
+library(here)
 ```
 
 ### Import Data
@@ -384,7 +326,7 @@ Run the following code to use the `read_csv()` function from the {readr}
 package to read the `ccss-tweets-fresh.csv` file from the data folder
 and assign to a new data frame named `ccss_tweets`:
 
-```{r}
+```{r, import-tweets}
 ccss_tweets <- read_csv("data/ccss-tweets-simple.csv")
 ```
 
@@ -400,8 +342,7 @@ variables about both individuals and their relationships.
 
 For our data wrangling this week, we're keeping it simple since working
 with relational data is a bit of a departure from our working with
-rectangular data frames. Our primary goals for Unit 1 are learning how
-to:
+rectangular data frames. In this lab, we'll revisit how to:
 
 a.  **Create an Edgelist**. In this section, we introduce a new tidy
     data format call the "edgelist" which contains information about
@@ -455,15 +396,18 @@ connection between each node is the tweet, retweet, or mention/reply.
 
 ### **👉 Your Turn** **⤵**
 
-Use the code chunk below to look at the data we just imported using one
-of your favorite methods for inspecting data. In the space that follows,
-identify the columns you think could be used to construct an edge list.
+Use the code chunk that follows, view the data we just imported using
+one of your favorite methods for inspecting data and answer the question
+that follows:
 
-```{r, eval=FALSE}
+```{r view-data, eval=FALSE}
+#YOUR CODE HERE
 view(ccss_tweets)
 ```
 
--   YOUR RESPONSE HERE
+1.  Which columns you think could be used to construct an edge list.
+
+    -   YOUR RESPONSE HERE
 
 #### Extract Edges and Nodes
 
@@ -487,7 +431,7 @@ included in the mentions, let's:
 
 3.  assign our new data frame to `ties_1`.
 
-```{r}
+```{r extract-edges}
 ties_1 <-  ccss_tweets %>%
   relocate(sender = screen_name, # rename scree_name to sender
            target = mentions_screen_name) %>% # rename to receiver
@@ -506,20 +450,43 @@ As you may have noticed, our receiver column contains the names of
 multiple Twitter users, but a dyad or tie can only be between two actors
 or nodes.
 
-#### "Unnest" User Names
-
 In order to place each target user in a separate row that corresponds
 with each sender of the tweet, we will need to "unnest" these names
 using the {tidytext} package from Unit 3.
 
-In Unit 3 we used the `unnest_tokens()` function to extract individual
-words from tweets. This time we'll use it to place target of each tweet
-into separate rows corresponding to the sender of each tweet.
+#### The tidytext Package 📦
+
+![](img/tidytext.png){width="20%"}
+
+As we'll learn first hand in this module, using tidy data principles can
+also make many text mining tasks easier, more effective, and consistent
+with tools already in wide use. The {tidytext} package helps to convert
+text into data frames of individual words, making it easy to to
+manipulate, summarize, and visualize text using using familiar functions
+form the {tidyverse} collection of packages.
+
+Let's go ahead and load the {tidytext} package:
+
+```{r load-tidytext}
+library(tidytext)
+```
+
+For a more comprehensive introduction to the `tidytext` package, I
+cannot recommend enough the free and excellent online book, *Text Mining
+with R: A Tidy Approach* [@silge2017text]. If you're interested in
+pursuing text analysis using R post Summer Workshop, this will be a go
+to reference.
+
+#### "Unnest" User Names
+
+The {tidy text} package has a very handy `unnest_tokens()` function to
+extract individual words from tweets. We'll use it to place target of
+each tweet into separate rows corresponding to the sender of each tweet.
 
 Run the following code and take a look at the new data frame to make
 sure it looks as expect and to spot any potential issues:
 
-```{r}
+```{r unnest-tokens}
 ties_2 <- ties_1 %>%
   unnest_tokens(input = target,
                 output = receiver,
@@ -543,7 +510,8 @@ with missing values from our `receiver` column in our `ties-2` data
 frame since they are incomplete dyads. Save your final edgelist as
 `ties` using the `<-` assignment operator.
 
-```{r}
+```{r remove-NAs}
+#YOUR CODE HERE
 ties <- ties_2 %>%
   drop_na(receiver)
 ```
@@ -551,7 +519,7 @@ ties <- ties_2 %>%
 Now use the code chunk below to take a quick look at our final edgelist
 and answer the questions that follow:
 
-```{r, eval=FALSE}
+```{r inspect-edges, eval=FALSE}
 ties
 ```
 
@@ -567,25 +535,34 @@ ties
 
     -   YOUR RESPONSE HERE
 
+Well done!!! Before moving on to the the nodes in our network, run the
+following code chunk to save our edgelist to a .csv file in our data
+folder for later use:
+
+```{r save-edges}
+write_csv(ties, "data/ccss-edgelist.csv")
+```
+
 ### Create Nodelist
 
 The second file we need to create is a data frame that contains all the
-nodes, often referred to as actors, in our network. This list sometimes
-includes attributes that we might want to examine as part of our
-analysis as well, like the number of Twitter followers, demographic
-group, country, gender, etc. This file or data frame is sometimes
-referred to as a **nodelist** or node attribute file.
+individuals in our network, often referred to as nodes or actors. This
+list sometimes includes attributes that we might want to examine as part
+of our analysis as well, like the number of Twitter followers,
+demographic group, country, gender, etc. This file or data frame is
+sometimes referred to as a **nodelist** or node attribute file.
 
 To construct our basic nodelist, we will use the `pivot_longer()`
 function from the {dplyr} package, an updated version of the `gather()`
 function introduced in the [RStudio Reshape Data
-Primer](https://rstudio.cloud/learn/primers/4.1).
+Primer](https://rstudio.cloud/learn/primers/4.1) shared in Foundations
+Learning Lab 3.
 
 Run the following code to select the usernames form our `ties` edgelist,
 merge our sender and receiver columns into a single column, and take a
 quick look at our new data frame.
 
-```{r}
+```{r pivot-long}
 actors_1 <- ties %>%
   select(sender, receiver) %>%
   pivot_longer(cols = c(sender,receiver))
@@ -602,7 +579,7 @@ have a number of duplicate names, let's select just the `value` column,
 rename it to actors, and use the `distinct()` function from {dplyr} to
 keep only unique names and remove duplicates:
 
-```{r}
+```{r select-actors}
 actors <- actors_1 %>%
   select(value) %>%
   rename(actors = value) %>% 
@@ -614,13 +591,21 @@ actors <- actors_1 %>%
 Use the code chunk below to take a quick look at our final `actors` data
 frame and answer question that follows:
 
-```{r, eval=FALSE}
+```{r view-actors, eval=FALSE}
+#YOUR CODE HERE
 actors
 ```
 
 How many unique node/actors are in our CCSS network?
 
 -   YOUR RESPONSE HERE
+
+Before we move on, save your nodelist to a .csv file in your data folder
+using the `write_csv()` function as we did above:
+
+```{r save-nodelist}
+#YOUR CODE HERE
+```
 
 ## 2c. Create Network Object
 
@@ -652,7 +637,7 @@ the following arguments:
 Let's go ahead and create our network graph, name it `network` and print
 the output:
 
-```{r}
+```{r create-network}
 ccss_network_1 <- tbl_graph(edges = ties, 
                             nodes = actors)
 
@@ -704,8 +689,8 @@ visualization to help illustrate these metrics. Specifically, in this
 section we'll learn to:
 
 a.  **Examine Basic Descriptives**. We focus primarily on actors and
-    edges in this walkthrough, including the edges wights we added in
-    the previous section as well as node degree, and import and fairly
+    edges in this case study, including the edges wights we added in the
+    previous section as well as node degree, and import and fairly
     intuitive measure of centrality.
 
 b.  **Make a Sociogram**. Finally, we wrap up the explore phases by
@@ -723,7 +708,7 @@ Many analyses of social networks are primarily descriptive. As
 
 2.  characterize network properties through network measures.
 
-### Centrality
+### Basic Centrality Measures
 
 As we learned in our previous learning lab, a key structural property of
 networks is the concept of centralization. A network that is highly
@@ -753,7 +738,7 @@ transmitters respectively. These measures can be added by using the
 Run the following code to add degree measures to each of our nodes and
 print the output for inspection:
 
-```{r}
+```{r add-degree}
 ccss_network <- ccss_network_1 %>%
   activate(nodes) %>%
   mutate(degree = centrality_degree(mode = "all")) %>%
@@ -768,10 +753,11 @@ the nodes in our network.
 ### **👉 Your Turn** **⤵**
 
 As you may have noted above, we forgot to include out-degree in our
-measures of centrality. Copy the code from above and add an out-degree
-measure to each node and print the output:
+measures of centrality. Copy the code from above and add an `"out"`
+degree measure to each node and print the output:
 
-```{r}
+```{r out-degree}
+#YOUR CODE HERE
 ccss_network <- ccss_network_1 %>%
   activate(nodes) %>%
   mutate(degree = centrality_degree(mode = "all")) %>%
@@ -781,14 +767,14 @@ ccss_network <- ccss_network_1 %>%
 ccss_network
 ```
 
-#### Summarize Centrality Measures
+#### Summarize Degree Measures
 
 We can also use the `activate()` function combined with the
 `data.frame()` function to extract our new measures to a separate data
 frame so we inspect our nodes individually and create some summary
 statistics using the handy `summary()` function.
 
-```{r}
+```{r summarize-centrality}
 node_measures <- ccss_network %>% 
   activate(nodes) %>%
   data.frame()
@@ -811,18 +797,46 @@ analysis was:
 Use the code chunk below to `view()` your `node_measures` data frame and
 answer the questions that follow:
 
-```{r, eval=FALSE}
+```{r view-measures, eval=FALSE}
+#YOUR CODE HERE
 view(node_measures)
 ```
 
 Identify the Twitter user with the highest value for each of the
 following types of central actors:
 
--   **Transmitters:**
+-   **Transmitters:** YOUR RESPONSE HERE
 
--   **Transceivers:**
+-   **Transceivers:** YOUR RESPONSE HERE
 
--   **Transcenders:**
+-   **Transcenders:** YOUR RESPONSE HERE
+
+### Advanced Centrality Measures
+
+Note that we have only introduced the most basic measures of centrality
+so far. If you recall from our essential readings, two other measures of
+how central an individual is to a network include:
+
+-   **Closeness centrality.** This measure captures the average distance
+    an actor is from all other actors in the network, but in simple
+    terms is a measure of how "close" someone is to other actors in a
+    network, which may be advantageous to an individual depending on the
+    context of the network.
+
+-   **Betweenness centrality**. In lay terms, this centrality measure is
+    often indicative of how actors control or mediate the relations
+    between pairs of actors that are not directly connected. That is,
+    the extent to which an individual in a network is "between" and more
+    closely connected to other actors or groups in a network who are not
+    themselves connected, and therefore may be in a position to control
+    information exchange or resource flows.
+
+These are just two centrality measures among many that the {tidygraph}
+package can calculate for individual nodes or egos in a network, just
+like `centrality_degree()`. To learn more about the other methods for
+calculating a node-level centrality measures, visit the [tidygraph
+reference page for
+centrality](https://tidygraph.data-imaginist.com/reference/index.html#section-centrality).
 
 ## 3b. Make a Sociogram
 
@@ -835,64 +849,30 @@ another. To emphasize this point, @carolan2014 reported that:
 > its foundation more than 90 years ago and remains a hallmark of
 > contemporary social network analysis. 
 
-Network visualization can be used for a variety of purposes, ranging
-from highlighting key actors to even serving as works of art.
-
-This excellent figure from Katya Ognyanova's also excellent tutorial on
-[Static and Dynamic Network Visualization with
-R](https://kateto.net/network-visualization/) helps illustrate the
-variety of goals a good network visualization can accomplish:
-
-![](img/viz-goals.jpeg){width="80%"}
-
 These visual representations of the actors and their relations, i.e. the
-network, are called a sociogram. Actors who are most central to the
-network, such as those with higher node degrees, are usually placed in
-the center of the sociogram and their ties are placed near them. As
-we'll see in just a bit, those two actors with hundreds of ties will be
-placed by most graph layout algorithms in the center of the graph.
-
-### **👉 Your Turn** **⤵**
-
-The `plot()` function from R's built in {graphics} package can be used
-to make a simple sociogram, but as you'll see, it's a bit lacking.
-
-In the code chunk below, use the `plot()` function with your
-`ccss_network` object to see what the basic plot function produces:
-
-```{r}
-plot(ccss_network)
-```
-
-If this had been a smaller network like one generated from a single
-classroom, this might have been a little more useful, but for larger
-networks like our Twitter data, this doesn't communicate much. In fact,
-it's visualizations like these that give sociograms the unflattering
-nickname of "hair ball" plots!
-
-Fortunately, the {ggraph} package includes a plethora of plotting
-parameters for graph
-[layouts](https://ggraph.data-imaginist.com/articles/Layouts.html),
-[edges](https://ggraph.data-imaginist.com/articles/Edges.html) and
-[nodes](https://ggraph.data-imaginist.com/articles/Nodes.html) to
-improve the visual design of network graphs.
-
-For the remainder of this section, we're going to focus on creating a
-sociogram that highlights the main "transmitters" in our network.
+network, are called a sociogram. Most network graph layout algorithms by
+default place actors who are most "central" to the network, such as
+those with higher node degrees, in the center of the sociogram. As we'll
+see in just a bit, those two actors with hundreds of ties will be placed
+by most graph layout algorithms in the center of the graph.
 
 ### Build a network
 
-One thing to keep in mind when building a network viz with {ggraph}, is
-that just like it's `ggplot()` counterpart, the `ggraph()` function
-takes care of setting up the plot object along with creating the layout
-for the plot based on the network object and the layout specification
-provided.
+Recall from previous labs that building a network viz with {ggraph} is
+intentionally very much like building a standard graph with `ggplot()`,
+R's most popular package for data visualization.
+
+Also recall that the `ggraph()`, `geom_node_*()` functions takes care of
+setting up the graph layout, and placing the nodes and edges for the
+plot based on the network object and the layout specification provided.
 
 Let's first pass our `ccss_network` object to ggraph and see what
 happens.
 
 ```{r}
-ggraph(ccss_network)
+ggraph(ccss_network) + 
+  geom_node_point() + 
+  geom_edge_link()
 ```
 
 As you can see, just like the `ggplot()` function, this didn't produce
@@ -918,7 +898,8 @@ operator:
 
 ```{r}
 ggraph(ccss_network) + 
-  geom_node_point() 
+  geom_node_point() + 
+  geom_edge_link()
 ```
 
 Well, at least we have our nodes now! But the default "stress" layout
