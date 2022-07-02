@@ -36,7 +36,11 @@ Use the institutional library (e.g. [NCSU Library](https://www.lib.ncsu.edu/#art
 
     -   
 
-4.  What were the results of these analyses?
+4.  What were the results of these analyses and were they "statistically significant"? If so, what does mean in a network context?
+
+    -   
+
+5.  If this same study were to use standard statistical models that assume independence among observations, how would this influence the study's results?
 
     -   
 
@@ -82,7 +86,10 @@ I highly recommend creating a new R script in your lab-4 folder to complete this
 
 Congratulations, you've completed your Models & Inference Badge! Complete the following steps to submit your work for review by
 
-1.  Click the yarn icon above to "knit" your data product to a [HTML](https://bookdown.org/yihui/rmarkdown/html-document.html) file that will be saved in your R Project folder.
+1.  Click the yarn icon above to "Knit" your data product to a [HTML](https://bookdown.org/yihui/rmarkdown/html-document.html) file that will be saved in your R Project folder.
+
 2.  Commit your changes in GitHub Desktop and push them to your online GitHub repository.
+
 3.  Locate and copy the link to your GitHub web page ([See here for instructions](https://towardsdatascience.com/how-to-create-a-free-github-pages-website-53743d7524e1)).
+
 4.  Post a new discussion on GitHub to our [SNA Badges forum](https://github.com/orgs/laser-institute/teams/network-analysis/discussions/1). In your post, include a link to your published web page and a short reflection highlighting one thing you learned from this lab and one thing you'd like to explore further.

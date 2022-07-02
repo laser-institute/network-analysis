@@ -62,7 +62,7 @@ applies social network analysis to an educational context or topic of
 interest. More specifically, **locate an network study that makes use of
 statistical models to explain or predict an education related process or
 outcome.** You are also welcome to select one of the research papers
-cited in our essential readings that may have peaked your interest. Your
+cited in our essential readings that may have piqued your interest. Your
 selection should address one or more of the discussion topics/questions
 (see below) and you're welcome to identify SNA resources outside of the
 field of education.
@@ -75,13 +75,11 @@ through one or more of the readings, **we encourage you to contribute to
 our learning community by creating a new post to our [Social Network
 Analysis
 Team](https://github.com/orgs/laser-institute/teams/network-analysis) on
-GitHub**. in response to one or more of the guiding questions, to share
-your thoughts .
+GitHub**. You post might contain a response to one or more of the
+guiding questions, questions you still have about the topics addressed,
+or insights gained into your own research.
 
-#### Self-Selected Study
-
-For your self-selected study, provide an APA citation and abstract, then
-briefly answer the following questions as appropriate:
+### Self-Selected Study
 
 -   What is being modeled: ties in complete networks, individual actor
     attributes, or groups of actors?
@@ -100,20 +98,20 @@ briefly answer the following questions as appropriate:
     network data is reported as being "statistically significant"? How
     does this relate to the implied null hypothesis?
 
-#### Chapter 8: Statistical Inference With Network Data
-
-Answer one or more of the following questions:
+### Chapter 8: Statistical Inference With Network Data
 
 -   Why are simulations necessary in order to make probabilistic
     inferences with network data?
+
 -   Explain in plain language how simulations are used to create a
     probability distribution that enables you to make a statistical
     inference with network data.
+
 -   Contrast the aims of the mathematical and statistical approaches to
     social network analysis. For what reasons would educational
     researchers prefer one approach versus the other?
 
-#### Chapter 9: Network Data and Statistical Models
+### Chapter 9: Network Data and Statistical Models
 
 Using one of the studies mentioned throughout this chapter, identify the
 statistical model that was employed and answer one or more the following

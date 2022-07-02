@@ -1,0 +1,147 @@
+---
+title: "Essential Readings: Statistical Inference & Network Modeling"
+subtitle: "LASER Institute SNA Learning Lab 4"
+author: "Dr. Shaun Kellogg"
+date: "`r format(Sys.Date(),'%B %e, %Y')`"
+output:
+  html_document:
+    toc: yes
+    toc_depth: 2
+    toc_float: yes
+editor_options:
+  markdown:
+    wrap: 72
+bibliography: references.bib
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Overview
+
+The primary goal of our essential readings in Lab 1 is to build a basic
+understanding of social network analysis (SNA) as an approach to
+understand and improve learning processes and outcomes. The required and
+self-selected readings provide an introduction to SNA in the field of
+education, including the historical, theoretical, and analytical
+foundations of a social network perspective. A secondary goal of rthe
+eadings and reflection questions is to help you start generating ideas
+for independent application of network analysis.
+
+## Readings
+
+For Lab 1 you will read chapters 1 and 2 from [Social Network Analysis
+and Education](https://catalog.lib.ncsu.edu/catalog/NCSU2803782)
+[@carolan2014] and locate one additional research article, presentation,
+or informal study to help address our discussion questions for the week.
+
+### SNA and Education Part I: Theory and Concepts
+
+The following readings for this lab illustrate how social network
+analysis provides educational researchers with a different way of
+thinking about and measuring an learning processes and outcomes by that
+explicitly account for the importance of one's relationships with
+others, as well as the larger pattern in which these relationships are
+embedded.
+
+1.  [Chapter 1: The Social Network Perspective and Educational Research
+    Introduction](https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-1/carolan-network-perspective.pdf)
+
+2.  [Chapter 2: Historical, Theoretical, and Analytical
+    Foundations](https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-1/carolan-history-theory.pdf)
+
+3.  [Chapter
+    3](https://methods.sagepub.com/book/social-network-analysis-and-education/n3.xml):
+    [Basic
+    Concepts](https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-1/carolan-basic-concepts.pdf)
+
+### Self-Selected Study
+
+Use your institutional library (e.g., [NCSU
+Library](https://www.lib.ncsu.edu/#articles)), [Google
+Scholar](https://scholar.google.com/) or search engine to locate a
+research or practitioner-focused article, presentation, or resource that
+applies social network analysis to an educational context or topic of
+interest. More specifically, **locate an network study that makes use of
+network visualization, including a sociogram, to describe an educational
+context.** You are also welcome to select one of the research papers
+cited in our essential readings that may have piqued your interest. Your
+selection should address one or more of the discussion topics/questions
+(see below) and you're welcome to identify SNA resources outside of the
+field of education.
+
+## Reflection
+
+To help guide your reflection on the readings, a set of guiding
+questions are provided below. After you have had a chance to work
+through one or more of the readings, **we encourage you to contribute to
+our learning community by creating a new post to our [Social Network
+Analysis
+Team](https://github.com/orgs/laser-institute/teams/network-analysis) on
+GitHub**. You post might contain a response to one or more of the
+guiding questions, questions you still have about the topics addressed,
+or insights gained into your own research.
+
+### Chapter 1: The Social Network Perspective and Educational Research Introduction
+
+1.  Consider a network of which you are a part. Who are the network's
+    actors? What ties connect these actors? Are there any groups within
+    this network? What relations within this network might be of
+    interest to a researcher? Finally, what makes this collection of
+    actors a social network?
+
+2.  Using the same question from the previous response, explain the
+    analytical level at which these data would need to be collected and
+    analyzed.
+
+### Chapter 2: Historical, Theoretical, and Analytical Foundations
+
+Draft a research question for a population you may be interested in
+studying, or that would be of interest to educational researchers, and
+that would require the collection of relational data. Next, think about
+the following questions:
+
+1.  What relational data would need to be collected? 
+
+2.  For what reason would relational data need to be collected in order
+    to address this question?
+
+3.  Explain the analytical level at which these data would need to be
+    collected and analyzed.
+
+4.  How does this differ from the ways in which individual or group
+    behavior is typically conceptualized and modeled in conventional
+    educational research?
+
+### Chapter 3: Basic Concepts
+
+Refer to the graph in you self-selected study and answer the following
+questions:
+
+1.  Is this graph directed or undirected? Are the lines arcs or edges?
+    Given your responses to these questions, what type of relation might
+    this graph represent?
+
+2.  Based on what you see in this graph, is this relation valued or
+    binary?
+
+3.  What attribute data might you want to incorporate into analysis?
+
+#### Bonus Questions:
+
+Create a matrix that represents the relational data evident in the graph
+and answer the following questions:
+
+1.  How many actors are in this matrix?
+
+2.  How many rows and columns are in this matrix?
+
+3.  What type of data are in the cells of this matrix?
+
+4.  Is this matrix symmetric? Explain the values on the diagonal of the
+    matrix.
+
+![](img/graph.jpeg)
+
+## References
