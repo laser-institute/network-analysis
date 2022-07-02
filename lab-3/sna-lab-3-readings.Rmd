@@ -1,6 +1,6 @@
 ---
-title: "Essential Readings: Statistical Inference & Network Modeling"
-subtitle: "LASER Institute SNA Learning Lab 4"
+title: "Essential Readings: Group & Egocentric Analysis"
+subtitle: "LASER Institute SNA Learning Lab 3"
 author: "Dr. Shaun Kellogg"
 date: "`r format(Sys.Date(),'%B %e, %Y')`"
 output:
@@ -32,7 +32,7 @@ appropriate to your own research area of interest.
 
 ## Readings
 
-For Lab 3, you will read chapters 6 and7 from [Social Network Analysis
+For Lab 3, you will read chapters 6 and 7 from [Social Network Analysis
 and Education](https://catalog.lib.ncsu.edu/catalog/NCSU2803782)
 [@carolan2014] and locate one additional research article, presentation,
 or informal study to help address our discussion questions for the week.
