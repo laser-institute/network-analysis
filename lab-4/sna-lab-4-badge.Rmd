@@ -32,15 +32,15 @@ Use the institutional library (e.g. [NCSU Library](https://www.lib.ncsu.edu/#art
 
     -   
 
-3.  What statistical models were employed in this study to address these research questions?
+3.  What is being modeled to address these questions: ties in complete networks, individual actor attributes, or groups of actors?
 
     -   
 
-4.  What were the results of these analyses and were they "statistically significant"? If so, what does mean in a network context?
+4.  What procedure was used and what, if any, covariates were included in the models?
 
     -   
 
-5.  If this same study were to use standard statistical models that assume independence among observations, how would this influence the study's results?
+5.  What were the results of these analyses and were they "statistically significant"? If so, what does mean in a network context?
 
     -   
 

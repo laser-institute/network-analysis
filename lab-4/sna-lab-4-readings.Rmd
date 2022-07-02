@@ -1,5 +1,5 @@
 ---
-title: "Essential Readings: Statistical Inference & Network Modeling"
+title: "Essential Readings: Network Modeling & Inference"
 subtitle: "LASER Institute SNA Learning Lab 4"
 author: "Dr. Shaun Kellogg"
 date: "`r format(Sys.Date(),'%B %e, %Y')`"
@@ -31,15 +31,8 @@ answer.
 
 ## Readings
 
-For Lab 4, you will read chapters 8 and 9 from [Social Network Analysis
-and Education](https://catalog.lib.ncsu.edu/catalog/NCSU2803782)
-[@carolan2014] and locate one additional research article, presentation,
-or informal study to help address our discussion questions for the week.
-
-### SNA and Education Part III: Applications and Examples
-
-The following readings move us beyond techniques introduced in Parts I &
-II for describing networks and focuses on recent advances in inferential
+The following readings move us beyond techniques introduced in Lab 1 & 2
+for describing networks and focus on recent advances in inferential
 statistics that can be used to make predictions from social network data
 and test hypotheses we have about a network of interest. We'll learn
 about different techniques that make use of simulations to model network
@@ -52,21 +45,6 @@ more completely reflect the complexity of educational settings.
 2.  [Chapter 9: Network Data and Statistical
     Models](https://methods-sagepub-com.prox.lib.ncsu.edu/book/social-network-analysis-and-education/n9.xml)
 
-### Self-Selected Study
-
-Use your institutional library (e.g., [NCSU
-Library](https://www.lib.ncsu.edu/#articles)), [Google
-Scholar](https://scholar.google.com/) or search engine to locate a
-research or practitioner-focused article, presentation, or resource that
-applies social network analysis to an educational context or topic of
-interest. More specifically, **locate an network study that makes use of
-statistical models to explain or predict an education related process or
-outcome.** You are also welcome to select one of the research papers
-cited in our essential readings that may have piqued your interest. Your
-selection should address one or more of the discussion topics/questions
-(see below) and you're welcome to identify SNA resources outside of the
-field of education.
-
 ## Reflection
 
 To help guide your reflection on the readings, a set of guiding
@@ -75,28 +53,9 @@ through one or more of the readings, **we encourage you to contribute to
 our learning community by creating a new post to our [Social Network
 Analysis
 Team](https://github.com/orgs/laser-institute/teams/network-analysis) on
-GitHub**. You post might contain a response to one or more of the
+GitHub**. Your post might contain a response to one or more of the
 guiding questions, questions you still have about the topics addressed,
 or insights gained into your own research.
-
-### Self-Selected Study
-
--   What is being modeled: ties in complete networks, individual actor
-    attributes, or groups of actors?
-
--   What procedure was used and what, if any, covariates were included
-    in the models? At what level were these covariates measured:
-    continuous (ratio or interval) or categorical?
-
--   Did the modeling strategy measure a network's change over time?
-
--   How, if at all, were simulations used to create a probability
-    distribution against which observed network parameters were
-    compared?
-
--   What does it mean when the result from a statistical model using
-    network data is reported as being "statistically significant"? How
-    does this relate to the implied null hypothesis?
 
 ### Chapter 8: Statistical Inference With Network Data
 
