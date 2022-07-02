@@ -965,6 +965,64 @@ mean_distance(year_3_network)
 
 ## 4. Model
 
+As highlighted in [Chapter 3 of Data Science in Education Using
+R](https://datascienceineducation.com/c03.html), the **Model** step of
+the data science process entails "using statistical models, from simple
+to complex, to understand trends and patterns in the data." The authors
+note that while descriptive statistics and data visualization during
+the **Explore** step can help us to identify patterns and relationships
+in our data, statistical models can be used to help us determine if
+relationships, patterns and trends are actually meaningful.
+
+We will not explore the use of models for SNA until Lab 4, but recall
+from [A Social Network Perspective in MOOC-Eds] was guided by the
+following questions:
+
+1.  What are the patterns of peer interaction and the structure of peer
+    networks that emerge over the course of a MOOC-Ed?
+
+2.  To what extent do participant and network attributes (e.g.,
+    homophily, reciprocity, transitivity) account for the structure of
+    these networks?
+
+3.  To what extent do these networks result in the co-construction of
+    new knowledge?
+
+To address Question 1, actors in the network were categorized into
+distinct mutually exclusive groups using the core-periphery and regular
+equivalence functions of UCINET. The former used the CORR algorithm to
+divide the network into actors that are part of a densely connected
+subgroup, or "core", from those that are part of the sparsely connected
+periphery. Regular equivalence employs the REGE blockmodeling algorithm
+to partition, or group, actors in the network based on the similarity of
+their ties to others with similar ties. In essence, blockmodeling
+provides a systematic way for categorizing educators based on the ways
+in which they interacted with peers.
+
+As we saw upon just a basic visual inspection of our network during the
+Explore section, there was a small core of highly connected participants
+surrounded by those on the "periphery," or edge, of the network with
+very few connections. In the DLT 2 course, those on the periphery made
+up roughly 90% of network! The study also found relatively high levels
+of reciprocation, but also found that roughly a quarter of participants
+were characterized as "brodcasters" -- educators who initiated a
+discussion thread, but neither reciprocated with those who replied, nor
+posted to threads initiated by others.
+
+To address Question 2, this study use the exponential family of random
+graph models (ERGM; also known as p\* models), which provide a
+statistical approach to network modeling that addresses the complex
+dependencies within networks. ERGMs predict network ties and determine
+the statistical likelihood of a given network structure, based on an
+assumed dependency structure, the attributes of the individuals (e.g.,
+gender, popularity, location, previous ties) and prior states of the
+network.
+
+As highlighted in [Chapter 3 of Data Science in Education Using
+R](https://datascienceineducation.com/c03.html), the **Model** step of
+the data science process entails "using statistical models, from simple
+to complex, to understand trends and patterns in the data."
+
 A developing area of network research is the advancement of statistical
 models and tools to examine network change over time [@carolan2014].
 These models are used to empirically test if changes in key structure
