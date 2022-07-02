@@ -606,6 +606,7 @@ using the `write_csv()` function as we did above:
 ```{r save-nodelist}
 #YOUR CODE HERE
 write_csv(actors, "data/ccss-nodelist.csv")
+
 ```
 
 ## 2c. Create Network Object
