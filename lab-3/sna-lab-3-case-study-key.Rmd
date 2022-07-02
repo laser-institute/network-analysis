@@ -858,7 +858,7 @@ those with higher node degrees, in the center of the sociogram. As we'll
 see in just a bit, those two actors with hundreds of ties will be placed
 by most graph layout algorithms in the center of the graph.
 
-### Build a network
+### Create a Simple Sociogram
 
 Recall from previous labs that building a network viz with {ggraph} is
 intentionally very much like building a standard graph with `ggplot()`,
