@@ -1,0 +1,82 @@
+---
+title: 'Network Measurement Badge'
+subtitle: "LASER Institute SNA Independent Practice"
+author: "Dr. Shaun Kellogg"
+date: "`r format(Sys.Date(),'%B %e, %Y')`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+![](img/SNA_NetworkM_HX.png){width="30%"}
+
+The final activity for each learning lab provides space to work with data and to reflect on how the concepts and techniques introduced in each lab might apply to your own research.
+
+To earn a badge for each lab, you are required to respond to a set of prompts for two parts: 
+
+-   In Part I, you will reflect on your understanding of key concepts and begin to think about potential next steps for your own study.
+
+-   In Part II, you will create a simple data product in R that demonstrates your ability to apply a data analysis technique introduced in this learning lab.
+
+### Part I: Reflect and Plan
+
+Use the institutional library (e.g. [NCSU Library](https://www.lib.ncsu.edu/#articles)), [Google Scholar](https://scholar.google.com/) or search engine to locate a research article, presentation, or resource that applies social network analysis to an educational context or topic of interest. More specifically, **locate a network study that makes use of network-level structural measures to describe mathematically the network being studied.** You are also welcome to select one of the research papers listed in the [essential readings](https://github.com/laser-institute/essential-readings/tree/main/sna-labs/sna-lab-4) that may have piqued your interest.
+
+1.  Provide an APA citation for your selected study.
+
+    -   
+
+2.  Were the data collected on the complete, ego, or partial network? Describe the sources of these network data.
+
+    -   
+
+3.  What relations were measured and what instruments were used to measure them?
+
+    -   
+
+Think about a network that you may be interested in studying, and answer the following questions:
+
+4.  Would your study employ a positional, relational, or event-based approach to specify the network's boundary?
+
+    -   
+
+5.  What data would you want to collect for this study and how might you go about doing it?
+
+    -   
+
+6.  What relations would you measure and what individual attribute information might you collect?
+
+    -   
+
+7.  How might you approach collecting this data for your study? 
+
+    -   
+
+### Part II: Data Product
+
+Using one of the data sets provided in your data folder, **your goal for this lab is to create a polished sociogram and write a brief narrative describing your network mathematically.** For example, you may be interested in comparing size, density and level of reciprocity of the network.
+
+**Alternatively, you may use your own data set to create a sociogram and calculate network-level measures to describe it.** 
+
+I highly recommend creating a new R script in your lab-4 folder to complete this task. When your code is ready to share, use the code chunk below to share the final code for your model and answer the questions that follow.
+
+```{r, my-data-product}
+# YOUR FINAL CODE HERE
+
+
+```
+
+#### Narrative
+
+-   WRITE YOUR DESCRIPTION OF THE NETWORK HERE
+
+### Knit & Submit
+
+Congratulations, you've completed your Models & Inference Badge! Complete the following steps to submit your work for review by
+
+1.  Click the yarn icon above to "knit" your data product to a [HTML](https://bookdown.org/yihui/rmarkdown/html-document.html) file that will be saved in your R Project folder.
+2.  Commit your changes in GitHub Desktop and push them to your online GitHub repository.
+3.  Locate and copy the link to your GitHub web page ([See here for instructions](https://towardsdatascience.com/how-to-create-a-free-github-pages-website-53743d7524e1)).
+4.  Post a new discussion on GitHub to our [SNA Badges forum](https://github.com/orgs/laser-institute/teams/network-analysis/discussions/1). In your post, include a link to your published web page and a short reflection highlighting one thing you learned from this lab and one thing you'd like to explore further.
