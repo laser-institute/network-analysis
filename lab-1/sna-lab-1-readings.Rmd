@@ -128,5 +128,3 @@ and answer the following questions:
     matrix.
 
 ![](img/graph.jpeg)
-
-## References

@@ -88,5 +88,3 @@ questions:
     friends from covariates such as sex, grade level, and academic
     performance. What model would be most appropriate to test these
     relationships?
-
-## References

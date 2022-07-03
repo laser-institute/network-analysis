@@ -163,5 +163,3 @@ Share your research question and then answer the following questions:
 4.  What egocentric measures would you use to address your
     question(s)?If a measure of centrality, which might you choose and
     why?
-
-## References
