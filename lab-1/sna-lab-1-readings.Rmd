@@ -1,6 +1,6 @@
 ---
-title: "Essential Readings: Statistical Inference & Network Modeling"
-subtitle: "LASER Institute SNA Learning Lab 4"
+title: "Essential Readings: Intro to Social Network Analysis"
+subtitle: "LASER Institute SNA Learning Lab 1"
 author: "Dr. Shaun Kellogg"
 date: "`r format(Sys.Date(),'%B %e, %Y')`"
 output:
@@ -31,13 +31,6 @@ for independent application of network analysis.
 
 ## Readings
 
-For Lab 1 you will read chapters 1 and 2 from [Social Network Analysis
-and Education](https://catalog.lib.ncsu.edu/catalog/NCSU2803782)
-[@carolan2014] and locate one additional research article, presentation,
-or informal study to help address our discussion questions for the week.
-
-### SNA and Education Part I: Theory and Concepts
-
 The following readings for this lab illustrate how social network
 analysis provides educational researchers with a different way of
 thinking about and measuring an learning processes and outcomes by that
@@ -56,21 +49,6 @@ embedded.
     [Basic
     Concepts](https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-1/carolan-basic-concepts.pdf)
 
-### Self-Selected Study
-
-Use your institutional library (e.g., [NCSU
-Library](https://www.lib.ncsu.edu/#articles)), [Google
-Scholar](https://scholar.google.com/) or search engine to locate a
-research or practitioner-focused article, presentation, or resource that
-applies social network analysis to an educational context or topic of
-interest. More specifically, **locate an network study that makes use of
-network visualization, including a sociogram, to describe an educational
-context.** You are also welcome to select one of the research papers
-cited in our essential readings that may have piqued your interest. Your
-selection should address one or more of the discussion topics/questions
-(see below) and you're welcome to identify SNA resources outside of the
-field of education.
-
 ## Reflection
 
 To help guide your reflection on the readings, a set of guiding
@@ -85,13 +63,21 @@ or insights gained into your own research.
 
 ### Chapter 1: The Social Network Perspective and Educational Research Introduction
 
-1.  Consider a network of which you are a part. Who are the network's
-    actors? What ties connect these actors? Are there any groups within
-    this network? What relations within this network might be of
-    interest to a researcher? Finally, what makes this collection of
-    actors a social network?
+Consider a network of which you are a part and think about the following
+questions:
 
-2.  Using the same question from the previous response, explain the
+1.  Who are the network's actors?
+
+2.  What ties connect these actors?
+
+3.  Are there any groups within this network?
+
+4.  What relations within this network might be of interest to a
+    researcher?
+
+5.  Finally, what makes this collection of actors a social network?
+
+6.  Using the same question from the previous response, explain the
     analytical level at which these data would need to be collected and
     analyzed.
 
@@ -116,8 +102,7 @@ the following questions:
 
 ### Chapter 3: Basic Concepts
 
-Refer to the graph in you self-selected study and answer the following
-questions:
+Refer to the graph below and answer the following questions:
 
 1.  Is this graph directed or undirected? Are the lines arcs or edges?
     Given your responses to these questions, what type of relation might
