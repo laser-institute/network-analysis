@@ -10,7 +10,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-![](img/SNA_ModelsInf_HX.jpg){width="30%"}
+![](images/SNA_ModelsInf_HX.jpg){width="30%"}
 
 The final activity for each learning lab provides space to work with data and to reflect on how the concepts and techniques introduced in each lab might apply to your own research.
 

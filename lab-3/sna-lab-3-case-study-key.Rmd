@@ -299,9 +299,15 @@ right hand corner.
 
 #### **👉 Your Turn** **⤵**
 
-First, load the {tidyverse}, {tidygraph}, {gggraph}, {igraph} and {here}
-packages introduced in previous case studies. We'll be using several of
-these packages to wrangling and explore our data later sections:
+First, load the following packages introduced in previous case studies
+and that we'll be using again to wrangling and explore our data later
+sections:
+
+-   tidyverse
+-   igraph
+-   tidygraph
+-   ggraph
+-   skimr
 
 ```{r load-packages}
 #YOUR CODE HERE
@@ -744,7 +750,7 @@ While not incredibly intuitive to interpret, the output indicates that
 there are 13 components as we discovered above, 1 component has 51
 members and the smallest components only have 2 members.
 
-### **👉 Your Turn** **⤵**
+#### **👉 Your Turn** **⤵**
 
 How do you think you might find the "strong" components in our network
 using the `component()` function? Use the following code chunk to test
@@ -828,7 +834,7 @@ converting network to a tibble consisting of nodes and their
 not want to permanently change to our network object to a rectangular
 data frame, or tibble in tidyverse speak.
 
-### **👉 Your Turn** **⤵**
+#### **👉 Your Turn** **⤵**
 
 Use the `activate()`, `mutate()` and
 [`group_components()`](https://tidygraph.data-imaginist.com/reference/group_graph.html)
@@ -1348,7 +1354,7 @@ ggraph(ccss_network, layout = "fr") +
     theme_graph()
 ```
 
-### **👉 Your Turn** **⤵**
+#### **👉 Your Turn** **⤵**
 
 Try modifying the code below by tweaking the included function/arguments
 or adding new ones for
@@ -1377,8 +1383,10 @@ ggraph(ccss_network, layout = "fr") +
     theme_graph()
 ```
 
-**Note:** The {tidygraph} package has a wide range of [functions to
-generate alternate representations of
+#### Alternate Graph Representations
+
+The {tidygraph} package has a wide range of [functions to generate
+alternate representations of
 graphs](https://tidygraph.data-imaginist.com/reference/morphers.html).
 They can be used as stand alone functions to permanently alter your
 network, or as an argument with the `morph()` function to temporarily
@@ -1414,20 +1422,21 @@ relationships, patterns and trends are actually meaningful.
 
 ### 4a. Sentiment Analysis (Optional)
 
-We will not explore the use of models for SNA until Learning Lab 4, but
-take a look at [The Mood of the Common Core
-Factions](https://www.hashtagcommoncore.com/#4-2) section from the
-#COMMONCORE project. Sentiment analysis is a common text mining
-technique that tries to evaluate words for their emotional association,
-or even "mood", similar to the approached used by the #COMMONCORE
-project.
+We will not explore the use of statistical inference and models for
+social networks until Learning Lab 4, but take a look at [The Mood of
+the Common Core Factions](https://www.hashtagcommoncore.com/#4-2)
+section from the #COMMONCORE project. Sentiment analysis is a common
+text mining technique that tries to evaluate words for their emotional
+association, or even "mood", similar to the approached used by the
+#COMMONCORE project.
 
 The tidytext package we tapped into earlier provides access to several
-sentiment lexicons based on unigrams, i.e., single words. These lexicons
-contain many English words and the words are assigned scores for
-positive/negative sentiment, and also possibly emotions like joy, anger,
-sadness, and so forth. However, one {vader} package provides a
-relatively easy entry into modeling tweet sentiment.
+sentiment lexicons for text analysis based on unigrams, i.e., single
+words. These lexicons contain many English words and the words are
+assigned scores for positive/negative sentiment, and also possibly
+emotions like joy, anger, sadness, and so forth. However, the {vader}
+package provides a relatively easy entry into modeling positive and
+negative tweet sentiment.
 
 #### The vader Package 📦
 
@@ -1458,22 +1467,18 @@ just a small(ish) subset of tweets for demonstration purposes.
 
 ![](img/dark-side.jpeg){width="80%"}
 
-As noted in the PERPARE section, the {vader} package is for the Valence
-Aware Dictionary for sEntiment Reasoning (VADER), a rule-based model for
-general sentiment analysis of social media text and specifically attuned
-to measuring sentiment in microblog-like contexts.
+Unlike other approaches demonstrated in the Text Mining Learning Lab 2,
+which assign sentiment to each individual word in a corpus of tweets,
+the VADER assigns a number of different sentiment measures based on the
+context of the entire social-media post or in our case a tweet. This
+saves quite a bit of data wrangling allowing us to work with our tweets
+in their original format.
 
-Unlike our our previous approach of assigning sentiment to each
-individual word in our corpus of tweets, the VADER assigns a number of
-different sentiment measures based on the context of the entire
-social-media post or in our case a tweet. So rather than working with
-tidy text, we'll need to work with our tweets in their original format.
-
-The {vader} package basically has just one function, `vader_df()` that
-does one thing and expects just one column from one frame. He's very
-single minded! Let's give VADER our `ccss_sample` data frame and include
-the `$` operator to include only the `text` column containing our
-tweets.
+VADER basically has just one function, `vader_df()` that does one thing
+and expects just one column from one frame. He's very single minded!
+Let's give VADER our `ccss_tweets` data frame we created in the
+beginning of this case study and include the `$` operator to include
+only the `text` column containing our tweets.
 
 ```{r}
 vader_ccss <- vader_df(ccss_tweets$text)
@@ -1545,6 +1550,23 @@ Not quite as bleak as we might have expected according to VADER! But
 then again, VADER brings an entirely different perspective coming from
 the dark side.
 
+#### **👉 Your Turn** **⤵**
+
+Use the code chunk below to see if you can identify the "haters" in our
+network merging the sentiment scores results stored in our `vader_ccss`
+data frame with our original `ccss_tweets` data frame. **Hint:** you may
+need to use a `join_()` function.
+
+```{r}
+# YOUR CODE HERE
+
+
+```
+
+1.  Who were the most negative twitter users in our network?
+
+    -   YOUR RESPONSE HERE
+
 ------------------------------------------------------------------------
 
 ## 5. COMMUNICATE
@@ -1614,16 +1636,12 @@ NARRATIVE GOES HERE...
 
 ### 🧶 Knit & Check ✅
 
-Congratulations - you've completed the Lab 2 case study! To share your
-work, click the drop down arrow next to the ball of yarn that says
-"Knit" at the top of this markdown file, then select "Knit top HTML".
-Assuming your code contains no errors, this will create a web page in
-your Files pane that serves as a record of your work.
-
-Once your file has been knitted, you can publish this file online using
-RPubs (see screeshot below), or share the HTML file through another
+Congratulations - you've completed the Lab 4 case study! One final step
+is to "Knit" your document by clicking the drop down arrow next to the
+ball of yarn in the menu bar an that the top of this markdown file, and
+then selecting "Knit top HTML" or another preferred output format. This
+will do two things: 1) it will check through all your code for any
+errors, 2) it will created a file in your directory that you can use to
+share you work through [GitHub Pages](https://pages.github.com),
+[RPubs](https://rpubs.com/about/getting-started), or any other preferred
 means.
-
-![](img/publish.png){width="70%"}
-
-### References

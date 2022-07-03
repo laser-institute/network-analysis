@@ -12,7 +12,7 @@ output:
 editor_options:
   markdown:
     wrap: 72
-bibliography: lit/references.bib
+bibliography: references.bib
 ---
 
 ```{r setup, include=FALSE}
@@ -302,6 +302,7 @@ following packages that will be using for our network analysis:
 ```{r load-libraries}
 # YOUR CODE HERE
 
+
 ```
 
 ------------------------------------------------------------------------
@@ -398,27 +399,30 @@ section to find the name of the argument used to set column headers.
 ```{r import-matrix}
 #YOUR CODE HERE
 
+
 ```
 
 Use the code chunk below to inspect the matrix you just imported and
 answer the questions that follow:
 
 ```{r view-matrix}
+#YOUR CODE HERE
+
 
 ```
 
 1.  Is our network a square matrix? What does this tell you about the
     number of nodes in our network?
 
-    -   
+    -   YOUR RESPONSE HERE
 
 2.  Does our network contain self-loops? How do you know?
 
-    -   
+    -   YOUR RESPONSE HERE
 
 3.  What do the values in each cell of our matrix indicate?
 
-    -   
+    -   YOUR RESPONSE HERE
 
 ### 2b. Dichotomize Matrix
 
@@ -586,6 +590,7 @@ appropriate code:
 ```{r create-network}
 # YOUR CODE HERE
 
+
 ```
 
 Congrats! You made it to the end of data wrangling section and are ready
@@ -664,7 +669,13 @@ our network. **Hint:** `centrality_degree` is a wrapper for
 corresponding help documentation.
 
 ```{r add-degree}
+leader_measures <- leader_graph |>
+  activate(nodes) |>
+  mutate(degree = centrality_degree(mode = "in")) |>
+  mutate(in_degree = centrality_degree(mode = "out"))
+  
 
+leader_measures
 ```
 
 #### Summarize Node Measures
@@ -739,6 +750,8 @@ replicate the school and district level findings for out-degree, trust
 and efficacy measures.
 
 ```{r replicate-findings}
+# YOUR CODE HERE
+
 
 ```
 
@@ -765,7 +778,6 @@ our plot either more "aesthetically pleasing" or more purposeful in what
 it's trying to communicate.
 
 ```{r improve-sociogram}
-#YOUR CODE HERE
 leader_measures |>
 ggraph(layout = "fr") + 
   geom_node_point() +
@@ -1056,7 +1068,8 @@ following question:
     who work at the same district-site level?
 
 ```{r ergm-4, message=FALSE}
-#YOUR CODE HERE
+# YOUR CODE HERE
+
 
 ```
 
@@ -1146,11 +1159,9 @@ model the you created in [4b. Estimate the ERGM]:
 
 ```{r check-ergm-4}
 #YOUR CODE HERE
-ergm_4_gof <- gof(ergm_4)
 
-plot(ergm_4_gof)
 
-mcmc.diagnostics(ergm_4)
+
 ```
 
 ------------------------------------------------------------------------
@@ -1202,13 +1213,14 @@ NARRATIVE GOES HERE...
 
 ### 🧶 Knit & Check ✅
 
-Congratulations - you've completed the Learning Lab 4 case study! To
-share your work, click the drop down arrow next to the ball of yarn that
-says "Knit" at the top of this markdown file, then select "Knit top
-HTML". Assuming your code contains no errors, this will create a web
-page in your Files pane that serves as a record of your work.
-
-Once your file has been knitted, you can publish this file online using
-RPubs, or share the HTML file through another means.
+Congratulations - you've completed the Lab 4 case study! One final step
+is to "Knit" your document by clicking the drop down arrow next to the
+ball of yarn in the menu bar an that the top of this markdown file, and
+then selecting "Knit top HTML" or another preferred output format. This
+will do two things: 1) it will check through all your code for any
+errors, 2) it will created a file in your directory that you can use to
+share you work through [GitHub Pages](https://pages.github.com),
+[RPubs](https://rpubs.com/about/getting-started), or any other preferred
+means.
 
 ### References

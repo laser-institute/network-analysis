@@ -58,11 +58,11 @@ Think about a network that you are a part of, or may be interested in studying, 
 
 In our SNA Lab 4 Case Study, we only scratched the surface on the number of network and node attributes properties that can be tested using ERGMs. Take a look at a [table of common ergm-terms](http://statnet.org/nme/d2-ergmterms.html) or type "ergm-terms" into the help menu of the files pane for some additional examples.
 
-Using one of the data sets provided for our case study, **your goal for this lab is to extend the ERGM analysis from our case study by adding a new parameter/term to our model.** For example, you may be interested in examining how shared characteristics among school leaders might help explain tie formation, such as gender, level of trust in colleagues, or whether they work at the school or district level.
+Using one of the data sets provided in the data folder, **your goal for this lab is to extend the ERGM analysis from our case study by adding a new parameter/term to our model.** For example, you may be interested in examining how shared characteristics among school leaders might help explain tie formation, such as gender, level of trust in colleagues, or whether they work at the school or district level.
 
 **Alternatively, you may use your own data set to estimate models akin to those we estimated in the guided practice.** 
 
-I highly recommend creating a new R script in your lab-4 folder to complete this task. When your code is ready to share, use the code chunk below to share the final code for your model and answer the questions that follow.
+I highly recommend creating a new R script in your lab-4 folder to complete this task. When your code is ready to share, use the code chunk below to share only the code and comments necessary to run and undestand your analysis, then answer the questions that follow.
 
 ```{r, my-data-product}
 # YOUR FINAL CODE HERE

@@ -12,7 +12,7 @@ output:
 editor_options:
   markdown:
     wrap: 72
-bibliography: lit/references.bib
+bibliography: references.bib
 ---
 
 ```{r setup, include=FALSE}
@@ -1248,13 +1248,14 @@ NARRATIVE GOES HERE...
 
 ### 🧶 Knit & Check ✅
 
-Congratulations - you've completed the Learning Lab 4 case study! To
-share your work, click the drop down arrow next to the ball of yarn that
-says "Knit" at the top of this markdown file, then select "Knit top
-HTML". Assuming your code contains no errors, this will create a web
-page in your Files pane that serves as a record of your work.
-
-Once your file has been knitted, you can publish this file online using
-RPubs, or share the HTML file through another means.
+Congratulations - you've completed the Lab 4 case study! One final step
+is to "Knit" your document by clicking the drop down arrow next to the
+ball of yarn in the menu bar an that the top of this markdown file, and
+then selecting "Knit top HTML" or another preferred output format. This
+will do two things: 1) it will check through all your code for any
+errors, 2) it will created a file in your directory that you can use to
+share you work through [GitHub Pages](https://pages.github.com),
+[RPubs](https://rpubs.com/about/getting-started), or any other preferred
+means.
 
 ### References
