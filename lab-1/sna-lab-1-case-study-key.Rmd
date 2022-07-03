@@ -410,7 +410,8 @@ we can say that this friendship is "reciprocated."
 #### **👉 Your Turn** **⤵**
 
 Complete the code chunk below to import the
-`student-reported-friends.xlsx` file,
+`student-reported-friends.xlsx` file, add row and column names, and
+inspect your `teacher_friends` object.
 
 ```{r import-teacher}
 # YOUR CODE HERE
