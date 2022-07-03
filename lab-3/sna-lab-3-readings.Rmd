@@ -1,6 +1,6 @@
 ---
-title: "Essential Readings: Group & Egocentric Analysis"
-subtitle: "LASER Institute SNA Learning Lab 3"
+title: "Group & Egocentric Analysis"
+subtitle: "SNA Learning Lab 3 Essential Readings"
 author: "Dr. Shaun Kellogg"
 date: "`r format(Sys.Date(),'%B %e, %Y')`"
 output:
