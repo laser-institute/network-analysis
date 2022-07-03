@@ -33,14 +33,7 @@ approaches.
 
 ## Readings
 
-For Lab 2, you will read chapters 4 and 5 from [Social Network Analysis
-and Education](https://catalog.lib.ncsu.edu/catalog/NCSU2803782)
-[@carolan2014] and locate one additional research article, presentation,
-or informal study to help address our discussion questions for the week.
-
-### SNA and Education Part II: Methods and Measures
-
-The following readings for this unit focus on issues related to the
+The following readings for this lab focus on issues related to the
 collection and measurement of these network variables, including issues
 related to boundary specification, sampling, storage, and methodologies.
 In addition, the readings introduce important concepts and measures used
@@ -53,21 +46,6 @@ networks, to analysis of networks quantitatively.
 
 2.  [Chapter 5: Structural Measures for Complete
     Networks](https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-2/sna-chapter-5.pdf)
-
-### Self-Selected Study
-
-Use your institutional library (e.g., [NCSU
-Library](https://www.lib.ncsu.edu/#articles)), [Google
-Scholar](https://scholar.google.com/) or search engine to locate a
-research or practitioner-focused article, presentation, or resource that
-applies social network analysis to an educational context or topic of
-interest. More specifically, **locate an network study that makes use of
-network level measures to understand an educational context.** You are
-also welcome to select one of the research papers cited in our essential
-readings that may have piqued your interest. Your selection should
-address one or more of the discussion topics/questions (see below) and
-you're welcome to identify SNA resources outside of the field of
-education.
 
 ## Reflection
 
@@ -83,17 +61,28 @@ or insights gained into your own research.
 
 ### Chapter 4: Basic Concepts
 
-For your self-selected study, think about the following questions:
+Think about a network that you are a part of, or may be interested in
+studying, and consider the following questions:
 
-1.  Does the study employs a positional, relational, or event-based
+1.  Would your study employs a positional, relational, or event-based
     approach to specify the network's boundary.
 
-2.  Were the data collected on the complete, ego, or partial network?
-    Describe the sources of these network data.
+    -   
 
-3.  What relations were measured and what instruments were used to
-    measure them? Evaluate the quality of these relational data in terms
-    of validity, reliability, error, and patterns of missingness.
+2.  Would you collect data on the complete, ego, or partial network?
+    Describe the sources of the network data you might collect.
+
+    -   
+
+3.  What relations would you measure and what instruments might you use
+    to measure them?
+
+    -   
+
+4.  How would you help ensure the quality of these relational data in
+    terms of validity, reliability, error, and patterns of missingness? 
+
+    -   
 
 ### Chapter 5: Structural Measures for Complete Networks
 
