@@ -861,12 +861,12 @@ tweets.
 1.  Which strong component had the most members? Hint: this is a trick
     question.
 
-    -    YOUR RESPONSE HERE
+    -   YOUR RESPONSE HERE
 
 2.  What do you think this tells us about the conversation around the
     common core?
 
-    -    YOUR RESPONSE HERE
+    -   YOUR RESPONSE HERE
 
 #### Cliques
 
@@ -1248,7 +1248,7 @@ explore [other functions to calculate node and edge
 centrality](https://tidygraph.data-imaginist.com/reference/centrality.html)
 in these two packages.
 
-### 3c. Visualize Network Descriptives 
+### 3c. Visualize Network Descriptives
 
 If you recall from [1a. Review the Research] section, one of the
 defining characteristics of the social network perspective is its use of
