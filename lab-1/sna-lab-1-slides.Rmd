@@ -1,5 +1,5 @@
 ---
-  title: "SNA Lab 4: Statistical Inference & Network Models"
+  title: "SNA Lab 1: Statistical Inference & Network Models"
   subtitle: "Test"
   author: "**Dr. Shaun Kellogg**"
   institute: "LASER Institute"
@@ -76,9 +76,9 @@ xaringanExtra::use_tile_view()
 
 ## Part 2: R Code-Along
 #### Exponential Random Graph Models
-- Packages 
-- Centrality
-- Reciprocity
+- Make a Matrix 
+- Create a Network
+- Simple Sociograms
 ]
 
 
