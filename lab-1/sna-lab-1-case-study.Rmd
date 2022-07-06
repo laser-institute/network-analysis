@@ -24,7 +24,7 @@ knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
 
 Our first SNA case study is guided by the work of Matthew Pittinsky and
 Brian V. Carolan (2008), which employed a social network perspective to
-examine teachers perceptions of student friendships agreed with their
+examine teachers' perceptions of student friendships agreed with their
 own. Sadly, this excellent study did not include any visual depictions
 comparing student and teacher perceived friendship networks, but we are
 going to fix that!
@@ -36,10 +36,10 @@ visually what our network "looks like." Specifically, this case study
 will cover the following topics pertaining to each data-intensive
 workflow process [@krumm2018]:
 
-1.  **Prepare**: Prior to analysis, we'll take a look at the context
-    from which our data came, formulate some research questions, and get
-    introduced the {tidygraph} and {ggraph} packages for analyzing and
-    visualizing relational data.
+1.  **Prepare**: Prior to analysis, we'll look at the context from which
+    our data came, formulate some research questions, and get introduced
+    the {tidygraph} and {ggraph} packages for analyzing and visualizing
+    relational data.
 
 2.  **Wrangle**: In the wrangling section of our case study, we will
     learn some basic techniques for manipulating, cleaning,
@@ -81,7 +81,7 @@ did not match. In particular, students reported significantly more
 reciprocated friendship ties than the teacher perceived. Interestingly,
 the observed level of agreement varied across classes and generally
 increased over time. This study further demonstrates that significant
-error can be introduced by conflating teacher per- ceptions and student
+error can be introduced by conflating teacher perceptions and student
 reports. Findings reinforce the importance of treating behavioral and
 cognitive classroom friendship networks as distinct, and analyzing
 social structure data that are carefully aligned with the social process
@@ -123,7 +123,7 @@ similar manner.
 To assess agreement between perceived friendship by the teacher and
 students, QAP (quadratic assignment procedure) correlations for each
 class's two matrices (teacher and student generated) were analyzed in
-the autumn andspring. A QAP correlation is used to calculate the degree
+the autumn and spring. A QAP correlation is used to calculate the degree
 of association between two sets of relations; it tests whether the
 probability of dyad overlap in the teacher matrix is correlated with the
 probability of dyad overlap in the student matrix. It does so by running
@@ -144,34 +144,6 @@ As reported by @pittinsky2008behavioral in their findings section:
 > statistically similar, 11--29% of possible ties did not match. In
 > particular, students reported significantly more reciprocated
 > friendship ties than the teacher perceived.
-
-#### **👉 Your Turn** **⤵**
-
-Take a look at the paper in our essential readings repository on GitHub
-and highlight one or two findings and/or conclusions you found
-especially interesting.
-
--   YOUR RESPONSE HERE
-
-### 1b. Identify a Question(s)
-
-Recall from above that the central question guiding the #COMMONCORE
-Project was:
-
-> How are social media-enabled social networks changing the discourse in
-> American politics that produces and sustains education policy?
-
-For Unit 4, we are going to focus our questions on something a bit less
-ambitious but inspired by this work:
-
-1.  Who are the transmitters, transceivers, and transcenders in our
-    Common Core Twitter network?
-2.  What subgroups, or factions, exist in our network?
-3.  Which actors in our network tend to be more opposed to the Common
-    Core?
-
-To address the last question, we'll revisit our techniques we learned
-from our Unit 3 VADER sentiment analysis.
 
 #### **👉 Your Turn** **⤵**
 
@@ -202,7 +174,7 @@ project set up withe the requisite packages we'll need for analysis.
 of R code that can contain functions, data, and/or documentation and
 extend the functionality of R. You can always check to see which
 packages have already been installed and loaded into RStudio Cloud by
-looking at the the Files, Plots, & Packages Pane in the lower right hand
+looking at the the Files, Plots, & Packages Pane in the lower right-hand
 corner.
 
 #### tidyverse 📦
@@ -213,7 +185,7 @@ One package that we'll be using extensively is {tidyverse}. Recall from
 earlier tutorials that the {tidyverse} package is actually a [collection
 of R packages](https://www.tidyverse.org/packages) designed for reading,
 wrangling, and exploring data and which all share an underlying design
-philosophy, grammar, and data structures. This shared features are
+philosophy, grammar, and data structures. These shared features are
 sometimes "tidy data principles."
 
 Click the green arrow in the right corner of the "code chunk" that
@@ -247,7 +219,7 @@ be envisioned as two tidy tables, one for node data and one for edge
 data.
 
 The {tidygraph} package provides a way to switch between the two tables
-and uses `dplyr` verbs to manipulate them. Furthermore it provides
+and uses `dplyr` verbs to manipulate them. Furthermore, it provides
 access to a lot of graph algorithms with return values that facilitate
 their use in a tidy workflow.
 
@@ -268,7 +240,7 @@ adding the concept of *layouts* to the [grammar of
 graphics](https://ggplot2-book.org/introduction.html?q=grammar#what-is-the-grammar-of-graphics),
 i.e. the "gg" in ggplot and ggraph.
 
-**readxl 📦**
+#### **readxl 📦**
 
 ![](img/readxl.png){width="20%"}
 
@@ -276,14 +248,19 @@ The [{readxl}](https://readxl.tidyverse.org/) package makes it easy to
 get data out of Excel and into R. Compared to many of the existing
 packages (e.g. gdata, xlsx, xlsReadWrite) readxl has no external
 dependencies, so it's easy to install and use on all operating systems.
-It is designed to work with *tabular* data.
+It is designed to work with *tabular* data.
 
 Since one of our data wrangling steps in the next section is importing
 network matrices stored in excel files, this package will come in handy.
 
+**R Studio Tip:** Type `?read_excel` into the console and check the
+arguments section to examine the different arguments that can be used
+with this function.
+
 #### **👉 Your Turn** **⤵**
 
-Use the code chunk below load the {tidygraph} and {ggraph} packages:
+Use the code chunk below load the {tidygraph}, {ggraph}, and {readxl}
+packages:
 
 ```{r load-packages}
 # YOUR CODE HERE
@@ -301,34 +278,32 @@ highlighted in @estrellado2020e, wrangling network data can be even more
 challenging than other data sources since network data often includes
 variables about both individuals and their relationships.
 
-For our data wrangling in lab, we're keeping it simple since working
-with relational data is a bit of a departure from our working with
-rectangular data frames. Our primary goals for Lab 1 are learning how
-to:
+For our data wrangling in lab 1, we're keeping it relatively simple
+since working with relational data is a bit of a departure from our
+working with rectangular data frames. Our primary goals for Lab 1 is
+learning how to:
 
-a.  **Import Data**. In this section, we learn about the `read_csv()`
-    function for importing a data stored in a format in a unique two
-    common formats for storing network data: edgelists and nodelists.
+a.  **Import Data from Excel**. In this section, we learn about the
+    `read_xlsx()` function for importing a data stored in a format in a
+    unique two common formats for storing network data: matrices and
+    nodelists.
 
-b.  **Create a Network Object**. Before we can create our sociogram,
-    we'll first need to convert our data frames into special data
-    format, an R network object, for working with relational data.
-
-c.  
+b.  **Make a Tidy Graph**. Before we can create our sociogram, we'll
+    first need to convert our data frames into special data format, an R
+    network `tbl_graph` object, for working with relational data.
 
 ### 2a. Import Data
 
-One of our primary goals for this case study to is create . To do so,
-we'll need to import two Excel files originally obtained from
-the [Social Network Analysis and Education companion
+One of our primary goals for this case study to is create network graph
+called a sociogram that visually describes what a network "looks like"
+from the perspective of both students and their teacher. To do so, we'll
+need to import two Excel files originally obtained from the [Social
+Network Analysis and Education companion
 site](https://studysites.sagepub.com/carolan/study/resources.htm). Both
-files contain edges stored as a square matrix (more on this later) for
-the first and third year of a study examining the impact of national
-reform efforts.
-
-These files are included in the lab-1/data folder of your R Studio
-project. A description of each file from the companion website is copied
-below along with a link to the original file:
+files contain edges stored as a matrix and are included in the lab-1
+data folder of your R Studio project. A description of each file from
+the companion website is copied below along with a link to the original
+file:
 
 1.  [**99472_ds3.xlsx**](https://studysites.sagepub.com/carolan/study/materials/datasets/99472_ds3.xlsx)This
     adjacency matrix consists of **student-reported** friendship
@@ -342,23 +317,33 @@ below along with a link to the original file:
     data are directed and unweighted; a friendship tie is present if the
     teacher reported that students were either a best friend or friend.
 
-Recall from above that our relations, or edges, are stored as a
-valued [adjacency
-matrix](https://en.wikipedia.org/wiki/Adjacency_matrix) in which columns
-and rows consist of the same actors and each cell contains information
-about the tie between each pair of actors. In our case, the tie is a
-directed and valued "arc" where the value indicates the frequency of
-collaboration.
+Relational data (i.e., information about the relationships among
+individuals in a network) are sometimes stored as an [adjacency
+matrix](https://en.wikipedia.org/wiki/Adjacency_matrix). Network data
+stored as a matrix includes a column and row for each actor in our
+network and each cell contains information about the **tie** between
+each pair of actors, often referred to as **edges**. In our case, the
+tie is a directed meaning that relationships between actors may not
+necessarily be reciprocated. For example, student 1 may report student 2
+as a friend, but student 2 may or may not report student 1 as friend. If
+both student 2 and student 2 indicate each other as friends, then this
+tie, or edge, is considered **reciprocal** or **mutal**.
+
+#### Import Student-Reported Friendships
 
 Let's use the `read_excel()` function to import
-the `student-reported-friends.xlsx` file, add an argument setting the
-column names to `FALSE` since our file is a simple matrix with no header
-or column names, and assign the matrix to a variable
-named `student_friends`:
+the `student-reported-friends.xlsx` file, In our function, we'll include
+an important "argument" called `col_names =` and set it to `FALSE`. This
+tells R that our file does not include column names and is important to
+include since our file is a simple matrix with no header or column names
+and by default this argument is set to true and would assign the first
+row which contains data about student friendships as names for each
+column.
 
-**R Studio Tip:** Type `?read_excel` into the console and check the
-arguments section to examine the different arguments that can be used
-with this function.
+Finally, we need to make sure we can reference the matrix we import and
+use it later in our analysis. To do so, will save it to our
+"Environment" by assigning it to a variable which we will
+call `student_friends`.
 
 ```{r student-data}
 student_friends <- read_excel("data/student-reported-friends.xlsx", 
@@ -375,14 +360,16 @@ student_friends
 
 As you can see, we have a 27 x 27
 "[tibble](https://tibble.tidyverse.org/)" or data table representing our
-collaboration ties. Unfortunately, this data is stored in such a simple
-format, we have no way to easily identify who is friends who since our
-data is missing names or some kind of identifier for students in our
+student friendships. Unfortunately, this data is stored in such a simple
+format, we have no way to easily identify who is friends with who since
+our data is missing names or some kind of identifier for students in our
 network.
 
+#### Add Names
+
 R has packages for creating random names to help anonymize data, but to
-keep things simple, we'll just assign the numbers 1-27 as names for our
-rows and columns.
+keep things simple, we'll just assign the numbers 1 through 27 as names
+for our rows and columns.
 
 ```{r assign-names}
 rownames(student_friends) <- 1:27
@@ -403,8 +390,42 @@ student_friends
 ```
 
 Much better! Now we can see that student 1 indicated that student 2 is
-their friend, an student 2 indicated that student 1 is their friend, so
-we can say that this friendship is "reciprocated."
+their friend, and student 2 indicated that student 1 is their friend, so
+we can say that this friendship is "reciprocated" or "mutual." As we'll
+see in Lab 2, reciprocity is an import network-level measure in SNA.
+
+#### Import Student Attributes
+
+Before importing our teacher-reported student friendships, we have
+another important file to import. As noted by @carolan2014 , most social
+network analyses include variables that describe the attributes of
+actors in a network. These attribute variables can be either categorical
+(e.g., sex, race, etc.) or continuous in nature (e.g., test scores,
+number of times absent, etc.).
+
+Actor attributes are stored a rectangular array, or data frame, in which
+rows represent a social entity (e.g., students, staff, schools, etc.),
+columns represent variables, and cells consist of values on those
+variables. This file containing a list of actors, or nodes, along with
+their attributes is sometimes referred to as a **node list**.
+
+Let's go ahead and read our node list into R and store as a new object
+called `student_attributes`:
+
+```{r student-attributes}
+
+student_attributes <- read_excel("data/student-attributes.xlsx")
+
+student_attributes
+```
+
+Note that when we imported this time, we left out the
+`col_names = FALSE` argument. As mentioned earlier, by default this
+argument is set to TRUE and assumes the first row of your data frame
+will contain names of the variables. Since this was indeed the case, we
+didn't need to include this argument. We could, however, have included
+this argument and set it to `TRUE` and our resulting output would still
+be the same.
 
 #### **👉 Your Turn** **⤵**
 
@@ -414,8 +435,7 @@ inspect your `teacher_friends` object.
 
 ```{r import-teacher}
 # YOUR CODE HERE
-teacher_friends <- read_excel(, 
-                              col_names = )
+teacher_friends <- read_excel()
 
 rownames(teacher_friends) <- 
 
@@ -424,12 +444,25 @@ colnames(teacher_friends) <-
 teacher_friends
 ```
 
+**RStudio Tip:** If you happen to run into issues with data import,
+RStudio has a handy "Import Dataset" feature for a point and click
+approach to adding data to your environment.
+
+![](img/import.png)
+
+If you want to give this a try, be sure to pay attention to the default
+settings and the name it will give your data frame when imported. Also
+be sure to include the R code it generates in your R script or markdown
+file.
+
+![](img/import-preview.png)
+
 ### 2b. Make a Tidy Graph
 
 Before we can begin exploring our data through through network
 visualization, we must first restructure our "tibble" into a formal
-matrix object and then convert to a network class R object required by
-the {tidygraph} and {ggraph} packages.
+matrix object recognized by r, and then convert our matrix to a network
+class R object required by the {tidygraph} and {ggraph} packages.
 
 #### Convert to Matrix
 
@@ -445,10 +478,13 @@ student_matrix <- as.matrix(student_friends)
 The word "class" and "object" have been used quite a bit in this
 case-study and warrant a brief explanation. Classes and objects are
 basic concepts of Object-Oriented Programming environments like R.
-An **object** is simply a data structure that has some methods and
-attributes. Everything in R is essentially an object. A **class** is
-just a blueprint or a sketch of these objects. It represents the set of
-properties or methods that are common to all objects of one type.
+
+-   An **object** is simply a data structure that has some methods and
+    attributes. Everything in R is essentially an object.
+
+-   A **class** is just a blueprint or a sketch of these objects. It
+    represents the set of properties or methods that are common to all
+    objects of one type.
 
 Let's use the `class()` function on the `student_friends`
 and `student_matrix` to see the types of objects we just created:
@@ -467,18 +503,20 @@ the "matrix" class.
 Our final step before we're able to begin exploring our data is to
 convert our matrix to a network object recognized by the {tidygraph} and
 {ggraph} packages.
-The [`as_tbl_graph()`](https://tidygraph.data-imaginist.com/reference/tbl_graph.html) function
-can easily convert relational data from all common network data formats
-such as matrices, `network`, `phylo`, `dendrogram`, `data.tree`,
+
+The [`as_tbl_graph()`](https://tidygraph.data-imaginist.com/reference/tbl_graph.html) general
+function can easily convert relational data from all common network data
+formats such as matrices, `network`, `phylo`, `dendrogram`, `data.tree`,
 `graph`, etc. 
 
-Run the following code to convert our matrix to directed network graph
-and save as a new object called `student_network`: and include the
-argument `directed = TRUE` in our `as_tbl_graph()` function since our
-network is directed.
+Let's run the following code to convert our matrix to directed network
+graph and save as a new object called `student_network`. We'll also
+include the argument `directed = TRUE` in our `as_tbl_graph()` function
+to indicate that our network is directed.
 
 ```{r convert-network}
-student_network <- as_tbl_graph(student_matrix, directed = TRUE)
+student_network <- as_tbl_graph(student_matrix, 
+                                directed = TRUE)
 ```
 
 Now let's take a quick look at our new `student_network` object:
@@ -497,30 +535,99 @@ centrality measures.
 
 #### What is an edge list?
 
-We'll learn more about edgelists in Lab 3, but the **edgelist** format
-is very commonly used in network analysis but is slightly different than
-other formats you have likely worked with before. Specifically, the
-values in the first two columns of each row represent a dyad, or tie
-between two nodes in a network. An edge-list can also contain other
-information regarding the strength, duration, or frequency of the
-relationship, sometime called **weight**, in addition to other "edge
-attributes."
+The node list is a pretty typical format for social science research,
+we've just given it a different name. But what exactly is an edge list?
+
+> An **edgelist** is way to store relational data, or network ties, and
+> commonly used in network analysis. Specifically, the values in the
+> first two columns of each row represent a dyad, or tie between two
+> nodes in a network.
+
+This format is likely very different than other formats you have worked
+with before. An edge-list can also contain other information regarding
+the strength, duration, or frequency of the relationship, sometime
+called **weight**, in addition to other "edge attributes."
 
 In directed networks like ours, the first column indicates that student
-1 indicated students 2, 4, and 5 are friends. Since our network is
-unweighted, the 1 for "weight" just indicated that a friendship was
-present.
+1 reported students 2, 4, and 5 are friends. Since our network is
+unweighted, the 1 for "weight" just indicates that a friendship was
+present. Our data folder also contains a valued adjacency matrix which
+indicates the "strength" of the relationship or friendship, but we'll
+stick with the simpler of the two matrices for now.
+
+Let's take a closer look at those edges. The {tidygraph} package has a
+useful `activate()` function that we will be using extensively
+throughout the SNA learning labs. This function allows us to work with
+the nodes and edges in our network object as if they were typical data
+frames and apply to them the entire suite of {tidyverse} functions for
+wrangling and summarizing data.
+
+For now, let's just use the `activate()` function to single out the
+edgelist in our network object, use the `as_tibble()` function to
+temporarily convert it to a data frame, and use the `<-` assignment
+operator to permanently save it in our environment as `student_edges`.
+
+We'll also use a very powerful `|>` operator called a **pipe**. Pipes
+are a powerful tool for combining a sequence of functions or processes.
+The original pipe operator, `%>%`, comes from the {**magrittr**} package
+but all packages in the tidyverse load `%>%` for you automatically, so
+you don't usually load magrittr explicitly.
+
+The pipe has become such a useful and much used operator in R that it is
+now baked into R using the new and simpler version of the pipe `|>`
+operator demonstrated in the following code chunk:
+
+```{r}
+student_edges <- student_network |>
+  activate(edges) |>
+  as_tibble()
+
+student_edges
+```
+
+Great! Now we can see the full list of edges in our network ordered by
+student ids.
+
+More importantly, however, is now that we have our edges stored in a
+standard format, we can combine our `student_edges` and
+`student_attributes` data frames into a single network object that
+contains the information from both!!
+
+To do so, we'll use the more standard `tbl_graph()` function from the
+{tidygraph}
+
+```{r create-edgelist}
+student_network <- tbl_graph(edges = student_edges, # specifies edges
+                             nodes = student_attributes, # specifies nodes
+                             directed = TRUE) # specifies directionality
+
+student_network
+```
+
+Much better!! Now we can see that in addition to the edges in our
+network, our network object now contains information about students'
+gender and achievement levels in text and numerical format.
 
 #### **👉 Your Turn** **⤵**
 
 Complete the code chunk below to convert your `teacher_friends` object
-first to a matrix and then to a network object:
+first to a matrix and then to a network object that contains information
+about both the teacher-reported student friendships and the attributes
+of students:
 
-```{r}
+```{r teacher-network}
 # YOUR CODE HERE
-teacher_matrix <- 
+teacher_matrix <- as.matrix()
 
-teacher_network <- 
+teacher_network <- as_tbl_graph()
+
+teacher_edges <- teacher_network |>
+  activate() |>
+  as_tibble()
+
+teacher_network <- tbl_graph(edges = , 
+                             nodes = , 
+                             directed = )
 
 teacher_network
 ```
@@ -528,9 +635,12 @@ teacher_network
 Now answer the questions that following questions:
 
 1.  How many students are in our network?
+
     -   YOUR RESPONSE HERE
+
 2.  Who reported more friendships, teachers or students? How do you
     know?
+
     -   YOUR RESPONSE HERE
 
 ------------------------------------------------------------------------
@@ -543,21 +653,19 @@ and standard deviations of numeric variables, or counting the frequency
 of categorical variables) and, often, visualizing your data prior to
 modeling.
 
-In Section 3, we use the {tidygraph} package for retrieving network
-descriptives and introduce the {ggraph} package to create a network
-visualization to help illustrate these metrics. Specifically, in this
-section we'll learn to:
+In Section 3 work focus on just visualization, and will use the
+{tidygraph} package to create a network sociogram to help visually
+describe our network and compare teacher and student reported
+friendships. Specifically, in this section we'll learn to make a:
 
-a.  **Plot Basics**. We focus primarily on actors and edges in this
-    walkthrough, including the edges wights we added in the previous
-    section as well as node degree, and import and fairly intuitive
-    measure of centrality.
+a.  **Simple Sociogram**. We learn about the basic `plot()` and
+    `auto_graph()` functions for creating a very quick network plot when
+    just a quick visual inspection is needed.
 
-b.  Adding Nodes.
-
-c.  **Adding Edges**. Finally, we wrap up the explore phases by learning
-    to plot a network and tweak key elements like the size, shape, and
-    position of nodes and edges to better at communicating key findings.
+b.  **Sophisticated Sociogram**. We then dive deeper in to the
+    `ggraph()` function and learn to plot nodes and edges in our network
+    and tweak key elements like the size, shape, and position of nodes
+    and edges to better at communicating key findings.
 
 One of the defining characteristics of the social network perspective is
 its use of graphic imagery to represent actors and their relations with
@@ -581,10 +689,9 @@ variety of goals a good network visualization can accomplish:
 
 These visual representations of the actors and their relations, i.e. the
 network, are called a **sociogram**. Actors who are most central to the
-network, such as those with higher node degrees, are usually placed in
-the center of the sociogram and their ties are placed near them. As
-we'll see in just a bit, those two actors with hundreds of ties will be
-placed by most graph layout algorithms in the center of the graph.
+network, such as those with higher node degrees, or those with more
+friends in our case study, are usually placed in the center of the
+sociogram and their ties are placed near them.
 
 The `plot()` function from R's built in {graphics} package can be used
 to make a wide range of graphs, including sociograms, but as you'll see
@@ -592,7 +699,7 @@ it's a bit lacking and is limited limited in the level of customization
 allowed.
 
 In the code chunk below, use the `plot()` function with your
-`ccss_network` object to see what the basic plot function produces:
+`students_network` object to see what the basic plot function produces:
 
 ```{r plot-network}
 plot(student_network)
@@ -601,10 +708,10 @@ plot(student_network)
 Not super great. In fact, it's visualizations like these that give
 sociograms the unflattering nickname of "hair ball" plots!
 
-If this had been a smaller network this might have been a little more
+If this had been a smaller network it might have been a little more
 useful but one important insight is that we have already identified an
-"isolate" in our network, that is a student who neither named others as
-a friend or was named by others as a friend.
+"isolate" in our network, i.e., student 19 who neither named others as a
+friend or was named by others as a friend.
 
 Fortunately, the {ggraph} package includes a plethora of plotting
 parameters for graph
@@ -614,7 +721,8 @@ parameters for graph
 improve the visual design of network graphs.
 
 Let's first take a quick look the `auto_graph()` function for making
-quick and simple sociograms.
+quick and simple sociograms similar to the R base plotting function
+above:
 
 ```{r auto-graph}
 autograph(student_network)
@@ -630,9 +738,8 @@ add to the `autograph()` function:
 
 ```{r student-sociogram}
 autograph(student_network,
-          node_size = local_size(),
-          node_label = name,
-          node_colour = local_size())
+          node_label = id,
+          node_colour = gender)
 ```
 
 #### **👉 Your Turn** **⤵**
@@ -646,32 +753,37 @@ your `teacher_network` object you created above:
 
 ```
 
+Not exactly great graphs, but they already provided some insight into
+our research questions. Specifically, we can see visually that teacher
+and student reported peer networks are very different!
+
 ### 3b. Sophisticated Sociograms
 
 One thing to keep in mind when building a network viz with {ggraph}, is
-that just like it's `ggplot()` counterpart, the `ggraph()` function is
-the first function required and takes care of setting up the plot object
-along with creating the layout for the plot based on the network object
-and the layout specification provided.
+that just like it's `ggplot()` counterpart introduced in Foundation
+Labs, the `ggraph()` function is the first function required to build a
+sociogram. This function takes care of setting up the plot object as
+well as creating the layout for the sociogram based on the network
+object and the layout specification provided.
 
 Let's first pass our `student_network` object to `ggraph()` and see what
 happens.
 
-```{r}
+```{r ggraph}
 ggraph(student_network)
 ```
 
 Wow, that was unimpressive. But don't worry, just like the `ggplot()`
-function, this didn't produce much on it's own. All that the `ggraph()`
-function does is set up the network object to make a sociogram, and
-creates a layout for our network, in this case using the default
-"stress" layout.
+function, `ggraph()` doesn't produce much on it's own. All that the
+`ggraph()` function does is set up the network object based on our
+`student_network`, and creates a layout for our sociogram, in this case
+using the default "stress" layout as indicated by the output.
 
 #### Add Nodes
 
 Very similar to how `ggplot()` uses the `+` operator to "layer"
 functions together to progressively build more sophisticated graphs,
-`ggraph` use the `+` operator progressively build a sociogram.
+`ggraph()` uses the `+` operator progressively build a sociogram.
 
 To add our nodes, we'll added the `geom_node_point()` function. Again,
 just like with {ggplot2}, the "geom" in the `geom_non_point()` functions
@@ -683,13 +795,12 @@ you actually see in the plot.
 Now "add" the `geom_node_point()` function to our code using the `+`
 operator:
 
-```{r}
+```{r add-nodes}
+# YOUR CODE HERE
 ggraph(student_network) 
-
 ```
 
-Well, at least we have our nodes now! But the default "stress" layout
-for our sociogram is not so great. Let's fix that.
+Well, at least we have our nodes now!
 
 #### Add Layout
 
@@ -701,8 +812,8 @@ automatically layout networks on a grid.
 There are may different [layout
 methods](https://en.wikipedia.org/wiki/Graph_drawing#Layout_methods),
 but we'll start with the Fruchterman-Reingold (FR) layout, which is one
-of the most used layout algorithms for network visualization. These
-types of force-directed algorithms generally work well with large
+of the most widely used layout algorithms for network visualization.
+These types of force-directed algorithms generally work well with large
 networks and try to layout graphs in "an aesthetically-pleasing way" by
 making edges roughly equal in length and minimizing overlap.
 
@@ -710,7 +821,7 @@ Let's go ahead and include the layout argument, which in addition to
 including its own unique layouts, can incorporate layouts form {igraph}
 package like `fr` for the Fruchterman-Reingold (FR) layout:
 
-```{r}
+```{r add-layout}
 ggraph(student_network, layout = "fr") +
   geom_node_point()
 ```
@@ -718,7 +829,7 @@ ggraph(student_network, layout = "fr") +
 That's not much better so let's stick with the "stress" layout for now.
 Feel free to try out some other [ggraph layout
 methods](https://ggraph.data-imaginist.com/articles/Layouts.html) if you
-like, however.
+like, however. There are also
 
 #### Tweak Nodes
 
@@ -727,19 +838,21 @@ such as `alpha` for transparency, as well as `color`, `shape` and
 `size`.
 
 Let's now add some "aesthetics" to our points by including the `aes()`
-function and arguments such as `size =` and `color =`, which set using
-`local_size()` function to help highlight the number of friends students
-have:
+function and arguments such as `size =` and `color =`. We'll use our
+`gender` variable for color and set the size of the node using
+`local_size()` function, which will base the size of each node on the
+number of friends each student nominated.
 
 ```{r add-color}
 ggraph(student_network, layout = "stress") + 
-geom_node_point(aes(size = local_size(),
-                    color = local_size()))
+geom_node_point(aes(color = gender,
+                    size = local_size()))
 ```
 
 We can easily see that the number of friends ranges from 5 to 20, with
 the exception of one "isolated" student we identified earlier who is not
-connected to any other students in the network.
+connected to any other students in the network, and therefore is smaller
+in size on the graph.
 
 Let's fix that by adding another layer with some node text and labels.
 Since node labels are a geometric element, we can apply aesthetics to
@@ -749,10 +862,10 @@ argument that when set to `TRUE` will avoid overlapping text.
 ```{r add-labels}
 ggraph(student_network, layout = "stress") + 
   geom_node_point(aes(size = local_size(),
-                      color = local_size())) +
-  geom_node_text(aes(label = name,
-                     size = local_size()), # note we can treat this like a number
-                 repel=TRUE)
+                      color = gender)) +
+  geom_node_text(aes(label = id,
+                     size = local_size()),
+                 repel = TRUE)
 ```
 
 #### Add Edges
@@ -764,8 +877,8 @@ Now, let's literally connect the dots and add some
 ```{r}
 ggraph(student_network, layout = "stress") + 
   geom_node_point(aes(size = local_size(),
-                      color = local_size())) +
-  geom_node_text(aes(label = name),
+                      color = gender)) +
+  geom_node_text(aes(label = id),
                  repel=TRUE) +
   geom_edge_link()
 ```
@@ -776,8 +889,8 @@ to the nodes above: Let's now include the following arguments:
 
 -   `arrow =` to include some arrows 1mm in length
 
--   `end_cap =` around each node to keep arrows from overlapping the
-    them, and to
+-   `end_cap =` and `start_cap =` to keep arrows from overlapping the
+    nodes, and to
 
 -   `alpha = .2` set the transparency of our edges so our edges fade
     more into the background and help keep the focus on our nodes:
@@ -785,13 +898,19 @@ to the nodes above: Let's now include the following arguments:
 ```{r tweak-edges}
 ggraph(student_network, layout = "stress") + 
   geom_node_point(aes(size = local_size(),
-                      color = local_size())) +
-  geom_node_text(aes(label = name),
+                      color = gender)) +
+  geom_node_text(aes(label = id),
                  repel=TRUE) +
   geom_edge_link(arrow = arrow(length = unit(1, 'mm')), 
                  end_cap = circle(3, 'mm'),
+                 start_cap = circle(3, 'mm'),
                  alpha = .2)
 ```
+
+Note: There are many [different ways we can represent edges in a
+network](https://www.data-imaginist.com/2017/ggraph-introduction-edges/)
+beyond simple links. Try replacing `geom_edge_link` with `geom_edge_arc`
+and see what happens!
 
 #### Add a Theme
 
@@ -807,17 +926,20 @@ they are not especially useful, and call it good for now:
 
 ```{r add-theme}
 ggraph(student_network, layout = "stress") + 
-  geom_node_point(aes(size = local_size(),
-                      color = local_size())) +
-  geom_node_text(aes(label = name),
-                 repel=TRUE) +
   geom_edge_link(arrow = arrow(length = unit(1, 'mm')), 
                  end_cap = circle(3, 'mm'),
-                 alpha = .2) +
+                 start_cap = circle(3, 'mm'),
+                 alpha = .1) +
+  geom_node_point(aes(size = local_size(),
+                      color = gender)) +
+  geom_node_text(aes(label = id),
+                 repel=TRUE) +
   theme_graph()
 ```
 
-Much better!
+Much better! Notice also how we shifted the `geom_node_point()` layer of
+our graph to after the `geom_edge_link()` so the parts of nodes would
+not be hidden under the edges.
 
 **Note:** If you're having difficulty seeing the sociogram in the small
 R Markdown code chunk, you can copy and paste the code in the console
@@ -843,7 +965,8 @@ if you can build something that is visually pleasing to you.
 
 ```
 
-Congrats! You made it to the end of the EXPLORE section!
+Congrats, you made it to the end of the EXPLORE section and created your
+first sociogram in R!
 
 ------------------------------------------------------------------------
 
@@ -872,20 +995,42 @@ inference when working with relational data in Learning Lab 4.
 
 ## 5. COMMUNICATE
 
-Our goal is to distill the analysis from above into a simple "data
-product" designed to illustrate key findings about changes in the
-collaboration network over time. For the purposes of this task, imagine
-that your audience consists of teachers and school leaders who have
-limited background in SNA and adapt the following steps accordingly:
+The final(ish) step in our workflow/process is sharing the results of
+analysis with wider audience. Krumm et al. (2018) outlined the following
+3-step process for communicating with education stakeholders what you
+have learned through analysis:
 
-1.  **Select.** Select our sociogram from above, or create a entirely
-    new sociogram if so motivated, that you think would be interesting
-    or relevant for the target audience and that helps answer our
-    research question.
+1.  **Select**. Communicating what one has learned involves selecting
+    among those analyses that are most important and most useful to an
+    intended audience, as well as selecting a form for displaying that
+    information, such as a graph or table in static or interactive form,
+    i.e. a "data product."
 
-2.  **Polish.** Create a visually attractive sociogram to help
-    illustrate similarities and differences in classroom friendships
-    reported by teachers and students.
+2.  **Polish**. After creating initial versions of data products,
+    research teams often spend time refining or polishing them, by
+    adding or editing titles, labels, and notations and by working with
+    colors and shapes to highlight key points.
+
+3.  **Narrate**. Writing a narrative to accompany the data products
+    involves, at a minimum, pairing a data product with its related
+    research question, describing how best to interpret the data
+    product, and explaining the ways in which the data product helps
+    answer the research question.
+
+Our goal for this section is to distill the analysis from above into a
+simple "data product" designed to illustrate key findings about changes
+in the collaboration network over time. For the purposes of this task,
+imagine that your audience consists of teachers and school leaders who
+have limited background in SNA and adapt the following steps
+accordingly:
+
+1.  **Select.** Select our teacher and student sociograms from above, or
+    create a entirely new sociogram if so motivated, to share with our
+    target audience and that helps answer our research question.
+
+2.  **Polish.** Refine this sociogram and make them visually appealing
+    to help illustrate similarities and differences in classroom
+    friendships reported by teachers and students.
 
 3.  **Narrate.** Write a brief narrative to accompany your visualization
     and/or table that includes the following:
@@ -918,14 +1063,17 @@ NARRATIVE GOES HERE...
 
 ### 🧶 Knit & Check ✅
 
-Congratulations - you've completed the Lab 4 case study! One final step
-is to "Knit" your document by clicking the drop down arrow next to the
-ball of yarn in the menu bar an that the top of this markdown file, and
-then selecting "Knit top HTML" or another preferred output format. This
-will do two things: 1) it will check through all your code for any
-errors, 2) it will created a file in your directory that you can use to
-share you work through [GitHub Pages](https://pages.github.com),
-[RPubs](https://rpubs.com/about/getting-started), or any other preferred
-means.
+Congratulations - you've completed your first SNA case study! One final
+step is to "Knit" your document by clicking the drop down arrow next to
+the ball of yarn in the menu bar at that the top of this markdown file,
+and then selecting "Knit top HTML" or another preferred output format.
+This will do two things:
+
+1.  it will check through all your code for any errors
+
+2.  it will created a file in your directory that you can use to share
+    you work through [GitHub Pages](https://pages.github.com),
+    [RPubs](https://rpubs.com/about/getting-started), or any other
+    preferred means.
 
 ### References

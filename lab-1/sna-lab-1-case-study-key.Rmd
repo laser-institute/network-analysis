@@ -617,7 +617,7 @@ first to a matrix and then to a network object that contains information
 about both the teacher-reported student friendships and the attributes
 of students:
 
-```{r}
+```{r teacher-network}
 # YOUR CODE HERE
 teacher_matrix <- as.matrix(teacher_friends)
 
@@ -711,10 +711,10 @@ plot(student_network)
 Not super great. In fact, it's visualizations like these that give
 sociograms the unflattering nickname of "hair ball" plots!
 
-If this had been a smaller network this might have been a little more
+If this had been a smaller network it might have been a little more
 useful but one important insight is that we have already identified an
-"isolate" in our network, that is a student who neither named others as
-a friend or was named by others as a friend.
+"isolate" in our network, i.e., student 19 who neither named others as a
+friend or was named by others as a friend.
 
 Fortunately, the {ggraph} package includes a plethora of plotting
 parameters for graph
@@ -724,7 +724,8 @@ parameters for graph
 improve the visual design of network graphs.
 
 Let's first take a quick look the `auto_graph()` function for making
-quick and simple sociograms.
+quick and simple sociograms similar to the R base plotting function
+above:
 
 ```{r auto-graph}
 autograph(student_network)
@@ -740,9 +741,8 @@ add to the `autograph()` function:
 
 ```{r student-sociogram}
 autograph(student_network,
-          node_size = local_size(),
-          node_label = name,
-          node_colour = local_size())
+          node_label = id,
+          node_colour = gender)
 ```
 
 #### **👉 Your Turn** **⤵**
@@ -759,32 +759,37 @@ autograph(teacher_network,
           node_colour = local_size())
 ```
 
+Not exactly great graphs, but they already provided some insight into
+our research questions. Specifically, we can see visually that teacher
+and student reported peer networks are very different!
+
 ### 3b. Sophisticated Sociograms
 
 One thing to keep in mind when building a network viz with {ggraph}, is
-that just like it's `ggplot()` counterpart, the `ggraph()` function is
-the first function required and takes care of setting up the plot object
-along with creating the layout for the plot based on the network object
-and the layout specification provided.
+that just like it's `ggplot()` counterpart introduced in Foundation
+Labs, the `ggraph()` function is the first function required to build a
+sociogram. This function takes care of setting up the plot object as
+well as creating the layout for the sociogram based on the network
+object and the layout specification provided.
 
 Let's first pass our `student_network` object to `ggraph()` and see what
 happens.
 
-```{r}
+```{r ggraph}
 ggraph(student_network)
 ```
 
 Wow, that was unimpressive. But don't worry, just like the `ggplot()`
-function, this didn't produce much on it's own. All that the `ggraph()`
-function does is set up the network object to make a sociogram, and
-creates a layout for our network, in this case using the default
-"stress" layout.
+function, `ggraph()` doesn't produce much on it's own. All that the
+`ggraph()` function does is set up the network object based on our
+`student_network`, and creates a layout for our sociogram, in this case
+using the default "stress" layout as indicated by the output.
 
 #### Add Nodes
 
 Very similar to how `ggplot()` uses the `+` operator to "layer"
 functions together to progressively build more sophisticated graphs,
-`ggraph` use the `+` operator progressively build a sociogram.
+`ggraph()` uses the `+` operator progressively build a sociogram.
 
 To add our nodes, we'll added the `geom_node_point()` function. Again,
 just like with {ggplot2}, the "geom" in the `geom_non_point()` functions
@@ -796,13 +801,12 @@ you actually see in the plot.
 Now "add" the `geom_node_point()` function to our code using the `+`
 operator:
 
-```{r}
+```{r add-nodes}
 ggraph(student_network) + 
   geom_node_point() 
 ```
 
-Well, at least we have our nodes now! But the default "stress" layout
-for our sociogram is not so great. Let's fix that.
+Well, at least we have our nodes now!
 
 #### Add Layout
 
@@ -814,8 +818,8 @@ automatically layout networks on a grid.
 There are may different [layout
 methods](https://en.wikipedia.org/wiki/Graph_drawing#Layout_methods),
 but we'll start with the Fruchterman-Reingold (FR) layout, which is one
-of the most used layout algorithms for network visualization. These
-types of force-directed algorithms generally work well with large
+of the most widely used layout algorithms for network visualization.
+These types of force-directed algorithms generally work well with large
 networks and try to layout graphs in "an aesthetically-pleasing way" by
 making edges roughly equal in length and minimizing overlap.
 
@@ -823,7 +827,7 @@ Let's go ahead and include the layout argument, which in addition to
 including its own unique layouts, can incorporate layouts form {igraph}
 package like `fr` for the Fruchterman-Reingold (FR) layout:
 
-```{r}
+```{r add-layout}
 ggraph(student_network, layout = "fr") +
   geom_node_point()
 ```
@@ -831,7 +835,7 @@ ggraph(student_network, layout = "fr") +
 That's not much better so let's stick with the "stress" layout for now.
 Feel free to try out some other [ggraph layout
 methods](https://ggraph.data-imaginist.com/articles/Layouts.html) if you
-like, however.
+like, however. There are also
 
 #### Tweak Nodes
 
@@ -853,7 +857,8 @@ geom_node_point(aes(color = gender,
 
 We can easily see that the number of friends ranges from 5 to 20, with
 the exception of one "isolated" student we identified earlier who is not
-connected to any other students in the network.
+connected to any other students in the network, and therefore is smaller
+in size on the graph.
 
 Let's fix that by adding another layer with some node text and labels.
 Since node labels are a geometric element, we can apply aesthetics to
@@ -865,7 +870,7 @@ ggraph(student_network, layout = "stress") +
   geom_node_point(aes(size = local_size(),
                       color = gender)) +
   geom_node_text(aes(label = id,
-                     size = local_size()), # note we can treat this like a number
+                     size = local_size()),
                  repel = TRUE)
 ```
 
@@ -875,7 +880,7 @@ Now, let's literally connect the dots and add some
 [edges](https://ggraph.data-imaginist.com/articles/Edges.html) using the
 `geom_edge_link()` function.
 
-```{r}
+```{r add-edges}
 ggraph(student_network, layout = "stress") + 
   geom_node_point(aes(size = local_size(),
                       color = gender)) +
@@ -908,6 +913,11 @@ ggraph(student_network, layout = "stress") +
                  alpha = .2)
 ```
 
+Note: There are many [different ways we can represent edges in a
+network](https://www.data-imaginist.com/2017/ggraph-introduction-edges/)
+beyond simple links. Try replacing `geom_edge_link` with `geom_edge_arc`
+and see what happens!
+
 #### Add a Theme
 
 Finally, let's add a **theme,** which controls the finer points of
@@ -922,18 +932,20 @@ they are not especially useful, and call it good for now:
 
 ```{r add-theme}
 ggraph(student_network, layout = "stress") + 
+  geom_edge_link(arrow = arrow(length = unit(1, 'mm')), 
+                 end_cap = circle(3, 'mm'),
+                 start_cap = circle(3, 'mm'),
+                 alpha = .1) +
   geom_node_point(aes(size = local_size(),
                       color = gender)) +
   geom_node_text(aes(label = id),
                  repel=TRUE) +
-  geom_edge_link(arrow = arrow(length = unit(1, 'mm')), 
-                 end_cap = circle(3, 'mm'),
-                 start_cap = circle(3, 'mm'),
-                 alpha = .2) +
   theme_graph()
 ```
 
-Much better!
+Much better! Notice also how we shifted the `geom_node_point()` layer of
+our graph to after the `geom_edge_link()` so the parts of nodes would
+not be hidden under the edges.
 
 **Note:** If you're having difficulty seeing the sociogram in the small
 R Markdown code chunk, you can copy and paste the code in the console
@@ -954,19 +966,20 @@ different options for graph
 if you can build something that is visually pleasing to you.
 
 ```{r your-sociogram}
-ggraph(teacher_network, layout = "stress") + 
-  geom_node_point(aes(size = local_size(),
-                      color = gender)) +
-  geom_node_text(aes(label = id),
-                 repel=TRUE) +
+ggraph(teacher_network, layout = "fr") + 
   geom_edge_link(arrow = arrow(length = unit(1, 'mm')), 
                  end_cap = circle(3, 'mm'),
                  start_cap = circle(3, 'mm'),
                  alpha = .2) +
+  geom_node_point(aes(size = local_size(),
+                      color = gender)) +
+  geom_node_text(aes(label = id),
+                 repel=TRUE) +
   theme_graph()
 ```
 
-Congrats! You made it to the end of the EXPLORE section!
+Congrats, you made it to the end of the EXPLORE section and created your
+first sociogram in R!
 
 ------------------------------------------------------------------------
 
@@ -995,20 +1008,42 @@ inference when working with relational data in Learning Lab 4.
 
 ## 5. COMMUNICATE
 
-Our goal is to distill the analysis from above into a simple "data
-product" designed to illustrate key findings about changes in the
-collaboration network over time. For the purposes of this task, imagine
-that your audience consists of teachers and school leaders who have
-limited background in SNA and adapt the following steps accordingly:
+The final(ish) step in our workflow/process is sharing the results of
+analysis with wider audience. Krumm et al. (2018) outlined the following
+3-step process for communicating with education stakeholders what you
+have learned through analysis:
 
-1.  **Select.** Select our sociogram from above, or create a entirely
-    new sociogram if so motivated, that you think would be interesting
-    or relevant for the target audience and that helps answer our
-    research question.
+1.  **Select**. Communicating what one has learned involves selecting
+    among those analyses that are most important and most useful to an
+    intended audience, as well as selecting a form for displaying that
+    information, such as a graph or table in static or interactive form,
+    i.e. a "data product."
 
-2.  **Polish.** Create a visually attractive sociogram to help
-    illustrate similarities and differences in classroom friendships
-    reported by teachers and students.
+2.  **Polish**. After creating initial versions of data products,
+    research teams often spend time refining or polishing them, by
+    adding or editing titles, labels, and notations and by working with
+    colors and shapes to highlight key points.
+
+3.  **Narrate**. Writing a narrative to accompany the data products
+    involves, at a minimum, pairing a data product with its related
+    research question, describing how best to interpret the data
+    product, and explaining the ways in which the data product helps
+    answer the research question.
+
+Our goal for this section is to distill the analysis from above into a
+simple "data product" designed to illustrate key findings about changes
+in the collaboration network over time. For the purposes of this task,
+imagine that your audience consists of teachers and school leaders who
+have limited background in SNA and adapt the following steps
+accordingly:
+
+1.  **Select.** Select our teacher and student sociograms from above, or
+    create a entirely new sociogram if so motivated, to share with our
+    target audience and that helps answer our research question.
+
+2.  **Polish.** Refine this sociogram and make them visually appealing
+    to help illustrate similarities and differences in classroom
+    friendships reported by teachers and students.
 
 3.  **Narrate.** Write a brief narrative to accompany your visualization
     and/or table that includes the following:
@@ -1041,14 +1076,17 @@ NARRATIVE GOES HERE...
 
 ### 🧶 Knit & Check ✅
 
-Congratulations - you've completed the Lab 4 case study! One final step
-is to "Knit" your document by clicking the drop down arrow next to the
-ball of yarn in the menu bar an that the top of this markdown file, and
-then selecting "Knit top HTML" or another preferred output format. This
-will do two things: 1) it will check through all your code for any
-errors, 2) it will created a file in your directory that you can use to
-share you work through [GitHub Pages](https://pages.github.com),
-[RPubs](https://rpubs.com/about/getting-started), or any other preferred
-means.
+Congratulations - you've completed your first SNA case study! One final
+step is to "Knit" your document by clicking the drop down arrow next to
+the ball of yarn in the menu bar at that the top of this markdown file,
+and then selecting "Knit top HTML" or another preferred output format.
+This will do two things:
+
+1.  it will check through all your code for any errors
+
+2.  it will created a file in your directory that you can use to share
+    you work through [GitHub Pages](https://pages.github.com),
+    [RPubs](https://rpubs.com/about/getting-started), or any other
+    preferred means.
 
 ### References
