@@ -37,20 +37,19 @@ class: clear, title-slide, inverse, center, top, middle
 
 .pull-left[
 ## Part 1: Intro to SNA
-### Data Management
 - What is social network analysis? 
-- Storage 
-- Visualization
+- Applications of SNA
+- XXXX
 
 ]
 
 .pull-right[
 
-## Part 2: R Code-Along
-#### Exponential Random Graph Models
-- Make a Matrix 
-- Create a Network
-- Simple Sociograms
+## Part 2: LASER Learning Labs
+- Intro to SNA
+- Network Measurement
+- Groups & Egos
+- Statistical Inference & Models
 ]
 
 
