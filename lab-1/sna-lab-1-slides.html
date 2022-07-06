@@ -4,7 +4,7 @@
     <title>SNA Lab 1: Statistical Inference &amp; Network Models</title>
     <meta charset="utf-8" />
     <meta name="author" content="Dr. Shaun Kellogg" />
-    <meta name="date" content="2022-07-05" />
+    <meta name="date" content="2022-07-06" />
     <script src="libs/header-attrs-2.13/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/panelset-0.2.6/panelset.css" rel="stylesheet" />
@@ -37,7 +37,7 @@ class: clear, title-slide, inverse, center, top, middle
 # SNA Lab 1: Statistical Inference &amp; Network Models
 ----
 ### **Dr. Shaun Kellogg**
-### July 05, 2022
+### July 06, 2022
 
 ---
 # Agenda
@@ -381,7 +381,15 @@ Ways to improve validity include:
 
 
 ---
-# A Research Exemplar
+class: clear, inverse, middle, center
+
+# part_2(R, code_along)
+
+Network Packages, Objects, and Sociograms
+
+
+---
+# Data Source
 
 .panelset[
 
@@ -431,14 +439,6 @@ Daly, A. et al. (2011). [The ebb and flow of social network ties between distric
 
 ???
 
----
-class: clear, inverse, middle, center
-
-# part_2(R, code_along)
-
-Network Packages, Objects, and Sociograms
-
-
 
 ---
 # Load Packages
@@ -451,30 +451,37 @@ Let's start by creating a new R script and loading the following packages introd
 
 
 ```r
-library(readxl)
-library(tidyverse)
 library(tidygraph)
 library(ggraph)
+library(readxl)
 ```
 
 
 ]
 
-.panel[.panel-name[igraph 📦]
+.panel[.panel-name[network packages 📦]
 
-The {igraph} &lt;img src="img/igraph.png" height="40px"/&gt; package and its collection of network analysis tools provide:
+.pull-left[
+## Network Management
+&lt;img src="img/tidygraph.png" height="200px"/&gt; 
+&lt;br&gt;
+[tidygraph](https://tidygraph.data-imaginist.com/)
+]
 
-- pain-free implementation of graph algorithms
-- fast handling of large graphs, with millions of vertices and edges
+.pull-right[
+## Network Visualization
+&lt;img src="img/ggraph.png" height="200px"/&gt; 
+&lt;br&gt;
+[ggraph](https://ggraph.data-imaginist.com/index.html)
+]
 
-Both {tidygraph} and {ggraph} used in the previous lab depend heavily on the {igraph} package. 
 
 ]
 
 
 .panel[.panel-name[Your Turn]
 
-Load the {igraph} package.
+Load the {tidygraph} and {ggraph} packages.
 
 
 
@@ -495,26 +502,30 @@ Load the {igraph} package.
 
 .panel[.panel-name[Import Data]
 
-Let's import two Excel files from the Social Network Analysis and Education companion site. year_1_collaboration.xlsx 
+Let's start by importing two Excel files that contain data about the nodes and the edges in our student friendship network:
 
 
 ```r
-year_1_collaboration &lt;- read_excel("data/year_1_collaboration.xlsx", 
-                                   col_names = FALSE)
+student_nodes &lt;- read_excel("lab-1/data/student-attributes.xlsx")
+
+student_edges &lt;- read_excel("lab-1/data/student-edgelist.xlsx")
 ```
+
+
+
 
 
 ]
 
 .panel[.panel-name[Inspect Data]
 
-In the corresponding line of your R script, take a look at the data file we just imported:
+Now let's take a look at the data file we just imported using the `View()` or other function of choice:
 
 
 ```r
-# ADD CODE BELOW
-#
-#
+View(student_edges)
+
+View(student_nodes)
 ```
 
 
@@ -524,20 +535,13 @@ In the corresponding line of your R script, take a look at the data file we just
 
 Think about the questions below and be prepared to share your response:              
 
-1. What type of data structure is used to store this network data? 
-1. What do you think the rows and columns represent? 
-1. What do the values in each cell represent?
-
-Type your response in the chat. 
+1. What do you think the rows and columns in each file represent? 
+1. What about the values in each cell represent?
+1. What else do you notice about the data? 
+1. What questions do you have? 
 
 ]
 
-.panel[.panel-name[Answer]
-
-- This adjacency matrix reports on **"collaboration" ties among 43 school leaders** in year 1 of a three-year study. 
-
-- This is **a directed valued (weighted) network** measured on five-point scale ranging from 0 to 4, with higher values indicating more frequent collaborations (1–2 times/week).
-]
 ]
 
 ---

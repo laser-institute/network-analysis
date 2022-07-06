@@ -401,7 +401,15 @@ Ways to improve validity include:
 
 
 ---
-# A Research Exemplar
+class: clear, inverse, middle, center
+
+# part_2(R, code_along)
+
+Network Packages, Objects, and Sociograms
+
+
+---
+# Data Source
 
 .panelset[
 
@@ -451,14 +459,6 @@ Daly, A. et al. (2011). [The ebb and flow of social network ties between distric
 
 ???
 
----
-class: clear, inverse, middle, center
-
-# part_2(R, code_along)
-
-Network Packages, Objects, and Sociograms
-
-
 
 ---
 # Load Packages
@@ -470,30 +470,37 @@ Network Packages, Objects, and Sociograms
 Let's start by creating a new R script and loading the following packages introduced in the previous lab:          
 
 ```{r load-libraries, message=TRUE, echo=TRUE, message=FALSE}
-library(readxl)
-library(tidyverse)
 library(tidygraph)
 library(ggraph)
+library(readxl)
 ```
 
 
 ]
 
-.panel[.panel-name[igraph 📦]
+.panel[.panel-name[network packages 📦]
 
-The {igraph} <img src="img/igraph.png" height="40px"/> package and its collection of network analysis tools provide:
+.pull-left[
+## Network Management
+<img src="img/tidygraph.png" height="200px"/> 
+<br>
+[tidygraph](https://tidygraph.data-imaginist.com/)
+]
 
-- pain-free implementation of graph algorithms
-- fast handling of large graphs, with millions of vertices and edges
+.pull-right[
+## Network Visualization
+<img src="img/ggraph.png" height="200px"/> 
+<br>
+[ggraph](https://ggraph.data-imaginist.com/index.html)
+]
 
-Both {tidygraph} and {ggraph} used in the previous lab depend heavily on the {igraph} package. 
 
 ]
 
 
 .panel[.panel-name[Your Turn]
 
-Load the {igraph} package.
+Load the {tidygraph} and {ggraph} packages.
 
 ```{r, echo=FALSE, message=FALSE}
 library(igraph)
@@ -517,11 +524,19 @@ library(igraph)
 
 .panel[.panel-name[Import Data]
 
-Let's import two Excel files from the Social Network Analysis and Education companion site. year_1_collaboration.xlsx 
+Let's start by importing two Excel files that contain data about the nodes and the edges in our student friendship network:
 
-```{r import-data, echo=TRUE, message=FALSE}
-year_1_collaboration <- read_excel("data/year_1_collaboration.xlsx", 
-                                   col_names = FALSE)
+```{r import-data, echo=TRUE, message=FALSE, eval=FALSE}
+student_nodes <- read_excel("lab-1/data/student-attributes.xlsx")
+
+student_edges <- read_excel("lab-1/data/student-edgelist.xlsx")
+```
+
+
+```{r real-data, echo=FALSE, message=FALSE, eval=TRUE}
+student_edges <- read_excel("data/student-edgelist.xlsx")
+
+student_nodes <- read_excel("data/student-attributes.xlsx")
 ```
 
 
@@ -529,13 +544,12 @@ year_1_collaboration <- read_excel("data/year_1_collaboration.xlsx",
 
 .panel[.panel-name[Inspect Data]
 
-In the corresponding line of your R script, take a look at the data file we just imported:
+Now let's take a look at the data file we just imported using the `View()` or other function of choice:
 
-```{r inspect-data, echo=TRUE}
-# ADD CODE BELOW
-#
-#
+```{r inspect-data, echo=TRUE, eval=FALSE}
+View(student_edges)
 
+View(student_nodes)
 ```
 
 
@@ -545,20 +559,13 @@ In the corresponding line of your R script, take a look at the data file we just
 
 Think about the questions below and be prepared to share your response:              
 
-1. What type of data structure is used to store this network data? 
-1. What do you think the rows and columns represent? 
-1. What do the values in each cell represent?
-
-Type your response in the chat. 
+1. What do you think the rows and columns in each file represent? 
+1. What about the values in each cell represent?
+1. What else do you notice about the data? 
+1. What questions do you have? 
 
 ]
 
-.panel[.panel-name[Answer]
-
-- This adjacency matrix reports on **"collaboration" ties among 43 school leaders** in year 1 of a three-year study. 
-
-- This is **a directed valued (weighted) network** measured on five-point scale ranging from 0 to 4, with higher values indicating more frequent collaborations (1–2 times/week).
-]
 ]
 
 ---
