@@ -76,7 +76,7 @@ xaringanExtra::use_tile_view()
 
 ## Part 2: R Code-Along
 #### Exponential Random Graph Models
-- Make a Matrix 
+- Inspect Data
 - Create a Network
 - Simple Sociograms
 ]
@@ -481,17 +481,22 @@ library(readxl)
 .panel[.panel-name[network packages 📦]
 
 .pull-left[
-## Network Management
+.center[Network Management
+<br>
+<br>
 <img src="img/tidygraph.png" height="200px"/> 
 <br>
 [tidygraph](https://tidygraph.data-imaginist.com/)
-]
+]]
 
 .pull-right[
-## Network Visualization
+.center[Network Visualization
+<br>
+<br>
 <img src="img/ggraph.png" height="200px"/> 
 <br>
 [ggraph](https://ggraph.data-imaginist.com/index.html)
+]
 ]
 
 
@@ -508,8 +513,8 @@ library(igraph)
 
 ```{r load-igraph, echo=TRUE}
 # YOUR CODE HERE
-
-
+#
+#
 ```
 
 ]
@@ -558,7 +563,6 @@ View(student_nodes)
 .panel[.panel-name[Discuss]
 
 Think about the questions below and be prepared to share your response:              
-
 1. What do you think the rows and columns in each file represent? 
 1. What about the values in each cell represent?
 1. What else do you notice about the data? 
@@ -569,25 +573,20 @@ Think about the questions below and be prepared to share your response:
 ]
 
 ---
-# Wrangle Data  
+# Tidy Graph  
 
 .panelset[
 
-.panel[.panel-name[Convert Matrix]
+.panel[.panel-name[tbl_graph( ) function]
 
-Before we can begin analyzing our network data in R, we need to convert to a network class R object. Run the following code in your R script:
+The [`tbl_graph()`](https://tidygraph.data-imaginist.com/reference/tbl_graph.html) function creates a special network data structure for "tidy graph" manipulation and combines nodes and edges into a single R object. 
+
+Run the following code in your R script:
 
 ```{r wrangle-data, echo=TRUE, message=FALSE, warning=FALSE}
-
-year_1_matrix <- as.matrix(year_1_collaboration)
-
-rownames(year_1_matrix) <- 1:43
-
-colnames(year_1_matrix) <- 1:43
-
-
-year_1_network <- as_tbl_graph(year_1_matrix, directed = TRUE)
-
+student_network <- tbl_graph(edges = student_edges,
+                             nodes = student_attributes, 
+                             directed = TRUE) 
 ```
 
 
@@ -595,7 +594,8 @@ year_1_network <- as_tbl_graph(year_1_matrix, directed = TRUE)
 
 .panel[.panel-name[View Network]
 
-In the corresponding line of your R script, type the name of network object we just created and run the code:
+
+Using your R script, type the name of network object we just created and run the code to produce the output on the next tab:
 
 ```{r view-netwok, echo=TRUE}
 # ADD CODE BELOW
@@ -603,7 +603,14 @@ In the corresponding line of your R script, type the name of network object we j
 #
 
 ```
+]
 
+.panel[.panel-name[Output]
+
+
+```{r, echo=FALSE}
+student_network
+```
 
 ]
 
@@ -611,216 +618,223 @@ In the corresponding line of your R script, type the name of network object we j
 
 Think about the questions below:              
 
-1. What size of the Year 1 collaboration network?
+1. What is size of the student-reported friendship network?
 1. What else do you notice about this network?
-1. What questions, if any, do have about this network?
-
-Type your responses in the chat.
+1. What questions do have about this network summary?
 
 ]
 
 
+]
+
+---
+
+# A Simple Sociogram
+
+.panelset[
+
+.panel[.panel-name[plot( )]
+
+.pull-left[ 
+The `plot()` function is base R's simple but limited solution for plotting graphs.
+
+```{r, echo=TRUE, fig.show='hide'}
+plot(student_network)
+```
+
+]
+
+.center[
+.pull-right[ 
+```{r, echo=FALSE, out.width = '70%'}
+plot(student_network)
+```
+]
+]
+ 
+]
+
+
+.panel[.panel-name[autograph( )]
+.pull-left[ 
+The `autograph()` function is ggraph's simple but limited solution for plotting sociograms.
+
+```{r, echo=TRUE, fig.show='hide'}
+autograph(student_network)
+```
+
+]
+
+.center[
+.pull-right[ 
+```{r, echo=FALSE, out.width = '70%'}
+autograph(student_network)
+```
+]
+]
+]
+
+.panel[.panel-name[Arguments]
+.pull-left[ 
+Both functions allow a small degree of customization, but are still limited.
+
+```{r, echo=TRUE, fig.show='hide'}
+autograph(student_network,
+          node_label = id,
+          node_colour = gender)
+```
+
+]
+
+.center[
+.pull-right[ 
+```{r, echo=FALSE, out.width = '100%'}
+autograph(student_network,
+          node_label = id,
+          node_colour = gender)
+```
+]
+]
+]
+
+.panel[.panel-name[Discuss]
+1. In what situations might these limited functions be useful? 
+2. When might they inapropriate to use?
+
+]
 ]
 
 
 
 ---
 
-# Network Density 
+# Sophisticated Sociograms
 
 .panelset[
 
-.panel[.panel-name[Definition]
+.panel[.panel-name[Set Graph]
 
-.pull-left[ In its simplest form,  network density is **the ratio of existing ties in a network to all possible ties** that could potentially exist, regardless of whether they do.
-]
+The `ggraph()` function is the first function required to build a sociogram. This function: 
+1. takes care of setting up the plot object 
+1. creates the layout based on specification provided.
 
-.pull-right[ .center[<img src="img/density.jpeg" height="150px"/>
-
-Which of these two networks has a higher density?
+Try running this function and see what happens:
+```{r set-graph, echo=TRUE, fig.show='hide'}
+ggraph(student_network)
+```
 ]
  
-]
+
+.panel[.panel-name["Add" Nodes]
+
+.pull-left[
+Let's “add” nodes to our sociogram using the `+` operator and the `geom_node_point()` function:
+```{r , echo=TRUE, fig.show='hide'}
+ggraph(student_network) + 
+  geom_node_point() 
+```
 
 ]
 
-.panel[.panel-name[Significance]
-In education, dense networks have been associated with:   
-- healthy learning communities   
-- other
-- other
-
-For better or worse, **dense networks reinforce prevailing norms** and behaviors and insulate one from outside influences (Carolan, 2011). 
-
-]
-
-.panel[.panel-name[Implementation]
-The {igraph} package has a simple `edge_density()` function for calculating network density. Let's apply to our `year_1_network`:
-
-```{r density, echo=TRUE}
-edge_density(year_1_network)
+.pull-right[
+```{r, echo=FALSE, out.width = '85%'}
+ggraph(student_network) + 
+  geom_node_point() 
 ```
 
 How would you interpret this measure?
 ]
+]
 
-.panel[.panel-name[Discuss]
 
-.pull-left[We know there 82 edges in the Year 1 network (pictured right), but **how many possible edges** could there be?   
+.panel[.panel-name[Add Edges]
 
-**Hint**: The number of all possible edges in a directed network is V(V-1) where V is the # of vertices.
+.pull-left[
+Now let's “add” edges to our sociogram using the `+` operator and the `geom_node_point()` function:
+```{r , echo=TRUE, fig.show='hide'}
+ggraph(student_network) + 
+  geom_node_point() + 
+  geom_edge_link()
+```
 
-<!-- How many possible edges if this were an undirected network? -->
-] 
+]
 
 .pull-right[
-```{r examine-density, strip.white=TRUE, echo=FALSE}
-autograph(year_1_network) +
+```{r, echo=FALSE, out.width = '85%'}
+ggraph(student_network) + 
+  geom_node_point() + 
+  geom_edge_link()
+```
+
+How would you interpret this measure?
+]
+]
+
+.panel[.panel-name[Polish]
+
+.pull-left[
+<br>
+<br>
+The {ggraph} packages allows for some fairly sophisticated graphs:
+]
+
+.pull-right[
+.center[
+```{r, echo=FALSE, out.width ='88%'}
+ggraph(student_network, layout = "stress") + 
+  geom_edge_link(arrow = arrow(length = unit(1, 'mm')), 
+                 end_cap = circle(3, 'mm'),
+                 start_cap = circle(3, 'mm'),
+                 alpha = .1) +
+  geom_node_point(aes(size = local_size(),
+                      color = gender)) +
+  geom_node_text(aes(label = id),
+                 repel=TRUE) +
   theme_graph()
 ```
 ]
 ]
 ]
 
-
-
----
-
-# Network Centralization 
-
-.panelset[
-
-.panel[.panel-name[Definition]
-
-.pull-left[A key structural property of complete networks is the concept of centralization, or **the extent to which relations are focused on one or a small set of actors**. 
-]
-
-.pull-right[ .center[<img src="img/density.jpeg" height="150px"/>
-
-Which of these two networks is more centralized?
-]
- 
-]
-
-]
-
-.panel[.panel-name[Significance]
-
-- A network's centralization affects the process through which resources traverse the network. 
-- Central actors likely wield a disproportionate amount of influence on the network. 
-- High centralization provides fewer actors with more power and control.
-
-]
-
-.panel[.panel-name[Implementation]
-
-.pull-left[
-The {igraph} package has a simple `edge_density()` function for calculating network density. 
-
-Let's apply to our `year_1_network`:]
-
-.pull-right[
-```{r centrality, echo=TRUE}
-centr_degree(year_1_network, mode = "all")
-```
-
-How would you interpret this measure?
-]
-]
-
-.panel[.panel-name[Discuss]
-
-.pull-left[We know there 82 edges in the Year 1 network (pictured right), but **how many possible edges** could there be?   
-
-**Hint**: The number of all possible edges in a directed network is V(V-1) where V is the # of vertices.
-
-<!-- How many possible edges if this were an undirect network? -->
-] 
-
-.pull-right[
-```{r examine-centrality, strip.white=TRUE, echo=FALSE}
-autograph(year_1_network) +
+.panel[.panel-name[Code]
+With a fair bit of coding: 
+```{r , echo=TRUE, fig.show='hide'}
+ggraph(student_network, layout = "stress") + 
+  geom_edge_link(arrow = arrow(length = unit(1, 'mm')), 
+                 end_cap = circle(3, 'mm'),
+                 start_cap = circle(3, 'mm'),
+                 alpha = .1) +
+  geom_node_point(aes(size = local_size(),
+                      color = gender)) +
+  geom_node_text(aes(label = id),
+                 repel=TRUE) +
   theme_graph()
 ```
 ]
-]
-]
-
----
-
-# Network Reciprocity 
-
-.panelset[
-
-.panel[.panel-name[Definition]
-
-.pull-left[A key structural property of complete networks is the concept of centralization, or **the extent to which relations are focused on one or a small set of actors**
 
 ]
 
-.pull-right[ .center[<img src="img/density.jpeg" height="150px"/>
-
-Which of these two networks is more centralized?
-]
- 
-]
-
-]
-
-.panel[.panel-name[Significance]
-- This property is important because it reveals the direction through which resources such as help, advice, and support flow. 
-- It also indicates the network's stability, as reciprocated ties tend to be more stable over time. 
-- Networks with high reciprocity may be more “equal,” while those with lower reciprocity may be more hierarchical.
-
-]
-
-.panel[.panel-name[Implementation]
-
-.pull-left[
-At the network-level, reciprocity is a measure of the likelihood of vertices in a directed network to be mutually linked. The {igraph} package has a simple `reciprocity()` function for calculating network density. 
-
-Let's apply to our `year_1_network`:]
-
-.pull-right[
-```{r reciprocity, echo=TRUE}
-reciprocity(year_1_network)
-```
-
-]
-]
-
-.panel[.panel-name[Discuss]
-
-- How would you interpret this measure? 
-- What does it indicate about our network? 
-
-
-]
-]
 
 ---
 # What's Next
 
 .pull-left[
-## Readings & Discussion
+## Essential Readings
 
-- Collection
-- Management  
-- Quality  
-]
+- Reading 1: [Statistical Inference With Network Data](https://via.hypothes.is/https://drive.google.com/file/d/1-zf90wAZGm2uM7qX-2HoeWTLmxn2ndJz/view?usp=sharing)
+
+- Reading 2: [Network Data and Statistical Models](https://via.hypothes.is/https://drive.google.com/file/d/104zBHOcZL0Nj1Snm2KR1QAKOk96dtZfH/view?usp=sharing)  
+
+] 
 
 .pull-right[
 ## Case Study
 
-- Density
-- Centrality 
-- Reciprocity
+- SNA Case Study: [Who's Friends with Who in Middle School?](https://laser-institute.github.io/network-analysis/lab-4/sna-lab-4-case-key.html)
+
+- Guiding Study: [The ebb and flow of social network ties between district leaders.](https://via.hypothes.is/https://drive.google.com/file/d/1RPDTFTGlYV5RfN1EflPS8f8o_7giVGhX/view?usp=sharing)
 
 ]
-
-
-
-
 
 ---
 class: clear, center
