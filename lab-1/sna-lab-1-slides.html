@@ -44,7 +44,7 @@ class: clear, title-slide, inverse, center, top, middle
 
 .pull-left[
 ## Part 1: Core Concepts
-### Data Management
+### Network Basics
 - Collection
 - Storage 
 - Visualization
@@ -54,7 +54,7 @@ class: clear, title-slide, inverse, center, top, middle
 .pull-right[
 
 ## Part 2: R Code-Along
-#### Exponential Random Graph Models
+#### Network Visualization
 - Inspect Data
 - Create a Network
 - Simple Sociograms
@@ -87,102 +87,95 @@ class: clear, inverse, middle, center
 # Part 1: Core Concepts
 
 
-Data Collection, Storage, and Quality
+Data &amp; Graphs, Data Formats, and Guiding Study
+
 
 ---
-
-# Data Collection
+# Network Data &amp; Graphs
 
 .panelset[
 
-.panel[.panel-name[Specify Boundary]
+.panel[.panel-name[Actors]
 
-How do you determine **who's in the network** that you will collect data about?    
-
-- Actors occupy a specific **position** in a social structure (e.g., leaders in a district)
-- Determined by participation in an **event** at specific time and place (e.g., attendees at an academic conference)
-- Defined by a specific **relation** know to the research or actors themselves.
-
-
-]
-
-.panel[.panel-name[Define Ties]
 
 .pull-left[
+- **Node.** Nodes are frequently referred to as actors or vertices and typically illustrated by circles, but the shape, color and size can vary depening on what the researcher wants to illustrate abotu the data. 
+]
 
-### Relationship &amp; Strength
-- Friendships (friend, best friend)
-- Co-Author/Presenter (# of pubs)
-- Assignment Partner
-- Committee Members
+
+.center[
+.pull.right[
+&lt;img src="sna-lab-1-slides_files/figure-html/unnamed-chunk-2-1.png" width="35%" /&gt;
+
+
+]
+]
 
 ]
 
 
-.pull-right[
+.panel[.panel-name[Relations]
 
-### Interactions &amp; Frequency
-- Online Discussion (# of replies/DMs)
-- Support Seeking (how often)
+.pull-left[
+### Relationships &amp; Interactions
+- **Friendships (friend, best friend)**
+- Co-Author/Presenter
+- Assignment Partners
+- Online Discussion
+- Support Seeking
 - Confidential Exchanges
-- Communications
+- Collaborations
+]
 
+.pull-right[
+.center[
+&lt;img src="sna-lab-1-slides_files/figure-html/unnamed-chunk-3-1.png" width="70%" /&gt;
 ]
 
 
 ]
 
 
-.panel[.panel-name[Identify Source]
+.panel[.panel-name[Variables]
 
-.pull-left[
-
-### Archives
-- Email Accounts
-- Discussion Forums
-- Social Network Platforms
-- School Records 
+.pull-left[ 
+### Measurement Issues
+1. Recall vs. Recognition 
+1. Fixed- vs. Free-Choice (Quantity)
+1. Ratings vs. Rankings (Intensity)
+1. Missing Data
 
 ]
 
 
 .pull-right[
+.center[
+&lt;img src="sna-lab-1-slides_files/figure-html/unnamed-chunk-4-1.png" width="70%" /&gt;
+]
 
-### Sociometric Instrument
-- [Survey](https://ncsu.qualtrics.com/jfe/preview/SV_5w2Ayiu2UriAz3M?Q_CHL=preview&amp;Q_SurveyVersionID=current) or Interview Protocol
-- Nomination or Roster
-- Binary or Ordinal
-- Simple or Multiplex
-
+]
 
 ]
 
 ]
 
 .panel[.panel-name[Discuss]
+Consider a network you are interested in studying and think about the following questions: 
 
-Consider the following quesions about a network you may be interested in studying:
-- What is the boundary of this network? 
-- What relations within this network might be of interest to your research? 
-- What attributes about actors in this network might you want to 
-- How might you collect data about these actors and their relations? 
+- Who are the network's actors? 
 
-Record your response in the chat. 
+- What ties connect these actors? 
+
+- Are there any groups within this network? 
+
+- What research questions are you interested in investigating?
 
 ]
+
 
 ]
 
 ???
-
-Prior to data collection, there are a number of decisions research have to make regarding the boundary of the network, relations to capture, and means of collecting data. 
-
-### Boundary Specification 
-- Specifying answers the question: Where do you set the limits when collecting relational data when, in theory, there are no limits? I'm going to quickly run through three generic approaches to addressing this issue.
-- The **positional approach** defines a set of actors that occupy a similar position in some social structure. For example, in the study we'll take a look at in a little bit, actors in the network of study consisted of school and district level leaders at a school district placed under sanction and undergoing major school reforms. 
-- The **event-based approach** to specifying a network's boundary falls delineate a network's boundaries by selecting only those actors who participated in an “event” at a specific time and place. For example, you may be interested in observing fellow researchers participating in an academic conference or attendees at local board of education meetings. As opposed to positional approaches that focus on actors’ behavior or role, the criterion for inclusion through this approach is an event rooted in time and place.
--  The **relational approach** is typically used in egocentric studies, which we don't address here, either based on a researcher's knowledge about relations among a set of actors or relies on the actors themselves to nominate additional actors for inclusion. For example, I'm currently evaluating network of agricultural research networks and we compiled a master list of the networks involved then asked the PIs about these network to identify the actors invovled, or likely to be involved in research and training collaboration between the networks.
-
 
 ---
 # Data Storage
@@ -195,11 +188,10 @@ Prior to data collection, there are a number of decisions research have to make 
 .pull-left[
 
 Consistent with typical data storage, node-lists often include:
-- **Name or ID of nodes**
-- Demographic info (gender, age) 
+- Identifiers lik name or **ID**
+- Demographic info (**gender**, age) 
 - Socio-economic info (job, income)
-- Substantative info (grades)
-- **Nominated alters**
+- Substantive info (**grades**, attendance)
 
 ]
 
@@ -207,14 +199,14 @@ Consistent with typical data storage, node-lists often include:
 .pull-right[
 
 
-| UID|role1         | experience|region    |
-|---:|:-------------|----------:|:---------|
-|   1|libmedia      |          1|South     |
-|   2|classteaching |          1|South     |
-|   3|districtadmin |          2|Northeast |
-|   4|classteaching |          2|South     |
-|   5|otheredprof   |          3|South     |
-|   6|classteaching |          1|South     |
+| id|gender |achievement |
+|--:|:------|:-----------|
+|  1|female |high        |
+|  2|male   |average     |
+|  3|female |average     |
+|  4|male   |high        |
+|  5|female |average     |
+|  6|female |average     |
 
 ]
 
@@ -236,14 +228,14 @@ Radically different than typical data storage, edge-lists include:
 .pull-right[
 
 
-| Sender| Receiver|Timestamp    |
-|------:|--------:|:------------|
-|    360|      444|4/4/13 16:32 |
-|    356|      444|4/4/13 18:45 |
-|    356|      444|4/4/13 18:47 |
-|    344|      444|4/4/13 18:55 |
-|    392|      444|4/4/13 19:13 |
-|    219|      444|4/4/13 19:16 |
+| from| to| weight|
+|----:|--:|------:|
+|    1|  2|      1|
+|    1|  4|      1|
+|    1|  5|      1|
+|    1|  6|      1|
+|    1|  7|      1|
+|    1|  8|      1|
 
 ]
 
@@ -267,15 +259,16 @@ Also radically different, an adjacency matrix includes:
 
 
 ```
-##   1 2 3 4 5 6 7 8
-## 1 0 0 3 0 0 0 0 0
-## 2 0 0 0 0 0 0 0 0
-## 3 4 0 0 0 0 0 0 0
-## 4 0 0 0 0 0 0 0 0
-## 5 0 0 0 0 0 0 0 0
-## 6 3 0 0 0 0 0 0 0
-## 7 0 0 0 0 0 0 0 0
-## 8 0 0 0 0 0 0 0 0
+##   1 2 3 4 5 6 7 8 9
+## 1 0 0 0 1 0 0 0 0 0
+## 2 0 0 1 0 0 0 0 1 0
+## 3 0 1 0 0 0 0 0 1 0
+## 4 0 0 0 0 0 0 0 0 0
+## 5 1 0 0 0 0 0 0 0 0
+## 6 0 0 0 0 0 0 0 0 0
+## 7 0 0 0 0 0 0 0 0 0
+## 8 0 1 1 0 0 0 0 0 0
+## 9 0 0 0 0 0 0 0 0 0
 ```
 
 ]
@@ -284,9 +277,16 @@ Also radically different, an adjacency matrix includes:
 
 .panel[.panel-name[Discuss]
 
-Take a look at one of the newtwork datasets located [here](https://github.com/laser-institute/network-analysis/tree/main/lab-2/data) and consider the following:
+Take a look at one of the network datasets [here](https://github.com/laser-institute/network-analysis/tree/main/lab-1/data) and consider the following:
+
 - What format is this data set stored as? 
+
+- If edge data, is it directed or undirected? Valued?
+
+- If node data, does the file contain attribute data? 
+
 - What are some things you notice about this dataset? 
+
 - What questions do you have about this dataset? 
 
 ]
@@ -298,98 +298,7 @@ Take a look at one of the newtwork datasets located [here](https://github.com/la
 
 
 ---
-# Data Visualization 
-
-.panelset[
-
-.panel[.panel-name[Nodes]
-
-- **Node.** Nodes are frequently referred to as actors or vertices and typically illustrated by circles, but the shape, color and size can vary depening on what the researcher wants to illustrate abotu the data. 
-
-]
-
-
-.panel[.panel-name[Edges]
-
-While research on construct validity is slim, and participant recall is suspect, **approaches to improve instrument validity** include:   
-
-1. Focus on more stable relations, as opposed to ones that are time specific;
-1.  Limit the number of alters one can nominate;
-1.  Ask respondents to try to answer what the others would say;
-1.  Consider observations or archival data (e.g. logs, student records). 
-
-
-.panel[.panel-name[Direction]
-
-.pull-left[ 
-### Measurement Issues
-1. Recall vs. Recognition 
-1. Fixed- vs. Free-Choice (Quantity)
-1. Ratings vs. Rankings (Intensity)
-1. Missing Data
-
-]
-
-
-.pull-right[
-
-### Possible Solutions
-1. Use a roster if network size &lt; 50
-1. No consensus, consider both
-1. Ranking if network size &lt; 20
-1. Avoid if possible ;) 
-
-
-]
-
-]
-
-]
-
-.panel[.panel-name[Discuss]
-
-.pull-left[Consider the following **sociogram**, or network graph, that consists of 
-- nodes and 
-- edges representing 
-- What might be some threats to the quality of your data? 
-- How might you address or avoid these threats? 
-
-Record your response in the chat.  ]
-
-]
-
-]
-
-???
-
-Similar to data we might typically collect about individual participants in our research, the quality of relational data also depends on reliability, validity, accuracy, and measurement error.
-
-### Reliability
-- Social network researchers can rely on several common reliability measures, including interobserver reliability, internal consistency reliability, and **test–retest reliability**. The latter, however, is the most commonly used. For example, we may ask a teacher nominates all those other teachers from whom he or she seeks advice about professional matters. The retest repeats the same (or similar) request at a later time. Highly correlated responses indicate high reliability.
-- One thing to note when designing a network study or data collection instrument is that closer ties tend to be reported more reliably than weaker ones. 
-- Also, for self-reported ties, reciprocated ties are more trustworthy than non reciprocated. For example, one study asking college students to report whom they spend time with found that only 58% recalled spending time with each other. 
-
-### Validity
-
-Sadly, there has not been a lot of research on the validity of measures of network concepts. This issue is especially relevant to data collected by participant recall. For example, a research may ask students to list five classmates with whom they study, but actual observed behavior may indicate something totally different.
-
-Ways to improve validity include: 
-- Focusing on more stable relations, as opposed to ones that are time specific. For example, asking a respondent to identify who one regularly studies with as opposed to asking who one studied with this past month might be the better option.
-- Limit the number of people one can nominate in order to counteract a tendency to under/overreport the number of relations one has
-- Follow up on respondents’ reports, or explicitly asking respondents to try to answer what the others would say as well as what they themselves think and tell respondents that some information may be confirmed with others.
-- Avoid self-report data altogether. If you sources like public records, email, participation in social networking platforms, and school transcripts, you don't need to directly ask respondents to report on their network. Instead, the network is reconstructed from these records and a number of different relations can be captured. For example, using the public Facebook profiles of a set of students in the same school, it is possible to construct a network of who bullies whom, so long as you can precisely define how bullying is measured.
-
-
----
-class: clear, inverse, middle, center
-
-# part_2(R, code_along)
-
-Network Packages, Objects, and Sociograms
-
-
----
-# Data Source
+# Guiding Study
 
 .panelset[
 
@@ -438,6 +347,14 @@ Daly, A. et al. (2011). [The ebb and flow of social network ties between distric
 ]
 
 ???
+
+
+---
+class: clear, inverse, middle, center
+
+# part_2(R, code_along)
+
+Network Packages, Objects, and Sociograms
 
 
 ---
@@ -648,7 +565,7 @@ plot(student_network)
 
 .center[
 .pull-right[ 
-&lt;img src="sna-lab-1-slides_files/figure-html/unnamed-chunk-5-1.png" width="70%" /&gt;
+&lt;img src="sna-lab-1-slides_files/figure-html/unnamed-chunk-8-1.png" width="70%" /&gt;
 ]
 ]
  
@@ -668,7 +585,7 @@ autograph(student_network)
 
 .center[
 .pull-right[ 
-&lt;img src="sna-lab-1-slides_files/figure-html/unnamed-chunk-7-1.png" width="70%" /&gt;
+&lt;img src="sna-lab-1-slides_files/figure-html/unnamed-chunk-10-1.png" width="70%" /&gt;
 ]
 ]
 ]
@@ -688,7 +605,7 @@ autograph(student_network,
 
 .center[
 .pull-right[ 
-&lt;img src="sna-lab-1-slides_files/figure-html/unnamed-chunk-9-1.png" width="100%" /&gt;
+&lt;img src="sna-lab-1-slides_files/figure-html/unnamed-chunk-12-1.png" width="100%" /&gt;
 ]
 ]
 ]
@@ -735,7 +652,7 @@ ggraph(student_network) +
 ]
 
 .pull-right[
-&lt;img src="sna-lab-1-slides_files/figure-html/unnamed-chunk-11-1.png" width="85%" /&gt;
+&lt;img src="sna-lab-1-slides_files/figure-html/unnamed-chunk-14-1.png" width="85%" /&gt;
 
 How would you interpret this measure?
 ]
@@ -756,7 +673,7 @@ ggraph(student_network) +
 ]
 
 .pull-right[
-&lt;img src="sna-lab-1-slides_files/figure-html/unnamed-chunk-13-1.png" width="85%" /&gt;
+&lt;img src="sna-lab-1-slides_files/figure-html/unnamed-chunk-16-1.png" width="85%" /&gt;
 
 How would you interpret this measure?
 ]
@@ -772,7 +689,7 @@ The {ggraph} packages allows for some fairly sophisticated graphs:
 
 .pull-right[
 .center[
-&lt;img src="sna-lab-1-slides_files/figure-html/unnamed-chunk-14-1.png" width="88%" /&gt;
+&lt;img src="sna-lab-1-slides_files/figure-html/unnamed-chunk-17-1.png" width="88%" /&gt;
 ]
 ]
 ]

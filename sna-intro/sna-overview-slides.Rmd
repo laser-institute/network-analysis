@@ -38,8 +38,8 @@ class: clear, title-slide, inverse, center, top, middle
 .pull-left[
 ## Part 1: Intro to SNA
 - What is social network analysis? 
+- Underlying Assumptions of SNA
 - Applications of SNA
-- XXXX
 
 ]
 
