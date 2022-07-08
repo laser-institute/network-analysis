@@ -1,5 +1,5 @@
 ---
-  title: "SNA Lab 1: Statistical Inference & Network Models"
+  title: "SNA Lab 1: Network Data & Visualization "
   subtitle: "Test"
   author: "**Dr. Shaun Kellogg**"
   institute: "LASER Institute"
@@ -86,10 +86,10 @@ xaringanExtra::use_tile_view()
 
 .pull-left[
 ## Part 1: Core Concepts
-### Network Basics
-- Collection
-- Storage 
-- Visualization
+### Network Data
+- Basic Types of Data
+- Network Data Structures 
+- Guiding Study
 
 ]
 
@@ -97,30 +97,35 @@ xaringanExtra::use_tile_view()
 
 ## Part 2: R Code-Along
 #### Network Visualization
-- Inspect Data
-- Create a Network
+- tidygraph & ggraph Packages
+- graph manipulation in R
 - Simple Sociograms
 ]
 
 
 ???
-
-Recall that the key difference between data used in typical STEM Ed Research and data used for social network analysis is the focus on relationships between individual rather than the individual themselves. As a result, this presents some unique issues inherent in how we manage of social network data, as well as the measurements derived from this data. 
-
-This workshop is divided into two parts. In Part I, we focus on data management, including how to collect and store network data, as well as approaches to help ensure the quality of the data we collect. In Part II, we take a quick look at a study by Alan Daly that illustrates some of these approaches, and will then learn about some basic network-level measures such as dessity, centrality, and reciprocity that are commonly used to describe our networks mathematically. 
+ 
 
 ---
 # A Quick Refresher
-
 ### The four hallmarks of social network analysis: 
-1. an emphasis on structuralism based on ties among actors;
-2. firmly grounded in empirical data; 
-3. the use of graphical imagery; 
-4. is mathematically based.
+1. an emphasis on **structuralism** based on ties among actors;
+
+2. firmly grounded in **empirical data**; 
+
+3. the use of **graphical imagery**; 
+
+4. is **mathematically based**.
 
 
 ???
 
+---
+class: clear, laser
+
+.quote[The **visualization of social networks** has been a core practice since its foundation more than 100 years ago and remains a hallmark of contemporary social network analysis.]
+
+.author[~ Brian Carolan]
 
 
 ---
@@ -129,11 +134,11 @@ class: clear, inverse, middle, center
 # Part 1: Core Concepts
 
 
-Data & Graphs, Data Formats, and Guiding Study
+Data Types, Data Structures, and Guiding Study
 
 
 ---
-# Network Data & Graphs
+# Network Data Types
 
 .panelset[
 
@@ -141,15 +146,22 @@ Data & Graphs, Data Formats, and Guiding Study
 
 
 .pull-left[
-- **Node.** Nodes are frequently referred to as actors or vertices and typically illustrated by circles, but the shape, color and size can vary depening on what the researcher wants to illustrate abotu the data. 
+***Actors***, also called nodes or vertices, can be a range of social entities, like: 
+- Students in a classroom
+- teachers in a school district
+- school districts in a state 
+- departments within a college
+- parents in a community
 ]
 
 
 .center[
 .pull.right[
 ```{r, echo=FALSE, out.width ='35%'}
-ggraph(teacher_network, layout = 'linear', circular = TRUE) + 
+ggraph(teacher_network, layout = 'fr', circular = FALSE) + 
   geom_node_point() +
+  geom_node_text(aes(label = id),
+                 repel=TRUE) +
   theme_graph()
 ```
 
@@ -160,17 +172,16 @@ ggraph(teacher_network, layout = 'linear', circular = TRUE) +
 ]
 
 
-.panel[.panel-name[Relations]
+.panel[.panel-name[Ties]
 
 .pull-left[
-### Relationships & Interactions
-- **Friendships (friend, best friend)**
-- Co-Author/Presenter
-- Assignment Partners
-- Online Discussion
-- Support Seeking
-- Confidential Exchanges
-- Collaborations
+***Ties***, also called relations or edges, connect actors to one another, like: 
+- Behavioral interaction
+- Physical connection
+- Association or affiliation
+- Evaluation of one person by another
+- Formal relations
+- Moving between places or status 
 ]
 
 .pull-right[
@@ -179,6 +190,8 @@ ggraph(teacher_network, layout = 'linear', circular = TRUE) +
 ggraph(teacher_network, layout = 'fr') + 
    geom_edge_link() +
   geom_node_point() +
+   geom_node_text(aes(label = id),
+                 repel=TRUE) +
   theme_graph()
 ```
 ]
@@ -190,11 +203,9 @@ ggraph(teacher_network, layout = 'fr') +
 .panel[.panel-name[Variables]
 
 .pull-left[ 
-### Measurement Issues
-1. Recall vs. Recognition 
-1. Fixed- vs. Free-Choice (Quantity)
-1. Ratings vs. Rankings (Intensity)
-1. Missing Data
+1. ***Structural*** data based on the entire network of connections actors ties with others (e.g., centrality)
+1. ***Relational*** data based on an actor's direct ties with others (e.g., degree or connectedness)
+1. ***Attribute*** data based on properties of individual actors (e.g., gender, achievement)
 
 ]
 
@@ -209,6 +220,8 @@ ggraph(teacher_network, layout = 'fr') +
                  alpha = .1) +
   geom_node_point(aes(size = local_size(),
                       color = gender)) +
+   geom_node_text(aes(label = id),
+                 repel=TRUE) +
   theme_graph()
 ```
 ]
@@ -238,7 +251,7 @@ Consider a network you are interested in studying and think about the following 
 ???
 
 ---
-# Data Storage
+# Network Data Structures
 
 .panelset[
 
@@ -353,46 +366,39 @@ Take a look at one of the network datasets [here](https://github.com/laser-insti
 
 .panel[.panel-name[Context]
 
-.pull-left[
+Revisiting early work in the field of sociometry, this study ***assesses the level of agreement between teacher perceptions and student reports of classroom friendships*** among middle school students. 
 
-This longitudinal case study **examines reform-related knowledge, advice, and innovation network structures** among administrators in a district under sanction for under-performance and engaging in district-wide reform efforts.
-]
-
-.pull-right[
-
-.center[<img src="img/daly-net.jpeg" height="320px"/>]
-]
 
 ]
 
 .panel[.panel-name[Questions]
 
-This study involves **quantifying and visualizing the ties and overall structure** of informal networks to answer the following research questions: 
+The central question guiding this investigation was:
 
-1. In what ways have reform-related social networks between district and site leaders evolved **over a 2-year period**? 
-2. How do district and school leaders perceive the evolution of the social networks and its **effect on the exchange of reform-related resources** within the district?
+>***Do student reports agree with teacher perceptions*** when it comes to classroom friendship ties and with what consequences for commonly used social network measures?
 ]
 
 .panel[.panel-name[Data]
-To answer RQ1, Daly and Finnigan administered **online survey consisting of network relations and demographic questions** asking participants to:
-- select the administrators in the La Estasis network that they interact with for the purpose of **advise seeking, collaboration, confidential exchanges**,
-- assess their relationships on a **5-point interaction scale** ranging from 1 (no interaction) to 5 (1 to 2 times a week).
+- 1 teacher, 1 middle school, four classrooms
+- Students  given roster and asked to evaluate relationships with peers
+- Choices included best friend, friend, know-like, know, know-dislike, strongly dislike, and do not know.
+- Relations are ***valued*** (degrees of friendship, not just yes or no)
+- Data are ***directed*** (friendship nominations were not presumed to be reciprocal). 
 
 ]
 
 .panel[.panel-name[Key Findings]
 
-Ovearall, the findings from SNA and qualitative interviews indicate that over time: 
-- Networks **increased the number of superficial interactions**.
-- More frequent exchanges, however, remained unchanged. 
-- The result was a centralized network structure.
+- Teacher’s perceptions and students’ reports were statistically similar, 11–29% of possible ties did not match.
+- Students reported significantly more reciprocated friendship ties than the teacher perceived.
+- Observed level of agreement varied across classes and generally increased over time. 
 ]
 
 ]
 
 
 .footnote[
-Daly, A. et al. (2011). [The ebb and flow of social network ties between district leaders.](https://github.com/laser-institute/network-analysis/blob/main/lab-2/lit/daly-ebb-flow.pdf)
+Pittinsky, M., & Carolan, B. (2008). [Behavioral versus cognitive classroom friendship networks.](https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-1/pittinsky-class-friendships.pdf)
 ]
 
 ???
@@ -413,15 +419,14 @@ Network Packages, Objects, and Sociograms
 
 .panel[.panel-name[Load Libraries]
 
-Let's start by creating a new R script and loading the following packages introduced in the previous lab:          
+Let's start by creating a new R script and loading the {readxl} package which we'll use to import our network data files:          
 
 ```{r load-libraries, message=TRUE, echo=TRUE, message=FALSE}
-library(tidygraph)
-library(ggraph)
+# install.packages(readxl)
 library(readxl)
 ```
 
-
+**Note:** You may have to install this package using the `install.packages()` function if it is not listed in your packages pane.  
 ]
 
 .panel[.panel-name[network packages 📦]
@@ -495,7 +500,7 @@ student_nodes <- read_excel("data/student-attributes.xlsx")
 
 .panel[.panel-name[Inspect Data]
 
-Now let's take a look at the data file we just imported using the `View()` or other function of choice:
+Now let's take a look at the data file we just imported using the `View()` function or another function of choice you may have learned in the Foundations Labs:
 
 ```{r inspect-data, echo=TRUE, eval=FALSE}
 View(student_edges)
@@ -510,8 +515,11 @@ View(student_nodes)
 
 Think about the questions below and be prepared to share your response:              
 1. What do you think the rows and columns in each file represent? 
+
 1. What about the values in each cell represent?
+
 1. What else do you notice about the data? 
+
 1. What questions do you have? 
 
 ]
@@ -525,16 +533,14 @@ Think about the questions below and be prepared to share your response:
 
 .panel[.panel-name[tbl_graph( ) function]
 
-The [`tbl_graph()`](https://tidygraph.data-imaginist.com/reference/tbl_graph.html) function creates a special network data structure for "tidy graph" manipulation and combines nodes and edges into a single R object. 
-
-Run the following code in your R script:
+The [`tbl_graph()`](https://tidygraph.data-imaginist.com/reference/tbl_graph.html) function creates a special network data structure called a "tidy graph" that combines our nodes and edges into a single R object. Run the following code in your R script:
 
 ```{r wrangle-data, echo=TRUE, message=FALSE, warning=FALSE}
 student_network <- tbl_graph(edges = student_edges,
                              nodes = student_attributes, 
                              directed = TRUE) 
 ```
-
+The benefits of a "tidy graph" is that opens up the entire suite of tidyverse tools for manipulating and constructing network data and variables noted earlier. 
 
 ]
 
@@ -565,7 +571,9 @@ student_network
 Think about the questions below:              
 
 1. What is size of the student-reported friendship network?
+
 1. What else do you notice about this network?
+
 1. What questions do have about this network summary?
 
 ]
@@ -645,6 +653,7 @@ autograph(student_network,
 
 .panel[.panel-name[Discuss]
 1. In what situations might these limited functions be useful? 
+
 2. When might they inapropriate to use?
 
 ]
@@ -660,14 +669,14 @@ autograph(student_network,
 
 .panel[.panel-name[Set Graph]
 
-The `ggraph()` function is the first function required to build a sociogram. This function: 
-1. takes care of setting up the plot object 
-1. creates the layout based on specification provided.
-
-Try running this function and see what happens:
+The `ggraph()` function is the first function required to build a sociogram. Try running this function on out `student_network` and see what happens:
 ```{r set-graph, echo=TRUE, fig.show='hide'}
 ggraph(student_network)
 ```
+This function serves two critical roles: 
+1. It takes care of setting up the plot object for the network specified.  
+1. It creates the layout based on algorithm provided.
+
 ]
  
 
@@ -721,7 +730,7 @@ How would you interpret this measure?
 .pull-left[
 <br>
 <br>
-The {ggraph} packages allows for some fairly sophisticated graphs:
+The {ggraph} packages allows for some very fairly sophisticated sociograms...
 ]
 
 .pull-right[
@@ -767,18 +776,20 @@ ggraph(student_network, layout = "stress") +
 .pull-left[
 ## Essential Readings
 
-- Reading 1: [Statistical Inference With Network Data](https://via.hypothes.is/https://drive.google.com/file/d/1-zf90wAZGm2uM7qX-2HoeWTLmxn2ndJz/view?usp=sharing)
+- Reading 1: [The Social Network Perspective](https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-1/carolan-network-perspective.pdf)
 
-- Reading 2: [Network Data and Statistical Models](https://via.hypothes.is/https://drive.google.com/file/d/104zBHOcZL0Nj1Snm2KR1QAKOk96dtZfH/view?usp=sharing)  
+- Reading 2: [Historical, Theoretical, and Analytical Foundations](https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-1/carolan-history-theory.pdf)  
+
+- Reading 3: [Basic Concepts](https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-1/carolan-basic-concepts.pdf)  
 
 ] 
 
 .pull-right[
 ## Case Study
 
-- SNA Case Study: [Who's Friends with Who in Middle School?](https://laser-institute.github.io/network-analysis/lab-4/sna-lab-4-case-key.html)
+- SNA Case Study: [Who's Friends with Who in Middle School?](https://laser-institute.github.io/network-analysis/lab-1/sna-lab-1-case-key.html)
 
-- Guiding Study: [The ebb and flow of social network ties between district leaders.](https://via.hypothes.is/https://drive.google.com/file/d/1RPDTFTGlYV5RfN1EflPS8f8o_7giVGhX/view?usp=sharing)
+- Guiding Study: [Behavioral versus cognitive classroom friendship networks.](https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-1/pittinsky-class-friendships.pdf)
 
 ]
 
