@@ -1,5 +1,5 @@
 ---
-  title: "SNA Lab 1: Network Data & Visualization "
+  title: "SNA Lab 1: Network Analysis for Newbies"
   subtitle: "Test"
   author: "**Dr. Shaun Kellogg**"
   institute: "LASER Institute"
@@ -30,12 +30,14 @@ class: clear, title-slide, inverse, center, top, middle
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, results='hide', message=FALSE, warning=FALSE}
 # then load all the relevant packages
 pacman::p_load(pacman, knitr, tidyverse, readxl, tidygraph, ggraph)
 
 teacher_friends <- read_excel("data/teacher-reported-friends.xlsx", 
                               col_names = FALSE)
+
+student_attributes <- read_excel("data/student-attributes.xlsx")
 
 rownames(teacher_friends) <- 1:27
 
