@@ -1,6 +1,6 @@
 <img src="lab-1/img/LASERLogos_Horz Logo v2 copy.jpg" width="40%"/>
 
-## Social Network Analysis in STEM Education Research
+# Social Network Analysis in STEM Education Research
 
 ------------------------------------------------------------------------
 
