@@ -1,29 +1,29 @@
 ---
 title: "Social Network Analysis and STEM Education"
-subtitle: "A Brief Introduction & Demo"
+subtitle: "A Brief Introduction"
 author: "Dr. Shaun Kellogg"
 institute: "The LASER Institute"
 date: "2022/07/11 (updated: `r Sys.Date()`)"
 output:
-    xaringan::moon_reader:
-      css:
-       - default
-       - css/laser.css
-       - css/laser-fonts.css
-      lib_dir: libs                        # creates directory for libraries
-      seal: false                          # false: custom title slide
-      nature:
-        highlightStyle: default         # highlighting syntax for code
-        highlightLines: true               # true: enables code line highlighting 
-        highlightLanguage: ["r"]           # languages to highlight
-        countIncrementalSlides: false      # false: disables counting of incremental slides
-        ratio: "16:9"                      # 4:3 for standard size,16:9
-        slideNumberFormat: |
-         <div class="progress-bar-container">
-          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
-          </div>
-         </div>
-         </div>
+  xaringan::moon_reader:
+    css:
+     - default
+     - css/laser.css
+     - css/laser-fonts.css
+    lib_dir: libs                        # creates directory for libraries
+    seal: false                          # false: custom title slide
+    nature:
+      highlightStyle: default         # highlighting syntax for code
+      highlightLines: true               # true: enables code line highlighting 
+      highlightLanguage: ["r"]           # languages to highlight
+      countIncrementalSlides: false      # false: disables counting of incremental slides
+      ratio: "16:9"                      # 4:3 for standard size,16:9
+      slideNumberFormat: |
+       <div class="progress-bar-container">
+        <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+        </div>
+       </div>
+       </div>
 ---
 class: clear, title-slide, inverse, center, top, middle
 
@@ -31,6 +31,10 @@ class: clear, title-slide, inverse, center, top, middle
 ## `r rmarkdown::metadata$subtitle`
 ### `r rmarkdown::metadata$author`
 ###  2021/08/11 (updated: `r Sys.Date()`)
+
+```{r xaringan-panelset, echo=FALSE}
+xaringanExtra::use_panelset()
+```
 
 ---
 # Agenda
@@ -56,9 +60,20 @@ class: clear, title-slide, inverse, center, top, middle
 ???
 
 ---
+class: clear, laser
+
+.quote["From its earliest origins to it most recent applications to large-scale networks, social network analysis has reflected an **interdependency between theory and method.**"]
+
+.author[~ Brian Carolan]
+
+
+---
 class: clear, inverse, center, middle
 
-# 1. What is social network analysis? 
+# Part 1: Intro to SNA
+
+
+Hallmarks, Assumptions, and Applications
 
 ---
 # The Four Hallmarks of SNA
@@ -66,292 +81,144 @@ class: clear, inverse, center, middle
 .panelset[
 
 .panel[.panel-name[Relationships]
-TM has been largely used to **evaluate academic  performance** in different contexts, especially to assess essays and online assignments.
+Social network analysis is motivated by a **relational** intuition based on ties connecting social actors:
 
-- writing style
-- use of argumentation
-- plagiarism detection
-- peer interaction
+- no individual is an island, do NOT assume independence
+- who we know, are friends with, or talks with matters
+- the influence of these relations is shaped by the larger network
+- location in a social structure shapes one's opportunities and outcomes
+
+<br>
+.font80[[Freeman, L. (2004). The development of social network analysis.](https://www.researchgate.net/publication/239228599_The_Development_of_Social_Network_Analysis)]
 ]
 
 .panel[.panel-name[Empirical Data]
-To help improve performance, TM is used to  **provide student feedback**, often based on both their interactions and activities 
+It is firmly grounded in **systematic empirical data collection** using methods refined over decades and methods still evolving:
 
-- Intelligent Tutoring Systems
-- Question-answering applications
-- Assist teacher  feedback
-- Support formative feedback
+- observations of social context
+- surveys and questionnaires 
+- historical and administrative records
+- digital learning tools and social media 
 
 ]
 
 .panel[.panel-name[Graphical Imagery]
-TM has been applied to **support student engagement and collaboration**, especially in distance learning courses. 
-
-- Automated writing scaffolds
-- Analysis of interactional resources
-- Student sentiment extraction
-- Dropout prevention
-]
-
-.panel[.panel-name[Math Based]
-Other applications of text mining in STEM Ed Research include: 
-- Automatic text summarization
-- Analytics & visualization tools
-- Curriculum adaptation
-- Recommendation systems
-]
-
-
-]
-
-.footnote[
-Ferreira‐Mello, R., André, M., Pinheiro, A., Costa, E., & Romero, C. (2019). [Text mining in education.](https://wires.onlinelibrary.wiley.com/doi/full/10.1002/widm.1332?casa_token=lZT4D6PBOnIAAAAA%3AgL-AaN62g7YuQNyI5PIt6uguw7x2qnpFt8U_fkyM4ipRXUa6JzqcDH72dNU_8R21a_Abi4fNSucZWg) Wiley Interdisciplinary Reviews: Data Mining and Knowledge Discovery, 9(6), e1332.
-]
-
-
----
-# Why should I care? 
-
-There has been **unprecedented increase in text-based data ** generated by educational processes and digital learning systems, resulting in... 
-
-
-.footnote[
-Krumm, A., Means, B., & Bienkowski, M. (2018). [Learning analytics goes to school: A collaborative approach to improving education.](https://www.taylorfrancis.com/books/mono/10.4324/9781315650722/learning-analytics-goes-school-andrew-krumm-barbara-means-marie-bienkowski) Routledge.
-]
-
---
 
 .pull-left[
-New **sources** of data
-- Discussion Forums
-- Online Assignments
-- Instant Messaging Tools
-- Social Media
-- Etc. 
+It makes use of **graphic imagery** to represent actors and their relations with one another.
+
+- Shapes for actors (nodes, vertices)
+- Lines for relations (ties, edges)
 ]
 
---
+.pull-right[.center[
+<img src="img/moreno.jpeg" height="290px"/>
 
-.pull-right[
-Potential **advantages** for analysis
-- Massive
-- Always On
-- Non-reactive
-- Social relations  
-- Etc.
+.font80[.center[Moreno's 1930s elementary friendship network.]]
+]
+]Jacob Moreno 1930s friendship networks among elementary school students. 
 
 ]
 
-
-
----
-
-# What is text mining? 
-
-According to my graduate students... 
-
-.footnote[Fesler, L., Dee, T., Baker, R., & Evans, B. (2019). [Text as data methods for education research](https://www.tandfonline.com/doi/pdf/10.1080/19345747.2019.1634168?casa_token=Vbgs3rOJurYAAAAA:xeGOe9BU6I5S_N6xtCawVNcArowK8nkDjTByCEeOyq-NaMWDnbgJ53fa4ZzjrxdqYvzB9OYft5eT). Journal of Research on Educational Effectiveness, 12(4), 707-727.]
-
---
-
+.panel[.panel-name[Mathmatically Based]
+It relies on the use of **mathematical and/or computational models** to succinctly represent the complexity of social life:
 .pull-left[
-Text mining **is**... 
-- a process for gaining insight into large amounts of text
-- an exploration of text in search of patterns 
-- like computer-assisted reading
-- magic
-]
+### Network Stats (Describe)
+- Centrality
+- Reciprocity
+- Density
 
---
-
-.pull-right[
-Text mining **is not**... 
-- a substitute for traditional qualitative analysis
-- as "automated" as one would think
-- unlike reading tea leaves
-- magic
-
-]
-
----
-class: clear, center, middle
-
-A central question in text mining is: 
-
-## How do we **quantify** what a document is about?
-
-.footnote[
-Silge, J., & Robinson, D. (2017). [Text mining with R: A tidy approach.](https://www.tidytextmining.com) " O'Reilly Media, Inc.".]
-
----
-class: clear, inverse, center, middle
-
-# 2. What are common techniques used for quantifying text? 
-
-
----
-
-# Basic Text Analysis
-
-
-.pull-left[
-... it’s a mistake to imagine that text mining is now in a sort of crude infancy, whose real possibilities will only be revealed after NLP matures. **Wordcounts are amazing!**
-
-- Text Preprocessing
-- Word Counts
-- Term Frequencies
-- TF-IDF
 ]
 
 .pull-right[
-Yep. A Word Cloud.
-![Yep. A Word Cloud](img/ngss-cloud.png)
+### Inferential Models (Predict)
+- CONCOR
+- QAP
+- ERGMS
+]
 ]
 
-.footnote[
-Underwood, T. (2013). [Wordcounts are amazing](https://tedunderwood.com/2013/02/20/wordcounts-are-amazing/). The Stone and the Shell.
-]
 
----
-
-# Dictionary-Based Methods
-
-.pull-left[
-Dictionary-based text analysis uses predefined list of words, or **lexicons**, to assign a particular meaning, value, or category to each word in you data:  
-
-- Custom Dictionaries
-- Stop Words
-- Sentiment Lexicons
-- Linguistic Inquiry Word Count (LIWC)
-]
-
-.pull-right[
-Bing Lexicon Example: 
-```{r, echo=F, message=FALSE}
-library(tidytext)
-library(dplyr)
-library(DT)
-knitr::kable(sample_n(get_sentiments("bing"), 5))
-```
-]
-
-.footnote[
-Bail, C. (2019). [Dictionary-Based Text Analysis in R](https://cbail.github.io/textasdata/dictionary-methods/rmarkdown/Dictionary-Based_Text_Analysis.html). Text as Data.
 ]
 
 ---
-class: no-logo
-# Topic Modeling
-
-With a bit of tongue-in-cheek, [Meeks and Weingart](http://journalofdigitalhumanities.org/2-1/dh-contribution-to-topic-modeling/) describe topic modeling as:
-
->leveraging occult statistical methods like 'dirichlet priors' and 'bayesian models'... to provide seductive but obscure results in the form of easily interpreted (and manipulated) 'topics.'
-
-```{r, echo=F, out.width='55%', fig.align='center'}
-knitr::include_graphics('img/topic-model.png')
-```
-
-.footnote[
-Vayansky, I., & Kumar, S. A. (2020). [A review of topic modeling methods.](https://www.sciencedirect.com/science/article/pii/S0306437920300703?casa_token=o9sh0a7PIesAAAAA:_6LdKTPZL8OB8kQpuz9J2zd25PMkQQzZRBpdjREcCjADeUVgRUXVNBsUKYz1xNHetj9sEOH_VA) Information Systems, 94, 101582.
-]
-
-
----
-class: clear, inverse, center, middle
-
-# 3. What are some of the technical and ethical considerations of text mining? 
-
----
-#  Text Mining Considerations
-
-Despite the potential advantages of text-based data captured by educational technologies, **TM poses a number of challenges** for STEM Ed researchers. 
-
-
-.footnote[
-Bail, C. (2019). [Strengths and weaknesses of digital trace data ](https://sicss.io/2020/materials/day2-digital-trace-data/strengths-weaknesses/rmarkdown/Strengths_and_Weaknesses.html#weaknesses-of-digital-trace-data). Text as Data.
-]
-
---
-
-.pull-left[
-Logistical & Technical
-- Unstructured
-- Inaccessible
-- Non-Representative
-- Incomplete
-]
-
---
-
-.pull-right[
-Ethical & Legal
-- Bias (algorithmic, positivity)
-- Sensitive
-- Terms of Use
-- FERPA
-
-]
-
-
----
-class: clear, inverse, center, middle
-
-```{r xaringan-panelset, echo=FALSE}
-xaringanExtra::use_panelset()
-```
-
-# 4. How is text mining used in STEM education research?
-
----
-# Applications in STEM Ed Research
+# Applications of SNA
 
 .panelset[
 
-.panel[.panel-name[Performance]
-TM has been largely used to **evaluate academic  performance** in different contexts, especially to assess essays and online assignments.
+.panel[.panel-name[Relationships]
+Social network analysis is motivated by a **relational** intuition based on ties connecting social actors:
 
-- writing style
-- use of argumentation
-- plagiarism detection
-- peer interaction
+- no individual is an island, do NOT assume independence
+- who we know, are friends with, or talks with matters
+- the influence of these relations is shaped by the larger network
+- location in a social structure shapes one's opportunities and outcomes
+
+<br>
+.font80[[Freeman, L. (2004). The development of social network analysis.](https://www.researchgate.net/publication/239228599_The_Development_of_Social_Network_Analysis)]
 ]
 
-.panel[.panel-name[Feedback]
-To help improve performance, TM is used to  **provide student feedback**, often based on both their interactions and activities 
+.panel[.panel-name[Empirical Data]
+It is firmly grounded in **systematic empirical data collection** using methods refined over decades and methods still evolving:
 
-- Intelligent Tutoring Systems
-- Question-answering applications
-- Assist teacher  feedback
-- Support formative feedback
-
-]
-
-.panel[.panel-name[Engagement]
-TM has been applied to **support student engagement and collaboration**, especially in distance learning courses. 
-
-- Automated writing scaffolds
-- Analysis of interactional resources
-- Student sentiment extraction
-- Dropout prevention
-]
-
-.panel[.panel-name[Other Uses]
-Other applications of text mining in STEM Ed Research include: 
-- Automatic text summarization
-- Analytics & visualization tools
-- Curriculum adaptation
-- Recommendation systems
-]
-
+- observations of social context
+- surveys and questionnaires 
+- historical and administrative records
+- digital learning tools and social media 
 
 ]
 
-.footnote[
-Ferreira‐Mello, R., André, M., Pinheiro, A., Costa, E., & Romero, C. (2019). [Text mining in education.](https://wires.onlinelibrary.wiley.com/doi/full/10.1002/widm.1332?casa_token=lZT4D6PBOnIAAAAA%3AgL-AaN62g7YuQNyI5PIt6uguw7x2qnpFt8U_fkyM4ipRXUa6JzqcDH72dNU_8R21a_Abi4fNSucZWg) Wiley Interdisciplinary Reviews: Data Mining and Knowledge Discovery, 9(6), e1332.
+.panel[.panel-name[Graphical Imagery]
+
+.pull-left[
+It makes use of **graphic imagery** to represent actors and their relations with one another.
+
+- Shapes for actors (nodes, vertices)
+- Lines for relations (ties, edges)
+]
+
+.pull-right[.center[
+<img src="img/moreno.jpeg" height="290px"/>
+
+.font80[.center[Moreno's 1930s elementary friendship network.]]
+]
+]Jacob Moreno 1930s friendship networks among elementary school students. 
+
+]
+
+.panel[.panel-name[Mathmatically Based]
+It relies on the use of **mathematical and/or computational models** to succinctly represent the complexity of social life:
+.pull-left[
+### Network Stats (Describe)
+- Centrality
+- Reciprocity
+- Density
+
+]
+
+.pull-right[
+### Inferential Models (Predict)
+- CONCOR
+- QAP
+- ERGMS
+]
+]
+
+
 ]
 
 ---
-class: clear, inverse, center, middle
+class: clear, center
 
-#Learning Lab Demo
+## .font130[.center[**Thank you!**]]
 
+
+.center[<img style="border-radius:50%;" src="img/kellogg.jpeg" height="200px"/><br/>**Shaun Kellogg**<br/><mailto:sbkellog@ncsu.edu>]
+
+.pull-left-narrow[.center[<img style="border-radius: 50%;" src="https://www.nsf.gov/images/logos/NSF_4-Color_bitmap_Logo.png" height="150px"/> ]]
+
+.pull-right-wide[
+.left[.font70[
+
+This work was supported by the National Science Foundation grant DRL-2025090 (ECR:BCSER). Any opinions, findings, and conclusions expressed in this material are those of the authors and do not necessarily reflect the views of the National Science Foundation.
+]]]

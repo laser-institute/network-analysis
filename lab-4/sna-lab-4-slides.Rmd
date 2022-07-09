@@ -754,5 +754,14 @@ summary(ergm_mod_3)
 class: clear, center
 
 ## .font130[.center[**Thank you!**]]
-<br/>
-.center[<img style="border-radius: 80%;" src="img/kellogg.jpeg" height="200px"/><br/>**Dr. Shaun Kellogg**<br/><mailto:sbkellog@ncsu.edu>]
+
+
+.center[<img style="border-radius:50%;" src="img/kellogg.jpeg" height="200px"/><br/>**Shaun Kellogg**<br/><mailto:sbkellog@ncsu.edu>]
+
+.pull-left-narrow[.center[<img style="border-radius: 50%;" src="https://www.nsf.gov/images/logos/NSF_4-Color_bitmap_Logo.png" height="150px"/> ]]
+
+.pull-right-wide[
+.left[.font70[
+
+This work was supported by the National Science Foundation grant DRL-2025090 (ECR:BCSER). Any opinions, findings, and conclusions expressed in this material are those of the authors and do not necessarily reflect the views of the National Science Foundation.
+]]]
