@@ -324,12 +324,12 @@ Ways to improve validity include:
 
 .pull-left[
 
-This longitudinal case study **examines reform-related knowledge, advice, and innovation network structures** among administrators in a district under sanction for under-performance and engaging in district-wide reform efforts.
+This mixed-methods case study used both SNA and qualitative methods to better understand peer support in MOOC-Eds through an examination of the characteristics, mechanisms, and outcomes of peer networks.
 ]
 
 .pull-right[
 
-.center[<img src="img/daly-net.jpeg" height="320px"/>]
+.center[<img src="img/irrodl-article.png" height="280px"/>]
 ]
 
 ]
@@ -338,30 +338,33 @@ This longitudinal case study **examines reform-related knowledge, advice, and in
 
 This study involves **quantifying and visualizing the ties and overall structure** of informal networks to answer the following research questions: 
 
-1. In what ways have reform-related social networks between district and site leaders evolved **over a 2-year period**? 
-2. How do district and school leaders perceive the evolution of the social networks and its **effect on the exchange of reform-related resources** within the district?
+1. What are the patterns of peer interaction and the structure of peer networks that emerge over the course of a MOOC-Ed?
+1. To what extent do participant and network attributes (e.g., homophily, reciprocity, transitivity) account for the structure of these networks?
+1. To what extent do these networks result in the co-construction of new knowledge?
 ]
 
 .panel[.panel-name[Data]
-To answer RQ1, Daly and Finnigan administered **online survey consisting of network relations and demographic questions** asking participants to:
-- select the administrators in the La Estasis network that they interact with for the purpose of **advise seeking, collaboration, confidential exchanges**,
-- assess their relationships on a **5-point interaction scale** ranging from 1 (no interaction) to 5 (1 to 2 times a week).
+- **MOOC-Ed registration form.** All participants completed a registration form for each MOOC-Ed course. The registration form consists of self-reported demographic data, including information related to their professional role and work setting, years of experience in education, and personal learning goals.
+
+- **MOOC-Ed discussion forums.** All peer interaction, including peer discussion, feedback, and reactions (e.g., likes), take place within the forum area of MOOC-Eds, which are powered by Vanilla Forums. 
 
 ]
 
 .panel[.panel-name[Key Findings]
 
-Ovearall, the findings from SNA and qualitative interviews indicate that over time: 
-- Networks **increased the number of superficial interactions**.
-- More frequent exchanges, however, remained unchanged. 
-- The result was a centralized network structure.
+- Most ties between educators consisted of a single communication and a general tendency for an individual’s responses to be distributed evenly among peers.
+- Measures of network reciprocity were fairly similar across the two MOOC-Eds, despite the size and varied composition of educators in each network. 
+- Reciprocators made up the largest proportion of educators in both courses
+- Significant effects were found for the relational mechanism of reciprocity, but not for a popularity effect.
+
+
 ]
 
 ]
 
 
 .footnote[
-Daly, A. et al. (2011). [The ebb and flow of social network ties between district leaders.](https://github.com/laser-institute/network-analysis/blob/main/lab-2/lit/daly-ebb-flow.pdf)
+Kellogg, S., Booth, S., & Oliver, K. (2014). [A social network perspective on peer supported learning in MOOC-Eds](https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-2/sna_mooc_irrodl_bjet_articles.pdf)
 ]
 
 ???
@@ -387,7 +390,7 @@ Network-Level Density, Centrality, and Reciprocity
 Let's start by creating a new R script and loading the following packages introduced in the previous lab:          
 
 ```{r load-libraries, message=TRUE, echo=TRUE, message=FALSE}
-library(readxl)
+library(janitor)
 library(tidyverse)
 library(tidygraph)
 library(ggraph)
@@ -437,8 +440,20 @@ library(igraph)
 Let's import two Excel files from the Social Network Analysis and Education companion site. year_1_collaboration.xlsx 
 
 ```{r import-data, echo=TRUE, message=FALSE}
-year_1_collaboration <- read_excel("data/year_1_collaboration.xlsx", 
-                                   col_names = FALSE)
+dlt1_ties <- read_csv("data/dlt1-edges.csv", 
+                      col_types = cols(Sender = col_character(), 
+                                       Receiver = col_character(), 
+                                       `Category Text` = col_skip(), 
+                                       `Comment ID` = col_character(), 
+                                       `Discussion ID` = col_character())) |>
+  clean_names()
+
+dlt1_actors <- read_csv("data/dlt1-nodes.csv", 
+                   col_types = cols(UID = col_character(), 
+                                    Facilitator = col_character(), 
+                                    expert = col_character(), 
+                                    connect = col_character())) |>
+  clean_names()
 ```
 
 
@@ -466,16 +481,9 @@ Think about the questions below and be prepared to share your response:
 1. What do you think the rows and columns represent? 
 1. What do the values in each cell represent?
 
-Type your response in the chat. 
 
 ]
 
-.panel[.panel-name[Answer]
-
-- This adjacency matrix reports on **"collaboration" ties among 43 school leaders** in year 1 of a three-year study. 
-
-- This is **a directed valued (weighted) network** measured on five-point scale ranging from 0 to 4, with higher values indicating more frequent collaborations (1–2 times/week).
-]
 ]
 
 ---
@@ -489,14 +497,10 @@ Before we can begin analyzing our network data in R, we need to convert to a net
 
 ```{r wrangle-data, echo=TRUE, message=FALSE, warning=FALSE}
 
-year_1_matrix <- as.matrix(year_1_collaboration)
-
-rownames(year_1_matrix) <- 1:43
-
-colnames(year_1_matrix) <- 1:43
-
-
-year_1_network <- as_tbl_graph(year_1_matrix, directed = TRUE)
+dlt1_network <- tbl_graph(edges = dlt1_ties,
+                          nodes = dlt1_actors,
+                          node_key = "uid",
+                          directed = TRUE)
 
 ```
 
@@ -521,11 +525,10 @@ In the corresponding line of your R script, type the name of network object we j
 
 Think about the questions below:              
 
-1. What size of the Year 1 collaboration network?
+1. What size of the DLT 1 MOOC-ED network?
 1. What else do you notice about this network?
 1. What questions, if any, do have about this network?
 
-Type your responses in the chat.
 
 ]
 
@@ -565,10 +568,10 @@ For better or worse, **dense networks reinforce prevailing norms** and behaviors
 ]
 
 .panel[.panel-name[Implementation]
-The {igraph} package has a simple `edge_density()` function for calculating network density. Let's apply to our `year_1_network`:
+The {igraph} package has a simple `edge_density()` function for calculating network density. Let's apply to our `dlt1_network`:
 
 ```{r density, echo=TRUE}
-edge_density(year_1_network)
+edge_density(dlt1_network)
 ```
 
 How would you interpret this measure?
@@ -576,7 +579,7 @@ How would you interpret this measure?
 
 .panel[.panel-name[Discuss]
 
-.pull-left[We know there 82 edges in the Year 1 network (pictured right), but **how many possible edges** could there be?   
+.pull-left[We know there 2529 edges in the DLT 1 network (pictured right), but **how many possible edges** could there be?   
 
 **Hint**: The number of all possible edges in a directed network is V(V-1) where V is the # of vertices.
 
@@ -585,7 +588,7 @@ How would you interpret this measure?
 
 .pull-right[
 ```{r examine-density, strip.white=TRUE, echo=FALSE}
-autograph(year_1_network) +
+autograph(dlt1_network) +
   theme_graph()
 ```
 ]
@@ -625,35 +628,21 @@ Which of these two networks is more centralized?
 .panel[.panel-name[Implementation]
 
 .pull-left[
-The {igraph} package has a simple `edge_density()` function for calculating network density. 
+The {igraph} package has a simple `centr_degree()` function for calculating degree centrality. 
 
-Let's apply to our `year_1_network`:]
+Let's apply to our `dlt1_network`:]
 
 .pull-right[
-```{r centrality, echo=TRUE}
-centr_degree(year_1_network, mode = "all")
+```{r centrality, echo=FALSE}
+c <- centr_degree(dlt1_network, mode = "all")
+
+c$centralization
 ```
 
 How would you interpret this measure?
 ]
 ]
 
-.panel[.panel-name[Discuss]
-
-.pull-left[We know there 82 edges in the Year 1 network (pictured right), but **how many possible edges** could there be?   
-
-**Hint**: The number of all possible edges in a directed network is V(V-1) where V is the # of vertices.
-
-<!-- How many possible edges if this were an undirect network? -->
-] 
-
-.pull-right[
-```{r examine-centrality, strip.white=TRUE, echo=FALSE}
-autograph(year_1_network) +
-  theme_graph()
-```
-]
-]
 ]
 
 ---
@@ -696,19 +685,13 @@ At the network-level, reciprocity is a measure of the likelihood of vertices in 
 Let's apply to our `year_1_network`:
 
 ```{r reciprocity, echo=TRUE}
-reciprocity(year_1_network)
+reciprocity(dlt1_network)
 ```
 
-]
-]
-
-.panel[.panel-name[Discuss]
-
 - How would you interpret this measure? 
-- What does it indicate about our network? 
-
-
 ]
+]
+
 ]
 
 ---
@@ -717,17 +700,17 @@ reciprocity(year_1_network)
 .pull-left[
 ## Essential Readings
 
-- Reading 1: [Collecting and Managing Network Data](https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-2/sna-chapter-4.pdf)
+- [Collecting and Managing Network Data](https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-2/sna-chapter-4.pdf)
 
-- Reading 2: [Structural Measures for Complete Networks](https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-2/sna-chapter-5.pdf)  
+- [Structural Measures for Complete Networks](https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-2/sna-chapter-5.pdf)  
 ]
 
 .pull-right[
 ## Case Study
 
-- Case Study: [Birds of a Feather Lead Together](https://laser-institute.github.io/network-analysis/lab-2/sna-lab-2-case-study-key.html)
+- [Case Study: A Tale of Two MOOCs](https://laser-institute.github.io/network-analysis/lab-2/sna-lab-2-case-study-key.html)
 
-- Guiding Study: [Massively Open Online Course for Educators (MOOC-Ed) network dataset](https://bera-journals.onlinelibrary.wiley.com/doi/abs/10.1111/bjet.12312)
+- [Guiding Study: Massively Open Online Course for Educators (MOOC-Ed) network dataset](https://bera-journals.onlinelibrary.wiley.com/doi/abs/10.1111/bjet.12312)
 
 ]
 

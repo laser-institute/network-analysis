@@ -1,7 +1,7 @@
 ---
-title: 'Unit 2 Case Study: Collaboration Ties over Time'
-subtitle: "ECI 589 Social Network Analysis and Education"
-author: "Dr. Shaun Kellogg"
+title: 'A Tale of Two MOOCs'
+subtitle: "SNA Learning Lab 2 Case Study"
+author: "LASER Institute"
 date: "`r format(Sys.Date(),'%B %e, %Y')`"
 output:
   html_document:
@@ -11,33 +11,31 @@ output:
 editor_options:
   markdown:
     wrap: 72
-bibliography: lit/references.bib
+bibliography: references.bib
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, error = TRUE)
+knitr::opts_chunk$set(echo = TRUE, messages = FALSE, warning = FALSE)
 ```
 
 ## 1. Prepare
 
-Our *Unit 2 Case Study: Collaboration Ties over Time* revisits the
-research of Dr. Alan Daly and centers around the impact No Child Left
-Behind reform efforts on school and district leadership networks. In
-this unit we move beyond visual depictions of networks from our previous
-SNA case study and learn to describe networks using common network-level
-measures. Our analyses are guided by research conducted by Daly and
-Finnagan @daly2011ebb who examined the ebb and flow of social network
-ties between district leaders under high-stakes accountability. As we
-work through each step of the data-intensive workflow [@krumm2018], we
-will focus on the following topics:
+For our second case study, *A Tale of Two MOOCs*, we move beyond visual
+depictions of networks from our previous SNA case study and learn to
+describe networks using common network-level measures. Our analyses are
+based on *A social network perspective on peer supported learning in
+MOOCs for educators* [@kellogg2014social], and use an open educational
+dataset prepared by Kellogg and Edelman [@kellogg2015massively]. As we
+work through each step of the data-intensive workflow (Krumm, Means, and
+Bienkowski 2018), we will focus on the following topics:
 
 1.  **Prepare**: Prior to analysis, we'll take a look at the context
     from which our data came and load various R packages for data
     science and network analysis.
 
-2.  **Wrangle**: In section 2 we once make use of the {readxl} and
-    {tidygraph} packages to import and prepare relational data stored as
-    as an adjacency matrix.
+2.  **Wrangle**: In section 2 we make use of the {readr} and {tidygraph}
+    packages to import and prepare relational data stored as as an
+    adjacency matrix.
 
 3.  **Explore**: In our prior case study, we indirectly used the
     {igraph} package on which {tidygraph} depends. In section 3, we use
@@ -45,9 +43,8 @@ will focus on the following topics:
     describe and compare collaboration networks over time.
 
 4.  **Model**: While we don't do any modeling of our data in this case
-    study, we dive a little deeper into work of Daly and Finnagan
-    @daly2011ebb to see how modeling can be used to examine longitudinal
-    network data.
+    study, we dive a little deeper into work of Kellogg et al. to see
+    how modeling can was used to examine MOOC-Ed discussion networks.
 
 5.  **Communicate**: Finally, we prepare a simple "data product"
     consisting of a data visualization and/or table that highlights some
@@ -55,50 +52,137 @@ will focus on the following topics:
 
 ### 1a. Review the Research
 
-![](img/ebb-flow.png){width="40%"}
+#### A Social Network Perspective in MOOC-Eds {data-link="A Social Network Perspective in MOOC-Eds"}
 
-Daly, A. J., & Finnigan, K. S. (2011). The ebb and flow of social
-network ties between district leaders under high-stakes accountability.
-*American Educational Research Journal*, *48*(1), 39-79.
+![](img/irrodl-article.png){width="50%"}
 
-#### Abstract
+Kellogg, S., Booth, S., & Oliver, K. (2014). [A social network
+perspective on peer supported learning in MOOCs for
+educators](https://github.com/sbkellogg/eci-589/blob/main/unit-1/lit/sna_mooc_irrodl_bjet_articles.pdf). *International
+Review of Research in Open and Distributed Learning*, *15*(5), 263-289.
 
-Recent scholarship suggests the importance of school district offices in
-supporting reform. These studies provide strategies for building
-relations between central offices and sites in order to improve change
-efforts. However, what is frequently overlooked is that organizational
-reform efforts are socially constructed. Therefore, examining the
-underlying reform-related social networks may provide insight into how
-relational structures support or constrain efforts at reform. This
-longitudinal case study draws upon social network analysis and
-interviews to examine the reform-related knowledge, advice, and
-innovation network structures of central office and site leaders in a
-district facing sanction for underperformance and engaging a
-districtwide reform. Findings indicate that over time, the networks
-increased the number of superficial interactions, and more frequent
-exchanges remained unchanged, resulting in a centralized network
-structure.
+#### Research Context
 
-### 👉 Your Turn ⤵
+In the spring of 2013, The Friday Institute launched the MOOC-Ed
+Initiative to explore the potential of delivering personalized,
+high-quality professional development to educators at scale (Kleiman et
+al., 2013). In collaboration with the Alliance for Excellent Education,
+the Friday Institute launched this initiative with a 6-week pilot course
+called Planning for the Digital Learning Transition in K-12 Schools (DLT
+1), which was offered again in September 2013 (DLT 2). This course was
+designed to help school and district leaders plan and implement K-12
+digital learning initiatives.
 
-Take a look at the article *The Ebb and Flow of Social Network Ties
-Between District Leaders Under High-Stakes Accountability* located in
-the lit folder of your files pane and answer the following questions:
+Academics, as well as pundits from traditional and new media, have
+raised a number of concerns about MOOCs, including the lack of
+instructional and social supports. Among the core design principles of
+MOOC-Eds are collaboration and peer-supported learning. It is an
+assumption of this study that challenges arising form this problem of
+scale can be addressed by leveraging these massive numbers to develop
+robust online learning communities.
 
-1.  What research questions were the authors of this study trying to
-    address and why did they consider these questions important?
+This mixed-methods case study used both SNA and qualitative methods to
+better understand peer support in MOOC-Eds through an examination of the
+characteristics, mechanisms, and outcomes of peer networks. Findings
+from this study demonstrate that even with technology as basic as a
+discussion forum, MOOCs can be leveraged to foster these networks and
+facilitate peer-supported learning. Although this study was limited to
+two unique cases along the wide spectrum of MOOCs, the methods applied
+provide other researchers with an approach for better understanding the
+dynamic process of peer supported learning in MOOCs.
+
+#### Data Sources
+
+**MOOC-Ed registration form.** All participants completed a registration
+form for each MOOC-Ed course. The registration form consists of
+self-reported demographic data, including information related to their
+professional role and work setting, years of experience in education,
+and personal learning goals.
+
+**MOOC-Ed discussion forums.** All peer interaction, including peer
+discussion, feedback, and reactions (e.g., likes), take place within the
+forum area of MOOC-Eds, which are powered by Vanilla Forums. Because of
+the specific focus on peer supported learning, postings to or from
+course facilitators and staff were removed from the data set. Finally,
+analyses described below exclude more passive forms of interactions
+(i.e., read and reaction logs), and include only postings among peers.
+
+For our second case study, we'll take a look at data from the original
+Digital Learning Transition in K-12 Schools (DLT 1) that was not
+included in this study.
+
+**Note**: In the data we're using, instructors have not yet been removed
+and only direct replies to forum posts have been included, though
+"weaker" ties like reactions with emoticons and even views of posts were
+captured in this study.
+
+#### **👉 Your Turn** **⤵**
+
+Take a quick look at the *Description of the Dataset* section from the
+[Massively Open Online Course for Educators (MOOC-Ed) network
+dataset](https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-2/bjet_12312_Rev.pdf)
+BJET article and the accompanying data sets stored on [Harvard
+Dataverse](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/ZZH3UB)
+that we'll be using for this case study.
+
+In the space below, type a brief response to the following questions:
+
+1.  What were some of the steps necessary to construct the edges in this
+    dataset?
+
+    -   YOUR RESPONSE HERE
+
+2.  What "node attributes" are included in this dataset? How might they
+    be used for analysis?
+
+    -   YOUR RESPONSE HERE
+
+3.  What basic network-level descriptives were included in this article?
+
+    -   YOUR RESPONSE HERE
+
+4.  What else do you notice/wonder about this dataset?
+
+    -   YOUR RESPONSE HERE
+
+### 1b. Identify a Question(s)
+
+A Social Network Perspective on Peer Supported Learning was framed by
+three primary research questions related to peer supported learning:
+
+1.  What are the patterns of peer interaction and the structure of peer
+    networks that emerge over the course of a MOOC-Ed?
+
+2.  To what extent do participant and network attributes (e.g.,
+    homophily, reciprocity, transitivity) account for the structure of
+    these networks?
+
+3.  To what extent do these networks result in the co-construction of
+    new knowledge?
+
+For Lab 2, our exploratory analysis is primiarly interested in answering
+some rather basic questions:
+
+1.  How do the DLT 1 and DLT 2 MOOC-Ed networks compare visually?
 
     -   
 
-2.  How were participants selected for this study and what was the
-    rationale?
+2.  How do network-levels measures for each network compare?
 
     -   
 
-3.  How did the authors collect social network data for this study and
-    what specific information about actors and ties were collected?
+3.  What do these visual and mathematical descriptions of our network
+    imply about the similarities and differences between each MOOC-Ed?
 
     -   
+
+#### **👉 Your Turn** **⤵**
+
+Based on what you know about networks and the context so far, what other
+research question(s) might ask we ask in this context that a social
+network perspective might be able to answer?
+
+-   YOUR RESPONSE HERE
 
 ### 1b. Load Libraries
 
@@ -145,6 +229,8 @@ adding the concept of *layouts* to the [grammar of
 graphics](https://ggplot2-book.org/introduction.html?q=grammar#what-is-the-grammar-of-graphics),
 i.e. the "gg" in ggplot and ggraph.
 
+#### New (ish) SNA Packages
+
 **igraph 📦**
 
 ![](img/igraph.png){width="20%"}
@@ -161,29 +247,15 @@ set of data types and functions for:
 
 3.  allowing rapid prototyping via high level languages like R.
 
-#### New Packages
+#### 👉 Your Turn ⤵
 
-**readxl 📦**
+Use the code chunk below to load the {tidyverse}, {tidygraph}, {ggraph},
+and {igraph} packages that we'll be using in this case study. Also load
+the {janitor} package that we'll be using to quickly clean up our
+variable names:
 
-![](img/readxl.png){width="20%"}
-
-The [{readxl}](https://readxl.tidyverse.org/) package makes it easy to
-get data out of Excel and into R. Compared to many of the existing
-packages (e.g. gdata, xlsx, xlsReadWrite) readxl has no external
-dependencies, so it's easy to install and use on all operating systems.
-It is designed to work with *tabular* data.
-
-Since one of our data wrangling steps in the next section is importing
-network matrices stored in excel files, this package will come in handy.
-
-### 👉 Your Turn ⤵
-
-Use the code chunk below to load the tidyverse, igraph, tidygraph,
-ggraph, and readxl packages that we'll be using in this case study:
-
-```{r libraries}
+```{r load_libraries}
 # YOUR CODE HERE
-
 
 
 ```
@@ -195,244 +267,274 @@ reshaping, transforming, and merging data[@wickham2016r]. As highlighted
 in Estrellado et al. @estrellado2020e, wrangling network data can be
 even more challenging than other data sources since network data often
 includes variables about both individuals and their relationships. For
-data wrangling in this unit, we're keeping it simple since working with
+data wrangling in this lab, we're keeping it simple since working with
 relational data, especially in the form of matrices, is a bit of a
 departure from our working with rectangular data frames.
 
+For our data wrangling this week, we're keeping it simple since working
+with network data is a bit of a departure from our working with
+rectangular data frames. Our primary goals for Section 2 are learning
+how to:
+
+a.  **Import Lists**. An obvious and also important first step, we need
+    to "read" our data into R and learn about formatting for edge-lists
+    and node attribute files.
+
+b.  **Create a Graph Object**. Before performing network analyses, we'll
+    need to convert our data frames into a graph object for working with
+    relational data.
+
 ### 2a. Import Data
 
-One of our primary goals for this case study is to examine how
-collaboration networks among school and district leaders changed over
-time. To do so, we'll need to import two Excel files from the [Social
-Network Analysis and Education companion
-site](https://studysites.sagepub.com/carolan/study/resources.htm). Both
-files contain edges stored as a square matrix (more on this later) for
-the first and third year of a study examining the impact of national
-reform efforts [@daly2011ebb].
+#### The Edge-List Format
 
-These files are included in the data folder of your R Studio project. A
-description of each file from the companion website is linked above and
-each data file is linked below:
+To get started, we need to import, or "read", our data into R. The
+function used to import your data will depend on the file format of the
+data you are trying to import, but R is pretty adept at working with
+many files types.
 
-1.  [**year_1\_collaboration.xlsx**](https://studysites-sagepub-com.prox.lib.ncsu.edu/carolan/study/materials/datasets/99472_ds7.xls)
-    This adjacency matrix reports on "collaboration" ties among 43
-    school leaders in year 1 of a three-year study. This is a directed
-    valued (weighted) network measured on five-point scale ranging from
-    0 to 4, with higher values indicating more frequent collaborations
-    (1--2 times/week). These data are used throughout Chapter 9.
+Take a look in the `/data` folder in your Files pane. You should see the
+following .csv files:
 
-2.  [**year_3\_collaboration.xlsx**](https://studysites-sagepub-com.prox.lib.ncsu.edu/carolan/study/materials/datasets/99472_ds8.xlsx)
-    This adjacency matrix reports on "collaboration" ties among 43
-    school leaders in year 3 of a three-year study. This is a directed
-    valued (weighted) network measured on five-point scale ranging from
-    0 to 4, with higher values indicating more frequent collaborations
-    (1--2 times/week). 
+-   `dlt1-edges.csv`
 
-Recall from above that our relations, or edges, are stored as a valued
-[adjacency matrix](https://en.wikipedia.org/wiki/Adjacency_matrix) in
-which columns and rows consist of the same actors and each cell contains
-information about the tie between each pair of actors. In our case, the
-tie is a directed and valued "arc" where the value indicates the
-frequency of collaboration.
+-   `dlt1-nodes.csv`
 
-Let's use the `read_excel()` function to import the
-`year_1_collaboration.xlsx` file, add an argument setting the column
-names to `FALSE` since our file is a simple matrix with no header or
-column names, and assign the matrix to a variable named
-`year_1_collaboration`:
+The first file `dlt1-edges.csv` is an edge-list that contains
+information about each tie, or relation between two actors in a network.
+In this context, a "tie" is a reply by one participant in the discussion
+forum to the post of another participant -- or in some cases to their
+own post! These ties between a single actor are called "self-loops" and
+as we'll see later, {tidygraph} has a special function to remove these
+self loops from a sociogram, or network visualization.
 
-**R Studio Tip:** Type `?read_excel` into the console and check the
-arguments section to examine the different arguments that can be used
-with this function.
+The edge-list format is slightly different than other formats you have
+likely worked with before in that the values in the first two columns
+each row represent a dyad, or tie between two nodes in a network. An
+edge-list can also contain other information regarding the strength,
+duration, or frequency of the relationship, sometime called "weight", in
+addition to other "edge attributes."
 
-```{r import year }
+In addition to our `Sender` and `Reciever` dyad pairs, our DLT 1 dataset
+contains the following edge attributes:
 
-year_1_collaboration <- read_excel("data/year_1_collaboration.xlsx", 
-                            col_names = FALSE)
+-   `Sender` = Unique identifier of author of comment
+
+-   `Receiver` = Unique identifier of identified recipient of comment
+
+-   `Timestamp` = Time post or reply was posted
+
+-   `Parent` = Primary category or topic of thread
+
+-   `Category` = Subcategory or subtopic of thread
+
+-   `Thread_id` = Unique identifier of a thread
+
+-   `Comment_id` = Unique identifier of a comment\\
+
+Let's use the `read_csv()` function from the {readr} and {janitor}
+packages introduced in previous units to read in our edge-list and clean
+up the variables names:
+
+```{r read_edges}
+dlt1_ties <- read_csv("data/dlt1-edges.csv", 
+                      col_types = cols(Sender = col_character(), 
+                                       Receiver = col_character(), 
+                                       `Category Text` = col_skip(), 
+                                       `Comment ID` = col_character(), 
+                                       `Discussion ID` = col_character())) |>
+  clean_names()
+
+dlt1_ties
 ```
 
-Before importing our Year 3 file, let's quickly inspect the R object we
-just imported to see what we'll be working with.
+Note the addition of the `col_types =` argument for changing the column
+types to character strings since the numbers for those particular
+columns indicate actors (`Sender` and `Reciever`) and attributes
+(`Comment_ID` and `Discussion_Id`). We also skipped the `Category Text`
+since this was left blank for deidentification purposes.
 
-```{r year_1_view}
+#### **👉 Your Turn** **⤵**
 
-year_1_collaboration
+Consider the example pictured below of a discussion thread from the
+Planning for the Digital Learning Transition in K-12 Schools (DLT 1)
+where our data orginated. This thread was initiated by participant I, so
+the comments by J and N are considered to be directed at I. The comment
+of B, however, is a direct response to the comment by N as signaled by
+the use of the quote-feature as well as the explicit mentioning of N's
+name within B's comment.
 
+![](img/discussion-thread.png)
+
+Now answer the following questions as they relate to the DLT 1 edge-list
+we just read into R.
+
+1.  Which actors in this thread are the `Sender` and the `Reciever`?
+    Which actor is both?
+
+    -   YOUR RESPONSE HERE
+
+2.  How many dyads are in this thread? Which pairs of actors are dyads?
+
+    -   YOUR RESPONSE HERE
+
+**Sidebar:** Unfortunately, these types of nuances in discussion forum
+data as illustrated by this simple example are rarely captured through
+automated approaches to constructing networks. Fortunately, the dataset
+you are working with was carefully reviewed to try and capture more
+accurately the intended recipients of each reply.
+
+#### Node Attributes
+
+The second file we'll be using contains all the nodes or actors (i.e.,
+participants who posted to the discussion forum) as well as some of
+their attributes such as gender and years of experience in education.
+
+Carolan (2013) notes that most social network analyses include variables
+that describe attributes of actors, ones that are either categorical
+(e.g., sex, race, etc.) or continuous in nature (e.g., test scores,
+number of times absent, etc.). These attributes that can be incorporated
+into a network graph or model, making it more informative and can aid in
+testing or generating hypotheses.
+
+These attribute variables are typically included in a rectangular array,
+or dataframe, that mimics the actor-by-attribute that is the dominant
+convention in social science, i.e. rows represent cases, columns
+represent variables, and cells consist of values on those variables.
+
+As an aside, Carolan also refers to this historical preference by
+researchers for "actor-by-attribute" data, in the absence of relational
+data in which the actor has been removed their social context, as the
+"sociological meatgrinder" in action. Specifically, this historical
+approach assumes that the actor does not interact with anyone else in
+the study and that outcomes are solely dependent of the characteristics
+of the individual.
+
+Let's use the code chunk below to import the `dlt1-nodes.csv` attribute
+file and be sure to set the following variables as character data types:
+`UID`, `Facilitator`, `expert`, `connect`.
+
+```{r read_nodes}
+# YOUR CODE HERE
+dlt1_actors <- read_csv("data/dlt1-nodes.csv", 
+                   col_types = cols(UID = col_character(), 
+                                    Facilitator = col_character(), 
+                                    expert = col_character(), 
+                                    connect = col_character())) |>
+  clean_names()
 ```
 
-As you can see, we have a 43 x 43
-"[tibble](https://tibble.tidyverse.org)" or data table representing our
-collaboration ties. In Section 2, we'll learn how to restructure this
-data into a formal matrix and then convert to a network class R object
-so we can explore our data through network visualization and analyses.
+#### **👉 Your Turn** **⤵**
 
-### 👉 Your Turn ⤵
-
-Use the code chunk below to import the Year 3 collaboration network
-located in data folder of your R project and then inspect your newly
-created object to make sure it imported as expected.
-
-```{r year_3_import}
-#YOUR CODE HERE
-
-
-```
-
-### 2b. Create a Tidy Graph
-
-As noted above, before we can begin exploring our data through through
-network visualization and analysis, we must first restructure our data
-into a formal matrix and then convert to a network class R object
-required by the igraph, tidygraph, and ggraph packages.
-
-However, one thing you may have noticed from our inspection of the data
-above is that our data table is missing the names of the school leaders
-in our network, which are needed for determining dyads in our network. R
-has packages for creating random names to help anonymize data, but to
-keep things simple, we'll just assign the numbers 1-43 as names for our
-rows and columns.
-
-```{r assign_names}
-
-rownames(year_1_collaboration) <- 1:43
-
-colnames(year_1_collaboration) <- 1:43
-
-```
-
-You may have seen a warning stating:
-`Setting row names on a tibble is deprecated.` You can ignore that for
-now but it's basically telling us these functions are old we we need to
-use newer function or our code will some day stop working.
-
-Again, let quickly inspect our `year_1_collaboration` data table to see
-if this worked:
+Now use the code chunk below to inspect the data you imported and
+complete the matching exercise that follows:
 
 ```{r}
-year_1_collaboration
-```
-
-As you can see, we now have names for our rows and columns corresponding
-to each school leader in our network. So we can see that leader 1
-collaborated with leader 3 and with a frequency of "3" but obviously did
-not collaborate with 2 as indicated by the "0" in the corresponding
-cell. Note that leader 3 also indicated that they collaborated with 1,
-but on a slightly more frequent basis as indicated by the "4" in the
-corresponding cell.
-
-#### Convert to Matrix Object
-
-Now that we have names included for our rows and columns, we need to
-convert our data table, or tibble, to a formal matrix class object. To
-do so is relatively simple using the `as.matrix()` function built into
-R.
-
-```{r as_matrix}
-
-year_1_matrix <- as.matrix(year_1_collaboration)
+#YOUR CODE HERE
 
 ```
 
-The word "class" and "object" have been used quite a bit in this
-case-study and warrant a brief explanation. Classes and objects are
-basic concepts of Object-Oriented Programming environments like R. An
-**object** is simply a data structure that has some methods and
-attributes. Everything in R is essentially an object. A **class** is
-just a blueprint or a sketch of these objects. It represents the set of
-properties or methods that are common to all objects of one type.
+Match up the attributes included in the node file with the following
+codebook descriptors. The first one has been done as an example.
 
-Let's use the `class()` function on the `year_1_collaboration` and
-`year_1_matrix` to see the types of objects we just created:
+-   `Facilitator` = Identification of course facilitator (1 =
+    instructor)
+-   Dummy variable for whether participants listed networking and
+    collaboration with others as one of their course goals on the
+    registration form
+-   Identifier of "expert panelists" invited to course to share
+    experience through recorded Q&A
+-   Identification of course facilitator (1 **=** instructor)
+-   Professional role (eg, teacher, librarian, administrator)
+-   Years of experience as an educator
+-   Works with elementary, middle, and/or high school students
+-   Initial assignment of discussion group
 
-```{r object_class}
+**RStudio Tip:** Importing data and dealing with data types can be a bit
+tricky, especially for beginners. Fortunately, RStudio has an "Import
+Dataset" feature in the Environment Pane that can help you use the
+{readr} package and associated functions to greatly facilitate this
+process.
 
-class(year_1_collaboration)
+![](img/import-data.png)
 
-class(year_1_matrix)
+### 2b. Create Network Object
 
-```
-
-Great! We can now see that our `year_1_matrix` is formally an object of
-the "matrix" class.
+As demonstrated in our previous case study, we first need to convert the
+data frames that we imported into an network object before we can begin
+using many of the functions from our network packages for summarizing
+and visualizing our DLT 1 network.
 
 #### Convert to Graph Object
 
-Our final step before we're able to begin exploring our data is to
-convert our matrix to a network object recognized by the {igraph} and
-{tidygraph} packages.
-The [`as_tbl_graph()`](https://tidygraph.data-imaginist.com/reference/tbl_graph.html) function
-can easily convert relational data from all common network data formats
-such as matrices,
-`network`, `phylo`, `dendrogram`, `data.tree`, `graph`, etc. 
+To do that, we will use the `tbl_graph()` function from the {tidygraph}
+package. Note that I included the `eval=FALSE` argument in the code
+block below to prevent this code from running when we knit our final
+document. Otherwise it will produce an error since we can't include help
+documentation in our knitted HTML file.
 
-Run the following code to convert our matrix to directed network graph
-and save as a new object called `year_1_network`:
+Run the following code to take a look at the help documentation for this
+function:
 
-```{r}
-
-year_1_network <- as_tbl_graph(year_1_matrix, directed = TRUE)
-
+```{r function_help, eval=FALSE}
+?tbl_graph
 ```
 
-Again, let's inspect our new object:
+You probably saw that this particular function takes the following three
+arguments, two of which are data frames:
 
-```{r year_1_network}
+-   **`edges =`** A `data.frame` containing information about the edges
+    in the graph. The terminal nodes of each edge must either be encoded
+    in a `to` and `from` column, or be in the two first columns.
 
-year_1_network
+-   **`nodes =`** a node list that starts with a column of node IDs. Any
+    following columns are interpreted as node attributes.
 
+-   **`node_key =`** The name of the column in `nodes` that character
+    represented `to` and `from` columns should be matched against.
+
+-   **`directed =`** determines whether or not to create a directed
+    graph.
+
+Run the following code to specify our `ties` data frame as the edges of
+our network, our `actors` data frame for the vertices of our network and
+their attributes, and indicate that this is indeed a directed network.
+
+```{r create_network}
+dlt1_network <- tbl_graph(edges = dlt1_ties,
+                          nodes = dlt1_actors,
+                          node_key = "uid",
+                          directed = TRUE)
 ```
 
-As you can see, our `year_1_network` provides a range of information
-about out network including network size, type, number of components,
-and a preview of the node and edge lists that it created. The node and
-edge lists are treated just like a typical data frame and can now be
-used with other tidyverse packages and functions to create new
-actor-level network variables like degree, reciprocity, and centrality
-measures.
+#### **👉 Your Turn** **⤵**
 
-### 👉 Your Turn ⤵
+Take a look at the output for our `dlt1_network` and answer the
+questions that follow:
 
-Use the code chunk below to complete the following data wrangling steps
-for our Year 3 collaboration network from the Excel file you imported
-earlier:
-
-1.  Add row and column names to the data frame;
-
-2.  Convert the resulting data frame to a matrix class object and check
-    to confirm that it is indeed a matrix;
-
-3.  Convert the matrix to a network graphs object with directed edges;
-
-4.  Inspect the Year 3 collaboration network and answer the questions
-    after the code chunk.
-
-```{r}
+```{r inspect_network}
 #YOUR CODE HERE
 
-
-
 ```
 
-Section 2 Questions:
+1.  How does the number of node and edges in our DLT 1 network compare
+    to the totals reported for the DLT 2, the second iteration of this
+    MOOC-Ed, reported on in our [guiding
+    study](https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-2/sna_mooc_irrodl_bjet_articles.pdf)?
 
-1.  What is the size of the Year 3 collaboration network?
+    -   YOUR RESPONSE HERE
 
-    -   
+2.  Do the number of nodes and edges are in our network match the number
+    of observations in our node and edge list .csv files? **Hint:**
+    Check the Environment pane.
 
-2.  How many components are in this network?
+    -   YOUR RESPONSE HERE
 
-    -   
+3.  Our output notes that our network is a directed multigraph,
+    indicating that some dyads may have multiple edges. Why might that
+    be?
 
-3.  How many nodes and edges variables are in our tidy graph and what
-    does each variable (e.g., weight) represent?
-
-    -   
-
-4.  How does collaboration in Year 3 compare to Year 1 and what
-    inferences might you already be able to make just based on the size
-    of the two networks?
-
-    -   
+    -   YOUR RESPONSE HERE
 
 ## 3. Explore
 
@@ -472,48 +574,50 @@ Visualization with R](https://kateto.net/network-visualization/) helps
 illustrate the variety of goals a good network visualization can
 accomplish.
 
-Recall from our previous SNA case study examining Twitter networks
-surrounding the Common Core State Standards that we introduced the dead
-simple
+Recall from our previous SNA case study examining student friendships in
+middle school that we introduced the dead simple
 [`plot()`](https://www.rdocumentation.org/packages/graphics/versions/3.6.2/topics/plot)
-function built into R to quickly generate a sociogram showing the nodes
-and edges in our network.
+function built into R, as well as the \`autograph()\` function from the
+{ggraph} package to quickly generate a sociogram showing the nodes and
+edges in our network.
 
-Let's supply our `year-1-network` object as the first argument of this
-function and see what it produces:
+Let's supply our `year-1-network` object as the first argument to each
+of these functions and see what they produce:
 
-```{r plot}
+```{r plot_network}
 
-plot(year_1_network)
+plot(dlt1_network)
+
+autograph(dlt1_network)
 
 ```
 
-While not the most aesthetically pleasing plot, it definitely is
-functional. As indicated by our tidy graph output from section 1, we can
-see that there is one large network component and two additional
-components consisting of isolated school leaders with no collaboration
-ties.
+Yuck! Neither a aesthetically pleasing plot, nor terribly functional. As
+indicated by our tidy graph output from section 1, however, we can see
+that there is one large network component and three additional
+components consisting of isolated MOOC-Ed participants who neither sent
+or received replies to their colleagues.
 
-If this had been a larger network with more nodes and edges, however,
-the utility of the basic `plot()` function would evaporate quickly. For
-example, try this function out with the Year 3 network in the console
-and see what it produces.
-
-Fortunately, the {ggraph} package includes a plethora of plotting
-parameters for graph layouts, edges and nodes to improve the visual
-design and readability of network graphs.
+As you may have realized already, the utility of the basic `plot()`
+function is not very useful for large networks like this one.
+Fortunately, the {ggraph} package that we learned about in Lab 1
+includes a plethora of plotting parameters for graph
+[layouts](https://ggraph.data-imaginist.com/articles/Layouts.html),
+[edges](https://ggraph.data-imaginist.com/articles/Edges.html) and
+[nodes](https://ggraph.data-imaginist.com/articles/Nodes.html) to
+improve the visual design and readability of network graphs.
 
 **Note:** If you're having trouble seeing the plot you can run the code
 in the console and see the plot in the Viewer pane or click the little
 arrow/window icon in the output of the code chunk to open the plot in a
 new window and resize.
 
-### **Sociograms with ggraph**
+#### **Sociograms with ggraph**
 
-One thing to keep in mind when building a network viz with the {ggraph}
-package is that just like it's {ggplot} counterpart for making more
-traditional charts and graphs, there is a minimal code template for
-producing a basic plot. Specifically, ggraph requires 3 main functions
+Recall from Lab 1 that just like it's {ggplot} counterpart for making
+more traditional charts and graphs, there is a minimal code template for
+producing a basic plot with {ggraph}. Specifically, it requires 3 main
+functions
 
 -   [`ggraph()`](https://ggraph.data-imaginist.com/articles/Layouts.html)
     takes care of setting up the plot object along with creating the
@@ -527,33 +631,17 @@ producing a basic plot. Specifically, ggraph requires 3 main functions
     functions and their associated arguments add and modify the edgez of
     the network plot.
 
-Like the basic plotting function above, ggraph has a similar
-`autograph()` function for automatically generating a simple sociogram
-to get a quick snapshot of your network. Run the following code
-supplying our `year_1_network` object as the first argument for this
-function:
-
-```{r autograph}
-
-autograph(year_1_network)
-
-```
-
-As you can see, this produces a very basic plot that includes our
-network nodes and edges with minimal styling.
-
-Within this function, however, are the three core functions noted above
-that can be modified though different arguments or by adding additional
-layers of functions to change the visual aesthetics of your sociogram to
-highlight key characteristics of the network, like edge weight or
-central actors.
+These three core functions can be modified though different arguments or
+by adding additional layers of functions to change the visual aesthetics
+of your sociogram to highlight key characteristics of the network, like
+edge weight or central actors.
 
 Let generate the same basic plot above but explicitly call our ggraph,
 node, and edge functions:
 
-```{r}
+```{r dlt1_sociogram}
 
-ggraph(year_1_network) +
+ggraph(dlt1_network) +
   geom_node_point() +
   geom_edge_link()
 
@@ -568,19 +656,23 @@ changes: Run the following code to:
     using the `layout = "fr"` argument to help highlight areas of
     clustering;
 
--   Change the size of our nodes using the `size = 3` argument to make
-    them more visible;
+-   Decrease the transparency of our edges using the `alpha =` argurment
+    the to better highlight the nodes;
 
--   Add color to our edges based using the `aes(colour = weight)`
-    argument to highlight more frequent collaborations; and,
+-   Change the size of our nodes using the `local_size()` function to
+    make those more connected more visible;
+
+-   Change the color of our nodes based on their school or district role
+    using the `color=` argument; and,
 
 -   Add the `theme_graph()` layer to remove the gray background.
 
-```{r}
+```{r modify_sociogram}
 
-ggraph(year_1_network, layout = "fr") +
-  geom_node_point(size = 3) +
-  geom_edge_link(aes(colour = weight)) +
+ggraph(dlt1_network, layout = "fr") +
+  geom_edge_link(alpha = .2) +
+  geom_node_point(aes(color = role1,
+                      size = local_size())) +
   theme_graph()
   
 
@@ -589,24 +681,27 @@ ggraph(year_1_network, layout = "fr") +
 That is perhaps slightly better, but before sharing with an education
 partner, I would likely do quite a bit more clean up to highlight key
 findings specific to network measures that we'll explore in the next
-section. For example, I might change the size of nodes for school
-leaders based on measures of centralization to highlight more central
-actors in the network and add arrows to indicate directionality of the
-ties since this is a directed network.
+section.
 
-### 👉 Your Turn ⤵
+**Note:** If you're having difficulty seeing the sociogram in the small
+R Markdown code chunk, you can copy and paste the code in the console
+and it will show in the Viewer pan and then you can enlarge and even
+save as an image file.
 
-Use the code chunk below created a simple sociogram for the Year 3
-collaboration network and answer the questions that follow:
+#### 👉 Your Turn ⤵
+
+Use the code chunk below created a sociogram for the DLT 2 MOOC network
+and answer the questions that follow:
 
 ```{r year_3_sociogram}
 #YOUR CODE HERE
 
 
+
 ```
 
-1.  How does the Year 3 collaboration network compare to Year 1? What
-    are some similarities and differences?
+1.  How does the DLT 2 network compare to DLT 1? What are some
+    similarities and differences?
 
     -   
 
@@ -621,7 +716,9 @@ collaboration network and answer the questions that follow:
 ### 3b. Describe the Network Mathematically
 
 This section include some of the most common measures used to describe
-the features of complete networks, as well was .
+the features of complete networks, both at the network-level measures
+and also for individual nodes as well. Recall from our essential
+readings that:
 
 > Network-level structural measures are those that are calculated from
 > the entire network. Therefore, they provide an excellent snapshot of
@@ -646,22 +743,21 @@ the number of nodes and edges in a network. As Carolan notes:
 > resources and capacities for creating and maintaining ties with
 > others.
 
-As we saw in the previous section, the `year_1_network` output provided
-us with basic information about our networks size, including the number
-of nodes and edges in our network. The {igraph} package also has some
-basic functions for retrieving the number of nodes and edges in a
-network.
+As we saw in the previous section, the `dlt1_network` output provided us
+with basic information about our networks size, including the number of
+nodes and edges in our network. The {igraph} package also has some basic
+functions for retrieving the number of nodes and edges in a network.
 
 Run the following code chunk to use the
 [`gorder()`](https://igraph.org/r/html/latest/gorder.html) and
 [`gsize()`](https://igraph.org/r/html/latest/gsize.html) functions
 obtain the number of vertices and edges respectively:
 
-```{r size}
+```{r compute_size}
 
-gorder(year_1_network)
+gorder(dlt1_network)
 
-gsize(year_1_network)
+gsize(dlt1_network)
 
 ```
 
@@ -689,32 +785,31 @@ selected, as well as the degree for each actors in the network. Let's
 first take a look at the centralization measure based on number of
 actors individuals have ties with regardless of directionality:
 
-```{r}
-centr_degree(year_1_network, mode = "all")
+```{r compute_centrality}
+centr_degree(dlt1_network, mode = "all")
 ```
 
 The first variable `$res` provides node-level centrality scores. So for
-example, the first school leader in our network is connected to 5 other
+example, the first school leader in our network is connected to 53 other
 actors in the network. The `$centralization` variable provides our
-actual centrality score, which is quite small suggesting a very
-decentralized network. And the final `$theoretical_max` provides the
-maximum theoretical graph level centralization score for our graph based
-on the number of vertices.
+actual centrality score, which at 0.64 indicates a rather centralized
+network as was apparent from our sociogram.
 
 Let's also take a quick look at centralization scores for in-degree and
 out-degree:
 
-```{r}
-centr_degree(year_1_network, mode = "out")
-centr_degree(year_1_network, mode = "in")
+```{r compute_degrees}
+centr_degree(dlt1_network, mode = "out")
+centr_degree(dlt1_network, mode = "in")
 ```
 
-Again, we still have a very decentralize graph, though slightly more
-centralized around in-degree.
+Again, we still have a rather centralized graph, especially for
+in-degree which suggest that a few individual may be receiving and
+outsized share of replies.
 
 While our primary concern is complete network-level measures so we can
-compare Year 1 & 3 networks, obtaining node-level measures is also very
-useful for helping to describe the network, particularly for
+compare DLT 1 & DLT 2 networks, obtaining node-level measures is also
+very useful for helping to describe the network, particularly for
 visualization. For example, we might want to adjust the size of nodes in
 a network based on degree, so those actors with more connections stand
 out more prominently.
@@ -728,27 +823,36 @@ The latter function, `mutate()`, can be use to create new variables for
 node-level measures of degree, in-degree, and out-degree using the
 `centrality_degree()` function in the {tidygraph} package.
 
-Run the following code to add each actor's degree to our Year 1
-collaboration network and assign the output `year_1_network` again so
-the results are saved:
+Run the following code to add each actor's `in-degree` (i.e. number of
+replies received) to our DLT 1 network and assign the output
+`dlt1_network` again so the results are saved:
 
-```{r node_degree}
-year_1_network <- year_1_network |>
+```{r compute_node_degree}
+dlt1_network <- dlt1_network |>
   activate(nodes) |>
-  mutate(degree = centrality_degree(mode = "all"))
+  mutate(in_degree = centrality_degree(mode = "in"))
 
-year_1_network
+dlt1_network
 
 ```
 
-Now we could adjust the size of more central actors in our sociogram
-from above like so to highlight the full range of collaboration ties in
-our network:
+Let's temporarily convert to a data frame so we can get a better look at
+our nodes and the measure of `degree` instead of `local_size()` that we
+just created.
 
-```{r}
-ggraph(year_1_network) +
-  geom_node_point(aes(size = degree, color = degree)) +
-  geom_edge_link(aes(color = weight)) +
+```{r as-tibble}
+dlt1_network |>
+  as_tibble()
+```
+
+Now we can also adjust the size of more central actors in our sociogram
+from above using `in_degree` instead of `local_size()` to highlight
+those actors who are receiving and outsized share of replies:
+
+```{r udpate_sociogram}
+ggraph(dlt1_network) +
+  geom_edge_link(alpha = .2) +
+  geom_node_point(aes(size = in_degree, color = role1)) +
   theme_graph()
 ```
 
@@ -771,17 +875,22 @@ but both yield the exact same result. The `edge_density()` function is
 the more recent function and should be used, but let's try them both
 out:
 
-```{r}
+```{r compute_density}
 
-edge_density(year_1_network)
+edge_density(dlt1_network)
 
-graph.density(year_1_network)
+graph.density(dlt1_network)
 ```
 
-As you can see, our collaboration network in Year 1 has a VERY low
-density, which suggests that collaboration in this network is quite
-limited and may impact the flow of information, resources, and
-innovations among school leaders.
+As you can see, our collaboration network in DLT 1 has a VERY low
+density. Intrepretation of the measure greatly depends on context,
+however. In smaller networks, for example, it may suggest that
+collaboration in the network is quite limited and may impact the flow of
+information, resources, and innovations among actors. In a large network
+like this one, however, low density is very common. Moreover, even
+though someone may not have given or received replies very often to
+others, they still benefit in that since this in an online discussion,
+all information shared is visible to all participants.
 
 #### 4. Reciprocity
 
@@ -800,14 +909,13 @@ mutually linked**. Using the
 [`reciprocity()`](https://igraph.org/r/html/latest/reciprocity.html)
 function, we can directly calculate this measure:
 
-```{r reciprocity}
+```{r compute_reciprocity}
 
-reciprocity(year_1_network)
+reciprocity(dlt1_network)
 ```
 
 As illustrated by the reciprocity measure above, the tendency towards
-reciprocated collaboration ties is, surprisingly, very low in our Year 1
-network.
+reciprocated ties is, surprisingly, very low in our DLT 1 network.
 
 And if we wanted to highlight this lack of reciprocity in a network
 visual, we could use the
@@ -815,13 +923,13 @@ visual, we could use the
 function to create a new edge variable called `reciprocated` that
 indicates whether the tie is mutual or asymmetric.
 
-```{r}
+```{r flag_mutual_dyads}
 
-year_1_network <- year_1_network |>
+dlt1_network <- dlt1_network |>
   activate(edges) |>
   mutate(reciprocated = edge_is_mutual())
 
-year_1_network
+dlt1_network
 ```
 
 As shown in the output above, the tie between school leader 1 and 3 is
@@ -830,10 +938,11 @@ reciprocated, but the tie between 3 and 24 is not.
 Let's now add this new variable to our sociogram to highlight
 reciprocated ties in our Year 1 network:
 
-```{r}
-ggraph(year_1_network) +
-  geom_node_point(aes(size = degree)) +
-  geom_edge_link(aes(color = reciprocated)) +
+```{r add_reciprocated_ties}
+ggraph(dlt1_network) +
+  geom_node_point(aes(size = in_degree)) +
+  geom_edge_link(aes(color = reciprocated),
+                 alpha = .2) +
   theme_graph()
 ```
 
@@ -869,14 +978,13 @@ The
 function provides a convenient means to calculate a network-level
 transitive measures:
 
-```{r transitivity}
+```{r compute_transitivity}
 
-transitivity(year_1_network)
+transitivity(dlt1_network)
 ```
 
-For our particular network, a relatively small value of 24.4% is not too
-surprising since this is the start of the research study and since the
-density of our network overall is very low.
+For our particular network, a very small value of 8% is not too
+surprising since, again, this is rather large network.
 
 #### 6. Diameter & Distance
 
@@ -888,13 +996,13 @@ distance between all pairs of actors in the network.
 
 The two functions for computing diameter and average path length are
 `diameter()` and `mean_distance()` respectively. Let's apply both of
-these to our `year_1_network` object:
+these to our `dlt1_network` object:
 
-```{r diameter_distance}
+```{r compute_diameter}
 
-diameter(year_1_network)
+diameter(dlt1_network)
 
-mean_distance(year_1_network)
+mean_distance(dlt1_network)
 
 ```
 
@@ -907,8 +1015,8 @@ unable to access.
 
 ### 👉 Your Turn ⤵
 
-Use the code chunk below to calculate the following measures for the
-Year 3 collaboration newtwork, then answer the questions below:
+Use the code chunk below to calculate the following measures for the DLT
+2 network, then answer the questions below:
 
 1.  Size
 2.  Centralization
@@ -917,23 +1025,19 @@ Year 3 collaboration newtwork, then answer the questions below:
 5.  Transitivity & Clustering
 6.  Diameter & Distance
 
-```{r 3b_turn}
+```{r analyze_year_3}
 #YOUR CODE HERE
 
 #size
-
+g
 
 #cetnralization 
 
-
 #density
-
 
 #reciprocity
 
-
 #transitivity
-
 
 #diameter & distance 
 
@@ -944,13 +1048,64 @@ Year 3 collaboration newtwork, then answer the questions below:
 
     -   
 
-2.  What do these measures suggest about changes in collaboration among
-    school leaders over time? In your response, cite some specific
-    measures from Year 1 & 3 as evidence for your conclusions.
-
-    -   
-
 ## 4. Model
+
+As highlighted in [Chapter 3 of Data Science in Education Using
+R](https://datascienceineducation.com/c03.html), the **Model** step of
+the data science process entails "using statistical models, from simple
+to complex, to understand trends and patterns in the data." The authors
+note that while descriptive statistics and data visualization during
+the **Explore** step can help us to identify patterns and relationships
+in our data, statistical models can be used to help us determine if
+relationships, patterns and trends are actually meaningful.
+
+We will not explore the use of models for SNA until Lab 4, but recall
+from above that our study was guided by the following questions:
+
+1.  What are the patterns of peer interaction and the structure of peer
+    networks that emerge over the course of a MOOC-Ed?
+
+2.  To what extent do participant and network attributes (e.g.,
+    homophily, reciprocity, transitivity) account for the structure of
+    these networks?
+
+3.  To what extent do these networks result in the co-construction of
+    new knowledge?
+
+To address Question 1, actors in the network were categorized into
+distinct mutually exclusive groups using the core-periphery and regular
+equivalence functions of UCINET. The former used the CORR algorithm to
+divide the network into actors that are part of a densely connected
+subgroup, or "core", from those that are part of the sparsely connected
+periphery. Regular equivalence employs the REGE blockmodeling algorithm
+to partition, or group, actors in the network based on the similarity of
+their ties to others with similar ties. In essence, blockmodeling
+provides a systematic way for categorizing educators based on the ways
+in which they interacted with peers.
+
+As we saw upon just a basic visual inspection of our network during the
+Explore section, there was a small core of highly connected participants
+surrounded by those on the "periphery," or edge, of the network with
+very few connections. In the DLT 2 course, those on the periphery made
+up roughly 90% of network! The study also found relatively high levels
+of reciprocation, but also found that roughly a quarter of participants
+were characterized as "brodcasters" -- educators who initiated a
+discussion thread, but neither reciprocated with those who replied, nor
+posted to threads initiated by others.
+
+To address Question 2, this study use the exponential family of random
+graph models (ERGM; also known as p\* models), which provide a
+statistical approach to network modeling that addresses the complex
+dependencies within networks. ERGMs predict network ties and determine
+the statistical likelihood of a given network structure, based on an
+assumed dependency structure, the attributes of the individuals (e.g.,
+gender, popularity, location, previous ties) and prior states of the
+network.
+
+As highlighted in [Chapter 3 of Data Science in Education Using
+R](https://datascienceineducation.com/c03.html), the **Model** step of
+the data science process entails "using statistical models, from simple
+to complex, to understand trends and patterns in the data."
 
 A developing area of network research is the advancement of statistical
 models and tools to examine network change over time [@carolan2014].
@@ -963,23 +1118,6 @@ stochastic actor-based models allow users to test hypotheses about these
 tendencies toward reciprocity, homophily, and transitivity over time and
 to estimate parameters expressing their strengths while controlling for
 other tendencies ("confounders").
-
-### 👉 Your Turn ⤵
-
-Take a look at the article *The Ebb and Flow of Social Network Ties
-Between District Leaders Under High-Stakes Accountability* located in
-the lit folder of your files pane and answer the following questions:
-
-1.  What model(s) did Daly and Finnagan use in their longitudinal case
-    study to examine changes in reform-related knowledge, advice, and
-    innovation network structures?
-
-    -   
-
-2.  What findings about network changes (list 2-3) did you find most
-    interesting and why?
-
-    -   
 
 ## 5. Communicate
 
@@ -1010,9 +1148,8 @@ findings from an analysis:
 For your final Your Turn, your goal is to distill our analysis from
 above into a simple "data product" designed to illustrate key findings
 about changes in the collaboration network over time. For the purposes
-of this task, imagine that your audience consists of state-level
-education policy makers with limited background in SNA and adapt the
-following steps accordingly:
+of this task, imagine that your audience consists of MOOC-Ed instructors
+and adapt the following steps accordingly:
 
 1.  **Select.** Select a few network-level measures that you think would
     be interesting or relevant for your target audience and that help
@@ -1039,7 +1176,7 @@ write a brief narrative in the space that follows.
 
 #### Data Visualization or Table
 
-```{r}
+```{r create_data_product}
 # YOUR CODE HERE
 
 
@@ -1051,16 +1188,17 @@ NARRATIVE GOES HERE...
 
 ### 🧶 Knit & Check ✅
 
-Congratulations - you've completed the Unit 2 case study! To share your
-work, click the drop down arrow next to the ball of yarn that says
-"Knit" at the top of this markdown file, then select "Knit top HTML".
-Assuming your code contains no errors, this will create a web page in
-your Files pane that serves as a record of your work.
+Congratulations - you've completed your first SNA case study! One final
+step is to "Knit" your document by clicking the drop down arrow next to
+the ball of yarn in the menu bar at that the top of this markdown file,
+and then selecting "Knit top HTML" or another preferred output format.
+This will do two things:
 
-Once your file has been knitted, you can publish this file online using
-RPubs (see screeshot below), or share the HTML file through another
-means.
+1.  it will check through all your code for any errors;
 
-![](img/publish.png){width="70%"}
+2.  it will created a file in your directory that you can use to share
+    you work through [GitHub Pages](https://pages.github.com),
+    [RPubs](https://rpubs.com/about/getting-started), or any other
+    preferred means.
 
 ### References

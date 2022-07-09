@@ -118,7 +118,7 @@ as '1' (friend), while all other choices are coded as '0' (not friend).
 The teacher's reports of students' friendships were generated in a
 similar manner.
 
-#### Analyses		
+#### Analyses
 
 To assess agreement between perceived friendship by the teacher and
 students, QAP (quadratic assignment procedure) correlations for each
@@ -535,7 +535,7 @@ can now be used with other tidyverse packages and functions to create
 new actor-level network variables like degree, reciprocity, and
 centrality measures.
 
-#### What is an edge list? 
+#### What is an edge list?
 
 The node list is a pretty typical format for social science research,
 we've just given it a different name. But what exactly is an edge list?
@@ -596,7 +596,33 @@ standard format, we can combine our `student_edges` and
 contains the information from both!!
 
 To do so, we'll use the more standard `tbl_graph()` function from the
-{tidygraph}
+{tidygraph}. First, run the following code to take a look at the help
+documentation for this function:
+
+```{r function_help, eval=FALSE}
+?tbl_graph
+```
+
+You probably saw that this particular function takes the following three
+arguments, two of which are data frames:
+
+-   **`edges =`** A `data.frame` containing information about the edges
+    in the graph. The terminal nodes of each edge must either be encoded
+    in a `to` and `from` column, or be in the two first columns.
+
+-   **`nodes =`** a node list that starts with a column of node IDs. Any
+    following columns are interpreted as node attributes.
+
+-   **`node_key =`** The name of the column in `nodes` that character
+    represented `to` and `from` columns should be matched against.
+
+-   **`directed =`** determines whether or not to create a directed
+    graph.
+
+Now let's run the following code to specify our `ties` data frame as the
+edges of our network, our `actors` data frame for the vertices of our
+network and their attributes, and indicate that this is indeed a
+directed network.
 
 ```{r create-edgelist}
 student_network <- tbl_graph(edges = student_edges, # specifies edges
@@ -688,7 +714,7 @@ variety of goals a good network visualization can accomplish:
 
 ![](img/viz-goals.jpeg){width="80%"}
 
-### 3a. Simple Sociograms 
+### 3a. Simple Sociograms
 
 These visual representations of the actors and their relations, i.e. the
 network, are called a **sociogram**. Actors who are most central to the
@@ -767,10 +793,20 @@ and student reported peer networks are very different!
 
 One thing to keep in mind when building a network viz with {ggraph}, is
 that just like it's `ggplot()` counterpart introduced in Foundation
-Labs, the `ggraph()` function is the first function required to build a
-sociogram. This function takes care of setting up the plot object as
-well as creating the layout for the sociogram based on the network
-object and the layout specification provided.
+Labs, there is a minimal code template for producing a basic plot.
+Specifically, ggraph requires 3 main functions
+
+-   [`ggraph()`](https://ggraph.data-imaginist.com/articles/Layouts.html)
+    takes care of setting up the plot object along with creating the
+    layout of the graph (default = "stress").
+
+-   [`geom_node_*()`](https://ggraph.data-imaginist.com/articles/Layouts.html)
+    functions and their associated arguments add and modify the nodes of
+    the network plot.
+
+-   [`geom_edge_*()`](https://ggraph.data-imaginist.com/articles/Edges.html)
+    functions and their associated arguments add and modify the edgez of
+    the network plot.
 
 Let's first pass our `student_network` object to `ggraph()` and see what
 happens.

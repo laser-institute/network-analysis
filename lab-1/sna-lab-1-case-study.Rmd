@@ -594,7 +594,34 @@ standard format, we can combine our `student_edges` and
 contains the information from both!!
 
 To do so, we'll use the more standard `tbl_graph()` function from the
-{tidygraph}
+{tidygraph}. To do so, we'll use the more standard `tbl_graph()`
+function from the {tidygraph}. First, run the following code to take a
+look at the help documentation for this function:
+
+```{r function_help, eval=FALSE}
+?tbl_graph
+```
+
+You probably saw that this particular function takes the following three
+arguments, two of which are data frames:
+
+-   **`edges =`** A `data.frame` containing information about the edges
+    in the graph. The terminal nodes of each edge must either be encoded
+    in a `to` and `from` column, or be in the two first columns.
+
+-   **`nodes =`** a node list that starts with a column of node IDs. Any
+    following columns are interpreted as node attributes.
+
+-   **`node_key =`** The name of the column in `nodes` that character
+    represented `to` and `from` columns should be matched against.
+
+-   **`directed =`** determines whether or not to create a directed
+    graph.
+
+Now let's run the following code to specify our `ties` data frame as the
+edges of our network, our `actors` data frame for the vertices of our
+network and their attributes, and indicate that this is indeed a
+directed network.
 
 ```{r create-edgelist}
 student_network <- tbl_graph(edges = student_edges, # specifies edges
