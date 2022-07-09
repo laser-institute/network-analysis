@@ -1,28 +1,29 @@
 ---
-  title: "SNA Lab 4: Statistical Inference & Network Models"
-  subtitle: "Test"
-  author: "**Dr. Shaun Kellogg**"
-  institute: "LASER Institute"
-  date: '`r format(Sys.time(), "%B %d, %Y")`'
-  output:
-    xaringan::moon_reader:
-      css:
-       - default
-       - css/laser.css
-       - css/laser-fonts.css
-      lib_dir: libs                        # creates directory for libraries
-      seal: false                          # false: custom title slide
-      nature:
-        highlightStyle: default         # highlighting syntax for code
-        highlightLines: true               # true: enables code line highlighting 
-        highlightLanguage: ["r"]           # languages to highlight
-        countIncrementalSlides: false      # false: disables counting of incremental slides
-        ratio: "16:9"                      # 4:3 for standard size,16:9
-        slideNumberFormat: |
-         <div class="progress-bar-container">
-          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
-          </div>
-         </div>
+title: "Statistical Inference & Network Models"
+subtitle: "SNA Learning Lab 4 Overview"
+author: "Dr. Shaun Kellogg"
+institute: "The LASER Institute"
+date: "2022/07/11 (updated: `r Sys.Date()`)"
+output:
+  xaringan::moon_reader:
+    css:
+     - default
+     - css/laser.css
+     - css/laser-fonts.css
+    lib_dir: libs                        # creates directory for libraries
+    seal: false                          # false: custom title slide
+    nature:
+      highlightStyle: default         # highlighting syntax for code
+      highlightLines: true               # true: enables code line highlighting 
+      highlightLanguage: ["r"]           # languages to highlight
+      countIncrementalSlides: false      # false: disables counting of incremental slides
+      ratio: "16:9"                      # 4:3 for standard size,16:9
+      slideNumberFormat: |
+       <div class="progress-bar-container">
+        <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+        </div>
+       </div>
+       </div>
 ---
 class: clear, title-slide, inverse, center, top, middle
 
@@ -63,7 +64,7 @@ xaringanExtra::use_tile_view()
 ```
 
 # `r rmarkdown::metadata$title`
-----
+## `r rmarkdown::metadata$subtitle`
 ### `r rmarkdown::metadata$author`
 ### `r format(Sys.time(), "%B %d, %Y")`
 

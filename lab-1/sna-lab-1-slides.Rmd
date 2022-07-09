@@ -1,6 +1,6 @@
 ---
-title: "SNA Lab 1: Network Analysis for Newbies"
-subtitle: "A Brief Introduction"
+title: "Network Analysis for Newbies"
+subtitle: "SNA Learning Lab 1 Overview"
 author: "Dr. Shaun Kellogg"
 institute: "The LASER Institute"
 date: "2022/07/11 (updated: `r Sys.Date()`)"
@@ -80,7 +80,7 @@ xaringanExtra::use_tile_view()
 ```
 
 # `r rmarkdown::metadata$title`
-----
+## `r rmarkdown::metadata$subtitle`
 ### `r rmarkdown::metadata$author`
 ### `r format(Sys.time(), "%B %d, %Y")`
 

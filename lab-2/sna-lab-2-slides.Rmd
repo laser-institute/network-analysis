@@ -1,28 +1,28 @@
 ---
-  title: "SNA Lab 2: Network Data Management & Measurement"
-  subtitle: "Test"
-  author: "**Dr. Shaun Kellogg**"
-  institute: "LASER Institute"
-  date: '`r format(Sys.time(), "%B %d, %Y")`'
-  output:
-    xaringan::moon_reader:
-      css:
-       - default
-       - css/laser.css
-       - css/laser-fonts.css
-      lib_dir: libs                        # creates directory for libraries
-      seal: false                          # false: custom title slide
-      nature:
-        highlightStyle: default         # highlighting syntax for code
-        highlightLines: true               # true: enables code line highlighting 
-        highlightLanguage: ["r"]           # languages to highlight
-        countIncrementalSlides: false      # false: disables counting of incremental slides
-        ratio: "16:9"                      # 4:3 for standard size,16:9
-        slideNumberFormat: |
-         <div class="progress-bar-container">
-          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
-          </div>
-         </div>
+title: "Data Management & Measurement"
+subtitle: "SNA Learning Lab 2 Overview"
+author: "**Dr. Shaun Kellogg**"
+institute: "LASER Institute"
+date: '`r format(Sys.time(), "%B %d, %Y")`'
+output:
+  xaringan::moon_reader:
+    css:
+     - default
+     - css/laser.css
+     - css/laser-fonts.css
+    lib_dir: libs                        # creates directory for libraries
+    seal: false                          # false: custom title slide
+    nature:
+      highlightStyle: default         # highlighting syntax for code
+      highlightLines: true               # true: enables code line highlighting 
+      highlightLanguage: ["r"]           # languages to highlight
+      countIncrementalSlides: false      # false: disables counting of incremental slides
+      ratio: "16:9"                      # 4:3 for standard size,16:9
+      slideNumberFormat: |
+       <div class="progress-bar-container">
+        <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+        </div>
+       </div>
 ---
 class: clear, title-slide, inverse, center, top, middle
 
@@ -56,7 +56,7 @@ xaringanExtra::use_tile_view()
 ```
 
 # `r rmarkdown::metadata$title`
-----
+## `r rmarkdown::metadata$subtitle`
 ### `r rmarkdown::metadata$author`
 ### `r format(Sys.time(), "%B %d, %Y")`
 
@@ -67,8 +67,8 @@ xaringanExtra::use_tile_view()
 ## Part 1: Conceptual Overview
 ### Data Management
 - Collection
-- Storage 
 - Quality
+- Guiding Study
 
 ]
 
@@ -133,7 +133,7 @@ class: clear, inverse, middle, center
 # Part 1: Network Data Management
 
 
-Data Collection, Storage, Quality
+Data Collection, Quality, and Guiding Study
 
 ---
 
@@ -209,11 +209,12 @@ How do you determine **who's in the network** that you will collect data about?
 
 Consider the following quesions about a network you may be interested in studying:
 - What is the boundary of this network? 
-- What relations within this network might be of interest to your research? 
-- What attributes about actors in this network might you want to 
-- How might you collect data about these actors and their relations? 
 
-Record your response in the chat. 
+- What relations within this network might be of interest to your research?
+
+- What attributes about actors in this network might you want to capture?
+
+- How might you collect data about these actors and their relations? 
 
 ]
 
@@ -228,117 +229,6 @@ Prior to data collection, there are a number of decisions research have to make 
 - The **positional approach** defines a set of actors that occupy a similar position in some social structure. For example, in the study we'll take a look at in a little bit, actors in the network of study consisted of school and district level leaders at a school district placed under sanction and undergoing major school reforms. 
 - The **event-based approach** to specifying a network's boundary falls delineate a network's boundaries by selecting only those actors who participated in an “event” at a specific time and place. For example, you may be interested in observing fellow researchers participating in an academic conference or attendees at local board of education meetings. As opposed to positional approaches that focus on actors’ behavior or role, the criterion for inclusion through this approach is an event rooted in time and place.
 -  The **relational approach** is typically used in egocentric studies, which we don't address here, either based on a researcher's knowledge about relations among a set of actors or relies on the actors themselves to nominate additional actors for inclusion. For example, I'm currently evaluating network of agricultural research networks and we compiled a master list of the networks involved then asked the PIs about these network to identify the actors invovled, or likely to be involved in research and training collaboration between the networks.
-
-
----
-# Data Storage
-
-.panelset[
-
-
-.panel[.panel-name[Node-List]
-
-.pull-left[
-
-Consistent with typical data storage, node-lists often include:
-- **Name or ID of nodes**
-- Demographic info (gender, age) 
-- Socio-economic info (job, income)
-- Substantative info (grades)
-- **Nominated alters**
-
-]
-
-
-.pull-right[
-
-```{r node-list, echo=FALSE, message=FALSE, warning=FALSE}
-dlt1_nodes <- read_csv("data/dlt1-nodes.csv")
-
-dlt1_nodes |>
-  head() |>
-  select(UID, role1, experience, region) |>
-  kable()
-```
-
-]
-
-
-]
-
-.panel[.panel-name[Edge-List]
-
-.pull-left[
-
-Radically different than typical data storage, edge-lists include:
-- **ego and an alter**
-- tie strength or frequency
-- edge attributes (time, event, text)
-
-]
-
-
-.pull-right[
-
-```{r edge-list, echo=FALSE, message=FALSE, warning=FALSE}
-dlt1_edges <- read_csv("data/dlt1-edges.csv")
-
-dlt1_edges |>
-  head() |>
-  select(Sender, Receiver, Timestamp) |>
-  kable()
-```
-
-]
-
-
-]
-
-
-.panel[.panel-name[Adjacency Matrix]
-
-.pull-left[
-
-Also radically different, an adjacency matrix includes:
-- Column for each actor
-- Row for each actor
-- A Value indicate the presence/strength of a relation 
-
-]
-
-
-.pull-right[
-
-```{r adjaency-matrix, echo=FALSE, message=FALSE, warning=FALSE}
-
-year_1_collaboration <- read_excel("data/year_1_collaboration.xlsx", 
-                                   col_names = FALSE)
-
-year_1_matrix <- as.matrix(year_1_collaboration)
-
-rownames(year_1_matrix) <- 1:43
-
-colnames(year_1_matrix) <- 1:43
-
-year_1_matrix[1:8, 1:8]
-```
-
-]
-
-]
-
-.panel[.panel-name[Discuss]
-
-Take a look at one of the newtwork datasets located [here](https://github.com/laser-institute/network-analysis/tree/main/lab-2/data) and consider the following:
-- What format is this data set stored as? 
-- What are some things you notice about this dataset? 
-- What questions do you have about this dataset? 
-
-]
-
-]
-
-???
 
 
 
@@ -399,9 +289,8 @@ While research on construct validity is slim, and participant recall is suspect,
 
 Consider the following questions about your network interest described earlier:
 - What might be some threats to the quality of your data? 
-- How might you address or avoid these threats? 
 
-Record your response in the chat.  
+- How might you address or avoid these threats? 
 
 ]
 
@@ -426,18 +315,8 @@ Ways to improve validity include:
 - Follow up on respondents’ reports, or explicitly asking respondents to try to answer what the others would say as well as what they themselves think and tell respondents that some information may be confirmed with others.
 - Avoid self-report data altogether. If you sources like public records, email, participation in social networking platforms, and school transcripts, you don't need to directly ask respondents to report on their network. Instead, the network is reconstructed from these records and a number of different relations can be captured. For example, using the public Facebook profiles of a set of students in the same school, it is possible to construct a network of who bullies whom, so long as you can precisely define how bullying is measured.
 
-
 ---
-class: clear, inverse, middle, center
-
-# part_2(R, code_along)
-
-Network-Level Density, Centrality, and Reciprocity 
-
-[Learning Lab Workspace](https://rstudio.cloud/spaces/140883/join?access_code=3g8mCNU2Rags4v4U_-r-8lHdF0XAQSq-1p1tkyIz)
-
----
-# Literature Review
+# Guiding Study
 
 .panelset[
 
@@ -487,6 +366,16 @@ Daly, A. et al. (2011). [The ebb and flow of social network ties between distric
 
 ???
 
+
+
+---
+class: clear, inverse, middle, center
+
+# part_2(R, code_along)
+
+Network-Level Density, Centrality, and Reciprocity 
+
+[Learning Lab Workspace](https://rstudio.cloud/spaces/140883/join?access_code=3g8mCNU2Rags4v4U_-r-8lHdF0XAQSq-1p1tkyIz)
 
 ---
 # Load Packages
@@ -826,17 +715,19 @@ reciprocity(year_1_network)
 # What's Next
 
 .pull-left[
-## Readings & Discussion
+## Essential Readings
 
-- [Collecting and Managing Network Data](https://via.hypothes.is/https://drive.google.com/file/d/1qe1y5Ik4XgBbCcMr-CB8TH7xSW9ip3Ji/view?usp=sharing)
-- [Structural Measures for Complete Networks](https://via.hypothes.is/https://drive.google.com/file/d/1qdxvH85jmozCHJgJcYFZKfjvxbCP6SxG/view?usp=sharing)  
+- Reading 1: [Collecting and Managing Network Data](https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-2/sna-chapter-4.pdf)
+
+- Reading 2: [Structural Measures for Complete Networks](https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-2/sna-chapter-5.pdf)  
 ]
 
 .pull-right[
 ## Case Study
 
-- [Birds of a Feather Lead Together](https://laser-institute.github.io/network-analysis/lab-2/sna-lab-2-case-study-key.html)
-- [The Ebb and Flow of Social Network Ties Between District Leaders Under High-Stakes Accountability]()
+- Case Study: [Birds of a Feather Lead Together](https://laser-institute.github.io/network-analysis/lab-2/sna-lab-2-case-study-key.html)
+
+- Guiding Study: [Massively Open Online Course for Educators (MOOC-Ed) network dataset](https://bera-journals.onlinelibrary.wiley.com/doi/abs/10.1111/bjet.12312)
 
 ]
 

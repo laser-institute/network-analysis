@@ -208,6 +208,25 @@ It relies on the use of **mathematical and/or computational models** to succinct
 ]
 
 ---
+# Discussion
+Consider a social network of which you are a part. 
+1. Who are the network's actors? 
+
+1. What ties connect these actors? 
+
+1. Are there any groups within this network? 
+
+1. What relations within this network might be of interest to a researcher? 
+
+---
+class: clear, inverse, center, middle
+
+# Part 1: Intro to SNA
+
+
+Hallmarks, Assumptions, and Applications
+
+---
 class: clear, center
 
 ## .font130[.center[**Thank you!**]]
@@ -222,3 +241,6 @@ class: clear, center
 
 This work was supported by the National Science Foundation grant DRL-2025090 (ECR:BCSER). Any opinions, findings, and conclusions expressed in this material are those of the authors and do not necessarily reflect the views of the National Science Foundation.
 ]]]
+
+
+
