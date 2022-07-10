@@ -149,7 +149,7 @@ Top Down, Bottom Up, and #COMMONCORE
 
 
 ---
-# Top Down Methods
+# Top-Down Methods
 
 .panelset[
 
@@ -195,31 +195,19 @@ ggraph(ccss_network, layout = "fr") +
 ]
 
 
-.panel[.panel-name[Cliques]
+.panel[.panel-name[Bi-Components]
 
 .pull-left[
-A **clique** is a maximally connected subgraph of nodes (> 2) in which all nodes are connected to each other.
+**Bi-components** help to identify the important “weak” spots and ask what would happen to the network if an actor were removed. 
+
+Nodes that result in new components are referred to as “cutpoints” and are often important actors. 
 
 ]
 
 .pull-right[
 .center[
 ```{r, echo=FALSE, message=FALSE, out.width ='70%'}
-library(tidyverse)
-library(tidygraph)
-library(ggraph)
-
-ccss_ties <- read_csv("data/ccss-edgelist.csv")
-
-ccss_nodes <- read_csv("data/ccss-nodelist.csv")
-
-ccss_network <- tbl_graph(edges = ccss_ties,
-                          nodes = ccss_nodes, 
-                          directed = TRUE) 
-ccss_network |>
-  activate(nodes) |>
-  filter(local_size() > 2) |>
-ggraph(layout = "fr") +
+ggraph(ccss_network, layout = "fr") +
   geom_edge_link() +
   geom_node_point() +
   theme_graph()
@@ -232,8 +220,60 @@ ggraph(layout = "fr") +
 .panel[.panel-name[Factions]
 
 .pull-left[
-A **clique** is a maximally connected subgraph of nodes (> 2) in which all nodes are connected to each other.
+A **faction** is a group with more ties within than across group even those group boundaries are somewhat porous. 
 
+Factions are identified by various [community detection algorithms](https://tidygraph.data-imaginist.com/reference/index.html#section-community-detection) to represent these structural sub-communities. 
+
+]
+
+.pull-right[
+.center[<img src="img/factions.png" height="250px"/>
+
+[#commoncore factions](https://www.hashtagcommoncore.com/#2-2)]
+]
+
+]
+]
+
+???
+
+
+---
+# Bottom-Up Methods
+
+.panelset[
+
+.panel[.panel-name[Overview]
+Like top-down methods, this approach is also concerned with how larger structures are composed of smaller groups of actors. However... 
+
+
+> Bottom-up approaches identify groups that are **built up from simple dyads and triads** that extend into dense clusters that give the network its “clumpiness.” 
+
+
+]
+
+
+.panel[.panel-name[Cores]
+
+
+A **K-core** is a substructure (a subgraph) of the network in which each node within the K-core is connected to at least K other nodes. Therefore, a 2K-core would be a subset of actors in which a node is connected to two others. 
+
+.center[<img src="img/k-core.png" height="200px"/>
+
+.font80[[Source](https://link.springer.com/article/10.1007/s00778-019-00587-4)
+]]
+]
+
+
+
+
+
+.panel[.panel-name[Cliques]
+
+.pull-left[
+A **n-clique** is a maximally connected subgraph of nodes (> 2) in which all nodes are connected to each other.
+
+Which a clique in the graph to the right? K-core? Isolate?
 ]
 
 .pull-right[
@@ -242,7 +282,6 @@ A **clique** is a maximally connected subgraph of nodes (> 2) in which all nodes
 library(tidyverse)
 library(tidygraph)
 library(ggraph)
-library(igraph)
 
 ccss_ties <- read_csv("data/ccss-edgelist.csv")
 
@@ -260,132 +299,35 @@ ggraph(layout = "fr") +
   theme_graph()
 
 ```
+
+]
+]
+]
+
+.panel[.panel-name[Clans]
+
+Actors in the same **clan** are all connected at n distance, n (or less), and all actors in between are also members of the same clan.
+
+.center[<img src="img/clan.png" height="250px"/>
+
+.font80[[Source](https://link.springer.com/article/10.1007/s00778-019-00587-4)
 ]
 ]
 ]
-
-.panel[.panel-name[Discuss]
-Consider a network you are interested in studying and think about the following questions: 
-
-- Who are the network's actors? 
-
-- What ties connect these actors? 
-
-- Are there any groups within this network? 
-
-- What research questions are you interested in investigating?
-
-]
-
-
 ]
 
 ???
 
 ---
-# Network Data Structures
+# Discuss
 
-.panelset[
+Think about a network you are a part of or may be interested in studying and consider the following questions: 
 
+1. What groups might exist in this network? 
 
-.panel[.panel-name[Node-List]
+1. How might you go about identifying them? 
 
-.pull-left[
-
-Consistent with typical data storage, node-lists often include:
-- Identifiers lik name or **ID**
-- Demographic info (**gender**, age) 
-- Socio-economic info (job, income)
-- Substantive info (**grades**, attendance)
-
-]
-
-
-.pull-right[
-
-```{r node-list, echo=FALSE, message=FALSE, warning=FALSE}
-student_attributes <- read_excel("data/student-attributes.xlsx")
-
-student_attributes |>
-  head() |>
-  select(id, gender, achievement) |>
-  kable()
-```
-
-]
-
-
-]
-
-.panel[.panel-name[Edge-List]
-
-.pull-left[
-
-Radically different than typical data storage, edge-lists include:
-- **ego and an alter**
-- tie strength or frequency
-- edge attributes (time, event, text)
-
-]
-
-
-.pull-right[
-
-```{r edge-list, echo=FALSE, message=FALSE, warning=FALSE}
-
-student_edges <- read_excel("data/student-edgelist.xlsx")
-
-student_edges |>
-  head() |>
-  kable()
-```
-
-]
-
-
-]
-
-
-.panel[.panel-name[Adjacency Matrix]
-
-.pull-left[
-
-Also radically different, an adjacency matrix includes:
-- Column for each actor
-- Row for each actor
-- A Value indicate the presence/strength of a relation 
-
-]
-
-
-.pull-right[
-
-```{r adjaency-matrix, echo=FALSE, message=FALSE, warning=FALSE}
-
-teacher_matrix[1:9, 1:9]
-```
-
-]
-
-]
-
-.panel[.panel-name[Discuss]
-
-Take a look at one of the network datasets [here](https://github.com/laser-institute/network-analysis/tree/main/lab-1/data) and consider the following:
-
-- What format is this data set stored as? 
-
-- If edge data, is it directed or undirected? Valued?
-
-- If node data, does the file contain attribute data? 
-
-- What are some things you notice about this dataset? 
-
-- What questions do you have about this dataset? 
-
-]
-
-]
+1. How might this information be useful? 
 
 ???
 
@@ -398,39 +340,44 @@ Take a look at one of the network datasets [here](https://github.com/laser-insti
 
 .panel[.panel-name[Context]
 
-Revisiting early work in the field of sociometry, this study ***assesses the level of agreement between teacher perceptions and student reports of classroom friendships*** among middle school students. 
+.pull-left[
+Our third SNA learning lab is inspired by the [#commoncore Project](https://www.hashtagcommoncore.com), which examined the intense debate surrounding the Common Core State Standards education reform as it played out on Twitter.
+]
 
+.pull-right[
+
+.center[<img src="img/commoncore.jpg" height="300px"/>]
+]
 
 ]
 
 .panel[.panel-name[Questions]
 
-The central question guiding this investigation was:
+the central question guiding the #COMMONCORE Project was:
 
->***Do student reports agree with teacher perceptions*** when it comes to classroom friendship ties and with what consequences for commonly used social network measures?
+> How are social media-enabled social networks changing the discourse in American politics that produces and sustains education policy?
+
 ]
 
 .panel[.panel-name[Data]
-- 1 teacher, 1 middle school, four classrooms
-- Students  given roster and asked to evaluate relationships with peers
-- Choices included best friend, friend, know-like, know, know-dislike, strongly dislike, and do not know.
-- Relations are ***valued*** (degrees of friendship, not just yes or no)
-- Data are ***directed*** (friendship nominations were not presumed to be reciprocal). 
+- The authors used Twitter's Application Programming Interface (API) based on tweets using specified keywords, keyphrases, or hashtags and then restricted their analysis to the following terms: commoncore, ccss and stopcommoncore. 
+
+- They also captured Twitter profile names, or user names, as well as the tweets, retweets, and mentions posted.
 
 ]
 
 .panel[.panel-name[Key Findings]
 
-- Teacher’s perceptions and students’ reports were statistically similar, 11–29% of possible ties did not match.
-- Students reported significantly more reciprocated friendship ties than the teacher perceived.
-- Observed level of agreement varied across classes and generally increased over time. 
+- In Act 1, The Giant Network, the authors **identified five major sub-communities**, or factions, including: (1) supporters, (2) opponents inside education, and (3) opponents outside of education.
+
+- In Act 2, Central Actors, they noted that most of these participants were casual contributors and distinguished between two types of **central actors** on Twitter: Transmitters and Transceivers.
 ]
 
 ]
 
 
 .footnote[
-Pittinsky, M., & Carolan, B. (2008). [Behavioral versus cognitive classroom friendship networks.](https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-1/pittinsky-class-friendships.pdf)
+Supovitz, J., Daly, A.J., del Fresno, M., & Kolouch, C. (2017). [#commoncore Project](https://www.hashtagcommoncore.com)
 ]
 
 ???
@@ -457,6 +404,7 @@ Let's start by creating a new R script and loading the {tidyverse}, as well as t
 library(tidyverse)
 library(tidygraph)
 library(ggraph)
+library(igraph)
 ```
 
 **Note:** You may have to install this package using the `install.packages()` function if it is not listed in your packages pane.  
