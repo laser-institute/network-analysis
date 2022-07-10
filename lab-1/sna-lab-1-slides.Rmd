@@ -135,7 +135,7 @@ class: clear, laser
 class: clear, inverse, middle, center
 
 # Part 1: Core Concepts
-
+----
 
 Data Types, Data Structures, and Guiding Study
 
@@ -150,7 +150,7 @@ Data Types, Data Structures, and Guiding Study
 
 .pull-left[
 ***Actors***, also called nodes or vertices, can be a range of social entities, like: 
-- Students in a classroom
+- students in a classroom
 - teachers in a school district
 - school districts in a state 
 - departments within a college
@@ -179,12 +179,12 @@ ggraph(teacher_network, layout = 'fr', circular = FALSE) +
 
 .pull-left[
 ***Ties***, also called relations or edges, connect actors to one another, like: 
-- Behavioral interaction
-- Physical connection
-- Association or affiliation
-- Evaluation of one person by another
-- Formal relations
-- Moving between places or status 
+- behavioral interaction
+- physical connection
+- association or affiliation
+- evaluation of one person by another
+- formal relations
+- moving between places or status 
 ]
 
 .pull-right[
@@ -264,10 +264,10 @@ Consider a network you are interested in studying and think about the following 
 .pull-left[
 
 Consistent with typical data storage, node-lists often include:
-- Identifiers lik name or **ID**
-- Demographic info (**gender**, age) 
-- Socio-economic info (job, income)
-- Substantive info (**grades**, attendance)
+- identifiers lik name or **ID**
+- demographic info (**gender**, age) 
+- socio-economic info (job, income)
+- substantive info (**grades**, attendance)
 
 ]
 
@@ -322,9 +322,9 @@ student_edges |>
 .pull-left[
 
 Also radically different, an adjacency matrix includes:
-- Column for each actor
-- Row for each actor
-- A Value indicate the presence/strength of a relation 
+- column for each actor
+- row for each actor
+- a value indicating the presence/strength of a relation 
 
 ]
 
@@ -369,7 +369,9 @@ Take a look at one of the network datasets [here](https://github.com/laser-insti
 
 .panel[.panel-name[Context]
 
-Revisiting early work in the field of sociometry, this study ***assesses the level of agreement between teacher perceptions and student reports of classroom friendships*** among middle school students. 
+.pull-left-narrow[<img src="img/pittinsky-carolan.png" height="350px"/>]
+
+.pull-right-wide[Revisiting early work in the field of sociometry, this study ***assesses the level of agreement between teacher perceptions and student reports of classroom friendships*** among middle school students.]
 
 
 ]
@@ -411,7 +413,7 @@ Pittinsky, M., & Carolan, B. (2008). [Behavioral versus cognitive classroom frie
 class: clear, inverse, middle, center
 
 # part_2(R, code_along)
-
+----
 Network Packages, Objects, and Sociograms
 
 

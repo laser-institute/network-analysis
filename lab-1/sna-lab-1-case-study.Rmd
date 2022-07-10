@@ -30,11 +30,11 @@ comparing student and teacher perceived friendship networks, but we are
 going to fix that!
 
 Our primary aim for this case study is to gain some hands-on experience
-with essential R packages and functions for preparing network data for
-analysis and creating a simple network sociogram to help describe
-visually what our network "looks like." Specifically, this case study
-will cover the following topics pertaining to each data-intensive
-workflow process [@krumm2018]:
+with essential R packages and functions for SNA. We learn how to
+preparing network data for analysis and creating a simple network
+sociogram to help describe visually what our network "looks like."
+Specifically, this case study will cover the following topics pertaining
+to each data-intensive workflow process [\@krumm2018]:
 
 1.  **Prepare**: Prior to analysis, we'll look at the context from which
     our data came, formulate some research questions, and get introduced

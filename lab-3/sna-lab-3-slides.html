@@ -97,8 +97,7 @@ class: clear, laser
 class: clear, inverse, middle, center
 
 # Part 1: Core Concepts
-
-
+----
 Top Down, Bottom Up, and #COMMONCORE
 
 
@@ -297,7 +296,7 @@ Supovitz, J., Daly, A.J., del Fresno, M., &amp; Kolouch, C. (2017). [#commoncore
 class: clear, inverse, middle, center
 
 # part_2(R, code_along)
-
+----
 Network Packages, Objects, and Sociograms
 
 
@@ -413,11 +412,6 @@ ggraph(ccss_network, layout = "fr") +
   theme_graph()
 ```
 
-```
-## Warning: ggrepel: 1 unlabeled data points (too many overlaps). Consider
-## increasing max.overlaps
-```
-
 ]
 
 .panel[.panel-name[Discuss]
@@ -517,9 +511,8 @@ identifying members who belong to the same group.
 Let's see if there are any cliques that contain a minimum of 4 nodes?
 
 
-```
-## Warning in cliques(ccss_network, min = 4, max = NULL): At core/cliques/
-## cliquer_wrapper.c:57 : Edge directions are ignored for clique calculations.
+```r
+cliques(ccss_network, min = 4, max = NULL)
 ```
 
 ]
@@ -592,11 +585,11 @@ ccss_network
 ## # … with 86 more rows
 ## #
 ## # Edge Data: 289 × 4
-##    from    to created_at          text                                          
-##   &lt;int&gt; &lt;int&gt; &lt;dttm&gt;              &lt;chr&gt;                                         
-## 1     1     2 2021-11-07 15:22:14 @MaggieEThornton If enough were gathered coul…
-## 2     3     4 2021-11-06 19:29:41 @MillennialOther @Richard_Harambe @RepMikeJoh…
-## 3     3     5 2021-11-06 19:29:41 @MillennialOther @Richard_Harambe @RepMikeJoh…
+##    from    to created_at          text                                                          
+##   &lt;int&gt; &lt;int&gt; &lt;dttm&gt;              &lt;chr&gt;                                                         
+## 1     1     2 2021-11-07 15:22:14 @MaggieEThornton If enough were gathered could run a discours…
+## 2     3     4 2021-11-06 19:29:41 @MillennialOther @Richard_Harambe @RepMikeJohnson This is the…
+## 3     3     5 2021-11-06 19:29:41 @MillennialOther @Richard_Harambe @RepMikeJohnson This is the…
 ## # … with 286 more rows
 ```
 

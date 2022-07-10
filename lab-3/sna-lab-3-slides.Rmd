@@ -143,8 +143,7 @@ class: clear, laser
 class: clear, inverse, middle, center
 
 # Part 1: Core Concepts
-
-
+----
 Top Down, Bottom Up, and #COMMONCORE
 
 
@@ -387,7 +386,7 @@ Supovitz, J., Daly, A.J., del Fresno, M., & Kolouch, C. (2017). [#commoncore Pro
 class: clear, inverse, middle, center
 
 # part_2(R, code_along)
-
+----
 Network Packages, Objects, and Sociograms
 
 
@@ -593,7 +592,7 @@ identifying members who belong to the same group.
 
 Let's see if there are any cliques that contain a minimum of 4 nodes?
 
-```{r , results='hide'}
+```{r, echo=TRUE, results='hide'}
 cliques(ccss_network, min = 4, max = NULL)
 ```
 

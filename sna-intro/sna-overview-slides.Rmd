@@ -211,9 +211,13 @@ Basic Concepts, Measurement, Groups, and Model
 ---
 # SNA Lab 1: Network Analysis for Newbies
 
-### [Intro Presentation: Key Concepts & Code-Along](https://laser-institute.github.io/network-analysis/lab-1/sna-lab-1-slides.html)
+
 .pull-left[
-## Essential Readings
+### Intro Presentation 
+[Key Concepts & Code-Along](https://laser-institute.github.io/network-analysis/lab-1/sna-lab-1-slides.html)
+
+
+### Essential Readings
 
 - [The Social Network Perspective](https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-1/carolan-network-perspective.pdf)
 
@@ -224,7 +228,11 @@ Basic Concepts, Measurement, Groups, and Model
 ] 
 
 .pull-right[
-## Case Study
+### Learning Lab 1 Badge
+- [Intro to SNA](https://laser-institute.github.io/network-analysis/lab-1/sna-lab-1-badge.html)
+
+
+### Case Study
 
 - [SNA Case Study: Who's Friends with Who in Middle School?](https://laser-institute.github.io/network-analysis/lab-1/sna-lab-1-case-study-key.html)
 
@@ -234,10 +242,13 @@ Basic Concepts, Measurement, Groups, and Model
 
 ---
 # SNA Lab 2: Data Management & Measurement
-### [Intro Presentation: Key Concepts & Code-Along](https://laser-institute.github.io/network-analysis/lab-2/sna-lab-2-slides.html)
+
 
 .pull-left[
-## Essential Readings
+### Intro Presentation 
+[Key Concepts & Code-Along](https://laser-institute.github.io/network-analysis/lab-2/sna-lab-2-slides.html)
+
+### Essential Readings
 
 - [Collecting and Managing Network Data](https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-2/sna-chapter-4.pdf)
 
@@ -245,7 +256,10 @@ Basic Concepts, Measurement, Groups, and Model
 ]
 
 .pull-right[
-## Case Study
+### Learning Lab 2 Badge
+- [Network Measurement](https://laser-institute.github.io/network-analysis/lab-2/sna-lab-2-badge.html)
+
+### Case Study
 
 - [SNA Case Study: A Tale of Two MOOCs](https://laser-institute.github.io/network-analysis/lab-2/sna-lab-2-case-study-key.html)
 
@@ -255,10 +269,13 @@ Basic Concepts, Measurement, Groups, and Model
 
 ---
 # SNA Lab 3: Group & Egocentric Analysis
-### [Intro Presentation: Key Concepts & Code-Along](https://laser-institute.github.io/network-analysis/lab-3/sna-lab-3-slides.html)
+
 
 .pull-left[
-## Essential Readings
+### Intro Presentation 
+[Key Concepts & Code-Along](https://laser-institute.github.io/network-analysis/lab-3/sna-lab-3-slides.html)
+
+### Essential Readings
 
 - [Groups and Positions in Complete Networks](https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-4/carolan-sna-ch-6.pdf)
 
@@ -266,7 +283,10 @@ Basic Concepts, Measurement, Groups, and Model
 ] 
 
 .pull-right[
-## Case Study
+### Learning Lab 3 Badge
+- [Groups & Egos](https://laser-institute.github.io/network-analysis/lab-3/sna-lab-3-badge.html)
+
+### Case Study
 
 - [SNA Case Study: Components, Cliques, & Key Actors](https://laser-institute.github.io/network-analysis/lab-3/sna-lab-3-case-study-key.html)
 
@@ -276,10 +296,13 @@ Basic Concepts, Measurement, Groups, and Model
 
 ---
 # SNA Lab 4: Inference & Modeling 
-### [Intro Presentation: Key Concepts & Code-Along](https://laser-institute.github.io/network-analysis/lab-4/sna-lab-4-slides.html)
+
 
 .pull-left[
-## Essential Readings
+### Intro Presentation 
+[Key Concepts & Code-Along](https://laser-institute.github.io/network-analysis/lab-4/sna-lab-4-slides.html)
+
+### Essential Readings
 
 - [Statistical Inference With Network Data](https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-4/carolan-sna-ch-8.pdf)
 
@@ -287,7 +310,10 @@ Basic Concepts, Measurement, Groups, and Model
 ] 
 
 .pull-right[
-## Case Study
+### Learning Lab 4 Badge
+- [Models & Inference](https://laser-institute.github.io/network-analysis/lab-4/sna-lab-4-badge.html)
+
+### Case Study
 
 - [SNA Case Study: Birds of a Feather Lead Together](https://laser-institute.github.io/network-analysis/lab-4/sna-lab-4-case-key.html)
 
