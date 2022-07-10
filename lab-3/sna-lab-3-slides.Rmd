@@ -242,6 +242,7 @@ A **clique** is a maximally connected subgraph of nodes (> 2) in which all nodes
 library(tidyverse)
 library(tidygraph)
 library(ggraph)
+library(igraph)
 
 ccss_ties <- read_csv("data/ccss-edgelist.csv")
 
