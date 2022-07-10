@@ -4,7 +4,7 @@
     <title>Data Management &amp; Measurement</title>
     <meta charset="utf-8" />
     <meta name="author" content="Dr. Shaun Kellogg" />
-    <meta name="date" content="2022-07-09" />
+    <meta name="date" content="2022-07-10" />
     <script src="libs/header-attrs-2.13/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/panelset-0.2.6/panelset.css" rel="stylesheet" />
@@ -37,7 +37,7 @@ class: clear, title-slide, inverse, center, top, middle
 # Data Management &amp; Measurement
 ## SNA Learning Lab 2 Overview
 ### **Dr. Shaun Kellogg**
-### July 09, 2022
+### July 10, 2022
 
 ---
 # Agenda
@@ -110,7 +110,7 @@ Networks are often depicted as a **sociogram**, or network graph, that consists 
 class: clear, inverse, middle, center
 
 # Part 1: Network Data Management
-
+----
 
 Data Collection, Quality, and Guiding Study
 
@@ -354,10 +354,9 @@ Kellogg, S., Booth, S., &amp; Oliver, K. (2014). [A social network perspective o
 class: clear, inverse, middle, center
 
 # part_2(R, code_along)
-
+----
 Network-Level Density, Centrality, and Reciprocity 
 
-[Learning Lab Workspace](https://rstudio.cloud/spaces/140883/join?access_code=3g8mCNU2Rags4v4U_-r-8lHdF0XAQSq-1p1tkyIz)
 
 ---
 # Load Packages
@@ -414,7 +413,7 @@ Load the {igraph} package.
 
 .panel[.panel-name[Import Data]
 
-Let's import two Excel files from the Social Network Analysis and Education companion site. year_1_collaboration.xlsx 
+Let's import two .csv files from our data folder named `dlt1-edges.csv` and `dlt1-nodes.csv` using the `read_csv()` function from the {readr} package: 
 
 
 ```r
@@ -439,7 +438,7 @@ dlt1_actors &lt;- read_csv("data/dlt1-nodes.csv",
 
 .panel[.panel-name[Inspect Data]
 
-In the corresponding line of your R script, take a look at the data file we just imported:
+Using your R script or the console or another prefered means, take a look at the data file we just imported:
 
 
 ```r
@@ -455,8 +454,10 @@ In the corresponding line of your R script, take a look at the data file we just
 
 Think about the questions below and be prepared to share your response:              
 
-1. What type of data structure is used to store this network data? 
+1. What type of data structure is used to store this network data?
+
 1. What do you think the rows and columns represent? 
+
 1. What do the values in each cell represent?
 
 
@@ -503,7 +504,9 @@ In the corresponding line of your R script, type the name of network object we j
 Think about the questions below:              
 
 1. What size of the DLT 1 MOOC-ED network?
+
 1. What else do you notice about this network?
+
 1. What questions, if any, do have about this network?
 
 
@@ -637,7 +640,7 @@ How would you interpret this measure?
 
 .pull-right[ .center[&lt;img src="img/reciprocated-ties.png" height="210px"/&gt;
 
-Which of these two networks is more directed? Which ties are reciprocated?
+Which of these two networks is directed? Which ties are reciprocated?
 ]
  
 ]
@@ -660,7 +663,7 @@ At the network-level, reciprocity is a measure of the likelihood of vertices in 
 ]
 
 .pull-right[
-Let's apply to our `year_1_network`:
+Let's apply to our `dlt1_network`:
 
 
 ```r

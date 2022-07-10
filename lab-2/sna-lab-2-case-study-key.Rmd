@@ -25,7 +25,7 @@ depictions of networks from our previous SNA case study and learn to
 describe networks using common network-level measures. Our analyses are
 based on *A social network perspective on peer supported learning in
 MOOCs for educators* [@kellogg2014social], and use an open educational
-dataset prepared by Kellogg and Edelman [@kellogg2015massively]. As we
+dataset prepared by Kellogg and Edelman @kellogg2015massively. As we
 work through each step of the data-intensive workflow (Krumm, Means, and
 Bienkowski 2018), we will focus on the following topics:
 
@@ -160,21 +160,16 @@ three primary research questions related to peer supported learning:
 3.  To what extent do these networks result in the co-construction of
     new knowledge?
 
-For Lab 2, our exploratory analysis is primiarly interested in answering
+For Lab 2, our exploratory analysis is primarily interested in answering
 some rather basic questions:
 
 1.  How do the DLT 1 and DLT 2 MOOC-Ed networks compare visually?
 
-    -   
-
 2.  How do network-levels measures for each network compare?
 
-    -   
-
 3.  What do these visual and mathematical descriptions of our network
-    imply about the similarities and differences between each MOOC-Ed?
-
-    -   
+    imply about the similarities and differences in the "patterns of
+    peer-interaction" between each MOOC-Ed?
 
 #### **👉 Your Turn** **⤵**
 
@@ -278,7 +273,7 @@ with network data is a bit of a departure from our working with
 rectangular data frames. Our primary goals for Section 2 are learning
 how to:
 
-a.  **Import Lists**. An obvious and also important first step, we need
+a.  **Import Data**. An obvious and also important first step, we need
     to "read" our data into R and learn about formatting for edge-lists
     and node attribute files.
 
@@ -360,11 +355,11 @@ since this was left blank for deidentification purposes.
 
 Consider the example pictured below of a discussion thread from the
 Planning for the Digital Learning Transition in K-12 Schools (DLT 1)
-where our data orginated. This thread was initiated by participant I, so
-the comments by J and N are considered to be directed at I. The comment
-of B, however, is a direct response to the comment by N as signaled by
-the use of the quote-feature as well as the explicit mentioning of N's
-name within B's comment.
+where our data originated. This thread was initiated by participant I,
+so the comments by J and N are considered to be directed at I. The
+comment of B, however, is a direct response to the comment by N as
+signaled by the use of the quote-feature as well as the explicit
+mentioning of N's name within B's comment.
 
 ![](img/discussion-thread.png)
 
@@ -448,7 +443,7 @@ codebook descriptors. The first one has been done as an example.
 -   Identifier of "expert panelists" invited to course to share
     experience through recorded Q&A
 -   Identification of course facilitator (1 **=** instructor)
--   Professional role (eg, teacher, librarian, administrator)
+-   Professional role (e.g., teacher, librarian, administrator)
 -   Years of experience as an educator
 -   Works with elementary, middle, and/or high school students
 -   Initial assignment of discussion group
@@ -541,8 +536,8 @@ dlt1_network
 
 ## 3. Explore
 
-Relevant to our case study of school leader collaboration, Carolyn notes
-in SNA and Education @carolan2014 that:
+Relevant to our case study of DLT 1 & 2 MOOC-Eds, Carolyn notes in SNA
+and Education @carolan2014 that:
 
 > ... to address questions that probe a network's dynamics (i.e., its
 > change over time), it is necessary to first figure out what the
@@ -631,7 +626,7 @@ functions
     the network plot.
 
 -   [`geom_edge_*()`](https://ggraph.data-imaginist.com/articles/Edges.html)
-    functions and their associated arguments add and modify the edgez of
+    functions and their associated arguments add and modify the edges of
     the network plot.
 
 These three core functions can be modified though different arguments or
@@ -731,7 +726,7 @@ ggraph(dlt2_network, layout = "fr") +
 1.  How does the DLT 2 network compare to DLT 1? What are some
     similarities and differences?
 
-    -   
+    -   YOUR RESPONSE HERE
 
 2.  How might you modify this graph to make it more insightful and
     useful? For ideas check out these nework viz tutorials
@@ -739,7 +734,7 @@ ggraph(dlt2_network, layout = "fr") +
     [here](https://kateto.net/network-visualization) and
     [here](https://rpubs.com/neloe/ggraph_intro).
 
-    -   
+    -   YOUR RESPONSE HERE
 
 ### 3b. Describe the Network Mathematically
 
@@ -818,8 +813,8 @@ centr_degree(dlt1_network, mode = "all")
 ```
 
 The first variable `$res` provides node-level centrality scores. So for
-example, the first school leader in our network is connected to 53 other
-actors in the network. The `$centralization` variable provides our
+example, the first MOOC-Ed participant in our network is connected to 53
+other actors in the network. The `$centralization` variable provides our
 actual centrality score, which at 0.64 indicates a rather centralized
 network as was apparent from our sociogram.
 
@@ -911,7 +906,7 @@ graph.density(dlt1_network)
 ```
 
 As you can see, our collaboration network in DLT 1 has a VERY low
-density. Intrepretation of the measure greatly depends on context,
+density. Interpretation of the measure greatly depends on context,
 however. In smaller networks, for example, it may suggest that
 collaboration in the network is quite limited and may impact the flow of
 information, resources, and innovations among actors. In a large network
@@ -960,11 +955,8 @@ dlt1_network <- dlt1_network |>
 dlt1_network
 ```
 
-As shown in the output above, the tie between school leader 1 and 3 is
-reciprocated, but the tie between 3 and 24 is not.
-
 Let's now add this new variable to our sociogram to highlight
-reciprocated ties in our Year 1 network:
+reciprocated ties in our DLT 1 network:
 
 ```{r add_reciprocated_ties}
 ggraph(dlt1_network) +
@@ -1036,7 +1028,7 @@ mean_distance(dlt1_network)
 
 Carolan notes that both diameter and average path length are important
 network-level structural properties. Similar to diameter and distance
-measures for our Year 1 network above, he notes that a network with a
+measures for our DLT 1 network above, he notes that a network with a
 large diameter and small average path length suggests a structure in
 which there are parts of the network that some network actors may be
 unable to access.
@@ -1053,7 +1045,7 @@ Use the code chunk below to calculate the following measures for the DLT
 5.  Transitivity & Clustering
 6.  Diameter & Distance
 
-```{r analyze_year_3}
+```{r analyze_dlt2}
 #YOUR CODE HERE
 
 #size
@@ -1077,7 +1069,7 @@ diameter(dlt2_network)
 mean_distance(dlt2_network)
 ```
 
-1.  How do network-level measures for Year 1 and Year 3 collaboration
+1.  How do network-level measures for DLT 1 and DLT 2 collaboration
     compare? What are some similarities and differences?
 
     -   

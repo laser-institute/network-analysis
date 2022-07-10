@@ -105,5 +105,3 @@ general professional matters (1 = yes, 0 = no).
 3.  How might your response to #2 differ if you knew that the networks
     also had high density scores? Given this new information, what would
     you predict about the transition to a new evaluation system?
-
-## References
