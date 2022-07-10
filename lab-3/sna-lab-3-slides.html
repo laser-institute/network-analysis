@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Groups, Positions, &amp; Egocentric Analysis</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Dr. Shaun Kellogg" />
+    <script src="libs/header-attrs-2.13/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/panelset-0.2.6/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset-0.2.6/panelset.js"></script>
+    <script src="libs/clipboard-2.0.6/clipboard.min.js"></script>
+    <link href="libs/xaringanExtra-clipboard-0.2.6/xaringanExtra-clipboard.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-clipboard-0.2.6/xaringanExtra-clipboard.js"></script>
+    <script>window.xaringanExtraClipboard(null, {"button":"<i class=\"fa fa-clipboard\"><\/i>","success":"<i class=\"fa fa-check\" style=\"color: #90BE6D\"><\/i>","error":"Press Ctrl+C to Copy"})</script>
+    <link href="libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+    <link href="libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+    <link href="libs/tile-view-0.2.6/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view-0.2.6/tile-view.js"></script>
+    <link rel="stylesheet" href="css/laser.css" type="text/css" />
+    <link rel="stylesheet" href="css/laser-fonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+class: clear, title-slide, inverse, center, top, middle
+
+
+
+
+
+
+
+
+
+
+# Groups, Positions, &amp; Egocentric Analysis
+## SNA Learning Lab 3 Overview
+### Dr. Shaun Kellogg
+### July 09, 2022
+
+---
+# Agenda
+
+.pull-left[
+## Part 1: Core Concepts
+### Group Identification
+- Top Down Methods 
+- Bottom Up Methods 
+- Hashtag Common Core
+
+]
+
+.pull-right[
+
+## Part 2: R Code-Along
+#### Group &amp; Ego Analysis
+- Components
+- Cliques
+- Key Actors
+]
+
+
+???
+ 
+
+---
+# A Quick Refresher
+
+.pull-left[
+## Data Management
+- Collection 
+- Quality 
+- Edge List Creation
+]
+
+
+.pull-right[
+## Network Measurement
+- Centrality
+- Density
+- Reciprocity
+
+]
+
+???
+
+---
+
+class: clear, laser
+
+.quote["Unlike most social science, **network analysts identify groups through their relational data**, not an exogenous attribute such as grade level, departmental affiliation, or years of experience."]
+
+.author[~ Brian Carolan]
+
+
+---
+class: clear, inverse, middle, center
+
+# Part 1: Core Concepts
+
+
+Top Down, Bottom Up, and #COMMONCORE
+
+
+---
+# Top Down Methods
+
+.panelset[
+
+.panel[.panel-name[Overview]
+
+The “top-down” approach focuses on how larger network structures are built from smaller ones. Or stated more clearly:
+
+&gt; ...this approach takes the complete network and considers parts of it that are dense and somewhat distinct from the rest of the network.
+
+]
+
+
+.panel[.panel-name[Components]
+
+.pull-left[
+A **component** is a connected subgraph in which there is a path between all pairs of nodes.
+
+]
+
+.pull-right[
+.center[
+&lt;img src="sna-lab-3-slides_files/figure-html/unnamed-chunk-2-1.png" width="70%" /&gt;
+]
+]
+]
+
+
+.panel[.panel-name[Cliques]
+
+.pull-left[
+A **clique** is a maximally connected subgraph of nodes (&gt; 2) in which all nodes are connected to each other.
+
+]
+
+.pull-right[
+.center[
+&lt;img src="sna-lab-3-slides_files/figure-html/unnamed-chunk-3-1.png" width="70%" /&gt;
+]
+]
+]
+
+.panel[.panel-name[Factions]
+
+.pull-left[
+A **clique** is a maximally connected subgraph of nodes (&gt; 2) in which all nodes are connected to each other.
+
+]
+
+.pull-right[
+.center[
+&lt;img src="sna-lab-3-slides_files/figure-html/unnamed-chunk-4-1.png" width="70%" /&gt;
+]
+]
+]
+
+.panel[.panel-name[Discuss]
+Consider a network you are interested in studying and think about the following questions: 
+
+- Who are the network's actors? 
+
+- What ties connect these actors? 
+
+- Are there any groups within this network? 
+
+- What research questions are you interested in investigating?
+
+]
+
+
+]
+
+???
+
+---
+# Network Data Structures
+
+.panelset[
+
+
+.panel[.panel-name[Node-List]
+
+.pull-left[
+
+Consistent with typical data storage, node-lists often include:
+- Identifiers lik name or **ID**
+- Demographic info (**gender**, age) 
+- Socio-economic info (job, income)
+- Substantive info (**grades**, attendance)
+
+]
+
+
+.pull-right[
+
+
+| id|gender |achievement |
+|--:|:------|:-----------|
+|  1|female |high        |
+|  2|male   |average     |
+|  3|female |average     |
+|  4|male   |high        |
+|  5|female |average     |
+|  6|female |average     |
+
+]
+
+
+]
+
+.panel[.panel-name[Edge-List]
+
+.pull-left[
+
+Radically different than typical data storage, edge-lists include:
+- **ego and an alter**
+- tie strength or frequency
+- edge attributes (time, event, text)
+
+]
+
+
+.pull-right[
+
+
+| from| to| weight|
+|----:|--:|------:|
+|    1|  2|      1|
+|    1|  4|      1|
+|    1|  5|      1|
+|    1|  6|      1|
+|    1|  7|      1|
+|    1|  8|      1|
+
+]
+
+
+]
+
+
+.panel[.panel-name[Adjacency Matrix]
+
+.pull-left[
+
+Also radically different, an adjacency matrix includes:
+- Column for each actor
+- Row for each actor
+- A Value indicate the presence/strength of a relation 
+
+]
+
+
+.pull-right[
+
+
+```
+##   1 2 3 4 5 6 7 8 9
+## 1 0 0 0 1 0 0 0 0 0
+## 2 0 0 1 0 0 0 0 1 0
+## 3 0 1 0 0 0 0 0 1 0
+## 4 0 0 0 0 0 0 0 0 0
+## 5 1 0 0 0 0 0 0 0 0
+## 6 0 0 0 0 0 0 0 0 0
+## 7 0 0 0 0 0 0 0 0 0
+## 8 0 1 1 0 0 0 0 0 0
+## 9 0 0 0 0 0 0 0 0 0
+```
+
+]
+
+]
+
+.panel[.panel-name[Discuss]
+
+Take a look at one of the network datasets [here](https://github.com/laser-institute/network-analysis/tree/main/lab-1/data) and consider the following:
+
+- What format is this data set stored as? 
+
+- If edge data, is it directed or undirected? Valued?
+
+- If node data, does the file contain attribute data? 
+
+- What are some things you notice about this dataset? 
+
+- What questions do you have about this dataset? 
+
+]
+
+]
+
+???
+
+
+
+---
+# Guiding Study
+
+.panelset[
+
+.panel[.panel-name[Context]
+
+Revisiting early work in the field of sociometry, this study ***assesses the level of agreement between teacher perceptions and student reports of classroom friendships*** among middle school students. 
+
+
+]
+
+.panel[.panel-name[Questions]
+
+The central question guiding this investigation was:
+
+&gt;***Do student reports agree with teacher perceptions*** when it comes to classroom friendship ties and with what consequences for commonly used social network measures?
+]
+
+.panel[.panel-name[Data]
+- 1 teacher, 1 middle school, four classrooms
+- Students  given roster and asked to evaluate relationships with peers
+- Choices included best friend, friend, know-like, know, know-dislike, strongly dislike, and do not know.
+- Relations are ***valued*** (degrees of friendship, not just yes or no)
+- Data are ***directed*** (friendship nominations were not presumed to be reciprocal). 
+
+]
+
+.panel[.panel-name[Key Findings]
+
+- Teacher’s perceptions and students’ reports were statistically similar, 11–29% of possible ties did not match.
+- Students reported significantly more reciprocated friendship ties than the teacher perceived.
+- Observed level of agreement varied across classes and generally increased over time. 
+]
+
+]
+
+
+.footnote[
+Pittinsky, M., &amp; Carolan, B. (2008). [Behavioral versus cognitive classroom friendship networks.](https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-1/pittinsky-class-friendships.pdf)
+]
+
+???
+
+
+---
+class: clear, inverse, middle, center
+
+# part_2(R, code_along)
+
+Network Packages, Objects, and Sociograms
+
+
+---
+# Import Data
+
+.panelset[
+
+.panel[.panel-name[Load Libraries]
+
+Let's start by creating a new R script and loading the {tidyverse}, as well as the {tidygraph} and {ggraph} SNA packages introduced in Lab 1:          
+
+
+```r
+library(tidyverse)
+library(tidygraph)
+library(ggraph)
+```
+
+**Note:** You may have to install this package using the `install.packages()` function if it is not listed in your packages pane.  
+]
+
+.panel[.panel-name[Import Data]
+
+Run the following code to use the `read_csv()` function from the {readr} package to read the `ccss-tweets-fresh.csv` file from the data folder and assign to a new data frame named ccss_tweets:
+
+
+```r
+ccss_ties &lt;- read_csv("data/ccss-edgelist.csv")
+
+ccss_nodes &lt;- read_csv("data/ccss-nodelist.csv")
+```
+
+]
+
+.panel[.panel-name[Inspect Data]
+
+Now let's take a look at the data file we just imported using the `View()` function or another function of choice you may have learned in the Foundations Labs:
+
+
+```r
+View(ccss_ties)
+
+View(ccss_nodes)
+```
+
+
+]
+
+.panel[.panel-name[Discuss]
+
+Think about the questions below and be prepared to share your response:              
+1. What do you think the rows and columns in each file represent? 
+
+1. What about the values in each cell represent?
+
+1. What else do you notice about the data? 
+
+1. What questions do you have? 
+
+]
+
+]
+
+
+---
+# Tidy Graph  
+
+.panelset[
+
+.panel[.panel-name[tbl_graph( ) function]
+
+The [`tbl_graph()`](https://tidygraph.data-imaginist.com/reference/tbl_graph.html) function creates a special network data structure called a "tidy graph" that combines our nodes and edges into a single R object. Run the following code in your R script:
+
+
+```r
+ccss_network &lt;- tbl_graph(edges = ccss_ties,
+                          nodes = ccss_nodes, 
+                          directed = TRUE) 
+```
+The benefits of a "tidy graph" is that opens up the entire suite of tidyverse tools for manipulating and constructing network data and variables noted earlier. 
+
+]
+
+.panel[.panel-name[View Network]
+
+
+Using your R script, type the name of network object we just created and run the code to produce the output on the next tab:
+
+
+```r
+# ADD CODE BELOW
+#
+#
+```
+]
+
+.panel[.panel-name[View Sociogram]
+
+
+
+```r
+ggraph(ccss_network, layout = "fr") + 
+  geom_edge_link(arrow = arrow(length = unit(1, 'mm')), 
+                 end_cap = circle(3, 'mm'),
+                 start_cap = circle(3, 'mm'),
+                 alpha = .1) +
+  geom_node_point(aes(size = local_size())) +
+  geom_node_text(aes(label = actors,
+                     size = local_size()),
+                 repel=TRUE) +
+  theme_graph()
+```
+
+```
+## Warning: ggrepel: 1 unlabeled data points (too many overlaps). Consider increasing max.overlaps
+```
+
+]
+
+.panel[.panel-name[Discuss]
+
+Think about the questions below:              
+
+1. What is size of our CSSS twitter network?
+
+1. Does our network contain any obvious groups?
+
+1. What insights have gained about out network so far?
+
+1. What questions do have about have about out network so far?
+
+]
+
+
+]
+
+---
+# Components
+
+.panelset[
+
+.panel[.panel-name[Definition]
+
+One of the most basic ways researchers can characterize a network's substructure is to identify its components.
+
+&gt; A **component** is a connected subgraph in which there is a path between all pairs of nodes.
+
+Recall from our output above that our directed "multigraph" had 13 components. 
+
+]
+
+.panel[.panel-name[Quick Look]
+
+A weak component, as illustrated by the graph generated by the code below, ignores the direction of a tie; 
+
+
+```r
+autograph(ccss_network)
+```
+
+Strong components do not. In other words:
+
+&gt; **Strong components** consist of nodes that are connected to one another via both directions along the path that connects them.
+
+]
+
+.panel[.panel-name[Implementation]
+The {igraph} package has a simple `components()` function for identifying the number of components in a network, the size of each component, and which actors belong to each.
+
+
+```r
+components(ccss_network, mode = c("strong"))
+```
+
+How many "strong" components are in our network?
+]
+
+
+
+]
+
+
+---
+# Cliques
+
+.panelset[
+
+.panel[.panel-name[Definition]
+
+Examining cliques is one bottom-up approach that reveals how groups are distributed in the network and which actors belong to which groups.
+
+&gt; A clique is a maximally connected subgraph of nodes (&gt; 2) in which all nodes are connected to each other. 
+
+
+]
+
+.panel[.panel-name[Clique Number]
+
+Similar to our component analysis, the {igraph} function has a super simple `clique_num()` function for identifying number of completely connected subgroups in a network:
+
+
+```r
+clique_num(ccss_network)
+```
+
+As you probably saw above, the `clique_num()` function does not take into account directionality of our ties. It looks like we have 3 clusters of at least 3 actors that all have ties to one another.
+
+]
+
+.panel[.panel-name[Implementation]
+The {igraph} function also has a simple `cliques()` function for
+identifying members who belong to the same group.
+
+Let's see if there are any cliques that contain a minimum of 4 nodes?
+
+
+```
+## Warning in cliques(ccss_network, min = 4, max = NULL): At core/cliques/cliquer_wrapper.c:57 : Edge
+## directions are ignored for clique calculations.
+```
+
+]
+
+
+
+]
+
+---
+# Key Actors
+
+.panelset[
+
+.panel[.panel-name[Degree]
+
+As we learned in our previous lab, a key structural
+property of networks is the concept of centralization. 
+
+One of the most common descriptives reported in network studies and a
+primary measure of centralization is degree.
+
+&gt; **Degree** is the number of ties to and from an ego. In a directed
+&gt; network, in-degree is the number of ties received, whereas out-degree
+&gt; is the number of ties sent.
+
+
+]
+
+.panel[.panel-name[Activate Nodes]
+
+The {tidygraph} package has an aptly named function
+`centrality_degree()` for calculating degree, in-degree, and out-degree
+for all actors in a network. 
+
+To use it, we'll need to `activate()` our `nodes` and create a new node-level variable using `mutate()` from the {dplyr}
+
+
+```r
+ccss_network &lt;- ccss_network |&gt;
+  activate(nodes) |&gt;
+  mutate(in_degree = centrality_degree(mode = "in"),
+         out_degree = centrality_degree(mode = "out"))
+```
+
+
+]
+
+.panel[.panel-name[View Network]
+Let's take a look at our network now. 
+
+
+```r
+ccss_network
+```
+
+```
+## # A tbl_graph: 92 nodes and 289 edges
+## #
+## # A directed multigraph with 13 components
+## #
+## # Node Data: 92 × 3 (active)
+##   actors          in_degree out_degree
+##   &lt;chr&gt;               &lt;dbl&gt;      &lt;dbl&gt;
+## 1 AlexiosAsText           0          1
+## 2 MaggieEThornton         1          0
+## 3 tx_granny               0          4
+## 4 BanjoTanJoe             1          3
+## 5 MillennialOther         2          0
+## 6 Richard_Harambe         2          0
+## # … with 86 more rows
+## #
+## # Edge Data: 289 × 4
+##    from    to created_at          text                                                               
+##   &lt;int&gt; &lt;int&gt; &lt;dttm&gt;              &lt;chr&gt;                                                              
+## 1     1     2 2021-11-07 15:22:14 @MaggieEThornton If enough were gathered could run a discourse ana…
+## 2     3     4 2021-11-06 19:29:41 @MillennialOther @Richard_Harambe @RepMikeJohnson This is the resu…
+## 3     3     5 2021-11-06 19:29:41 @MillennialOther @Richard_Harambe @RepMikeJohnson This is the resu…
+## # … with 286 more rows
+```
+
+.panel[.panel-name[Your Turn]
+Using your R script, see if you can figure out which twitter user received the most replies/mentions (transceivers) and which user replied/mentioned to the most users (transmitters):
+
+
+```r
+# YOUR CODE HERE
+#
+#
+#
+```
+
+]
+
+]
+
+]
+
+
+---
+# What's Next
+
+.pull-left[
+## Essential Readings
+
+- [Groups and Positions in Complete Networks](https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-4/carolan-sna-ch-6.pdf)
+
+- [Measures for Egocentric Network Analysis](https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-4/carolan-sna-ch-7.pdf)  
+] 
+
+.pull-right[
+## Case Study
+
+- [SNA Case Study: Components, Cliques, &amp; Key Actors](https://laser-institute.github.io/network-analysis/lab-3/sna-lab-3-case-study-key.html)
+
+- [Guiding Study: Hashtag Common Core](https://www.hashtagcommoncore.com)
+]
+
+
+---
+class: clear, center
+
+## .font130[.center[**Thank you!**]]
+
+
+.center[&lt;img style="border-radius:50%;" src="img/kellogg.jpeg" height="200px"/&gt;&lt;br/&gt;**Shaun Kellogg**&lt;br/&gt;&lt;mailto:sbkellog@ncsu.edu&gt;]
+
+.pull-left-narrow[.center[&lt;img style="border-radius: 50%;" src="https://www.nsf.gov/images/logos/NSF_4-Color_bitmap_Logo.png" height="150px"/&gt; ]]
+
+.pull-right-wide[
+.left[.font70[
+
+This work was supported by the National Science Foundation grant DRL-2025090 (ECR:BCSER). Any opinions, findings, and conclusions expressed in this material are those of the authors and do not necessarily reflect the views of the National Science Foundation.
+]]]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "default",
+"highlightLines": true,
+"highlightLanguage": "r",
+"countIncrementalSlides": false,
+"ratio": "16:9",
+"slideNumberFormat": "<div class=\"progress-bar-container\">\n <div class=\"progress-bar\" style=\"width: calc(%current% / %total% * 100%);\">\n </div>\n</div>\n</div>"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

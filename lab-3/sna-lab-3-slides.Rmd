@@ -1,0 +1,753 @@
+---
+title: "Groups, Positions, & Egocentric Analysis"
+subtitle: "SNA Learning Lab 3 Overview"
+author: "Dr. Shaun Kellogg"
+institute: "The LASER Institute"
+date: "2022/07/11 (updated: `r Sys.Date()`)"
+output:
+  xaringan::moon_reader:
+    css:
+     - default
+     - css/laser.css
+     - css/laser-fonts.css
+    lib_dir: libs                        # creates directory for libraries
+    seal: false                          # false: custom title slide
+    nature:
+      highlightStyle: default         # highlighting syntax for code
+      highlightLines: true               # true: enables code line highlighting 
+      highlightLanguage: ["r"]           # languages to highlight
+      countIncrementalSlides: false      # false: disables counting of incremental slides
+      ratio: "16:9"                      # 4:3 for standard size,16:9
+      slideNumberFormat: |
+       <div class="progress-bar-container">
+        <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+        </div>
+       </div>
+       </div>
+---
+class: clear, title-slide, inverse, center, top, middle
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r, echo=FALSE, results='hide', message=FALSE, warning=FALSE}
+# then load all the relevant packages
+pacman::p_load(pacman, knitr, tidyverse, readxl, tidygraph, ggraph)
+
+teacher_friends <- read_excel("data/teacher-reported-friends.xlsx", 
+                              col_names = FALSE)
+
+student_attributes <- read_excel("data/student-attributes.xlsx")
+
+rownames(teacher_friends) <- 1:27
+
+colnames(teacher_friends) <- 1:27
+
+teacher_matrix <- as.matrix(teacher_friends)
+
+teacher_network <- as_tbl_graph(teacher_matrix,
+                                directed = TRUE)
+
+teacher_edges <- teacher_network |>
+  activate(edges) |>
+  as_tibble()
+
+teacher_network <- tbl_graph(edges = teacher_edges, 
+                             nodes = student_attributes, 
+                             directed = TRUE)
+
+```
+
+```{r xaringan-panelset, echo=FALSE}
+xaringanExtra::use_panelset()
+```
+
+```{r xaringanExtra-clipboard, echo=FALSE}
+# these allow any code snippets to be copied to the clipboard so they 
+# can be pasted easily
+htmltools::tagList(
+  xaringanExtra::use_clipboard(
+    button_text = "<i class=\"fa fa-clipboard\"></i>",
+    success_text = "<i class=\"fa fa-check\" style=\"color: #90BE6D\"></i>",
+  ),
+  rmarkdown::html_dependency_font_awesome()
+)
+```
+```{r xaringan-extras, echo=FALSE}
+xaringanExtra::use_tile_view()
+
+```
+
+# `r rmarkdown::metadata$title`
+## `r rmarkdown::metadata$subtitle`
+### `r rmarkdown::metadata$author`
+### `r format(Sys.time(), "%B %d, %Y")`
+
+---
+# Agenda
+
+.pull-left[
+## Part 1: Core Concepts
+### Group Identification
+- Top Down Methods 
+- Bottom Up Methods 
+- Hashtag Common Core
+
+]
+
+.pull-right[
+
+## Part 2: R Code-Along
+#### Group & Ego Analysis
+- Components
+- Cliques
+- Key Actors
+]
+
+
+???
+ 
+
+---
+# A Quick Refresher
+
+.pull-left[
+## Data Management
+- Collection 
+- Quality 
+- Edge List Creation
+]
+
+
+.pull-right[
+## Network Measurement
+- Centrality
+- Density
+- Reciprocity
+
+]
+
+???
+
+---
+
+class: clear, laser
+
+.quote["Unlike most social science, **network analysts identify groups through their relational data**, not an exogenous attribute such as grade level, departmental affiliation, or years of experience."]
+
+.author[~ Brian Carolan]
+
+
+---
+class: clear, inverse, middle, center
+
+# Part 1: Core Concepts
+
+
+Top Down, Bottom Up, and #COMMONCORE
+
+
+---
+# Top Down Methods
+
+.panelset[
+
+.panel[.panel-name[Overview]
+
+The “top-down” approach focuses on how larger network structures are built from smaller ones. Or stated more clearly:
+
+> ...this approach takes the complete network and considers parts of it that are dense and somewhat distinct from the rest of the network.
+
+]
+
+
+.panel[.panel-name[Components]
+
+.pull-left[
+A **component** is a connected subgraph in which there is a path between all pairs of nodes.
+
+]
+
+.pull-right[
+.center[
+```{r, echo=FALSE, message=FALSE, out.width ='70%'}
+library(tidyverse)
+library(tidygraph)
+library(ggraph)
+
+ccss_ties <- read_csv("data/ccss-edgelist.csv")
+
+ccss_nodes <- read_csv("data/ccss-nodelist.csv")
+
+ccss_network <- tbl_graph(edges = ccss_ties,
+                          nodes = ccss_nodes, 
+                          directed = TRUE) 
+
+ggraph(ccss_network, layout = "fr") +
+  geom_edge_link() +
+  geom_node_point() +
+  theme_graph()
+
+```
+]
+]
+]
+
+
+.panel[.panel-name[Cliques]
+
+.pull-left[
+A **clique** is a maximally connected subgraph of nodes (> 2) in which all nodes are connected to each other.
+
+]
+
+.pull-right[
+.center[
+```{r, echo=FALSE, message=FALSE, out.width ='70%'}
+library(tidyverse)
+library(tidygraph)
+library(ggraph)
+
+ccss_ties <- read_csv("data/ccss-edgelist.csv")
+
+ccss_nodes <- read_csv("data/ccss-nodelist.csv")
+
+ccss_network <- tbl_graph(edges = ccss_ties,
+                          nodes = ccss_nodes, 
+                          directed = TRUE) 
+ccss_network |>
+  activate(nodes) |>
+  filter(local_size() > 2) |>
+ggraph(layout = "fr") +
+  geom_edge_link() +
+  geom_node_point() +
+  theme_graph()
+
+```
+]
+]
+]
+
+.panel[.panel-name[Factions]
+
+.pull-left[
+A **clique** is a maximally connected subgraph of nodes (> 2) in which all nodes are connected to each other.
+
+]
+
+.pull-right[
+.center[
+```{r, echo=FALSE, message=FALSE, out.width ='70%'}
+library(tidyverse)
+library(tidygraph)
+library(ggraph)
+
+ccss_ties <- read_csv("data/ccss-edgelist.csv")
+
+ccss_nodes <- read_csv("data/ccss-nodelist.csv")
+
+ccss_network <- tbl_graph(edges = ccss_ties,
+                          nodes = ccss_nodes, 
+                          directed = TRUE) 
+ccss_network |>
+  activate(nodes) |>
+  filter(local_size() > 2) |>
+ggraph(layout = "fr") +
+  geom_edge_link() +
+  geom_node_point() +
+  theme_graph()
+
+```
+]
+]
+]
+
+.panel[.panel-name[Discuss]
+Consider a network you are interested in studying and think about the following questions: 
+
+- Who are the network's actors? 
+
+- What ties connect these actors? 
+
+- Are there any groups within this network? 
+
+- What research questions are you interested in investigating?
+
+]
+
+
+]
+
+???
+
+---
+# Network Data Structures
+
+.panelset[
+
+
+.panel[.panel-name[Node-List]
+
+.pull-left[
+
+Consistent with typical data storage, node-lists often include:
+- Identifiers lik name or **ID**
+- Demographic info (**gender**, age) 
+- Socio-economic info (job, income)
+- Substantive info (**grades**, attendance)
+
+]
+
+
+.pull-right[
+
+```{r node-list, echo=FALSE, message=FALSE, warning=FALSE}
+student_attributes <- read_excel("data/student-attributes.xlsx")
+
+student_attributes |>
+  head() |>
+  select(id, gender, achievement) |>
+  kable()
+```
+
+]
+
+
+]
+
+.panel[.panel-name[Edge-List]
+
+.pull-left[
+
+Radically different than typical data storage, edge-lists include:
+- **ego and an alter**
+- tie strength or frequency
+- edge attributes (time, event, text)
+
+]
+
+
+.pull-right[
+
+```{r edge-list, echo=FALSE, message=FALSE, warning=FALSE}
+
+student_edges <- read_excel("data/student-edgelist.xlsx")
+
+student_edges |>
+  head() |>
+  kable()
+```
+
+]
+
+
+]
+
+
+.panel[.panel-name[Adjacency Matrix]
+
+.pull-left[
+
+Also radically different, an adjacency matrix includes:
+- Column for each actor
+- Row for each actor
+- A Value indicate the presence/strength of a relation 
+
+]
+
+
+.pull-right[
+
+```{r adjaency-matrix, echo=FALSE, message=FALSE, warning=FALSE}
+
+teacher_matrix[1:9, 1:9]
+```
+
+]
+
+]
+
+.panel[.panel-name[Discuss]
+
+Take a look at one of the network datasets [here](https://github.com/laser-institute/network-analysis/tree/main/lab-1/data) and consider the following:
+
+- What format is this data set stored as? 
+
+- If edge data, is it directed or undirected? Valued?
+
+- If node data, does the file contain attribute data? 
+
+- What are some things you notice about this dataset? 
+
+- What questions do you have about this dataset? 
+
+]
+
+]
+
+???
+
+
+
+---
+# Guiding Study
+
+.panelset[
+
+.panel[.panel-name[Context]
+
+Revisiting early work in the field of sociometry, this study ***assesses the level of agreement between teacher perceptions and student reports of classroom friendships*** among middle school students. 
+
+
+]
+
+.panel[.panel-name[Questions]
+
+The central question guiding this investigation was:
+
+>***Do student reports agree with teacher perceptions*** when it comes to classroom friendship ties and with what consequences for commonly used social network measures?
+]
+
+.panel[.panel-name[Data]
+- 1 teacher, 1 middle school, four classrooms
+- Students  given roster and asked to evaluate relationships with peers
+- Choices included best friend, friend, know-like, know, know-dislike, strongly dislike, and do not know.
+- Relations are ***valued*** (degrees of friendship, not just yes or no)
+- Data are ***directed*** (friendship nominations were not presumed to be reciprocal). 
+
+]
+
+.panel[.panel-name[Key Findings]
+
+- Teacher’s perceptions and students’ reports were statistically similar, 11–29% of possible ties did not match.
+- Students reported significantly more reciprocated friendship ties than the teacher perceived.
+- Observed level of agreement varied across classes and generally increased over time. 
+]
+
+]
+
+
+.footnote[
+Pittinsky, M., & Carolan, B. (2008). [Behavioral versus cognitive classroom friendship networks.](https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-1/pittinsky-class-friendships.pdf)
+]
+
+???
+
+
+---
+class: clear, inverse, middle, center
+
+# part_2(R, code_along)
+
+Network Packages, Objects, and Sociograms
+
+
+---
+# Import Data
+
+.panelset[
+
+.panel[.panel-name[Load Libraries]
+
+Let's start by creating a new R script and loading the {tidyverse}, as well as the {tidygraph} and {ggraph} SNA packages introduced in Lab 1:          
+
+```{r load-libraries, message=TRUE, echo=TRUE, message=FALSE}
+library(tidyverse)
+library(tidygraph)
+library(ggraph)
+```
+
+**Note:** You may have to install this package using the `install.packages()` function if it is not listed in your packages pane.  
+]
+
+.panel[.panel-name[Import Data]
+
+Run the following code to use the `read_csv()` function from the {readr} package to read the `ccss-tweets-fresh.csv` file from the data folder and assign to a new data frame named ccss_tweets:
+
+```{r import-data, echo=TRUE, message=FALSE, eval=FALSE}
+ccss_ties <- read_csv("data/ccss-edgelist.csv")
+
+ccss_nodes <- read_csv("data/ccss-nodelist.csv")
+```
+
+]
+
+.panel[.panel-name[Inspect Data]
+
+Now let's take a look at the data file we just imported using the `View()` function or another function of choice you may have learned in the Foundations Labs:
+
+```{r inspect-data, echo=TRUE, eval=FALSE}
+View(ccss_ties)
+
+View(ccss_nodes)
+```
+
+
+]
+
+.panel[.panel-name[Discuss]
+
+Think about the questions below and be prepared to share your response:              
+1. What do you think the rows and columns in each file represent? 
+
+1. What about the values in each cell represent?
+
+1. What else do you notice about the data? 
+
+1. What questions do you have? 
+
+]
+
+]
+
+
+---
+# Tidy Graph  
+
+.panelset[
+
+.panel[.panel-name[tbl_graph( ) function]
+
+The [`tbl_graph()`](https://tidygraph.data-imaginist.com/reference/tbl_graph.html) function creates a special network data structure called a "tidy graph" that combines our nodes and edges into a single R object. Run the following code in your R script:
+
+```{r wrangle-data, echo=TRUE, message=FALSE, warning=FALSE}
+ccss_network <- tbl_graph(edges = ccss_ties,
+                          nodes = ccss_nodes, 
+                          directed = TRUE) 
+```
+The benefits of a "tidy graph" is that opens up the entire suite of tidyverse tools for manipulating and constructing network data and variables noted earlier. 
+
+]
+
+.panel[.panel-name[View Network]
+
+
+Using your R script, type the name of network object we just created and run the code to produce the output on the next tab:
+
+```{r view-netwok, echo=TRUE}
+# ADD CODE BELOW
+#
+#
+
+```
+]
+
+.panel[.panel-name[View Sociogram]
+
+
+```{r , echo=TRUE, fig.show='hide'}
+ggraph(ccss_network, layout = "fr") + 
+  geom_edge_link(arrow = arrow(length = unit(1, 'mm')), 
+                 end_cap = circle(3, 'mm'),
+                 start_cap = circle(3, 'mm'),
+                 alpha = .1) +
+  geom_node_point(aes(size = local_size())) +
+  geom_node_text(aes(label = actors,
+                     size = local_size()),
+                 repel=TRUE) +
+  theme_graph()
+```
+
+]
+
+.panel[.panel-name[Discuss]
+
+Think about the questions below:              
+
+1. What is size of our CSSS twitter network?
+
+1. Does our network contain any obvious groups?
+
+1. What insights have gained about out network so far?
+
+1. What questions do have about have about out network so far?
+
+]
+
+
+]
+
+---
+# Components
+
+.panelset[
+
+.panel[.panel-name[Definition]
+
+One of the most basic ways researchers can characterize a network's substructure is to identify its components.
+
+> A **component** is a connected subgraph in which there is a path between all pairs of nodes.
+
+Recall from our output above that our directed "multigraph" had 13 components. 
+
+]
+
+.panel[.panel-name[Quick Look]
+
+A weak component, as illustrated by the graph generated by the code below, ignores the direction of a tie; 
+
+```{r auto-graph, echo=TRUE, message=FALSE, warning=FALSE, fig.show='hide'}
+autograph(ccss_network)
+```
+
+Strong components do not. In other words:
+
+> **Strong components** consist of nodes that are connected to one another via both directions along the path that connects them.
+
+]
+
+.panel[.panel-name[Implementation]
+The {igraph} package has a simple `components()` function for identifying the number of components in a network, the size of each component, and which actors belong to each.
+
+```{r strong-component, echo=TRUE, results='hide'}
+components(ccss_network, mode = c("strong"))
+```
+
+How many "strong" components are in our network?
+]
+
+
+
+]
+
+
+---
+# Cliques
+
+.panelset[
+
+.panel[.panel-name[Definition]
+
+Examining cliques is one bottom-up approach that reveals how groups are distributed in the network and which actors belong to which groups.
+
+> A clique is a maximally connected subgraph of nodes (> 2) in which all nodes are connected to each other. 
+
+
+]
+
+.panel[.panel-name[Clique Number]
+
+Similar to our component analysis, the {igraph} function has a super simple `clique_num()` function for identifying number of completely connected subgroups in a network:
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE, results='hide'}
+clique_num(ccss_network)
+```
+
+As you probably saw above, the `clique_num()` function does not take into account directionality of our ties. It looks like we have 3 clusters of at least 3 actors that all have ties to one another.
+
+]
+
+.panel[.panel-name[Implementation]
+The {igraph} function also has a simple `cliques()` function for
+identifying members who belong to the same group.
+
+Let's see if there are any cliques that contain a minimum of 4 nodes?
+
+```{r , results='hide'}
+cliques(ccss_network, min = 4, max = NULL)
+```
+
+]
+
+
+
+]
+
+---
+# Key Actors
+
+.panelset[
+
+.panel[.panel-name[Degree]
+
+As we learned in our previous lab, a key structural
+property of networks is the concept of centralization. 
+
+One of the most common descriptives reported in network studies and a
+primary measure of centralization is degree.
+
+> **Degree** is the number of ties to and from an ego. In a directed
+> network, in-degree is the number of ties received, whereas out-degree
+> is the number of ties sent.
+
+
+]
+
+.panel[.panel-name[Activate Nodes]
+
+The {tidygraph} package has an aptly named function
+`centrality_degree()` for calculating degree, in-degree, and out-degree
+for all actors in a network. 
+
+To use it, we'll need to `activate()` our `nodes` and create a new node-level variable using `mutate()` from the {dplyr}
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE, results='hide'}
+ccss_network <- ccss_network |>
+  activate(nodes) |>
+  mutate(in_degree = centrality_degree(mode = "in"),
+         out_degree = centrality_degree(mode = "out"))
+```
+
+
+]
+
+.panel[.panel-name[View Network]
+Let's take a look at our network now. 
+
+```{r, echo=TRUE}
+ccss_network
+```
+
+.panel[.panel-name[Your Turn]
+Using your R script, see if you can figure out which twitter user received the most replies/mentions (transceivers) and which user replied/mentioned to the most users (transmitters):
+
+```{r, echo=TRUE}
+# YOUR CODE HERE
+#
+#
+#
+```
+
+]
+
+]
+
+]
+
+
+---
+# What's Next
+
+.pull-left[
+## Essential Readings
+
+- [Groups and Positions in Complete Networks](https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-4/carolan-sna-ch-6.pdf)
+
+- [Measures for Egocentric Network Analysis](https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-4/carolan-sna-ch-7.pdf)  
+] 
+
+.pull-right[
+## Case Study
+
+- [SNA Case Study: Components, Cliques, & Key Actors](https://laser-institute.github.io/network-analysis/lab-3/sna-lab-3-case-study-key.html)
+
+- [Guiding Study: Hashtag Common Core](https://www.hashtagcommoncore.com)
+]
+
+
+---
+class: clear, center
+
+## .font130[.center[**Thank you!**]]
+
+
+.center[<img style="border-radius:50%;" src="img/kellogg.jpeg" height="200px"/><br/>**Shaun Kellogg**<br/><mailto:sbkellog@ncsu.edu>]
+
+.pull-left-narrow[.center[<img style="border-radius: 50%;" src="https://www.nsf.gov/images/logos/NSF_4-Color_bitmap_Logo.png" height="150px"/> ]]
+
+.pull-right-wide[
+.left[.font70[
+
+This work was supported by the National Science Foundation grant DRL-2025090 (ECR:BCSER). Any opinions, findings, and conclusions expressed in this material are those of the authors and do not necessarily reflect the views of the National Science Foundation.
+]]]

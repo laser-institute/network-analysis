@@ -315,26 +315,6 @@ sections:
 
 ```
 
-### Import Data
-
-Finally, we'll be using a data download from twitter that only includes
-relatively small set of tweets from one week to help keep things simple.
-Network graphs can quickly get unwieldy as the nodes in your network
-grow. The #commoncore project does an excellent job visualizing large
-networks using advanced techniques. We'll focus on a relatively small
-network since we'll be introduce some very basic techniques for
-visualization.
-
-Run the following code to use the `read_csv()` function from the {readr}
-package to read the `ccss-tweets-fresh.csv` file from the data folder
-and assign to a new data frame named `ccss_tweets`:
-
-```{r, import-tweets}
-ccss_tweets <- read_csv("data/ccss-tweets-simple.csv")
-```
-
-------------------------------------------------------------------------
-
 ## 2. WRANGLE
 
 In general, data wrangling involves some combination of cleaning,
@@ -343,20 +323,36 @@ highlighted in @estrellado2020e, wrangling network data can be even more
 challenging than other data sources since network data often includes
 variables about both individuals and their relationships.
 
-For our data wrangling this week, we're keeping it simple since working
-with relational data is a bit of a departure from our working with
-rectangular data frames. In this lab, we'll revisit how to:
+In this lab, we'll learn how to:
 
-a.  **Create an Edgelist**. In this section, we introduce a new tidy
-    data format call the "edgelist" which contains information about
-    each edge (i.e. connections or ties between actors) in our network.
+a.  **Import Data**. Import data using the `read_csv()` function.
 
-b.  **Format Network Data**. We learn to shape our data files into two
-    common formats for storing network data: edgelists and nodelists.
+b.  **Format Network Data**. We learn to shape our twitter data files
+    into two common formats for storing network data: edgelists and
+    nodelists.
 
 c.  **Create a Network Object**. Finally, we'll need to convert our data
     frames into special data format, an R network object, for working
     with relational data.
+
+### 2a. Import Data
+
+We'll be using a data download from twitter that only includes
+relatively small set of tweets from one week to help keep things simple.
+Network graphs can quickly get unwieldy as the nodes in your network
+grow.
+
+The #commoncore project does an excellent job visualizing large networks
+using advanced techniques. We'll focus on a relatively small network
+since we'll be introduce some very basic techniques for visualization.
+
+Run the following code to use the `read_csv()` function from the {readr}
+package to read the `ccss-tweets-fresh.csv` file from the data folder
+and assign to a new data frame named `ccss_tweets`:
+
+```{r, import-tweets}
+ccss_tweets <- read_csv("data/ccss-tweets-simple.csv")
+```
 
 ### 2b. Format Network Data
 

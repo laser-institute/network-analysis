@@ -1,4 +1,4 @@
-<img src="lab-1/img/LASERLogos_Horz Logo v2 copy.jpg" width="40%"/>
+<img src="sna-capstone/img/SNA_Primary_HX.jpg" width="30%"/>
 
 # Social Network Analysis in STEM Education Research
 
