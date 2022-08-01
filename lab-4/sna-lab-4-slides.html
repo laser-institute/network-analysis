@@ -4,7 +4,7 @@
     <title>Statistical Inference &amp; Network Models</title>
     <meta charset="utf-8" />
     <meta name="author" content="Dr. Shaun Kellogg" />
-    <script src="libs/header-attrs-2.13/header-attrs.js"></script>
+    <script src="libs/header-attrs-2.14/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/panelset-0.2.6/panelset.css" rel="stylesheet" />
     <script src="libs/panelset-0.2.6/panelset.js"></script>
@@ -36,7 +36,7 @@ class: clear, title-slide, inverse, center, top, middle
 # Statistical Inference &amp; Network Models
 ## SNA Learning Lab 4 Overview
 ### Dr. Shaun Kellogg
-### July 10, 2022
+### August 01, 2022
 
 ---
 # Agenda
@@ -581,15 +581,15 @@ summary(ergm_mod_1)
 ## Monte Carlo Maximum Likelihood Results:
 ## 
 ##        Estimate Std. Error MCMC % z value Pr(&gt;|z|)    
-## edges   -3.1101     0.1283      0  -24.23   &lt;1e-04 ***
-## mutual   3.1246     0.3003      0   10.40   &lt;1e-04 ***
+## edges   -3.1094     0.1247      0  -24.94   &lt;1e-04 ***
+## mutual   3.0984     0.2825      0   10.97   &lt;1e-04 ***
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
 ##      Null Deviance: 2503.6  on 1806  degrees of freedom
-##  Residual Deviance:  891.8  on 1804  degrees of freedom
+##  Residual Deviance:  892.4  on 1804  degrees of freedom
 ##  
-## AIC: 895.8  BIC: 906.8  (Smaller is better. MC Std. Err. = 0.7447)
+## AIC: 896.4  BIC: 907.4  (Smaller is better. MC Std. Err. = 0.9802)
 ```
 
 
@@ -618,17 +618,17 @@ summary(ergm_mod_2)
 ## Monte Carlo Maximum Likelihood Results:
 ## 
 ##                         Estimate Std. Error MCMC % z value Pr(&gt;|z|)    
-## edges                    -3.6000     0.1935      0 -18.606   &lt;1e-04 ***
-## mutual                    2.9423     0.2998      0   9.813   &lt;1e-04 ***
-## nodematch.male           -0.1056     0.1428      0  -0.740     0.46    
-## nodematch.district_site   0.9321     0.1877      0   4.965   &lt;1e-04 ***
+## edges                    -3.6211     0.1797      0 -20.152   &lt;1e-04 ***
+## mutual                    2.9306     0.2968      0   9.874   &lt;1e-04 ***
+## nodematch.male           -0.1223     0.1492      0  -0.820    0.412    
+## nodematch.district_site   0.9765     0.1811      0   5.393   &lt;1e-04 ***
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
 ##      Null Deviance: 2503.6  on 1806  degrees of freedom
-##  Residual Deviance:  857.2  on 1802  degrees of freedom
+##  Residual Deviance:  856.6  on 1802  degrees of freedom
 ##  
-## AIC: 865.2  BIC: 887.2  (Smaller is better. MC Std. Err. = 0.4403)
+## AIC: 864.6  BIC: 886.6  (Smaller is better. MC Std. Err. = 0.9926)
 ```
 ]
 
@@ -655,18 +655,18 @@ summary(ergm_mod_3)
 ## Monte Carlo Maximum Likelihood Results:
 ## 
 ##                         Estimate Std. Error MCMC % z value Pr(&gt;|z|)    
-## edges                   -4.52881    0.74295      0  -6.096   &lt;1e-04 ***
-## mutual                   2.93453    0.30500      0   9.621   &lt;1e-04 ***
-## nodematch.male          -0.10860    0.14527      0  -0.748    0.455    
-## nodematch.district_site  0.95062    0.18518      0   5.134   &lt;1e-04 ***
-## nodecov.trust            0.09530    0.07575      0   1.258    0.208    
+## edges                   -4.55696    0.74818      0  -6.091   &lt;1e-04 ***
+## mutual                   2.92834    0.29576      0   9.901   &lt;1e-04 ***
+## nodematch.male          -0.11155    0.14675      0  -0.760    0.447    
+## nodematch.district_site  0.93434    0.17363      0   5.381   &lt;1e-04 ***
+## nodecov.trust            0.09920    0.07539      0   1.316    0.188    
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
 ##      Null Deviance: 2503.6  on 1806  degrees of freedom
-##  Residual Deviance:  855.5  on 1801  degrees of freedom
+##  Residual Deviance:  854.6  on 1801  degrees of freedom
 ##  
-## AIC: 865.5  BIC: 893  (Smaller is better. MC Std. Err. = 0.9979)
+## AIC: 864.6  BIC: 892.1  (Smaller is better. MC Std. Err. = 0.8594)
 ```
 ]
 ]
@@ -765,6 +765,19 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     deleted = true;
   });
 })();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
 (function() {
   "use strict"
   // Replace <script> tags in slides area to make them executable
