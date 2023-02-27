@@ -4,7 +4,7 @@
     <title>Groups, Positions, &amp; Egocentric Analysis</title>
     <meta charset="utf-8" />
     <meta name="author" content="Dr. Shaun Kellogg" />
-    <script src="libs/header-attrs-2.13/header-attrs.js"></script>
+    <script src="libs/header-attrs-2.16/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/panelset-0.2.6/panelset.css" rel="stylesheet" />
     <script src="libs/panelset-0.2.6/panelset.js"></script>
@@ -36,7 +36,7 @@ class: clear, title-slide, inverse, center, top, middle
 # Groups, Positions, &amp; Egocentric Analysis
 ## SNA Learning Lab 3 Overview
 ### Dr. Shaun Kellogg
-### July 10, 2022
+### November 17, 2022
 
 ---
 # Agenda
@@ -412,6 +412,11 @@ ggraph(ccss_network, layout = "fr") +
   theme_graph()
 ```
 
+```
+## Warning: ggrepel: 2 unlabeled data points (too many overlaps). Consider
+## increasing max.overlaps
+```
+
 ]
 
 .panel[.panel-name[Discuss]
@@ -515,6 +520,11 @@ Let's see if there are any cliques that contain a minimum of 4 nodes?
 cliques(ccss_network, min = 4, max = NULL)
 ```
 
+```
+## Warning in cliques(ccss_network, min = 4, max = NULL): At core/cliques/
+## cliquer_wrapper.c:57 : Edge directions are ignored for clique calculations.
+```
+
 ]
 
 
@@ -585,11 +595,11 @@ ccss_network
 ## # … with 86 more rows
 ## #
 ## # Edge Data: 289 × 4
-##    from    to created_at          text                                                          
-##   &lt;int&gt; &lt;int&gt; &lt;dttm&gt;              &lt;chr&gt;                                                         
-## 1     1     2 2021-11-07 15:22:14 @MaggieEThornton If enough were gathered could run a discours…
-## 2     3     4 2021-11-06 19:29:41 @MillennialOther @Richard_Harambe @RepMikeJohnson This is the…
-## 3     3     5 2021-11-06 19:29:41 @MillennialOther @Richard_Harambe @RepMikeJohnson This is the…
+##    from    to created_at          text                                          
+##   &lt;int&gt; &lt;int&gt; &lt;dttm&gt;              &lt;chr&gt;                                         
+## 1     1     2 2021-11-07 15:22:14 @MaggieEThornton If enough were gathered coul…
+## 2     3     4 2021-11-06 19:29:41 @MillennialOther @Richard_Harambe @RepMikeJoh…
+## 3     3     5 2021-11-06 19:29:41 @MillennialOther @Richard_Harambe @RepMikeJoh…
 ## # … with 286 more rows
 ```
 
@@ -696,6 +706,19 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     deleted = true;
   });
 })();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
 (function() {
   "use strict"
   // Replace <script> tags in slides area to make them executable
