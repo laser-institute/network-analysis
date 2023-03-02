@@ -745,7 +745,7 @@ belong to each. Let's first take a quick look at the summaries for
 "weak" components in our network:
 
 ```{r components_weak}
-components(ccss_network, mode = c("weak"))
+# components(ccss_network, mode = c("weak"))
 ```
 
 While not incredibly intuitive to interpret, the output indicates that
@@ -761,7 +761,7 @@ out your theory:
 ```{r components_strong}
 # YOUR CODE HERE
 
-components(ccss_network, mode = c("strong"))
+# components(ccss_network, mode = c("strong"))
 ```
 
 Wow! If your code was correct, you'll see that we have a whopping 92
