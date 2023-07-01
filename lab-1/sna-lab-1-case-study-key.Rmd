@@ -439,9 +439,9 @@ inspect your `teacher_friends` object.
 teacher_friends <- read_excel("data/teacher-reported-friends.xlsx", 
                               col_names = FALSE)
 
-rownames(teacher_friends) <- 1:27
+# rownames(teacher_friends) <- 1:27
 
-colnames(teacher_friends) <- 1:27
+# colnames(teacher_friends) <- 1:27
 
 teacher_friends
 ```
@@ -474,7 +474,7 @@ do so is relatively simple using the `as.matrix()` function built into
 R.
 
 ```{r convert-matrix}
-student_matrix <- as.matrix(student_friends)
+# student_matrix <- as.matrix(student_friends)
 ```
 
 The word "class" and "object" have been used quite a bit in this
@@ -492,9 +492,9 @@ Let's use the `class()` function on the `student_friends`
 and `student_matrix` to see the types of objects we just created:
 
 ```{r check-class}
-class(student_friends)
+#class(student_friends)
 
-class(student_matrix)
+#class(student_matrix)
 ```
 
 Great! We can now see that our `student_matrix` is formally an object of
@@ -517,7 +517,7 @@ include the argument `directed = TRUE` in our `as_tbl_graph()` function
 to indicate that our network is directed.
 
 ```{r convert-network}
-student_network <- as_tbl_graph(student_matrix, 
+student_network <- as_tbl_graph(student_friends, 
                                 directed = TRUE)
 ```
 
@@ -645,9 +645,9 @@ of students:
 
 ```{r teacher-network}
 # YOUR CODE HERE
-teacher_matrix <- as.matrix(teacher_friends)
+# teacher_matrix <- as.matrix(teacher_friends)
 
-teacher_network <- as_tbl_graph(teacher_matrix,
+teacher_network <- as_tbl_graph(teacher_friends,
                                 directed = TRUE)
 
 teacher_edges <- teacher_network |>

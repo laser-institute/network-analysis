@@ -40,13 +40,13 @@ teacher_friends <- read_excel("data/teacher-reported-friends.xlsx",
 
 student_attributes <- read_excel("data/student-attributes.xlsx")
 
-rownames(teacher_friends) <- 1:27
+# rownames(teacher_friends) <- 1:27
 
-colnames(teacher_friends) <- 1:27
+# colnames(teacher_friends) <- 1:27
 
-teacher_matrix <- as.matrix(teacher_friends)
+# teacher_matrix <- as.matrix(teacher_friends)
 
-teacher_network <- as_tbl_graph(teacher_matrix,
+teacher_network <- as_tbl_graph(teacher_friends,
                                 directed = TRUE)
 
 teacher_edges <- teacher_network |>
@@ -160,7 +160,7 @@ Data Types, Data Structures, and Guiding Study
 
 .center[
 .pull.right[
-```{r, echo=FALSE, out.width ='35%'}
+```{r, echo=FALSE, warning=FALSE, out.width ='35%'}
 ggraph(teacher_network, layout = 'fr', circular = FALSE) + 
   geom_node_point() +
   geom_node_text(aes(label = id),
@@ -189,7 +189,7 @@ ggraph(teacher_network, layout = 'fr', circular = FALSE) +
 
 .pull-right[
 .center[
-```{r, echo=FALSE, out.width ='70%'}
+```{r, echo=FALSE, warning=FALSE, out.width ='70%'}
 ggraph(teacher_network, layout = 'fr') + 
    geom_edge_link() +
   geom_node_point() +
@@ -332,6 +332,12 @@ Also radically different, an adjacency matrix includes:
 .pull-right[
 
 ```{r adjaency-matrix, echo=FALSE, message=FALSE, warning=FALSE}
+
+rownames(teacher_friends) <- 1:27
+
+colnames(teacher_friends) <- 1:27
+
+teacher_matrix <- as.matrix(teacher_friends)
 
 teacher_matrix[1:9, 1:9]
 ```
