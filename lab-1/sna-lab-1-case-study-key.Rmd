@@ -439,7 +439,7 @@ inspect your `teacher_friends` object.
 teacher_friends <- read_excel("data/teacher-reported-friends.xlsx", 
                               col_names = FALSE)
 
-# rownames(teacher_friends) <- 1:27
+#rownames(teacher_friends) <- 1:27
 
 # colnames(teacher_friends) <- 1:27
 
