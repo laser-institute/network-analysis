@@ -4,7 +4,7 @@
     <title>Social Network Analysis and STEM Education</title>
     <meta charset="utf-8" />
     <meta name="author" content="Dr. Shaun Kellogg" />
-    <script src="libs/header-attrs-2.13/header-attrs.js"></script>
+    <script src="libs/header-attrs-2.22/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/panelset-0.2.6/panelset.css" rel="stylesheet" />
     <script src="libs/panelset-0.2.6/panelset.js"></script>
@@ -19,7 +19,7 @@ class: clear, title-slide, inverse, center, top, middle
 # Social Network Analysis and STEM Education
 ## A Brief Introduction and Learning Lab Overview
 ### Dr. Shaun Kellogg
-### July 11, 2022
+### July 14, 2023
 
 
 
@@ -68,10 +68,10 @@ Hallmarks, Applications, and Discussion
 .panelset[
 
 .panel[.panel-name[Relationships]
-Social network analysis is motivated by a **relational** intuition based on ties connecting social actors:
+Social network analysis is based on **ties** connecting social **actors** and is motivated by our intuition that relationships between individual matter:
 
-- no individual is an island, do NOT assume independence
-- who we know, are friends with, or talks with matters
+- no individual is an island, independence is NOT assumed
+- who we know, are friends with, or talk with matters
 - the influence of these relations is shaped by the larger network
 - location in a social structure shapes one's opportunities and outcomes
 
@@ -136,13 +136,13 @@ It relies on the use of **mathematical and/or computational models** to succinct
 .panel[.panel-name[Overview]
 Interest in SNA as an alternative method for studying educational phenomena such has grown tremendously in the past few decades:
 
-- Diffusion and adoption of innovations (Daly &amp; Finnigan, 2010) 
-- Social influence (Cole &amp; Weinbaum, 2010) 
-- Belief systems (Frank, Kim, &amp; Belman, 2010) 
-- Social capital (Maroulis &amp; Gomez, 2008) 
-- Homophily (Coburn, Choi, &amp; Mata, 2010) 
-- Efficacy of interventions (Valente et al., 2003) 
-- Small-group dynamics (Katz et al., 2004) 
+- Diffusion and adoption of innovations 
+- Social influence 
+- Belief systems 
+- Social capital 
+- Homophily 
+- Efficacy of interventions 
+- Small-group dynamics
 
 ]
 
@@ -375,6 +375,19 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     deleted = true;
   });
 })();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
 (function() {
   "use strict"
   // Replace <script> tags in slides area to make them executable

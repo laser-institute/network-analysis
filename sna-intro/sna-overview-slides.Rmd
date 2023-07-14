@@ -81,10 +81,10 @@ Hallmarks, Applications, and Discussion
 .panelset[
 
 .panel[.panel-name[Relationships]
-Social network analysis is motivated by a **relational** intuition based on ties connecting social actors:
+Social network analysis is based on **ties** connecting social **actors** and is motivated by our intuition that relationships between individual matter:
 
-- no individual is an island, do NOT assume independence
-- who we know, are friends with, or talks with matters
+- no individual is an island, independence is NOT assumed
+- who we know, are friends with, or talk with matters
 - the influence of these relations is shaped by the larger network
 - location in a social structure shapes one's opportunities and outcomes
 
@@ -149,13 +149,13 @@ It relies on the use of **mathematical and/or computational models** to succinct
 .panel[.panel-name[Overview]
 Interest in SNA as an alternative method for studying educational phenomena such has grown tremendously in the past few decades:
 
-- Diffusion and adoption of innovations (Daly & Finnigan, 2010) 
-- Social influence (Cole & Weinbaum, 2010) 
-- Belief systems (Frank, Kim, & Belman, 2010) 
-- Social capital (Maroulis & Gomez, 2008) 
-- Homophily (Coburn, Choi, & Mata, 2010) 
-- Efficacy of interventions (Valente et al., 2003) 
-- Small-group dynamics (Katz et al., 2004) 
+- Diffusion and adoption of innovations 
+- Social influence 
+- Belief systems 
+- Social capital 
+- Homophily 
+- Efficacy of interventions 
+- Small-group dynamics
 
 ]
 
