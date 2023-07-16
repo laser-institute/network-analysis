@@ -81,7 +81,7 @@ Hallmarks, Applications, and Discussion
 .panelset[
 
 .panel[.panel-name[Relationships]
-Social network analysis is based on **ties** connecting social **actors** and is motivated by our intuition that relationships between individual matter:
+Social network analysis is based on **ties** connecting social **actors** and is motivated by our intuition that relationships between individuals matter:
 
 - no individual is an island, independence is NOT assumed
 - who we know, are friends with, or talk with matters
