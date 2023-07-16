@@ -695,7 +695,7 @@ This function serves two critical roles:
 
 .pull-left[
 Let's “add” nodes to our sociogram using the `+` operator and the `geom_node_point()` function:
-```{r , echo=TRUE, fig.show='hide'}
+```{r , echo=TRUE, fig.show='hide', message=FALSE}
 ggraph(student_network) + 
   geom_node_point() 
 ```
@@ -703,7 +703,7 @@ ggraph(student_network) +
 ]
 
 .pull-right[
-```{r, echo=FALSE, out.width = '85%'}
+```{r, echo=FALSE, out.width = '85%', message=FALSE}
 ggraph(student_network) + 
   geom_node_point() 
 ```
@@ -717,7 +717,7 @@ How would you interpret this measure?
 
 .pull-left[
 Now let's “add” edges to our sociogram using the `+` operator and the `geom_node_point()` function:
-```{r , echo=TRUE, fig.show='hide'}
+```{r , echo=TRUE, fig.show='hide', message=FALSE}
 ggraph(student_network) + 
   geom_node_point() + 
   geom_edge_link()
@@ -726,7 +726,7 @@ ggraph(student_network) +
 ]
 
 .pull-right[
-```{r, echo=FALSE, out.width = '85%'}
+```{r, echo=FALSE, out.width = '85%', message=FALSE}
 ggraph(student_network) + 
   geom_node_point() + 
   geom_edge_link()
@@ -746,7 +746,7 @@ The {ggraph} packages allows for some very fairly sophisticated sociograms...
 
 .pull-right[
 .center[
-```{r, echo=FALSE, out.width ='88%'}
+```{r, echo=FALSE, out.width ='70%'}
 ggraph(student_network, layout = "stress") + 
   geom_edge_link(arrow = arrow(length = unit(1, 'mm')), 
                  end_cap = circle(3, 'mm'),

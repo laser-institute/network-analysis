@@ -10,7 +10,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-![](img/SNA_Intro_HX.png){width="30%"}
+![](img/SNA_Intro_HX.png){width="40%"}
 
 The final activity for each learning lab provides space to work with data and to reflect on how the concepts and techniques introduced in each lab might apply to your own research.
 
@@ -22,17 +22,17 @@ To earn a badge for each lab, you are required to respond to a set of prompts fo
 
 ### Part I: Reflect and Plan
 
-Use the institutional library (e.g. [NCSU Library](https://www.lib.ncsu.edu/#articles)), [Google Scholar](https://scholar.google.com/) or search engine to locate a research article, presentation, or resource that applies social network analysis to an educational context or topic of interest. More specifically, **locate a network study that makes use of sociograms to visualize relational data.** You are also welcome to select one of the research papers listed in the [essential readings](https://github.com/laser-institute/essential-readings/tree/main/sna-labs/sna-lab-4) that may have piqued your interest.
+Use your institutional library, [Google Scholar](https://scholar.google.com/) or search engine of your choice to locate a research article, presentation, or resource that applies social network analysis to an educational context or topic of interest. More specifically, **locate a network study that makes use of sociograms to visualize relational data.** You are also welcome to select one of the research papers listed in the [essential readings](https://github.com/laser-institute/essential-readings/tree/main/sna-labs/sna-lab-4) that may have piqued your interest.
 
 1.  Provide an APA citation for your selected study.
 
     -   
 
-2.  Who are the network's actors and how are they represented visually?
+2.  Who are the network's **actors** and how are they represented visually?
 
     -   
 
-3.  What ties connect these actors and how are they represented visually?
+3.  What **ties** connect these actors and how are they represented visually?
 
     -   
 
@@ -64,11 +64,31 @@ Draft a research question for a population you may be interested in studying, or
 
 ### Part II: Data Product
 
-Using one of the data sets provided in your data folder, **your goal for this lab is to create a polished sociogram that visually represents this network.** For example, you may be interested in examining how shared characteristics among school leaders might help explain tie formation, such as gender, level of trust in colleagues, or whether they work at the school or district level.
+The final step in the workflow/process is sharing the results of your analysis with wider audience. Krumm et al. @krumm2018 have outlined the following 3-step process for communicating with education stakeholders findings from an analysis:
 
-**Alternatively, you may use your own data set to estimate models akin to those we estimated in the guided practice.** 
+1.  **Select.** Communicating what one has learned involves selecting among those analyses that are most important and most useful to an intended audience, as well as selecting a form for displaying that information, such as a graph or table in static or interactive form, i.e. a "data product."
 
-I highly recommend creating a new R script in your lab-1 folder to complete this task. When your code is ready to share, use the code chunk below to share the final code for your model and answer the questions that follow.
+2.  **Polish**. After creating initial versions of data products, research teams often spend time refining or polishing them, by adding or editing titles, labels, and notations and by working with colors and shapes to highlight key points.
+
+3.  **Narrate.** Writing a narrative to accompany the data products involves, at a minimum, pairing a data product with its related research question, describing how best to interpret the data product, and explaining the ways in which the data product helps answer the research question and might be used to inform new analyses or a "change idea" for improving student learning.
+
+For your first SNA badge, your goal is to distill the analysis from our case study into a simple "data product" designed to illustrate a key finding from our analysis. For the purposes of this task, imagine that your audience consists of teachers and school leaders who have limited background in SNA and adapt the following steps accordingly:
+
+1.  **Select.** Select the teacher and/or student sociogram we created in the case study, or create an entirely new sociogram if so motivated, to share with teacher and school leaders.
+
+2.  **Polish.** Refine this sociogram and make them visually appealing to help illustrate a key finding about classroom friendships reported by teachers and/or students.
+
+3.  **Narrate.** Write a brief narrative to accompany your visualization and/or table that includes the following:
+
+    -   The question or questions guiding the analysis;
+
+    -   The conclusions you've reached based on our findings;
+
+    -   How your audience might use this information;
+
+    -   How you might revisit or improve upon this analysis in the future.
+
+I highly recommend creating a new R script in your lab-1 folder to complete this task. When your code is ready to share, use the code chunk below to share the final code for your data product.
 
 ```{r, my-data-product}
 # YOUR FINAL CODE HERE
@@ -76,20 +96,4 @@ I highly recommend creating a new R script in your lab-1 folder to complete this
 
 ```
 
-### Knit & Submit
-
-Congratulations, you've completed your Intro to SNA Badge! Complete the following steps to submit your work for review:
-
-1.  Change the name of the `author:` in the [YAML header](https://monashdatafluency.github.io/r-rep-res/yaml-header.html) at the very top of this document to your name. As noted in [Reproducible Research in R](https://monashdatafluency.github.io/r-rep-res/index.html), The YAML header controls the style and feel for knitted document but doesn't actually display in the final output.
-
-2.  Click the yarn icon above to "knit" your data product to a [HTML](https://bookdown.org/yihui/rmarkdown/html-document.html) file that will be saved in your R Project folder.
-
-3.  Commit your changes in GitHub Desktop and push them to your online GitHub repository.
-
-4.  Publish your HTML page the web using one of the following [publishing methods](https://rpubs.com/cathydatascience/518692):
-
-    -   Publish on [RPubs](https://rpubs.com) by clicking the "Publish" button located in the Viewer Pane when you knit your document. Note, you will need to quickly create a RPubs account.
-
-    -   Publishing on GitHub using either [GitHub Pages](https://pages.github.com) or the [HTML previewer](http://htmlpreview.github.io).
-
-5.  Post a new discussion on GitHub to our [SNA Badges forum](https://github.com/orgs/laser-institute/teams/network-analysis/discussions/1). In your post, include a link to your published web page and a short reflection highlighting one thing you learned from this lab and one thing you'd like to explore further.
+To receive credit for this assignment and earn your first SNA LASER Badge, you will first need to knit and publish this page to Posit Cloud. Next, share the link to published webpage under one of the **Badge Artifact** columns on the 2023 LASER Scholar Information and Documents spreadsheet: <https://go.ncsu.edu/laser-sheet>. Once your instructor has checked your link, you will be provided a physical version of the badge pictured at the top of this document!
