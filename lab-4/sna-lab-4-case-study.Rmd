@@ -1168,59 +1168,47 @@ model the you created in [4b. Estimate the ERGM]:
 
 ## 5. COMMUNICATE
 
-Our goal is to distill the analysis from above into a simple "data
-product" designed to illustrate key findings about changes in the
-collaboration network over time. For the purposes of this task, imagine
-that your audience consists of state policy makers interested in
-district-wide reform efforts and have limited background in SNA and
-adapt the following steps accordingly:
+The final step in the workflow/process is sharing the results of your
+analysis with wider audience. For now, we will wrap up this case study
+by converting our work into a webpage that can be used to communicate
+your learning and demonstrate some of your new R skills. To do so, you
+will need to "knit" your document by clicking the
+![](img/knit.png){width="10%"} button in the menu bar at that the top of
+this file. This will do two things; it will:
 
-1.  **Select.** Select your ERGM analysis from above, or a new analysis
-    if so motivated, that you think would be interesting or relevant for
-    the target audience and that helps answer our research questions.
+1.  check through all your code for any errors; and,
 
-2.  **Polish.** Create and polish a data visualization and/or data table
-    to communicate your selected findings.
+2.  create a file in your directory that you can use to share you work
+    through [Posit
+    Cloud](https://posit.cloud/learn/guide#publish-from-cloud) (see
+    screenshot example below to publish), [RPubs](#0) , [GitHub
+    Pages](#0), [Quarto Pub](#0), or [other methods](#0).
 
-3.  **Narrate.** Write a brief narrative to accompany your visualization
-    and/or table that includes the following:
+### Knit and Publish
 
-    -   The question or questions guiding the analysis;
+Complete the following steps to knit and publish your work:
 
-    -   The conclusions you've reached based on our findings;
+1.  First, change the name of the `author:` in the [YAML
+    header](https://bookdown.org/yihui/rmarkdown-cookbook/rmarkdown-anatomy.html#yaml-metadata)
+    at the very top of this document to your name. The YAML header
+    controls the style and feel for knitted document but doesn't
+    actually display in the final output.
 
-    -   How your audience might use this information;
+2.  Next, click the knit button in the toolbar above to "knit" your R
+    Markdown document to a
+    [HTML](https://bookdown.org/yihui/rmarkdown/html-document.html) file
+    that will be saved in your R Project folder. You should see a
+    formatted webpage appear in your Viewer tab in the lower right pan
+    or in a new browser window. Let's us know if you run into any issues
+    with knitting.
 
-    -   How you might revisit or improve upon this analysis in the
-        future.
+3.  Finally, publish your webpage on Posit Cloud by clicking the
+    "Publish" button located in the Viewer Pane after you knit your
+    document. See screenshot below.
 
-### 👉 Your Turn ⤵
+![](img/knit-publish.png){width="80%"}
 
-Use the code chunk below create a polished table and/or visualization(s)
-and write a brief narrative in the space that follows.
-
-### Data Visualization or Table
-
-```{r create_data_product}
-# YOUR CODE HERE
-
-
-```
-
-### Narrative
-
-NARRATIVE GOES HERE...
-
-### 🧶 Knit & Check ✅
-
-Congratulations - you've completed the Lab 4 case study! One final step
-is to "Knit" your document by clicking the drop down arrow next to the
-ball of yarn in the menu bar an that the top of this markdown file, and
-then selecting "Knit top HTML" or another preferred output format. This
-will do two things: 1) it will check through all your code for any
-errors, 2) it will created a file in your directory that you can use to
-share you work through [GitHub Pages](https://pages.github.com),
-[RPubs](https://rpubs.com/about/getting-started), or any other preferred
-means.
+Congratulations, you've completed the case study! You're now ready to
+dig into the essential readings and try out your next SNA LASER Badge!
 
 ### References
