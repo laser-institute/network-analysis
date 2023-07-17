@@ -431,17 +431,16 @@ be the same.
 #### **👉 Your Turn** **⤵**
 
 Complete the code chunk below to import the
-`student-reported-friends.xlsx` file, add row and column names, and
+`teacher-reported-friends.xlsx` file, add row and column names, and
 inspect your `teacher_friends` object.
 
 ```{r import-teacher}
 # YOUR CODE HERE
 teacher_friends <- read_excel("data/teacher-reported-friends.xlsx", 
                               col_names = FALSE)
+rownames(teacher_friends) <- 1:27
 
-#rownames(teacher_friends) <- 1:27
-
-# colnames(teacher_friends) <- 1:27
+colnames(teacher_friends) <- 1:27
 
 teacher_friends
 ```
@@ -465,40 +464,6 @@ Before we can begin exploring our data through through network
 visualization, we must first restructure our "tibble" into a formal
 matrix object recognized by r, and then convert our matrix to a network
 class R object required by the {tidygraph} and {ggraph} packages.
-
-#### Convert to Matrix
-
-Now that we have names included for our rows and columns, we need to
-convert our data table, or tibble, to a formal matrix class object. To
-do so is relatively simple using the `as.matrix()` function built into
-R.
-
-```{r convert-matrix}
-# student_matrix <- as.matrix(student_friends)
-```
-
-The word "class" and "object" have been used quite a bit in this
-case-study and warrant a brief explanation. Classes and objects are
-basic concepts of Object-Oriented Programming environments like R.
-
--   An **object** is simply a data structure that has some methods and
-    attributes. Everything in R is essentially an object.
-
--   A **class** is just a blueprint or a sketch of these objects. It
-    represents the set of properties or methods that are common to all
-    objects of one type.
-
-Let's use the `class()` function on the `student_friends`
-and `student_matrix` to see the types of objects we just created:
-
-```{r check-class}
-#class(student_friends)
-
-#class(student_matrix)
-```
-
-Great! We can now see that our `student_matrix` is formally an object of
-the "matrix" class.
 
 #### **Convert to Graph Object**
 
@@ -645,7 +610,6 @@ of students:
 
 ```{r teacher-network}
 # YOUR CODE HERE
-# teacher_matrix <- as.matrix(teacher_friends)
 
 teacher_network <- as_tbl_graph(teacher_friends,
                                 directed = TRUE)
@@ -1085,7 +1049,7 @@ Complete the following steps to knit and publish your work:
 ![](img/knit-publish.png){width="80%"}
 
 Congratulations, you've completed your first case study! You're now
-ready to dig into the essential reading and try out your first SNA LASER
-Badge!
+ready to dig into the essential readings and try out your first SNA
+LASER Badge!
 
 ### References

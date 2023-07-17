@@ -4,11 +4,7 @@
     <title>Groups, Positions, &amp; Egocentric Analysis</title>
     <meta charset="utf-8" />
     <meta name="author" content="Dr. Shaun Kellogg" />
-<<<<<<< HEAD
-    <script src="libs/header-attrs-2.16/header-attrs.js"></script>
-=======
-    <script src="libs/header-attrs-2.17/header-attrs.js"></script>
->>>>>>> 725852b1bb839f6dcbac79ccb86b46652e81fbb4
+    <script src="libs/header-attrs-2.22/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/panelset-0.2.6/panelset.css" rel="stylesheet" />
     <script src="libs/panelset-0.2.6/panelset.js"></script>
@@ -16,8 +12,8 @@
     <link href="libs/xaringanExtra-clipboard-0.2.6/xaringanExtra-clipboard.css" rel="stylesheet" />
     <script src="libs/xaringanExtra-clipboard-0.2.6/xaringanExtra-clipboard.js"></script>
     <script>window.xaringanExtraClipboard(null, {"button":"<i class=\"fa fa-clipboard\"><\/i>","success":"<i class=\"fa fa-check\" style=\"color: #90BE6D\"><\/i>","error":"Press Ctrl+C to Copy"})</script>
-    <link href="libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-    <link href="libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+    <link href="libs/font-awesome-6.4.0/css/all.min.css" rel="stylesheet" />
+    <link href="libs/font-awesome-6.4.0/css/v4-shims.min.css" rel="stylesheet" />
     <link href="libs/tile-view-0.2.6/tile-view.css" rel="stylesheet" />
     <script src="libs/tile-view-0.2.6/tile-view.js"></script>
     <link rel="stylesheet" href="css/laser.css" type="text/css" />
@@ -40,11 +36,7 @@ class: clear, title-slide, inverse, center, top, middle
 # Groups, Positions, &amp; Egocentric Analysis
 ## SNA Learning Lab 3 Overview
 ### Dr. Shaun Kellogg
-<<<<<<< HEAD
-### November 17, 2022
-=======
-### February 07, 2023
->>>>>>> 725852b1bb839f6dcbac79ccb86b46652e81fbb4
+### July 16, 2023
 
 ---
 # Agenda
@@ -132,12 +124,6 @@ A **component** is a connected subgraph in which there is a path between all pai
 
 .pull-right[
 .center[
-
-```
-## Warning: Using the `size` aesthetic in this geom was deprecated in ggplot2 3.4.0.
-## ℹ Please use `linewidth` in the `default_aes` field and elsewhere instead.
-```
-
 &lt;img src="sna-lab-3-slides_files/figure-html/unnamed-chunk-2-1.png" width="70%" /&gt;
 ]
 ]
@@ -426,15 +412,6 @@ ggraph(ccss_network, layout = "fr") +
   theme_graph()
 ```
 
-```
-<<<<<<< HEAD
-## Warning: ggrepel: 2 unlabeled data points (too many overlaps). Consider
-=======
-## Warning: ggrepel: 1 unlabeled data points (too many overlaps). Consider
->>>>>>> 725852b1bb839f6dcbac79ccb86b46652e81fbb4
-## increasing max.overlaps
-```
-
 ]
 
 .panel[.panel-name[Discuss]
@@ -539,8 +516,9 @@ cliques(ccss_network, min = 4, max = NULL)
 ```
 
 ```
-## Warning in cliques(ccss_network, min = 4, max = NULL): At core/cliques/
-## cliquer_wrapper.c:57 : Edge directions are ignored for clique calculations.
+## Warning in cliques(ccss_network, min = 4, max = NULL): At
+## core/cliques/cliquer_wrapper.c:57 : Edge directions are ignored for clique
+## calculations.
 ```
 
 ]
@@ -601,7 +579,7 @@ ccss_network
 ## #
 ## # A directed multigraph with 13 components
 ## #
-## # Node Data: 92 × 3 (active)
+## # A tibble: 92 × 3
 ##   actors          in_degree out_degree
 ##   &lt;chr&gt;               &lt;dbl&gt;      &lt;dbl&gt;
 ## 1 AlexiosAsText           0          1
@@ -610,15 +588,15 @@ ccss_network
 ## 4 BanjoTanJoe             1          3
 ## 5 MillennialOther         2          0
 ## 6 Richard_Harambe         2          0
-## # … with 86 more rows
+## # ℹ 86 more rows
 ## #
-## # Edge Data: 289 × 4
-##    from    to created_at          text                                          
-##   &lt;int&gt; &lt;int&gt; &lt;dttm&gt;              &lt;chr&gt;                                         
-## 1     1     2 2021-11-07 15:22:14 @MaggieEThornton If enough were gathered coul…
-## 2     3     4 2021-11-06 19:29:41 @MillennialOther @Richard_Harambe @RepMikeJoh…
-## 3     3     5 2021-11-06 19:29:41 @MillennialOther @Richard_Harambe @RepMikeJoh…
-## # … with 286 more rows
+## # A tibble: 289 × 4
+##    from    to created_at          text                                                
+##   &lt;int&gt; &lt;int&gt; &lt;dttm&gt;              &lt;chr&gt;                                               
+## 1     1     2 2021-11-07 15:22:14 @MaggieEThornton If enough were gathered could run …
+## 2     3     4 2021-11-06 19:29:41 @MillennialOther @Richard_Harambe @RepMikeJohnson T…
+## 3     3     5 2021-11-06 19:29:41 @MillennialOther @Richard_Harambe @RepMikeJohnson T…
+## # ℹ 286 more rows
 ```
 
 .panel[.panel-name[Your Turn]

@@ -16,13 +16,13 @@ The final activity for each learning lab provides space to work with data and to
 
 To earn a badge for each lab, you are required to respond to a set of prompts for two parts: 
 
--   In Part I, you will reflect on your understanding of key concepts and begin to think about potential next steps for your own study.
+-   In Part I, you will reflect on your understanding of key concepts addressed in the case study and essential readings and begin to think about potential next steps for your own study.
 
 -   In Part II, you will create a simple data product in R that demonstrates your ability to apply a data analysis technique introduced in this learning lab.
 
 ### Part I: Reflect and Plan
 
-Use your institutional library, [Google Scholar](https://scholar.google.com/) or search engine of your choice to locate a research article, presentation, or resource that applies social network analysis to an educational context or topic of interest. More specifically, **locate a network study that makes use of sociograms to visualize relational data.** You are also welcome to select one of the research papers listed in the [essential readings](https://github.com/laser-institute/essential-readings/tree/main/sna-labs/sna-lab-4) that may have piqued your interest.
+Use your institutional library, [Google Scholar](https://scholar.google.com/), or search engine of your choice to locate a research article, presentation, or resource that applies social network analysis to an educational context or topic of interest. More specifically, **locate a network study that makes use of sociograms to visualize relational data.** You are also welcome to select one of the research papers listed in the [essential readings](https://github.com/laser-institute/essential-readings/tree/main/sna-labs) that may have piqued your interest.
 
 1.  Provide an APA citation for your selected study.
 
@@ -76,24 +76,20 @@ For your first SNA badge, your goal is to distill the analysis from our case stu
 
 1.  **Select.** Select the teacher and/or student sociogram we created in the case study, or create an entirely new sociogram if so motivated, to share with teacher and school leaders.
 
-2.  **Polish.** Refine this sociogram and make them visually appealing to help illustrate a key finding about classroom friendships reported by teachers and/or students.
+2.  **Polish.** Refine this sociogram a little more to help illustrate an interesting aspect about the network of classroom friendships reported by teachers and/or students.
 
-3.  **Narrate.** Write a brief narrative to accompany your visualization and/or table that includes the following:
+3.  **Narrate.** Write a brief narrative to accompany your visualization and/or table describing how best to interpret the data product and how it might why it might be informative or useful to your intended audience.
 
-    -   The question or questions guiding the analysis;
-
-    -   The conclusions you've reached based on our findings;
-
-    -   How your audience might use this information;
-
-    -   How you might revisit or improve upon this analysis in the future.
-
-I highly recommend creating a new R script in your lab-1 folder to complete this task. When your code is ready to share, use the code chunk below to share the final code for your data product.
+I highly recommend creating a new R script in your lab-1 folder to complete this task. When your code is ready to share, use the code chunk below to share the all the code necessary to create your data product.
 
 ```{r, my-data-product}
 # YOUR FINAL CODE HERE
 
 
 ```
+
+#### Narrative
+
+-   WRITE YOUR NARRATIVE OF THE NETWORK HERE
 
 To receive credit for this assignment and earn your first SNA LASER Badge, you will first need to knit and publish this page to Posit Cloud. Next, share the link to published webpage under one of the **Badge Artifact** columns on the 2023 LASER Scholar Information and Documents spreadsheet: <https://go.ncsu.edu/laser-sheet>. Once your instructor has checked your link, you will be provided a physical version of the badge pictured at the top of this document!

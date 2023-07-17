@@ -120,33 +120,33 @@ rownames(year_1_collaboration) <- 1:43
 
 colnames(year_1_collaboration) <- 1:43
 
-rownames(year_3_collaboration) <- 1:43
+# rownames(year_3_collaboration) <- 1:43
 
-colnames(year_3_collaboration) <- 1:43
+# colnames(year_3_collaboration) <- 1:43
 
-rownames(year_1_confidential) <- 1:43
+# rownames(year_1_confidential) <- 1:43
 
-colnames(year_1_confidential) <- 1:43
+# colnames(year_1_confidential) <- 1:43
 
-rownames(year_3_confidential) <- 1:43
+# rownames(year_3_confidential) <- 1:43
 
-colnames(year_3_confidential) <- 1:43
+#colnames(year_3_confidential) <- 1:43
 
 year_1_collab_matrix <- as.matrix(year_1_collaboration)
 
-year_3_collab_matrix <- as.matrix(year_3_collaboration)
+# year_3_collab_matrix <- as.matrix(year_3_collaboration)
 
-year_1_conf_matrix <- as.matrix(year_1_confidential)
+# year_1_conf_matrix <- as.matrix(year_1_confidential)
 
-year_3_conf_matrix <- as.matrix(year_3_confidential)
+# year_3_conf_matrix <- as.matrix(year_3_confidential)
 
-year_1_collab_network <- as_tbl_graph(year_1_collab_matrix, directed = TRUE)
+year_1_collab_network <- as_tbl_graph(year_1_collaboration, directed = TRUE)
 
-year_3_collab_network <- as_tbl_graph(year_3_collab_matrix, directed = TRUE)
+# year_3_collab_network <- as_tbl_graph(year_3_collab_matrix, directed = TRUE)
 
-year_1_conf_network <- as_tbl_graph(year_1_conf_matrix, directed = TRUE)
+year_1_conf_network <- as_tbl_graph(year_1_confidential, directed = TRUE)
 
-year_3_conf_network <- as_tbl_graph(year_3_conf_matrix, directed = TRUE)
+# year_3_conf_network <- as_tbl_graph(year_3_conf_matrix, directed = TRUE)
 
 leader_nodes <- read_csv("data/school-leader-nodes.csv")
 
@@ -292,26 +292,12 @@ Think about a network you are a part of or may be interested in studying. What r
 .panel[.panel-name[QAP]
 
 .pull-left[
-```{r y1-collaboration, echo=FALSE, message=FALSE, warning=FALSE, out.width = '350px'}
-ggraph(year_1_collab_network) +
-  geom_node_point(size = 3) +
-  geom_edge_link() +
-  theme_graph() +
-  ggtitle("Year 1 Collaboration Ties")
-```
+.center[<img src="img/year-1-collab.png" height="350px"/>]
 ]
 
 
 .pull-right[
-```{r y3-confidential, echo=FALSE, message=FALSE, warning=FALSE, out.width = '350px'}
-ggraph(year_1_conf_network) +
-  geom_node_point(size = 3) +
-  geom_edge_link() +
-  theme_graph() +
-  ggtitle("Year 3 Confidential Ties")
-```
-
-
+.center[<img src="img/year-1-conf.png" height="350px"/>]
 ]
 ]
 

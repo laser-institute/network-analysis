@@ -1573,77 +1573,47 @@ need to use a `join_()` function.
 
 ## 5. COMMUNICATE
 
-The final step in our workflow/process is sharing the results of our
-analysis with wider audience. Krumm et al. (2018) have outlined the
-following 3-step process for communicating with education stakeholders
-findings from an analysis:
+The final step in the workflow/process is sharing the results of your
+analysis with wider audience. For now, we will wrap up this case study
+by converting our work into a webpage that can be used to communicate
+your learning and demonstrate some of your new R skills. To do so, you
+will need to "knit" your document by clicking the
+![](img/knit.png){width="10%"} button in the menu bar at that the top of
+this file. This will do two things; it will:
 
-1.  **Select.** Communicating what one has learned involves selecting
-    among those analyses that are most important and most useful to an
-    intended audience, as well as selecting a form for displaying that
-    information, such as a graph or table in static or interactive form,
-    i.e. a "data product."
+1.  check through all your code for any errors; and,
 
-2.  **Polish**. After creating initial versions of data products,
-    research teams often spend time refining or polishing them, by
-    adding or editing titles, labels, and notations and by working with
-    colors and shapes to highlight key points.
+2.  create a file in your directory that you can use to share you work
+    through [Posit
+    Cloud](https://posit.cloud/learn/guide#publish-from-cloud) (see
+    screenshot example below to publish), [RPubs](#0) , [GitHub
+    Pages](#0), [Quarto Pub](#0), or [other methods](#0).
 
-3.  **Narrate.** Writing a narrative to accompany the data products
-    involves, at a minimum, pairing a data product with its related
-    research question, describing how best to interpret the data
-    product, and explaining the ways in which the data product helps
-    answer the research question.
+### Knit and Publish
 
-### 👉 Your Turn ⤵
+Complete the following steps to knit and publish your work:
 
-For your final Your Turn, your goal is to distill our analysis from
-above into a simple "data product" designed to illustrate key findings
-about changes in the collaboration network over time. For the purposes
-of this task, imagine that your audience consists of colleagues with
-limited background in SNA and adapt the following steps accordingly:
+1.  First, change the name of the `author:` in the [YAML
+    header](https://bookdown.org/yihui/rmarkdown-cookbook/rmarkdown-anatomy.html#yaml-metadata)
+    at the very top of this document to your name. The YAML header
+    controls the style and feel for knitted document but doesn't
+    actually display in the final output.
 
-1.  **Select.** Select a group analysis of 1-2 node-level measures that
-    you think would be interesting or relevant for your target audience
-    and that help answer our research questions.
+2.  Next, click the knit button in the toolbar above to "knit" your R
+    Markdown document to a
+    [HTML](https://bookdown.org/yihui/rmarkdown/html-document.html) file
+    that will be saved in your R Project folder. You should see a
+    formatted webpage appear in your Viewer tab in the lower right pan
+    or in a new browser window. Let's us know if you run into any issues
+    with knitting.
 
-2.  **Polish.** Create and polish a data visualization and/or data table
-    to communicate your selected findings.
+3.  Finally, publish your webpage on Posit Cloud by clicking the
+    "Publish" button located in the Viewer Pane after you knit your
+    document. See screenshot below.
 
-3.  **Narrate.** Write a brief narrative (2-3 paragraphs) to accompany
-    your visualization and/or table that includes the following:
+![](img/knit-publish.png){width="80%"}
 
-    -   The question or questions are guiding your analysis;
+Congratulations, you've completed the case study! You're now ready to
+dig into the essential readings and try out your next SNA LASER Badge!
 
-    -   The conclusions you've reached based on your analyses and
-        findings;
-
-    -   How your audience might use this information;
-
-    -   How you might revisit or improve upon this analysis in the
-        future.
-
-Use the code chunk below create a polished table or visualization(s) and
-write a brief narrative in the space that follows.
-
-#### Data Visualization or Table
-
-```{r create_data_product}
-# YOUR CODE HERE
-```
-
-#### Narrative
-
-NARRATIVE GOES HERE...
-
-### 🧶 Knit & Check ✅
-
-Congratulations - you've completed the Lab 4 case study! One final step
-is to "Knit" your document by clicking the drop down arrow next to the
-ball of yarn in the menu bar an that the top of this markdown file, and
-then selecting "Knit top HTML" or another preferred output format. This
-will do two things: 1) it will check through all your code for any
-errors, 2) it will created a file in your directory that you can use to
-share you work through [GitHub Pages](https://pages.github.com),
-[RPubs](https://rpubs.com/about/getting-started), or any other preferred
-means.
+### References
