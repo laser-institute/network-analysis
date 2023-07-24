@@ -1,4 +1,4 @@
-![](sna-capstone/img/SNA_Primary_HX.jpg){width="300"}
+![](sna-capstone/img/SNA_Primary_HX.jpg){width="40%"}
 
 # Social Network Analysis in STEM Education Research
 
