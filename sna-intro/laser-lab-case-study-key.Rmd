@@ -1,0 +1,752 @@
+---
+title: "The Data-Intensive Research Workflow"
+subtitle: "Orientation Learning Lab Case Study"
+author: "YOUR NAME HERE"
+date: "`r format(Sys.Date(),'%B %e, %Y')`"
+output:
+  html_document:
+    toc: yes
+    toc_depth: 4
+    toc_float: yes
+    code_folding: show
+    code_download: TRUE
+editor_options:
+  markdown:
+    wrap: 72
+bibliography: references.bib
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, error = FALSE)
+```
+
+## 0. INTRODUCTION
+
+![](img/LASER_Hx.png){width="40%"}
+
+Welcome to your first LASER Learning Lab Case Study! The case study
+activities included in each learning lab demonstrate how key Learning
+Analytics (LA) techniques featured in exemplary STEM education research
+studies can be implemented with R. Case studies also provide a holistic
+setting to explore important foundational topics integral to Learning
+Analytics such as reproducible research, use of APIs, and ethical use of
+educational data.
+
+This orientation case study will also introduce you to R Markdown, which
+is heavily integrated into each LASER Learning Labs. You may have used R
+Markdown before - or you may not have! Either is fine as this task will
+be designed with the assumption that you have not used R Markdown
+before.
+
+In this interactive coding case study, we'll focus on the following
+tasks:
+
+1.  Reading data into R (in the **Prepare** section)
+2.  Preparing and "wrangling" data in a tabular (think spreadsheet!)
+    format (in the **Wrangle** section)
+3.  Creating some basic plots (in the **Explore** section)
+4.  Running a model - specifically, a simple regression model (in the
+    **Model** section)
+5.  Finally, creating a reproducible report of your work you can share
+    with others (in the **Communicate** section)
+
+### How to use this R Markdown document
+
+What you are working in now is an [R
+Markdown](https://rmarkdown.rstudio.com/) file as indicated by the .Rmd
+file name extension. Following best practices for reproducible research
+[@gandrud2021], R Markdown files store information in plain text
+[markdown](https://bookdown.org/yihui/rmarkdown/markdown-syntax.html)
+syntax. R Markdown documents are fully reproducible and use a productive
+[notebook interface](https://bookdown.org/yihui/rmarkdown/notebook.html)
+to combine narrative text and "chunks" of code to produce a range of
+static or dynamic outputs formats including:
+[HTML](https://bookdown.org/yihui/rmarkdown/html-document.html), [PDF](https://bookdown.org/yihui/rmarkdown/pdf-document.html), [MS
+Word](https://bookdown.org/yihui/rmarkdown/word-document.html), [HTML5
+slides](https://bookdown.org/yihui/rmarkdown/ioslides-presentation.html), [Tufte-style
+handouts](https://bookdown.org/yihui/rmarkdown/tufte-handouts.html),
+[books](#0), [dashboards](#0), [shiny applications](#0), [scientific
+articles](#0), [websites](#0), and more.
+
+There are two keys to your use of R Markdown for this activity:
+
+1.  First, be sure that you are viewing the document in the "Visual
+    Editor" mode. You can use this mode by clicking the word "Visual" on
+    the left side of the toolbar above. The visual editor allows you to
+    view formatted headers, text and code chunks as specified by the
+    underlying markdown syntax, or "Source" text. Visual mode is a bit
+    more "human readable" than markdown syntax but definitely take a
+    look at the source text.
+2.  Second, note the specially formatted text box below called a "[code
+    chunk](#0)." These chunks allows you to run code from [multiple
+    languages](#0) including R, Python, and SQL. This specific code
+    chunk contains a line of R code as specified by "r" inside the curly
+    brackets `{}` where you can also include other "[chunk
+    options](https://yihui.org/knitr/options/#chunk-options)." You will
+    also notice a set of buttons in the upper right corner for running
+    the code.
+
+Click the green arrow button on the right side of the code chunk to run
+the R code and view the image file name `laser-cycle.png` stored in the
+`img` folder in your files pane.
+
+```{r}
+knitr::include_graphics("img/laser-cycle.png")
+```
+
+### The Data-Intensive Research Workflow
+
+You may have noticed that the words in this diagram correspond to the
+sections outlined at the beginning of this document. These terms, or
+processes, are part of a framework called the data-intensive research
+workflow and comes from the book Learning Analytics Goes to School
+[@krumm2018]*.* You can check that out later, but don't feel any need to
+dive deep into it for now - we'll be spending more time on this
+throughout the week; just know that this document and all of our LASER
+Lab case studies are organized around these five components.
+
+Now, let's get started!
+
+## 1. PREPARE
+
+First and foremost, data-intensive research involves defining and
+refining a research question and developing an understanding of where
+your data comes from [@krumm2018]. This part of the process also
+involves setting up a reproducible research environment [@gandrud2021]
+so your work can be understood and replicated by other researchers. For
+now, we'll focus on just a few parts of this process, diving in much
+more deeply into these components in later learning labs.
+
+### Research Question
+
+In this case study, we'll be working with data come from an unpublished
+research study, which utilized a number of different data sources to
+understand high schoole students' motivation within the context of
+online courses. For the purpose of this case study, our analysis will be
+driven by the following research question:
+
+*Is there a relationship between the time students spend on a course (as
+measured through their learning management system) and their final
+course grade?*
+
+### Packages 📦
+
+As highlighted in [Chapter 6 of Data Science in Education Using
+R](https://datascienceineducation.com/c06.html) [@estrellado2020e], one
+of the first steps of every workflow should be to set up a "Project"
+within RStudio.
+
+> A **Project** is the home for all of the files, images, reports, and
+> code that are used in any given project.
+
+We are working in Posit Cloud with an R project [cloned from
+GitHub](https://github.com/laser-institute/laser-orientation), so a
+project has already been set up for you as indicated by the `.Rproj`
+file in the main directory. Locate the Files tab lower right hand window
+pane and see if you can find the file named `laser-orientation.Rproj`.
+
+Since a project already set up for us, we will instead focus on loading
+the required packages we'll need for analysis.
+
+> **Packages**, sometimes referred to as libraries, are shareable
+> collections of R code that can contain functions, data, and/or
+> documentation and extend the functionality of R.
+
+You can always check to see which packages have already been installed
+and loaded into RStudio by looking at the Packages tab in the same pane
+as the Files tab. Click the packages tab to see which packages have
+already been installed for this project.
+
+#### tidyverse 📦
+
+![](img/tidyverse.png){width="30%"}
+
+One package that we'll be using extensively in our learning labs is the
+{tidyverse} package. The {tidyverse} is actually a [collection of R
+packages](https://www.tidyverse.org/packages) designed for wrangling and
+exploring data (sound familiar?) and which all share an underlying
+design philosophy, grammar, and data structures. These shared features
+are sometimes referred to as "[tidy data
+principles](https://r4ds.had.co.nz/tidy-data.html)" [@wickham2016r].
+
+To load the tidyverse, we'll use the `library()` function. Go ahead and
+run the code chunk below:
+
+```{r}
+library(tidyverse)
+```
+
+Please do not worry if you saw a number of messages: those probably mean
+that the tidyverse loaded just fine. If you see an error, though, try to
+interpret or search via your search engine the contents of the error, or
+reach out to us for assistance.
+
+#### **👉 Your Turn** **⤵**
+
+As we noted in the beginning, these case studies are meant to be
+interactive. Throughout each case study, you'll see Your Turn headings
+like the one above that will ask to you apply some of your R skills to
+help with the analysis. These Your Turns are intended to help you
+practice newly introduced functions or R code and reinforce R skills you
+have already learned.
+
+Use the code chunk below to load the {skimr} package into our
+environment as well. **`Skimr`** is a handy package that provides
+summary statistics that you can skim quickly to understand your data and
+see what may be missing. We'll be using this later in the Explore
+section of this case study.
+
+```{r}
+library(skimr)
+```
+
+### Loading (or reading in) data
+
+The data we'll explore in this case study were originally collected for
+a research study, which utilized a number of different data sources to
+understand students' course-related motivation. These courses were
+designed and taught by instructors through a state-wide online course
+provider designed to supplement---but not replace---students' enrollment
+in their local school.
+
+The data used in this case study has already been "wrangled" quite a
+bit, but the original datasets included:
+
+1.  A self-report survey assessing three aspects of students' motivation
+
+2.  Log-trace data, such as data output from the learning management
+    system (LMS)
+
+3.  Discussion board data
+
+4.  Academic achievement data
+
+If you are interested in learning more about these datasets, you can
+visit Chapter 7 of the excellent book, [*Data Science in Education Using
+R*](https://datascienceineducation.com/c07.html#data-sources)[@estrellado2020e].
+
+Next, we'll load our data - specifically, a CSV text file, the kind that
+you can export from Microsoft Excel or Google Sheets - into R, using the
+`read_csv()` function in the next chunk.
+
+Clicking the green arrow runs the code; do that next to read the
+`sci-online-classes.csv` file stored in the `data` folder of your R
+project:
+
+```{r}
+sci_data <- read_csv("data/sci-online-classes.csv")
+```
+
+Nice work! You should now see a new data "object" named `sci_data` saved
+in your Environment pane. Try clicking on it and see what happens!
+
+#### Viewing or inspecting data
+
+Now let's learn another way to inspect our data. Run the next chunk and
+look at the results, tabbing left or right with the arrows, or scanning
+through the rows by clicking the numbers at the bottom of the pane with
+the print-out of the data frame you "assigned" to the `sci_data` object
+in the previous code-chunk:
+
+```{r}
+sci_data
+```
+
+**Note**: You can also enlarge this output by clicking the "Show in New
+Window" button located in the top right corner of the output.
+
+#### **👉 Your Turn** **⤵**
+
+What do you notice about this data set? What do you wonder? Add one or
+two observations in the space below:
+
+-   YOUR RESPONSE HERE
+
+There are many other ways to inspect your data; the `glimpse()` function
+provides one such way. Use the code chunk below to take a "glimpse" at
+your `sci_data`.
+
+```{r}
+glimpse(sci_data)
+```
+
+We have one more question to pose to you: What do rows and columns
+typically represent in your area of work and/or research?
+
+Generally, rows typically represent "cases," the units that we measure,
+or the units on which we collect data. This is not a trick question!
+What counts as a "case" (and therefore what is represented as a row)
+varies by (and within) fields. There may be multiple types or levels of
+units studied in your field; listing more than one is fine! Also, please
+consider what columns - which usually represent variables - represent in
+your area of work and/or research.
+
+What do rows typically (or you think may) represent in your research:
+
+-   YOUR RESPONSE HERE
+
+What do columns typically (or you think may) represent in your research:
+
+-   YOUR RESPONSE HERE
+
+Next, we'll use a few functions that are handy for preparing data in
+table form.
+
+## 2. WRANGLE
+
+By wrangle, we refer to the process of cleaning and processing data,
+and, in some cases, merging (or joining) data from multiple sources.
+Often, this part of the process is very (surprisingly) time-intensive!
+Wrangling your data into shape can itself be an important
+accomplishment! And documenting your code using R scripts or Markdown
+files will save yourself and others a great deal of time wrangling data
+in the future! There are great tools in R for data wrangling, especially
+through the use of the {[dplyr](https://dplyr.tidyverse.org)} R package
+which is part of the {tidyverse} suite of packages.
+
+### Selecting variables
+
+Recall from our Prepare section that we are interested the relationship
+between the time students spend on a course and their final course
+grade.
+
+Let's practice selecting a few variables by introducing a very powerful
+`|>` operator called a **pipe**. Pipes are a powerful tool for combining
+a sequence of functions or processes.
+
+Run the following code chunk to "pipe" our `sci_data` to the `select()`
+function include the following two variables as arguments:
+
+-   `FinalGradeCEMS` (i.e., students' final grades on a 0-100 point
+    scale)
+
+-   `TimeSpent` (i.e., the number of minutes they spent in the course's
+    learning management system)
+
+```{r}
+sci_data |> 
+  select(FinalGradeCEMS, TimeSpent)
+```
+
+Notice how the number of columns (variables) is now different!
+
+Let's *include one additional variable* in the select function that you
+think might be a predictor of students' final course grade or useful in
+addressing our research question.
+
+First, we need to figure out what variables exist in our dataset (or be
+reminded of this - it's very common in R to be continually checking and
+inspecting your data)!
+
+Recall that you can use a function named `glimpse()` to do this.
+
+```{r}
+glimpse(sci_data)
+```
+
+#### **👉 Your Turn** **⤵**
+
+In the code chunk below, add a new variable, being careful to type the
+new variable name as it appears in the data. We've added some code to
+get you started. Consider how the names of the other variables are
+separated as you think about how to add an additional variable to this
+code.
+
+```{r}
+sci_data |> 
+  select(FinalGradeCEMS, TimeSpent)
+```
+
+Once added, the output should be different than in the code above -
+there should now be an additional variable included in the print-out.
+
+**A quick footnote about pipes**: The original pipe operator, `%>%`,
+comes from the {[magrittr](https://magrittr.tidyverse.org)} package but
+all packages in the tidyverse load `%>%` for you automatically, so you
+don't usually load magrittr explicitly. The pipe has become such a
+useful and much used operator in R that it is now baked into R using the
+new and simpler native pipe `|>` operator. You can use both fairly
+interchangeably but there are a few [differences between pipe
+operators](https://www.tidyverse.org/blog/2023/04/base-vs-magrittr-pipe/).
+
+### Filtering variables
+
+Next, let's explore filtering variables. Check out and run the next
+chunk of code, imagining that we wish to filter our data to view only
+the rows associated with students who earned a final grade (as a
+percentage) of 70 - 70% - or higher.
+
+```{r}
+sci_data |> 
+  filter(FinalGradeCEMS > 70)
+```
+
+#### **👉 Your Turn** **⤵**
+
+In the next code chunk, change the cut-off from 70% to some other
+value - larger or smaller (maybe much larger or smaller - feel free to
+play around with the code a bit!).
+
+```{r}
+sci_data |> 
+  filter(FinalGradeCEMS > 70)
+```
+
+What happens when you change the cut-off from 70 to something else? Add
+a thought (or more) below:
+
+-   YOUR RESPONSE HERE
+
+### Arrange
+
+The last function we'll use for preparing tables is arrange. We'll again
+use the `|>` to combine this `arrange()` function with a function we
+used already - `select()`. We do this so we can view only time spent and
+final grades.
+
+```{r}
+sci_data |> 
+  select(FinalGradeCEMS, TimeSpent) |> 
+  arrange(FinalGradeCEMS)
+```
+
+Note that arrange works by sorting values in ascending order (from
+lowest to highest); you can change this by using the `desc()` function
+as an argument with arrange, like the following:
+
+```{r}
+sci_data |> 
+  select(FinalGradeCEMS, TimeSpent) |> 
+  arrange(desc(FinalGradeCEMS))
+```
+
+Just at a quick cursory glance at our two variables, it does appear that
+students with higher grades also tend to have spent more time in the
+online course.
+
+#### **👉 Your Turn** **⤵**
+
+In the code chunk below, replace `FinalGradeCEMS` that is used with both
+the `select()` and `arrange()` functions with a different variable in
+the data set. Consider returning to the code chunk above in which you
+glimpsed at the names of all of the variables.
+
+```{r}
+sci_data |> 
+  select(TimeSpent, FinalGradeCEMS) |> 
+  arrange(desc(FinalGradeCEMS))
+```
+
+Can you compose a series of functions that include the `select()`,
+`filter()`, and `arrange()` functions? Recall that you can "pipe" the
+output from one function to the next as when we used select() and
+arrange() together in the code chunk above.
+
+```{r}
+sci_data |> 
+  select(TimeSpent, FinalGradeCEMS) |> 
+  filter(FinalGradeCEMS > 70) |> 
+  arrange(FinalGradeCEMS)
+```
+
+## 3. EXPLORE
+
+Exploratory data analysis, or exploring your data, involves processes of
+*describing* your data (such as by calculating the means and standard
+deviations of numeric variables, or counting the frequency of
+categorical variables) and, often, visualizing your data. As we'll learn
+in later labs, the explore phase can also involve the process of
+"feature engineering," or creating new variables within a dataset
+[@krumm2018].
+
+In this section, we'll quickly pull together some basic stats using a
+handy function from the {skimr} package, and introduce you to a basic
+data visualization "code template" for the {ggplot} package from the
+tidyverse.
+
+### Summary Statistics
+
+Let's repurpose what we learned from our wrangle section to select just
+a few variables and quickly gather some descriptive stats using the
+`skim()` function from the {skimr} package.
+
+```{r}
+sci_data |>
+  select(TimeSpent, FinalGradeCEMS) |>
+  skim()
+```
+
+#### **👉 Your Turn** **⤵**
+
+Use the code from the chunk from above to explore some other variables
+of interest from our `sci_data`.
+
+```{r}
+sci_data |>
+  select(course_id, FinalGradeCEMS) |>
+  skim()
+```
+
+What happens if simply feed the skim function the entire `sci_data`
+object? Give it a try!
+
+```{r}
+skim(sci_data)
+```
+
+### Data Visualization
+
+Data visualization is an extremely common practice in Learning
+Analytics, especially in the use of data dashboards. Data visualization
+involves graphically representing one or more variables with the goal of
+discovering patterns in data. These patterns may help us to answer
+research questions or generate new questions about our data, to discover
+relationships between and among variables, and to create or select
+features for data modeling.
+
+In this section we'll focus on using a basic code template for the
+{[ggplot2](https://ggplot2.tidyverse.org)} package from the tidyverse.
+`ggplot2` is a system for declaratively creating graphics, based on [the
+grammar of
+graphics](https://ggplot2-book.org/introduction.html#what-is-the-grammar-of-graphics)
+[@Wickham]. You provide the data, tell ggplot2 how to map variables to
+[aesthetics](https://ggplot2.tidyverse.org/reference/aes.html), what
+graphical elements to use, and it takes care of the details.
+
+### The Graphing Workflow
+
+At it's core, you can create some very simple but attractive graphs with
+just a couple lines of code. {[ggplot2](https://ggplot2.tidyverse.org)}
+follows the common workflow for making graphs. To make a graph, you
+simply:
+
+1.  Start the graph with `ggplot()` and include your data as an
+    argument;
+
+2.  "Add" elements to the graph using the `+` operator a [`geom_()`
+    function](https://ggplot2.tidyverse.org/reference/#geoms);
+
+3.  Select variables to graph on each axis with the `aes()` argument.
+
+Let's give it a try by creating a simple histogram of our
+`FinalGradeCEMS` variable. The code below creates a histogram, or a
+distribution of the values, in this case for students' final grades. Go
+ahead and run it:
+
+```{r}
+ggplot(sci_data) +
+  geom_histogram(aes(x = FinalGradeCEMS))
+```
+
+Note that the first function, `ggplot()`, creates a coordinate system
+that you can "add" layers to using additional functions and `+`
+operator. The first argument of `ggplot()` is the dataset, in our case
+`sci_data`, to use for the graph.
+
+By itself, `ggplot(data = mpg)` just creates an empty graph. But when
+you add a required `geom_()` function like `geom_histogram()`, you tell
+it which type of graph you want to make, in our case a histogram. A
+**geom** is the geometrical object that a plot uses to represent
+observations. People often describe plots by the type of geom that the
+plot uses. For example, bar charts use bar geoms, line charts use line
+geoms, boxplots use boxplot geoms, and so on. Scatterplots, which we'll
+see a in bit, break the trend; they use the point geom.
+
+The final required element for any graph is a `mapping =` argument that
+defines which variables in your dataset are mapped to which axes in your
+graph. The `mapping` argument is always paired with the function
+`aes()`, which you use to gather together all of the mappings that you
+want to create. In our case, since we just created a simple histogram,
+we only had to specify what variable to place on the x axis, which in
+our case was `FinalGradeCEMS`.
+
+We won't spend a lot of time on it in this case study, but you can also
+add a wide range of [aesthetic
+arguments](https://ggplot2.tidyverse.org/reference/index.html#aesthetics)
+to each geom, like changing the color of the histogram bars by adding an
+argument to specify color. Let's give that a try using the `fill =`
+argument:
+
+```{r}
+ggplot(sci_data) +
+  geom_histogram(aes(x = FinalGradeCEMS), fill = "blue")
+```
+
+#### **👉 Your Turn** **⤵**
+
+Now use the code chunk below to visualize the distribution of another
+variable in the data, specifically `TimeSpent`. You can do so by
+swapping out the variable `FinalGradeCEMS` with our new variable. Also,
+change the color to one of your choosing; consider this list of valid
+color names here:
+<http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf>
+
+```{r}
+ggplot(sci_data) +
+  geom_histogram(aes(x = TimeSpent), fill = "green")
+```
+
+**Tip:** There is no shame in copying and pasting code from above.
+Remember, reproducible research is also intended to help you save time!
+
+### Scatterplots
+
+Finally, let's create a scatter plot for the relationship between these
+two variables. Scatterplots use the point geom, i.e., the `geom_point()`
+function, and are most useful for displaying the relationship between
+two continuous variables.
+
+#### **👉 Your Turn** **⤵**
+
+Complete the code chunk below to create a simple scatterplot with
+`TimeSpent` on the x axis and `FinalGradeCEMS` on the y axis. **Hint**:
+something else important is also missing that you will need to "add" to
+your code.
+
+```{r}
+ggplot(sci_data) +
+  geom_point(aes(x = TimeSpent, 
+                 y = FinalGradeCEMS))
+```
+
+Well done! As you can see, there appears to be a positive relationship
+between the time students spend in the online course and their final
+grade!
+
+To learn more about using {ggplot2} for data visualization, we highly
+recommend the following Posit Cloud Primers:
+
+1.  [Visualization Basics](https://posit.cloud/learn/primers/1.1): Start
+    here to begin making plots with R. Plots are one of the most
+    important tools for data science; they are also one of the most fun!
+2.  [Visualize Data](https://posit.cloud/learn/primers/3): Learn how to
+    use ggplot2 to make any type of plot with your data. Then learn the
+    best ways to visualize patterns within values and relationships
+    between variables.
+
+## 4. MODEL
+
+"Model" is one of those terms that has many different meanings. For our
+purpose, we refer to the process of simplifying and summarizing our
+data. Thus, models can take many forms; calculating means represents a
+legitimate form of modeling data, as does estimating more complex
+models, including linear regressions, and models and algorithms
+associated with machine learning tasks. For now, we'll run a base linear
+regression model to further examine the relationship between `TimeSpent`
+and `FinalGradeCEMS`.
+
+We'll dive much deeper into modeling in subsequent learning labs, but
+for now let's see if there is a statistically significant relationship
+between students' final grades, `FinaGradeCEMS`, and the `TimeSpent` on
+the course:
+
+```{r}
+m1 <- lm(FinalGradeCEMS ~ TimeSpent, data = sci_data)
+
+summary(m1)
+```
+
+It looks like `TimeSpent` is associated with a higher final grade. That
+is, students who spent more time in the LMS also earned higher grades.
+
+#### **👉 Your Turn** **⤵**
+
+Now let's "add" *another* variable to the regression model.
+Specifically, use the `+` operator after `TimeSpent` to add the course
+`subject` variable as a predictor of students' final grades.
+
+```{r}
+m2 <- lm(FinalGradeCEMS ~ TimeSpent + subject, data = sci_data)
+summary(m2)
+```
+
+What do you notice about the results? Add a comment or two below:
+
+-   YOUR RESPONSE HERE
+
+## 5. COMMUNICATE
+
+The final step in the workflow/process is sharing the results of your
+analysis with wider audience. Krumm et al. @krumm2018 have outlined the
+following 3-step process for communicating with education stakeholders
+findings from an analysis:
+
+1.  **Select.** Communicating what one has learned involves selecting
+    among those analyses that are most important and most useful to an
+    intended audience, as well as selecting a form for displaying that
+    information, such as a graph or table in static or interactive form,
+    i.e. a "data product."
+
+2.  **Polish**. After creating initial versions of data products,
+    research teams often spend time refining or polishing them, by
+    adding or editing titles, labels, and notations and by working with
+    colors and shapes to highlight key points.
+
+3.  **Narrate.** Writing a narrative to accompany the data products
+    involves, at a minimum, pairing a data product with its related
+    research question, describing how best to interpret the data
+    product, and explaining the ways in which the data product helps
+    answer the research question and might be used to inform new
+    analyses or a "change idea" for improving student learning.
+
+In later Learning Labs, you will have an opportunity to create a simple
+"data product" designed to illustrate some insights gained from your
+analysis and ideally highlight an action step or change idea that can be
+used to improve learning or the contexts in which learning occurs.
+
+For now, we will wrap up this case study by converting our work into a
+webpage that can be used to communicate your learning and demonstrate
+some of your new R skills. To do so, you will need to "knit" your
+document by clicking the ![](img/knit.png){width="10%"} button in the
+menu bar at that the top of this file. This will do two things; it will:
+
+1.  check through all your code for any errors; and,
+
+2.  create a file in your directory that you can use to share you work
+    through [Posit
+    Cloud](https://posit.cloud/learn/guide#publish-from-cloud) (see
+    screenshot example below to publish), [RPubs](#0) , [GitHub
+    Pages](#0), [Quarto Pub](#0), or [other methods](#0).
+
+### Knit and Publish
+
+Complete the following steps to knit and publish your work:
+
+1.  First, change the name of the `author:` in the [YAML
+    header](https://bookdown.org/yihui/rmarkdown-cookbook/rmarkdown-anatomy.html#yaml-metadata)
+    at the very top of this document to your name. The YAML header
+    controls the style and feel for knitted document but doesn't
+    actually display in the final output.
+
+2.  Next, click the knit button in the toolbar above to "knit" your R
+    Markdown document to a
+    [HTML](https://bookdown.org/yihui/rmarkdown/html-document.html) file
+    that will be saved in your R Project folder. You should see a
+    formatted webpage appear in your Viewer tab in the lower right pan
+    or in a new browser window. Let's us know if you run into any issues
+    with knitting.
+
+3.  Finally, publish your webpage on Posit Cloud by clicking the
+    "Publish" button located in the Viewer Pane after you knit your
+    document. See screenshot below.
+
+![](img/knit-publish.png){width="80%"}
+
+### Your First LASER Badge
+
+Congratulations, you've completed your first case study! To receive
+credit for this assignment and earn your first official LASER Badge,
+share the link to published webpage under the **Badge 1 Artifact**
+column on the 2023 LASER Scholar Information and Documents spreadsheet:
+<https://go.ncsu.edu/laser-sheet>. We recommend bookmarking this
+spreadsheet as we'll be using it throughout the year to keep track of
+your progress.
+
+![](img/share-link.png){width="80%"}
+
+Once your instructor has checked your link, you will be provided a
+physical version of the badge below!
+
+![](img/LASER_Hx.png){width="50%"}
+
+### References
