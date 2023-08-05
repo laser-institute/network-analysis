@@ -4,7 +4,7 @@
     <title>Social Network Analysis and STEM Education</title>
     <meta charset="utf-8" />
     <meta name="author" content="Dr. Joshua Rosenberg, University of Tennessee, Knoxville" />
-    <script src="libs/header-attrs-2.13/header-attrs.js"></script>
+    <script src="libs/header-attrs-2.22/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/laser.css" type="text/css" />
     <link rel="stylesheet" href="css/laser-fonts.css" type="text/css" />
@@ -17,7 +17,7 @@ class: clear, title-slide, inverse, center, top, middle
 # Social Network Analysis and STEM Education
 ## A Brief Overview &amp; Demo
 ### Dr. Joshua Rosenberg, University of Tennessee, Knoxville
-###  2021/08/11 (updated: 2022-07-09)
+###  2021/08/11 (updated: 2023-08-05)
 
 ---
 # Agenda: Two parts
@@ -346,6 +346,19 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     deleted = true;
   });
 })();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
 (function() {
   "use strict"
   // Replace <script> tags in slides area to make them executable
