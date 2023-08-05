@@ -230,16 +230,11 @@ class: no-logo
 
 .panel[.panel-name[Essential Readings]
 .pull-left[
-Each topic (FS, TM, ML, and SNA) consist of four progressively sequenced labs that include:
-- A Presentation & Code-Along
-- Essential Readings
-- Coding Case Study or R Primers
-- LASER Badge
-
+.center[<img src="img/carolan.png" height="400px"/>]
 ]
 
 .pull-right[
-<img src="img/learning-labs.png" height="350px"/>
+.center[<img src="img/ebb-flow.png" width="280px"/>]
 ]
 
 
@@ -247,18 +242,7 @@ Each topic (FS, TM, ML, and SNA) consist of four progressively sequenced labs th
 
 .panel[.panel-name[LASER Badge]
 
-.pull-left[
-Each topic (FS, TM, ML, and SNA) consist of four progressively sequenced labs that include:
-- A Presentation & Code-Along
-- Essential Readings
-- Coding Case Study or R Primers
-- LASER Badge
-
-]
-
-.pull-right[
-<img src="img/learning-labs.png" height="350px"/>
-]
+.center[<img src="img/sna-badge.png" height="450px"/>]
 
 ]
 
@@ -274,10 +258,9 @@ class: no-logo
 .panel[.panel-name[Posit Cloud]
 
 .center[
-<img src="img/posit-cloud.png" height="350px"/>
-]
-
-.center[[go.ncsu.edu/laser-labs](https://go.ncsu.edu/laser-labs)
+<img src="img/sna-labs.png" height="390px"/>
+<br/>
+[go.ncsu.edu/sna-labs](https://go.ncsu.edu/sna-labs)
 ]
 
 ]
@@ -298,19 +281,13 @@ class: no-logo
 .panel[.panel-name[GitHub]
 
 .center[
-<img src="img/github.png" height="350px"/>
+<img src="img/github.png" height="390px"/>
+<br/>
+[go.ncsu.edu/laser-github](https://go.ncsu.edu/laser-github)
 ]
 
-.center[[go.ncsu.edu/laser-github](https://go.ncsu.edu/laser-github)
-]
 ]
 
-
-.panel[.panel-name[R]
-.center[
-<img src="img/r-script.png" height="425px"/>
-]
-]
 
 ]
 
