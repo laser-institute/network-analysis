@@ -15,7 +15,7 @@ editor_options:
 knitr::opts_chunk$set(echo = TRUE, error = FALSE)
 ```
 
-![](img/LASER_Hx.png){width="40%"}
+![](img/LASER_Hx.png){width="30%"}
 
 Welcome to **An Introduction to Social Network Analysis and Education
 Research: Core Concepts and Applications with R**! This workshop is not
