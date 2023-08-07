@@ -39,7 +39,7 @@ xaringanExtra::use_panelset()
 ---
 # Agenda
 
-- **1:00 - 1:50 Introduction**
+- **1:00 - 1:50 Introduction & Overview**
   - Introduction to SNA & Bingo (Sasha)
   - Overview of SNA LASER Learning Labs (Shaun)
 - **1:50 - 2:00 Break** 
@@ -48,7 +48,7 @@ xaringanExtra::use_panelset()
   - Code-Along (Jeanne)
 - **3:00 - 3:30 Break** 
   - Optional Case-Study Orientation (Shaun & Jeanne) 
-- **4:00 - 5:00 (Lab 2: Management & Measurement)** 
+- **4:00 - 5:00 Lab 2: Management & Measurement** 
   - Conceptual Overview (Shaun) 
   - Code-Along (Jeanne) 
 - **5:00 - 5:30 Afterparty!** 
@@ -205,7 +205,7 @@ class: clear, inverse, center, middle
 # Part 2: SNA Learning Labs
 ----
 
-Activities, Topics, and Tools
+Activities, Tools, and Topics
 
 
 ---
@@ -446,11 +446,10 @@ Let's create a new R script so we can begin working with R to help illustrate a 
 
 ---
 class: clear, center
-
+<br/>
+<br/>
 ## .font130[.center[**Thank you!**]]
 
-
-.center[<img style="border-radius:50%;" src="img/kellogg.jpeg" height="200px"/><br/>**Shaun Kellogg**<br/><mailto:sbkellog@ncsu.edu>]
 
 .pull-left-narrow[.center[<img style="border-radius: 50%;" src="https://www.nsf.gov/images/logos/NSF_4-Color_bitmap_Logo.png" height="150px"/> ]]
 

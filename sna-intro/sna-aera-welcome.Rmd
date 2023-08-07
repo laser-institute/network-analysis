@@ -1,0 +1,127 @@
+---
+title: "The Data-Intensive Research Workflow"
+subtitle: "Orientation Learning Lab Case Study"
+author: "YOUR NAME HERE"
+date: "`r format(Sys.Date(),'%B %e, %Y')`"
+output:
+  html_document:
+    toc: yes
+    toc_depth: 4
+    toc_float: yes
+    code_folding: show
+    code_download: TRUE
+editor_options:
+  markdown:
+    wrap: 72
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, error = FALSE)
+```
+
+![](img/LASER_Hx.png){width="40%"}
+
+Welcome to **An Introduction to Social Network Analysis and Education
+Research: Core Concepts and Applications with R**! This workshop is not
+only part of the 2023 AERA Virtual Research Learning Series, but part of
+the broader work of the [Learning Analytics in STEM Education Research
+(LASER) Institute](https://fi.ncsu.edu/projects/laser-institute/), a
+professional development program for early and mid-career researchers
+funded by the National Science Foundation (ECR: BCSER). To help you
+prepare for our workshop this Thursday, August 10, 2023, from 1:00pm to
+5:00pm (EST), provided below is some information about the
+organizational aspects of the workshop as well as the technical
+components you will need to fully participate.
+
+## Agenda & Slides
+
+-   **1:00 - 1:50 [Introduction &
+    Overview](https://laser-institute.github.io/network-analysis/sna-intro/sna-aera-intro-slides.html)**
+    -   SNA in Education Research
+    -   SNA LASER Learning Labs
+-   **1:50 - 2:00 Break**
+-   **2:00 - 3:00 [Lab 1: SNA for
+    Newbies](https://laser-institute.github.io/network-analysis/lab-1/sna-lab-1-slides.html#1)**
+    -   Conceptual Overview
+    -   Code-Along
+-   **3:00 - 3:30 Break/Optional Case-Study**
+    -   [Case-Study: Who's Friends with Who in Middle
+        School](https://laser-institute.github.io/network-analysis/lab-1/sna-lab-1-case-study-key.html)
+-   **4:00 - 5:00 [Lab 2: Management &
+    Measurement](https://laser-institute.github.io/network-analysis/lab-2/sna-lab-2-slides.html#1)**
+    -   Conceptual Overview
+    -   Code-Along
+-   **5:00 - 5:30 Afterparty!**
+
+## LASER Institute Toolkit
+
+### Posit Cloud 
+
+For our broader LASER Institute program and for this workshop as well,
+we will make extensive use of **Posit Cloud**
+(<https://posit.co/products/cloud/cloud/>). Posit Cloud lets you access
+Posit\'s powerful set of data science tools like the **RStudio IDE**
+([https://posit.co/products/open-source/rstudio](https://posit.co/products/open-source/rstudio/)),
+an integrated development environment (IDE) for R and Python that
+includes a console and syntax-highlighting editor, as well as tools for
+plotting, history, debugging, and workspace management. Since Posit
+Cloud is accessed right in your browser, there is no installation or
+complex configuration required.
+
+Prior to the workshop, you will need to register for a free Posit Cloud
+account at: <https://login.posit.cloud/register>.
+
+#### AERA SNA Workshop 2023 Workspace
+
+During the workshop, you will need to access our **AERA SNA Workshop
+2023**, where we will host the `network-analysis` RStudio project and
+instructional materials it contains. To access this workspace, use the
+following link: [go.ncsu.edu/sna-labs](https://go.ncsu.edu/sna-labs).
+RStudio projects make it straightforward to divide your work into
+multiple contexts, each with their own working directory, workspace,
+history, and source documents. To learn more, visit:
+<https://support.posit.co/hc/en-us/articles/200526207-Using-RStudio-Projects>.
+
+If you've accessed the workspace correctly, you should see something
+like this:
+
+![](img/sna-labs.png){width="80%"}
+
+### Posit Primers & Cheat Sheets
+
+To make this most of this workshop it is helpful to have some basic
+working knowledge of R. If you are new to R, we highly recommend taking
+advantage of the great resources provided through Posit Cloud for
+learning R. For example, **Posit Primers**
+(<https://posit.cloud/learn/primers>) provide an excellent series of
+interactive tutorials that range from R fundamentals like basic
+programming syntax to complex tasks like building interactive data
+dashboards. Specifically, we strongly encourage you to complete [The
+Basics](https://posit.cloud/learn/primers/1) primer consisting of:
+
+1.  [Visualization Basics](https://posit.cloud/learn/primers/1.1): Start
+    here and begin making plots with R. Plots are one of the most
+    important tools for data science; they are also one of the most fun.
+2.  [Programming Basics](https://posit.cloud/learn/primers/1.2): This
+    tutorial demystifies programming with R. Here, you\'ll learn how to
+    run functions and build objects.
+
+**Posit** **Cheat Sheets** (<https://posit.cloud/learn/cheat-sheets>)
+also provide handy reference to commonly used packages and their
+essential functions, including example code for testing them out.
+
+## Learn More
+
+Finally, if you are interested in learning more about the LASER
+Institute and are considering applying for our 2024 cohort, we encourage
+you to visit our [LASER Institute
+website](https://fi.ncsu.edu/projects/laser-institute/) and the [2023
+Welcome
+Packet](https://docs.google.com/document/d/1Cpd4Q4U5MroFyVc1x3-z39wmO0kMdp2bzA3ftQ-zWRs/edit?usp=sharing).
+
+Take care and we'll see you all soon!!
+
+Shaun B. Kellogg, *North Carolina State University\
+*Oleksandra Poquet, *Technical University of Munich\
+*Bodong Chen, *University of Pennsylvania\
+*Jeanne M. McClure, *North Carolina State University*
