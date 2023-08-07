@@ -39,15 +39,13 @@ SNA as both a theoretical perspective and an analytical method, the
 instructors will provide short presentations and facilitate peer
 discussion on topics ranging from broad applications of SNA in
 educational contexts to specific approaches for data collection and
-storage. This course will also provide scholars with applied experience
+storage. This course will also provide you with applied experience
 analyzing network data through code-alongs and interactive case studies
 that use widely adopted tools (e.g., R, RStudio, and GitHub) and
 demonstrate common techniques (e.g, network visualization, measurement,
-and modeling). Collectively, these activities will help scholars both
+and modeling). Collectively, these activities will help you both
 appreciate and experience how SNA can be used to understand and improve
-student learning and the contexts in which learning occurs. While prior
-experience with R, RStudio, and GitHub is recommended to complete more
-advanced activities, it is not required.
+student learning and the contexts in which learning occurs.
 
 ## Agenda & Slides
 
