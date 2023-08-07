@@ -39,22 +39,20 @@ xaringanExtra::use_panelset()
 ---
 # Agenda
 
-.pull-left[
-## Part 1: Intro to SNA
-- The Four Hallmarks of SNA
-- Applications of SNA
-- Discussion
+- **1:00 - 1:50 Introduction**
+  - Introduction to SNA & Bingo (Sasha)
+  - Overview of SNA LASER Learning Labs (Shaun)
+- **1:50 - 2:00 Break** 
+- **2:00 - 3:00 Lab 1: SNA for Newbies** 
+  - Conceptual Overview (Bodong)
+  - Code-Along (Jeanne)
+- **3:00 - 3:30 Break** 
+  - Optional Case-Study Orientation (Shaun & Jeanne) 
+- **4:00 - 5:00 (Lab 2: Management & Measurement)** 
+  - Conceptual Overview (Shaun) 
+  - Code-Along (Jeanne) 
+- **5:00 - 5:30 Afterparty!** 
 
-]
-
-.pull-right[
-
-## Part 2: LASER Learning Labs
-- Intro to SNA
-- Network Measurement
-- Groups & Egos
-- Statistical Inference & Models
-]
 
 
 ???
