@@ -1,8 +1,4 @@
 ---
-title: "The Data-Intensive Research Workflow"
-subtitle: "Orientation Learning Lab Case Study"
-author: "YOUR NAME HERE"
-date: "`r format(Sys.Date(),'%B %e, %Y')`"
 output:
   html_document:
     toc: yes
@@ -32,6 +28,26 @@ prepare for our workshop this Thursday, August 10, 2023, from 1:00pm to
 5:00pm (EST), provided below is some information about the
 organizational aspects of the workshop as well as the technical
 components you will need to fully participate.
+
+## Overview 
+
+This workshop is designed to introduce education researchers with little
+or no background in SNA to social network theory, examples of network
+analysis in educational contexts, and applied experience analyzing
+real-world data sets. To support scholars' conceptual understanding of
+SNA as both a theoretical perspective and an analytical method, the
+instructors will provide short presentations and facilitate peer
+discussion on topics ranging from broad applications of SNA in
+educational contexts to specific approaches for data collection and
+storage. This course will also provide scholars with applied experience
+analyzing network data through code-alongs and interactive case studies
+that use widely adopted tools (e.g., R, RStudio, and GitHub) and
+demonstrate common techniques (e.g, network visualization, measurement,
+and modeling). Collectively, these activities will help scholars both
+appreciate and experience how SNA can be used to understand and improve
+student learning and the contexts in which learning occurs. While prior
+experience with R, RStudio, and GitHub is recommended to complete more
+advanced activities, it is not required.
 
 ## Agenda & Slides
 
