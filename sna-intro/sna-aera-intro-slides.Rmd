@@ -1,9 +1,8 @@
 ---
 title: "Social Network Analysis and STEM Education"
 subtitle: "A Brief Introduction and Learning Lab Overview"
-author: "Dr. Shaun Kellogg"
 institute: "The LASER Institute"
-date: "2022/07/11 (updated: `r Sys.Date()`)"
+date: "August 10, 2023"
 output:
   xaringan::moon_reader:
     css:
@@ -30,40 +29,72 @@ class: clear, title-slide, inverse, center, top, middle
 # `r rmarkdown::metadata$title`
 ## `r rmarkdown::metadata$subtitle`
 ### `r rmarkdown::metadata$author`
-### `r format(Sys.time(), "%B %d, %Y")`
+### `r rmarkdown::metadata$date`
 
 ```{r xaringan-panelset, echo=FALSE}
 xaringanExtra::use_panelset()
 ```
 
 ---
+
+# Meet the Presenters
+<br/>
+**Shaun B. Kellogg** (sbkellog@ncsu.edu)<br/>
+*North Carolina State University*
+
+**Oleksandra Poquet** (sasha.poquet@tum.de) <br/>
+*Technical University of Munich*
+
+**Bodong Chen** (cbd@upenn.edu) <br/>
+*University of Pennsylvania*
+
+**Jeanne M. McClure** (jmmcclu3@ncsu.edu) <br/>
+*North Carolina State University*
+
+---
+# Goals
+.panelset[
+
+.panel[.panel-name[LASER Institute]
+1. **Disciplinary Knowledge**: Deepen understanding of LA methodologies, literature, applications and ethical issues as they relate to STEM education and equity.
+
+2. **Technical Skills**: Develop proficiency with R, Posit Cloud, and other tools for reproducible and collaborative data-intensive research.
+
+3. **Social Capital**: Expand their professional networks, connecting with researchers and experts in LA related fields, as well as other scholars focused on STEM education.
+]
+
+.panel[.panel-name[This Course]
+
+1. **Disciplinary Knowledge**: Develop an understanding of some basic social network analysis concepts and applications of SNA in education research.
+
+2. **Technical Skills**: Develop proficiency with R, Posit Cloud, and other tools for reproducible and collaborative data-intensive research.
+
+3. **Social Capital**: Obviously, a course with 200+ participants is limiting, but we hope you'll engage in our Q&A discussions and attend our post-course convening!
+]
+]
+
+---
+
 # Agenda
 
 - **1:00 - 1:50 Introduction & Overview**
-  - Introduction to SNA & Bingo (Sasha)
-  - Overview of SNA LASER Learning Labs (Shaun)
+
 - **1:50 - 2:00 Break** 
+
 - **2:00 - 3:00 Lab 1: SNA for Newbies** 
-  - Conceptual Overview (Bodong)
-  - Code-Along (Jeanne)
-- **3:00 - 3:30 Break** 
+
+- **3:00 - 3:30 Break or Case Study** 
   - Optional Case-Study Orientation (Shaun & Jeanne) 
+
 - **4:00 - 5:00 Lab 2: Management & Measurement** 
-  - Conceptual Overview (Shaun) 
-  - Code-Along (Jeanne) 
+
+- **5:00 - 5:30 Break/Dismiss** 
+
 - **5:00 - 5:30 Afterparty!** 
 
 
 
 ???
-
----
-class: clear, laser
-
-.quote["From its earliest origins to it most recent applications to large-scale networks, social network analysis has reflected an **interdependency between theory and method.**"]
-
-.author[~ Brian Carolan]
-
 
 ---
 class: clear, inverse, center, middle
@@ -72,6 +103,13 @@ class: clear, inverse, center, middle
 ----
 
 Hallmarks, Applications, and Discussion
+
+---
+class: clear, laser
+
+.quote["From its earliest origins to it most recent applications to large-scale networks, social network analysis has reflected an **interdependency between theory and method.**"]
+
+.author[~ Brian Carolan]
 
 ---
 # The Four Hallmarks of SNA
@@ -119,7 +157,7 @@ Jacob Moreno & Helen Jenning (1934)]
 
 ]
 
-.panel[.panel-name[Mathmatically Based]
+.panel[.panel-name[Mathematics Based]
 It relies on the use of **mathematical and/or computational models** to succinctly represent the complexity of social life:
 .pull-left[
 ### Network Stats (Describe)
@@ -141,8 +179,8 @@ It relies on the use of **mathematical and/or computational models** to succinct
 ]
 
 ---
+class: no-logo
 # Applications of SNA
-
 .panelset[
 
 .panel[.panel-name[Overview]
@@ -173,6 +211,8 @@ Educational researchers have used modeling of peer selection and influence to be
 - who school leaders collaborate and confide in and why (Daly and Finnigan, 2010)
 - how the characteristics of friends shape students’ aspirations and college attendance (Hallinan & Williams, 1990) 
 - teachers’ attitudes toward school and district reforms (Cole & Weinbaum, 2010)
+- how friend influence and peer exposure widen the STEM gender gap (Raabe et al., 2019)
+- development of peer networks and academic performance (Brouwer et al, 2022)
 
 
 ]
@@ -331,118 +371,6 @@ Let's create a new R script so we can begin working with R to help illustrate a 
 
 < Direct scholars to create a new R script as illustrated in the screenshot. Show them how to name the file and save to their main directory. > 
 
----
-
-# SNA Lab 1: Network Analysis for Newbies
-
-
-.pull-left[
-### Intro Presentation 
-[Key Concepts & Code-Along](https://laser-institute.github.io/network-analysis/lab-1/sna-lab-1-slides.html)
-
-
-### Essential Readings
-
-- [The Social Network Perspective](https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-1/carolan-network-perspective.pdf)
-
-- [Historical, Theoretical, and Analytical Foundations](https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-1/carolan-history-theory.pdf)  
-
-- [Basic Concepts](https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-1/carolan-basic-concepts.pdf)  
-
-] 
-
-.pull-right[
-### Learning Lab 1 Badge
-- [Intro to SNA](https://laser-institute.github.io/network-analysis/lab-1/sna-lab-1-badge.html)
-
-
-### Case Study
-
-- [SNA Case Study: Who's Friends with Who in Middle School?](https://laser-institute.github.io/network-analysis/lab-1/sna-lab-1-case-study-key.html)
-
-- [Guiding Study: Behavioral versus cognitive classroom friendship networks.](https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-1/pittinsky-class-friendships.pdf)
-
-]
-
----
-# SNA Lab 2: Data Management & Measurement
-
-
-.pull-left[
-### Intro Presentation 
-[Key Concepts & Code-Along](https://laser-institute.github.io/network-analysis/lab-2/sna-lab-2-slides.html)
-
-### Essential Readings
-
-- [Collecting and Managing Network Data](https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-2/sna-chapter-4.pdf)
-
-- [Structural Measures for Complete Networks](https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-2/sna-chapter-5.pdf)  
-]
-
-.pull-right[
-### Learning Lab 2 Badge
-- [Network Measurement](https://laser-institute.github.io/network-analysis/lab-2/sna-lab-2-badge.html)
-
-### Case Study
-
-- [SNA Case Study: A Tale of Two MOOCs](https://laser-institute.github.io/network-analysis/lab-2/sna-lab-2-case-study-key.html)
-
-- [Guiding Study: Massively Open Online Course for Educators (MOOC-Ed) network dataset](https://bera-journals.onlinelibrary.wiley.com/doi/abs/10.1111/bjet.12312)
-
-]
-
----
-# SNA Lab 3: Group & Egocentric Analysis
-
-
-.pull-left[
-### Intro Presentation 
-[Key Concepts & Code-Along](https://laser-institute.github.io/network-analysis/lab-3/sna-lab-3-slides.html)
-
-### Essential Readings
-
-- [Groups and Positions in Complete Networks](https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-4/carolan-sna-ch-6.pdf)
-
-- [Measures for Egocentric Network Analysis](https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-4/carolan-sna-ch-7.pdf)  
-] 
-
-.pull-right[
-### Learning Lab 3 Badge
-- [Groups & Egos](https://laser-institute.github.io/network-analysis/lab-3/sna-lab-3-badge.html)
-
-### Case Study
-
-- [SNA Case Study: Components, Cliques, & Key Actors](https://laser-institute.github.io/network-analysis/lab-3/sna-lab-3-case-study-key.html)
-
-- [Guiding Study: Hashtag Common Core](https://www.hashtagcommoncore.com)
-]
-
-
----
-# SNA Lab 4: Inference & Modeling 
-
-
-.pull-left[
-### Intro Presentation 
-[Key Concepts & Code-Along](https://laser-institute.github.io/network-analysis/lab-4/sna-lab-4-slides.html)
-
-### Essential Readings
-
-- [Statistical Inference With Network Data](https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-4/carolan-sna-ch-8.pdf)
-
-- [Network Data and Statistical Models](https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-4/carolan-sna-ch-9.pdf)  
-] 
-
-.pull-right[
-### Learning Lab 4 Badge
-- [Models & Inference](https://laser-institute.github.io/network-analysis/lab-4/sna-lab-4-badge.html)
-
-### Case Study
-
-- [SNA Case Study: Birds of a Feather Lead Together](https://laser-institute.github.io/network-analysis/lab-4/sna-lab-4-case-key.html)
-
-- [Guiding Study: The ebb and flow of social network ties between district leaders.](https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-4/daly-ebb-flow.pdf)
-]
 
 ---
 class: clear, center
