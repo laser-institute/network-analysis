@@ -29,7 +29,7 @@ prepare for our workshop this Thursday, August 10, 2023, from 1:00pm to
 organizational aspects of the workshop as well as the technical
 components you will need to fully participate.
 
-## Overview 
+## Overview
 
 This workshop is designed to introduce education researchers with little
 or no background in SNA to social network theory, examples of network
@@ -65,16 +65,17 @@ student learning and the contexts in which learning occurs.
     Measurement](https://laser-institute.github.io/network-analysis/lab-2/sna-lab-2-slides.html#1)**
     -   Conceptual Overview
     -   Code-Along
--   **5:00 - 5:30 Afterparty!**
+-   **5:00 - 5:30 Dismiss/Break**
+-   **5:30 - 6:00 Afterparty!**
 
 ## LASER Institute Toolkit
 
-### Posit Cloud 
+### Posit Cloud
 
 For our broader LASER Institute program and for this workshop as well,
 we will make extensive use of **Posit Cloud**
 (<https://posit.co/products/cloud/cloud/>). Posit Cloud lets you access
-Posit\'s powerful set of data science tools like the **RStudio IDE**
+Posit's powerful set of data science tools like the **RStudio IDE**
 ([https://posit.co/products/open-source/rstudio](https://posit.co/products/open-source/rstudio/)),
 an integrated development environment (IDE) for R and Python that
 includes a console and syntax-highlighting editor, as well as tools for
@@ -117,7 +118,7 @@ Basics](https://posit.cloud/learn/primers/1) primer consisting of:
     here and begin making plots with R. Plots are one of the most
     important tools for data science; they are also one of the most fun.
 2.  [Programming Basics](https://posit.cloud/learn/primers/1.2): This
-    tutorial demystifies programming with R. Here, you\'ll learn how to
+    tutorial demystifies programming with R. Here, you'll learn how to
     run functions and build objects.
 
 **Posit** **Cheat Sheets** (<https://posit.cloud/learn/cheat-sheets>)
