@@ -58,8 +58,9 @@ student learning and the contexts in which learning occurs.
     Newbies](https://laser-institute.github.io/network-analysis/lab-1/sna-lab-1-slides.html#1)**
     -   Conceptual Overview
     -   Code-Along
--   **3:00 - 3:30 Break/Optional Case-Study**
-    -   [Case-Study: Who's Friends with Who in Middle
+-   **3:00 - 3:20 Break**
+-   **3:20 - 4:00 Lab 1: Case Study**
+    -   [Who's Friends with Who in Middle
         School](https://laser-institute.github.io/network-analysis/lab-1/sna-lab-1-case-study-key.html)
 -   **4:00 - 5:00 [Lab 2: Management &
     Measurement](https://laser-institute.github.io/network-analysis/lab-2/sna-lab-2-slides.html#1)**
