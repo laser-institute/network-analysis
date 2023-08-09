@@ -79,12 +79,13 @@ xaringanExtra::use_panelset()
 
 - **1:00 - 1:50 Introduction & Overview**
 
-- **1:50 - 2:00 Break** 
+- **1:50 - 2:00 Break**
 
 - **2:00 - 3:00 Lab 1: SNA for Newbies** 
 
-- **3:00 - 3:30 Break or Case Study** 
-  - Optional Case-Study Orientation (Shaun & Jeanne) 
+- **3:00 - 3:20 Break**
+
+- **3:20 - 4:00 Lab 1: Case Study**
 
 - **4:00 - 5:00 Lab 2: Management & Measurement** 
 
@@ -103,6 +104,13 @@ class: clear, inverse, center, middle
 ----
 
 Hallmarks, Applications, and Discussion
+
+---
+# SNA Bingo! 
+.center[
+<img src="img/bingo.png" height="450px"/>
+<br/> 
+.font150[[go.ncsu.edu/snabingo](https://go.ncsu.edu/snabingo)]]
 
 ---
 class: clear, laser
