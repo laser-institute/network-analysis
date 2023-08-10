@@ -1,6 +1,6 @@
 ---
 title: "Intro to SNA in Ed with R"
-author: "AERA Virtual Learning Series"
+author: "AERA Virtual Research Learning Series"
 date: "August 10, 2023, 1:00pm - 5:00pm (EST)"
 output:
   html_document:
