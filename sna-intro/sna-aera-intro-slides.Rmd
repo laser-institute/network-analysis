@@ -1,6 +1,6 @@
 ---
 title: "Social Network Analysis and STEM Education"
-subtitle: "A Brief Introduction and Learning Lab Overview"
+subtitle: "A Brief Intro to SNA and Learning Lab Overview"
 institute: "The LASER Institute"
 date: "August 10, 2023"
 output:
@@ -69,7 +69,7 @@ xaringanExtra::use_panelset()
 
 2. **Technical Skills**: Learn some essential R packages and functions for SNA and more importantly, learn how to learn SNA with the LASER curriculum.
 
-3. **Social Capital**: Obviously, a course with 200+ participants is limiting, but we hope you'll engage in our Q&A discussions and attend our post-course convening!
+3. **Social Capital**: Obviously, a course with 200+ participants is limiting, but we hope you'll engage in our Q&A discussions, Bingo game and post-course meet and greet!
 ]
 ]
 
@@ -255,6 +255,16 @@ class: clear, inverse, center, middle
 
 Activities, Tools, and Topics
 
+---
+class: no-logo
+# SNA Learning Labs
+- ***SNA Learning Lab 1: Network Analysis for Newbies*** is a gentle introduction to the collection, management and visualization of network data. 
+
+- ***SNA Learning Lab 2: Network Management & Measurement*** moves beyond basic concepts of network analysis and takes a closer look at the collection, management, and measurement of network data.
+
+- ***SNA Learning Lab 3: Groups & Egocentric Analysis*** zooms in on methods and measures for analyzing groups and individual actors.
+
+- ***SNA Learning Lab 4: Statistical Inference & Network Models*** examines recent advances in inferential statistics network models that can be used to make predictions from social network data and test hypotheses about a network of interest.
 
 ---
 class: no-logo
@@ -301,6 +311,15 @@ class: no-logo
 
 .panelset[
 
+.panel[.panel-name[GitHub]
+
+.center[
+<img src="img/github.png" height="390px"/>
+<br/>
+[go.ncsu.edu/laser-github](https://go.ncsu.edu/laser-github)
+]
+]
+
 .panel[.panel-name[Posit Cloud]
 
 .center[
@@ -321,17 +340,6 @@ class: no-logo
 .center[
 <img src="img/r-markdown.png" height="425px"/>
 ]
-]
-
-
-.panel[.panel-name[GitHub]
-
-.center[
-<img src="img/github.png" height="390px"/>
-<br/>
-[go.ncsu.edu/laser-github](https://go.ncsu.edu/laser-github)
-]
-
 ]
 
 
