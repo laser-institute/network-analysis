@@ -91,7 +91,7 @@ xaringanExtra::use_panelset()
 
 - **5:00 - 5:30 Break/Dismiss** 
 
-- **5:00 - 5:30 Afterparty!** 
+- **5:30 - 6:00 Afterparty!** 
 
 
 
