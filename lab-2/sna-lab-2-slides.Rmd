@@ -438,7 +438,25 @@ library(igraph)
 
 Let's import two .csv files from our data folder named `dlt1-edges.csv` and `dlt1-nodes.csv` using the `read_csv()` function from the {readr} package: 
 
-```{r import-data, echo=TRUE, message=FALSE}
+```{r import-data, echo=TRUE, message=FALSE, eval=FALSE}
+dlt1_ties <- read_csv("lab-2/data/dlt1-edges.csv", 
+                      col_types = cols(Sender = col_character(), 
+                                       Receiver = col_character(), 
+                                       `Category Text` = col_skip(), 
+                                       `Comment ID` = col_character(), 
+                                       `Discussion ID` = col_character())) |>
+  clean_names()
+
+dlt1_actors <- read_csv("lab-2/data/dlt1-nodes.csv", 
+                   col_types = cols(UID = col_character(), 
+                                    Facilitator = col_character(), 
+                                    expert = col_character(), 
+                                    connect = col_character())) |>
+  clean_names()
+```
+
+
+```{r import-data-hide, echo=FALSE, message=FALSE}
 dlt1_ties <- read_csv("data/dlt1-edges.csv", 
                       col_types = cols(Sender = col_character(), 
                                        Receiver = col_character(), 

@@ -417,7 +417,7 @@ Let's import two .csv files from our data folder named `dlt1-edges.csv` and `dlt
 
 
 ```r
-dlt1_ties &lt;- read_csv("data/dlt1-edges.csv", 
+dlt1_ties &lt;- read_csv("lab-2/data/dlt1-edges.csv", 
                       col_types = cols(Sender = col_character(), 
                                        Receiver = col_character(), 
                                        `Category Text` = col_skip(), 
@@ -425,13 +425,16 @@ dlt1_ties &lt;- read_csv("data/dlt1-edges.csv",
                                        `Discussion ID` = col_character())) |&gt;
   clean_names()
 
-dlt1_actors &lt;- read_csv("data/dlt1-nodes.csv", 
+dlt1_actors &lt;- read_csv("lab-2/data/dlt1-nodes.csv", 
                    col_types = cols(UID = col_character(), 
                                     Facilitator = col_character(), 
                                     expert = col_character(), 
                                     connect = col_character())) |&gt;
   clean_names()
 ```
+
+
+
 
 
 ]
