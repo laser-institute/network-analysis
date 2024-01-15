@@ -1,0 +1,50 @@
+---
+title: "sna-lab-1-slides"
+author: "Shaun Kellogg"
+format: revealjs
+editor: visual
+---
+
+## Agenda
+
+::: columns
+::: {.column width="50%"}
+**Part 1: Intro to SNA**
+
+-   The Four Hallmarks of SNA
+-   Applications of SNA
+-   Discussion
+:::
+
+::: {.column width="50%"}
+**Part 2: LASER Learning Labs**
+
+-   Intro to SNA
+-   Network Measurement
+-   Groups & Egos
+-   Statistical Inference & Models
+:::
+:::
+
+::: notes
+Speaker notes go here.
+:::
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations see <https://quarto.org/docs/presentations/>.
+
+## Bullets
+
+When you click the **Render** button a document will be generated that includes:
+
+-   Content authored with markdown
+-   Output from executable code
+
+## Code
+
+When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+1 + 1
+```
