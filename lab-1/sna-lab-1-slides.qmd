@@ -63,6 +63,43 @@ It is firmly grounded in [systematic empirical data collection]{.underline} usin
 -   historical and administrative records
 -   digital learning tools and social media
 
+## 3. Graphical Imagery 
+
+::: columns
+::: {.column width="50%"}
+SNA makes use of **graphic imagery** to represent actors and their relations with one another.
+
+-   Shapes for actors (nodes, vertices)
+-   Lines for relations (ties, edges)
+:::
+
+::: {.column width="50%"}
+![Moreno & Jennings 1930s Elementary Friendship Network](img/moreno.jpeg){fig-align="center"}
+:::
+:::
+
+## 4. Mathematically Based
+
+::: columns
+SNA relies on the use of **mathematical and/or computational models** to succinctly represent the complexity of social life:
+
+::: {.column width="50%"}
+[Descriptive Stats]{.underline}
+
+-   Centrality
+-   Reciprocity
+-   Density
+:::
+
+::: {.column width="50%"}
+[Inferential Models]{.underline}
+
+-   CONCOR
+-   QAP
+-   ERGMS
+:::
+:::
+
 ::: notes
 **Speaker Notes**
 
