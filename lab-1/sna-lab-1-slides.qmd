@@ -127,6 +127,110 @@ SNA relies on the use of **mathematical and/or computational models** to succinc
         -   ERGMS
 :::
 
+## The Four Hallmarks of SNA
+
+::: panel-tabset
+## 1. Structuralism
+
+Social network analysis is based on ***ties*** connecting social ***actors*** and is motivated by our intuition that [relationships between individuals matter]{.underline}:
+
+-   no individual is an island, independence is NOT assumed
+-   who we know, are friends with, or talk with matters
+-   the influence of these relations is shaped by the larger network
+-   location in a social structure shapes one's opportunities and outcomes
+
+## 2. Empirical Data
+
+It is firmly grounded in [systematic empirical data collection]{.underline} using methods refined over decades and methods still evolving:
+
+-   observations of social context
+-   surveys and questionnaires
+-   historical and administrative records
+-   digital learning tools and social media
+
+## 3. Graphical Imagery
+
+::: columns
+::: {.column width="50%"}
+SNA makes use of **graphic imagery** to represent actors and their relations with one another.
+
+-   Shapes for actors (nodes, vertices)
+-   Lines for relations (ties, edges)
+:::
+
+::: {.column width="50%"}
+![Moreno & Jennings 1930s Elementary Friendship Network](img/moreno.jpeg){alt="Moreno & Jennings 1930s Elementary Friendship Network" fig-align="center"}
+:::
+:::
+
+## 4. Math Based
+
+::: columns
+SNA relies on the use of **mathematical and/or computational models** to succinctly represent the complexity of social life:
+
+::: {.column width="50%"}
+[Descriptive Stats]{.underline}
+
+-   Centrality
+-   Reciprocity
+-   Density
+:::
+
+::: {.column width="50%"}
+[Inferential Models]{.underline}
+
+-   CONCOR
+-   QAP
+-   ERGMS
+:::
+:::
+:::
+
+## Key Terms
+
+::: columns
+::: {.column width="50%"}
+-   [People]{.underline}: Actors, Nodes, or Vertices
+
+-   [Connections]{.underline}: Ties, Relations, or Edges
+
+-   [Attributes]{.underline}: Personal, Relational, Structural
+:::
+
+::: {.column width="50%"}
+![Teacher perceptions of student friendships](img/attributes.png){alt="Teacher perceptions of student friendships" fig-align="center"}
+:::
+:::
+
+::: notes
+**Speaker Notes**
+
+***Actors***, also called nodes or vertices, can be a range of social entities, like:
+
+-   students in a classroom
+-   teachers in a school district
+-   school districts in a state
+-   departments within a college
+-   parents in a community
+
+***Ties***, also called relations or edges, connect actors to one another, like:
+
+-   behavioral interaction
+-   physical connection
+-   association or affiliation
+-   evaluation of one person by another
+-   formal relations
+-   moving between places or status
+
+***Attributes***, information about actors and sometimes ties:
+
+-   [Personal]{.underline} data based on properties of individual actors (e.g., gender, achievement)
+
+-   [Relational]{.underline} data based on an actor's direct ties with others (e.g., degree or connectedness)
+
+-   [Structural]{.underline} data based on the entire network of connections actors ties with others (e.g., centrality)
+:::
+
 ## Applications in SNA
 
 Interest in SNA has grown tremendously in the past few decades for studying educational contexts and social phenomena in such as:
@@ -162,51 +266,6 @@ Interest in SNA has grown tremendously in the past few decades for studying educ
 -   attitudes and use of computers in classrooms over time (Frank et al., 2011)
 -   how substance abuse diffuses across adolescent networks (Valente et al., 2004)
 -   diffusion of charter school policy and creation across states (Renzulli and Roscigno, 2005)
-:::
-
-## Key Terms
-
-::: columns
-::: {.column width="50%"}
--   [People]{.underline}: Actors, Nodes, or Vertices
-
--   [Connections]{.underline}: Ties, Relations, or Edges
-
--   [Attributes]{.underline}: Personal, Relational, Structural
-:::
-
-::: {.column width="50%"}
-![Teacher perceptions of student friendships](img/attributes.png){fig-align="center"}
-:::
-:::
-
-::: notes
-**Speaker Notes**
-
-***Actors***, also called nodes or vertices, can be a range of social entities, like:
-
--   students in a classroom
--   teachers in a school district
--   school districts in a state
--   departments within a college
--   parents in a community
-
-***Ties***, also called relations or edges, connect actors to one another, like:
-
--   behavioral interaction
--   physical connection
--   association or affiliation
--   evaluation of one person by another
--   formal relations
--   moving between places or status
-
-***Attributes***, information about actors and sometimes ties:
-
--   [Personal]{.underline} data based on properties of individual actors (e.g., gender, achievement)
-
--   [Relational]{.underline} data based on an actor's direct ties with others (e.g., degree or connectedness)
-
--   [Structural]{.underline} data based on the entire network of connections actors ties with others (e.g., centrality)
 :::
 
 ## Think, Draw & Discuss
