@@ -16,8 +16,8 @@ format:
     footer: <a href=https://www.go.ncsu.edu/laser-institute>go.ncsu.edu/laser-institute
 resources:
   - demo.pdf
-editor: visual
 bibliography: lit/references.bib
+editor: visual
 ---
 
 ## SNA: Method & Theory
@@ -41,9 +41,27 @@ Social Network Analysis is unique among the learning analytics methods covered b
 :::
 
 ::: {.column width="40%"}
-![Moreno & Jennings 1930s Elementary Friendship Network](img/moreno.jpeg){fig-align="center" height="490"}
+![Jacob Moreno & Helen Jenning (1934)](img/moreno.jpeg){fig-align="center" height="490"}
 :::
 :::
+
+## **1. Structuralism**
+
+Social network analysis is based on ***ties*** connecting social ***actors*** and is motivated by our intuition that [relationships between individuals matter]{.underline}:
+
+-   no individual is an island, independence is NOT assumed
+-   who we know, are friends with, or talk with matters
+-   the influence of these relations is shaped by the larger network
+-   location in a social structure shapes one's opportunities and outcomes
+
+## 2. Empirical Data
+
+It is firmly grounded in [systematic empirical data collection]{.underline} using methods refined over decades and methods still evolving:
+
+-   observations of social context
+-   surveys and questionnaires
+-   historical and administrative records
+-   digital learning tools and social media
 
 ::: notes
 **Speaker Notes**
@@ -72,48 +90,98 @@ Social Network Analysis is unique among the learning analytics methods covered b
         -   ERGMS
 :::
 
-## Agenda
+## Applications in SNA
+
+Interest in SNA has grown tremendously in the past few decades for studying educational contexts and social phenomena in such as:
+
+-   Diffusion and adoption of innovations
+
+-   Social selection & influence
+
+-   Social capital
+
+-   Policy and program evaluation
+
+::: notes
+**Speaker Notes**
+
+[Social Capital]{.underline}: An intangible asset existing in the connections and shared values that people have. SNA provides a means to actually measure & model social capital and has be used to better understand:
+
+-   how social relations advantages some students (Maroulis and Gomez, 2008)
+-   dropout among Latino/a/ex students (Ream and Rumberger, 2008)
+-   school-oriented friendship networks have the potential to reduce dropout rates
+-   parental social closure and student math achievement (Morgan and Todd, 2008)
+
+[Selection & Influence]{.underline}: Why people are selected or connect with others and how these connections shape opportunities and outcomes for these individuals. Educational researchers have used modeling of peer selection and influence to better understand:
+
+-   who school leaders collaborate and confide in and why (Daly and Finnigan, 2010)
+-   how the characteristics of friends shape students' aspirations and college attendance (Hallinan & Williams, 1990)
+-   teachers' attitudes toward school and district reforms (Cole & Weinbaum, 2010)
+-   how friend influence and peer exposure widen the STEM gender gap (Raabe et al., 2019)
+-   development of peer networks and academic performance (Brouwer et al, 2022)
+
+[Diffusion]{.underline}: Building on theories of diffusion, SNA has been used to explain how ideas and resources spread within and between networks of actors, such as:
+
+-   attitudes and use of computers in classrooms over time (Frank et al., 2011)
+-   how substance abuse diffuses across adolescent networks (Valente et al., 2004)
+-   diffusion of charter school policy and creation across states (Renzulli and Roscigno, 2005)
+:::
+
+## Key Terms
 
 ::: columns
 ::: {.column width="50%"}
-**Part 1: Intro to SNA**
+-   [People]{.underline}: Actors, Nodes, or Vertices
 
--   The Four Hallmarks of SNA
--   Applications of SNA
--   Discussion
+-   [Connections]{.underline}: Ties, Relations, or Edges
+
+-   [Attributes]{.underline}: Personal, Relational, Structural
 :::
 
 ::: {.column width="50%"}
-**Part 2: LASER Learning Labs**
-
--   Intro to SNA
--   Network Measurement
--   Groups & Egos
--   Statistical Inference & Models
+![Teacher perceptions of student friendships](img/attributes.png){fig-align="center"}
 :::
 :::
 
 ::: notes
-Social Network Analysis is unique among the learning analytics methods covered by the LASER Institute in that it is a set of analytical techniques for analyzing the structure of social relationships that are
+**Speaker Notes**
+
+***Actors***, also called nodes or vertices, can be a range of social entities, like:
+
+-   students in a classroom
+-   teachers in a school district
+-   school districts in a state
+-   departments within a college
+-   parents in a community
+
+***Ties***, also called relations or edges, connect actors to one another, like:
+
+-   behavioral interaction
+-   physical connection
+-   association or affiliation
+-   evaluation of one person by another
+-   formal relations
+-   moving between places or status
+
+***Attributes***, information about actors and sometimes ties:
+
+-   [Personal]{.underline} data based on properties of individual actors (e.g., gender, achievement)
+
+-   [Relational]{.underline} data based on an actor's direct ties with others (e.g., degree or connectedness)
+
+-   [Structural]{.underline} data based on the entire network of connections actors ties with others (e.g., centrality)
 :::
 
-## Quarto
+## Think, Draw & Discuss
 
-Quarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations see <https://quarto.org/docs/presentations/>.
+Consider a small network you are a part of (\~ 5-10 individuals), or may be interested in studying, and think about the following questions:
 
-## Bullets
+1.  *Who are the actors in this networks?*
+2.  *What types of ties might connect these actors?*
 
-When you click the **Render** button a document will be generated that includes:
+Now draw your network and think about the following questions:
 
--   Content authored with markdown
--   Output from executable code
-
-## Code
-
-When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
-
-```{r}
-1 + 1
-```
+1.  *How might someone's position in this network advantage or disadvantage these individuals?*
+2.  *What personal attributes might be pertinent to capture for this network?*
 
 ## References
