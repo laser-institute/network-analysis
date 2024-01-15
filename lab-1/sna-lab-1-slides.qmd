@@ -17,6 +17,7 @@ format:
 resources:
   - demo.pdf
 editor: visual
+bibliography: lit/references.bib
 ---
 
 ## SNA: Method & Theory
@@ -36,15 +37,13 @@ Social Network Analysis is unique among the learning analytics methods covered b
 1.  Emphasis on [**structuralism**]{.underline} based on ties among actors
 2.  Firmly grounded in [**empirical data**]{.underline}
 3.  use of [**graphical imagery**]{.underline} and data visualization
-4.  [**math**]{.underline}ematically based[^1]
+4.  [**math**]{.underline}ematically based [@freeman2004development]
 :::
 
 ::: {.column width="40%"}
 ![Moreno & Jennings 1930s Elementary Friendship Network](img/moreno.jpeg){fig-align="center" height="490"}
 :::
 :::
-
-[^1]: [Freeman, L. (2004). The development of social network analysis.](https://www.researchgate.net/publication/239228599_The_Development_of_Social_Network_Analysis)
 
 ::: notes
 **Speaker Notes**
@@ -116,3 +115,5 @@ When you click the **Render** button a presentation will be generated that inclu
 ```{r}
 1 + 1
 ```
+
+## References
