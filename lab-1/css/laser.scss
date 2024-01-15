@@ -1,0 +1,45 @@
+/*-- scss:defaults --*/
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap');
+// fonts
+$font-family-sans-serif: 'Open Sans','Roboto', sans-serif !default;
+$presentation-font-size-root: 50px;
+
+// colors
+$body-bg: #FFFFFF !default;
+$body-color: #000000 !default;
+$linkColor: #427E93 !default;
+$linkColorHover: #4156A1 !default;
+$selection-bg: #26351c;
+
+// headings
+$presentation-heading-font: 'Open Sans','Roboto', sans-serif !default;
+$presentation-heading-color: #427E93 !default;
+
+/*-- scss:rules --*/
+.reveal .slide {
+  margin: 10px;
+}
+
+.reveal a {
+  line-height: 1em;
+  color: #990000;
+}
+
+.reveal .footer {
+  color: #143156;
+}
+
+.reveal .footer a {
+  color: #990000;
+}
+
+.reveal h2 {
+  font-size: 1.5em;
+  margin-bottom: 50px;
+}
+
+section.has-dark-background code{
+  color: #e77225;
+}
+

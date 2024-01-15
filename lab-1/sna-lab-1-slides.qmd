@@ -1,9 +1,67 @@
 ---
-title: "sna-lab-1-slides"
-author: "Shaun Kellogg"
-format: revealjs
+title: "Network Analysis for Newbies"
+subtitle: "SNA Module 1: Conceptual Overview"
+format:
+  revealjs: 
+    slide-number: c/t
+    progress: true
+    chalkboard: 
+      buttons: false
+    preview-links: auto
+    logo: img/LASERLogoB.png
+    theme: [default, css/laser.scss]
+    width: 1920
+    height: 1080
+    margin: 0.05
+    footer: <a href=https://www.go.ncsu.edu/laser-institute>go.ncsu.edu/laser-institute
+resources:
+  - demo.pdf
+
 editor: visual
 ---
+
+## SNA: Method & Theory
+
+"From its earliest origins to it most recent applications to large-scale networks, social network analysis has reflected an [**interdependency between theory and method**]{.underline}."
+
+-Brian Carolan, Social Network Analysis and Education
+
+::: notes
+Social Network Analysis is unique among the learning analytics methods covered by the LASER Institute in that it is a set of analytical techniques for analyzing the structure of social relationships that are tightly integrated with sociological theory.
+:::
+
+## The Four Hallmarks of SNA
+
+::: columns
+::: {.column width="60%"}
+1.  Emphasis on [**structuralism**]{.underline} based on ties among actors
+2.  Firmly grounded in [**empirical data**]{.underline}
+3.  use of [**graphical imagery**]{.underline} and data visualization
+4.  [**math**]{.underline}ematically based
+:::
+
+::: {.column width="40%"}
+![Moreno & Jennings 1930s Elementary Friendship Network](img/moreno.jpeg){fig-align="center" height="490"}
+:::
+:::
+
+[Freeman, L. (2004). The development of social network analysis.](https://www.researchgate.net/publication/239228599_The_Development_of_Social_Network_Analysis)
+
+::: notes
+**Structuralism**: Relationships Social network analysis is based on **ties** connecting social **actors** and is motivated by our intuition that relationships between individuals matter:
+
+-   no individual is an island, independence is NOT assumed
+-   who we know, are friends with, or talk with matters
+-   the influence of these relations is shaped by the larger network
+-   location in a social structure shapes one's opportunities and outcomes
+
+**Empirical Data**: It is firmly grounded in \*\*systematic empirical data collection\*\* using methods refined over decades and methods still evolving:
+
+-   observations of social context
+-   surveys and questionnaires
+-   historical and administrative records
+-   digital learning tools and social media
+:::
 
 ## Agenda
 
@@ -27,7 +85,7 @@ editor: visual
 :::
 
 ::: notes
-Speaker notes go here.
+Social Network Analysis is unique among the learning analytics methods covered by the LASER Institute in that it is a set of analytical techniques for analyzing the structure of social relationships that are
 :::
 
 ## Quarto
