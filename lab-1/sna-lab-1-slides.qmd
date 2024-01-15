@@ -16,7 +16,6 @@ format:
     footer: <a href=https://www.go.ncsu.edu/laser-institute>go.ncsu.edu/laser-institute
 resources:
   - demo.pdf
-
 editor: visual
 ---
 
@@ -37,7 +36,7 @@ Social Network Analysis is unique among the learning analytics methods covered b
 1.  Emphasis on [**structuralism**]{.underline} based on ties among actors
 2.  Firmly grounded in [**empirical data**]{.underline}
 3.  use of [**graphical imagery**]{.underline} and data visualization
-4.  [**math**]{.underline}ematically based
+4.  [**math**]{.underline}ematically based[^1]
 :::
 
 ::: {.column width="40%"}
@@ -45,22 +44,33 @@ Social Network Analysis is unique among the learning analytics methods covered b
 :::
 :::
 
-[Freeman, L. (2004). The development of social network analysis.](https://www.researchgate.net/publication/239228599_The_Development_of_Social_Network_Analysis)
+[^1]: [Freeman, L. (2004). The development of social network analysis.](https://www.researchgate.net/publication/239228599_The_Development_of_Social_Network_Analysis)
 
 ::: notes
-**Structuralism**: Relationships Social network analysis is based on **ties** connecting social **actors** and is motivated by our intuition that relationships between individuals matter:
+**Speaker Notes**
 
--   no individual is an island, independence is NOT assumed
--   who we know, are friends with, or talk with matters
--   the influence of these relations is shaped by the larger network
--   location in a social structure shapes one's opportunities and outcomes
-
-**Empirical Data**: It is firmly grounded in \*\*systematic empirical data collection\*\* using methods refined over decades and methods still evolving:
-
--   observations of social context
--   surveys and questionnaires
--   historical and administrative records
--   digital learning tools and social media
+1.  **Structuralism**: Relationships Social network analysis is based on **ties** connecting social **actors** and is motivated by our intuition that relationships between individuals matter:
+    -   no individual is an island, independence is NOT assumed
+    -   who we know, are friends with, or talk with matters
+    -   the influence of these relations is shaped by the larger network
+    -   location in a social structure shapes one's opportunities and outcomes
+2.  **Empirical Data**: It is firmly grounded in \*\*systematic empirical data collection\*\* using methods refined over decades and methods still evolving:
+    -   observations of social context
+    -   surveys and questionnaires
+    -   historical and administrative records
+    -   digital learning tools and social media
+3.  It makes use of **graphic imagery** to represent actors and their relations with one another.
+    -   Shapes for actors (nodes, vertices)
+    -   Lines for relations (ties, edges)
+4.  **Mathematics**: It relies on the use of **mathematical and/or computational models** to succinctly represent the complexity of social life:
+    -   [Network Stats]{.underline}
+        -   Centrality
+        -   Reciprocity
+        -   Density
+    -   [Inferential Models]{.underline}
+        -   CONCOR
+        -   QAP
+        -   ERGMS
 :::
 
 ## Agenda
