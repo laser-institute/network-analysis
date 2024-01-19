@@ -170,6 +170,16 @@ Also called **relations** or **edges**, ties connect actors to one another and m
 ::: panel-tabset
 ## Social Capital
 
+Social capital is an intangible asset existing in the connections and shared values that people have. SNA provides a means to actually measure & model social capital and has be used to better understand:
+
+-   how social relations advantages some students (Maroulis and Gomez, 2008)
+
+-   dropout among Latino/a/ex students (Ream and Rumberger, 2008)
+
+-   school-oriented friendship networks have the potential to reduce dropout rates
+
+-   parental social closure and student math achievement (Morgan and Todd, 2008)
+
 ## Selection & Influence
 
 ## Diffusion
