@@ -45,61 +45,6 @@ Social Network Analysis is unique among the learning analytics methods covered b
 :::
 :::
 
-## **1. Structuralism**
-
-Social network analysis is based on ***ties*** connecting social ***actors*** and is motivated by our intuition that [relationships between individuals matter]{.underline}:
-
--   no individual is an island, independence is NOT assumed
--   who we know, are friends with, or talk with matters
--   the influence of these relations is shaped by the larger network
--   location in a social structure shapes one's opportunities and outcomes
-
-## 2. Empirical Data
-
-It is firmly grounded in [systematic empirical data collection]{.underline} using methods refined over decades and methods still evolving:
-
--   observations of social context
--   surveys and questionnaires
--   historical and administrative records
--   digital learning tools and social media
-
-## 3. Graphical Imagery 
-
-::: columns
-::: {.column width="50%"}
-SNA makes use of **graphic imagery** to represent actors and their relations with one another.
-
--   Shapes for actors (nodes, vertices)
--   Lines for relations (ties, edges)
-:::
-
-::: {.column width="50%"}
-![Moreno & Jennings 1930s Elementary Friendship Network](img/moreno.jpeg){fig-align="center"}
-:::
-:::
-
-## 4. Mathematically Based
-
-::: columns
-SNA relies on the use of **mathematical and/or computational models** to succinctly represent the complexity of social life:
-
-::: {.column width="50%"}
-[Descriptive Stats]{.underline}
-
--   Centrality
--   Reciprocity
--   Density
-:::
-
-::: {.column width="50%"}
-[Inferential Models]{.underline}
-
--   CONCOR
--   QAP
--   ERGMS
-:::
-:::
-
 ::: notes
 **Speaker Notes**
 
@@ -127,61 +72,68 @@ SNA relies on the use of **mathematical and/or computational models** to succinc
         -   ERGMS
 :::
 
-## The Four Hallmarks of SNA
+## Key Terms
 
 ::: panel-tabset
-## 1. Structuralism
-
-Social network analysis is based on ***ties*** connecting social ***actors*** and is motivated by our intuition that [relationships between individuals matter]{.underline}:
-
--   no individual is an island, independence is NOT assumed
--   who we know, are friends with, or talk with matters
--   the influence of these relations is shaped by the larger network
--   location in a social structure shapes one's opportunities and outcomes
-
-## 2. Empirical Data
-
-It is firmly grounded in [systematic empirical data collection]{.underline} using methods refined over decades and methods still evolving:
-
--   observations of social context
--   surveys and questionnaires
--   historical and administrative records
--   digital learning tools and social media
-
-## 3. Graphical Imagery
+## Actors
 
 ::: columns
 ::: {.column width="50%"}
-SNA makes use of **graphic imagery** to represent actors and their relations with one another.
+[**Actors**]{.underline}, also called nodes or vertices, can be a range of social entities, like:
 
--   Shapes for actors (nodes, vertices)
--   Lines for relations (ties, edges)
+-   students in a classroom
+
+-   teachers in a school district
+
+-   school districts in a state
+
+-   departments within a college
+
+-   parents in a community
 :::
 
 ::: {.column width="50%"}
-![Moreno & Jennings 1930s Elementary Friendship Network](img/moreno.jpeg){alt="Moreno & Jennings 1930s Elementary Friendship Network" fig-align="center"}
+![](img/actors.png)
 :::
 :::
 
-## 4. Math Based
+## Ties
 
 ::: columns
-SNA relies on the use of **mathematical and/or computational models** to succinctly represent the complexity of social life:
-
 ::: {.column width="50%"}
-[Descriptive Stats]{.underline}
+***Ties***, also called relations or edges, connect actors to one another, like:
 
--   Centrality
--   Reciprocity
--   Density
+-   behavioral interaction
+
+-   physical connection
+
+-   association or affiliation
+
+-   evaluation of one person by another
+
+-   formal relations
+
+-   moving between places or status
 :::
 
 ::: {.column width="50%"}
-[Inferential Models]{.underline}
+![](img/ties.png)
+:::
+:::
 
--   CONCOR
--   QAP
--   ERGMS
+## Attributes
+
+::: columns
+::: {.column width="50%"}
+1.  [Personal]{.underline} data based on properties of individual actors (e.g., gender, achievement)
+
+2.  [Relational]{.underline} data based on an actor's direct ties with others (e.g., degree or connectedness)
+
+3.  [Structural]{.underline} data based on the entire network of connections actors ties with others (e.g., centrality)
+:::
+
+::: {.column width="50%"}
+![](img/attributes.png)
 :::
 :::
 :::
