@@ -22,9 +22,9 @@ editor: visual
 
 ## SNA: Method & Theory
 
-"From its earliest origins to it most recent applications to large-scale networks, social network analysis has reflected an **interdependency between theory and method**."
+> From its earliest origins to it most recent applications to large-scale networks, social network analysis has reflected an **interdependency between theory and method**.
 
--Brian Carolan, Social Network Analysis and Education
+Brian Carolan, Social Network Analysis and Education
 
 ::: notes
 Social Network Analysis is unique among the learning analytics methods covered by the LASER Institute in that it is a set of analytical techniques for analyzing the structure of social relationships that are tightly integrated with sociological theory.
