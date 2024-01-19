@@ -22,7 +22,7 @@ editor: visual
 
 ## SNA: Method & Theory
 
-"From its earliest origins to it most recent applications to large-scale networks, social network analysis has reflected an [**interdependency between theory and method**]{.underline}."
+"From its earliest origins to it most recent applications to large-scale networks, social network analysis has reflected an **interdependency between theory and method**."
 
 -Brian Carolan, Social Network Analysis and Education
 
@@ -34,14 +34,14 @@ Social Network Analysis is unique among the learning analytics methods covered b
 
 ::: columns
 ::: {.column width="60%"}
-1.  Emphasis on [**structuralism**]{.underline} based on ties among actors
-2.  Firmly grounded in [**empirical data**]{.underline}
-3.  use of [**graphical imagery**]{.underline} and data visualization
-4.  [**math**]{.underline}ematically based [@freeman2004development]
+1.  Emphasis on **structuralism** based on ties among actors
+2.  Firmly grounded in **empirical data**
+3.  use of **graphical imagery** and data visualization
+4.  **math**ematically based [@freeman2004development]
 :::
 
 ::: {.column width="40%"}
-![Jacob Moreno & Helen Jenning (1934)](img/moreno.jpeg){fig-align="center" height="490"}
+![Student Friendship Network by Jacob Moreno & Helen Jenning (1934)](img/moreno.jpeg){fig-align="center" height="490"}
 :::
 :::
 
@@ -53,7 +53,7 @@ Social Network Analysis is unique among the learning analytics methods covered b
     -   who we know, are friends with, or talk with matters
     -   the influence of these relations is shaped by the larger network
     -   location in a social structure shapes one's opportunities and outcomes
-2.  **Empirical Data**: It is firmly grounded in \*\*systematic empirical data collection\*\* using methods refined over decades and methods still evolving:
+2.  **Empirical Data**: It is firmly grounded in **systematic empirical data collection** using methods refined over decades and methods still evolving:
     -   observations of social context
     -   surveys and questionnaires
     -   historical and administrative records
@@ -79,7 +79,7 @@ Social Network Analysis is unique among the learning analytics methods covered b
 
 ::: columns
 ::: {.column width="50%"}
-[**Actors**]{.underline}, also called nodes or vertices, can be a range of social entities, like:
+Also called **nodes** or **vertices**, actors can represent a range of social entities, like:
 
 -   students in a classroom
 
@@ -93,7 +93,7 @@ Social Network Analysis is unique among the learning analytics methods covered b
 :::
 
 ::: {.column width="50%"}
-![](img/actors.png)
+![A classroom of middle school students](img/actors.png)
 :::
 :::
 
@@ -101,23 +101,21 @@ Social Network Analysis is unique among the learning analytics methods covered b
 
 ::: columns
 ::: {.column width="50%"}
-***Ties***, also called relations or edges, connect actors to one another, like:
+Also called **relations** or **edges**, ties connect actors to one another and may consist of:
 
--   behavioral interaction
+-   a behavioral interaction
 
--   physical connection
+-   a physical connection
 
--   association or affiliation
+-   an association or affiliation
 
--   evaluation of one person by another
+-   an evaluation of one person by another
 
 -   formal relations
-
--   moving between places or status
 :::
 
 ::: {.column width="50%"}
-![](img/ties.png)
+![A teacher\'s perception of student friendships](img/ties.png)
 :::
 :::
 
@@ -125,32 +123,16 @@ Social Network Analysis is unique among the learning analytics methods covered b
 
 ::: columns
 ::: {.column width="50%"}
-1.  [Personal]{.underline} data based on properties of individual actors (e.g., gender, achievement)
+1.  **Personal** data based on properties of individual actors (e.g., gender, achievement)
 
-2.  [Relational]{.underline} data based on an actor's direct ties with others (e.g., degree or connectedness)
+2.  **Relational** data based on an actor's direct ties with others (e.g., degree or connectedness)
 
-3.  [Structural]{.underline} data based on the entire network of connections actors ties with others (e.g., centrality)
+3.  **Structural** data based on the entire network of connections actors ties with others (e.g., centrality)
 :::
 
 ::: {.column width="50%"}
-![](img/attributes.png)
+![Personal, relational, and structural attributes visualized](img/attributes.png)
 :::
-:::
-:::
-
-## Key Terms
-
-::: columns
-::: {.column width="50%"}
--   [People]{.underline}: Actors, Nodes, or Vertices
-
--   [Connections]{.underline}: Ties, Relations, or Edges
-
--   [Attributes]{.underline}: Personal, Relational, Structural
-:::
-
-::: {.column width="50%"}
-![Teacher perceptions of student friendships](img/attributes.png){alt="Teacher perceptions of student friendships" fig-align="center"}
 :::
 :::
 
@@ -181,6 +163,16 @@ Social Network Analysis is unique among the learning analytics methods covered b
 -   [Relational]{.underline} data based on an actor's direct ties with others (e.g., degree or connectedness)
 
 -   [Structural]{.underline} data based on the entire network of connections actors ties with others (e.g., centrality)
+:::
+
+## Applications in SNA
+
+::: panel-tabset
+## Social Capital
+
+## Selection & Influence
+
+## Diffusion
 :::
 
 ## Applications in SNA

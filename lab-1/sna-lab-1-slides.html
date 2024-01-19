@@ -8,7 +8,7 @@
 <link href="sna-lab-1-slides_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="sna-lab-1-slides_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="sna-lab-1-slides_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.3.353">
+  <meta name="generator" content="quarto-1.3.450">
 
   <title>Network Analysis for Newbies</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -354,7 +354,7 @@
 </section>
 <section id="sna-method-theory" class="slide level2">
 <h2>SNA: Method &amp; Theory</h2>
-<p>“From its earliest origins to it most recent applications to large-scale networks, social network analysis has reflected an <u><strong>interdependency between theory and method</strong></u>.”</p>
+<p>“From its earliest origins to it most recent applications to large-scale networks, social network analysis has reflected an <strong>interdependency between theory and method</strong>.”</p>
 <p>-Brian Carolan, Social Network Analysis and Education</p>
 <aside class="notes">
 <p>Social Network Analysis is unique among the learning analytics methods covered by the LASER Institute in that it is a set of analytical techniques for analyzing the structure of social relationships that are tightly integrated with sociological theory.</p>
@@ -375,16 +375,16 @@
 <div class="columns">
 <div class="column" style="width:60%;">
 <ol type="1">
-<li>Emphasis on <u><strong>structuralism</strong></u> based on ties among actors</li>
-<li>Firmly grounded in <u><strong>empirical data</strong></u></li>
-<li>use of <u><strong>graphical imagery</strong></u> and data visualization</li>
-<li><u><strong>math</strong></u>ematically based <span class="citation" data-cites="freeman2004development">(<a href="#/references" role="doc-biblioref" onclick="">Freeman 2004</a>)</span></li>
+<li>Emphasis on <strong>structuralism</strong> based on ties among actors</li>
+<li>Firmly grounded in <strong>empirical data</strong></li>
+<li>use of <strong>graphical imagery</strong> and data visualization</li>
+<li><strong>math</strong>ematically based <span class="citation" data-cites="freeman2004development">(<a href="#/references" role="doc-biblioref" onclick="">Freeman 2004</a>)</span></li>
 </ol>
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img/moreno.jpeg" height="490"></p>
-<figcaption>Jacob Moreno &amp; Helen Jenning (1934)</figcaption>
+<figcaption>Student Friendship Network by Jacob Moreno &amp; Helen Jenning (1934)</figcaption>
 </figure>
 </div>
 </div>
@@ -399,7 +399,7 @@
 <li>the influence of these relations is shaped by the larger network</li>
 <li>location in a social structure shapes one’s opportunities and outcomes</li>
 </ul></li>
-<li><strong>Empirical Data</strong>: It is firmly grounded in **systematic empirical data collection** using methods refined over decades and methods still evolving:
+<li><strong>Empirical Data</strong>: It is firmly grounded in <strong>systematic empirical data collection</strong> using methods refined over decades and methods still evolving:
 <ul>
 <li>observations of social context</li>
 <li>surveys and questionnaires</li>
@@ -447,7 +447,7 @@
 <div id="tabset-1-1">
 <div class="columns">
 <div class="column" style="width:50%;">
-<p><u><strong>Actors</strong></u>, also called nodes or vertices, can be a range of social entities, like:</p>
+<p>Also called <strong>nodes</strong> or <strong>vertices</strong>, actors can represent a range of social entities, like:</p>
 <ul>
 <li><p>students in a classroom</p></li>
 <li><p>teachers in a school district</p></li>
@@ -456,24 +456,33 @@
 <li><p>parents in a community</p></li>
 </ul>
 </div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
 <p><img data-src="img/actors.png"></p>
+<figcaption>A classroom of middle school students</figcaption>
+</figure>
+</div>
 </div>
 </div>
 </div>
 <div id="tabset-1-2">
 <div class="columns">
 <div class="column" style="width:50%;">
-<p><strong><em>Ties</em></strong>, also called relations or edges, connect actors to one another, like:</p>
+<p>Also called <strong>relations</strong> or <strong>edges</strong>, ties connect actors to one another and may consist of:</p>
 <ul>
-<li><p>behavioral interaction</p></li>
-<li><p>physical connection</p></li>
-<li><p>association or affiliation</p></li>
-<li><p>evaluation of one person by another</p></li>
+<li><p>a behavioral interaction</p></li>
+<li><p>a physical connection</p></li>
+<li><p>an association or affiliation</p></li>
+<li><p>an evaluation of one person by another</p></li>
 <li><p>formal relations</p></li>
-<li><p>moving between places or status</p></li>
 </ul>
 </div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
 <p><img data-src="img/ties.png"></p>
+<figcaption>A teacher's perception of student friendships</figcaption>
+</figure>
+</div>
 </div>
 </div>
 </div>
@@ -481,33 +490,19 @@
 <div class="columns">
 <div class="column" style="width:50%;">
 <ol type="1">
-<li><p><u>Personal</u> data based on properties of individual actors (e.g., gender, achievement)</p></li>
-<li><p><u>Relational</u> data based on an actor’s direct ties with others (e.g., degree or connectedness)</p></li>
-<li><p><u>Structural</u> data based on the entire network of connections actors ties with others (e.g., centrality)</p></li>
+<li><p><strong>Personal</strong> data based on properties of individual actors (e.g., gender, achievement)</p></li>
+<li><p><strong>Relational</strong> data based on an actor’s direct ties with others (e.g., degree or connectedness)</p></li>
+<li><p><strong>Structural</strong> data based on the entire network of connections actors ties with others (e.g., centrality)</p></li>
 </ol>
-</div><div class="column" style="width:50%;">
-<p><img data-src="img/attributes.png"></p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="key-terms-1" class="slide level2">
-<h2>Key Terms</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li><p><u>People</u>: Actors, Nodes, or Vertices</p></li>
-<li><p><u>Connections</u>: Ties, Relations, or Edges</p></li>
-<li><p><u>Attributes</u>: Personal, Relational, Structural</p></li>
-</ul>
 </div><div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img/attributes.png"></p>
-<figcaption>Teacher perceptions of student friendships</figcaption>
+<figcaption>Personal, relational, and structural attributes visualized</figcaption>
 </figure>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -549,6 +544,23 @@
       }</style></aside>
 </section>
 <section id="applications-in-sna" class="slide level2">
+<h2>Applications in SNA</h2>
+<div class="panel-tabset">
+<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Social Capital</a></li><li><a href="#tabset-2-2">Selection &amp; Influence</a></li><li><a href="#tabset-2-3">Diffusion</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1">
+
+</div>
+<div id="tabset-2-2">
+
+</div>
+<div id="tabset-2-3">
+
+</div>
+</div>
+</div>
+</section>
+<section id="applications-in-sna-1" class="slide level2">
 <h2>Applications in SNA</h2>
 <p>Interest in SNA has grown tremendously in the past few decades for studying educational contexts and social phenomena in such as:</p>
 <ul>
