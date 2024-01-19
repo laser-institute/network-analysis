@@ -115,7 +115,7 @@ Also called **relations** or **edges**, ties connect actors to one another and m
 :::
 
 ::: {.column width="50%"}
-![A teacher\'s perception of student friendships](img/ties.png)
+![A teacher's perception of student friendships](img/ties.png)
 :::
 :::
 
