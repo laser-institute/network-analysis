@@ -20,14 +20,22 @@ bibliography: lit/references.bib
 editor: visual
 ---
 
-## SNA: Method & Theory
+## Social Network Analysis & Theory
 
+::: columns
+::: {.column width="60%"}
 > From its earliest origins to it most recent applications to large-scale networks, social network analysis has reflected an **interdependency between theory and method**.
 
 Brian Carolan, Social Network Analysis and Education
+:::
+
+::: {.column width="40%"}
+![](img/carolan.jpeg){fig-align="center" width="70%"}
+:::
+:::
 
 ::: notes
-Social Network Analysis is unique among the learning analytics methods covered by the LASER Institute in that it is a set of analytical techniques for analyzing the structure of social relationships that are tightly integrated with sociological theory.
+Social Network Analysis is unique among the learning analytics methods covered by the LASER Institute in that it is a set of analytical techniques for analyzing the structure of social relationships that is also tightly integrated with sociological theory.
 :::
 
 ## The Four Hallmarks of SNA
@@ -41,7 +49,7 @@ Social Network Analysis is unique among the learning analytics methods covered b
 :::
 
 ::: {.column width="40%"}
-![Student Friendship Network by Jacob Moreno & Helen Jenning (1934)](img/moreno.jpeg){fig-align="center" height="490"}
+![Student Friendship Network by Jacob Moreno & Helen Jenning (1934)](img/moreno.jpeg){fig-align="center" width="70%"}
 :::
 :::
 
@@ -75,7 +83,7 @@ Social Network Analysis is unique among the learning analytics methods covered b
 ## Key Terms
 
 ::: panel-tabset
-## Actors
+### Actors
 
 ::: columns
 ::: {.column width="50%"}
@@ -97,7 +105,7 @@ Also called **nodes** or **vertices**, actors can represent a range of social en
 :::
 :::
 
-## Ties
+### Ties
 
 ::: columns
 ::: {.column width="50%"}
@@ -115,11 +123,11 @@ Also called **relations** or **edges**, ties connect actors to one another and m
 :::
 
 ::: {.column width="50%"}
-![A teacher\'s perception of student friendships](img/ties.png)
+![A teacher's perception of student friendships](img/ties.png)
 :::
 :::
 
-## Attributes
+### Attributes
 
 ::: columns
 ::: {.column width="50%"}
@@ -163,6 +171,72 @@ Also called **relations** or **edges**, ties connect actors to one another and m
 -   [Relational]{.underline} data based on an actor's direct ties with others (e.g., degree or connectedness)
 
 -   [Structural]{.underline} data based on the entire network of connections actors ties with others (e.g., centrality)
+:::
+
+# Key Terms
+
+Actors, Ties, and Attributes
+
+## Actors
+
+::: columns
+Also called **nodes** or **vertices**, actors can represent a range of social entities, such as:
+
+::: {.column width="50%"}
+-   students in a classroom
+
+-   teachers in a school district
+
+-   parents in a community
+
+-   school districts in a state
+
+-   departments within a college
+:::
+
+::: {.column width="50%"}
+![A classroom of middle school students [@pittinsky2008behavioral]](img/actors.png){fig-align="center"}
+:::
+:::
+
+## Ties
+
+::: columns
+::: {.column width="50%"}
+Also called **relations** or **edges**, ties connect actors to one another and may consist of:
+
+-   a behavioral interaction
+
+-   a physical connection
+
+-   an association or affiliation
+
+-   an evaluation of one person by another
+
+-   formal relations
+:::
+
+::: {.column width="50%"}
+![A teacher\'s perception of student friendships](img/ties.png){fig-align="center"}
+:::
+:::
+
+## Attributes
+
+::: columns
+Actors, ties, and the network as a whole can also have information
+
+::: {.column width="50%"}
+-   **Individual** attributes based on properties of individual actors (e.g., gender, academic achievement)
+
+-   **Relational** attributes based on an actor\'s direct ties with others (e.g., degree, reciprocity, or tie strength)
+
+-   **Structural** attributes based on the entire network of connections actors ties with others (e.g., density, centralization, or reciprocity )
+:::
+
+::: {.column width="50%"}
+![Visualization of network attributes](img/attributes.png){fig-align="center"}
+:::
 :::
 
 ## Applications in SNA
