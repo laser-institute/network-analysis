@@ -177,7 +177,7 @@ Actors, ties, and the network as a whole can also have information
 
 -   **Relational** attributes based on an actor's direct ties with others (e.g., degree, reciprocity, or tie strength)
 
--   **Structural** attributes based on the entire network of connections actors ties with others (e.g., density, centralization, or reciprocity )
+-   **Structural** attributes based on the entire network of connections actors ties with others (e.g., density, centralization, or reciprocity)
 :::
 
 ::: {.column width="50%"}
