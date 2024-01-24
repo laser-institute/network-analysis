@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap');
 
 body {
-  font-family: 'Open Sans','Roboto', sans-serif;
+  font-family: 'Open Sans','Open Sans', sans-serif;
 }
 
 .remark-code, .remark-inline-code {

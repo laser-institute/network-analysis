@@ -38,6 +38,45 @@ Brian Carolan, Social Network Analysis and Education
 Social Network Analysis is unique among the learning analytics methods covered by the LASER Institute in that it is a set of analytical techniques for analyzing the structure of social relationships that is also tightly integrated with sociological theory.
 :::
 
+# The Four Hallmarks of SNA
+
+Relationships, Empirical Data, Graphical Imagery, Mathematically Based
+
+## Relationships
+
+SNA emphasized structuralism based on **ties** connecting social **actors** and is motivated by our intuition that relationships matter:
+
+-   no individual is an island, independence is NOT assumed
+-   who we know, are friends with, or talk with matters
+-   the influence of these relations is shaped by the larger network
+-   location in a social structure shapes one's opportunities and outcomes
+
+[Freeman, L. (2004). The development of social network analysis.](https://www.researchgate.net/publication/239228599_The_Development_of_Social_Network_Analysis)
+
+## Empirical Data
+
+It is firmly grounded in **systematic empirical data collection** using methods refined over decades and methods still evolving:
+
+-   observations of social context
+-   surveys and questionnaires
+-   historical and administrative records
+-   digital learning tools and social media
+
+## Graphical Imagery
+
+::: columns
+::: {.column width="50%"}
+It makes use of **graphic imagery** to represent actors and their relations with one another.
+
+-   Shapes for actors (nodes, vertices)
+-   Lines for relations (ties, edges)
+:::
+
+::: {.column width="50%"}
+![Student Friendship Network by Jacob Moreno & Helen Jenning (1934)](img/moreno.jpeg){fig-align="center" width="100%"}
+:::
+:::
+
 ## The Four Hallmarks of SNA
 
 ::: columns
@@ -180,9 +219,9 @@ Actors, Ties, and Attributes
 ## Actors
 
 ::: columns
-Also called **nodes** or **vertices**, actors can represent a range of social entities, such as:
-
 ::: {.column width="50%"}
+Also called **nodes** or **vertices**, actors can represent a range of social entities:
+
 -   students in a classroom
 
 -   teachers in a school district
@@ -217,7 +256,7 @@ Also called **relations** or **edges**, ties connect actors to one another and m
 :::
 
 ::: {.column width="50%"}
-![A teacher\'s perception of student friendships](img/ties.png){fig-align="center"}
+![A teacher's perception of student friendships](img/ties.png){fig-align="center"}
 :::
 :::
 
@@ -229,7 +268,7 @@ Actors, ties, and the network as a whole can also have information
 ::: {.column width="50%"}
 -   **Individual** attributes based on properties of individual actors (e.g., gender, academic achievement)
 
--   **Relational** attributes based on an actor\'s direct ties with others (e.g., degree, reciprocity, or tie strength)
+-   **Relational** attributes based on an actor's direct ties with others (e.g., degree, reciprocity, or tie strength)
 
 -   **Structural** attributes based on the entire network of connections actors ties with others (e.g., density, centralization, or reciprocity )
 :::
