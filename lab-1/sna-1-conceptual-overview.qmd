@@ -119,99 +119,6 @@ It makes use of **graphic imagery** to represent actors and their relations with
         -   ERGMS
 :::
 
-## Key Terms
-
-::: panel-tabset
-### Actors
-
-::: columns
-::: {.column width="50%"}
-Also called **nodes** or **vertices**, actors can represent a range of social entities, like:
-
--   students in a classroom
-
--   teachers in a school district
-
--   school districts in a state
-
--   departments within a college
-
--   parents in a community
-:::
-
-::: {.column width="50%"}
-![A classroom of middle school students](img/actors.png)
-:::
-:::
-
-### Ties
-
-::: columns
-::: {.column width="50%"}
-Also called **relations** or **edges**, ties connect actors to one another and may consist of:
-
--   a behavioral interaction
-
--   a physical connection
-
--   an association or affiliation
-
--   an evaluation of one person by another
-
--   formal relations
-:::
-
-::: {.column width="50%"}
-![A teacher's perception of student friendships](img/ties.png)
-:::
-:::
-
-### Attributes
-
-::: columns
-::: {.column width="50%"}
-1.  **Personal** data based on properties of individual actors (e.g., gender, achievement)
-
-2.  **Relational** data based on an actor's direct ties with others (e.g., degree or connectedness)
-
-3.  **Structural** data based on the entire network of connections actors ties with others (e.g., centrality)
-:::
-
-::: {.column width="50%"}
-![Personal, relational, and structural attributes visualized](img/attributes.png)
-:::
-:::
-:::
-
-::: notes
-**Speaker Notes**
-
-***Actors***, also called nodes or vertices, can be a range of social entities, like:
-
--   students in a classroom
--   teachers in a school district
--   school districts in a state
--   departments within a college
--   parents in a community
-
-***Ties***, also called relations or edges, connect actors to one another, like:
-
--   behavioral interaction
--   physical connection
--   association or affiliation
--   evaluation of one person by another
--   formal relations
--   moving between places or status
-
-***Attributes***, information about actors and sometimes ties:
-
--   [Personal]{.underline} data based on properties of individual actors (e.g., gender, achievement)
-
--   [Relational]{.underline} data based on an actor's direct ties with others (e.g., degree or connectedness)
-
--   [Structural]{.underline} data based on the entire network of connections actors ties with others (e.g., centrality)
-:::
-
 # Key Terms
 
 Actors, Ties, and Attributes
@@ -278,37 +185,21 @@ Actors, ties, and the network as a whole can also have information
 :::
 :::
 
-## Applications in SNA
+# Applications of SNA
 
-::: panel-tabset
-## Social Capital
+Social Capital, Selection & Influence, Network Diffusion
+
+## Social Capital 
 
 Social capital is an intangible asset existing in the connections and shared values that people have. SNA provides a means to actually measure & model social capital and has be used to better understand:
 
--   how social relations advantages some students (Maroulis and Gomez, 2008)
+-   how social relations advantages some students [@maroulis2008does]
 
--   dropout among Latino/a/ex students (Ream and Rumberger, 2008)
+-   dropout among Latino/a/ex students [@ream2008student]
 
 -   school-oriented friendship networks have the potential to reduce dropout rates
 
 -   parental social closure and student math achievement (Morgan and Todd, 2008)
-
-## Selection & Influence
-
-## Diffusion
-:::
-
-## Applications in SNA
-
-Interest in SNA has grown tremendously in the past few decades for studying educational contexts and social phenomena in such as:
-
--   Diffusion and adoption of innovations
-
--   Social selection & influence
-
--   Social capital
-
--   Policy and program evaluation
 
 ::: notes
 **Speaker Notes**
