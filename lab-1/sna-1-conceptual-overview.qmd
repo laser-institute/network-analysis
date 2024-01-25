@@ -26,7 +26,7 @@ editor: visual
 ::: {.column width="60%"}
 > From its earliest origins to it most recent applications to large-scale networks, social network analysis has reflected an **interdependency between theory and method**.
 
-Brian Carolan, Social Network Analysis and Education
+Social Network Analysis and Education [@carolan2014]
 :::
 
 ::: {.column width="40%"}
@@ -35,7 +35,11 @@ Brian Carolan, Social Network Analysis and Education
 :::
 
 ::: notes
+**Speaker Notes:**
+
 Social Network Analysis is unique among the learning analytics methods covered by the LASER Institute in that it is a set of analytical techniques for analyzing the structure of social relationships that is also tightly integrated with sociological theory.
+
+Brian Carolan's book SNA and Education is a major inspiration for these SNA modules and is feature prominently in the essential readings. I highly recommend purchasing or obtaining a copy from the library at your local institution.
 :::
 
 # The Four Hallmarks of SNA
@@ -44,14 +48,18 @@ Relationships, Empirical Data, Graphical Imagery, Mathematically Based
 
 ## Relationships
 
-SNA emphasized structuralism based on **ties** connecting social **actors** and is motivated by our intuition that relationships matter:
+SNA emphasizes structuralism based on **ties** connecting social **actors** and is motivated by our intuition that relationships matter:
 
 -   no individual is an island, independence is NOT assumed
 -   who we know, are friends with, or talk with matters
 -   the influence of these relations is shaped by the larger network
 -   location in a social structure shapes one's opportunities and outcomes
 
-[Freeman, L. (2004). The development of social network analysis.](https://www.researchgate.net/publication/239228599_The_Development_of_Social_Network_Analysis)
+::: notes
+**Speaker Notes:**
+
+For example, when studying a topic such as teacher effectiveness, most researchers focus on the attributes of the teacher, the teacher's highest degree, use of technology, or test scores of students, for example. By reducing teachers to a set of attributes, they neglect the relations among teachers and between teachers and students and how these relations condition their effectiveness as a teacher. SNA attemps to account for the web of relations---the social structure---in which actors are embedded and that simultaneously may constrain or provide opportunities for those within this web.
+:::
 
 ## Empirical Data
 
