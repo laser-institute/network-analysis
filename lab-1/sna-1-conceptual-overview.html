@@ -8,7 +8,7 @@
 <link href="sna-1-conceptual-overview_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="sna-1-conceptual-overview_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="sna-1-conceptual-overview_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.3.353">
+  <meta name="generator" content="quarto-1.4.549">
 
   <title>Network Analysis for Newbies</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -32,6 +32,7 @@
     div.csl-bib-body { }
     div.csl-entry {
       clear: both;
+      margin-bottom: 0em;
     }
     .hanging-indent div.csl-entry {
       margin-left:2em;
@@ -176,7 +177,8 @@
   }
 
   .callout.callout-titled .callout-body > .callout-content > :last-child {
-    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
   }
 
   .callout.callout-titled .callout-icon::before {
@@ -352,26 +354,49 @@
 </div>
 
 </section>
-<section id="social-network-analysis-theory" class="slide level2">
-<h2>Social Network Analysis &amp; Theory</h2>
+<section id="overview" class="slide level2">
+<h2>Overview</h2>
+<ol type="1">
+<li>The Four Hallmarks of SNA</li>
+<li>Key Terminology</li>
+<li>Applications in Education</li>
+</ol>
+<aside class="notes">
+<p><strong>Speaker Notes</strong>:</p>
+<p>This presentation provides a brief overview of the four defining characteristics of social network analysis, introduces some basic but essential terminology, and highlights some broad applications of SNA with the context of education.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="theory-method-interdependency" class="slide level2">
+<h2>Theory &amp; Method Interdependency</h2>
 <div class="columns">
-<div class="column" style="width:60%;">
-<blockquote>
-<p>From its earliest origins to it most recent applications to large-scale networks, social network analysis has reflected an <strong>interdependency between theory and method</strong>.</p>
-</blockquote>
-<p>Social Network Analysis and Education <span class="citation" data-cites="carolan2014">(<a href="#/references" role="doc-biblioref" onclick="">Carolan 2014</a>)</span></p>
-</div><div class="column" style="width:40%;">
-<div class="quarto-figure quarto-figure-center">
+<div class="column" style="width:30%;">
+<div class="quarto-figure quarto-figure-left">
 <figure>
-<p><img data-src="img/carolan.jpeg" style="width:70.0%"></p>
+<p><img data-src="img/carolan.jpeg" class="quarto-figure quarto-figure-left" style="width:100.0%"></p>
 </figure>
 </div>
+</div><div class="column" style="width:70%;">
+<blockquote>
+<p>From its earliest origins to it most recent applications to large-scale networks, social network analysis has reflected an <em>interdependency between theory and method</em>.</p>
+</blockquote>
+<p><sub>~&nbsp;From&nbsp;SNA&nbsp;and&nbsp;Education&nbsp;by&nbsp;Bryan&nbsp;<span class="citation" data-cites="carolan2014">Carolan (<a href="#/references" role="doc-biblioref" onclick="">2014</a>)</span></sub></p>
 </div>
 </div>
 <aside class="notes">
 <p><strong>Speaker Notes:</strong></p>
-<p>Social Network Analysis is unique among the learning analytics methods covered by the LASER Institute in that it is a set of analytical techniques for analyzing the structure of social relationships that is also tightly integrated with sociological theory.</p>
-<p>Brian Carolan’s book SNA and Education is a major inspiration for these SNA modules and is feature prominently in the essential readings. I highly recommend purchasing or obtaining a copy from the library at your local institution.</p>
+<p>Brian Carolan’s book SNA and Education is a major inspiration for these SNA modules and is featured prominently in our essential readings and conceptual overviews. I highly recommend purchasing this book or obtaining a copy from the library at your local institution.</p>
+<p>This quote is from Chapter 2 and highlights three components of SNA we’ll be exploring in these modules, namely: methods used in network analysis, connections with sociological theory, and the applications of both in educational context.</p>
+<p>SNA is unique among the learning analytics methods covered by the LASER Institute in that it is a set of analytical techniques for analyzing the structure of social relationships that is also tightly integrated with sociological theory.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -385,9 +410,23 @@
       }</style></aside>
 </section>
 <section>
-<section id="the-four-hallmarks-of-sna" class="title-slide slide level1 center">
-<h1>The Four Hallmarks of SNA</h1>
-<p>Relationships, Empirical Data, Graphical Imagery, Mathematically Based</p>
+<section id="the-4-hallmarks-of-sna" class="title-slide slide level1 center">
+<h1>The 4 Hallmarks of SNA</h1>
+<p>Strucuralism, Empirical Data, Graphical Imagery, &amp; Mathematically-Based</p>
+<aside class="notes">
+<p><strong>Speaker Notes</strong>:</p>
+<p>This first section introduces what Carolan describes as the four defining characteristics of social network analysis, name: a unique emphasis on structuralism based on ties among actors, a firm grounding in empirical data, it’s use of graphical imagery and a new set of mathematical models and descriptive measures.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="relationships" class="slide level2">
 <h2>Relationships</h2>
@@ -415,6 +454,8 @@
 </section>
 <section id="empirical-data" class="slide level2">
 <h2>Empirical Data</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
 <p>It is firmly grounded in <strong>systematic empirical data collection</strong> using methods refined over decades and methods still evolving:</p>
 <ul>
 <li>observations of social context</li>
@@ -422,6 +463,29 @@
 <li>historical and administrative records</li>
 <li>digital learning tools and social media</li>
 </ul>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="img/mooc-forum.png" class="quarto-figure quarto-figure-left"></p>
+<figcaption>MOOC Network Dataset <span class="citation" data-cites="kellogg2015massively">(<a href="#/references" role="doc-biblioref" onclick="">Kellogg and Edelmann 2015</a>)</span></figcaption>
+</figure>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p><strong>Speaker Notes:</strong></p>
+<p>The image on the right is from publication by LASER Institute PI Shaun Kellogg and details the processes of constructing an online communication network dataset from discussion forums in a Massively Online Open Course for Educators (MOOC-Ed) called&nbsp;<em>The</em> <em>Digital</em> <em>Learning</em> <em>Transition in</em> <em>K-12</em> <em>Schools</em>.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="graphical-imagery" class="slide level2">
 <h2>Graphical Imagery</h2>
@@ -432,73 +496,54 @@
 <li>Shapes for actors (nodes, vertices)</li>
 <li>Lines for relations (ties, edges)</li>
 </ul>
+<p>What do you think the lines and shapes represent in this depiction of a classroom of second grade students?</p>
 </div><div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-left">
 <figure>
-<p><img data-src="img/moreno.jpeg" style="width:100.0%"></p>
-<figcaption>Student Friendship Network by Jacob Moreno &amp; Helen Jenning (1934)</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="the-four-hallmarks-of-sna-1" class="slide level2">
-<h2>The Four Hallmarks of SNA</h2>
-<div class="columns">
-<div class="column" style="width:60%;">
-<ol type="1">
-<li>Emphasis on <strong>structuralism</strong> based on ties among actors</li>
-<li>Firmly grounded in <strong>empirical data</strong></li>
-<li>use of <strong>graphical imagery</strong> and data visualization</li>
-<li><strong>math</strong>ematically based <span class="citation" data-cites="freeman2004development">(<a href="#/references" role="doc-biblioref" onclick="">Freeman 2004</a>)</span></li>
-</ol>
-</div><div class="column" style="width:40%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/moreno.jpeg" style="width:70.0%"></p>
-<figcaption>Student Friendship Network by Jacob Moreno &amp; Helen Jenning (1934)</figcaption>
+<p><img data-src="img/moreno-jennings.png" class="quarto-figure quarto-figure-left" style="width:80.0%"></p>
+<figcaption>Who Shall Survive? <span class="citation" data-cites="moreno1934shall">(<a href="#/references" role="doc-biblioref" onclick="">Moreno and Jennings 1934</a>)</span></figcaption>
 </figure>
 </div>
 </div>
 </div>
 <aside class="notes">
-<p><strong>Speaker Notes</strong></p>
-<ol type="1">
-<li><strong>Structuralism</strong>: Relationships Social network analysis is based on <strong>ties</strong> connecting social <strong>actors</strong> and is motivated by our intuition that relationships between individuals matter:
-<ul>
-<li>no individual is an island, independence is NOT assumed</li>
-<li>who we know, are friends with, or talk with matters</li>
-<li>the influence of these relations is shaped by the larger network</li>
-<li>location in a social structure shapes one’s opportunities and outcomes</li>
-</ul></li>
-<li><strong>Empirical Data</strong>: It is firmly grounded in <strong>systematic empirical data collection</strong> using methods refined over decades and methods still evolving:
-<ul>
-<li>observations of social context</li>
-<li>surveys and questionnaires</li>
-<li>historical and administrative records</li>
-<li>digital learning tools and social media</li>
-</ul></li>
-<li>It makes use of <strong>graphic imagery</strong> to represent actors and their relations with one another.
-<ul>
-<li>Shapes for actors (nodes, vertices)</li>
-<li>Lines for relations (ties, edges)</li>
-</ul></li>
-<li><strong>Mathematics</strong>: It relies on the use of <strong>mathematical and/or computational models</strong> to succinctly represent the complexity of social life:
-<ul>
-<li><u>Network Stats</u>
+<p><strong>Speaker Notes:</strong></p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="mathematically-based" class="slide level2">
+<h2>Mathematically-Based</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Network Stats (Describe)</strong></p>
 <ul>
 <li>Centrality</li>
 <li>Reciprocity</li>
 <li>Density</li>
-</ul></li>
-<li><u>Inferential Models</u>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><strong>Inferential Models (Test &amp; Predict)</strong></p>
 <ul>
-<li>CONCOR</li>
-<li>QAP</li>
-<li>ERGMS</li>
-</ul></li>
-</ul></li>
-</ol>
+<li><p>CONCOR</p></li>
+<li><p>QAP</p></li>
+<li><p>ERGMS</p></li>
+</ul>
+</div>
+</div>
+<aside class="notes">
+<p><strong>Speaker Notes:</strong></p>
+<p>SNA relies on the use of mathematical and/or computational models to succinctly represent the complexity of social life.</p>
+<p>Descriptive measures such as degree, reciprocity, and density are used to describe characteristics of individuals or groups in a network and the network as a whole. We’ll explore these measures in Module 2.</p>
+<p>SNA also has a wide range of statistical models for working with relational data for hypothesis testing and building predictive models, which we’ll explore Module 3.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -515,6 +560,19 @@
 <section id="key-terms" class="title-slide slide level1 center">
 <h1>Key Terms</h1>
 <p>Actors, Ties, and Attributes</p>
+<aside class="notes">
+<p><strong>Speaker Notes:</strong></p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="actors" class="slide level2">
 <h2>Actors</h2>
@@ -531,7 +589,7 @@
 </div><div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="img/actors.png"></p>
+<p><img data-src="img/actors.png" class="quarto-figure quarto-figure-center"></p>
 <figcaption>A classroom of middle school students <span class="citation" data-cites="pittinsky2008behavioral">(<a href="#/references" role="doc-biblioref" onclick="">Pittinsky and Carolan 2008</a>)</span></figcaption>
 </figure>
 </div>
@@ -553,7 +611,7 @@
 </div><div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="img/ties.png"></p>
+<p><img data-src="img/ties.png" class="quarto-figure quarto-figure-center"></p>
 <figcaption>A teacher’s perception of student friendships</figcaption>
 </figure>
 </div>
@@ -572,7 +630,7 @@
 </div><div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="img/attributes.png"></p>
+<p><img data-src="img/attributes.png" class="quarto-figure quarto-figure-center"></p>
 <figcaption>Visualization of network attributes</figcaption>
 </figure>
 </div>
@@ -643,19 +701,24 @@
 </section>
 <section id="references" class="slide level2 smaller scrollable">
 <h2>References</h2>
-
-<img src="img/LASERLogoB.png" class="slide-logo r-stretch"><div class="footer footer-default">
+<div class="quarto-auto-generated-content">
+<p><img src="img/LASERLogoB.png" class="slide-logo"></p>
+<div class="footer footer-default">
 <p><a href="https://www.go.ncsu.edu/laser-institute">go.ncsu.edu/laser-institute</a></p><a href="https://www.go.ncsu.edu/laser-institute">
 </a></div><a href="https://www.go.ncsu.edu/laser-institute">
-</a><div id="refs" class="references csl-bib-body hanging-indent" role="list"><a href="https://www.go.ncsu.edu/laser-institute">
+</a></div><a href="https://www.go.ncsu.edu/laser-institute">
+</a><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list"><a href="https://www.go.ncsu.edu/laser-institute">
 </a><div id="ref-carolan2014" class="csl-entry" role="listitem"><a href="https://www.go.ncsu.edu/laser-institute">
 Carolan, Brian. 2014. <span>“Social Network Analysis and Education: Theory, Methods &amp; Applications.”</span> </a><a href="https://doi.org/10.4135/9781452270104">https://doi.org/10.4135/9781452270104</a>.
 </div>
-<div id="ref-freeman2004development" class="csl-entry" role="listitem">
-Freeman, Linton. 2004. <span>“The Development of Social Network Analysis.”</span> <em>A Study in the Sociology of Science</em> 1 (687): 159–67.
+<div id="ref-kellogg2015massively" class="csl-entry" role="listitem">
+Kellogg, Shaun, and Achim Edelmann. 2015. <span>“Massively Open Online Course for Educators (MOOC-e d) Network Dataset.”</span> <em>British Journal of Educational Technology</em> 46 (5): 977–83.
 </div>
 <div id="ref-maroulis2008does" class="csl-entry" role="listitem">
 Maroulis, Spiro, and Louis M Gomez. 2008. <span>“Does <span>‘Connectedness’</span> Matter? Evidence from a Social Network Analysis Within a Small-School Reform.”</span> <em>Teachers College Record</em> 110 (9): 1901–29.
+</div>
+<div id="ref-moreno1934shall" class="csl-entry" role="listitem">
+Moreno, Jacob, and Helen Jennings. 1934. <span>“Who Shall Survive? A New Approach to the Problem of Human Interrelations.”</span>
 </div>
 <div id="ref-pittinsky2008behavioral" class="csl-entry" role="listitem">
 Pittinsky, Matthew, and Brian V Carolan. 2008. <span>“Behavioral Versus Cognitive Classroom Friendship Networks: Do Teacher Perceptions Agree with Student Reports?”</span> <em>Social Psychology of Education</em> 11: 133–47.
@@ -692,7 +755,6 @@ Ream, Robert K, and Russell W Rumberger. 2008. <span>“Student Engagement, Peer
       Reveal.initialize({
 'controlsAuto': true,
 'previewLinksAuto': true,
-'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
@@ -954,10 +1016,9 @@ Ream, Robert K, and Russell W Rumberger. 2008. <span>“Student Engagement, Peer
         // clear code selection
         e.clearSelection();
       });
-      function tippyHover(el, contentFn) {
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
-          content: contentFn,
           maxWidth: 500,
           delay: 100,
           arrow: false,
@@ -967,8 +1028,17 @@ Ream, Robert K, and Russell W Rumberger. 2008. <span>“Student Engagement, Peer
           interactive: true,
           interactiveBorder: 10,
           theme: 'light-border',
-          placement: 'bottom-start'
+          placement: 'bottom-start',
         };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
           config['offset'] = [0,0];
           config['maxWidth'] = 700;
         window.tippy(el, config); 

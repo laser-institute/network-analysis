@@ -20,31 +20,51 @@ bibliography: lit/references.bib
 editor: visual
 ---
 
-## Social Network Analysis & Theory
+## Overview
 
-::: columns
-::: {.column width="60%"}
-> From its earliest origins to it most recent applications to large-scale networks, social network analysis has reflected an **interdependency between theory and method**.
+1.  The Four Hallmarks of SNA
+2.  Key Terminology
+3.  Applications in Education
 
-Social Network Analysis and Education [@carolan2014]
+::: notes
+**Speaker Notes**:
+
+This presentation provides a brief overview of the four defining characteristics of social network analysis, introduces some basic but essential terminology, and highlights some broad applications of SNA with the context of education.
 :::
 
-::: {.column width="40%"}
-![](img/carolan.jpeg){fig-align="center" width="70%"}
+## Theory & Method Interdependency
+
+::: columns
+::: {.column width="30%"}
+![](img/carolan.jpeg){fig-align="left" width="100%"}
+:::
+
+::: {.column width="70%"}
+> From its earliest origins to it most recent applications to large-scale networks, social network analysis has reflected an *interdependency between theory and method*.
+
+~\~\ From\ SNA\ and\ Education\ by\ Bryan\ @carolan2014~
 :::
 :::
 
 ::: notes
 **Speaker Notes:**
 
-Social Network Analysis is unique among the learning analytics methods covered by the LASER Institute in that it is a set of analytical techniques for analyzing the structure of social relationships that is also tightly integrated with sociological theory.
+Brian Carolan's book SNA and Education is a major inspiration for these SNA modules and is featured prominently in our essential readings and conceptual overviews. I highly recommend purchasing this book or obtaining a copy from the library at your local institution.
 
-Brian Carolan's book SNA and Education is a major inspiration for these SNA modules and is feature prominently in the essential readings. I highly recommend purchasing or obtaining a copy from the library at your local institution.
+This quote is from Chapter 2 and highlights three components of SNA we'll be exploring in these modules, namely: methods used in network analysis, connections with sociological theory, and the applications of both in educational context.
+
+SNA is unique among the learning analytics methods covered by the LASER Institute in that it is a set of analytical techniques for analyzing the structure of social relationships that is also tightly integrated with sociological theory.
 :::
 
-# The Four Hallmarks of SNA
+# The 4 Hallmarks of SNA
 
-Relationships, Empirical Data, Graphical Imagery, Mathematically Based
+Strucuralism, Empirical Data, Graphical Imagery, & Mathematically-Based
+
+::: notes
+**Speaker Notes**:
+
+This first section introduces what Carolan describes as the four defining characteristics of social network analysis, name: a unique emphasis on structuralism based on ties among actors, a firm grounding in empirical data, it's use of graphical imagery and a new set of mathematical models and descriptive measures.
+:::
 
 ## Relationships
 
@@ -63,12 +83,26 @@ For example, when studying a topic such as teacher effectiveness, most researche
 
 ## Empirical Data
 
+::: columns
+::: {.column width="60%"}
 It is firmly grounded in **systematic empirical data collection** using methods refined over decades and methods still evolving:
 
 -   observations of social context
 -   surveys and questionnaires
 -   historical and administrative records
 -   digital learning tools and social media
+:::
+
+::: {.column width="40%"}
+![MOOC Network Dataset [@kellogg2015massively]](img/mooc-forum.png){fig-align="left"}
+:::
+:::
+
+::: notes
+**Speaker Notes:**
+
+The image on the right is from publication by LASER Institute PI Shaun Kellogg and details the processes of constructing an online communication network dataset from discussion forums in a Massively Online Open Course for Educators (MOOC-Ed) called *The* *Digital* *Learning* *Transition in* *K-12* *Schools*.
+:::
 
 ## Graphical Imagery
 
@@ -78,58 +112,68 @@ It makes use of **graphic imagery** to represent actors and their relations with
 
 -   Shapes for actors (nodes, vertices)
 -   Lines for relations (ties, edges)
+
+What do you think the lines and shapes represent in this depiction of a classroom of second grade students?
 :::
 
 ::: {.column width="50%"}
-![Student Friendship Network by Jacob Moreno & Helen Jenning (1934)](img/moreno.jpeg){fig-align="center" width="100%"}
-:::
-:::
-
-## The Four Hallmarks of SNA
-
-::: columns
-::: {.column width="60%"}
-1.  Emphasis on **structuralism** based on ties among actors
-2.  Firmly grounded in **empirical data**
-3.  use of **graphical imagery** and data visualization
-4.  **math**ematically based [@freeman2004development]
-:::
-
-::: {.column width="40%"}
-![Student Friendship Network by Jacob Moreno & Helen Jenning (1934)](img/moreno.jpeg){fig-align="center" width="70%"}
+![Sociogram from Who Shall Survive? [@moreno1934shall]](img/moreno-jennings.png){fig-align="left" width="80%"}
 :::
 :::
 
 ::: notes
-**Speaker Notes**
+**Speaker Notes:**
 
-1.  **Structuralism**: Relationships Social network analysis is based on **ties** connecting social **actors** and is motivated by our intuition that relationships between individuals matter:
-    -   no individual is an island, independence is NOT assumed
-    -   who we know, are friends with, or talk with matters
-    -   the influence of these relations is shaped by the larger network
-    -   location in a social structure shapes one's opportunities and outcomes
-2.  **Empirical Data**: It is firmly grounded in **systematic empirical data collection** using methods refined over decades and methods still evolving:
-    -   observations of social context
-    -   surveys and questionnaires
-    -   historical and administrative records
-    -   digital learning tools and social media
-3.  It makes use of **graphic imagery** to represent actors and their relations with one another.
-    -   Shapes for actors (nodes, vertices)
-    -   Lines for relations (ties, edges)
-4.  **Mathematics**: It relies on the use of **mathematical and/or computational models** to succinctly represent the complexity of social life:
-    -   [Network Stats]{.underline}
-        -   Centrality
-        -   Reciprocity
-        -   Density
-    -   [Inferential Models]{.underline}
-        -   CONCOR
-        -   QAP
-        -   ERGMS
+This image is an early example of a sociogram (i.e. a network graph) from a books published in 1934 grimly titled: **Who Shall Survive: A New Approach to the Problem of Human Interrelations.** It's also an excellent example of the roots SNA has in educational research.
+
+Answer to the question:
+
+-   A circle represents a girl.
+
+-   A triangle represents a boy.
+
+-   The red line represents attraction, i.e. who they like in the class.
+:::
+
+## Mathematically-Based
+
+::: columns
+::: {.column width="50%"}
+**Network Stats (Describe)**
+
+-   Centrality
+-   Reciprocity
+-   Density
+:::
+
+::: {.column width="50%"}
+**Inferential Models (Test & Predict)**
+
+-   CONCOR
+
+-   QAP
+
+-   ERGMS
+:::
+:::
+
+::: notes
+**Speaker Notes:**
+
+SNA relies on the use of mathematical and/or computational models to succinctly represent the complexity of social life.
+
+Descriptive measures such as degree, reciprocity, and density are used to describe characteristics of individuals or groups in a network and the network as a whole. We'll explore these measures in Module 2.
+
+SNA also has a wide range of statistical models for working with relational data for hypothesis testing and building predictive models, which we'll explore Module 3.
 :::
 
 # Key Terms
 
 Actors, Ties, and Attributes
+
+::: notes
+**Speaker Notes:**
+:::
 
 ## Actors
 
@@ -197,7 +241,7 @@ Actors, ties, and the network as a whole can also have information
 
 Social Capital, Selection & Influence, Network Diffusion
 
-## Social Capital 
+## Social Capital
 
 Social capital is an intangible asset existing in the connections and shared values that people have. SNA provides a means to actually measure & model social capital and has be used to better understand:
 
