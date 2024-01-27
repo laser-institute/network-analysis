@@ -113,7 +113,7 @@ It makes use of **graphic imagery** to represent actors and their relations with
 -   Shapes for actors (nodes, vertices)
 -   Lines for relations (ties, edges)
 
-What do you think the lines and shapes represent in this depiction of a classroom of second grade students?
+*What do you think the lines and shapes represent in this depiction of a classroom of second grade students?*
 :::
 
 ::: {.column width="50%"}
