@@ -1,6 +1,6 @@
 ---
 title: "Network Analysis for Newbies"
-subtitle: "SNA Module 1: Conceptual Overview"
+subtitle: "Four Hallmarks, Key Terminology, & Applications in Education"
 format:
   revealjs: 
     slide-number: c/t
@@ -19,18 +19,6 @@ resources:
 bibliography: lit/references.bib
 editor: visual
 ---
-
-## Overview
-
-1.  The Four Hallmarks of SNA
-2.  Key Terminology
-3.  Applications in Education
-
-::: notes
-**Speaker Notes**:
-
-This presentation provides a brief overview of the four defining characteristics of social network analysis, introduces some basic but essential terminology, and highlights some broad applications of SNA with the context of education.
-:::
 
 ## Theory & Method Interdependency
 
@@ -63,7 +51,7 @@ Strucuralism, Empirical Data, Graphical Imagery, & Mathematically-Based
 ::: notes
 **Speaker Notes**:
 
-This first section introduces what Carolan describes as the four defining characteristics of social network analysis, name: a unique emphasis on structuralism based on ties among actors, a firm grounding in empirical data, it's use of graphical imagery and a new set of mathematical models and descriptive measures.
+This first section introduces what Carolan describes as the four defining freatures of social network analysis, namely: a unique emphasis on **structuralism** based on ties among actors, a firm grounding in **empirical data**, it's use of **graphical imagery** and a new set of **mathematical models** and descriptive measures.
 :::
 
 ## Relationships
@@ -78,14 +66,14 @@ SNA emphasizes structuralism based on **ties** connecting social **actors** and 
 ::: notes
 **Speaker Notes:**
 
-For example, when studying a topic such as teacher effectiveness, most researchers focus on the attributes of the teacher, the teacher's highest degree, use of technology, or test scores of students, for example. By reducing teachers to a set of attributes, they neglect the relations among teachers and between teachers and students and how these relations condition their effectiveness as a teacher. SNA attemps to account for the web of relations---the social structure---in which actors are embedded and that simultaneously may constrain or provide opportunities for those within this web.
+Here's a concrete example of the distinction between SNA and traditional research. Imagine studying a topic such as teacher effectiveness as measured by student test scores. In trying to undestand why some teachers are more "effective" than others, researchers tend to focus on the attributes of the teacher, for example their highest degree, use of technology, years of experience, or test scores of students. However, they neglect the relations among teachers and between teachers and students and how these relations condition their effectiveness as a teacher. SNA attempts to account for the web of relations in which actors are embedded, this **social structure**, that simultaneously may constrain or provide opportunities for their effectiveness as a teacher.
 :::
 
 ## Empirical Data
 
 ::: columns
 ::: {.column width="60%"}
-It is firmly grounded in **systematic empirical data collection** using methods refined over decades and methods still evolving:
+SNA is firmly grounded in **systematic, empirical data collection** using methods refined over decades and still evolving, such as:
 
 -   observations of social context
 -   surveys and questionnaires
@@ -94,37 +82,41 @@ It is firmly grounded in **systematic empirical data collection** using methods 
 :::
 
 ::: {.column width="40%"}
-![MOOC Network Dataset [@kellogg2015massively]](img/mooc-forum.png){fig-align="left"}
+![MOOC Network Dataset [@kellogg2015massively]](img/mooc-forum.png){fig-align="left" width="80%"}
 :::
 :::
 
 ::: notes
 **Speaker Notes:**
 
-The image on the right is from publication by LASER Institute PI Shaun Kellogg and details the processes of constructing an online communication network dataset from discussion forums in a Massively Online Open Course for Educators (MOOC-Ed) called *The* *Digital* *Learning* *Transition in* *K-12* *Schools*.
+The image on the right is from a publication by LASER Institute PI Shaun Kellogg and details the processes of constructing an online communication network dataset from discussion forums in a Massively Online Open Course for Educators (MOOC-Ed) called *The* *Digital* *Learning* *Transition in* *K-12* *Schools*.
+
+Access to social relations through online learning tools and social media platforms has helped to spark a renewed interest in SNA over the past two decades and has resulted in the exponential growth of publications featuring SNA.
 :::
 
 ## Graphical Imagery
 
 ::: columns
 ::: {.column width="50%"}
-It makes use of **graphic imagery** to represent actors and their relations with one another.
+SNA makes freuqent use of **graphical imagery** to represent actors and their relations with one another.
+
+The **sociogram** to the right includes:
 
 -   Shapes for actors (nodes, vertices)
 -   Lines for relations (ties, edges)
 
-*What do you think the lines and shapes represent in this depiction of a classroom of second grade students?*
+What do you think the lines and shapes depict in this 2nd grade classroom?
 :::
 
 ::: {.column width="50%"}
-![Sociogram from Who Shall Survive? [@moreno1934shall]](img/moreno-jennings.png){fig-align="left" width="80%"}
+![Sociogram from Who Shall Survive? [@moreno1934shall]](img/moreno-jennings.png){fig-align="left" width="75%"}
 :::
 :::
 
 ::: notes
 **Speaker Notes:**
 
-This image is an early example of a sociogram (i.e. a network graph) from a books published in 1934 grimly titled: **Who Shall Survive: A New Approach to the Problem of Human Interrelations.** It's also an excellent example of the roots SNA has in educational research.
+This image is an early example of a sociogram (i.e. a network graph) from a books published in 1934 grimly titled: **Who Shall Survive: A New Approach to the Problem of Human Interrelations.** It's also an excellent example of the educational roots of SNA research. This foundational work in the field of SNA is also freely available through the Internet Archive and linked in the references slide at the end of this presentation.
 
 Answer to the question:
 
@@ -141,30 +133,33 @@ Answer to the question:
 ::: {.column width="50%"}
 **Network Stats (Describe)**
 
+-   Size
 -   Centrality
 -   Reciprocity
 -   Density
 :::
 
 ::: {.column width="50%"}
-**Inferential Models (Test & Predict)**
+**Network Models (Test & Predict)**
 
 -   CONCOR
 
 -   QAP
 
 -   ERGMS
+
+-   Regression
 :::
 :::
 
 ::: notes
 **Speaker Notes:**
 
-SNA relies on the use of mathematical and/or computational models to succinctly represent the complexity of social life.
+SNA relies on the use of mathematical and/or computational models to succinctly represent the complexity of social relationships.
 
-Descriptive measures such as degree, reciprocity, and density are used to describe characteristics of individuals or groups in a network and the network as a whole. We'll explore these measures in Module 2.
+Descriptive measures such as size, degree, reciprocity, and density are used to describe characteristics of individuals or groups in a network and the network as a whole. We'll explore these measures in Module 2.
 
-SNA also has a wide range of statistical models for working with relational data for hypothesis testing and building predictive models, which we'll explore Module 3.
+SNA also has a wide range of statistical models tailored to working with relational data for hypothesis testing and building predictive models, which we'll explore Module 3.
 :::
 
 # Key Terms
@@ -173,6 +168,8 @@ Actors, Ties, and Attributes
 
 ::: notes
 **Speaker Notes:**
+
+In this section we introduce some very basic terms that are essential for being able to conceptualize and discuss social networks. These terms encompass those are a part of a social network (actors), relationships between them (ties), and information about both (attributes).
 :::
 
 ## Actors
@@ -195,6 +192,14 @@ Also called **nodes** or **vertices**, actors can represent a range of social en
 ::: {.column width="50%"}
 ![A classroom of middle school students [@pittinsky2008behavioral]](img/actors.png){fig-align="center"}
 :::
+:::
+
+::: notes
+**Speaker Notes:**
+
+The important thing to note on this slide is that actors in social networks represented by points or shapes on a graph don't necessarily have to represent single individuals, but can also represent collections of individuals.
+
+Note also that this image is actual data from a study by Pittinsky and Carolan that we will be working with throughout this module.
 :::
 
 ## Ties
