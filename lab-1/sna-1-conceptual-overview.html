@@ -8,7 +8,7 @@
 <link href="sna-1-conceptual-overview_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="sna-1-conceptual-overview_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="sna-1-conceptual-overview_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.549">
+  <meta name="generator" content="quarto-1.3.450">
 
   <title>Network Analysis for Newbies</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -32,7 +32,6 @@
     div.csl-bib-body { }
     div.csl-entry {
       clear: both;
-      margin-bottom: 0em;
     }
     .hanging-indent div.csl-entry {
       margin-left:2em;
@@ -177,8 +176,7 @@
   }
 
   .callout.callout-titled .callout-body > .callout-content > :last-child {
-    padding-bottom: 0.5rem;
-    margin-bottom: 0;
+    margin-bottom: 0.5rem;
   }
 
   .callout.callout-titled .callout-icon::before {
@@ -360,7 +358,7 @@
 <div class="column" style="width:30%;">
 <div class="quarto-figure quarto-figure-left">
 <figure>
-<p><img data-src="img/carolan.jpeg" class="quarto-figure quarto-figure-left" style="width:100.0%"></p>
+<p><img data-src="img/carolan.jpeg" style="width:100.0%"></p>
 </figure>
 </div>
 </div><div class="column" style="width:70%;">
@@ -444,7 +442,7 @@
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-left">
 <figure>
-<p><img data-src="img/mooc-forum.png" class="quarto-figure quarto-figure-left" style="width:80.0%"></p>
+<p><img data-src="img/mooc-forum.png" style="width:80.0%"></p>
 <figcaption>MOOC Network Dataset <span class="citation" data-cites="kellogg2015massively">(<a href="#/references" role="doc-biblioref" onclick="">Kellogg and Edelmann 2015</a>)</span></figcaption>
 </figure>
 </div>
@@ -469,7 +467,7 @@
 <section id="graphical-imagery" class="slide level2">
 <h2>Graphical Imagery</h2>
 <div class="columns">
-<div class="column" style="width:50%;">
+<div class="column" style="width:60%;">
 <p>SNA makes freuqent use of <strong>graphical imagery</strong> to represent actors and their relations with one another.</p>
 <p>The <strong>sociogram</strong> to the right includes:</p>
 <ul>
@@ -477,10 +475,10 @@
 <li>Lines for relations (ties, edges)</li>
 </ul>
 <p>What do you think the lines and shapes depict in this 2nd grade classroom?</p>
-</div><div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-left">
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="img/moreno-jennings.png" class="quarto-figure quarto-figure-left" style="width:75.0%"></p>
+<p><img data-src="img/moreno-jennings.png" style="width:100.0%"></p>
 <figcaption>Sociogram from Who Shall Survive? <span class="citation" data-cites="moreno1934shall">(<a href="#/references" role="doc-biblioref" onclick="">Moreno and Jennings 1934</a>)</span></figcaption>
 </figure>
 </div>
@@ -488,7 +486,7 @@
 </div>
 <aside class="notes">
 <p><strong>Speaker Notes:</strong></p>
-<p>This image is an early example of a sociogram (i.e.&nbsp;a network graph) from a books published in 1934 grimly titled: <strong>Who Shall Survive: A New Approach to the Problem of Human Interrelations.</strong> It’s also an excellent example of the educational roots of SNA research.</p>
+<p>This image is an early example of a sociogram (i.e.&nbsp;a network graph) from a books published in 1934 grimly titled: <strong>Who Shall Survive: A New Approach to the Problem of Human Interrelations.</strong> It’s also an excellent example of the educational roots of SNA research. This foundational work in the field of SNA is also freely available through the Internet Archive and linked in the references slide at the end of this presentation.</p>
 <p>Answer to the question:</p>
 <ul>
 <li><p>A circle represents a girl.</p></li>
@@ -551,7 +549,7 @@
 <p>Actors, Ties, and Attributes</p>
 <aside class="notes">
 <p><strong>Speaker Notes:</strong></p>
-<p>In this section we introduce some very basic terms that are essential for being able to conceptualize and discuss social networks and that are used frequently in SNA.</p>
+<p>In this section we introduce some very basic terms that are essential for being able to conceptualize and discuss social networks. These terms encompass those are a part of a social network (actors), relationships between them (ties), and information about both (attributes).</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -579,7 +577,7 @@
 </div><div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="img/actors.png" class="quarto-figure quarto-figure-center"></p>
+<p><img data-src="img/actors.png"></p>
 <figcaption>A classroom of middle school students <span class="citation" data-cites="pittinsky2008behavioral">(<a href="#/references" role="doc-biblioref" onclick="">Pittinsky and Carolan 2008</a>)</span></figcaption>
 </figure>
 </div>
@@ -587,6 +585,8 @@
 </div>
 <aside class="notes">
 <p><strong>Speaker Notes:</strong></p>
+<p>The important thing to note on this slide is that actors in social networks represented by points or shapes on a graph don’t necessarily have to represent single individuals, but can also represent collections of individuals.</p>
+<p>Note also that this image is actual data from a study by Pittinsky and Carolan that we will be working with throughout this module.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -614,7 +614,7 @@
 </div><div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="img/ties.png" class="quarto-figure quarto-figure-center"></p>
+<p><img data-src="img/ties.png"></p>
 <figcaption>A teacher’s perception of student friendships</figcaption>
 </figure>
 </div>
@@ -633,7 +633,7 @@
 </div><div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="img/attributes.png" class="quarto-figure quarto-figure-center"></p>
+<p><img data-src="img/attributes.png"></p>
 <figcaption>Visualization of network attributes</figcaption>
 </figure>
 </div>
@@ -704,13 +704,11 @@
 </section>
 <section id="references" class="slide level2 smaller scrollable">
 <h2>References</h2>
-<div class="quarto-auto-generated-content">
-<p><img src="img/LASERLogoB.png" class="slide-logo"></p>
-<div class="footer footer-default">
+
+<img src="img/LASERLogoB.png" class="slide-logo r-stretch"><div class="footer footer-default">
 <p><a href="https://www.go.ncsu.edu/laser-institute">go.ncsu.edu/laser-institute</a></p><a href="https://www.go.ncsu.edu/laser-institute">
 </a></div><a href="https://www.go.ncsu.edu/laser-institute">
-</a></div><a href="https://www.go.ncsu.edu/laser-institute">
-</a><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list"><a href="https://www.go.ncsu.edu/laser-institute">
+</a><div id="refs" class="references csl-bib-body hanging-indent" role="list"><a href="https://www.go.ncsu.edu/laser-institute">
 </a><div id="ref-carolan2014" class="csl-entry" role="listitem"><a href="https://www.go.ncsu.edu/laser-institute">
 Carolan, Brian. 2014. <span>“Social Network Analysis and Education: Theory, Methods &amp; Applications.”</span> </a><a href="https://doi.org/10.4135/9781452270104">https://doi.org/10.4135/9781452270104</a>.
 </div>
@@ -758,6 +756,7 @@ Ream, Robert K, and Russell W Rumberger. 2008. <span>“Student Engagement, Peer
       Reveal.initialize({
 'controlsAuto': true,
 'previewLinksAuto': true,
+'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
@@ -1019,9 +1018,10 @@ Ream, Robert K, and Russell W Rumberger. 2008. <span>“Student Engagement, Peer
         // clear code selection
         e.clearSelection();
       });
-      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      function tippyHover(el, contentFn) {
         const config = {
           allowHTML: true,
+          content: contentFn,
           maxWidth: 500,
           delay: 100,
           arrow: false,
@@ -1031,17 +1031,8 @@ Ream, Robert K, and Russell W Rumberger. 2008. <span>“Student Engagement, Peer
           interactive: true,
           interactiveBorder: 10,
           theme: 'light-border',
-          placement: 'bottom-start',
+          placement: 'bottom-start'
         };
-        if (contentFn) {
-          config.content = contentFn;
-        }
-        if (onTriggerFn) {
-          config.onTrigger = onTriggerFn;
-        }
-        if (onUntriggerFn) {
-          config.onUntrigger = onUntriggerFn;
-        }
           config['offset'] = [0,0];
           config['maxWidth'] = 700;
         window.tippy(el, config); 

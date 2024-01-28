@@ -30,7 +30,7 @@ editor: visual
 ::: {.column width="70%"}
 > From its earliest origins to it most recent applications to large-scale networks, social network analysis has reflected an *interdependency between theory and method*.
 
-~\~\ From\ SNA\ and\ Education\ by\ Bryan\ @carolan2014~
+~\~ From SNA and Education by Bryan @carolan2014~
 :::
 :::
 
@@ -97,7 +97,7 @@ Access to social relations through online learning tools and social media platfo
 ## Graphical Imagery
 
 ::: columns
-::: {.column width="50%"}
+::: {.column width="60%"}
 SNA makes freuqent use of **graphical imagery** to represent actors and their relations with one another.
 
 The **sociogram** to the right includes:
@@ -108,8 +108,8 @@ The **sociogram** to the right includes:
 What do you think the lines and shapes depict in this 2nd grade classroom?
 :::
 
-::: {.column width="50%"}
-![Sociogram from Who Shall Survive? [@moreno1934shall]](img/moreno-jennings.png){fig-align="left" width="75%"}
+::: {.column width="40%"}
+![Sociogram from Who Shall Survive? [@moreno1934shall]](img/moreno-jennings.png){fig-align="center" width="100%"}
 :::
 :::
 
