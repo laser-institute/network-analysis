@@ -5,16 +5,17 @@
 $font-family-sans-serif: 'Open Sans','Roboto', sans-serif !default;
 $presentation-font-size-root: 50px;
 
+
 // colors
 $body-bg: #FFFFFF !default;
 $body-color: #000000 !default;
-$linkColor: #427E93 !default;
+$linkColor: #8f303b !default;
 $linkColorHover: #d34126 !default;
 $selection-bg: #26351c;
 
 // headings
-$presentation-heading-font: 'Open Sans','Roboto', sans-serif !default;
-$presentation-heading-color: #427E93 !default;
+$presentation-heading-font: 'Open Sans','Open Sans', sans-serif !default;
+$presentation-heading-color: #8f303b !default;
 
 /*-- scss:rules --*/
 .reveal .slide {
@@ -23,7 +24,7 @@ $presentation-heading-color: #427E93 !default;
 
 .reveal a {
   line-height: 1em;
-  color: #990000;
+  color: #8f303b;
 }
 
 .reveal .footer {
@@ -50,4 +51,13 @@ pre, code, .sourceCode {
   font-size: 2.5rem;
 }
 
+section.slide h2 {
+  color: white  !important;
+  background-color: #8f303b !important;
+  position: relative;
+  width: 350vw;
+  left: -20vw;
+  padding-left: 20vw;
+  padding-top: 20px;
+  padding-bottom: 20px;}
 

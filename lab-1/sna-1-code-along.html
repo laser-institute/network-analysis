@@ -501,7 +501,7 @@
 <section id="load-packages" class="slide level2">
 <h2>Load Packages</h2>
 <div class="panel-tabset">
-<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Load Libraries</a></li><li><a href="#tabset-2-2">Network Packages</a></li><li><a href="#tabset-2-3">Your Turn</a></li></ul>
+<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">R Libraries</a></li><li><a href="#tabset-2-2">Network Packages</a></li><li><a href="#tabset-2-3">Your Turn</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1">
 <p>Let’s start by creating a new R script and loading the {readxl} package which we’ll use to import our network data files:</p>
@@ -509,19 +509,7 @@
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="co"># install.packages(readxl)</span></span>
 <span id="cb1-2"><a href=""></a><span class="fu">library</span>(readxl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Note</strong></p>
-</div>
-<div class="callout-content">
-<p>You may have to install this package using the <code>install.packages()</code> function if it is not listed in your packages pane.</p>
-</div>
-</div>
-</div>
+<p><strong>Note</strong>: You may have to install this package using the <code>install.packages()</code> function if it is not listed in your packages pane.</p>
 </div>
 <div id="tabset-2-2">
 <div class="columns">
@@ -619,12 +607,186 @@
 </div>
 </div>
 <div id="tabset-3-2">
-
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Radically different than typical data storage, edge-lists include:</p>
+<ul>
+<li><p>ego and an alter</p></li>
+<li><p>tie strength or frequency</p></li>
+<li><p>edge attributes (time, event, text)</p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: right;">from</th>
+<th style="text-align: right;">to</th>
+<th style="text-align: right;">weight</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div id="tabset-3-3">
-
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Also radically different, an adjacency matrix includes:</p>
+<ul>
+<li><p>column for each actor</p></li>
+<li><p>row for each actor</p></li>
+<li><p>a value indicating the presence/strength of a relation</p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>  1 2 3 4 5 6 7 8 9
+1 0 0 0 1 0 0 0 0 0
+2 0 0 1 0 0 0 0 1 0
+3 0 1 0 0 0 0 0 1 0
+4 0 0 0 0 0 0 0 0 0
+5 1 0 0 0 0 0 0 0 0
+6 0 0 0 0 0 0 0 0 0
+7 0 0 0 0 0 0 0 0 0
+8 0 1 1 0 0 0 0 0 0
+9 0 0 0 0 0 0 0 0 0</code></pre>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div id="tabset-3-4">
+<p>Take a look at one of the network datasets in the data folder under the Files Tab in RStudio and consider the following:</p>
+<ul>
+<li><p>What format is this data set stored as?</p></li>
+<li><p>If edge data, is it directed or undirected? Valued?</p></li>
+<li><p>If node data, does the file contain attribute data?</p></li>
+<li><p>What are some things you notice about this dataset?</p></li>
+<li><p>What questions do you have about this dataset?</p></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="import-data" class="slide level2">
+<h2>Import Data</h2>
+<div class="panel-tabset">
+<ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">Read Data</a></li><li><a href="#tabset-4-2">Inspect Data</a></li><li><a href="#tabset-4-3">Discuss</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1">
+<p>Let’s start by importing two Excel files that contain data about the nodes and the edges in our student friendship network:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a>student_nodes <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"lab-1/data/student-attributes.xlsx"</span>)</span>
+<span id="cb4-2"><a href=""></a></span>
+<span id="cb4-3"><a href=""></a>student_edges <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"lab-1/data/student-edgelist.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-4-2">
+<p>Now let’s take a look at the data file we just imported using the <code>View()</code> function or another function of choice you may have learned previously:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a><span class="fu">View</span>(student_edges)</span>
+<span id="cb5-2"><a href=""></a><span class="fu">View</span>(student_nodes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-4-3">
+<p>Think about the questions below and be prepared to share your response:</p>
+<ol type="1">
+<li><p>What do you think the rows and columns in each file represent?</p></li>
+<li><p>What about the values in each cell represent?</p></li>
+<li><p>What else do you notice about the data?</p></li>
+<li><p>What questions do you have?</p></li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<section id="network-graph-objects" class="slide level2">
+<h2>Network Graph Objects</h2>
+<div class="panel-tabset">
+<ul id="tabset-5" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-5-1">tbl_graph( ) function</a></li><li><a href="#tabset-5-2">View Network</a></li><li><a href="#tabset-5-3">Output</a></li><li><a href="#tabset-5-4">Discuss</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1">
+<p>The <a href="https://tidygraph.data-imaginist.com/reference/tbl_graph.html"><code>tbl_graph()</code></a> function creates a special network data structure called a “tidy graph” that combines our nodes and edges into a single R object. Run the following code in your R script:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a>student_network <span class="ot">&lt;-</span> <span class="fu">tbl_graph</span>(<span class="at">edges =</span> student_edges,</span>
+<span id="cb6-2"><a href=""></a>                             <span class="at">nodes =</span> student_nodes, </span>
+<span id="cb6-3"><a href=""></a>                             <span class="at">directed =</span> <span class="cn">TRUE</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The benefits of a “tidy graph” is that opens up the entire suite of tidyverse tools for manipulating and constructing network data and variables noted earlier.</p>
+</div>
+<div id="tabset-5-2">
+<p>Using your R script, type the name of network object we just created and run the code to produce the output on the next tab:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="co"># ADD CODE BELOW</span></span>
+<span id="cb7-2"><a href=""></a><span class="co">#</span></span>
+<span id="cb7-3"><a href=""></a><span class="co">#</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-5-3">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tbl_graph: 27 nodes and 203 edges
+#
+# A directed simple graph with 2 components
+#
+# A tibble: 27 × 5
+     id gender achievement gender_num achievement_num
+  &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;            &lt;dbl&gt;           &lt;dbl&gt;
+1     1 female high                 1               1
+2     2 male   average              0               2
+3     3 female average              1               2
+4     4 male   high                 0               1
+5     5 female average              1               2
+6     6 female average              1               2
+# ℹ 21 more rows
+#
+# A tibble: 203 × 3
+   from    to weight
+  &lt;int&gt; &lt;int&gt;  &lt;dbl&gt;
+1     1     2      1
+2     1     4      1
+3     1     5      1
+# ℹ 200 more rows</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-5-4">
 
 </div>
 </div>
