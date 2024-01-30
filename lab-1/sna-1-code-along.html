@@ -28,6 +28,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     /* CSS for citations */
     div.csl-bib-body { }
     div.csl-entry {
@@ -356,9 +421,21 @@
 </section>
 <section id="data-intensive-research-workflow" class="slide level2">
 <h2>Data Intensive Research-Workflow</h2>
-<p>Intro text</p>
 
-<img data-src="img/workflow.png" class="r-stretch quarto-figure-center"><p class="caption">From Learning Analytics Goes to School <span class="citation" data-cites="krumm2018">(<a href="#/references" role="doc-biblioref" onclick="">Krumm, Means, and Bienkowski 2018</a>)</span></p></section>
+<img data-src="img/workflow.png" width="300" class="r-stretch quarto-figure-center"><p class="caption">From Learning Analytics Goes to School <span class="citation" data-cites="krumm2018">(<a href="#/references" role="doc-biblioref" onclick="">Krumm, Means, and Bienkowski 2018</a>)</span></p><aside class="notes">
+<p><strong>Speaker Notes:</strong></p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section>
 <section id="prepare" class="title-slide slide level1 center">
 <h1>Prepare</h1>
@@ -371,12 +448,12 @@
 <div class="tab-content">
 <div id="tabset-1-1">
 <div class="columns">
-<div class="column" style="width:60%;">
+<div class="column" style="width:70%;">
 <p>Revisiting early work in the field of sociometry, this study by <span class="citation" data-cites="pittinsky2008behavioral">Pittinsky and Carolan (<a href="#/references" role="doc-biblioref" onclick="">2008</a>)</span> <strong>assesses the level of agreement between teacher perceptions and student reports of classroom friendships</strong> among middle school students.</p>
-</div><div class="column" style="width:40%;">
+</div><div class="column" style="width:30%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="img/pittinsky-carolan.png"></p>
+<p><img data-src="img/pittinsky-carolan.png" style="width:70.0%"></p>
 <figcaption>Behavioral vs.&nbsp;Cognitive Classroom Friendships <span class="citation" data-cites="pittinsky2008behavioral">(<a href="#/references" role="doc-biblioref" onclick="">Pittinsky and Carolan 2008</a>)</span></figcaption>
 </figure>
 </div>
@@ -384,12 +461,170 @@
 </div>
 </div>
 <div id="tabset-1-2">
-
+<p>The central question guiding this investigation was:</p>
+<blockquote>
+<p><strong><em>Do student reports agree with teacher perceptions</em></strong> when it comes to classroom friendship ties and with what consequences for commonly used social network measures?</p>
+</blockquote>
 </div>
 <div id="tabset-1-3">
-
+<ul>
+<li><p>1 teacher, 1 middle school, four classrooms</p></li>
+<li><p>Students given roster and asked to evaluate relationships with peers</p></li>
+<li><p>Choices included best friend, friend, know-like, know, know-dislike, strongly dislike, and do not know.</p></li>
+<li><p>Relations are <strong><em>valued</em></strong> (degrees of friendship, not just yes or no)</p></li>
+<li><p>Data are <strong><em>directed</em></strong> (friendship nominations were not presumed to be reciprocal).</p></li>
+</ul>
 </div>
 <div id="tabset-1-4">
+<ul>
+<li><p>Teacher’s perceptions and students’ reports were statistically similar, 11–29% of possible ties did not match.</p></li>
+<li><p>Students reported significantly more reciprocated friendship ties than the teacher perceived.</p></li>
+<li><p>Observed level of agreement varied across classes and generally increased over time.</p></li>
+</ul>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p><strong>Speaker Notes:</strong></p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="load-packages" class="slide level2">
+<h2>Load Packages</h2>
+<div class="panel-tabset">
+<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Load Libraries</a></li><li><a href="#tabset-2-2">Network Packages</a></li><li><a href="#tabset-2-3">Your Turn</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1">
+<p>Let’s start by creating a new R script and loading the {readxl} package which we’ll use to import our network data files:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="co"># install.packages(readxl)</span></span>
+<span id="cb1-2"><a href=""></a><span class="fu">library</span>(readxl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>You may have to install this package using the <code>install.packages()</code> function if it is not listed in your packages pane.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-2-2">
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Data Management<br>
+<br>
+<img data-src="http://127.0.0.1:46191/rmd_output/0/img/tidygraph.png" style="width:50.0%"><br>
+<a href="https://tidygraph.data-imaginist.com/">tidygraph</a></p>
+</div><div class="column" style="width:50%;">
+<p>Data Visualization<br>
+<br>
+<img data-src="http://127.0.0.1:46191/rmd_output/0/img/ggraph.png" style="width:45.0%"><br>
+<a href="https://ggraph.data-imaginist.com/index.html">ggraph</a></p>
+</div>
+</div>
+</div>
+<div id="tabset-2-3">
+<p>Load the {tidygraph} and {ggraph} packages.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="co"># YOUR CODE HERE</span></span>
+<span id="cb2-2"><a href=""></a><span class="co">#</span></span>
+<span id="cb2-3"><a href=""></a><span class="co">#</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="wrangle" class="title-slide slide level1 center">
+<h1>Wrangle</h1>
+<p>Data Structures &amp; Importing Data</p>
+</section>
+<section id="network-data-structures" class="slide level2">
+<h2>Network Data Structures</h2>
+<div class="panel-tabset">
+<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">Node-List</a></li><li><a href="#tabset-3-2">Edge-List</a></li><li><a href="#tabset-3-3">Adjacency Matrix</a></li><li><a href="#tabset-3-4">Discuss</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1">
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Consistent with typical data storage, node-lists often include:</p>
+<ul>
+<li><p>identifiers lik name or <strong>ID</strong></p></li>
+<li><p>demographic info (<strong>gender</strong>, age)</p></li>
+<li><p>socio-economic info (job, income)</p></li>
+<li><p>substantive info (<strong>grades</strong>, attendance)</p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: right;">id</th>
+<th style="text-align: left;">gender</th>
+<th style="text-align: left;">achievement</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: left;">high</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: left;">average</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: left;">average</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: left;">high</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: left;">average</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: left;">average</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-3-2">
+
+</div>
+<div id="tabset-3-3">
+
+</div>
+<div id="tabset-3-4">
 
 </div>
 </div>
@@ -638,6 +873,44 @@ Pittinsky, Matthew, and Brian V Carolan. 2008. <span>“Behavioral Versus Cognit
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

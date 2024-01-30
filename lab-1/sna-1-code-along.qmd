@@ -9,6 +9,7 @@ format:
       buttons: false
     preview-links: auto
     logo: img/LASERLogoB.png
+    #theme: Cosmo
     theme: [default, css/laser.scss]
     width: 1920
     height: 1080
@@ -22,9 +23,11 @@ editor: visual
 
 ## Data Intensive Research-Workflow
 
-Intro text
+![From Learning Analytics Goes to School [@krumm2018]](img/workflow.png){width="300"}
 
-![From Learning Analytics Goes to School [@krumm2018]](img/workflow.png)
+::: notes
+**Speaker Notes:**
+:::
 
 # Prepare
 
@@ -36,20 +39,136 @@ Guiding Study, Research Question, & SNA Packages
 ## Context
 
 ::: columns
-::: {.column width="60%"}
+::: {.column width="70%"}
 Revisiting early work in the field of sociometry, this study by @pittinsky2008behavioral **assesses the level of agreement between teacher perceptions and student reports of classroom friendships** among middle school students.
 :::
 
-::: {.column width="40%"}
-![Behavioral vs. Cognitive Classroom Friendships [@pittinsky2008behavioral]](img/pittinsky-carolan.png)
+::: {.column width="30%"}
+![Behavioral vs. Cognitive Classroom Friendships [@pittinsky2008behavioral]](img/pittinsky-carolan.png){width="70%"}
 :::
 :::
 
 ## Questions
 
+The central question guiding this investigation was:
+
+> ***Do student reports agree with teacher perceptions*** when it comes to classroom friendship ties and with what consequences for commonly used social network measures?
+
 ## Data
 
+-   1 teacher, 1 middle school, four classrooms
+
+-   Students given roster and asked to evaluate relationships with peers
+
+-   Choices included best friend, friend, know-like, know, know-dislike, strongly dislike, and do not know.
+
+-   Relations are ***valued*** (degrees of friendship, not just yes or no)
+
+-   Data are ***directed*** (friendship nominations were not presumed to be reciprocal).
+
 ## Findings
+
+-   Teacher’s perceptions and students’ reports were statistically similar, 11–29% of possible ties did not match.
+
+-   Students reported significantly more reciprocated friendship ties than the teacher perceived.
+
+-   Observed level of agreement varied across classes and generally increased over time.
+:::
+
+::: notes
+**Speaker Notes:**
+:::
+
+## Load Packages
+
+::: panel-tabset
+## Load Libraries
+
+Let's start by creating a new R script and loading the {readxl} package which we'll use to import our network data files:
+
+```{r}
+library(knitr)
+library(tidyverse)
+```
+
+```{r load-libraries, echo=TRUE, message=FALSE}
+# install.packages(readxl)
+library(readxl)
+```
+
+::: callout-note
+You may have to install this package using the `install.packages()` function if it is not listed in your packages pane.
+:::
+
+## Network Packages
+
+::: columns
+::: {.column width="50%"}
+Data Management\
+\
+![](http://127.0.0.1:46191/rmd_output/0/img/tidygraph.png){width="50%"}\
+[tidygraph](https://tidygraph.data-imaginist.com/)
+:::
+
+::: {.column width="50%"}
+Data Visualization\
+\
+![](http://127.0.0.1:46191/rmd_output/0/img/ggraph.png){width="45%"}\
+[ggraph](https://ggraph.data-imaginist.com/index.html)
+:::
+:::
+
+## Your Turn
+
+Load the {tidygraph} and {ggraph} packages.
+
+```{r, echo=TRUE}
+# YOUR CODE HERE
+#
+#
+```
+:::
+
+# Wrangle
+
+Data Structures & Importing Data
+
+## Network Data Structures
+
+::: panel-tabset
+## Node-List
+
+::: columns
+::: {.column width="50%"}
+Consistent with typical data storage, node-lists often include:
+
+-   identifiers lik name or **ID**
+
+-   demographic info (**gender**, age)
+
+-   socio-economic info (job, income)
+
+-   substantive info (**grades**, attendance)
+:::
+
+::: {.column width="50%"}
+```{r node-list, echo=FALSE, message=FALSE, warning=FALSE}
+student_attributes <- read_excel("data/student-attributes.xlsx")
+
+student_attributes |>
+  head() |>
+  select(id, gender, achievement) |>
+  kable()
+
+```
+:::
+:::
+
+## Edge-List
+
+## Adjacency Matrix
+
+## Discuss
 :::
 
 ## Acknowledgements
