@@ -12,6 +12,7 @@ $body-color: #000000 !default;
 $linkColor: #427E93 !default;
 $linkColorHover: #d34126 !default;
 $selection-bg: #26351c;
+$code-block-bg: #f4f4f4;
 
 // headings
 $presentation-heading-font: 'Open Sans','Open Sans', sans-serif !default;
@@ -49,6 +50,7 @@ section.has-dark-background code{
 
 pre, code, .sourceCode {
   font-size: 2.5rem;
+  background-color: #d3d3d3;
 }
 
 section.slide h2 {

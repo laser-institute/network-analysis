@@ -439,7 +439,7 @@
 <section>
 <section id="prepare" class="title-slide slide level1 center">
 <h1>Prepare</h1>
-<p>Guiding Study, Research Question, &amp; SNA Packages</p>
+<p>Guiding Research &amp; Network Packages</p>
 </section>
 <section id="guiding-study" class="slide level2">
 <h2>Guiding Study</h2>
@@ -504,24 +504,24 @@
 <ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">R Libraries</a></li><li><a href="#tabset-2-2">Network Packages</a></li><li><a href="#tabset-2-3">Your Turn</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1">
-<p>Let’s start by creating a new R script and loading the {readxl} package which we’ll use to import our network data files:</p>
+<p>Let’s start by creating a new R script and loading the {tidyverse} package which we’ll use to import our network data files:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="co"># install.packages(readxl)</span></span>
-<span id="cb1-2"><a href=""></a><span class="fu">library</span>(readxl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href=""></a></span>
+<span id="cb1-3"><a href=""></a><span class="co"># You may have to install this package if it is not listed in your packages pane.</span></span>
+<span id="cb1-4"><a href=""></a><span class="co"># install.packages(tidyverse) </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><strong>Note</strong>: You may have to install this package using the <code>install.packages()</code> function if it is not listed in your packages pane.</p>
+<p><strong>Note</strong>: Tidyverse is actually a <a href="https://www.tidyverse.org/packages">collection of R packages</a> that share an underlying design philosophy, grammar, and data structures commonly referred to as “tidy data principles.” LASER uses the {tidyverse} extensively.</p>
 </div>
 <div id="tabset-2-2">
 <div class="columns">
 <div class="column" style="width:50%;">
 <p>Data Management<br>
-<br>
-<img data-src="http://127.0.0.1:46191/rmd_output/0/img/tidygraph.png" style="width:50.0%"><br>
+<img data-src="img/tidygraph.png" width="398"><br>
 <a href="https://tidygraph.data-imaginist.com/">tidygraph</a></p>
 </div><div class="column" style="width:50%;">
 <p>Data Visualization<br>
-<br>
-<img data-src="http://127.0.0.1:46191/rmd_output/0/img/ggraph.png" style="width:45.0%"><br>
+<img data-src="img/ggraph.png" width="346"><br>
 <a href="https://ggraph.data-imaginist.com/index.html">ggraph</a></p>
 </div>
 </div>
@@ -540,7 +540,7 @@
 <section>
 <section id="wrangle" class="title-slide slide level1 center">
 <h1>Wrangle</h1>
-<p>Data Structures &amp; Importing Data</p>
+<p>Intro to Network Data Structures</p>
 </section>
 <section id="network-data-structures" class="slide level2">
 <h2>Network Data Structures</h2>
@@ -675,17 +675,93 @@
 </ul>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>  1 2 3 4 5 6 7 8 9
-1 0 0 0 1 0 0 0 0 0
-2 0 0 1 0 0 0 0 1 0
-3 0 1 0 0 0 0 0 1 0
-4 0 0 0 0 0 0 0 0 0
-5 1 0 0 0 0 0 0 0 0
-6 0 0 0 0 0 0 0 0 0
-7 0 0 0 0 0 0 0 0 0
-8 0 1 1 0 0 0 0 0 0
-9 0 0 0 0 0 0 0 0 0</code></pre>
+<div class="cell-output-display">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">1</th>
+<th style="text-align: right;">2</th>
+<th style="text-align: right;">3</th>
+<th style="text-align: right;">4</th>
+<th style="text-align: right;">5</th>
+<th style="text-align: right;">6</th>
+<th style="text-align: right;">7</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">5</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">6</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">7</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
@@ -712,16 +788,16 @@
 <div id="tabset-4-1">
 <p>Let’s start by importing two Excel files that contain data about the nodes and the edges in our student friendship network:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a>student_nodes <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"lab-1/data/student-attributes.xlsx"</span>)</span>
-<span id="cb4-2"><a href=""></a></span>
-<span id="cb4-3"><a href=""></a>student_edges <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"lab-1/data/student-edgelist.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a>student_nodes <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"lab-1/data/student-attributes.xlsx"</span>)</span>
+<span id="cb3-2"><a href=""></a></span>
+<span id="cb3-3"><a href=""></a>student_edges <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"lab-1/data/student-edgelist.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-4-2">
 <p>Now let’s take a look at the data file we just imported using the <code>View()</code> function or another function of choice you may have learned previously:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a><span class="fu">View</span>(student_edges)</span>
-<span id="cb5-2"><a href=""></a><span class="fu">View</span>(student_nodes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="fu">View</span>(student_edges)</span>
+<span id="cb4-2"><a href=""></a><span class="fu">View</span>(student_nodes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-4-3">
@@ -736,29 +812,32 @@
 </div>
 </div>
 </section>
-<section id="network-graph-objects" class="slide level2">
-<h2>Network Graph Objects</h2>
+<section id="a-tidy-network" class="slide level2">
+<h2>A Tidy Network</h2>
 <div class="panel-tabset">
 <ul id="tabset-5" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-5-1">tbl_graph( ) function</a></li><li><a href="#tabset-5-2">View Network</a></li><li><a href="#tabset-5-3">Output</a></li><li><a href="#tabset-5-4">Discuss</a></li></ul>
 <div class="tab-content">
 <div id="tabset-5-1">
-<p>The <a href="https://tidygraph.data-imaginist.com/reference/tbl_graph.html"><code>tbl_graph()</code></a> function creates a special network data structure called a “tidy graph” that combines our nodes and edges into a single R object. Run the following code in your R script:</p>
+<p>Run the following code in your R script:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a>student_network <span class="ot">&lt;-</span> <span class="fu">tbl_graph</span>(<span class="at">edges =</span> student_edges,</span>
-<span id="cb6-2"><a href=""></a>                             <span class="at">nodes =</span> student_nodes, </span>
-<span id="cb6-3"><a href=""></a>                             <span class="at">directed =</span> <span class="cn">TRUE</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a>student_network <span class="ot">&lt;-</span> <span class="fu">tbl_graph</span>(<span class="at">edges =</span> student_edges,</span>
+<span id="cb5-2"><a href=""></a>                             <span class="at">nodes =</span> student_nodes, </span>
+<span id="cb5-3"><a href=""></a>                             <span class="at">directed =</span> <span class="cn">TRUE</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The benefits of a “tidy graph” is that opens up the entire suite of tidyverse tools for manipulating and constructing network data and variables noted earlier.</p>
+<p>The <code>tbl_graph()</code> function creates a special network data structure called a “tidy graph” that combines our nodes and edges into a single R object.</p>
+<p><br></p>
+<p>The benefits of a “tidy graph” is that it opens up the entire suite of tidyverse tools for manipulating and constructing network data and variables noted earlier.</p>
 </div>
 <div id="tabset-5-2">
 <p>Using your R script, type the name of network object we just created and run the code to produce the output on the next tab:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="co"># ADD CODE BELOW</span></span>
-<span id="cb7-2"><a href=""></a><span class="co">#</span></span>
-<span id="cb7-3"><a href=""></a><span class="co">#</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="co"># ADD CODE BELOW</span></span>
+<span id="cb6-2"><a href=""></a><span class="co">#</span></span>
+<span id="cb6-3"><a href=""></a><span class="co">#</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-5-3">
+<p>You should see an output that looks something like this:</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tbl_graph: 27 nodes and 203 edges
@@ -787,13 +866,201 @@
 </div>
 </div>
 <div id="tabset-5-4">
-
+<p>Think about the questions below:</p>
+<p>What is size of the student-reported friendship network?</p>
+<p>What else do you notice about this network?</p>
+<p>What questions do have about this network summary?</p>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="explore" class="title-slide slide level1 center">
+<h1>Explore</h1>
+<p>Making Simple and Sophisticated Sociograms</p>
+</section>
+<section id="a-simple-sociogram" class="slide level2">
+<h2>A Simple Sociogram</h2>
+<div class="panel-tabset">
+<ul id="tabset-6" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-6-1">plot()</a></li><li><a href="#tabset-6-2">autograph()</a></li><li><a href="#tabset-6-3">Arguments</a></li><li><a href="#tabset-6-4">Discuss</a></li></ul>
+<div class="tab-content">
+<div id="tabset-6-1">
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Run the following code to make a simple sociogram:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a><span class="fu">plot</span>(student_network)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<p>The <code>plot()</code> function is base R’s simple but limited solution for plotting graphs.</p>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="sna-1-code-along_files/figure-revealjs/unnamed-chunk-7-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-6-2">
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>The <code>autograph()</code> function is ggraph’s simple but limited solution for plotting sociograms.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a><span class="fu">autograph</span>(student_network)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="sna-1-code-along_files/figure-revealjs/unnamed-chunk-9-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-6-3">
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Both functions allow a small degree of customization, but are still limited.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="fu">autograph</span>(student_network,</span>
+<span id="cb10-2"><a href=""></a>          <span class="at">node_label =</span> id,</span>
+<span id="cb10-3"><a href=""></a>          <span class="at">node_colour =</span> gender)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="sna-1-code-along_files/figure-revealjs/unnamed-chunk-11-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-6-4">
+<ol type="1">
+<li>In what situations might these limited functions be useful?</li>
+<li>When might they inappropriate to use?</li>
+</ol>
 </div>
 </div>
 </div>
 </section>
-<section id="acknowledgements" class="slide level2">
-<h2>Acknowledgements</h2>
+<section id="a-sophisticated-sociogram" class="slide level2">
+<h2>A Sophisticated Sociogram</h2>
+<div class="panel-tabset">
+<ul id="tabset-7" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-7-1">Set Graph</a></li><li><a href="#tabset-7-2">“Add” Nodes</a></li><li><a href="#tabset-7-3">“Add” Edges</a></li><li><a href="#tabset-7-4">Polish</a></li><li><a href="#tabset-7-5">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-7-1">
+<p>The <code>ggraph()</code> function is the first function required to build a sociogram. Try running this function on out <code>student_network</code> and see what happens:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a><span class="fu">ggraph</span>(student_network)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This function serves two critical roles:</p>
+<ol type="1">
+<li><p>It takes care of setting up the plot object for the network specified.</p></li>
+<li><p>It creates the layout based on algorithm provided.</p></li>
+</ol>
+</div>
+<div id="tabset-7-2">
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Let’s “add” nodes to our sociogram using the <code>+</code> operator and the <code>geom_node_point()</code> function:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a><span class="fu">ggraph</span>(student_network) <span class="sc">+</span> </span>
+<span id="cb12-2"><a href=""></a>  <span class="fu">geom_node_point</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="sna-1-code-along_files/figure-revealjs/unnamed-chunk-13-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-7-3">
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Both functions allow a small degree of customization, but are still limited.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a><span class="fu">ggraph</span>(student_network) <span class="sc">+</span> </span>
+<span id="cb13-2"><a href=""></a>  <span class="fu">geom_node_point</span>() <span class="sc">+</span> </span>
+<span id="cb13-3"><a href=""></a>  <span class="fu">geom_edge_link</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="sna-1-code-along_files/figure-revealjs/unnamed-chunk-15-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-7-4">
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><br> <br> The {ggraph} packages allows for some very fairly sophisticated sociograms…</p>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="sna-1-code-along_files/figure-revealjs/unnamed-chunk-16-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-7-5">
+<p>With a fair bit of coding:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a><span class="fu">ggraph</span>(student_network, <span class="at">layout =</span> <span class="st">"stress"</span>) <span class="sc">+</span> </span>
+<span id="cb14-2"><a href=""></a>  <span class="fu">geom_edge_link</span>(<span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">length =</span> <span class="fu">unit</span>(<span class="dv">1</span>, <span class="st">'mm'</span>)), </span>
+<span id="cb14-3"><a href=""></a>                 <span class="at">end_cap =</span> <span class="fu">circle</span>(<span class="dv">3</span>, <span class="st">'mm'</span>),</span>
+<span id="cb14-4"><a href=""></a>                 <span class="at">start_cap =</span> <span class="fu">circle</span>(<span class="dv">3</span>, <span class="st">'mm'</span>),</span>
+<span id="cb14-5"><a href=""></a>                 <span class="at">alpha =</span> .<span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb14-6"><a href=""></a>  <span class="fu">geom_node_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> <span class="fu">local_size</span>(),</span>
+<span id="cb14-7"><a href=""></a>                      <span class="at">color =</span> gender)) <span class="sc">+</span></span>
+<span id="cb14-8"><a href=""></a>  <span class="fu">geom_node_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> id),</span>
+<span id="cb14-9"><a href=""></a>                 <span class="at">repel=</span><span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb14-10"><a href=""></a>  <span class="fu">theme_graph</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="whats-next" class="slide level2">
+<h2>What’s Next?</h2>
+<ul>
+<li><p>SNA Case Study: <a href="https://laser-institute.github.io/network-analysis/lab-1/sna-lab-1-case-study-key.html">Who’s Friends with Who in Middle School?</a></p></li>
+<li><p>Guiding Study: <a href="https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-1/pittinsky-class-friendships.pdf">Behavioral versus cognitive classroom friendship networks.</a></p></li>
+</ul>
+</section></section>
+<section>
+<section id="acknowledgements" class="title-slide slide level1 center">
+<h1>Acknowledgements</h1>
 <div class="columns">
 <div class="column" style="width:20%;">
 <div class="quarto-figure quarto-figure-center">
