@@ -15,7 +15,7 @@ format:
     height: 1080
     margin: 0.05
     footer: <a href=https://www.go.ncsu.edu/laser-institute>go.ncsu.edu/laser-institute
-highlight-style: arrow
+highlight-style: a11y
 resources:
   - demo.pdf
 bibliography: lit/references.bib
@@ -564,7 +564,7 @@ ggraph(student_network, layout = "stress") +
 
 -   Guiding Study: [Behavioral versus cognitive classroom friendship networks.](https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-1/pittinsky-class-friendships.pdf)
 
-# Acknowledgements
+## Acknowledgements
 
 ::: columns
 ::: {.column width="20%"}
