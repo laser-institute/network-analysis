@@ -220,7 +220,7 @@ Also called **relations, edges**, or **links,** ties connect actors to one anoth
 :::
 
 ::: {.column width="50%"}
-![The teacher's perception of student friendships as illustrated by lines (friendships) connecting dots (students). ](img/ties.png){fig-align="center"}
+![The teacher's perception of student friendships as illustrated by lines (friendships) connecting dots (students).](img/ties.png){fig-align="center"}
 :::
 :::
 
@@ -334,7 +334,7 @@ Using the materials provided at your table or using a drawing tool on your perso
 If time is short, consider cutting this activity but do have a short discussion about how someones position in a network might be to their advantage or disadvantage.
 :::
 
-## Acknowledgements
+# Acknowledgements
 
 ::: columns
 ::: {.column width="20%"}
