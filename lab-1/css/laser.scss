@@ -9,13 +9,13 @@ $presentation-font-size-root: 50px;
 // colors
 $body-bg: #FFFFFF !default;
 $body-color: #000000 !default;
-$linkColor: #8f303b !default;
+$linkColor: #427E93 !default;
 $linkColorHover: #d34126 !default;
 $selection-bg: #26351c;
 
 // headings
 $presentation-heading-font: 'Open Sans','Open Sans', sans-serif !default;
-$presentation-heading-color: #8f303b !default;
+$presentation-heading-color: #427E93 !default;
 
 /*-- scss:rules --*/
 .reveal .slide {
@@ -53,9 +53,9 @@ pre, code, .sourceCode {
 
 section.slide h2 {
   color: white  !important;
-  background-color: #8f303b !important;
+  background-color: #427E93 !important;
   position: relative;
-  width: 350vw;
+  width: 400vw;
   left: -20vw;
   padding-left: 20vw;
   padding-top: 20px;

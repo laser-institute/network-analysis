@@ -1,6 +1,6 @@
 ---
 title: "Network Analysis for Newbies"
-subtitle: "Four Hallmarks, Key Terminology, & Applications in Education"
+subtitle: "Four Hallmarks, Key Terms, & Educational Applications"
 format:
   revealjs: 
     slide-number: c/t
