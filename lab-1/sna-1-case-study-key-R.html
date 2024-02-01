@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="LASER Institute">
-<meta name="dcterms.date" content="2024-01-31">
+<meta name="dcterms.date" content="2024-02-01">
 
 <title>Who’s Friends with Who in Middle School</title>
 <style>
@@ -79,18 +79,18 @@ div.csl-indent {
 }</style>
 
 
-<script src="sna-lab-1-case-study-key_files/libs/clipboard/clipboard.min.js"></script>
-<script src="sna-lab-1-case-study-key_files/libs/quarto-html/quarto.js"></script>
-<script src="sna-lab-1-case-study-key_files/libs/quarto-html/popper.min.js"></script>
-<script src="sna-lab-1-case-study-key_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="sna-lab-1-case-study-key_files/libs/quarto-html/anchor.min.js"></script>
-<link href="sna-lab-1-case-study-key_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="sna-lab-1-case-study-key_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="sna-lab-1-case-study-key_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="sna-lab-1-case-study-key_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="sna-lab-1-case-study-key_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="sna-lab-1-case-study-key_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="sna-lab-1-case-study-key_files/libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="sna-1-case-study-key-R_files/libs/clipboard/clipboard.min.js"></script>
+<script src="sna-1-case-study-key-R_files/libs/quarto-html/quarto.js"></script>
+<script src="sna-1-case-study-key-R_files/libs/quarto-html/popper.min.js"></script>
+<script src="sna-1-case-study-key-R_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="sna-1-case-study-key-R_files/libs/quarto-html/anchor.min.js"></script>
+<link href="sna-1-case-study-key-R_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="sna-1-case-study-key-R_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="sna-1-case-study-key-R_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="sna-1-case-study-key-R_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="sna-1-case-study-key-R_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="sna-1-case-study-key-R_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="sna-1-case-study-key-R_files/libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 
 
 </head>
@@ -114,12 +114,10 @@ div.csl-indent {
   <li><a href="#key-findings" id="toc-key-findings" class="nav-link" data-scroll-target="#key-findings">Key Findings</a></li>
   <li><a href="#your-turn" id="toc-your-turn" class="nav-link" data-scroll-target="#your-turn"><strong>👉 Your Turn</strong> <strong>⤵</strong></a></li>
   </ul></li>
-  <li><a href="#c.-load-packages" id="toc-c.-load-packages" class="nav-link" data-scroll-target="#c.-load-packages">1c. Load Packages</a>
+  <li><a href="#b.-load-packages" id="toc-b.-load-packages" class="nav-link" data-scroll-target="#b.-load-packages">1b. Load Packages</a>
   <ul class="collapse">
   <li><a href="#tidyverse" id="toc-tidyverse" class="nav-link" data-scroll-target="#tidyverse">tidyverse 📦</a></li>
-  </ul></li>
-  <li><a href="#new-packages" id="toc-new-packages" class="nav-link" data-scroll-target="#new-packages">New Packages</a>
-  <ul class="collapse">
+  <li><a href="#new-packages" id="toc-new-packages" class="nav-link" data-scroll-target="#new-packages">New Packages</a></li>
   <li><a href="#tidygraph" id="toc-tidygraph" class="nav-link" data-scroll-target="#tidygraph">tidygraph 📦</a></li>
   <li><a href="#ggraph" id="toc-ggraph" class="nav-link" data-scroll-target="#ggraph">ggraph 📦</a></li>
   <li><a href="#readxl" id="toc-readxl" class="nav-link" data-scroll-target="#readxl">readxl 📦</a></li>
@@ -173,7 +171,7 @@ div.csl-indent {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Who’s Friends with Who in Middle School</h1>
-<p class="subtitle lead">SNA Module 1: Case Study</p>
+<p class="subtitle lead">SNA Module 1: Case Study Key</p>
 </div>
 
 
@@ -190,7 +188,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">January 31, 2024</p>
+      <p class="date">February 1, 2024</p>
     </div>
   </div>
   
@@ -247,14 +245,14 @@ div.csl-indent {
 <section id="your-turn" class="level4">
 <h4 class="anchored" data-anchor-id="your-turn"><strong>👉 Your Turn</strong> <strong>⤵</strong></h4>
 <p>Based on what you know about networks and the context so far, what other research question(s) might ask we ask in this context that a social network perspective might be able to answer?</p>
-<p>In the space below, type a brief response to the following questions:</p>
+<p>Type a brief response in the space below:</p>
 <ul>
 <li>YOUR RESPONSE HERE</li>
 </ul>
 </section>
 </section>
-<section id="c.-load-packages" class="level3">
-<h3 class="anchored" data-anchor-id="c.-load-packages">1c. Load Packages</h3>
+<section id="b.-load-packages" class="level3">
+<h3 class="anchored" data-anchor-id="b.-load-packages">1b. Load Packages</h3>
 <p>As highlighted in&nbsp;<a href="https://datascienceineducation.com/c06.html">Chapter 6 of Data Science in Education Using R</a>&nbsp;(DSIEUR), one of the first steps of every workflow should be to set up your “Project” within RStudio. Recall that:</p>
 <blockquote class="blockquote">
 <p>A <strong>Project</strong> is the home for all of the files, images, reports, and code that are used in any given project</p>
@@ -269,12 +267,12 @@ div.csl-indent {
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Don’t worry if you saw a number of messages: those probably mean that the tidyverse loaded just fine. Any conflicts you may have seen mean that functions in these packages you loaded have the same name as functions in other packages and R will default to function from the last loaded package unless</p>
-<p>Next, we will introduce two new packages extend the tidyverse suite of packages and that we will use throughout SNA Learning Labs 1-4.</p>
+<p>Don’t worry if you saw a number of messages: those probably mean that the tidyverse loaded just fine. Any conflicts you may have seen mean that functions in these packages you loaded have the same name as functions in other packages and R will default to function from the last loaded package.</p>
 </section>
+<section id="new-packages" class="level4">
+<h4 class="anchored" data-anchor-id="new-packages">New Packages</h4>
+<p>Next, we will introduce two new packages that further extend the tidyverse and which we will use throughout the the network analysis modules.</p>
 </section>
-<section id="new-packages" class="level3">
-<h3 class="anchored" data-anchor-id="new-packages">New Packages</h3>
 <section id="tidygraph" class="level4">
 <h4 class="anchored" data-anchor-id="tidygraph">tidygraph 📦</h4>
 <p><img src="img/tidygraph.png" class="img-fluid" style="width:20.0%"></p>
@@ -663,7 +661,7 @@ div.csl-indent {
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="sna-lab-1-case-study-key_files/figure-html/plot-network-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="sna-1-case-study-key-R_files/figure-html/plot-network-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -677,7 +675,7 @@ div.csl-indent {
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="sna-lab-1-case-study-key_files/figure-html/auto-graph-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="sna-1-case-study-key-R_files/figure-html/auto-graph-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -691,7 +689,7 @@ div.csl-indent {
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="sna-lab-1-case-study-key_files/figure-html/student-sociogram-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="sna-1-case-study-key-R_files/figure-html/student-sociogram-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -705,7 +703,7 @@ div.csl-indent {
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="sna-lab-1-case-study-key_files/figure-html/teacher-sociogram-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="sna-1-case-study-key-R_files/figure-html/teacher-sociogram-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -715,7 +713,7 @@ div.csl-indent {
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="sna-lab-1-case-study-key_files/figure-html/teacher-sociogram-2.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="sna-1-case-study-key-R_files/figure-html/teacher-sociogram-2.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -737,7 +735,7 @@ div.csl-indent {
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="sna-lab-1-case-study-key_files/figure-html/ggraph-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="sna-1-case-study-key-R_files/figure-html/ggraph-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -757,7 +755,7 @@ div.csl-indent {
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="sna-lab-1-case-study-key_files/figure-html/add-nodes-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="sna-1-case-study-key-R_files/figure-html/add-nodes-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -775,7 +773,7 @@ div.csl-indent {
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="sna-lab-1-case-study-key_files/figure-html/add-layout-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="sna-1-case-study-key-R_files/figure-html/add-layout-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -793,7 +791,7 @@ div.csl-indent {
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="sna-lab-1-case-study-key_files/figure-html/add-color-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="sna-1-case-study-key-R_files/figure-html/add-color-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -810,7 +808,7 @@ div.csl-indent {
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="sna-lab-1-case-study-key_files/figure-html/add-labels-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="sna-1-case-study-key-R_files/figure-html/add-labels-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -829,7 +827,7 @@ div.csl-indent {
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="sna-lab-1-case-study-key_files/figure-html/add-edges-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="sna-1-case-study-key-R_files/figure-html/add-edges-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -853,7 +851,7 @@ div.csl-indent {
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="sna-lab-1-case-study-key_files/figure-html/tweak-edges-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="sna-1-case-study-key-R_files/figure-html/tweak-edges-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -878,7 +876,7 @@ div.csl-indent {
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="sna-lab-1-case-study-key_files/figure-html/add-theme-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="sna-1-case-study-key-R_files/figure-html/add-theme-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -904,7 +902,7 @@ div.csl-indent {
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="sna-lab-1-case-study-key_files/figure-html/your-sociogram-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="sna-1-case-study-key-R_files/figure-html/your-sociogram-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>

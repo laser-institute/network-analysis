@@ -168,7 +168,7 @@ Intro to Network Data Structures
 ::: {.column width="50%"}
 Consistent with typical data storage, node-lists often include:
 
--   identifiers lik name or **ID**
+-   identifiers like name or **ID**
 
 -   demographic info (**gender**, age)
 

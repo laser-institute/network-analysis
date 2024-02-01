@@ -1,6 +1,6 @@
 ---
-title: "Network Analysis for Newbies"
-subtitle: "Four Hallmarks, Key Terms, & Educational Applications"
+title: "Intro to Social Network Analysis"
+subtitle: "SNA Module 1: A Conceptual Overview"
 format:
   revealjs: 
     slide-number: c/t
