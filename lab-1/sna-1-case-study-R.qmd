@@ -15,10 +15,6 @@ editor: visual
 bibliography: lit/references.bib
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
-```
-
 ## 1. PREPARE
 
 Our first SNA case study is guided by the work of Matthew Pittinsky and Brian V. Carolan (2008), which employed a social network perspective to examine teachers' perceptions of student friendships agreed with their own. Sadly, this excellent study did not include any visual depictions comparing student and teacher perceived friendship networks, but we are going to fix that!
@@ -138,8 +134,6 @@ Use the code chunk below load the {tidygraph}, {ggraph}, and {readxl} packages:
 
 
 ```
-
-------------------------------------------------------------------------
 
 ## 2. WRANGLE
 
@@ -353,8 +347,6 @@ Now answer the questions that following questions:
 
     -   YOUR RESPONSE HERE
 
-------------------------------------------------------------------------
-
 ## 3. EXPLORE
 
 As noted in in our course readings, exploratory data analysis involves the processes of describing your data (such as by calculating the means and standard deviations of numeric variables, or counting the frequency of categorical variables) and, often, visualizing your data prior to modeling.
@@ -562,8 +554,6 @@ There are no right or wrong answers, just have some fun trying out different opt
 
 Congrats, you made it to the end of the EXPLORE section and created your first sociogram in R!
 
-------------------------------------------------------------------------
-
 ## 4. MODEL
 
 As highlighted in [Chapter 3 of Data Science in Education Using R](https://datascienceineducation.com/c03.html), the **Model** step of the data science process entails "using statistical models, from simple to complex, to understand trends and patterns in the data." We will not explore the use of models for SNA until Lab 4, but recall from the PREPARE section that to assess agreement between perceived friendships by the teacher and students, [@pittinsky2008behavioral] note that:
@@ -572,28 +562,42 @@ As highlighted in [Chapter 3 of Data Science in Education Using R](https://data
 
 We will learn more about the QAP and other models for statistical inference when working with relational data in Learning Lab 4.
 
-------------------------------------------------------------------------
-
 ## 5. COMMUNICATE
 
-The final step in the workflow/process is sharing the results of your analysis with wider audience. For now, we will wrap up this case study by converting our work into a webpage that can be used to communicate your learning and demonstrate some of your new R skills. To do so, you will need to "knit" your document by clicking the ![](img/knit.png){width="10%"} button in the menu bar at that the top of this file. This will do two things; it will:
+The final step in the workflow/process is sharing the results of your analysis with wider audience. Krumm et al. @krumm2018 have outlined the following 3-step process for communicating with education stakeholders findings from an analysis:
 
-1.  check through all your code for any errors; and,
+1.  **Select.** Communicating what one has learned involves selecting among those analyses that are most important and most useful to an intended audience, as well as selecting a form for displaying that information, such as a graph or table in static or interactive form, i.e. a "data product."
 
-2.  create a file in your directory that you can use to share you work through [Posit Cloud](https://posit.cloud/learn/guide#publish-from-cloud) (see screenshot example below to publish), [RPubs](#0) , [GitHub Pages](#0), [Quarto Pub](#0), or [other methods](#0).
+2.  **Polish**. After creating initial versions of data products, research teams often spend time refining or polishing them, by adding or editing titles, labels, and notations and by working with colors and shapes to highlight key points.
 
-### Knit and Publish
+3.  **Narrate.** Writing a narrative to accompany the data products involves, at a minimum, pairing a data product with its related research question, describing how best to interpret the data product, and explaining the ways in which the data product helps answer the research question and might be used to inform new analyses or a "change idea" for improving student learning.
 
-Complete the following steps to knit and publish your work:
+### Render File
 
-1.  First, change the name of the `author:` in the [YAML header](https://bookdown.org/yihui/rmarkdown-cookbook/rmarkdown-anatomy.html#yaml-metadata) at the very top of this document to your name. The YAML header controls the style and feel for knitted document but doesn't actually display in the final output.
+For your SNA Badge, you will have an opportunity to create a simple "data product" designed to illustrate some insights gained from your analysis and ideally highlight an action step or change idea that can be used to improve learning or the contexts in which learning occurs.
 
-2.  Next, click the knit button in the toolbar above to "knit" your R Markdown document to a [HTML](https://bookdown.org/yihui/rmarkdown/html-document.html) file that will be saved in your R Project folder. You should see a formatted webpage appear in your Viewer tab in the lower right pan or in a new browser window. Let's us know if you run into any issues with knitting.
+For now, we will wrap up this case study by converting your work to an HTML file that can be published and used to communicate your learning and demonstrate some of your new R skills. To do so, you will need to "render" your document by clicking the ![](img/render.png){width="4%"} Render button in the menu bar at that the top of this file.
 
-3.  Finally, publish your webpage on Posit Cloud by clicking the "Publish" button located in the Viewer Pane after you knit your document. See screenshot below.
+Rendering a document does two important things:
 
-![](img/knit-publish.png){width="80%"}
+1.  checks through all your code for any errors; and,
 
-Congratulations, you've completed your first case study! You're now ready to dig into the essential readings and try out your first SNA LASER Badge!
+2.  creates a file in your directory that you can use to share you work .
+
+Now that you've finished your first case study, click the "Render" button in the toolbar at the top of your document to covert this Quarto document to a HTML web page, just one of [the many publishing formats you can create with Quarto](https://quarto.org/docs/output-formats/all-formats.html) documents.
+
+If the files rendered correctly, you should now see a new file named `sna-1-case-study-R.html` in the Files tab located in the bottom right corner of R Studio. If so, congratulations, you just completed the getting started activity! You're now ready for the unit Case Studies that we will complete during the third week of each unit.
+
+::: callout-important
+If you encounter errors when you try to render, first check the case study answer key located in the files pane and has the suggested code for the Your Turns. If you are still having difficulties, try copying and pasting the error into Google or ChatGPT to see if you can resolve the issue. Finally, contact your instructor to debug the code together if you're still having issues.
+:::
+
+### Publish File
+
+Rendered HTML files can be published online through a variety of ways including [Posit Cloud](https://posit.cloud/learn/guide#publish-from-cloud), [RPubs](#0) , [GitHub Pages](#0), [Quarto Pub](#0), or [other methods](#0). The easiest way to quickly publish your file online is to publish directly from RStudio. You can do soby clicking the "Publish" button located in the Viewer Pane after you render your document as illustrated in the screenshot below.
+
+![](img/publish.png)
+
+Congratulations, you've completed the case study! If you've already completed the Essential Readings, you're now ready to earn your first SNA LASER Badge!
 
 ### References

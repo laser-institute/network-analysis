@@ -12,12 +12,9 @@ theme:
   light: simplex
   dark: cyborg
 editor: visual
+jupyter: python3
 bibliography: lit/references.bib
 ---
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
-```
 
 ## 1. PREPARE
 
@@ -77,24 +74,67 @@ Type a brief response in the space below:
 
 ### 1b. Load Packages
 
-As highlighted in [Chapter 6 of Data Science in Education Using R](https://datascienceineducation.com/c06.html) (DSIEUR), one of the first steps of every workflow should be to set up your "Project" within RStudio. Recall that:
+A Python package or library is a collection of modules that offer a set of functions, classes, and variables that enable developers and data analysts to perform many tasks without writing their code from scratch. These can include everything from performing mathematical operations to handling network communications, manipulating images, and more.
 
-> A **Project** is the home for all of the files, images, reports, and code that are used in any given project
+#### pandas 📦
 
-Since we are working from an R project cloned from GitHub, a Project has already been set up for you as indicated by the `.Rproj` file in your main directory in the Files pane. Instead, we will focus on getting our project set up withe the requisite packages we'll need for analysis.
+![](img/pandas.svg){width="30%"}
 
-**Packages**, or sometimes called libraries, are shareable collections of R code that can contain functions, data, and/or documentation and extend the functionality of R. You can always check to see which packages have already been installed and loaded into RStudio Cloud by looking at the the Files, Plots, & Packages Pane in the lower right-hand corner.
-
-#### tidyverse 📦
-
-![](img/tidyverse.png){width="30%"}
-
-One package that we'll be using extensively is {tidyverse}. Recall from earlier tutorials that the {tidyverse} package is actually a [collection of R packages](https://www.tidyverse.org/packages) designed for reading, wrangling, and exploring data and which all share an underlying design philosophy, grammar, and data structures. These shared features are sometimes "tidy data principles."
+One package that we'll be using extensively is {pandas}. Pandas is a powerful and flexible open source data analysis and wrangling tool for Python that is used widely by the data science community.
 
 Click the green arrow in the right corner of the "code chunk" that follows to load the {tidyverse} library as well as the {here} package introduced in previous labs.
 
-```{r load-tidyverse}
-library(tidyverse)
+```{python}
+import networkx as nx
+import pandas as pd
+import matplotlib.pyplot as plt
+
+student_friends = pd.read_excel("data/student-reported-friends.xlsx",header=None)
+student_friends
+
+# Read Excel file into a DataFrame
+student_attributes = pd.read_excel("data/student-attributes.xlsx")
+
+# Display the DataFrame
+print(student_attributes)
+
+# Read Excel file into a DataFrame
+teacher_friends = pd.read_excel("data/teacher-reported-friends.xlsx",header=None)
+
+# Display the DataFrame
+teacher_friends
+
+# Convert DataFrame to a directed graph
+student_network = nx.from_pandas_adjacency(student_friends, create_using=nx.DiGraph())
+
+# Display basic information about the graph
+print(student_network)
+
+# Extract edges and convert to a DataFrame
+student_edges = pd.DataFrame(student_network.edges(), columns=["from", "to"])
+
+# Display the DataFrame
+print(student_edges)
+
+#Add nodes
+nodes_df = pd.DataFrame(student_attributes[['id', 'gender', 'achievement', 'gender_num', 'achievement_num']])
+
+# Add node attributes to the graph
+for node_id, node_data in nodes_df.iterrows():
+    # Ensure that the node ID exists in the graph before updating attributes
+    if node_data['id'] in student_network.nodes:
+        student_network.nodes[node_data['id']].update(node_data.to_dict())
+
+# Print the graph summary
+print(student_network)
+
+teacher_network = nx.from_pandas_adjacency(teacher_friends, create_using=nx.DiGraph())
+
+# Display basic information about the graph
+print(teacher_network)
+
+nx.draw(student_network, with_labels=True, font_weight='bold')
+plt.show()
 ```
 
 Don't worry if you saw a number of messages: those probably mean that the tidyverse loaded just fine. Any conflicts you may have seen mean that functions in these packages you loaded have the same name as functions in other packages and R will default to function from the last loaded package unless
@@ -580,8 +620,6 @@ ggraph(teacher_network, layout = "fr") +
 
 Congrats, you made it to the end of the EXPLORE section and created your first sociogram in R!
 
-------------------------------------------------------------------------
-
 ## 4. MODEL
 
 As highlighted in [Chapter 3 of Data Science in Education Using R](https://datascienceineducation.com/c03.html), the **Model** step of the data science process entails "using statistical models, from simple to complex, to understand trends and patterns in the data." We will not explore the use of models for SNA until Lab 4, but recall from the PREPARE section that to assess agreement between perceived friendships by the teacher and students, [@pittinsky2008behavioral] note that:
@@ -589,8 +627,6 @@ As highlighted in [Chapter 3 of Data Science in Education Using R](https://data
 > **The QAP (quadratic assignment procedure)** \[is\] used to calculate the degree of association between two sets of relations and tests whether the probability of dyad overlap in the teacher matrix is correlated with the probability of dyad overlap in the student matrix. It does so by running a large number of simulations. These simulations generate random matrices with sizes and value distributions based on the original two matrices being tested.
 
 We will learn more about the QAP and other models for statistical inference when working with relational data in Learning Lab 4.
-
-------------------------------------------------------------------------
 
 ## 5. COMMUNICATE
 
