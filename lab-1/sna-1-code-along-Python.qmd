@@ -202,12 +202,8 @@ Consistent with typical data storage, node-lists often include:
 # Read the CSV file into a DataFrame
 student_attributes = pd.read_csv("data/student-attributes.csv")
 
-# Display the first few rows and select specific columns
-df = student_attributes[['id', 'gender', 'achievement']].head()
-
 # Display the table
-df.head()
-
+student_attributes.head()
 
 ```
 :::
@@ -227,13 +223,14 @@ Radically different than typical data storage, edge-lists include:
 :::
 
 ::: {.column width="50%"}
-```{r edge-list, echo=FALSE, message=FALSE, warning=FALSE}
+```{python}
+#| echo: false
+#| message: false
+#| warning: false
 
-student_edges <- read_csv("data/student-edgelist.csv")
+student_edges = pd.read_csv("data/student-edgelist.csv")
 
-student_edges |>
-  head() |>
-  kable()
+student_edges.head()
 
 ```
 :::
@@ -253,16 +250,14 @@ Also radically different, an adjacency matrix includes:
 :::
 
 ::: {.column width="50%"}
-```{r adjaency-matrix, echo=FALSE, message=FALSE, warning=FALSE}
+```{python}
+#| echo: false
+#| message: false
+#| warning: false
 
-rownames(teacher_friends) <- 1:27
+df = teacher_friends.iloc[:5, :5]
 
-colnames(teacher_friends) <- 1:27
-
-teacher_matrix <- as.matrix(teacher_friends)
-
-teacher_matrix[1:7, 1:7] |>
-  kable(row.names = TRUE)
+df.head()
 
 ```
 :::
@@ -290,27 +285,39 @@ Take a look at one of the network datasets in the data folder under the Files Ta
 
 Let's start by importing two Excel files that contain data about the nodes and the edges in our student friendship network:
 
-```{r import-data, echo=TRUE, message=FALSE, eval=FALSE}
-student_nodes <- read_excel("lab-1/data/student-attributes.xlsx")
+```{python}
+#| echo: true
+#| message: false
+#| eval: false
 
-student_edges <- read_excel("lab-1/data/student-edgelist.xlsx")
+student_nodes = pd.read_csv("lab-1/data/student-attributes.xlsx")
+
+student_edges = pd.read_csv("lab-1/data/student-edgelist.xlsx")
 
 ```
 
-```{r real-data, echo=FALSE, message=FALSE, eval=TRUE}
-student_edges <- read_excel("data/student-edgelist.xlsx")
+```{python}
+#| echo: false
+#| message: false
+#| eval: true
 
-student_nodes <- read_excel("data/student-attributes.xlsx")
+student_nodes = pd.read_csv("data/student-attributes.csv")
+
+student_edges = pd.read_csv("data/student-edgelist.csv")
 
 ```
 
 ### Inspect Data
 
-Now let's take a look at the data file we just imported using the `View()` function or another function of choice you may have learned previously:
+Now let's take a look at the data file we just imported using the `print()` function or another function of choice you may have learned previously:
 
-```{r inspect-data, echo=TRUE, eval=FALSE}
-View(student_edges)
-View(student_nodes)
+```{python}
+#| echo: true
+#| message: false
+#| eval: false
+
+print(student_edges)
+print(student_nodes)
 ```
 
 ### Discuss
@@ -329,31 +336,31 @@ Think about the questions below and be prepared to share your response:
 ## A Tidy Network
 
 ::: panel-tabset
-### tbl_graph( ) function
+### from_pandas_edgelist( ) function
 
 Run the following code in your R script:
 
-```{r wrangle-data}
+```{python}
 #| echo: true
 #| warning: false
 #| message: false
-student_network <- tbl_graph(edges = student_edges,
-                             nodes = student_nodes, 
-                             directed = TRUE) 
+
+student_network = nx.from_pandas_edgelist(student_edges, 
+                                          source='from', 
+                                          target='to', 
+                                          create_using=nx.DiGraph())
+
 
 ```
 
-The `tbl_graph()` function creates a special network data structure called a "tidy graph" that combines our nodes and edges into a single R object.
+The `from_pandas_edgelist()` function creates a special network data structure called a "tidy graph" that combines our nodes and edges into a single R object.
 
-<br>
+### Print Network
 
-The benefits of a "tidy graph" is that it opens up the entire suite of tidyverse tools for manipulating and constructing network data and variables noted earlier.
+Using your Python script, `print()` the network object we just created and run the code to produce the output on the next tab:
 
-### View Network
-
-Using your R script, type the name of network object we just created and run the code to produce the output on the next tab:
-
-```{r, echo=TRUE}
+```{python}
+#| echo: true
 # ADD CODE BELOW
 #
 #
@@ -363,8 +370,9 @@ Using your R script, type the name of network object we just created and run the
 
 You should see an output that looks something like this:
 
-```{r, echo=FALSE}
-student_network
+```{python}
+#| echo: false
+print(student_network)
 
 ```
 
@@ -372,11 +380,11 @@ student_network
 
 Think about the questions below:
 
-What is size of the student-reported friendship network?
+1.  What is size of the student-reported friendship network?
 
-What else do you notice about this network?
+2.  What else do you notice about this network?
 
-What questions do have about this network summary?
+3.  What questions do have about this network summary?
 :::
 
 # Explore
@@ -386,16 +394,17 @@ Making Simple and Sophisticated Sociograms
 ## A Simple Sociogram
 
 ::: panel-tabset
-## plot()
+## nx.draw()
 
 ::: columns
 ::: {.column width="50%"}
 Run the following code to make a simple sociogram:
 
-```{r}
+```{python}
 #| echo: true
 #| fig.show: hide
-plot(student_network)
+#| eval: false
+nx.draw(student_network)
 ```
 
 <br>
@@ -404,10 +413,10 @@ The `plot()` function is base R's simple but limited solution for plotting graph
 :::
 
 ::: {.column width="50%"}
-```{r}
+```{python}
 #| echo: false
 #| fig-asp: .75
-plot(student_network)
+nx.draw(student_network)
 ```
 :::
 :::

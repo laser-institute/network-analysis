@@ -1,0 +1,90 @@
+---
+title: "Essential Readings: Intro to Social Network Analysis"
+subtitle: "LASER Institute SNA Learning Lab 1"
+author: "LASER Institute"
+date: today 
+format:
+  html:
+    toc: true
+    toc-depth: 4
+    toc-location: right
+theme:
+  light: simplex
+  dark: cyborg
+editor: visual
+bibliography: lit/references.bib
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Overview
+
+The primary goal of our essential readings in Lab 1 is to build a basic understanding of social network analysis (SNA) as an approach to understand and improve learning processes and outcomes. The required and self-selected readings provide an introduction to SNA in the field of education, including the historical, theoretical, and analytical foundations of a social network perspective. A secondary goal of the readings and reflection questions is to help you start generating ideas for independent application of network analysis.
+
+## Readings
+
+The following readings for this lab illustrate how social network analysis provides educational researchers with a different way of thinking about and measuring an learning processes and outcomes by that explicitly account for the importance of one's relationships with others, as well as the larger pattern in which these relationships are embedded.
+
+1.  [Chapter 1: The Social Network Perspective and Educational Research Introduction](https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-1/carolan-network-perspective.pdf)
+
+2.  [Chapter 2: Historical, Theoretical, and Analytical Foundations](https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-1/carolan-history-theory.pdf)
+
+3.  [Chapter 3](https://methods.sagepub.com/book/social-network-analysis-and-education/n3.xml): [Basic Concepts](https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-1/carolan-basic-concepts.pdf)
+
+## Reflection
+
+To help guide your reflection on the readings, a set of guiding questions are provided below. After you have had a chance to work through one or more of the readings, **we encourage you to contribute to our learning community by creating a new post to our network-analysis channel on [Slack](http://laser-scholars.slack.com/)**. Your post might contain a response to one or more of the guiding questions, questions you still have about the topics addressed, or insights gained into your own research.
+
+### Chapter 1: The Social Network Perspective and Educational Research Introduction
+
+Consider a network of which you are a part and think about the following questions:
+
+1.  Who are the network's actors?
+
+2.  What ties connect these actors?
+
+3.  Are there any groups within this network?
+
+4.  What relations within this network might be of interest to a researcher?
+
+5.  Finally, what makes this collection of actors a social network?
+
+6.  Using the same question from the previous response, explain the analytical level at which these data would need to be collected and analyzed.
+
+### Chapter 2: Historical, Theoretical, and Analytical Foundations
+
+Draft a research question for a population you may be interested in studying, or that would be of interest to educational researchers, and that would require the collection of relational data. Next, think about the following questions:
+
+1.  What relational data would need to be collected? 
+
+2.  For what reason would relational data need to be collected in order to address this question?
+
+3.  Explain the analytical level at which these data would need to be collected and analyzed.
+
+4.  How does this differ from the ways in which individual or group behavior is typically conceptualized and modeled in conventional educational research?
+
+### Chapter 3: Basic Concepts
+
+Refer to the graph below and answer the following questions:
+
+1.  Is this graph directed or undirected? Are the lines arcs or edges? Given your responses to these questions, what type of relation might this graph represent?
+
+2.  Based on what you see in this graph, is this relation valued or binary?
+
+3.  What attribute data might you want to incorporate into analysis?
+
+#### Bonus Questions:
+
+Create a matrix that represents the relational data evident in the graph and answer the following questions:
+
+1.  How many actors are in this matrix?
+
+2.  How many rows and columns are in this matrix?
+
+3.  What type of data are in the cells of this matrix?
+
+4.  Is this matrix symmetric? Explain the values on the diagonal of the matrix.
+
+![](img/graph.jpeg)

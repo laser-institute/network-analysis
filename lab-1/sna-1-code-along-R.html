@@ -786,11 +786,11 @@
 <ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">Read Data</a></li><li><a href="#tabset-4-2">Inspect Data</a></li><li><a href="#tabset-4-3">Discuss</a></li></ul>
 <div class="tab-content">
 <div id="tabset-4-1">
-<p>Let’s start by importing two Excel files that contain data about the nodes and the edges in our student friendship network:</p>
+<p>Let’s start by importing two .csv files that contain data about the nodes and the edges in our student friendship network:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a>student_nodes <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"lab-1/data/student-attributes.xlsx"</span>)</span>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a>student_nodes <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"lab-1/data/student-attributes.csv"</span>)</span>
 <span id="cb3-2"><a href=""></a></span>
-<span id="cb3-3"><a href=""></a>student_edges <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"lab-1/data/student-edgelist.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-3"><a href=""></a>student_edges <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"lab-1/data/student-edgelist.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-4-2">
@@ -867,9 +867,11 @@
 </div>
 <div id="tabset-5-4">
 <p>Think about the questions below:</p>
-<p>What is size of the student-reported friendship network?</p>
-<p>What else do you notice about this network?</p>
-<p>What questions do have about this network summary?</p>
+<ol type="1">
+<li><p>What is size of the student-reported friendship network?</p></li>
+<li><p>What else do you notice about this network?</p></li>
+<li><p>What questions do have about this network summary?</p></li>
+</ol>
 </div>
 </div>
 </div>
@@ -898,7 +900,7 @@
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="sna-1-code-along-R_files/figure-revealjs/unnamed-chunk-7-1.png" width="960"></p>
+<p><img data-src="sna-1-code-along-R_files/figure-revealjs/unnamed-chunk-9-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -918,7 +920,7 @@
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="sna-1-code-along-R_files/figure-revealjs/unnamed-chunk-9-1.png" width="960"></p>
+<p><img data-src="sna-1-code-along-R_files/figure-revealjs/unnamed-chunk-11-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -940,7 +942,7 @@
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="sna-1-code-along-R_files/figure-revealjs/unnamed-chunk-11-1.png" width="960"></p>
+<p><img data-src="sna-1-code-along-R_files/figure-revealjs/unnamed-chunk-13-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -986,7 +988,7 @@
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="sna-1-code-along-R_files/figure-revealjs/unnamed-chunk-13-1.png" width="960"></p>
+<p><img data-src="sna-1-code-along-R_files/figure-revealjs/unnamed-chunk-15-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1008,7 +1010,7 @@
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="sna-1-code-along-R_files/figure-revealjs/unnamed-chunk-15-1.png" width="960"></p>
+<p><img data-src="sna-1-code-along-R_files/figure-revealjs/unnamed-chunk-17-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1025,7 +1027,7 @@
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="sna-1-code-along-R_files/figure-revealjs/unnamed-chunk-16-1.png" width="960"></p>
+<p><img data-src="sna-1-code-along-R_files/figure-revealjs/unnamed-chunk-18-1.png" width="960"></p>
 </figure>
 </div>
 </div>

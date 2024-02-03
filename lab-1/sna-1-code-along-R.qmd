@@ -267,19 +267,25 @@ Take a look at one of the network datasets in the data folder under the Files Ta
 ::: panel-tabset
 ### Read Data
 
-Let's start by importing two Excel files that contain data about the nodes and the edges in our student friendship network:
+Let's start by importing two .csv files that contain data about the nodes and the edges in our student friendship network:
 
-```{r import-data, echo=TRUE, message=FALSE, eval=FALSE}
-student_nodes <- read_excel("lab-1/data/student-attributes.xlsx")
+```{r}
+#| echo: true
+#| message: false
+#| eval: false
+student_nodes <- read_csv("lab-1/data/student-attributes.csv")
 
-student_edges <- read_excel("lab-1/data/student-edgelist.xlsx")
+student_edges <- read_csv("lab-1/data/student-edgelist.csv")
 
 ```
 
-```{r real-data, echo=FALSE, message=FALSE, eval=TRUE}
-student_edges <- read_excel("data/student-edgelist.xlsx")
+```{r}
+#| echo: false
+#| message: false
+#| eval: true
+student_edges <- read_csv("data/student-edgelist.csv")
 
-student_nodes <- read_excel("data/student-attributes.xlsx")
+student_nodes <- read_csv("data/student-attributes.csv")
 
 ```
 
@@ -351,11 +357,11 @@ student_network
 
 Think about the questions below:
 
-What is size of the student-reported friendship network?
+1.  What is size of the student-reported friendship network?
 
-What else do you notice about this network?
+2.  What else do you notice about this network?
 
-What questions do have about this network summary?
+3.  What questions do have about this network summary?
 :::
 
 # Explore

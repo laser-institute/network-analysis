@@ -80,166 +80,102 @@ A Python package or library is a collection of modules that offer a set of funct
 
 ![](img/pandas.svg){width="30%"}
 
-One package that we'll be using extensively is {pandas}. Pandas is a powerful and flexible open source data analysis and wrangling tool for Python that is used widely by the data science community.
+One package that we'll be using extensively is {pandas}. [Pandas](https://pandas.pydata.org) [@mckinney-proc-scipy-2010] is a powerful and flexible open source data analysis and wrangling tool for Python that is used widely by the data science community.
 
-Click the green arrow in the right corner of the "code chunk" that follows to load the {tidyverse} library as well as the {here} package introduced in previous labs.
+Click the green arrow in the right corner of the "code chunk" that follows to load the {pandas} library introduced in LA Workflow labs.
 
 ```{python}
-import networkx as nx
+
 import pandas as pd
-import matplotlib.pyplot as plt
 
-student_friends = pd.read_excel("data/student-reported-friends.xlsx",header=None)
-student_friends
-
-# Read Excel file into a DataFrame
-student_attributes = pd.read_excel("data/student-attributes.xlsx")
-
-# Display the DataFrame
-print(student_attributes)
-
-# Read Excel file into a DataFrame
-teacher_friends = pd.read_excel("data/teacher-reported-friends.xlsx",header=None)
-
-# Display the DataFrame
-teacher_friends
-
-# Convert DataFrame to a directed graph
-student_network = nx.from_pandas_adjacency(student_friends, create_using=nx.DiGraph())
-
-# Display basic information about the graph
-print(student_network)
-
-# Extract edges and convert to a DataFrame
-student_edges = pd.DataFrame(student_network.edges(), columns=["from", "to"])
-
-# Display the DataFrame
-print(student_edges)
-
-#Add nodes
-nodes_df = pd.DataFrame(student_attributes[['id', 'gender', 'achievement', 'gender_num', 'achievement_num']])
-
-# Add node attributes to the graph
-for node_id, node_data in nodes_df.iterrows():
-    # Ensure that the node ID exists in the graph before updating attributes
-    if node_data['id'] in student_network.nodes:
-        student_network.nodes[node_data['id']].update(node_data.to_dict())
-
-# Print the graph summary
-print(student_network)
-
-teacher_network = nx.from_pandas_adjacency(teacher_friends, create_using=nx.DiGraph())
-
-# Display basic information about the graph
-print(teacher_network)
-
-nx.draw(student_network, with_labels=True, font_weight='bold')
-plt.show()
 ```
-
-Don't worry if you saw a number of messages: those probably mean that the tidyverse loaded just fine. Any conflicts you may have seen mean that functions in these packages you loaded have the same name as functions in other packages and R will default to function from the last loaded package unless
 
 Next, we will introduce two new packages extend the tidyverse suite of packages and that we will use throughout SNA Learning Labs 1-4.
 
-### New Packages
+#### NetworkX 📦
 
-#### tidygraph 📦
+![](img/networkx.png){width="20%"}
 
-![](img/tidygraph.png){width="20%"}
+[NetworkX](https://networkx.org/documentation/stable/) [@SciPyProceedings_11] is a Python package for the creation, manipulation, and study of the structure, dynamics, and functions of complex networks. It provides tools for the study of the structure and dynamics of social, biological, and infrastructure networks, including:
 
-The {[tidygraph](https://tidygraph.data-imaginist.com)} package is a huge package that exports 280 different functions and methods, including access to almost all of the `dplyr` verbs plus a few more, developed for use with relational data. While network data itself is not tidy, it can be envisioned as two tidy tables, one for node data and one for edge data.
+-   Data structures for graphs, digraphs, and multigraphs
 
-The {tidygraph} package provides a way to switch between the two tables and uses `dplyr` verbs to manipulate them. Furthermore, it provides access to a lot of graph algorithms with return values that facilitate their use in a tidy workflow.
+-   Many standard graph algorithms
 
-#### ggraph 📦
+-   Network structure and analysis measures
 
-![](img/ggraph.png){width="20%"}
+-   Generators for classic graphs, random graphs, and synthetic networks
 
-Created by the same developer as {tidygraph}, {[ggraph](https://ggraph.data-imaginist.com/index.html)} -- pronounced gg-raph or g-giraffe hence the logo -- is an extension of {[ggplot](https://ggplot2.tidyverse.org)} aimed at supporting relational data structures such as networks, graphs, and trees. Both packages are more modern and widely adopted approaches data visualization in R.
+-   Nodes that can be "anything" (e.g., text, images, XML records)
 
-While ggraph builds upon the foundation of ggplot and its API, it comes with its own self-contained set of geoms, facets, etc., as well as adding the concept of *layouts* to the [grammar of graphics](https://ggplot2-book.org/introduction.html?q=grammar#what-is-the-grammar-of-graphics), i.e. the "gg" in ggplot and ggraph.
+-   Edges that can hold arbitrary data (e.g., weights, time-series)
 
-#### readxl 📦
+```{=html}
+<!-- -->
+```
+-   Ability to work with large nonstandard data sets.
 
-![](img/readxl.png){width="20%"}
-
-The [{readxl}](https://readxl.tidyverse.org/) package makes it easy to get data out of Excel and into R. Compared to many of the existing packages (e.g. gdata, xlsx, xlsReadWrite) readxl has no external dependencies, so it's easy to install and use on all operating systems. It is designed to work with *tabular* data.
-
-Since one of our data wrangling steps in the next section is importing network matrices stored in excel files, this package will come in handy.
-
-**R Studio Tip:** Type `?read_excel` into the console and check the arguments section to examine the different arguments that can be used with this function.
+With NetworkX you can load and store networks in standard and nonstandard data formats, generate many types of random and classic networks, analyze network structure, build network models, design new network algorithms, draw networks, and much more.
 
 #### **👉 Your Turn** **⤵**
 
-Use the code chunk below load the {tidygraph}, {ggraph}, and {readxl} packages:
+Use the code chunk below to import the networkx package as `nx`:
 
-```{r load-packages}
+```{python}
 # YOUR CODE HERE
-library(tidygraph)
-library(ggraph)
-library(readxl)
-```
 
-------------------------------------------------------------------------
+import networkx as nx
+
+```
 
 ## 2. WRANGLE
 
 In general, data wrangling involves some combination of cleaning, reshaping, transforming, and merging data [@wickham2016r]. As highlighted in @estrellado2020e, wrangling network data can be even more challenging than other data sources since network data often includes variables about both individuals and their relationships.
 
-For our data wrangling in lab 1, we're keeping it relatively simple since working with relational data is a bit of a departure from our working with rectangular data frames. Our primary goals for Lab 1 is learning how to:
+For our data wrangling in module 1, we're keeping it relatively simple since working with relational data is a bit of a departure from working with rectangular data frames. Our primary goals for Lab 1 is learning how to:
 
-a.  **Import Data from Excel**. In this section, we learn about the `read_xlsx()` function for importing a data stored in a format in a unique two common formats for storing network data: matrices and nodelists.
+a.  **Import Data from Excel**. In this section, we learn about the `read_xlsx()` function for importing network data stored in two common formats: matrices and nodelists.
 
-b.  **Make a Tidy Graph**. Before we can create our sociogram, we'll first need to convert our data frames into special data format, an R network `tbl_graph` object, for working with relational data.
+b.  **Convert to Network Data Structure**. Before we can create our sociogram, we'll first need to convert our data frames into special data structure for storing graphs.
 
 ### 2a. Import Data
 
-One of our primary goals for this case study to is create network graph called a sociogram that visually describes what a network "looks like" from the perspective of both students and their teacher. To do so, we'll need to import two Excel files originally obtained from the [Social Network Analysis and Education companion site](https://studysites.sagepub.com/carolan/study/resources.htm). Both files contain edges stored as a matrix and are included in the lab-1 data folder of your R Studio project. A description of each file from the companion website is copied below along with a link to the original file:
+One of our primary goals for this case study to is create network graph called a sociogram that visually describes what a network "looks like" from the perspective of both students and their teacher. To do so, we'll need to import two Excel files originally obtained from the [Social Network Analysis and Education companion site](#0). Both files contain edges stored as a matrix and are included in the lab-1 data folder of your R Studio project. A description of each file from the companion website is copied below along with a link to the original file:
 
-1.  [**99472_ds3.xlsx**](https://studysites.sagepub.com/carolan/study/materials/datasets/99472_ds3.xlsx)This adjacency matrix consists of **student-reported** friendship relations among 27 students in one class in the fall semester. These data are directed and unweighted; a friendship tie is present if the student reported that another was either a best friend or friend.
+1.  [**99472_ds3.xlsx**](https://studysites.sagepub.com/carolan/study/materials/datasets/99472_ds3.xlsx) This adjacency matrix consists of **student-reported** friendship relations among 27 students in one class in the fall semester. These data are directed and unweighted; a friendship tie is present if the student reported that another was either a best friend or friend.
 
-2.  [**99472_ds5.xlsx**](https://studysites.sagepub.com/carolan/study/materials/datasets/99472_ds5.xlsx)This adjacency matrix consists of the **teacher-reported** friendship relations among 27 students in one class in the fall semester. These data are directed and unweighted; a friendship tie is present if the teacher reported that students were either a best friend or friend.
+2.  [**99472_ds5.xlsx**](https://studysites.sagepub.com/carolan/study/materials/datasets/99472_ds5.xlsx) This adjacency matrix consists of the **teacher-reported** friendship relations among 27 students in one class in the fall semester. These data are directed and unweighted; a friendship tie is present if the teacher reported that students were either a best friend or friend.
 
-Relational data (i.e., information about the relationships among individuals in a network) are sometimes stored as an [adjacency matrix](https://en.wikipedia.org/wiki/Adjacency_matrix). Network data stored as a matrix includes a column and row for each actor in our network and each cell contains information about the **tie** between each pair of actors, often referred to as **edges**. In our case, the tie is a directed meaning that relationships between actors may not necessarily be reciprocated. For example, student 1 may report student 2 as a friend, but student 2 may or may not report student 1 as friend. If both student 2 and student 2 indicate each other as friends, then this tie, or edge, is considered **reciprocal** or **mutal**.
+Relational data (i.e., information about the relationships among individuals in a network) are sometimes stored as an [adjacency matrix](https://en.wikipedia.org/wiki/Adjacency_matrix). Network data stored as a matrix includes a column and row for each actor in our network and each cell contains information about the **tie** between each pair of actors, often referred to as **edges**. In our case, each tie is **directed,** meaning that relationships between actors may not necessarily be reciprocated. For example, student 1 may report student 2 as a friend, but student 2 may or may not report student 1 as friend. If both student 2 and student 2 indicate each other as friends, then this tie, or edge, is considered **reciprocal** or **mutual**.
 
 #### Import Student-Reported Friendships
 
-Let's use the `read_excel()` function to import the `student-reported-friends.xlsx` file, In our function, we'll include an important "argument" called `col_names =` and set it to `FALSE`. This tells R that our file does not include column names and is important to include since our file is a simple matrix with no header or column names and by default this argument is set to true and would assign the first row which contains data about student friendships as names for each column.
+Let's use the `read_excel()` function from the {pandas} package to import the `student-reported-friends.xlsx` file, In our function, we'll include an important "argument" called `header =` and set it to `None`. This tells Python that our file does not include column names and is important to include since our file is a simple matrix with no header or column names and by default this argument is set to true and would assign the first row which contains data about student friendships as names for each column.
 
 Finally, we need to make sure we can reference the matrix we import and use it later in our analysis. To do so, will save it to our "Environment" by assigning it to a variable which we will call `student_friends`.
 
-```{r student-data}
-student_friends <- read_excel("data/student-reported-friends.xlsx", 
-                              col_names = FALSE)
+```{python}
+
+student_friends = pd.read_excel("data/student-reported-friends.xlsx",header=None)
+
 ```
 
-Before importing our teacher reported friendship file, let's quickly inspect the `student_friends` R object we just imported to see what we'll be working with.
+#### **👉 Your Turn** **⤵**
 
-```{r inspect-students}
+Before importing our teacher reported friendship file, use the code chunk below to quickly inspect the `student_friends` data we just imported to see what we'll be working with.
+
+```{python}
+# YOUR CODE HERE
+
 student_friends
+
 ```
 
-As you can see, we have a 27 x 27 "[tibble](https://tibble.tidyverse.org/)" or data table representing our student friendships. Unfortunately, this data is stored in such a simple format, we have no way to easily identify who is friends with who since our data is missing names or some kind of identifier for students in our network.
+As you can see, we have a 27 x 27 data table. These representing our student friendships stored in a matrix format.
 
-#### Add Names
+1.  YOUR RESPONSE HERE
 
-R has packages for creating random names to help anonymize data, but to keep things simple, we'll just assign the numbers 1 through 27 as names for our rows and columns.
-
-```{r assign-names}
-rownames(student_friends) <- 1:27
-
-colnames(student_friends) <- 1:27
-```
-
-You may have seen a warning stating: `Setting row names on a tibble is deprecated.` You can ignore that for now but it's basically telling us these functions are old we we need to use newer function or our code will some day stop working.
-
-Again, let quickly inspect our `student_friends` data table to see if this worked:
-
-```{r view-students}
-student_friends
-```
-
-Much better! Now we can see that student 1 indicated that student 2 is their friend, and student 2 indicated that student 1 is their friend, so we can say that this friendship is "reciprocated" or "mutual." As we'll see in Lab 2, reciprocity is an import network-level measure in SNA.
+2.  YOUR RESPONSE HERE
 
 #### Import Student Attributes
 

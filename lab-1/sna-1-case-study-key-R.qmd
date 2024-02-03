@@ -87,7 +87,7 @@ Since we are working from an R project cloned from GitHub, a Project has already
 
 One package that we'll be using extensively is {tidyverse}. Recall from earlier tutorials that the {tidyverse} package is actually a [collection of R packages](https://www.tidyverse.org/packages) designed for reading, wrangling, and exploring data and which all share an underlying design philosophy, grammar, and data structures. These shared features are sometimes "tidy data principles."
 
-Click the green arrow in the right corner of the "code chunk" that follows to load the {tidyverse} library as well as the {here} package introduced in previous labs.
+Click the green arrow in the right corner of the "code chunk" that follows to load the {tidyverse} library introduced in LA Workflow modules.
 
 ```{r load-tidyverse}
 library(tidyverse)
@@ -136,15 +136,13 @@ library(ggraph)
 library(readxl)
 ```
 
-------------------------------------------------------------------------
-
 ## 2. WRANGLE
 
 In general, data wrangling involves some combination of cleaning, reshaping, transforming, and merging data [@wickham2016r]. As highlighted in @estrellado2020e, wrangling network data can be even more challenging than other data sources since network data often includes variables about both individuals and their relationships.
 
 For our data wrangling in lab 1, we're keeping it relatively simple since working with relational data is a bit of a departure from our working with rectangular data frames. Our primary goals for Lab 1 is learning how to:
 
-a.  **Import Data from Excel**. In this section, we learn about the `read_xlsx()` function for importing a data stored in a format in a unique two common formats for storing network data: matrices and nodelists.
+a.  **Import Data from Excel**. In this section, we learn about the `read_xlsx()` function for importing network data stored in two common formats: matrices and nodelists.
 
 b.  **Make a Tidy Graph**. Before we can create our sociogram, we'll first need to convert our data frames into special data format, an R network `tbl_graph` object, for working with relational data.
 
@@ -152,11 +150,11 @@ b.  **Make a Tidy Graph**. Before we can create our sociogram, we'll first need 
 
 One of our primary goals for this case study to is create network graph called a sociogram that visually describes what a network "looks like" from the perspective of both students and their teacher. To do so, we'll need to import two Excel files originally obtained from the [Social Network Analysis and Education companion site](https://studysites.sagepub.com/carolan/study/resources.htm). Both files contain edges stored as a matrix and are included in the lab-1 data folder of your R Studio project. A description of each file from the companion website is copied below along with a link to the original file:
 
-1.  [**99472_ds3.xlsx**](https://studysites.sagepub.com/carolan/study/materials/datasets/99472_ds3.xlsx)This adjacency matrix consists of **student-reported** friendship relations among 27 students in one class in the fall semester. These data are directed and unweighted; a friendship tie is present if the student reported that another was either a best friend or friend.
+1.  [**99472_ds3.xlsx**](https://studysites.sagepub.com/carolan/study/materials/datasets/99472_ds3.xlsx) This adjacency matrix consists of **student-reported** friendship relations among 27 students in one class in the fall semester. These data are directed and unweighted; a friendship tie is present if the student reported that another was either a best friend or friend.
 
-2.  [**99472_ds5.xlsx**](https://studysites.sagepub.com/carolan/study/materials/datasets/99472_ds5.xlsx)This adjacency matrix consists of the **teacher-reported** friendship relations among 27 students in one class in the fall semester. These data are directed and unweighted; a friendship tie is present if the teacher reported that students were either a best friend or friend.
+2.  [**99472_ds5.xlsx**](https://studysites.sagepub.com/carolan/study/materials/datasets/99472_ds5.xlsx) This adjacency matrix consists of the **teacher-reported** friendship relations among 27 students in one class in the fall semester. These data are directed and unweighted; a friendship tie is present if the teacher reported that students were either a best friend or friend.
 
-Relational data (i.e., information about the relationships among individuals in a network) are sometimes stored as an [adjacency matrix](https://en.wikipedia.org/wiki/Adjacency_matrix). Network data stored as a matrix includes a column and row for each actor in our network and each cell contains information about the **tie** between each pair of actors, often referred to as **edges**. In our case, the tie is a directed meaning that relationships between actors may not necessarily be reciprocated. For example, student 1 may report student 2 as a friend, but student 2 may or may not report student 1 as friend. If both student 2 and student 2 indicate each other as friends, then this tie, or edge, is considered **reciprocal** or **mutal**.
+Relational data (i.e., information about the relationships among individuals in a network) are sometimes stored as an [adjacency matrix](https://en.wikipedia.org/wiki/Adjacency_matrix). Network data stored as a matrix includes a column and row for each actor in our network and each cell contains information about the **tie** between each pair of actors, often referred to as **edges**. In our case, each tie is **directed,** meaning that relationships between actors may not necessarily be reciprocated. For example, student 1 may report student 2 as a friend, but student 2 may or may not report student 1 as friend. If both student 2 and student 2 indicate each other as friends, then this tie, or edge, is considered **reciprocal** or **mutual**.
 
 #### Import Student-Reported Friendships
 

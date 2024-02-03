@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="LASER Institute">
-<meta name="dcterms.date" content="2024-02-01">
+<meta name="dcterms.date" content="2024-02-03">
 
 <title>Who’s Friends with Who in Middle School</title>
 <style>
@@ -189,7 +189,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">February 1, 2024</p>
+      <p class="date">February 3, 2024</p>
     </div>
   </div>
   
@@ -264,7 +264,7 @@ div.csl-indent {
 <h4 class="anchored" data-anchor-id="tidyverse">tidyverse 📦</h4>
 <p><img src="img/tidyverse.png" class="img-fluid" style="width:30.0%"></p>
 <p>One package that we’ll be using extensively is {tidyverse}. Recall from earlier tutorials that the {tidyverse} package is actually a <a href="https://www.tidyverse.org/packages">collection of R packages</a> designed for reading, wrangling, and exploring data and which all share an underlying design philosophy, grammar, and data structures. These shared features are sometimes “tidy data principles.”</p>
-<p>Click the green arrow in the right corner of the “code chunk” that follows to load the {tidyverse} library as well as the {here} package introduced in previous labs.</p>
+<p>Click the green arrow in the right corner of the “code chunk” that follows to load the {tidyverse} library introduced in LA Workflow modules.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -323,7 +323,6 @@ Attaching package: 'tidygraph'</code></pre>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggraph)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<hr>
 </section>
 </section>
 </section>
@@ -332,17 +331,17 @@ Attaching package: 'tidygraph'</code></pre>
 <p>In general, data wrangling involves some combination of cleaning, reshaping, transforming, and merging data <span class="citation" data-cites="wickham2016r">(<a href="#ref-wickham2016r" role="doc-biblioref">Wickham and Grolemund 2016</a>)</span>. As highlighted in <span class="citation" data-cites="estrellado2020e">Estrellado et al. (<a href="#ref-estrellado2020e" role="doc-biblioref">2020</a>)</span>, wrangling network data can be even more challenging than other data sources since network data often includes variables about both individuals and their relationships.</p>
 <p>For our data wrangling in lab 1, we’re keeping it relatively simple since working with relational data is a bit of a departure from our working with rectangular data frames. Our primary goals for Lab 1 is learning how to:</p>
 <ol type="a">
-<li><p><strong>Import Data from Excel</strong>. In this section, we learn about the <code>read_xlsx()</code> function for importing a data stored in a format in a unique two common formats for storing network data: matrices and nodelists.</p></li>
+<li><p><strong>Import Data from Excel</strong>. In this section, we learn about the <code>read_xlsx()</code> function for importing network data stored in two common formats: matrices and nodelists.</p></li>
 <li><p><strong>Make a Tidy Graph</strong>. Before we can create our sociogram, we’ll first need to convert our data frames into special data format, an R network <code>tbl_graph</code> object, for working with relational data.</p></li>
 </ol>
 <section id="a.-import-data" class="level3">
 <h3 class="anchored" data-anchor-id="a.-import-data">2a. Import Data</h3>
 <p>One of our primary goals for this case study to is create network graph called a sociogram that visually describes what a network “looks like” from the perspective of both students and their teacher. To do so, we’ll need to import two Excel files originally obtained from the&nbsp;<a href="https://studysites.sagepub.com/carolan/study/resources.htm">Social Network Analysis and Education companion site</a>. Both files contain edges stored as a matrix and are included in the lab-1 data folder of your R Studio project. A description of each file from the companion website is copied below along with a link to the original file:</p>
 <ol type="1">
-<li><p><a href="https://studysites.sagepub.com/carolan/study/materials/datasets/99472_ds3.xlsx"><strong>99472_ds3.xlsx</strong></a>This adjacency matrix consists of <strong>student-reported</strong> friendship relations among 27 students in one class in the fall semester. These data are directed and unweighted; a friendship tie is present if the student reported that another was either a best friend or friend.</p></li>
-<li><p><a href="https://studysites.sagepub.com/carolan/study/materials/datasets/99472_ds5.xlsx"><strong>99472_ds5.xlsx</strong></a>This adjacency matrix consists of the <strong>teacher-reported</strong> friendship relations among 27 students in one class in the fall semester. These data are directed and unweighted; a friendship tie is present if the teacher reported that students were either a best friend or friend.</p></li>
+<li><p><a href="https://studysites.sagepub.com/carolan/study/materials/datasets/99472_ds3.xlsx"><strong>99472_ds3.xlsx</strong></a> This adjacency matrix consists of <strong>student-reported</strong> friendship relations among 27 students in one class in the fall semester. These data are directed and unweighted; a friendship tie is present if the student reported that another was either a best friend or friend.</p></li>
+<li><p><a href="https://studysites.sagepub.com/carolan/study/materials/datasets/99472_ds5.xlsx"><strong>99472_ds5.xlsx</strong></a> This adjacency matrix consists of the <strong>teacher-reported</strong> friendship relations among 27 students in one class in the fall semester. These data are directed and unweighted; a friendship tie is present if the teacher reported that students were either a best friend or friend.</p></li>
 </ol>
-<p>Relational data (i.e., information about the relationships among individuals in a network) are sometimes stored as an <a href="https://en.wikipedia.org/wiki/Adjacency_matrix">adjacency matrix</a>. Network data stored as a matrix includes a column and row for each actor in our network and each cell contains information about the <strong>tie</strong> between each pair of actors, often referred to as <strong>edges</strong>. In our case, the tie is a directed meaning that relationships between actors may not necessarily be reciprocated. For example, student 1 may report student 2 as a friend, but student 2 may or may not report student 1 as friend. If both student 2 and student 2 indicate each other as friends, then this tie, or edge, is considered <strong>reciprocal</strong> or <strong>mutal</strong>.</p>
+<p>Relational data (i.e., information about the relationships among individuals in a network) are sometimes stored as an <a href="https://en.wikipedia.org/wiki/Adjacency_matrix">adjacency matrix</a>. Network data stored as a matrix includes a column and row for each actor in our network and each cell contains information about the <strong>tie</strong> between each pair of actors, often referred to as <strong>edges</strong>. In our case, each tie is <strong>directed,</strong> meaning that relationships between actors may not necessarily be reciprocated. For example, student 1 may report student 2 as a friend, but student 2 may or may not report student 1 as friend. If both student 2 and student 2 indicate each other as friends, then this tie, or edge, is considered <strong>reciprocal</strong> or <strong>mutual</strong>.</p>
 <section id="import-student-reported-friendships" class="level4">
 <h4 class="anchored" data-anchor-id="import-student-reported-friendships">Import Student-Reported Friendships</h4>
 <p>Let’s use the&nbsp;<code>read_excel()</code>&nbsp;function to import the&nbsp;<code>student-reported-friends.xlsx</code>&nbsp;file, In our function, we’ll include an important “argument” called <code>col_names =</code> and set it to&nbsp;<code>FALSE</code>. This tells R that our file does not include column names and is important to include since our file is a simple matrix with no header or column names and by default this argument is set to true and would assign the first row which contains data about student friendships as names for each column.</p>
