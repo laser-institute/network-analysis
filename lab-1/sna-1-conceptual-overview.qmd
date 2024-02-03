@@ -336,7 +336,7 @@ If time is short, consider cutting this activity but do have a short discussion 
 
 ## Essential Readings
 
-The following chapters in @carolan2014 cover the topic introduced in this overview in much greater depth:
+The following chapters in @carolan2014 cover the topics introduced in this conceptual overview in much greater depth:
 
 -   [Chapter 1: The Social Network Perspective and Educational Research Introduction](https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-1/carolan-network-perspective.pdf)
 
