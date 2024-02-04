@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="LASER Institute">
-<meta name="dcterms.date" content="2024-02-03">
+<meta name="dcterms.date" content="2024-02-04">
 
 <title>Who’s Friends with Who in Middle School</title>
 <style>
@@ -112,7 +112,7 @@ div.csl-indent {
   <li><a href="#data-collection" id="toc-data-collection" class="nav-link" data-scroll-target="#data-collection">Data Collection</a></li>
   <li><a href="#analyses" id="toc-analyses" class="nav-link" data-scroll-target="#analyses">Analyses</a></li>
   <li><a href="#key-findings" id="toc-key-findings" class="nav-link" data-scroll-target="#key-findings">Key Findings</a></li>
-  <li><a href="#your-turn" id="toc-your-turn" class="nav-link" data-scroll-target="#your-turn"><strong>👉 Your Turn</strong> <strong>⤵</strong></a></li>
+  <li><a href="#question" id="toc-question" class="nav-link" data-scroll-target="#question">❓Question</a></li>
   </ul></li>
   <li><a href="#b.-load-packages" id="toc-b.-load-packages" class="nav-link" data-scroll-target="#b.-load-packages">1b. Load Packages</a>
   <ul class="collapse">
@@ -121,7 +121,7 @@ div.csl-indent {
   <li><a href="#tidygraph" id="toc-tidygraph" class="nav-link" data-scroll-target="#tidygraph">tidygraph 📦</a></li>
   <li><a href="#ggraph" id="toc-ggraph" class="nav-link" data-scroll-target="#ggraph">ggraph 📦</a></li>
   <li><a href="#readxl" id="toc-readxl" class="nav-link" data-scroll-target="#readxl">readxl 📦</a></li>
-  <li><a href="#your-turn-1" id="toc-your-turn-1" class="nav-link" data-scroll-target="#your-turn-1"><strong>👉 Your Turn</strong> <strong>⤵</strong></a></li>
+  <li><a href="#your-turn" id="toc-your-turn" class="nav-link" data-scroll-target="#your-turn"><strong>👉 Your Turn</strong> <strong>⤵</strong></a></li>
   </ul></li>
   </ul></li>
   <li><a href="#wrangle" id="toc-wrangle" class="nav-link" data-scroll-target="#wrangle">2. WRANGLE</a>
@@ -129,6 +129,8 @@ div.csl-indent {
   <li><a href="#a.-import-data" id="toc-a.-import-data" class="nav-link" data-scroll-target="#a.-import-data">2a. Import Data</a>
   <ul class="collapse">
   <li><a href="#import-student-reported-friendships" id="toc-import-student-reported-friendships" class="nav-link" data-scroll-target="#import-student-reported-friendships">Import Student-Reported Friendships</a></li>
+  <li><a href="#your-turn-1" id="toc-your-turn-1" class="nav-link" data-scroll-target="#your-turn-1"><strong>👉 Your Turn</strong> <strong>⤵</strong></a></li>
+  <li><a href="#question-1" id="toc-question-1" class="nav-link" data-scroll-target="#question-1">❓Question</a></li>
   <li><a href="#add-names" id="toc-add-names" class="nav-link" data-scroll-target="#add-names">Add Names</a></li>
   <li><a href="#import-student-attributes" id="toc-import-student-attributes" class="nav-link" data-scroll-target="#import-student-attributes">Import Student Attributes</a></li>
   <li><a href="#your-turn-2" id="toc-your-turn-2" class="nav-link" data-scroll-target="#your-turn-2"><strong>👉 Your Turn</strong> <strong>⤵</strong></a></li>
@@ -189,7 +191,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">February 3, 2024</p>
+      <p class="date">February 4, 2024</p>
     </div>
   </div>
   
@@ -243,8 +245,8 @@ div.csl-indent {
 <p>While the teacher’s perceptions and students’ reports were statistically similar, 11–29% of possible ties did not match. In particular, students reported significantly more reciprocated friendship ties than the teacher perceived.</p>
 </blockquote>
 </section>
-<section id="your-turn" class="level4">
-<h4 class="anchored" data-anchor-id="your-turn"><strong>👉 Your Turn</strong> <strong>⤵</strong></h4>
+<section id="question" class="level4">
+<h4 class="anchored" data-anchor-id="question">❓Question</h4>
 <p>Based on what you know about networks and the context so far, what other research question(s) might ask we ask in this context that a social network perspective might be able to answer?</p>
 <p>Type a brief response in the space below:</p>
 <ul>
@@ -305,8 +307,8 @@ div.csl-indent {
 <p>Since one of our data wrangling steps in the next section is importing network matrices stored in excel files, this package will come in handy.</p>
 <p><strong>R Studio Tip:</strong>&nbsp;Type&nbsp;<code>?read_excel</code>&nbsp;into the console and check the arguments section to examine the different arguments that can be used with this function.</p>
 </section>
-<section id="your-turn-1" class="level4">
-<h4 class="anchored" data-anchor-id="your-turn-1"><strong>👉 Your Turn</strong> <strong>⤵</strong></h4>
+<section id="your-turn" class="level4">
+<h4 class="anchored" data-anchor-id="your-turn"><strong>👉 Your Turn</strong> <strong>⤵</strong></h4>
 <p>Use the code chunk below load the {tidygraph}, {ggraph}, and {readxl} packages:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># YOUR CODE HERE</span></span>
@@ -344,7 +346,7 @@ Attaching package: 'tidygraph'</code></pre>
 <p>Relational data (i.e., information about the relationships among individuals in a network) are sometimes stored as an <a href="https://en.wikipedia.org/wiki/Adjacency_matrix">adjacency matrix</a>. Network data stored as a matrix includes a column and row for each actor in our network and each cell contains information about the <strong>tie</strong> between each pair of actors, often referred to as <strong>edges</strong>. In our case, each tie is <strong>directed,</strong> meaning that relationships between actors may not necessarily be reciprocated. For example, student 1 may report student 2 as a friend, but student 2 may or may not report student 1 as friend. If both student 2 and student 2 indicate each other as friends, then this tie, or edge, is considered <strong>reciprocal</strong> or <strong>mutual</strong>.</p>
 <section id="import-student-reported-friendships" class="level4">
 <h4 class="anchored" data-anchor-id="import-student-reported-friendships">Import Student-Reported Friendships</h4>
-<p>Let’s use the&nbsp;<code>read_excel()</code>&nbsp;function to import the&nbsp;<code>student-reported-friends.xlsx</code>&nbsp;file, In our function, we’ll include an important “argument” called <code>col_names =</code> and set it to&nbsp;<code>FALSE</code>. This tells R that our file does not include column names and is important to include since our file is a simple matrix with no header or column names and by default this argument is set to true and would assign the first row which contains data about student friendships as names for each column.</p>
+<p>Let’s use the&nbsp;<code>read_excel()</code>&nbsp;function to import the&nbsp;<code>student-reported-friends.xlsx</code>&nbsp;file. In our function, we’ll include an important “argument” called <code>col_names =</code> and set it to&nbsp;<code>FALSE</code>. This tells R that our file does not include column names and is important to include since our file is a simple matrix with no header or column names and by default this argument is set to true and would assign the first row which contains data about student friendships as names for each column.</p>
 <p>Finally, we need to make sure we can reference the matrix we import and use it later in our analysis. To do so, will save it to our “Environment” by assigning it to a variable which we will call&nbsp;<code>student_friends</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>student_friends <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"data/student-reported-friends.xlsx"</span>, </span>
@@ -380,9 +382,13 @@ Attaching package: 'tidygraph'</code></pre>
 • `` -&gt; `...27`</code></pre>
 </div>
 </div>
-<p>Before importing our teacher reported friendship file, let’s quickly inspect the <code>student_friends</code> R object we just imported to see what we’ll be working with.</p>
+</section>
+<section id="your-turn-1" class="level4">
+<h4 class="anchored" data-anchor-id="your-turn-1"><strong>👉 Your Turn</strong> <strong>⤵</strong></h4>
+<p>Before importing our teacher-reported friendship file, use the code chunk below to quickly inspect the <code>student_friends</code> data we just imported to see what we’ll be working with.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>student_friends</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># YOUR CODE HERE</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>student_friends</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 27 × 27
     ...1  ...2  ...3  ...4  ...5  ...6  ...7  ...8  ...9 ...10 ...11 ...12 ...13
@@ -403,7 +409,16 @@ Attaching package: 'tidygraph'</code></pre>
 #   ...23 &lt;dbl&gt;, ...24 &lt;dbl&gt;, ...25 &lt;dbl&gt;, ...26 &lt;dbl&gt;, ...27 &lt;dbl&gt;</code></pre>
 </div>
 </div>
-<p>As you can see, we have a 27 x 27 “<a href="https://tibble.tidyverse.org/">tibble</a>” or data table representing our student friendships. Unfortunately, this data is stored in such a simple format, we have no way to easily identify who is friends with who since our data is missing names or some kind of identifier for students in our network.</p>
+<p>You should now see a 27 x 27 data table that represents student-reported friendships stored as an adjacency matrix. As noted on pg. 140 of <span class="citation" data-cites="pittinsky2008behavioral">Pittinsky and Carolan (<a href="#ref-pittinsky2008behavioral" role="doc-biblioref">2008</a>)</span>, students were given a class roster and asked to describe their relationship with each student using the following choices: best friend, friend, know-like, know, know-dislike, strongly dislike, and do not know. In the terminology of network analysis, these sociometric data are <strong>valued</strong> (degrees of friendship, not just yes or no).</p>
+<p>For the purpose of the their study, and for this case study as well, all “best friend” and “friend” choices are coded as ‘1’ (friend), while all other choices are coded as ‘0’ (not friend). This process of taking a valued relationship or tie (i.e., degrees of friendship, not just yes or no) and simplifying into a binary yes/no relationship is referred to as <strong>dichotomization</strong> and we’ll explore the benefits and drawbacks of this process in Module 4.</p>
+<p>In addition to ties being valued or binary, they can also be undirected or directed. For example, in an <strong>undirected</strong> network<strong>,</strong> a friendship either exists between two actors or it does not. In a <strong>directed</strong> network, one actor or <strong>ego</strong> may indicate a relationship (e.g., friend or best friend), but the other actor or <strong>alter</strong> may indicate there is no friendship. If the relationship is present between both actors, however, the tie or edge is considered <strong>reciprocated</strong>.</p>
+</section>
+<section id="question-1" class="level4">
+<h4 class="anchored" data-anchor-id="question-1">❓Question</h4>
+<p>Does the data we just imported indicate that these ties are directed or undirected? How can you tell? Provide a brief response in the space below.</p>
+<ol type="1">
+<li>YOUR RESPONSE HERE</li>
+</ol>
 </section>
 <section id="add-names" class="level4">
 <h4 class="anchored" data-anchor-id="add-names">Add Names</h4>

@@ -63,7 +63,7 @@ As reported by @pittinsky2008behavioral in their findings section:
 
 > While the teacher's perceptions and students' reports were statistically similar, 11--29% of possible ties did not match. In particular, students reported significantly more reciprocated friendship ties than the teacher perceived.
 
-#### **👉 Your Turn** **⤵**
+#### ❓Question
 
 Based on what you know about networks and the context so far, what other research question(s) might ask we ask in this context that a social network perspective might be able to answer?
 
@@ -157,7 +157,7 @@ Relational data (i.e., information about the relationships among individuals in 
 
 #### Import Student-Reported Friendships
 
-Let's use the `read_excel()` function to import the `student-reported-friends.xlsx` file, In our function, we'll include an important "argument" called `col_names =` and set it to `FALSE`. This tells R that our file does not include column names and is important to include since our file is a simple matrix with no header or column names and by default this argument is set to true and would assign the first row which contains data about student friendships as names for each column.
+Let's use the `read_excel()` function to import the `student-reported-friends.xlsx` file. In our function, we'll include an important "argument" called `col_names =` and set it to `FALSE`. This tells R that our file does not include column names and is important to include since our file is a simple matrix with no header or column names and by default this argument is set to true and would assign the first row which contains data about student friendships as names for each column.
 
 Finally, we need to make sure we can reference the matrix we import and use it later in our analysis. To do so, will save it to our "Environment" by assigning it to a variable which we will call `student_friends`.
 
@@ -166,13 +166,28 @@ student_friends <- read_excel("data/student-reported-friends.xlsx",
                               col_names = FALSE)
 ```
 
-Before importing our teacher reported friendship file, let's quickly inspect the `student_friends` R object we just imported to see what we'll be working with.
+#### **👉 Your Turn** **⤵**
+
+Before importing our teacher-reported friendship file, use the code chunk below to quickly inspect the `student_friends` data we just imported to see what we'll be working with.
 
 ```{r inspect-students}
-student_friends
+# YOUR CODE HERE
+
+
 ```
 
-As you can see, we have a 27 x 27 "[tibble](https://tibble.tidyverse.org/)" or data table representing our student friendships. Unfortunately, this data is stored in such a simple format, we have no way to easily identify who is friends with who since our data is missing names or some kind of identifier for students in our network.
+You should now see a 27 x 27 data table that represents student-reported friendships stored as an adjacency matrix. As noted on pg. 140 of @pittinsky2008behavioral, students were given a class roster and asked to describe their relationship with each student using the following choices: best friend, friend, know-like, know, know-dislike, strongly dislike, and do not know. In the terminology of network analysis, these sociometric data are
+**valued** (degrees of friendship, not just yes or no).
+
+For the purpose of the their study, and for this case study as well, all “best friend” and “friend” choices are coded as ‘1’ (friend), while all other choices are coded as ‘0’ (not friend). This process of taking a valued relationship or tie (i.e., degrees of friendship, not just yes or no) and simplifying into a binary yes/no relationship is referred to as **dichotomization** and we'll explore the benefits and drawbacks of this process in Module 4.
+
+In addition to ties being valued or binary, they can also be undirected or directed. For example, in an **undirected** network**,** a friendship either exists between two actors or it does not. In a **directed** network, one actor or **ego** may indicate a relationship (e.g., friend or best friend), but the other actor or **alter** may indicate there is no friendship. If the relationship is present between both actors, however, the tie or edge is considered **reciprocated**.
+
+#### ❓Question
+
+Does the data we just imported indicate that these ties are directed or undirected? How can you tell? Provide a brief response in the space below.
+
+1.  YOUR RESPONSE HERE
 
 #### Add Names
 
