@@ -180,9 +180,9 @@ In addition to ties being valued or binary, they can also be undirected or direc
 
 #### ❓Question
 
-Do the data we just imported indicate that these friendship ties are directed or undirected? How can you tell? Provide a brief response in the space below.
+Provide a brief response in the space below to the following questions: Do the data we just imported indicate that these friendship ties are directed or undirected? How can you tell?
 
-1.  YOUR RESPONSE HERE
+-   YOUR RESPONSE HERE
 
 #### Import Student Attributes
 
@@ -192,62 +192,48 @@ Actor attributes are stored a rectangular array, or data frame, in which rows re
 
 Let's go ahead and read our node list into R and store as a new object called `student_attributes`:
 
-```{r student-attributes}
+```{python}
 
-student_attributes <- read_excel("data/student-attributes.xlsx")
+student_attributes = pd.read_excel("data/student-attributes.xlsx")
 
 student_attributes
 ```
 
-Note that when we imported this time, we left out the `col_names = FALSE` argument. As mentioned earlier, by default this argument is set to TRUE and assumes the first row of your data frame will contain names of the variables. Since this was indeed the case, we didn't need to include this argument. We could, however, have included this argument and set it to `TRUE` and our resulting output would still be the same.
+Note that when we imported this time, we left out the `header = None` argument. As mentioned earlier, by default this argument is set to TRUE and assumes the first row of your data frame will contain names of the variables. Since this was indeed the case, we didn't need to include this argument. We could, however, have included this argument and set it to `TRUE` and our resulting output would still be the same.
 
 #### **👉 Your Turn** **⤵**
 
-Complete the code chunk below to import the `teacher-reported-friends.xlsx` file, add row and column names, and inspect your `teacher_friends` object.
+Complete the code chunk below to import the `teacher-reported-friends.xlsx` file and inspect your `teacher_friends` object.
 
-```{r import-teacher}
+```{python import-teacher}
 # YOUR CODE HERE
-teacher_friends <- read_excel("data/teacher-reported-friends.xlsx", 
-                              col_names = FALSE)
-rownames(teacher_friends) <- 1:27
 
-colnames(teacher_friends) <- 1:27
+teacher_friends = pd.read_excel("data/teacher-reported-friends.xlsx", header = None)
 
 teacher_friends
 ```
 
-**RStudio Tip:** If you happen to run into issues with data import, RStudio has a handy "Import Dataset" feature for a point and click approach to adding data to your environment.
+### 2b. Make a Network Data Structure
 
-![](img/import.png)
-
-If you want to give this a try, be sure to pay attention to the default settings and the name it will give your data frame when imported. Also be sure to include the R code it generates in your R script or markdown file.
-
-![](img/import-preview.png)
-
-### 2b. Make a Tidy Graph
-
-Before we can begin exploring our data through through network visualization, we must first restructure our "tibble" into a formal matrix object recognized by r, and then convert our matrix to a network class R object required by the {tidygraph} and {ggraph} packages.
+Before we can begin exploring our data through through network visualization, we must first convert our `student_friends` object to a network using {networkx}.
 
 #### **Convert to Graph Object**
 
-Our final step before we're able to begin exploring our data is to convert our matrix to a network object recognized by the {tidygraph} and {ggraph} packages.
+The `from_pandas_adjacency()` function can easily convert pandas data frame to a graph.
 
-The [`as_tbl_graph()`](https://tidygraph.data-imaginist.com/reference/tbl_graph.html) general function can easily convert relational data from all common network data formats such as matrices, `network`, `phylo`, `dendrogram`, `data.tree`, `graph`, etc. 
+Run the following code to convert our adjacency matrix to directed network graph data structure, save as a new object called `student_network`, and `print()` some basic information about our network:
 
-Let's run the following code to convert our matrix to directed network graph and save as a new object called `student_network`. We'll also include the argument `directed = TRUE` in our `as_tbl_graph()` function to indicate that our network is directed.
+```{python}
+# Convert DataFrame to a directed graph
+student_network = nx.from_pandas_adjacency(student_friends, create_using = nx.DiGraph())
 
-```{r convert-network}
-student_network <- as_tbl_graph(student_friends, 
-                                directed = TRUE)
+# Display basic information about the graph
+print(student_network)
 ```
 
-Now let's take a quick look at our new `student_network` object:
+Note that the **`create_using`** argument is used to specify the type of graph you want to create when using graph creation functions, such as **`nx.from_pandas_edgelist`**, **`nx.from_numpy_matrix`**, or in our case **`nx.from_pandas_adjacency`**. This argument allows you to define the graph class (e.g., undirected, directed, multigraph, etc.) that should be used for constructing the graph.
 
-```{r student-network}
-student_network
-```
-
-As you can see, our `student_network` object provides a range of information about out network including network size, type, number of components, and a preview of the node and edge lists that it created. The node and edge lists are treated just like a typical data frame and can now be used with other tidyverse packages and functions to create new actor-level network variables like degree, reciprocity, and centrality measures.
+By default, many NetworkX functions create an undirected graph. If you want to create a different type of graph, such as a directed graph (**`DiGraph`**), a multi-graph (**`MultiGraph`**) with multiple types of ties, or a directed multi-graph (**`MultiDiGraph`**), you can pass the corresponding class to the **`create_using =`** parameter. This is particularly useful when the nature of your data or the analysis you intend to perform requires a specific type of graph.
 
 #### What is an edge list?
 

@@ -185,9 +185,9 @@ In addition to ties being valued or binary, they can also be undirected or direc
 
 #### ❓Question
 
-Does the data we just imported indicate that these ties are directed or undirected? How can you tell? Provide a brief response in the space below.
+Provide a brief response in the space below to the following questions: Do the data we just imported indicate that these friendship ties are directed or undirected? How can you tell?
 
-1.  YOUR RESPONSE HERE
+1.  Directed. For example, Student 1 did not indicate that they are friends with Student 3, but Student 3 indicated they are friends with Student 1.
 
 #### Add Names
 
@@ -241,13 +241,15 @@ colnames(teacher_friends) <- 1:27
 teacher_friends
 ```
 
-**RStudio Tip:** If you happen to run into issues with data import, RStudio has a handy "Import Dataset" feature for a point and click approach to adding data to your environment.
+::: callout-tip
+If you happen to run into issues with data import, RStudio has a handy "Import Dataset" feature for a point and click approach to adding data to your environment.
 
 ![](img/import.png)
 
 If you want to give this a try, be sure to pay attention to the default settings and the name it will give your data frame when imported. Also be sure to include the R code it generates in your R script or markdown file.
 
 ![](img/import-preview.png)
+:::
 
 ### 2b. Make a Tidy Graph
 

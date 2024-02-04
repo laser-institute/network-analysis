@@ -79,18 +79,21 @@ div.csl-indent {
 }</style>
 
 
-<script src="sna-1-case-study-key-R_files/libs/clipboard/clipboard.min.js"></script>
-<script src="sna-1-case-study-key-R_files/libs/quarto-html/quarto.js"></script>
-<script src="sna-1-case-study-key-R_files/libs/quarto-html/popper.min.js"></script>
-<script src="sna-1-case-study-key-R_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="sna-1-case-study-key-R_files/libs/quarto-html/anchor.min.js"></script>
-<link href="sna-1-case-study-key-R_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="sna-1-case-study-key-R_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="sna-1-case-study-key-R_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="sna-1-case-study-key-R_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="sna-1-case-study-key-R_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="sna-1-case-study-key-R_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="sna-1-case-study-key-R_files/libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="sna-1-case-study-key-python_files/libs/clipboard/clipboard.min.js"></script>
+<script src="sna-1-case-study-key-python_files/libs/quarto-html/quarto.js"></script>
+<script src="sna-1-case-study-key-python_files/libs/quarto-html/popper.min.js"></script>
+<script src="sna-1-case-study-key-python_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="sna-1-case-study-key-python_files/libs/quarto-html/anchor.min.js"></script>
+<link href="sna-1-case-study-key-python_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="sna-1-case-study-key-python_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="sna-1-case-study-key-python_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="sna-1-case-study-key-python_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="sna-1-case-study-key-python_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="sna-1-case-study-key-python_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="sna-1-case-study-key-python_files/libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 </head>
@@ -116,11 +119,8 @@ div.csl-indent {
   </ul></li>
   <li><a href="#b.-load-packages" id="toc-b.-load-packages" class="nav-link" data-scroll-target="#b.-load-packages">1b. Load Packages</a>
   <ul class="collapse">
-  <li><a href="#tidyverse" id="toc-tidyverse" class="nav-link" data-scroll-target="#tidyverse">tidyverse 📦</a></li>
-  <li><a href="#new-packages" id="toc-new-packages" class="nav-link" data-scroll-target="#new-packages">New Packages</a></li>
-  <li><a href="#tidygraph" id="toc-tidygraph" class="nav-link" data-scroll-target="#tidygraph">tidygraph 📦</a></li>
-  <li><a href="#ggraph" id="toc-ggraph" class="nav-link" data-scroll-target="#ggraph">ggraph 📦</a></li>
-  <li><a href="#readxl" id="toc-readxl" class="nav-link" data-scroll-target="#readxl">readxl 📦</a></li>
+  <li><a href="#pandas" id="toc-pandas" class="nav-link" data-scroll-target="#pandas">pandas 📦</a></li>
+  <li><a href="#networkx" id="toc-networkx" class="nav-link" data-scroll-target="#networkx">NetworkX 📦</a></li>
   <li><a href="#your-turn" id="toc-your-turn" class="nav-link" data-scroll-target="#your-turn"><strong>👉 Your Turn</strong> <strong>⤵</strong></a></li>
   </ul></li>
   </ul></li>
@@ -131,7 +131,6 @@ div.csl-indent {
   <li><a href="#import-student-reported-friendships" id="toc-import-student-reported-friendships" class="nav-link" data-scroll-target="#import-student-reported-friendships">Import Student-Reported Friendships</a></li>
   <li><a href="#your-turn-1" id="toc-your-turn-1" class="nav-link" data-scroll-target="#your-turn-1"><strong>👉 Your Turn</strong> <strong>⤵</strong></a></li>
   <li><a href="#question-1" id="toc-question-1" class="nav-link" data-scroll-target="#question-1">❓Question</a></li>
-  <li><a href="#add-names" id="toc-add-names" class="nav-link" data-scroll-target="#add-names">Add Names</a></li>
   <li><a href="#import-student-attributes" id="toc-import-student-attributes" class="nav-link" data-scroll-target="#import-student-attributes">Import Student Attributes</a></li>
   <li><a href="#your-turn-2" id="toc-your-turn-2" class="nav-link" data-scroll-target="#your-turn-2"><strong>👉 Your Turn</strong> <strong>⤵</strong></a></li>
   </ul></li>
@@ -162,8 +161,7 @@ div.csl-indent {
   <li><a href="#model" id="toc-model" class="nav-link" data-scroll-target="#model">4. MODEL</a></li>
   <li><a href="#communicate" id="toc-communicate" class="nav-link" data-scroll-target="#communicate">5. COMMUNICATE</a>
   <ul>
-  <li><a href="#render-file" id="toc-render-file" class="nav-link" data-scroll-target="#render-file">Render File</a></li>
-  <li><a href="#publish-file" id="toc-publish-file" class="nav-link" data-scroll-target="#publish-file">Publish File</a></li>
+  <li><a href="#knit-and-publish" id="toc-knit-and-publish" class="nav-link" data-scroll-target="#knit-and-publish">Knit and Publish</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul></li>
   </ul>
@@ -256,74 +254,42 @@ div.csl-indent {
 </section>
 <section id="b.-load-packages" class="level3">
 <h3 class="anchored" data-anchor-id="b.-load-packages">1b. Load Packages</h3>
-<p>As highlighted in&nbsp;<a href="https://datascienceineducation.com/c06.html">Chapter 6 of Data Science in Education Using R</a>&nbsp;(DSIEUR), one of the first steps of every workflow should be to set up your “Project” within RStudio. Recall that:</p>
-<blockquote class="blockquote">
-<p>A <strong>Project</strong> is the home for all of the files, images, reports, and code that are used in any given project</p>
-</blockquote>
-<p>Since we are working from an R project cloned from GitHub, a Project has already been set up for you as indicated by the <code>.Rproj</code> file in your main directory in the Files pane. Instead, we will focus on getting our project set up withe the requisite packages we’ll need for analysis.</p>
-<p><strong>Packages</strong>, or sometimes called libraries, are shareable collections of R code that can contain functions, data, and/or documentation and extend the functionality of R. You can always check to see which packages have already been installed and loaded into RStudio Cloud by looking at the the Files, Plots, &amp; Packages Pane in the lower right-hand corner.</p>
-<section id="tidyverse" class="level4">
-<h4 class="anchored" data-anchor-id="tidyverse">tidyverse 📦</h4>
-<p><img src="img/tidyverse.png" class="img-fluid" style="width:30.0%"></p>
-<p>One package that we’ll be using extensively is {tidyverse}. Recall from earlier tutorials that the {tidyverse} package is actually a <a href="https://www.tidyverse.org/packages">collection of R packages</a> designed for reading, wrangling, and exploring data and which all share an underlying design philosophy, grammar, and data structures. These shared features are sometimes “tidy data principles.”</p>
-<p>Click the green arrow in the right corner of the “code chunk” that follows to load the {tidyverse} library introduced in LA Workflow modules.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.4
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.4.4     ✔ tibble    3.2.1
-✔ lubridate 1.9.2     ✔ tidyr     1.3.0
-✔ purrr     1.0.2     
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+<p>A Python package or library is a collection of modules that offer a set of functions, classes, and variables that enable developers and data analysts to perform many tasks without writing their code from scratch. These can include everything from performing mathematical operations to handling network communications, manipulating images, and more.</p>
+<section id="pandas" class="level4">
+<h4 class="anchored" data-anchor-id="pandas">pandas 📦</h4>
+<p><img src="img/pandas.svg" class="img-fluid" style="width:30.0%"></p>
+<p>One package that we’ll be using extensively is {pandas}. <a href="https://pandas.pydata.org">Pandas</a> <span class="citation" data-cites="mckinney-proc-scipy-2010">(<a href="#ref-mckinney-proc-scipy-2010" role="doc-biblioref">McKinney 2010</a>)</span> is a powerful and flexible open source data analysis and wrangling tool for Python that is used widely by the data science community.</p>
+<p>Click the green arrow in the right corner of the “code chunk” that follows to load the {pandas} library introduced in LA Workflow labs.</p>
+<div id="b9e36a5c" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-<p>Don’t worry if you saw a number of messages: those probably mean that the tidyverse loaded just fine. Any conflicts you may have seen mean that functions in these packages you loaded have the same name as functions in other packages and R will default to function from the last loaded package.</p>
+<p>Next, we will introduce two new packages extend the tidyverse suite of packages and that we will use throughout SNA Learning Labs 1-4.</p>
 </section>
-<section id="new-packages" class="level4">
-<h4 class="anchored" data-anchor-id="new-packages">New Packages</h4>
-<p>Next, we will introduce two new packages that further extend the tidyverse and which we will use throughout the the network analysis modules.</p>
-</section>
-<section id="tidygraph" class="level4">
-<h4 class="anchored" data-anchor-id="tidygraph">tidygraph 📦</h4>
-<p><img src="img/tidygraph.png" class="img-fluid" style="width:20.0%"></p>
-<p>The {<a href="https://tidygraph.data-imaginist.com">tidygraph</a>} package is a huge package that exports 280 different functions and methods, including access to almost all of the&nbsp;<code>dplyr</code>&nbsp;verbs plus a few more, developed for use with relational data. While network data itself is not tidy, it can be envisioned as two tidy tables, one for node data and one for edge data.</p>
-<p>The {tidygraph} package provides a way to switch between the two tables and uses <code>dplyr</code> verbs to manipulate them. Furthermore, it provides access to a lot of graph algorithms with return values that facilitate their use in a tidy workflow.</p>
-</section>
-<section id="ggraph" class="level4">
-<h4 class="anchored" data-anchor-id="ggraph">ggraph 📦</h4>
-<p><img src="img/ggraph.png" class="img-fluid" style="width:20.0%"></p>
-<p>Created by the same developer as {tidygraph}, {<a href="https://ggraph.data-imaginist.com/index.html">ggraph</a>} – pronounced gg-raph or g-giraffe hence the logo – is an extension of {<a href="https://ggplot2.tidyverse.org">ggplot</a>} aimed at supporting relational data structures such as networks, graphs, and trees. Both packages are more modern and widely adopted approaches data visualization in R.</p>
-<p>While ggraph builds upon the foundation of ggplot and its API, it comes with its own self-contained set of geoms, facets, etc., as well as adding the concept of&nbsp;<em>layouts</em>&nbsp;to the <a href="https://ggplot2-book.org/introduction.html?q=grammar#what-is-the-grammar-of-graphics">grammar of graphics</a>, i.e.&nbsp;the “gg” in ggplot and ggraph.</p>
-</section>
-<section id="readxl" class="level4">
-<h4 class="anchored" data-anchor-id="readxl">readxl 📦</h4>
-<p><img src="img/readxl.png" class="img-fluid" style="width:20.0%"></p>
-<p>The&nbsp;<a href="https://readxl.tidyverse.org/">{readxl}</a>&nbsp;package makes it easy to get data out of Excel and into R. Compared to many of the existing packages (e.g.&nbsp;gdata, xlsx, xlsReadWrite) readxl has no external dependencies, so it’s easy to install and use on all operating systems. It is designed to work with <em>tabular</em> data.</p>
-<p>Since one of our data wrangling steps in the next section is importing network matrices stored in excel files, this package will come in handy.</p>
-<p><strong>R Studio Tip:</strong>&nbsp;Type&nbsp;<code>?read_excel</code>&nbsp;into the console and check the arguments section to examine the different arguments that can be used with this function.</p>
+<section id="networkx" class="level4">
+<h4 class="anchored" data-anchor-id="networkx">NetworkX 📦</h4>
+<p><img src="img/networkx.png" class="img-fluid" style="width:20.0%"></p>
+<p><a href="https://networkx.org/documentation/stable/">NetworkX</a> <span class="citation" data-cites="SciPyProceedings_11">(<a href="#ref-SciPyProceedings_11" role="doc-biblioref">Hagberg, Schult, and Swart 2008</a>)</span> is a Python package for the creation, manipulation, and study of the structure, dynamics, and functions of complex networks. It provides tools for the study of the structure and dynamics of social, biological, and infrastructure networks, including:</p>
+<ul>
+<li><p>Data structures for graphs, digraphs, and multigraphs</p></li>
+<li><p>Many standard graph algorithms</p></li>
+<li><p>Network structure and analysis measures</p></li>
+<li><p>Generators for classic graphs, random graphs, and synthetic networks</p></li>
+<li><p>Nodes that can be “anything” (e.g., text, images, XML records)</p></li>
+<li><p>Edges that can hold arbitrary data (e.g., weights, time-series)</p></li>
+</ul>
+<!-- -->
+<ul>
+<li>Ability to work with large nonstandard data sets.</li>
+</ul>
+<p>With NetworkX you can load and store networks in standard and nonstandard data formats, generate many types of random and classic networks, analyze network structure, build network models, design new network algorithms, draw networks, and much more.</p>
 </section>
 <section id="your-turn" class="level4">
 <h4 class="anchored" data-anchor-id="your-turn"><strong>👉 Your Turn</strong> <strong>⤵</strong></h4>
-<p>Use the code chunk below load the {tidygraph}, {ggraph}, and {readxl} packages:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># YOUR CODE HERE</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidygraph)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'tidygraph'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following object is masked from 'package:stats':
-
-    filter</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggraph)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Use the code chunk below to import the networkx package as <code>nx</code>:</p>
+<div id="3026c957" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># YOUR CODE HERE</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> networkx <span class="im">as</span> nx</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
@@ -331,14 +297,14 @@ Attaching package: 'tidygraph'</code></pre>
 <section id="wrangle" class="level2">
 <h2 class="anchored" data-anchor-id="wrangle">2. WRANGLE</h2>
 <p>In general, data wrangling involves some combination of cleaning, reshaping, transforming, and merging data <span class="citation" data-cites="wickham2016r">(<a href="#ref-wickham2016r" role="doc-biblioref">Wickham and Grolemund 2016</a>)</span>. As highlighted in <span class="citation" data-cites="estrellado2020e">Estrellado et al. (<a href="#ref-estrellado2020e" role="doc-biblioref">2020</a>)</span>, wrangling network data can be even more challenging than other data sources since network data often includes variables about both individuals and their relationships.</p>
-<p>For our data wrangling in lab 1, we’re keeping it relatively simple since working with relational data is a bit of a departure from our working with rectangular data frames. Our primary goals for Lab 1 is learning how to:</p>
+<p>For our data wrangling in module 1, we’re keeping it relatively simple since working with relational data is a bit of a departure from working with rectangular data frames. Our primary goals for Lab 1 is learning how to:</p>
 <ol type="a">
 <li><p><strong>Import Data from Excel</strong>. In this section, we learn about the <code>read_xlsx()</code> function for importing network data stored in two common formats: matrices and nodelists.</p></li>
-<li><p><strong>Make a Tidy Graph</strong>. Before we can create our sociogram, we’ll first need to convert our data frames into special data format, an R network <code>tbl_graph</code> object, for working with relational data.</p></li>
+<li><p><strong>Convert to Network Data Structure</strong>. Before we can create our sociogram, we’ll first need to convert our data frames into special data structure for storing graphs.</p></li>
 </ol>
 <section id="a.-import-data" class="level3">
 <h3 class="anchored" data-anchor-id="a.-import-data">2a. Import Data</h3>
-<p>One of our primary goals for this case study to is create network graph called a sociogram that visually describes what a network “looks like” from the perspective of both students and their teacher. To do so, we’ll need to import two Excel files originally obtained from the&nbsp;<a href="https://studysites.sagepub.com/carolan/study/resources.htm">Social Network Analysis and Education companion site</a>. Both files contain edges stored as a matrix and are included in the lab-1 data folder of your R Studio project. A description of each file from the companion website is copied below along with a link to the original file:</p>
+<p>One of our primary goals for this case study to is create network graph called a sociogram that visually describes what a network “looks like” from the perspective of both students and their teacher. To do so, we’ll need to import two Excel files originally obtained from the <a href="#0">Social Network Analysis and Education companion site</a>. Both files contain edges stored as a matrix and are included in the lab-1 data folder of your R Studio project. A description of each file from the companion website is copied below along with a link to the original file:</p>
 <ol type="1">
 <li><p><a href="https://studysites.sagepub.com/carolan/study/materials/datasets/99472_ds3.xlsx"><strong>99472_ds3.xlsx</strong></a> This adjacency matrix consists of <strong>student-reported</strong> friendship relations among 27 students in one class in the fall semester. These data are directed and unweighted; a friendship tie is present if the student reported that another was either a best friend or friend.</p></li>
 <li><p><a href="https://studysites.sagepub.com/carolan/study/materials/datasets/99472_ds5.xlsx"><strong>99472_ds5.xlsx</strong></a> This adjacency matrix consists of the <strong>teacher-reported</strong> friendship relations among 27 students in one class in the fall semester. These data are directed and unweighted; a friendship tie is present if the teacher reported that students were either a best friend or friend.</p></li>
@@ -346,67 +312,704 @@ Attaching package: 'tidygraph'</code></pre>
 <p>Relational data (i.e., information about the relationships among individuals in a network) are sometimes stored as an <a href="https://en.wikipedia.org/wiki/Adjacency_matrix">adjacency matrix</a>. Network data stored as a matrix includes a column and row for each actor in our network and each cell contains information about the <strong>tie</strong> between each pair of actors, often referred to as <strong>edges</strong>. In our case, each tie is <strong>directed,</strong> meaning that relationships between actors may not necessarily be reciprocated. For example, student 1 may report student 2 as a friend, but student 2 may or may not report student 1 as friend. If both student 2 and student 2 indicate each other as friends, then this tie, or edge, is considered <strong>reciprocal</strong> or <strong>mutual</strong>.</p>
 <section id="import-student-reported-friendships" class="level4">
 <h4 class="anchored" data-anchor-id="import-student-reported-friendships">Import Student-Reported Friendships</h4>
-<p>Let’s use the&nbsp;<code>read_excel()</code>&nbsp;function to import the&nbsp;<code>student-reported-friends.xlsx</code>&nbsp;file. In our function, we’ll include an important “argument” called <code>col_names =</code> and set it to&nbsp;<code>FALSE</code>. This tells R that our file does not include column names and is important to include since our file is a simple matrix with no header or column names and by default this argument is set to true and would assign the first row which contains data about student friendships as names for each column.</p>
+<p>Let’s use the&nbsp;<code>read_excel()</code>&nbsp;function from the {pandas} package to import the&nbsp;<code>student-reported-friends.xlsx</code>&nbsp;file. In our function, we’ll include an important “argument” called&nbsp;<code>header =</code>&nbsp;and set it to&nbsp;<code>None</code>. This tells Python that our file does not include column names and is important to include since our file is a simple matrix with no header or column names and by default this argument is set to true and would assign the first row which contains data about student friendships as names for each column.</p>
 <p>Finally, we need to make sure we can reference the matrix we import and use it later in our analysis. To do so, will save it to our “Environment” by assigning it to a variable which we will call&nbsp;<code>student_friends</code>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>student_friends <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"data/student-reported-friends.xlsx"</span>, </span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>                              <span class="at">col_names =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>New names:
-• `` -&gt; `...1`
-• `` -&gt; `...2`
-• `` -&gt; `...3`
-• `` -&gt; `...4`
-• `` -&gt; `...5`
-• `` -&gt; `...6`
-• `` -&gt; `...7`
-• `` -&gt; `...8`
-• `` -&gt; `...9`
-• `` -&gt; `...10`
-• `` -&gt; `...11`
-• `` -&gt; `...12`
-• `` -&gt; `...13`
-• `` -&gt; `...14`
-• `` -&gt; `...15`
-• `` -&gt; `...16`
-• `` -&gt; `...17`
-• `` -&gt; `...18`
-• `` -&gt; `...19`
-• `` -&gt; `...20`
-• `` -&gt; `...21`
-• `` -&gt; `...22`
-• `` -&gt; `...23`
-• `` -&gt; `...24`
-• `` -&gt; `...25`
-• `` -&gt; `...26`
-• `` -&gt; `...27`</code></pre>
-</div>
+<div id="fbef5616" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>student_friends <span class="op">=</span> pd.read_excel(<span class="st">"data/student-reported-friends.xlsx"</span>, header <span class="op">=</span> <span class="va">None</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="your-turn-1" class="level4">
 <h4 class="anchored" data-anchor-id="your-turn-1"><strong>👉 Your Turn</strong> <strong>⤵</strong></h4>
 <p>Before importing our teacher-reported friendship file, use the code chunk below to quickly inspect the <code>student_friends</code> data we just imported to see what we’ll be working with.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># YOUR CODE HERE</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>student_friends</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 27 × 27
-    ...1  ...2  ...3  ...4  ...5  ...6  ...7  ...8  ...9 ...10 ...11 ...12 ...13
-   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
- 1     0     1     0     1     1     1     1     1     1     0     0     1     0
- 2     1     0     0     0     1     0     0     0     0     1     1     0     0
- 3     1     0     0     1     0     0     0     1     0     1     0     0     0
- 4     1     0     0     0     0     0     0     0     0     0     0     1     0
- 5     1     1     0     1     0     1     1     1     1     0     1     1     1
- 6     1     0     0     0     1     0     0     0     1     0     1     1     1
- 7     1     0     1     1     0     0     0     0     1     0     0     0     1
- 8     1     0     1     1     1     0     1     0     1     1     1     0     1
- 9     1     0     0     0     0     1     1     0     0     0     1     0     1
-10     1     1     1     1     1     0     1     1     0     0     1     1     1
-# ℹ 17 more rows
-# ℹ 14 more variables: ...14 &lt;dbl&gt;, ...15 &lt;dbl&gt;, ...16 &lt;dbl&gt;, ...17 &lt;dbl&gt;,
-#   ...18 &lt;dbl&gt;, ...19 &lt;dbl&gt;, ...20 &lt;dbl&gt;, ...21 &lt;dbl&gt;, ...22 &lt;dbl&gt;,
-#   ...23 &lt;dbl&gt;, ...24 &lt;dbl&gt;, ...25 &lt;dbl&gt;, ...26 &lt;dbl&gt;, ...27 &lt;dbl&gt;</code></pre>
+<div id="1db29b6f" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># YOUR CODE HERE</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>student_friends</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">0</th>
+<th data-quarto-table-cell-role="th">1</th>
+<th data-quarto-table-cell-role="th">2</th>
+<th data-quarto-table-cell-role="th">3</th>
+<th data-quarto-table-cell-role="th">4</th>
+<th data-quarto-table-cell-role="th">5</th>
+<th data-quarto-table-cell-role="th">6</th>
+<th data-quarto-table-cell-role="th">7</th>
+<th data-quarto-table-cell-role="th">8</th>
+<th data-quarto-table-cell-role="th">9</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">17</th>
+<th data-quarto-table-cell-role="th">18</th>
+<th data-quarto-table-cell-role="th">19</th>
+<th data-quarto-table-cell-role="th">20</th>
+<th data-quarto-table-cell-role="th">21</th>
+<th data-quarto-table-cell-role="th">22</th>
+<th data-quarto-table-cell-role="th">23</th>
+<th data-quarto-table-cell-role="th">24</th>
+<th data-quarto-table-cell-role="th">25</th>
+<th data-quarto-table-cell-role="th">26</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>...</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>...</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>...</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>...</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>...</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>...</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>...</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>...</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>...</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>...</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">10</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>...</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">11</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>...</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">12</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>...</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">13</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>...</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">14</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>...</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">15</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>...</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">16</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>...</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">17</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>...</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">18</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>...</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">19</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>...</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">20</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>...</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">21</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>...</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">22</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>...</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">23</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>...</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">24</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>...</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">25</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>...</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">26</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>...</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+
+<p>27 rows × 27 columns</p>
+</div>
 </div>
 </div>
 <p>You should now see a 27 x 27 data table that represents student-reported friendships stored as an adjacency matrix. As noted on pg. 140 of <span class="citation" data-cites="pittinsky2008behavioral">Pittinsky and Carolan (<a href="#ref-pittinsky2008behavioral" role="doc-biblioref">2008</a>)</span>, students were given a class roster and asked to describe their relationship with each student using the following choices: best friend, friend, know-like, know, know-dislike, strongly dislike, and do not know. In the terminology of network analysis, these sociometric data are <strong>valued</strong> (degrees of friendship, not just yes or no).</p>
@@ -416,152 +1019,957 @@ Attaching package: 'tidygraph'</code></pre>
 <section id="question-1" class="level4">
 <h4 class="anchored" data-anchor-id="question-1">❓Question</h4>
 <p>Provide a brief response in the space below to the following questions: Do the data we just imported indicate that these friendship ties are directed or undirected? How can you tell?</p>
-<ol type="1">
-<li>Directed. For example, Student 1 did not indicate that they are friends with Student 3, but Student 3 indicated they are friends with Student 1.</li>
-</ol>
-</section>
-<section id="add-names" class="level4">
-<h4 class="anchored" data-anchor-id="add-names">Add Names</h4>
-<p>R has packages for creating random names to help anonymize data, but to keep things simple, we’ll just assign the numbers 1 through 27 as names for our rows and columns.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(student_friends) <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">27</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Setting row names on a tibble is deprecated.</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(student_friends) <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">27</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>You may have seen a warning stating:&nbsp;<code>Setting row names on a tibble is deprecated.</code>&nbsp;You can ignore that for now but it’s basically telling us these functions are old we we need to use newer function or our code will some day stop working.</p>
-<p>Again, let quickly inspect our&nbsp;<code>student_friends</code> data table to see if this worked:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>student_friends</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 27 × 27
-     `1`   `2`   `3`   `4`   `5`   `6`   `7`   `8`   `9`  `10`  `11`  `12`  `13`
- * &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
- 1     0     1     0     1     1     1     1     1     1     0     0     1     0
- 2     1     0     0     0     1     0     0     0     0     1     1     0     0
- 3     1     0     0     1     0     0     0     1     0     1     0     0     0
- 4     1     0     0     0     0     0     0     0     0     0     0     1     0
- 5     1     1     0     1     0     1     1     1     1     0     1     1     1
- 6     1     0     0     0     1     0     0     0     1     0     1     1     1
- 7     1     0     1     1     0     0     0     0     1     0     0     0     1
- 8     1     0     1     1     1     0     1     0     1     1     1     0     1
- 9     1     0     0     0     0     1     1     0     0     0     1     0     1
-10     1     1     1     1     1     0     1     1     0     0     1     1     1
-# ℹ 17 more rows
-# ℹ 14 more variables: `14` &lt;dbl&gt;, `15` &lt;dbl&gt;, `16` &lt;dbl&gt;, `17` &lt;dbl&gt;,
-#   `18` &lt;dbl&gt;, `19` &lt;dbl&gt;, `20` &lt;dbl&gt;, `21` &lt;dbl&gt;, `22` &lt;dbl&gt;, `23` &lt;dbl&gt;,
-#   `24` &lt;dbl&gt;, `25` &lt;dbl&gt;, `26` &lt;dbl&gt;, `27` &lt;dbl&gt;</code></pre>
-</div>
-</div>
-<p>Much better! Now we can see that student 1 indicated that student 2 is their friend, and student 2 indicated that student 1 is their friend, so we can say that this friendship is “reciprocated” or “mutual.” As we’ll see in Lab 2, reciprocity is an import network-level measure in SNA.</p>
+<ul>
+<li>YOUR RESPONSE HERE</li>
+</ul>
 </section>
 <section id="import-student-attributes" class="level4">
 <h4 class="anchored" data-anchor-id="import-student-attributes">Import Student Attributes</h4>
 <p>Before importing our teacher-reported student friendships, we have another important file to import. As noted by <span class="citation" data-cites="carolan2014">Carolan (<a href="#ref-carolan2014" role="doc-biblioref">2014</a>)</span> , most social network analyses include variables that describe the attributes of actors in a network. These attribute variables can be either categorical (e.g., sex, race, etc.) or continuous in nature (e.g., test scores, number of times absent, etc.).</p>
 <p>Actor attributes are stored a rectangular array, or data frame, in which rows represent a social entity (e.g., students, staff, schools, etc.), columns represent variables, and cells consist of values on those variables. This file containing a list of actors, or nodes, along with their attributes is sometimes referred to as a <strong>node list</strong>.</p>
 <p>Let’s go ahead and read our node list into R and store as a new object called <code>student_attributes</code>:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>student_attributes <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"data/student-attributes.xlsx"</span>)</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>student_attributes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 27 × 5
-      id gender achievement gender_num achievement_num
-   &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;            &lt;dbl&gt;           &lt;dbl&gt;
- 1     1 female high                 1               1
- 2     2 male   average              0               2
- 3     3 female average              1               2
- 4     4 male   high                 0               1
- 5     5 female average              1               2
- 6     6 female average              1               2
- 7     7 female high                 1               1
- 8     8 female average              1               2
- 9     9 female high                 1               1
-10    10 male   low                  0               3
-# ℹ 17 more rows</code></pre>
+<div id="1f400ac9" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>student_attributes <span class="op">=</span> pd.read_excel(<span class="st">"data/student-attributes.xlsx"</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>student_attributes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">id</th>
+<th data-quarto-table-cell-role="th">gender</th>
+<th data-quarto-table-cell-role="th">achievement</th>
+<th data-quarto-table-cell-role="th">gender_num</th>
+<th data-quarto-table-cell-role="th">achievement_num</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1</td>
+<td>female</td>
+<td>high</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2</td>
+<td>male</td>
+<td>average</td>
+<td>0</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>3</td>
+<td>female</td>
+<td>average</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>4</td>
+<td>male</td>
+<td>high</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>5</td>
+<td>female</td>
+<td>average</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>6</td>
+<td>female</td>
+<td>average</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>7</td>
+<td>female</td>
+<td>high</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>8</td>
+<td>female</td>
+<td>average</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>9</td>
+<td>female</td>
+<td>high</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>10</td>
+<td>male</td>
+<td>low</td>
+<td>0</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">10</td>
+<td>11</td>
+<td>male</td>
+<td>high</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">11</td>
+<td>12</td>
+<td>male</td>
+<td>low</td>
+<td>0</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">12</td>
+<td>13</td>
+<td>female</td>
+<td>low</td>
+<td>1</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">13</td>
+<td>14</td>
+<td>female</td>
+<td>average</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">14</td>
+<td>15</td>
+<td>female</td>
+<td>average</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">15</td>
+<td>16</td>
+<td>female</td>
+<td>low</td>
+<td>1</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">16</td>
+<td>17</td>
+<td>female</td>
+<td>low</td>
+<td>1</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">17</td>
+<td>18</td>
+<td>female</td>
+<td>average</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">18</td>
+<td>19</td>
+<td>male</td>
+<td>low</td>
+<td>0</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">19</td>
+<td>20</td>
+<td>male</td>
+<td>low</td>
+<td>0</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">20</td>
+<td>21</td>
+<td>male</td>
+<td>average</td>
+<td>0</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">21</td>
+<td>22</td>
+<td>female</td>
+<td>low</td>
+<td>1</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">22</td>
+<td>23</td>
+<td>male</td>
+<td>low</td>
+<td>0</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">23</td>
+<td>24</td>
+<td>male</td>
+<td>high</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">24</td>
+<td>25</td>
+<td>female</td>
+<td>high</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">25</td>
+<td>26</td>
+<td>female</td>
+<td>low</td>
+<td>1</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">26</td>
+<td>27</td>
+<td>male</td>
+<td>high</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+
 </div>
 </div>
-<p>Note that when we imported this time, we left out the <code>col_names = FALSE</code> argument. As mentioned earlier, by default this argument is set to TRUE and assumes the first row of your data frame will contain names of the variables. Since this was indeed the case, we didn’t need to include this argument. We could, however, have included this argument and set it to <code>TRUE</code> and our resulting output would still be the same.</p>
+</div>
+<p>Note that when we imported this time, we left out the <code>header = None</code> argument. As mentioned earlier, by default this argument is set to TRUE and assumes the first row of your data frame will contain names of the variables. Since this was indeed the case, we didn’t need to include this argument. We could, however, have included this argument and set it to <code>TRUE</code> and our resulting output would still be the same.</p>
 </section>
 <section id="your-turn-2" class="level4">
 <h4 class="anchored" data-anchor-id="your-turn-2"><strong>👉 Your Turn</strong> <strong>⤵</strong></h4>
-<p>Complete the code chunk below to import the <code>teacher-reported-friends.xlsx</code>&nbsp;file, add row and column names, and inspect your <code>teacher_friends</code> object.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># YOUR CODE HERE</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>teacher_friends <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"data/teacher-reported-friends.xlsx"</span>, </span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>                              <span class="at">col_names =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Complete the code chunk below to import the <code>teacher-reported-friends.xlsx</code>&nbsp;file and inspect your <code>teacher_friends</code> object.</p>
+<div id="e5ffb14e" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># YOUR CODE HERE</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>teacher_friends <span class="op">=</span> pd.read_excel(<span class="st">"data/teacher-reported-friends.xlsx"</span>, header <span class="op">=</span> <span class="va">None</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>teacher_friends</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>New names:
-• `` -&gt; `...1`
-• `` -&gt; `...2`
-• `` -&gt; `...3`
-• `` -&gt; `...4`
-• `` -&gt; `...5`
-• `` -&gt; `...6`
-• `` -&gt; `...7`
-• `` -&gt; `...8`
-• `` -&gt; `...9`
-• `` -&gt; `...10`
-• `` -&gt; `...11`
-• `` -&gt; `...12`
-• `` -&gt; `...13`
-• `` -&gt; `...14`
-• `` -&gt; `...15`
-• `` -&gt; `...16`
-• `` -&gt; `...17`
-• `` -&gt; `...18`
-• `` -&gt; `...19`
-• `` -&gt; `...20`
-• `` -&gt; `...21`
-• `` -&gt; `...22`
-• `` -&gt; `...23`
-• `` -&gt; `...24`
-• `` -&gt; `...25`
-• `` -&gt; `...26`
-• `` -&gt; `...27`</code></pre>
+<pre><code>/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/openpyxl/worksheet/_reader.py:329: UserWarning: Unknown extension is not supported and will be removed
+  warn(msg)</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(teacher_friends) <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">27</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Setting row names on a tibble is deprecated.</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">0</th>
+<th data-quarto-table-cell-role="th">1</th>
+<th data-quarto-table-cell-role="th">2</th>
+<th data-quarto-table-cell-role="th">3</th>
+<th data-quarto-table-cell-role="th">4</th>
+<th data-quarto-table-cell-role="th">5</th>
+<th data-quarto-table-cell-role="th">6</th>
+<th data-quarto-table-cell-role="th">7</th>
+<th data-quarto-table-cell-role="th">8</th>
+<th data-quarto-table-cell-role="th">9</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">17</th>
+<th data-quarto-table-cell-role="th">18</th>
+<th data-quarto-table-cell-role="th">19</th>
+<th data-quarto-table-cell-role="th">20</th>
+<th data-quarto-table-cell-role="th">21</th>
+<th data-quarto-table-cell-role="th">22</th>
+<th data-quarto-table-cell-role="th">23</th>
+<th data-quarto-table-cell-role="th">24</th>
+<th data-quarto-table-cell-role="th">25</th>
+<th data-quarto-table-cell-role="th">26</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>...</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>...</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>...</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>...</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>...</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>...</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>...</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>...</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>...</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>...</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">10</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>...</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">11</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>...</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">12</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>...</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">13</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>...</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">14</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>...</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">15</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>...</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">16</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>...</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">17</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>...</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">18</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>...</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">19</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>...</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">20</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>...</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">21</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>...</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">22</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>...</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">23</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>...</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">24</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>...</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">25</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>...</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">26</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>...</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+
+<p>27 rows × 27 columns</p>
 </div>
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(teacher_friends) <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">27</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>teacher_friends</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 27 × 27
-     `1`   `2`   `3`   `4`   `5`   `6`   `7`   `8`   `9`  `10`  `11`  `12`  `13`
- * &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
- 1     0     0     0     1     0     0     0     0     0     0     0     1     0
- 2     0     0     1     0     0     0     0     1     0     1     0     0     0
- 3     0     1     0     0     0     0     0     1     0     1     0     0     0
- 4     0     0     0     0     0     0     0     0     0     0     0     0     0
- 5     1     0     0     0     0     0     0     0     0     0     0     1     1
- 6     0     0     0     0     0     0     0     0     0     0     0     0     1
- 7     0     0     0     0     0     0     0     0     0     0     0     0     1
- 8     0     1     1     0     0     0     0     0     0     1     0     0     0
- 9     0     0     0     0     0     0     0     0     0     0     1     0     0
-10     0     1     1     0     0     0     0     1     0     0     0     0     0
-# ℹ 17 more rows
-# ℹ 14 more variables: `14` &lt;dbl&gt;, `15` &lt;dbl&gt;, `16` &lt;dbl&gt;, `17` &lt;dbl&gt;,
-#   `18` &lt;dbl&gt;, `19` &lt;dbl&gt;, `20` &lt;dbl&gt;, `21` &lt;dbl&gt;, `22` &lt;dbl&gt;, `23` &lt;dbl&gt;,
-#   `24` &lt;dbl&gt;, `25` &lt;dbl&gt;, `26` &lt;dbl&gt;, `27` &lt;dbl&gt;</code></pre>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>If you happen to run into issues with data import, RStudio has a handy “Import Dataset” feature for a point and click approach to adding data to your environment.</p>
-<p><img src="img/import.png" class="img-fluid"></p>
-<p>If you want to give this a try, be sure to pay attention to the default settings and the name it will give your data frame when imported. Also be sure to include the R code it generates in your R script or markdown file.</p>
-<p><img src="img/import-preview.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
@@ -574,38 +1982,10 @@ Tip
 <p>Our final step before we’re able to begin exploring our data is to convert our matrix to a network object recognized by the {tidygraph} and {ggraph} packages.</p>
 <p>The&nbsp;<a href="https://tidygraph.data-imaginist.com/reference/tbl_graph.html"><code>as_tbl_graph()</code></a>&nbsp;general function can easily convert relational data from all common network data formats such as matrices, <code>network</code>, <code>phylo</code>, <code>dendrogram</code>, <code>data.tree</code>, <code>graph</code>, etc.&nbsp;</p>
 <p>Let’s run the following code to convert our matrix to directed network graph and save as a new object called&nbsp;<code>student_network</code>. We’ll also include the argument <code>directed = TRUE</code> in our <code>as_tbl_graph()</code> function to indicate that our network is directed.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>student_network <span class="ot">&lt;-</span> <span class="fu">as_tbl_graph</span>(student_friends, </span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>                                <span class="at">directed =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<pre class="{r convert-network}"><code>student_network &lt;- as_tbl_graph(student_friends, 
+                                directed = TRUE)</code></pre>
 <p>Now let’s take a quick look at our new <code>student_network</code> object:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>student_network</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tbl_graph: 27 nodes and 287 edges
-#
-# An undirected multigraph with 2 components
-#
-# A tibble: 27 × 1
-  name 
-  &lt;chr&gt;
-1 1    
-2 2    
-3 3    
-4 4    
-5 5    
-6 6    
-# ℹ 21 more rows
-#
-# A tibble: 287 × 3
-   from    to weight
-  &lt;int&gt; &lt;int&gt;  &lt;dbl&gt;
-1     1     1     13
-2     1     2      3
-3     1     3      2
-# ℹ 284 more rows</code></pre>
-</div>
-</div>
+<pre class="{r student-network}"><code>student_network</code></pre>
 <p>As you can see, our&nbsp;<code>student_network</code> object provides a range of information about out network including network size, type, number of components, and a preview of the node and edge lists that it created. The node and edge lists are treated just like a typical data frame and can now be used with other tidyverse packages and functions to create new actor-level network variables like degree, reciprocity, and centrality measures.</p>
 </section>
 <section id="what-is-an-edge-list" class="level4">
@@ -620,35 +2000,15 @@ Tip
 <p>For now, let’s just use the <code>activate()</code> function to single out the edgelist in our network object, use the <code>as_tibble()</code> function to temporarily convert it to a data frame, and use the <code>&lt;-</code> assignment operator to permanently save it in our environment as <code>student_edges</code>.</p>
 <p>We’ll also use a very powerful <code>|&gt;</code> operator called a <strong>pipe</strong>. Pipes are a powerful tool for combining a sequence of functions or processes. The original pipe operator,&nbsp;<code>%&gt;%</code>, comes from the {<strong>magrittr</strong>} package but all packages in the tidyverse load&nbsp;<code>%&gt;%</code>&nbsp;for you automatically, so you don’t usually load magrittr explicitly.</p>
 <p>The pipe has become such a useful and much used operator in R that it is now baked into R using the new and simpler version of the pipe <code>|&gt;</code> operator demonstrated in the following code chunk:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>student_edges <span class="ot">&lt;-</span> student_network <span class="sc">|&gt;</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">activate</span>(edges) <span class="sc">|&gt;</span></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>()</span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>student_edges</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 287 × 3
-    from    to weight
-   &lt;int&gt; &lt;int&gt;  &lt;dbl&gt;
- 1     1     1     13
- 2     1     2      3
- 3     1     3      2
- 4     1     4      2
- 5     1     5     11
- 6     1     6      3
- 7     1     7      3
- 8     1     8      7
- 9     1     9      6
-10     1    10      9
-# ℹ 277 more rows</code></pre>
-</div>
-</div>
+<pre class="{r}"><code>student_edges &lt;- student_network |&gt;
+  activate(edges) |&gt;
+  as_tibble()
+
+student_edges</code></pre>
 <p>Great! Now we can see the full list of edges in our network ordered by student ids.</p>
 <p>More importantly, however, is now that we have our edges stored in a standard format, we can combine our <code>student_edges</code> and <code>student_attributes</code> data frames into a single network object that contains the information from both!!</p>
 <p>To do so, we’ll use the more standard <code>tbl_graph()</code> function from the {tidygraph}. First, run the following code to take a look at the help documentation for this function:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>?tbl_graph</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<p><code>{r function_help, eval=FALSE} ?tbl_graph</code></p>
 <p>You probably saw that this particular function takes the following three arguments, two of which are data frames:</p>
 <ul>
 <li><p><strong><code>edges =</code></strong> A <code>data.frame</code> containing information about the edges in the graph. The terminal nodes of each edge must either be encoded in a <code>to</code> and <code>from</code> column, or be in the two first columns.</p></li>
@@ -657,82 +2017,30 @@ Tip
 <li><p><strong><code>directed =</code></strong> determines whether or not to create a directed graph.</p></li>
 </ul>
 <p>Now let’s run the following code to specify our <code>ties</code> data frame as the edges of our network, our <code>actors</code> data frame for the vertices of our network and their attributes, and indicate that this is indeed a directed network.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>student_network <span class="ot">&lt;-</span> <span class="fu">tbl_graph</span>(<span class="at">edges =</span> student_edges, <span class="co"># specifies edges</span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>                             <span class="at">nodes =</span> student_attributes, <span class="co"># specifies nodes</span></span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>                             <span class="at">directed =</span> <span class="cn">TRUE</span>) <span class="co"># specifies directionality</span></span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>student_network</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tbl_graph: 27 nodes and 287 edges
-#
-# A directed multigraph with 2 components
-#
-# A tibble: 27 × 5
-     id gender achievement gender_num achievement_num
-  &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;            &lt;dbl&gt;           &lt;dbl&gt;
-1     1 female high                 1               1
-2     2 male   average              0               2
-3     3 female average              1               2
-4     4 male   high                 0               1
-5     5 female average              1               2
-6     6 female average              1               2
-# ℹ 21 more rows
-#
-# A tibble: 287 × 3
-   from    to weight
-  &lt;int&gt; &lt;int&gt;  &lt;dbl&gt;
-1     1     1     13
-2     1     2      3
-3     1     3      2
-# ℹ 284 more rows</code></pre>
-</div>
-</div>
+<pre class="{r create-edgelist}"><code>student_network &lt;- tbl_graph(edges = student_edges, # specifies edges
+                             nodes = student_attributes, # specifies nodes
+                             directed = TRUE) # specifies directionality
+
+student_network</code></pre>
 <p>Much better!! Now we can see that in addition to the edges in our network, our network object now contains information about students’ gender and achievement levels in text and numerical format.</p>
 </section>
 <section id="your-turn-3" class="level4">
 <h4 class="anchored" data-anchor-id="your-turn-3"><strong>👉 Your Turn</strong> <strong>⤵</strong></h4>
 <p>Complete the code chunk below to convert your <code>teacher_friends</code> object first to a matrix and then to a network object that contains information about both the teacher-reported student friendships and the attributes of students:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># YOUR CODE HERE</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>teacher_network <span class="ot">&lt;-</span> <span class="fu">as_tbl_graph</span>(teacher_friends,</span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>                                <span class="at">directed =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>teacher_edges <span class="ot">&lt;-</span> teacher_network <span class="sc">|&gt;</span></span>
-<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">activate</span>(edges) <span class="sc">|&gt;</span></span>
-<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>()</span>
-<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>teacher_network <span class="ot">&lt;-</span> <span class="fu">tbl_graph</span>(<span class="at">edges =</span> teacher_edges, </span>
-<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>                             <span class="at">nodes =</span> student_attributes, </span>
-<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>                             <span class="at">directed =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>teacher_network</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tbl_graph: 27 nodes and 70 edges
-#
-# A directed multigraph with 9 components
-#
-# A tibble: 27 × 5
-     id gender achievement gender_num achievement_num
-  &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;            &lt;dbl&gt;           &lt;dbl&gt;
-1     1 female high                 1               1
-2     2 male   average              0               2
-3     3 female average              1               2
-4     4 male   high                 0               1
-5     5 female average              1               2
-6     6 female average              1               2
-# ℹ 21 more rows
-#
-# A tibble: 70 × 3
-   from    to weight
-  &lt;int&gt; &lt;int&gt;  &lt;dbl&gt;
-1     1     1      3
-2     1     5      2
-3     1    12      1
-# ℹ 67 more rows</code></pre>
-</div>
-</div>
+<pre class="{r teacher-network}"><code># YOUR CODE HERE
+
+teacher_network &lt;- as_tbl_graph(teacher_friends,
+                                directed = TRUE)
+
+teacher_edges &lt;- teacher_network |&gt;
+  activate(edges) |&gt;
+  as_tibble()
+
+teacher_network &lt;- tbl_graph(edges = teacher_edges, 
+                             nodes = student_attributes, 
+                             directed = TRUE)
+
+teacher_network</code></pre>
 <p>Now answer the questions that following questions:</p>
 <ol type="1">
 <li><p>How many students are in our network?</p>
@@ -744,6 +2052,7 @@ Tip
 <li>YOUR RESPONSE HERE</li>
 </ul></li>
 </ol>
+<hr>
 </section>
 </section>
 </section>
@@ -767,68 +2076,26 @@ Tip
 <p>These visual representations of the actors and their relations, i.e.&nbsp;the network, are called a <strong>sociogram</strong>. Actors who are most central to the network, such as those with higher node degrees, or those with more friends in our case study, are usually placed in the center of the sociogram and their ties are placed near them.</p>
 <p>The <code>plot()</code> function from R’s built in {graphics} package can be used to make a wide range of graphs, including sociograms, but as you’ll see it’s a bit lacking and is limited limited in the level of customization allowed.</p>
 <p>In the code chunk below, use the <code>plot()</code> function with your <code>students_network</code> object to see what the basic plot function produces:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(student_network)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="sna-1-case-study-key-R_files/figure-html/plot-network-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
+<pre class="{r plot-network}"><code>plot(student_network)</code></pre>
 <p>Not super great. In fact, it’s visualizations like these that give sociograms the unflattering nickname of “hair ball” plots!</p>
 <p>If this had been a smaller network it might have been a little more useful but one important insight is that we have already identified an “isolate” in our network, i.e., student 19 who neither named others as a friend or was named by others as a friend.</p>
 <p>Fortunately, the {ggraph} package includes a plethora of plotting parameters for graph <a href="https://ggraph.data-imaginist.com/articles/Layouts.html">layouts</a>, <a href="https://ggraph.data-imaginist.com/articles/Edges.html">edges</a> and <a href="https://ggraph.data-imaginist.com/articles/Nodes.html">nodes</a> to improve the visual design of network graphs.</p>
 <p>Let’s first take a quick look the <code>auto_graph()</code> function for making quick and simple sociograms similar to the R base plotting function above:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">autograph</span>(student_network)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="sna-1-case-study-key-R_files/figure-html/auto-graph-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
+<pre class="{r auto-graph}"><code>autograph(student_network)</code></pre>
 <p>A little better, but also lacking in many important ways. Like the <code>plot()</code> function, it does allow some small degree of customization, but is still rather limited and best use for very quick sociograms to get a quick feel for the data.</p>
 <p>Run the following code chunk to see some additional arguments you can add to the <code>autograph()</code> function:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">autograph</span>(student_network,</span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">node_label =</span> id,</span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">node_colour =</span> gender)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="sna-1-case-study-key-R_files/figure-html/student-sociogram-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
+<pre class="{r student-sociogram}"><code>autograph(student_network,
+          node_label = id,
+          node_colour = gender)</code></pre>
 <section id="your-turn-4" class="level4">
 <h4 class="anchored" data-anchor-id="your-turn-4"><strong>👉 Your Turn</strong> <strong>⤵</strong></h4>
 <p>Use the code chunk below to try out these simple sociogram functions on your <code>teacher_network</code> object you created above:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># YOUR CODE HERE</span></span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(teacher_network)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="sna-1-case-study-key-R_files/figure-html/teacher-sociogram-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">autograph</span>(teacher_network,</span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">node_size =</span> <span class="fu">local_size</span>(),</span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">node_colour =</span> <span class="fu">local_size</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="sna-1-case-study-key-R_files/figure-html/teacher-sociogram-2.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
+<pre class="{r teacher-sociogram}"><code># YOUR CODE HERE
+plot(teacher_network)
+
+autograph(teacher_network,
+          node_size = local_size(),
+          node_colour = local_size())</code></pre>
 <p>Not exactly great graphs, but they already provided some insight into our research questions. Specifically, we can see visually that teacher and student reported peer networks are very different!</p>
 </section>
 </section>
@@ -841,19 +2108,7 @@ Tip
 <li><p><a href="https://ggraph.data-imaginist.com/articles/Edges.html"><code>geom_edge_*()</code></a> functions and their associated arguments add and modify the edgez of the network plot.</p></li>
 </ul>
 <p>Let’s first pass our <code>student_network</code> object to <code>ggraph()</code> and see what happens.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggraph</span>(student_network)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Using "stress" as default layout</code></pre>
-</div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="sna-1-case-study-key-R_files/figure-html/ggraph-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
+<pre class="{r ggraph}"><code>ggraph(student_network)</code></pre>
 <p>Wow, that was unimpressive. But don’t worry, just like the <code>ggplot()</code> function, <code>ggraph()</code> doesn’t produce much on it’s own. All that the <code>ggraph()</code> function does is set up the network object based on our <code>student_network</code>, and creates a layout for our sociogram, in this case using the default “stress” layout as indicated by the output.</p>
 <section id="add-nodes" class="level4">
 <h4 class="anchored" data-anchor-id="add-nodes">Add Nodes</h4>
@@ -863,20 +2118,8 @@ Tip
 <section id="your-turn-5" class="level4">
 <h4 class="anchored" data-anchor-id="your-turn-5"><strong>👉 Your Turn</strong> <strong>⤵</strong></h4>
 <p>Now “add” the <code>geom_node_point()</code> function to our code using the <code>+</code> operator:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggraph</span>(student_network) <span class="sc">+</span> </span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_point</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Using "stress" as default layout</code></pre>
-</div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="sna-1-case-study-key-R_files/figure-html/add-nodes-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
+<pre class="{r add-nodes}"><code>ggraph(student_network) + 
+  geom_node_point() </code></pre>
 <p>Well, at least we have our nodes now!</p>
 </section>
 <section id="add-layout" class="level4">
@@ -884,124 +2127,66 @@ Tip
 <p>One of the major advances in visualization since the first hand-drawn sociograms developed by Jacob Moreno (1934) to represent relations among children in school is the use of software and algorithms to automatically layout networks on a grid.</p>
 <p>There are may different <a href="https://en.wikipedia.org/wiki/Graph_drawing#Layout_methods">layout methods</a>, but we’ll start with the Fruchterman-Reingold (FR) layout, which is one of the most widely used layout algorithms for network visualization. These types of force-directed algorithms generally work well with large networks and try to layout graphs in “an aesthetically-pleasing way” by making edges roughly equal in length and minimizing overlap.</p>
 <p>Let’s go ahead and include the layout argument, which in addition to including its own unique layouts, can incorporate layouts form {igraph} package like <code>fr</code> for the Fruchterman-Reingold (FR) layout:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggraph</span>(student_network, <span class="at">layout =</span> <span class="st">"fr"</span>) <span class="sc">+</span></span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="sna-1-case-study-key-R_files/figure-html/add-layout-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
+<pre class="{r add-layout}"><code>ggraph(student_network, layout = "fr") +
+  geom_node_point()</code></pre>
 <p>That’s not much better so let’s stick with the “stress” layout for now. Feel free to try out some other <a href="https://ggraph.data-imaginist.com/articles/Layouts.html">ggraph layout methods</a> if you like, however. There are also</p>
 </section>
 <section id="tweak-nodes" class="level4">
 <h4 class="anchored" data-anchor-id="tweak-nodes">Tweak Nodes</h4>
 <p>Also like {ggplot2}, geoms can include aesthetics, or aes for short, such as <code>alpha</code> for transparency, as well as <code>color</code>, <code>shape</code> and <code>size</code>.</p>
 <p>Let’s now add some “aesthetics” to our points by including the <code>aes()</code> function and arguments such as <code>size =</code> and <code>color =</code>. We’ll use our <code>gender</code> variable for color and set the size of the node using <code>local_size()</code> function, which will base the size of each node on the number of friends each student nominated.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggraph</span>(student_network, <span class="at">layout =</span> <span class="st">"stress"</span>) <span class="sc">+</span> </span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_node_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> gender,</span>
-<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">size =</span> <span class="fu">local_size</span>()))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="sna-1-case-study-key-R_files/figure-html/add-color-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
+<pre class="{r add-color}"><code>ggraph(student_network, layout = "stress") + 
+geom_node_point(aes(color = gender,
+                    size = local_size()))</code></pre>
 <p>We can easily see that the number of friends ranges from 5 to 20, with the exception of one “isolated” student we identified earlier who is not connected to any other students in the network, and therefore is smaller in size on the graph.</p>
 <p>Let’s fix that by adding another layer with some node text and labels. Since node labels are a geometric element, we can apply aesthetics to them as well, like color and size. Let’s also include the <code>repel =</code> argument that when set to&nbsp;<code>TRUE</code>&nbsp;will avoid overlapping text.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggraph</span>(student_network, <span class="at">layout =</span> <span class="st">"stress"</span>) <span class="sc">+</span> </span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> <span class="fu">local_size</span>(),</span>
-<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">color =</span> gender)) <span class="sc">+</span></span>
-<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> id,</span>
-<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>                     <span class="at">size =</span> <span class="fu">local_size</span>()),</span>
-<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>                 <span class="at">repel =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="sna-1-case-study-key-R_files/figure-html/add-labels-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
+<pre class="{r add-labels}"><code>ggraph(student_network, layout = "stress") + 
+  geom_node_point(aes(size = local_size(),
+                      color = gender)) +
+  geom_node_text(aes(label = id,
+                     size = local_size()),
+                 repel = TRUE)</code></pre>
 </section>
 <section id="add-edges" class="level4">
 <h4 class="anchored" data-anchor-id="add-edges">Add Edges</h4>
 <p>Now, let’s literally connect the dots and add some <a href="https://ggraph.data-imaginist.com/articles/Edges.html">edges</a> using the <code>geom_edge_link()</code> function.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggraph</span>(student_network, <span class="at">layout =</span> <span class="st">"stress"</span>) <span class="sc">+</span> </span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> <span class="fu">local_size</span>(),</span>
-<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">color =</span> gender)) <span class="sc">+</span></span>
-<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> id),</span>
-<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">repel=</span><span class="cn">TRUE</span>) <span class="sc">+</span></span>
-<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_edge_link</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Using the `size` aesthetic in this geom was deprecated in ggplot2 3.4.0.
-ℹ Please use `linewidth` in the `default_aes` field and elsewhere instead.</code></pre>
-</div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="sna-1-case-study-key-R_files/figure-html/add-edges-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
+<pre class="{r add-edges}"><code>ggraph(student_network, layout = "stress") + 
+  geom_node_point(aes(size = local_size(),
+                      color = gender)) +
+  geom_node_text(aes(label = id),
+                 repel=TRUE) +
+  geom_edge_link()</code></pre>
 <p>Ack! Without some adjustment, the edges make it really difficult to see the nodes. Fortunately, you can also adjust the edges just like we did to the nodes above: Let’s now include the following arguments:</p>
 <ul>
 <li><p><code>arrow =</code> to include some arrows 1mm in length</p></li>
 <li><p><code>end_cap =</code> and <code>start_cap =</code> to keep arrows from overlapping the nodes, and to</p></li>
 <li><p><code>alpha = .2</code> set the transparency of our edges so our edges fade more into the background and help keep the focus on our nodes:</p></li>
 </ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggraph</span>(student_network, <span class="at">layout =</span> <span class="st">"stress"</span>) <span class="sc">+</span> </span>
-<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> <span class="fu">local_size</span>(),</span>
-<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">color =</span> gender)) <span class="sc">+</span></span>
-<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> id),</span>
-<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">repel=</span><span class="cn">TRUE</span>) <span class="sc">+</span></span>
-<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_edge_link</span>(<span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">length =</span> <span class="fu">unit</span>(<span class="dv">1</span>, <span class="st">'mm'</span>)), </span>
-<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a>                 <span class="at">end_cap =</span> <span class="fu">circle</span>(<span class="dv">3</span>, <span class="st">'mm'</span>),</span>
-<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a>                 <span class="at">start_cap =</span> <span class="fu">circle</span>(<span class="dv">3</span>, <span class="st">'mm'</span>),</span>
-<span id="cb48-9"><a href="#cb48-9" aria-hidden="true" tabindex="-1"></a>                 <span class="at">alpha =</span> .<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="sna-1-case-study-key-R_files/figure-html/tweak-edges-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
+<pre class="{r tweak-edges}"><code>ggraph(student_network, layout = "stress") + 
+  geom_node_point(aes(size = local_size(),
+                      color = gender)) +
+  geom_node_text(aes(label = id),
+                 repel=TRUE) +
+  geom_edge_link(arrow = arrow(length = unit(1, 'mm')), 
+                 end_cap = circle(3, 'mm'),
+                 start_cap = circle(3, 'mm'),
+                 alpha = .2)</code></pre>
 <p>Note: There are many <a href="https://www.data-imaginist.com/2017/ggraph-introduction-edges/">different ways we can represent edges in a network</a> beyond simple links. Try replacing <code>geom_edge_link</code> with <code>geom_edge_arc</code> and see what happens!</p>
 </section>
 <section id="add-a-theme" class="level4">
 <h4 class="anchored" data-anchor-id="add-a-theme">Add a Theme</h4>
 <p>Finally, let’s add a <strong>theme,</strong> which controls the finer points of display, like the font size and background color. The <code>theme_graph()</code> function add a theme specially tuned for graph visualizations. This function removes redundant elements in order to put focus on the data and if you type <code>?theme_graph</code> in the console you will get a sense of the level of fine tuning you can do if desired.</p>
 <p>Let’s add <code>theme_graph()</code> to our sociogram, remove the legends since they are not especially useful, and call it good for now:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggraph</span>(student_network, <span class="at">layout =</span> <span class="st">"stress"</span>) <span class="sc">+</span> </span>
-<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_edge_link</span>(<span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">length =</span> <span class="fu">unit</span>(<span class="dv">1</span>, <span class="st">'mm'</span>)), </span>
-<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">end_cap =</span> <span class="fu">circle</span>(<span class="dv">3</span>, <span class="st">'mm'</span>),</span>
-<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">start_cap =</span> <span class="fu">circle</span>(<span class="dv">3</span>, <span class="st">'mm'</span>),</span>
-<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">alpha =</span> .<span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> <span class="fu">local_size</span>(),</span>
-<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a>                      <span class="at">color =</span> gender)) <span class="sc">+</span></span>
-<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> id),</span>
-<span id="cb49-9"><a href="#cb49-9" aria-hidden="true" tabindex="-1"></a>                 <span class="at">repel=</span><span class="cn">TRUE</span>) <span class="sc">+</span></span>
-<span id="cb49-10"><a href="#cb49-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_graph</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="sna-1-case-study-key-R_files/figure-html/add-theme-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
+<pre class="{r add-theme}"><code>ggraph(student_network, layout = "stress") + 
+  geom_edge_link(arrow = arrow(length = unit(1, 'mm')), 
+                 end_cap = circle(3, 'mm'),
+                 start_cap = circle(3, 'mm'),
+                 alpha = .1) +
+  geom_node_point(aes(size = local_size(),
+                      color = gender)) +
+  geom_node_text(aes(label = id),
+                 repel=TRUE) +
+  theme_graph()</code></pre>
 <p>Much better! Notice also how we shifted the <code>geom_node_point()</code> layer of our graph to after the <code>geom_edge_link()</code> so the parts of nodes would not be hidden under the edges.</p>
 <p><strong>Note:</strong> If you’re having difficulty seeing the sociogram in the small R Markdown code chunk, you can copy and paste the code in the console and it will show in the Viewer pan and then you can enlarge and even save as an image file.</p>
 </section>
@@ -1009,25 +2194,16 @@ Tip
 <h4 class="anchored" data-anchor-id="your-turn-6"><strong>👉 Your Turn</strong> <strong>⤵</strong></h4>
 <p>Now that you have a sense of how the {ggraph} package works to build network graphs, use the code chunk below and try building sophisticated sociogram for the <code>teacher_network</code> object that you created above.</p>
 <p>There are no right or wrong answers, just have some fun trying out different options for graph <a href="https://ggraph.data-imaginist.com/articles/Layouts.html">layouts</a>, <a href="https://ggraph.data-imaginist.com/articles/Edges.html">edges</a> and <a href="https://ggraph.data-imaginist.com/articles/Nodes.html">nodes</a> and see if you can build something that is visually pleasing to you.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggraph</span>(teacher_network, <span class="at">layout =</span> <span class="st">"fr"</span>) <span class="sc">+</span> </span>
-<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_edge_link</span>(<span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">length =</span> <span class="fu">unit</span>(<span class="dv">1</span>, <span class="st">'mm'</span>)), </span>
-<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">end_cap =</span> <span class="fu">circle</span>(<span class="dv">3</span>, <span class="st">'mm'</span>),</span>
-<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">start_cap =</span> <span class="fu">circle</span>(<span class="dv">3</span>, <span class="st">'mm'</span>),</span>
-<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">alpha =</span> .<span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> <span class="fu">local_size</span>(),</span>
-<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a>                      <span class="at">color =</span> gender)) <span class="sc">+</span></span>
-<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> id),</span>
-<span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a>                 <span class="at">repel=</span><span class="cn">TRUE</span>) <span class="sc">+</span></span>
-<span id="cb50-10"><a href="#cb50-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_graph</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="sna-1-case-study-key-R_files/figure-html/your-sociogram-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
+<pre class="{r your-sociogram}"><code>ggraph(teacher_network, layout = "fr") + 
+  geom_edge_link(arrow = arrow(length = unit(1, 'mm')), 
+                 end_cap = circle(3, 'mm'),
+                 start_cap = circle(3, 'mm'),
+                 alpha = .2) +
+  geom_node_point(aes(size = local_size(),
+                      color = gender)) +
+  geom_node_text(aes(label = id),
+                 repel=TRUE) +
+  theme_graph()</code></pre>
 <p>Congrats, you made it to the end of the EXPLORE section and created your first sociogram in R!</p>
 </section>
 </section>
@@ -1042,42 +2218,21 @@ Tip
 </section>
 <section id="communicate" class="level2">
 <h2 class="anchored" data-anchor-id="communicate">5. COMMUNICATE</h2>
-<p>The final step in the workflow/process is sharing the results of your analysis with wider audience. Krumm et al. <span class="citation" data-cites="krumm2018">Krumm, Means, and Bienkowski (<a href="#ref-krumm2018" role="doc-biblioref">2018</a>)</span> have outlined the following 3-step process for communicating with education stakeholders findings from an analysis:</p>
+<p>The final step in the workflow/process is sharing the results of your analysis with wider audience. For now, we will wrap up this case study by converting our work into a webpage that can be used to communicate your learning and demonstrate some of your new R skills. To do so, you will need to “knit” your document by clicking the <img src="img/knit.png" class="img-fluid" style="width:10.0%"> button in the menu bar at that the top of this file. This will do two things; it will:</p>
 <ol type="1">
-<li><p><strong>Select.</strong> Communicating what one has learned involves selecting among those analyses that are most important and most useful to an intended audience, as well as selecting a form for displaying that information, such as a graph or table in static or interactive form, i.e.&nbsp;a “data product.”</p></li>
-<li><p><strong>Polish</strong>. After creating initial versions of data products, research teams often spend time refining or polishing them, by adding or editing titles, labels, and notations and by working with colors and shapes to highlight key points.</p></li>
-<li><p><strong>Narrate.</strong> Writing a narrative to accompany the data products involves, at a minimum, pairing a data product with its related research question, describing how best to interpret the data product, and explaining the ways in which the data product helps answer the research question and might be used to inform new analyses or a “change idea” for improving student learning.</p></li>
+<li><p>check through all your code for any errors; and,</p></li>
+<li><p>create a file in your directory that you can use to share you work through <a href="https://posit.cloud/learn/guide#publish-from-cloud">Posit Cloud</a> (see screenshot example below to publish), <a href="#0">RPubs</a> , <a href="#0">GitHub Pages</a>, <a href="#0">Quarto Pub</a>, or <a href="#0">other methods</a>.</p></li>
 </ol>
-<section id="render-file" class="level3">
-<h3 class="anchored" data-anchor-id="render-file">Render File</h3>
-<p>For your SNA Badge, you will have an opportunity to create a simple “data product” designed to illustrate some insights gained from your analysis and ideally highlight an action step or change idea that can be used to improve learning or the contexts in which learning occurs.</p>
-<p>For now, we will wrap up this case study by converting your work to an HTML file that can be published and used to communicate your learning and demonstrate some of your new R skills. To do so, you will need to “render” your document by clicking the <img src="img/render.png" class="img-fluid" style="width:4.0%"> Render button in the menu bar at that the top of this file.</p>
-<p>Rendering a document does two important things:</p>
+<section id="knit-and-publish" class="level3">
+<h3 class="anchored" data-anchor-id="knit-and-publish">Knit and Publish</h3>
+<p>Complete the following steps to knit and publish your work:</p>
 <ol type="1">
-<li><p>checks through all your code for any errors; and,</p></li>
-<li><p>creates a file in your directory that you can use to share you work .</p></li>
+<li><p>First, change the name of the <code>author:</code> in the <a href="https://bookdown.org/yihui/rmarkdown-cookbook/rmarkdown-anatomy.html#yaml-metadata">YAML header</a> at the very top of this document to your name. The YAML header controls the style and feel for knitted document but doesn’t actually display in the final output.</p></li>
+<li><p>Next, click the knit button in the toolbar above to “knit” your R Markdown document to a <a href="https://bookdown.org/yihui/rmarkdown/html-document.html">HTML</a> file that will be saved in your R Project folder. You should see a formatted webpage appear in your Viewer tab in the lower right pan or in a new browser window. Let’s us know if you run into any issues with knitting.</p></li>
+<li><p>Finally, publish your webpage on Posit Cloud by clicking the “Publish” button located in the Viewer Pane after you knit your document. See screenshot below.</p></li>
 </ol>
-<p>Now that you’ve finished your first case study, click the “Render” button in the toolbar at the top of your document to covert this Quarto document to a HTML web page, just one of <a href="https://quarto.org/docs/output-formats/all-formats.html">the many publishing formats you can create with Quarto</a> documents.</p>
-<p>If the files rendered correctly, you should now see a new file named <code>sna-1-case-study-R.html</code> in the Files tab located in the bottom right corner of R Studio. If so, congratulations, you just completed the getting started activity! You’re now ready for the unit Case Studies that we will complete during the third week of each unit.</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>If you encounter errors when you try to render, first check the case study answer key located in the files pane and has the suggested code for the Your Turns. If you are still having difficulties, try copying and pasting the error into Google or ChatGPT to see if you can resolve the issue. Finally, contact your instructor to debug the code together if you’re still having issues.</p>
-</div>
-</div>
-</section>
-<section id="publish-file" class="level3">
-<h3 class="anchored" data-anchor-id="publish-file">Publish File</h3>
-<p>Rendered HTML files can be published online through a variety of ways including <a href="https://posit.cloud/learn/guide#publish-from-cloud">Posit Cloud</a>, <a href="#0">RPubs</a> , <a href="#0">GitHub Pages</a>, <a href="#0">Quarto Pub</a>, or <a href="#0">other methods</a>. The easiest way to quickly publish your file online is to publish directly from RStudio. You can do soby clicking the “Publish” button located in the Viewer Pane after you render your document as illustrated in the screenshot below.</p>
-<p><img src="img/publish.png" class="img-fluid"></p>
-<p>Congratulations, you’ve completed the case study! If you’ve already completed the Essential Readings, you’re now ready to earn your first SNA LASER Badge!</p>
+<p><img src="img/knit-publish.png" class="img-fluid" style="width:80.0%"></p>
+<p>Congratulations, you’ve completed your first case study! You’re now ready to dig into the essential readings and try out your first SNA LASER Badge!</p>
 </section>
 <section id="references" class="level3 unnumbered">
 
@@ -1092,8 +2247,14 @@ Carolan, Brian. 2014. <span>“Social Network Analysis and Education: Theory, Me
 <div id="ref-estrellado2020e" class="csl-entry" role="listitem">
 Estrellado, Ryan A., Emily A. Freer, Jesse Mostipak, Joshua M. Rosenberg, and Isabella C. Velásquez. 2020. <em>Data Science in Education Using r</em>. Routledge. <a href="https://doi.org/10.4324/9780367822842">https://doi.org/10.4324/9780367822842</a>.
 </div>
+<div id="ref-SciPyProceedings_11" class="csl-entry" role="listitem">
+Hagberg, Aric A., Daniel A. Schult, and Pieter J. Swart. 2008. <span>“Exploring Network Structure, Dynamics, and Function Using NetworkX.”</span> In <em>Proceedings of the 7th Python in Science Conference</em>, edited by Gaël Varoquaux, Travis Vaught, and Jarrod Millman, 11–15. Pasadena, CA USA.
+</div>
 <div id="ref-krumm2018" class="csl-entry" role="listitem">
 Krumm, Andrew, Barbara Means, and Marie Bienkowski. 2018. <em>Learning Analytics Goes to School</em>. Routledge. <a href="https://doi.org/10.4324/9781315650722">https://doi.org/10.4324/9781315650722</a>.
+</div>
+<div id="ref-mckinney-proc-scipy-2010" class="csl-entry" role="listitem">
+McKinney, Wes. 2010. <span>“<span>D</span>ata <span>S</span>tructures for <span>S</span>tatistical <span>C</span>omputing in <span>P</span>ython.”</span> In <em><span>P</span>roceedings of the 9th <span>P</span>ython in <span>S</span>cience <span>C</span>onference</em>, edited by Stéfan van der Walt and Jarrod Millman, 56–61. <a href="https://doi.org/ 10.25080/Majora-92bf1922-00a ">https://doi.org/ 10.25080/Majora-92bf1922-00a </a>.
 </div>
 <div id="ref-pittinsky2008behavioral" class="csl-entry" role="listitem">
 Pittinsky, Matthew, and Brian V Carolan. 2008. <span>“Behavioral Versus Cognitive Classroom Friendship Networks: Do Teacher Perceptions Agree with Student Reports?”</span> <em>Social Psychology of Education</em> 11: 133–47. <a href="https://link.springer.com/content/pdf/10.1007/s11218-007-9046-7.pdf">https://link.springer.com/content/pdf/10.1007/s11218-007-9046-7.pdf</a>.
