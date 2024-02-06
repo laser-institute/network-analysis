@@ -176,8 +176,7 @@ Before importing our teacher-reported friendship file, use the code chunk below 
 student_friends
 ```
 
-You should now see a 27 x 27 data table that represents student-reported friendships stored as an adjacency matrix. As noted on pg. 140 of @pittinsky2008behavioral, students were given a class roster and asked to describe their relationship with each student using the following choices: best friend, friend, know-like, know, know-dislike, strongly dislike, and do not know. In the terminology of network analysis, these sociometric data are
-**valued** (degrees of friendship, not just yes or no).
+You should now see a 27 x 27 data table that represents student-reported friendships stored as an adjacency matrix. As noted on pg. 140 of @pittinsky2008behavioral, students were given a class roster and asked to describe their relationship with each student using the following choices: best friend, friend, know-like, know, know-dislike, strongly dislike, and do not know. In the terminology of network analysis, these sociometric data are **valued** (degrees of friendship, not just yes or no).
 
 For the purpose of the their study, and for this case study as well, all “best friend” and “friend” choices are coded as ‘1’ (friend), while all other choices are coded as ‘0’ (not friend). This process of taking a valued relationship or tie (i.e., degrees of friendship, not just yes or no) and simplifying into a binary yes/no relationship is referred to as **dichotomization** and we'll explore the benefits and drawbacks of this process in Module 4.
 
@@ -225,6 +224,18 @@ student_attributes
 ```
 
 Note that when we imported this time, we left out the `col_names = FALSE` argument. As mentioned earlier, by default this argument is set to TRUE and assumes the first row of your data frame will contain names of the variables. Since this was indeed the case, we didn't need to include this argument. We could, however, have included this argument and set it to `TRUE` and our resulting output would still be the same.
+
+Although an underlying assumption of social network analysis is that social relations are often more important for understanding behaviors and attitudes than attributes related to one's background (e.g., age, gender, etc.), these attributes often still play an important role in SNA. Specifically attributes can enrich our understanding of networks by adding contextual information about actors and their relations. For example, actor attributes can be used to for:
+
+1.  **Community Detection**: Identifying groups with shared attributes, revealing substructures within the network.
+2.  **Homophily Analysis**: Examining the tendency for similar individuals to connect, shedding light on social cohesion.
+3.  **Influence and Diffusion**: Understanding how characteristics of individuals affect the spread of information or behaviors.
+4.  **Centrality Analysis**: Correlating attributes with centrality measures to assess individuals' influence based on their traits.
+5.  **Network Dynamics**: Investigating how changes in attributes correspond to the evolution of network structures.
+6.  **Statistical Modeling**: Incorporating attributes in models to explore the interplay between individual traits and network formation.
+7.  **Visualization**: Enhancing network visualizations by using attributes to differentiate nodes, making patterns more discernible.
+
+We will explore several of these use cases throughout the SNA modules, but for this case study, our focus will be to incorporate some student attributes to enhance our visualizations.
 
 #### **👉 Your Turn** **⤵**
 
@@ -355,6 +366,8 @@ teacher_network <- tbl_graph(edges = teacher_edges,
 teacher_network
 ```
 
+#### ❓Question
+
 Now answer the questions that following questions:
 
 1.  How many students are in our network?
@@ -367,15 +380,7 @@ Now answer the questions that following questions:
 
 ## 3. EXPLORE
 
-As noted in in our course readings, exploratory data analysis involves the processes of describing your data (such as by calculating the means and standard deviations of numeric variables, or counting the frequency of categorical variables) and, often, visualizing your data prior to modeling.
-
-In Section 3 work focus on just visualization, and will use the {tidygraph} package to create a network sociogram to help visually describe our network and compare teacher and student reported friendships. Specifically, in this section we'll learn to make a:
-
-a.  **Simple Sociogram**. We learn about the basic `plot()` and `auto_graph()` functions for creating a very quick network plot when just a quick visual inspection is needed.
-
-b.  **Sophisticated Sociogram**. We then dive deeper in to the `ggraph()` function and learn to plot nodes and edges in our network and tweak key elements like the size, shape, and position of nodes and edges to better at communicating key findings.
-
-One of the defining characteristics of the social network perspective is its use of graphic imagery to represent actors and their relations with one another. To emphasize this point, @carolan2014 reported that:
+As noted in our course readings, one of the defining characteristics of the social network perspective is its use of graphic imagery to represent actors and their relations with one another. To emphasize this point, @carolan2014 reported that:
 
 > The visualization of social networks has been a core practice since its foundation more than 100 years ago and remains a hallmark of contemporary social network analysis. 
 
@@ -385,13 +390,19 @@ This excellent figure from Katya Ognyanova's also excellent tutorial on [Static 
 
 ![](img/viz-goals.jpeg){width="80%"}
 
+In Section 3 work focus on just visualization, and will use the {tidygraph} package to create a network sociogram to help visually describe our network and compare teacher and student reported friendships. Specifically, in this section we'll learn to make a:
+
+a.  **Simple Sociogram**. We learn about the basic `plot()` and `auto_graph()` functions for creating a very quick network plot when just a quick visual inspection is needed.
+
+b.  **Sophisticated Sociogram**. We then dive deeper in to the `ggraph()` function and learn to plot nodes and edges in our network and tweak key elements like the size, shape, and position of nodes and edges to better at communicating key findings.
+
 ### 3a. Simple Sociograms
 
 These visual representations of the actors and their relations, i.e. the network, are called a **sociogram**. Actors who are most central to the network, such as those with higher node degrees, or those with more friends in our case study, are usually placed in the center of the sociogram and their ties are placed near them.
 
 The `plot()` function from R's built in {graphics} package can be used to make a wide range of graphs, including sociograms, but as you'll see it's a bit lacking and is limited limited in the level of customization allowed.
 
-In the code chunk below, use the `plot()` function with your `students_network` object to see what the basic plot function produces:
+In the code chunk below, use the `plot()` function with your `student_network` object to see what the basic plot function produces:
 
 ```{r plot-network}
 plot(student_network)
@@ -415,7 +426,7 @@ Run the following code chunk to see some additional arguments you can add to the
 
 ```{r student-sociogram}
 autograph(student_network,
-          node_label = id,
+          node_label = name,
           node_colour = gender)
 ```
 
@@ -504,7 +515,7 @@ Let's fix that by adding another layer with some node text and labels. Since nod
 ggraph(student_network, layout = "stress") + 
   geom_node_point(aes(size = local_size(),
                       color = gender)) +
-  geom_node_text(aes(label = id,
+  geom_node_text(aes(label = name,
                      size = local_size()),
                  repel = TRUE)
 ```
@@ -517,7 +528,7 @@ Now, let's literally connect the dots and add some [edges](https://ggraph.data-i
 ggraph(student_network, layout = "stress") + 
   geom_node_point(aes(size = local_size(),
                       color = gender)) +
-  geom_node_text(aes(label = id),
+  geom_node_text(aes(label = name),
                  repel=TRUE) +
   geom_edge_link()
 ```
@@ -534,7 +545,7 @@ Ack! Without some adjustment, the edges make it really difficult to see the node
 ggraph(student_network, layout = "stress") + 
   geom_node_point(aes(size = local_size(),
                       color = gender)) +
-  geom_node_text(aes(label = id),
+  geom_node_text(aes(label = name),
                  repel=TRUE) +
   geom_edge_link(arrow = arrow(length = unit(1, 'mm')), 
                  end_cap = circle(3, 'mm'),
@@ -558,7 +569,7 @@ ggraph(student_network, layout = "stress") +
                  alpha = .1) +
   geom_node_point(aes(size = local_size(),
                       color = gender)) +
-  geom_node_text(aes(label = id),
+  geom_node_text(aes(label = name),
                  repel=TRUE) +
   theme_graph()
 ```
@@ -581,7 +592,7 @@ ggraph(teacher_network, layout = "fr") +
                  alpha = .2) +
   geom_node_point(aes(size = local_size(),
                       color = gender)) +
-  geom_node_text(aes(label = id),
+  geom_node_text(aes(label = name),
                  repel=TRUE) +
   theme_graph()
 ```
@@ -590,7 +601,7 @@ Congrats, you made it to the end of the EXPLORE section and created your first s
 
 ## 4. MODEL
 
-As highlighted in [Chapter 3 of Data Science in Education Using R](https://datascienceineducation.com/c03.html), the **Model** step of the data science process entails "using statistical models, from simple to complex, to understand trends and patterns in the data." We will not explore the use of models for SNA until Lab 4, but recall from the PREPARE section that to assess agreement between perceived friendships by the teacher and students, [@pittinsky2008behavioral] note that:
+As highlighted in [Chapter 3 of Data Science in Education Using R](https://datascienceineducation.com/c03.html), the **Model** step of the data science process entails "using statistical models, from simple to complex, to understand trends and patterns in the data." We will not explore the use of models for SNA until Module 4, but recall from the PREPARE section that to assess agreement between perceived friendships by the teacher and students, [@pittinsky2008behavioral] note that:
 
 > **The QAP (quadratic assignment procedure)** \[is\] used to calculate the degree of association between two sets of relations and tests whether the probability of dyad overlap in the teacher matrix is correlated with the probability of dyad overlap in the student matrix. It does so by running a large number of simulations. These simulations generate random matrices with sizes and value distributions based on the original two matrices being tested.
 
@@ -628,7 +639,7 @@ If you encounter errors when you try to render, first check the case study answe
 
 ### Publish File
 
-Rendered HTML files can be published online through a variety of ways including [Posit Cloud](https://posit.cloud/learn/guide#publish-from-cloud), [RPubs](#0) , [GitHub Pages](#0), [Quarto Pub](#0), or [other methods](#0). The easiest way to quickly publish your file online is to publish directly from RStudio. You can do soby clicking the "Publish" button located in the Viewer Pane after you render your document as illustrated in the screenshot below.
+Rendered HTML files can be published online through a variety of ways including [Posit Cloud](https://posit.cloud/learn/guide#publish-from-cloud), [RPubs](#0) , [GitHub Pages](#0), [Quarto Pub](#0), or [other methods](#0). The easiest way to quickly publish your file online is to publish directly from RStudio. You can do so by clicking the "Publish" button located in the Viewer Pane after you render your document as illustrated in the screenshot below.
 
 ![](img/publish.png)
 

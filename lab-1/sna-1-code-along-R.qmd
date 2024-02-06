@@ -28,6 +28,10 @@ editor: visual
 
 ::: notes
 **Speaker Notes:**
+
+Just as a quick refresher from our Learning Analytics Workflow Module, the workflow pictured here outlines a basic process intended to support researchers, practitioners, and data scientists prepare for a data-intensive analysis and communication of one’s findings. Different processes in this workflow as they relate to specific LA technique are highlighted in our code-along and presented in much greater detail in each case study.
+
+If you're interested in learning more about this workflow, I highly recommend the excellent book, Learning Analytics Goes to School, by Andrew Krumm, Barbara Means, and Marie Bienkowski.
 :::
 
 # Prepare
@@ -429,7 +433,7 @@ Both functions allow a small degree of customization, but are still limited.
 #| echo: true
 #| fig.show: hide
 autograph(student_network,
-          node_label = id,
+          node_label = name,
           node_colour = gender)
 ```
 :::
@@ -439,7 +443,7 @@ autograph(student_network,
 #| echo: false
 #| fig.asp: .75
 autograph(student_network,
-          node_label = id,
+          node_label = name,
           node_colour = gender)
 ```
 :::
@@ -537,7 +541,7 @@ ggraph(student_network, layout = "stress") +
                  alpha = .1) +
   geom_node_point(aes(size = local_size(),
                       color = gender)) +
-  geom_node_text(aes(label = id),
+  geom_node_text(aes(label = name),
                  repel=TRUE) +
   theme_graph()
 ```
@@ -558,7 +562,7 @@ ggraph(student_network, layout = "stress") +
                  alpha = .1) +
   geom_node_point(aes(size = local_size(),
                       color = gender)) +
-  geom_node_text(aes(label = id),
+  geom_node_text(aes(label = name),
                  repel=TRUE) +
   theme_graph()
 ```

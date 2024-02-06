@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="sna-1-code-along-Python_files/libs/clipboard/clipboard.min.js"></script>
-<script src="sna-1-code-along-Python_files/libs/quarto-html/tabby.min.js"></script>
-<script src="sna-1-code-along-Python_files/libs/quarto-html/popper.min.js"></script>
-<script src="sna-1-code-along-Python_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="sna-1-code-along-Python_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="sna-1-code-along-Python_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="sna-1-code-along-Python_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="sna-1-code-along-Python_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="sna-1-code-along-python_files/libs/clipboard/clipboard.min.js"></script>
+<script src="sna-1-code-along-python_files/libs/quarto-html/tabby.min.js"></script>
+<script src="sna-1-code-along-python_files/libs/quarto-html/popper.min.js"></script>
+<script src="sna-1-code-along-python_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="sna-1-code-along-python_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="sna-1-code-along-python_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="sna-1-code-along-python_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="sna-1-code-along-python_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.4.549">
 
   <title>Data Structures &amp; Sociograms</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="sna-1-code-along-Python_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="sna-1-code-along-Python_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="sna-1-code-along-python_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="sna-1-code-along-python_files/libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -114,13 +114,13 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="sna-1-code-along-Python_files/libs/revealjs/dist/theme/quarto.css">
-  <link href="sna-1-code-along-Python_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="sna-1-code-along-Python_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="sna-1-code-along-Python_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="sna-1-code-along-Python_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
-  <link href="sna-1-code-along-Python_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
-  <link href="sna-1-code-along-Python_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link rel="stylesheet" href="sna-1-code-along-python_files/libs/revealjs/dist/theme/quarto.css">
+  <link href="sna-1-code-along-python_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="sna-1-code-along-python_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="sna-1-code-along-python_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="sna-1-code-along-python_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="sna-1-code-along-python_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="sna-1-code-along-python_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
   .callout {
@@ -427,6 +427,7 @@
 
 <img data-src="img/workflow.png" width="300" class="r-stretch quarto-figure-center"><p class="caption">From Learning Analytics Goes to School <span class="citation" data-cites="krumm2018">(<a href="#/references" role="doc-biblioref" onclick="">Krumm, Means, and Bienkowski 2018</a>)</span></p><aside class="notes">
 <p><strong>Speaker Notes:</strong></p>
+<p>Just as a quick refresher from our Learning Analytics Workflow Module, the workflow pictured here outlines a basic process intended to support researchers, practitioners, and data scientists prepare for a data-intensive analysis and communication of one’s findings. Different processes in this workflow as they relate to specific LA technique are highlighted in our code-along and presented in much greater detail in each case study. If you’re interested in learning more about this workflow, I highly recommend the excellent book, Learning Analytics Goes to School, by Andrew Krumm, Barbara Means, and Marie Bienkowski.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -507,11 +508,10 @@
 <ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Python Libraries</a></li><li><a href="#tabset-2-2">NetworkX Package</a></li><li><a href="#tabset-2-3">Your Turn</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1">
-<p>Let’s start by creating a new Python script and loading the {tidyverse} package which we’ll use to import our network data files:</p>
-<div id="a8a9d1ef" class="cell" data-message="false" data-execution_count="3">
+<p>Let’s start by creating a new Python script and loading some essential packages introduced in LA Workflows:</p>
+<div id="2c7ef3eb" class="cell" data-message="false" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><strong>Note</strong>: Tidyverse is actually a <a href="https://www.tidyverse.org/packages">collection of R packages</a> that share an underlying design philosophy, grammar, and data structures commonly referred to as “tidy data principles.” LASER uses the {tidyverse} extensively.</p>
 </div>
 <div id="tabset-2-2">
 <div class="columns">
@@ -524,7 +524,7 @@
 </div>
 <div id="tabset-2-3">
 <p>Use your Python script to import the {networkx} package <code>as nx</code>.</p>
-<div id="e56e7690" class="cell" data-execution_count="4">
+<div id="b2ef113c" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a><span class="co"># YOUR CODE HERE</span></span>
 <span id="cb2-2"><a href=""></a><span class="co">#</span></span>
 <span id="cb2-3"><a href=""></a><span class="co">#</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -576,8 +576,8 @@
 <li><p>substantive info (<strong>grades</strong>, attendance)</p></li>
 </ul>
 </div><div class="column" style="width:50%;">
-<div id="e689ff48" class="cell" data-message="false" data-execution_count="5">
-<div class="cell-output cell-output-display" data-execution_count="63">
+<div id="099a4677" class="cell" data-message="false" data-execution_count="5">
+<div class="cell-output cell-output-display" data-execution_count="33">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -598,6 +598,7 @@
 <tr class="header" style="text-align: right;">
 <th data-quarto-table-cell-role="th"></th>
 <th data-quarto-table-cell-role="th">id</th>
+<th data-quarto-table-cell-role="th">name</th>
 <th data-quarto-table-cell-role="th">gender</th>
 <th data-quarto-table-cell-role="th">achievement</th>
 <th data-quarto-table-cell-role="th">gender_num</th>
@@ -608,6 +609,7 @@
 <tr class="odd">
 <td data-quarto-table-cell-role="th">0</td>
 <td>1</td>
+<td>Katherine</td>
 <td>female</td>
 <td>high</td>
 <td>1</td>
@@ -616,6 +618,7 @@
 <tr class="even">
 <td data-quarto-table-cell-role="th">1</td>
 <td>2</td>
+<td>James</td>
 <td>male</td>
 <td>average</td>
 <td>0</td>
@@ -624,6 +627,7 @@
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2</td>
 <td>3</td>
+<td>Angela</td>
 <td>female</td>
 <td>average</td>
 <td>1</td>
@@ -632,6 +636,7 @@
 <tr class="even">
 <td data-quarto-table-cell-role="th">3</td>
 <td>4</td>
+<td>Joseph</td>
 <td>male</td>
 <td>high</td>
 <td>0</td>
@@ -640,6 +645,7 @@
 <tr class="odd">
 <td data-quarto-table-cell-role="th">4</td>
 <td>5</td>
+<td>Samantha</td>
 <td>female</td>
 <td>average</td>
 <td>1</td>
@@ -664,8 +670,8 @@
 <li><p>edge attributes (time, event, text)</p></li>
 </ul>
 </div><div class="column" style="width:50%;">
-<div id="7426efae" class="cell" data-message="false" data-execution_count="6">
-<div class="cell-output cell-output-display" data-execution_count="64">
+<div id="8ccd7315" class="cell" data-message="false" data-execution_count="6">
+<div class="cell-output cell-output-display" data-execution_count="34">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -740,8 +746,8 @@
 <li><p>a value indicating the presence/strength of a relation</p></li>
 </ul>
 </div><div class="column" style="width:50%;">
-<div id="5ab6f04e" class="cell" data-message="false" data-execution_count="7">
-<div class="cell-output cell-output-display" data-execution_count="65">
+<div id="1d4f5ede" class="cell" data-message="false" data-execution_count="7">
+<div class="cell-output cell-output-display" data-execution_count="35">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -837,8 +843,8 @@
 <ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">Read Data</a></li><li><a href="#tabset-4-2">Inspect Data</a></li><li><a href="#tabset-4-3">Discuss</a></li></ul>
 <div class="tab-content">
 <div id="tabset-4-1">
-<p>Let’s start by importing two Excel files that contain data about the nodes and the edges in our student friendship network:</p>
-<div id="c042c995" class="cell" data-message="false" data-execution_count="8">
+<p>Let’s start by importing two CSV files that contain data about the nodes and the edges in our student-reported friendship network:</p>
+<div id="a11e41ca" class="cell" data-message="false" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a>student_nodes <span class="op">=</span> pd.read_csv(<span class="st">"lab-1/data/student-attributes.xlsx"</span>)</span>
 <span id="cb3-2"><a href=""></a></span>
 <span id="cb3-3"><a href=""></a>student_edges <span class="op">=</span> pd.read_csv(<span class="st">"lab-1/data/student-edgelist.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -846,7 +852,7 @@
 </div>
 <div id="tabset-4-2">
 <p>Now let’s take a look at the data file we just imported using the <code>print()</code> function or another function of choice you may have learned previously:</p>
-<div id="76676810" class="cell" data-message="false" data-execution_count="10">
+<div id="ea1a6fe1" class="cell" data-message="false" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href=""></a><span class="bu">print</span>(student_edges)</span>
 <span id="cb4-2"><a href=""></a><span class="bu">print</span>(student_nodes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -870,7 +876,7 @@
 <div class="tab-content">
 <div id="tabset-5-1">
 <p>Run the following code in your R script:</p>
-<div id="f60a69b4" class="cell" data-message="false" data-execution_count="11">
+<div id="0c95d346" class="cell" data-message="false" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a>student_network <span class="op">=</span> nx.from_pandas_edgelist(student_edges, </span>
 <span id="cb5-2"><a href=""></a>                                          source<span class="op">=</span><span class="st">'from'</span>, </span>
 <span id="cb5-3"><a href=""></a>                                          target<span class="op">=</span><span class="st">'to'</span>, </span>
@@ -880,7 +886,7 @@
 </div>
 <div id="tabset-5-2">
 <p>Using your Python script, <code>print()</code> the network object we just created and run the code to produce the output on the next tab:</p>
-<div id="0b867861" class="cell" data-execution_count="12">
+<div id="0f9187d0" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a><span class="co"># ADD CODE BELOW</span></span>
 <span id="cb6-2"><a href=""></a><span class="co">#</span></span>
 <span id="cb6-3"><a href=""></a><span class="co">#</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -888,7 +894,7 @@
 </div>
 <div id="tabset-5-3">
 <p>You should see an output that looks something like this:</p>
-<div id="67e92547" class="cell" data-execution_count="13">
+<div id="9cfa18d4" class="cell" data-execution_count="13">
 <div class="cell-output cell-output-stdout">
 <pre><code>DiGraph with 26 nodes and 203 edges</code></pre>
 </div>
@@ -913,23 +919,23 @@
 <section id="a-simple-sociogram" class="slide level2">
 <h2>A Simple Sociogram</h2>
 <div class="panel-tabset">
-<ul id="tabset-6" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-6-1">nx.draw()</a></li><li><a href="#tabset-6-2">autograph()</a></li><li><a href="#tabset-6-3">Arguments</a></li><li><a href="#tabset-6-4">Discuss</a></li></ul>
+<ul id="tabset-6" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-6-1">nx.draw()</a></li><li><a href="#tabset-6-2">Arguments</a></li><li><a href="#tabset-6-3">Discuss</a></li></ul>
 <div class="tab-content">
 <div id="tabset-6-1">
 <div class="columns">
 <div class="column" style="width:50%;">
 <p>Run the following code to make a simple sociogram:</p>
-<div id="cb960cc7" class="cell" data-fig.show="hide" data-execution_count="14">
+<div id="403df349" class="cell" data-fig.show="hide" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href=""></a>nx.draw(student_network)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
-<p>The <code>plot()</code> function is base R’s simple but limited solution for plotting graphs.</p>
+<p>The <code>draw()</code> function is a simple function for quickly plotting graphs using the {networkx} package.</p>
 </div><div class="column" style="width:50%;">
-<div id="b56c8cb6" class="cell" data-fig-asp="0.75" data-execution_count="15">
+<div id="3573ac86" class="cell" data-fig-asp="0.75" data-execution_count="15">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="sna-1-code-along-Python_files/figure-revealjs/cell-16-output-1.png" width="979" height="499"></p>
+<p><img data-src="sna-1-code-along-python_files/figure-revealjs/cell-16-output-1.png" width="979" height="499"></p>
 </figure>
 </div>
 </div>
@@ -940,36 +946,31 @@
 <div id="tabset-6-2">
 <div class="columns">
 <div class="column" style="width:50%;">
-<p>The <code>autograph()</code> function is ggraph’s simple but limited solution for plotting sociograms.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource {r} number-lines code-with-copy"><code class="sourceCode"><span id="cb9-1"><a href=""></a>#| echo: true</span>
-<span id="cb9-2"><a href=""></a>#| fig.show: hide</span>
-<span id="cb9-3"><a href=""></a>autograph(student_network)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Both functions allow a small degree of customization, but are still limited.</p>
+<div id="25928c4b" class="cell" data-fig.show="hide" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href=""></a>nx.draw(student_network, with_labels<span class="op">=</span><span class="va">True</span>, font_weight<span class="op">=</span><span class="st">'bold'</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="sna-1-code-along-python_files/figure-revealjs/cell-17-output-1.png" width="979" height="499"></p>
+</figure>
+</div>
+</div>
+</div>
 </div><div class="column" style="width:50%;">
-<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource {r} number-lines code-with-copy"><code class="sourceCode"><span id="cb10-1"><a href=""></a>#| echo: false</span>
-<span id="cb10-2"><a href=""></a>#| fig.asp: .75</span>
-<span id="cb10-3"><a href=""></a>autograph(student_network)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="b5c34f63" class="cell" data-fig.asp="0.75" data-execution_count="17">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="sna-1-code-along-python_files/figure-revealjs/cell-18-output-1.png" width="979" height="499"></p>
+</figure>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="tabset-6-3">
-<div class="columns">
-<div class="column" style="width:50%;">
-<p>Both functions allow a small degree of customization, but are still limited.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource {r} number-lines code-with-copy"><code class="sourceCode"><span id="cb11-1"><a href=""></a>#| echo: true</span>
-<span id="cb11-2"><a href=""></a>#| fig.show: hide</span>
-<span id="cb11-3"><a href=""></a>autograph(student_network,</span>
-<span id="cb11-4"><a href=""></a>          node_label = id,</span>
-<span id="cb11-5"><a href=""></a>          node_colour = gender)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column" style="width:50%;">
-<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource {r} number-lines code-with-copy"><code class="sourceCode"><span id="cb12-1"><a href=""></a>#| echo: false</span>
-<span id="cb12-2"><a href=""></a>#| fig.asp: .75</span>
-<span id="cb12-3"><a href=""></a>autograph(student_network,</span>
-<span id="cb12-4"><a href=""></a>          node_label = id,</span>
-<span id="cb12-5"><a href=""></a>          node_colour = gender)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-<div id="tabset-6-4">
 <ol type="1">
 <li>In what situations might these limited functions be useful?</li>
 <li>When might they inappropriate to use?</li>
@@ -996,16 +997,16 @@
 <div class="columns">
 <div class="column" style="width:50%;">
 <p>Let’s “add” nodes to our sociogram using the <code>+</code> operator and the <code>geom_node_point()</code> function:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource {r} number-lines code-with-copy"><code class="sourceCode"><span id="cb13-1"><a href=""></a>#| echo: true</span>
-<span id="cb13-2"><a href=""></a>#| fig.show: hide</span>
-<span id="cb13-3"><a href=""></a>#| message: false</span>
-<span id="cb13-4"><a href=""></a>ggraph(student_network) + </span>
-<span id="cb13-5"><a href=""></a>  geom_node_point() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource {r} number-lines code-with-copy"><code class="sourceCode"><span id="cb10-1"><a href=""></a>#| echo: true</span>
+<span id="cb10-2"><a href=""></a>#| fig.show: hide</span>
+<span id="cb10-3"><a href=""></a>#| message: false</span>
+<span id="cb10-4"><a href=""></a>ggraph(student_network) + </span>
+<span id="cb10-5"><a href=""></a>  geom_node_point() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" style="width:50%;">
-<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource {r} number-lines code-with-copy"><code class="sourceCode"><span id="cb14-1"><a href=""></a>#| echo: false</span>
-<span id="cb14-2"><a href=""></a>#| fig.asp: .75</span>
-<span id="cb14-3"><a href=""></a>ggraph(student_network) + </span>
-<span id="cb14-4"><a href=""></a>  geom_node_point() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource {r} number-lines code-with-copy"><code class="sourceCode"><span id="cb11-1"><a href=""></a>#| echo: false</span>
+<span id="cb11-2"><a href=""></a>#| fig.asp: .75</span>
+<span id="cb11-3"><a href=""></a>ggraph(student_network) + </span>
+<span id="cb11-4"><a href=""></a>  geom_node_point() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1013,17 +1014,17 @@
 <div class="columns">
 <div class="column" style="width:50%;">
 <p>Both functions allow a small degree of customization, but are still limited.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource {r} number-lines code-with-copy"><code class="sourceCode"><span id="cb15-1"><a href=""></a>#| echo: true</span>
-<span id="cb15-2"><a href=""></a>#| fig.show: hide</span>
-<span id="cb15-3"><a href=""></a>ggraph(student_network) + </span>
-<span id="cb15-4"><a href=""></a>  geom_node_point() + </span>
-<span id="cb15-5"><a href=""></a>  geom_edge_link()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource {r} number-lines code-with-copy"><code class="sourceCode"><span id="cb12-1"><a href=""></a>#| echo: true</span>
+<span id="cb12-2"><a href=""></a>#| fig.show: hide</span>
+<span id="cb12-3"><a href=""></a>ggraph(student_network) + </span>
+<span id="cb12-4"><a href=""></a>  geom_node_point() + </span>
+<span id="cb12-5"><a href=""></a>  geom_edge_link()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" style="width:50%;">
-<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource {r} number-lines code-with-copy"><code class="sourceCode"><span id="cb16-1"><a href=""></a>#| echo: false</span>
-<span id="cb16-2"><a href=""></a>#| fig.asp: .75</span>
-<span id="cb16-3"><a href=""></a>ggraph(student_network) + </span>
-<span id="cb16-4"><a href=""></a>  geom_node_point() + </span>
-<span id="cb16-5"><a href=""></a>  geom_edge_link()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource {r} number-lines code-with-copy"><code class="sourceCode"><span id="cb13-1"><a href=""></a>#| echo: false</span>
+<span id="cb13-2"><a href=""></a>#| fig.asp: .75</span>
+<span id="cb13-3"><a href=""></a>ggraph(student_network) + </span>
+<span id="cb13-4"><a href=""></a>  geom_node_point() + </span>
+<span id="cb13-5"><a href=""></a>  geom_edge_link()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1032,35 +1033,35 @@
 <div class="column" style="width:50%;">
 <p><br> <br> The {ggraph} packages allows for some very fairly sophisticated sociograms…</p>
 </div><div class="column" style="width:50%;">
-<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource {r} number-lines code-with-copy"><code class="sourceCode"><span id="cb17-1"><a href=""></a>#| echo: false</span>
-<span id="cb17-2"><a href=""></a>#| fig.asp: .75</span>
-<span id="cb17-3"><a href=""></a>ggraph(student_network, layout = "stress") + </span>
-<span id="cb17-4"><a href=""></a>  geom_edge_link(arrow = arrow(length = unit(1, 'mm')), </span>
-<span id="cb17-5"><a href=""></a>                 end_cap = circle(3, 'mm'),</span>
-<span id="cb17-6"><a href=""></a>                 start_cap = circle(3, 'mm'),</span>
-<span id="cb17-7"><a href=""></a>                 alpha = .1) +</span>
-<span id="cb17-8"><a href=""></a>  geom_node_point(aes(size = local_size(),</span>
-<span id="cb17-9"><a href=""></a>                      color = gender)) +</span>
-<span id="cb17-10"><a href=""></a>  geom_node_text(aes(label = id),</span>
-<span id="cb17-11"><a href=""></a>                 repel=TRUE) +</span>
-<span id="cb17-12"><a href=""></a>  theme_graph()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource {r} number-lines code-with-copy"><code class="sourceCode"><span id="cb14-1"><a href=""></a>#| echo: false</span>
+<span id="cb14-2"><a href=""></a>#| fig.asp: .75</span>
+<span id="cb14-3"><a href=""></a>ggraph(student_network, layout = "stress") + </span>
+<span id="cb14-4"><a href=""></a>  geom_edge_link(arrow = arrow(length = unit(1, 'mm')), </span>
+<span id="cb14-5"><a href=""></a>                 end_cap = circle(3, 'mm'),</span>
+<span id="cb14-6"><a href=""></a>                 start_cap = circle(3, 'mm'),</span>
+<span id="cb14-7"><a href=""></a>                 alpha = .1) +</span>
+<span id="cb14-8"><a href=""></a>  geom_node_point(aes(size = local_size(),</span>
+<span id="cb14-9"><a href=""></a>                      color = gender)) +</span>
+<span id="cb14-10"><a href=""></a>  geom_node_text(aes(label = id),</span>
+<span id="cb14-11"><a href=""></a>                 repel=TRUE) +</span>
+<span id="cb14-12"><a href=""></a>  theme_graph()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
 <div id="tabset-7-5">
 <p>With a fair bit of coding:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource {r} number-lines code-with-copy"><code class="sourceCode"><span id="cb18-1"><a href=""></a>#| echo: true</span>
-<span id="cb18-2"><a href=""></a>#| fig.show: hide</span>
-<span id="cb18-3"><a href=""></a>ggraph(student_network, layout = "stress") + </span>
-<span id="cb18-4"><a href=""></a>  geom_edge_link(arrow = arrow(length = unit(1, 'mm')), </span>
-<span id="cb18-5"><a href=""></a>                 end_cap = circle(3, 'mm'),</span>
-<span id="cb18-6"><a href=""></a>                 start_cap = circle(3, 'mm'),</span>
-<span id="cb18-7"><a href=""></a>                 alpha = .1) +</span>
-<span id="cb18-8"><a href=""></a>  geom_node_point(aes(size = local_size(),</span>
-<span id="cb18-9"><a href=""></a>                      color = gender)) +</span>
-<span id="cb18-10"><a href=""></a>  geom_node_text(aes(label = id),</span>
-<span id="cb18-11"><a href=""></a>                 repel=TRUE) +</span>
-<span id="cb18-12"><a href=""></a>  theme_graph()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource {r} number-lines code-with-copy"><code class="sourceCode"><span id="cb15-1"><a href=""></a>#| echo: true</span>
+<span id="cb15-2"><a href=""></a>#| fig.show: hide</span>
+<span id="cb15-3"><a href=""></a>ggraph(student_network, layout = "stress") + </span>
+<span id="cb15-4"><a href=""></a>  geom_edge_link(arrow = arrow(length = unit(1, 'mm')), </span>
+<span id="cb15-5"><a href=""></a>                 end_cap = circle(3, 'mm'),</span>
+<span id="cb15-6"><a href=""></a>                 start_cap = circle(3, 'mm'),</span>
+<span id="cb15-7"><a href=""></a>                 alpha = .1) +</span>
+<span id="cb15-8"><a href=""></a>  geom_node_point(aes(size = local_size(),</span>
+<span id="cb15-9"><a href=""></a>                      color = gender)) +</span>
+<span id="cb15-10"><a href=""></a>  geom_node_text(aes(label = id),</span>
+<span id="cb15-11"><a href=""></a>                 repel=TRUE) +</span>
+<span id="cb15-12"><a href=""></a>  theme_graph()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1107,20 +1108,20 @@ Pittinsky, Matthew, and Brian V Carolan. 2008. <span>“Behavioral Versus Cognit
   </div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="sna-1-code-along-Python_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="sna-1-code-along-python_files/libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="sna-1-code-along-Python_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="sna-1-code-along-Python_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="sna-1-code-along-Python_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="sna-1-code-along-Python_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="sna-1-code-along-Python_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
-  <script src="sna-1-code-along-Python_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="sna-1-code-along-python_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="sna-1-code-along-python_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="sna-1-code-along-python_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="sna-1-code-along-python_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="sna-1-code-along-python_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="sna-1-code-along-python_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="sna-1-code-along-Python_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="sna-1-code-along-Python_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="sna-1-code-along-Python_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="sna-1-code-along-Python_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="sna-1-code-along-python_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="sna-1-code-along-python_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="sna-1-code-along-python_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="sna-1-code-along-python_files/libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>

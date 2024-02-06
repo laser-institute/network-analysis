@@ -2,7 +2,7 @@ import networkx as nx
 import pandas as pd
 import matplotlib.pyplot as plt
 
-student_friends = pd.read_excel("data/student-reported-friends.xlsx",header=None)
+student_friends = pd.read_csv("data/student-reported-friends.csv",header=None)
 student_friends
 
 # Read Excel file into a DataFrame
@@ -47,4 +47,23 @@ teacher_network = nx.from_pandas_adjacency(teacher_friends, create_using=nx.DiGr
 print(teacher_network)
 
 nx.draw(student_network, with_labels=True, font_weight='bold')
+plt.show()
+
+
+teacher_friends = pd.read_excel("data/teacher-reported-friends.xlsx", header = None)
+
+teacher_network = nx.from_pandas_adjacency(teacher_friends, create_using = nx.DiGraph())
+
+for _, row in student_attributes.iterrows():
+    node_id = row['id']
+    if node_id in teacher_network:
+        teacher_network.nodes[node_id]['name'] = row['name']
+        teacher_network.nodes[node_id]['gender'] = row['gender']
+        teacher_network.nodes[node_id]['achievement'] = row['achievement']
+        teacher_network.nodes[node_id]['gender_num'] = row['gender_num']
+        teacher_network.nodes[node_id]['achievement_num'] = row['achievement_num']
+
+print(teacher_network)
+
+nx.draw(teacher_network)
 plt.show()

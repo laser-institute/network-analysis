@@ -46,7 +46,7 @@ SNA is unique among the learning analytics methods covered by the LASER Institut
 
 # The 4 Hallmarks of SNA
 
-Strucuralism, Empirical Data, Graphical Imagery, & Mathematically-Based
+Relationships, Empirical Data, Graphical Imagery, & Mathematically-Based
 
 ::: notes
 **Speaker Notes**:
@@ -66,7 +66,13 @@ SNA emphasizes structuralism based on **ties** connecting social **actors** and 
 ::: notes
 **Speaker Notes:**
 
-Here's a concrete example of the distinction between SNA and traditional research. Imagine studying a topic such as teacher effectiveness as measured by student test scores. In trying to undestand why some teachers are more "effective" than others, researchers tend to focus on the attributes of the teacher, for example their highest degree, use of technology, years of experience, or pathways toward licensesure and certification. However, they typically neglect the relations among teachers and between teachers and students and how these relations shape their effectiveness as a teacher. SNA attempts to account for the web of relations in which actors are embedded, this **social structure**, that simultaneously may constrain or provide opportunities for their effectiveness.
+Social network analysis is also predicated on a few key assumptions:
+
+1.  social relations are often more important for understanding behaviors and attitudes than are such attributes related to one's background (e.g., age, gender, etc.).
+2.  social networks affect beliefs, perceptions, and behaviors through a variety of structural mechanisms
+3.  social relations are not static but rather occur as part of a dynamic process that is not adequately explained by conventional social theory; relations are continually changing as actors interact with others in shifting contexts.
+
+Here's a concrete example of the distinction between SNA and traditional research. Imagine studying a topic such as teacher effectiveness as measured by student test scores. In trying to understand why some teachers are more "effective" than others, researchers tend to focus on the attributes of the teacher, for example their highest degree, use of technology, years of experience, or pathways toward licensure and certification. However, they typically neglect the relations among teachers and between teachers and students and how these relations shape their effectiveness as a teacher. SNA attempts to account for the web of relations in which actors are embedded, this **social structure**, that simultaneously may constrain or provide opportunities for their effectiveness.
 :::
 
 ## Empirical Data

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="LASER Institute">
-<meta name="dcterms.date" content="2024-02-04">
+<meta name="dcterms.date" content="2024-02-05">
 
 <title>Who’s Friends with Who in Middle School</title>
 <style>
@@ -140,6 +140,7 @@ div.csl-indent {
   <li><a href="#convert-to-graph-object" id="toc-convert-to-graph-object" class="nav-link" data-scroll-target="#convert-to-graph-object"><strong>Convert to Graph Object</strong></a></li>
   <li><a href="#what-is-an-edge-list" id="toc-what-is-an-edge-list" class="nav-link" data-scroll-target="#what-is-an-edge-list">What is an edge list?</a></li>
   <li><a href="#your-turn-3" id="toc-your-turn-3" class="nav-link" data-scroll-target="#your-turn-3"><strong>👉 Your Turn</strong> <strong>⤵</strong></a></li>
+  <li><a href="#question-2" id="toc-question-2" class="nav-link" data-scroll-target="#question-2">❓Question</a></li>
   </ul></li>
   </ul></li>
   <li><a href="#explore" id="toc-explore" class="nav-link" data-scroll-target="#explore">3. EXPLORE</a>
@@ -191,7 +192,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">February 4, 2024</p>
+      <p class="date">February 5, 2024</p>
     </div>
   </div>
   
@@ -466,23 +467,34 @@ Attaching package: 'tidygraph'</code></pre>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>student_attributes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 27 × 5
-      id gender achievement gender_num achievement_num
-   &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;            &lt;dbl&gt;           &lt;dbl&gt;
- 1     1 female high                 1               1
- 2     2 male   average              0               2
- 3     3 female average              1               2
- 4     4 male   high                 0               1
- 5     5 female average              1               2
- 6     6 female average              1               2
- 7     7 female high                 1               1
- 8     8 female average              1               2
- 9     9 female high                 1               1
-10    10 male   low                  0               3
+<pre><code># A tibble: 27 × 6
+      id name      gender achievement gender_num achievement_num
+   &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;  &lt;chr&gt;            &lt;dbl&gt;           &lt;dbl&gt;
+ 1     1 Katherine female high                 1               1
+ 2     2 James     male   average              0               2
+ 3     3 Angela    female average              1               2
+ 4     4 Joseph    male   high                 0               1
+ 5     5 Samantha  female average              1               2
+ 6     6 Susan     female average              1               2
+ 7     7 Anna      female high                 1               1
+ 8     8 Kimberly  female average              1               2
+ 9     9 Helen     female high                 1               1
+10    10 Samuel    male   low                  0               3
 # ℹ 17 more rows</code></pre>
 </div>
 </div>
 <p>Note that when we imported this time, we left out the <code>col_names = FALSE</code> argument. As mentioned earlier, by default this argument is set to TRUE and assumes the first row of your data frame will contain names of the variables. Since this was indeed the case, we didn’t need to include this argument. We could, however, have included this argument and set it to <code>TRUE</code> and our resulting output would still be the same.</p>
+<p>Although an underlying assumption of social network analysis is that social relations are often more important for understanding behaviors and attitudes than attributes related to one’s background (e.g., age, gender, etc.), these attributes often still play an important role in SNA. Specifically attributes can enrich our understanding of networks by adding contextual information about actors and their relations. For example, actor attributes can be used to for:</p>
+<ol type="1">
+<li><strong>Community Detection</strong>: Identifying groups with shared attributes, revealing substructures within the network.</li>
+<li><strong>Homophily Analysis</strong>: Examining the tendency for similar individuals to connect, shedding light on social cohesion.</li>
+<li><strong>Influence and Diffusion</strong>: Understanding how characteristics of individuals affect the spread of information or behaviors.</li>
+<li><strong>Centrality Analysis</strong>: Correlating attributes with centrality measures to assess individuals’ influence based on their traits.</li>
+<li><strong>Network Dynamics</strong>: Investigating how changes in attributes correspond to the evolution of network structures.</li>
+<li><strong>Statistical Modeling</strong>: Incorporating attributes in models to explore the interplay between individual traits and network formation.</li>
+<li><strong>Visualization</strong>: Enhancing network visualizations by using attributes to differentiate nodes, making patterns more discernible.</li>
+</ol>
+<p>We will explore several of these use cases throughout the SNA modules, but for this case study, our focus will be to incorporate some student attributes to enhance our visualizations.</p>
 </section>
 <section id="your-turn-2" class="level4">
 <h4 class="anchored" data-anchor-id="your-turn-2"><strong>👉 Your Turn</strong> <strong>⤵</strong></h4>
@@ -668,15 +680,15 @@ Tip
 #
 # A directed multigraph with 2 components
 #
-# A tibble: 27 × 5
-     id gender achievement gender_num achievement_num
-  &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;            &lt;dbl&gt;           &lt;dbl&gt;
-1     1 female high                 1               1
-2     2 male   average              0               2
-3     3 female average              1               2
-4     4 male   high                 0               1
-5     5 female average              1               2
-6     6 female average              1               2
+# A tibble: 27 × 6
+     id name      gender achievement gender_num achievement_num
+  &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;  &lt;chr&gt;            &lt;dbl&gt;           &lt;dbl&gt;
+1     1 Katherine female high                 1               1
+2     2 James     male   average              0               2
+3     3 Angela    female average              1               2
+4     4 Joseph    male   high                 0               1
+5     5 Samantha  female average              1               2
+6     6 Susan     female average              1               2
 # ℹ 21 more rows
 #
 # A tibble: 287 × 3
@@ -713,15 +725,15 @@ Tip
 #
 # A directed multigraph with 9 components
 #
-# A tibble: 27 × 5
-     id gender achievement gender_num achievement_num
-  &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;            &lt;dbl&gt;           &lt;dbl&gt;
-1     1 female high                 1               1
-2     2 male   average              0               2
-3     3 female average              1               2
-4     4 male   high                 0               1
-5     5 female average              1               2
-6     6 female average              1               2
+# A tibble: 27 × 6
+     id name      gender achievement gender_num achievement_num
+  &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;  &lt;chr&gt;            &lt;dbl&gt;           &lt;dbl&gt;
+1     1 Katherine female high                 1               1
+2     2 James     male   average              0               2
+3     3 Angela    female average              1               2
+4     4 Joseph    male   high                 0               1
+5     5 Samantha  female average              1               2
+6     6 Susan     female average              1               2
 # ℹ 21 more rows
 #
 # A tibble: 70 × 3
@@ -733,6 +745,9 @@ Tip
 # ℹ 67 more rows</code></pre>
 </div>
 </div>
+</section>
+<section id="question-2" class="level4">
+<h4 class="anchored" data-anchor-id="question-2">❓Question</h4>
 <p>Now answer the questions that following questions:</p>
 <ol type="1">
 <li><p>How many students are in our network?</p>
@@ -749,24 +764,23 @@ Tip
 </section>
 <section id="explore" class="level2">
 <h2 class="anchored" data-anchor-id="explore">3. EXPLORE</h2>
-<p>As noted in in our course readings, exploratory data analysis involves the processes of describing your data (such as by calculating the means and standard deviations of numeric variables, or counting the frequency of categorical variables) and, often, visualizing your data prior to modeling.</p>
-<p>In Section 3 work focus on just visualization, and will use the {tidygraph} package to create a network sociogram to help visually describe our network and compare teacher and student reported friendships. Specifically, in this section we’ll learn to make a:</p>
-<ol type="a">
-<li><p><strong>Simple Sociogram</strong>. We learn about the basic <code>plot()</code> and <code>auto_graph()</code> functions for creating a very quick network plot when just a quick visual inspection is needed.</p></li>
-<li><p><strong>Sophisticated Sociogram</strong>. We then dive deeper in to the <code>ggraph()</code> function and learn to plot nodes and edges in our network and tweak key elements like the size, shape, and position of nodes and edges to better at communicating key findings.</p></li>
-</ol>
-<p>One of the defining characteristics of the social network perspective is its use of graphic imagery to represent actors and their relations with one another. To emphasize this point, <span class="citation" data-cites="carolan2014">Carolan (<a href="#ref-carolan2014" role="doc-biblioref">2014</a>)</span> reported that:</p>
+<p>As noted in our course readings, one of the defining characteristics of the social network perspective is its use of graphic imagery to represent actors and their relations with one another. To emphasize this point, <span class="citation" data-cites="carolan2014">Carolan (<a href="#ref-carolan2014" role="doc-biblioref">2014</a>)</span> reported that:</p>
 <blockquote class="blockquote">
 <p>The visualization of social networks has been a core practice since its foundation more than 100 years ago and remains a hallmark of contemporary social network analysis.&nbsp;</p>
 </blockquote>
 <p>Network visualization can be used for a variety of purposes, ranging from highlighting key actors to even serving as works of art.</p>
 <p>This excellent figure from Katya Ognyanova’s also excellent tutorial on <a href="https://kateto.net/network-visualization/">Static and Dynamic Network Visualization with R</a> helps illustrate the variety of goals a good network visualization can accomplish:</p>
 <p><img src="img/viz-goals.jpeg" class="img-fluid" style="width:80.0%"></p>
+<p>In Section 3 work focus on just visualization, and will use the {tidygraph} package to create a network sociogram to help visually describe our network and compare teacher and student reported friendships. Specifically, in this section we’ll learn to make a:</p>
+<ol type="a">
+<li><p><strong>Simple Sociogram</strong>. We learn about the basic <code>plot()</code> and <code>auto_graph()</code> functions for creating a very quick network plot when just a quick visual inspection is needed.</p></li>
+<li><p><strong>Sophisticated Sociogram</strong>. We then dive deeper in to the <code>ggraph()</code> function and learn to plot nodes and edges in our network and tweak key elements like the size, shape, and position of nodes and edges to better at communicating key findings.</p></li>
+</ol>
 <section id="a.-simple-sociograms" class="level3">
 <h3 class="anchored" data-anchor-id="a.-simple-sociograms">3a. Simple Sociograms</h3>
 <p>These visual representations of the actors and their relations, i.e.&nbsp;the network, are called a <strong>sociogram</strong>. Actors who are most central to the network, such as those with higher node degrees, or those with more friends in our case study, are usually placed in the center of the sociogram and their ties are placed near them.</p>
 <p>The <code>plot()</code> function from R’s built in {graphics} package can be used to make a wide range of graphs, including sociograms, but as you’ll see it’s a bit lacking and is limited limited in the level of customization allowed.</p>
-<p>In the code chunk below, use the <code>plot()</code> function with your <code>students_network</code> object to see what the basic plot function produces:</p>
+<p>In the code chunk below, use the <code>plot()</code> function with your <code>student_network</code> object to see what the basic plot function produces:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(student_network)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -795,7 +809,7 @@ Tip
 <p>Run the following code chunk to see some additional arguments you can add to the <code>autograph()</code> function:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">autograph</span>(student_network,</span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">node_label =</span> id,</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">node_label =</span> name,</span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">node_colour =</span> gender)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
@@ -919,7 +933,7 @@ Tip
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggraph</span>(student_network, <span class="at">layout =</span> <span class="st">"stress"</span>) <span class="sc">+</span> </span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> <span class="fu">local_size</span>(),</span>
 <span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">color =</span> gender)) <span class="sc">+</span></span>
-<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> id,</span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> name,</span>
 <span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>                     <span class="at">size =</span> <span class="fu">local_size</span>()),</span>
 <span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>                 <span class="at">repel =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -938,7 +952,7 @@ Tip
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggraph</span>(student_network, <span class="at">layout =</span> <span class="st">"stress"</span>) <span class="sc">+</span> </span>
 <span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> <span class="fu">local_size</span>(),</span>
 <span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">color =</span> gender)) <span class="sc">+</span></span>
-<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> id),</span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> name),</span>
 <span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">repel=</span><span class="cn">TRUE</span>) <span class="sc">+</span></span>
 <span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_edge_link</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -963,7 +977,7 @@ Tip
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggraph</span>(student_network, <span class="at">layout =</span> <span class="st">"stress"</span>) <span class="sc">+</span> </span>
 <span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> <span class="fu">local_size</span>(),</span>
 <span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">color =</span> gender)) <span class="sc">+</span></span>
-<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> id),</span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> name),</span>
 <span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">repel=</span><span class="cn">TRUE</span>) <span class="sc">+</span></span>
 <span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_edge_link</span>(<span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">length =</span> <span class="fu">unit</span>(<span class="dv">1</span>, <span class="st">'mm'</span>)), </span>
 <span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a>                 <span class="at">end_cap =</span> <span class="fu">circle</span>(<span class="dv">3</span>, <span class="st">'mm'</span>),</span>
@@ -991,7 +1005,7 @@ Tip
 <span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">alpha =</span> .<span class="dv">1</span>) <span class="sc">+</span></span>
 <span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> <span class="fu">local_size</span>(),</span>
 <span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a>                      <span class="at">color =</span> gender)) <span class="sc">+</span></span>
-<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> id),</span>
+<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> name),</span>
 <span id="cb49-9"><a href="#cb49-9" aria-hidden="true" tabindex="-1"></a>                 <span class="at">repel=</span><span class="cn">TRUE</span>) <span class="sc">+</span></span>
 <span id="cb49-10"><a href="#cb49-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_graph</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -1017,7 +1031,7 @@ Tip
 <span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">alpha =</span> .<span class="dv">2</span>) <span class="sc">+</span></span>
 <span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> <span class="fu">local_size</span>(),</span>
 <span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a>                      <span class="at">color =</span> gender)) <span class="sc">+</span></span>
-<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> id),</span>
+<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> name),</span>
 <span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a>                 <span class="at">repel=</span><span class="cn">TRUE</span>) <span class="sc">+</span></span>
 <span id="cb50-10"><a href="#cb50-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_graph</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">

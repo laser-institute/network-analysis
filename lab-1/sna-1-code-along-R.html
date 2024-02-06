@@ -424,6 +424,8 @@
 
 <img data-src="img/workflow.png" width="300" class="r-stretch quarto-figure-center"><p class="caption">From Learning Analytics Goes to School <span class="citation" data-cites="krumm2018">(<a href="#/references" role="doc-biblioref" onclick="">Krumm, Means, and Bienkowski 2018</a>)</span></p><aside class="notes">
 <p><strong>Speaker Notes:</strong></p>
+<p>Just as a quick refresher from our Learning Analytics Workflow Module, the workflow pictured here outlines a basic process intended to support researchers, practitioners, and data scientists prepare for a data-intensive analysis and communication of one’s findings. Different processes in this workflow as they relate to specific LA technique are highlighted in our code-along and presented in much greater detail in each case study.</p>
+<p>If you’re interested in learning more about this workflow, I highly recommend the excellent book, Learning Analytics Goes to School, by Andrew Krumm, Barbara Means, and Marie Bienkowski.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -844,15 +846,15 @@
 #
 # A directed simple graph with 2 components
 #
-# A tibble: 27 × 5
-     id gender achievement gender_num achievement_num
-  &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;            &lt;dbl&gt;           &lt;dbl&gt;
-1     1 female high                 1               1
-2     2 male   average              0               2
-3     3 female average              1               2
-4     4 male   high                 0               1
-5     5 female average              1               2
-6     6 female average              1               2
+# A tibble: 27 × 6
+     id name      gender achievement gender_num achievement_num
+  &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;  &lt;chr&gt;            &lt;dbl&gt;           &lt;dbl&gt;
+1     1 Katherine female high                 1               1
+2     2 James     male   average              0               2
+3     3 Angela    female average              1               2
+4     4 Joseph    male   high                 0               1
+5     5 Samantha  female average              1               2
+6     6 Susan     female average              1               2
 # ℹ 21 more rows
 #
 # A tibble: 203 × 3
@@ -934,7 +936,7 @@
 <p>Both functions allow a small degree of customization, but are still limited.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="fu">autograph</span>(student_network,</span>
-<span id="cb10-2"><a href=""></a>          <span class="at">node_label =</span> id,</span>
+<span id="cb10-2"><a href=""></a>          <span class="at">node_label =</span> name,</span>
 <span id="cb10-3"><a href=""></a>          <span class="at">node_colour =</span> gender)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:50%;">
@@ -1045,7 +1047,7 @@
 <span id="cb14-5"><a href=""></a>                 <span class="at">alpha =</span> .<span class="dv">1</span>) <span class="sc">+</span></span>
 <span id="cb14-6"><a href=""></a>  <span class="fu">geom_node_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> <span class="fu">local_size</span>(),</span>
 <span id="cb14-7"><a href=""></a>                      <span class="at">color =</span> gender)) <span class="sc">+</span></span>
-<span id="cb14-8"><a href=""></a>  <span class="fu">geom_node_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> id),</span>
+<span id="cb14-8"><a href=""></a>  <span class="fu">geom_node_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> name),</span>
 <span id="cb14-9"><a href=""></a>                 <span class="at">repel=</span><span class="cn">TRUE</span>) <span class="sc">+</span></span>
 <span id="cb14-10"><a href=""></a>  <span class="fu">theme_graph</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>

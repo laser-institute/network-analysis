@@ -1,6 +1,6 @@
 ---
-title: "Essential Readings: Intro to Social Network Analysis"
-subtitle: "LASER Institute SNA Learning Lab 1"
+title: "Intro to Social Network Analysis"
+subtitle: "SNA Module 1: Essential Readings"
 author: "LASER Institute"
 date: today 
 format:

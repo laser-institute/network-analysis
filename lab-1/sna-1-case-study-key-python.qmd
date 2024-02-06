@@ -90,7 +90,33 @@ import pandas as pd
 
 ```
 
-Next, we will introduce two new packages extend the tidyverse suite of packages and that we will use throughout SNA Learning Labs 1-4.
+#### SciPy 📦
+
+![](img/scipy.svg){width="20%"}
+
+SciPy is a collection of mathematical algorithms and convenience functions built on NumPy. It adds significant power to Python by providing the user with high-level commands and classes for manipulating and visualizing data.
+
+Click the green arrow in the right corner of the "code chunk" that follows to load the {scipy} library:
+
+```{python}
+
+import scipy as sp
+
+```
+
+#### Pyplot 📦
+
+![](img/matplotlib.png){width="20%"}
+
+Pyplot is a module in the {matplotlib) package, a comprehensive library for creating static, animated, and interactive visualizations in Python. **`pyplot`** provides a MATLAB-like interface for making plots and is particularly suited for interactive plotting and simple cases of programmatic plot generation.
+
+Click the green arrow in the right corner of the "code chunk" that follows to load **`pyplot`**:
+
+```{python}
+
+import matplotlib.pyplot as plt
+
+```
 
 #### NetworkX 📦
 
@@ -110,9 +136,6 @@ Next, we will introduce two new packages extend the tidyverse suite of packages 
 
 -   Edges that can hold arbitrary data (e.g., weights, time-series)
 
-```{=html}
-<!-- -->
-```
 -   Ability to work with large nonstandard data sets.
 
 With NetworkX you can load and store networks in standard and nonstandard data formats, generate many types of random and classic networks, analyze network structure, build network models, design new network algorithms, draw networks, and much more.
@@ -171,8 +194,7 @@ student_friends
 
 ```
 
-You should now see a 27 x 27 data table that represents student-reported friendships stored as an adjacency matrix. As noted on pg. 140 of @pittinsky2008behavioral, students were given a class roster and asked to describe their relationship with each student using the following choices: best friend, friend, know-like, know, know-dislike, strongly dislike, and do not know. In the terminology of network analysis, these sociometric data are
-**valued** (degrees of friendship, not just yes or no).
+You should now see a 27 x 27 data table that represents student-reported friendships stored as an adjacency matrix. As noted on pg. 140 of @pittinsky2008behavioral, students were given a class roster and asked to describe their relationship with each student using the following choices: best friend, friend, know-like, know, know-dislike, strongly dislike, and do not know. In the terminology of network analysis, these sociometric data are **valued** (degrees of friendship, not just yes or no).
 
 For the purpose of the their study, and for this case study as well, all “best friend” and “friend” choices are coded as ‘1’ (friend), while all other choices are coded as ‘0’ (not friend). This process of taking a valued relationship or tie (i.e., degrees of friendship, not just yes or no) and simplifying into a binary yes/no relationship is referred to as **dichotomization** and we'll explore the benefits and drawbacks of this process in Module 4.
 
@@ -224,10 +246,9 @@ The `from_pandas_adjacency()` function can easily convert pandas data frame to
 Run the following code to convert our adjacency matrix to directed network graph data structure, save as a new object called `student_network`, and `print()` some basic information about our network:
 
 ```{python}
-# Convert DataFrame to a directed graph
+
 student_network = nx.from_pandas_adjacency(student_friends, create_using = nx.DiGraph())
 
-# Display basic information about the graph
 print(student_network)
 ```
 
@@ -235,86 +256,92 @@ Note that the **`create_using`** argument is used to specify the type of graph y
 
 By default, many NetworkX functions create an undirected graph. If you want to create a different type of graph, such as a directed graph (**`DiGraph`**), a multi-graph (**`MultiGraph`**) with multiple types of ties, or a directed multi-graph (**`MultiDiGraph`**), you can pass the corresponding class to the **`create_using =`** parameter. This is particularly useful when the nature of your data or the analysis you intend to perform requires a specific type of graph.
 
-#### What is an edge list?
+#### Add Node Attributes
 
-The node list is a pretty typical format for social science research, we've just given it a different name. But what exactly is an edge list?
+Although an underlying assumption of social network analysis is that social relations are often more important for understanding behaviors and attitudes than attributes related to one's background (e.g., age, gender, etc.), these attributes often still play an important role in SNA. Specifcially attributes can enrich our understanding of networks by adding contextual information about actors and their relations. For example, actor attributes can be used to for:
 
-> An **edgelist** is way to store relational data, or network ties, and commonly used in network analysis. Specifically, the values in the first two columns of each row represent a dyad, or tie between two nodes in a network.
+1.  **Community Detection**: Identifying groups with shared attributes, revealing substructures within the network.
+2.  **Homophily Analysis**: Examining the tendency for similar individuals to connect, shedding light on social cohesion.
+3.  **Influence and Diffusion**: Understanding how characteristics of individuals affect the spread of information or behaviors.
+4.  **Centrality Analysis**: Correlating attributes with centrality measures to assess individuals' influence based on their traits.
+5.  **Network Dynamics**: Investigating how changes in attributes correspond to the evolution of network structures.
+6.  **Statistical Modeling**: Incorporating attributes in models to explore the interplay between individual traits and network formation.
+7.  **Visualization**: Enhancing network visualizations by using attributes to differentiate nodes, making patterns more discernible.
 
-This format is likely very different than other formats you have worked with before. An edge-list can also contain other information regarding the strength, duration, or frequency of the relationship, sometime called **weight**, in addition to other "edge attributes."
+We will explore several of these use cases throughout the SNA modules, but for this case study, our focus will be to incoporate some student attribtues to enhance our visualizations.
 
-In directed networks like ours, the first column indicates that student 1 reported students 2, 4, and 5 are friends. Since our network is unweighted, the 1 for "weight" just indicates that a friendship was present. Our data folder also contains a valued adjacency matrix which indicates the "strength" of the relationship or friendship, but we'll stick with the simpler of the two matrices for now.
+Run the following code to add the attributes in our `student_attributes` data frame to our network object `student_network` that we created earlier:
 
-Let's take a closer look at those edges. The {tidygraph} package has a useful `activate()` function that we will be using extensively throughout the SNA learning labs. This function allows us to work with the nodes and edges in our network object as if they were typical data frames and apply to them the entire suite of {tidyverse} functions for wrangling and summarizing data.
+```{python}
 
-For now, let's just use the `activate()` function to single out the edgelist in our network object, use the `as_tibble()` function to temporarily convert it to a data frame, and use the `<-` assignment operator to permanently save it in our environment as `student_edges`.
-
-We'll also use a very powerful `|>` operator called a **pipe**. Pipes are a powerful tool for combining a sequence of functions or processes. The original pipe operator, `%>%`, comes from the {**magrittr**} package but all packages in the tidyverse load `%>%` for you automatically, so you don't usually load magrittr explicitly.
-
-The pipe has become such a useful and much used operator in R that it is now baked into R using the new and simpler version of the pipe `|>` operator demonstrated in the following code chunk:
-
-```{r}
-student_edges <- student_network |>
-  activate(edges) |>
-  as_tibble()
-
-student_edges
+for _, row in student_attributes.iterrows():
+    node_id = row['id']
+    if node_id in student_network:
+        student_network.nodes[node_id]['name'] = row['name']
+        student_network.nodes[node_id]['gender'] = row['gender']
+        student_network.nodes[node_id]['achievement'] = row['achievement']
+        student_network.nodes[node_id]['gender_num'] = row['gender_num']
+        student_network.nodes[node_id]['achievement_num'] = row['achievement_num']
 ```
 
-Great! Now we can see the full list of edges in our network ordered by student ids.
+There is a lot going on this this code so let's unpack this line by line. This code snippet iterates over each row of our `student_attributes` data frame and updates our network object named `student_network` with attributes for each student (node). Here's a step-by-step explanation:
 
-More importantly, however, is now that we have our edges stored in a standard format, we can combine our `student_edges` and `student_attributes` data frames into a single network object that contains the information from both!!
+1.  `for _, row in student_attributes.iterrows():`
+    -   This line starts a loop that iterates through each row of the `student_attributes` DataFrame. The `iterrows()` function generates a sequence of index and row pairs for the DataFrame. Here, `_` is a placeholder for the row index, which is not used in the loop, and `row` represents the actual data of the current row as a Series object.
+2.  `node_id = row['id']`
+    -   For each row, this line extracts the value from the 'id' column, which is assumed to represent the unique identifier (ID) of a student. This ID will be used to reference the corresponding node in the `student_network` graph.
+3.  `if node_id in student_network:`
+    -   This conditional statement checks if a node with the ID `node_id` exists in the `student_network` graph. This is important to avoid attempting to set attributes for non-existent nodes.
+4.  Inside the `if` block, the following lines set attributes for the node corresponding to `node_id` in the `student_network` graph:
+    -   `student_network.nodes[node_id]['gender'] = row['gender']`
+        -   This line sets the 'gender' attribute of the node to the value found in the 'gender' column of the current row.
+    -   `student_network.nodes[node_id]['achievement'] = row['achievement']`
+        -   This line sets the 'achievement' attribute of the node to the value found in the 'achievement' column of the current row.
+    -   `student_network.nodes[node_id]['gender_num'] = row['gender_num']`
+        -   This line sets the 'gender_num' attribute (likely a numerical representation of gender) of the node to the value found in the 'gender_num' column of the current row.
+    -   `student_network.nodes[node_id]['achievement_num'] = row['achievement_num']`
+        -   This line sets the 'achievement_num' attribute (possibly a numerical representation of achievement level) of the node to the value found in the 'achievement_num' column of the current row.
+    -   `student_network.nodes[node_id]['name'] = row['name']`
+        -   This line sets the 'name' attribute of the node to the value found in the 'name' column of the current row, assigning a personal name to the node.
 
-To do so, we'll use the more standard `tbl_graph()` function from the {tidygraph}. First, run the following code to take a look at the help documentation for this function:
+Before we move on, let's take a quick look at each node's attribute data to make sure our code above worked as intended:
 
-```{r function_help, eval=FALSE}
-?tbl_graph
+```{python}
+
+list(student_network.nodes(data=True))
+
 ```
 
-You probably saw that this particular function takes the following three arguments, two of which are data frames:
-
--   **`edges =`** A `data.frame` containing information about the edges in the graph. The terminal nodes of each edge must either be encoded in a `to` and `from` column, or be in the two first columns.
-
--   **`nodes =`** a node list that starts with a column of node IDs. Any following columns are interpreted as node attributes.
-
--   **`node_key =`** The name of the column in `nodes` that character represented `to` and `from` columns should be matched against.
-
--   **`directed =`** determines whether or not to create a directed graph.
-
-Now let's run the following code to specify our `ties` data frame as the edges of our network, our `actors` data frame for the vertices of our network and their attributes, and indicate that this is indeed a directed network.
-
-```{r create-edgelist}
-student_network <- tbl_graph(edges = student_edges, # specifies edges
-                             nodes = student_attributes, # specifies nodes
-                             directed = TRUE) # specifies directionality
-
-student_network
-```
-
-Much better!! Now we can see that in addition to the edges in our network, our network object now contains information about students' gender and achievement levels in text and numerical format.
+Excellent, each node in our network object now
 
 #### **👉 Your Turn** **⤵**
 
 Complete the code chunk below to convert your `teacher_friends` object first to a matrix and then to a network object that contains information about both the teacher-reported student friendships and the attributes of students:
 
-```{r teacher-network}
+```{python}
+
 # YOUR CODE HERE
 
-teacher_network <- as_tbl_graph(teacher_friends,
-                                directed = TRUE)
+teacher_friends = pd.read_excel("data/teacher-reported-friends.xlsx", header = None)
 
-teacher_edges <- teacher_network |>
-  activate(edges) |>
-  as_tibble()
+teacher_network = nx.from_pandas_adjacency(teacher_friends, create_using = nx.DiGraph())
 
-teacher_network <- tbl_graph(edges = teacher_edges, 
-                             nodes = student_attributes, 
-                             directed = TRUE)
+for _, row in student_attributes.iterrows():
+    node_id = row['id']
+    if node_id in teacher_network:
+        teacher_network.nodes[node_id]['name'] = row['name']
+        teacher_network.nodes[node_id]['gender'] = row['gender']
+        teacher_network.nodes[node_id]['achievement'] = row['achievement']
+        teacher_network.nodes[node_id]['gender_num'] = row['gender_num']
+        teacher_network.nodes[node_id]['achievement_num'] = row['achievement_num']
 
-teacher_network
+print(teacher_network)
+
 ```
 
-Now answer the questions that following questions:
+#### ❓Question
+
+Now answer the following questions:
 
 1.  How many students are in our network?
 
@@ -324,19 +351,9 @@ Now answer the questions that following questions:
 
     -   YOUR RESPONSE HERE
 
-------------------------------------------------------------------------
-
 ## 3. EXPLORE
 
-As noted in in our course readings, exploratory data analysis involves the processes of describing your data (such as by calculating the means and standard deviations of numeric variables, or counting the frequency of categorical variables) and, often, visualizing your data prior to modeling.
-
-In Section 3 work focus on just visualization, and will use the {tidygraph} package to create a network sociogram to help visually describe our network and compare teacher and student reported friendships. Specifically, in this section we'll learn to make a:
-
-a.  **Simple Sociogram**. We learn about the basic `plot()` and `auto_graph()` functions for creating a very quick network plot when just a quick visual inspection is needed.
-
-b.  **Sophisticated Sociogram**. We then dive deeper in to the `ggraph()` function and learn to plot nodes and edges in our network and tweak key elements like the size, shape, and position of nodes and edges to better at communicating key findings.
-
-One of the defining characteristics of the social network perspective is its use of graphic imagery to represent actors and their relations with one another. To emphasize this point, @carolan2014 reported that:
+As noted in our course readings, one of the defining characteristics of the social network perspective is its use of graphic imagery to represent actors and their relations with one another. To emphasize this point, @carolan2014 reported that:
 
 > The visualization of social networks has been a core practice since its foundation more than 100 years ago and remains a hallmark of contemporary social network analysis. 
 
@@ -346,38 +363,45 @@ This excellent figure from Katya Ognyanova's also excellent tutorial on [Static 
 
 ![](img/viz-goals.jpeg){width="80%"}
 
+In Section 3 work focus on just visualization, and will use the {tidygraph} package to create a network sociogram to help visually describe our network and compare teacher and student reported friendships. Specifically, in this section we'll learn to make a:
+
+a.  **Simple Sociogram**. We learn about the basic `draw()` function for creating a very quick network plot when just a quick visual inspection is needed.
+
+b.  **Sophisticated Sociogram**. We then dive deeper in to the `draw_kamada_kawai()` function with various parameters and learn to plot nodes and edges in our network and tweak key elements like the size, shape, and position of nodes and edges to better at communicating key findings.
+
 ### 3a. Simple Sociograms
 
-These visual representations of the actors and their relations, i.e. the network, are called a **sociogram**. Actors who are most central to the network, such as those with higher node degrees, or those with more friends in our case study, are usually placed in the center of the sociogram and their ties are placed near them.
+These visual representations of the actors and their relations, i.e. the network, are called a **sociogram**. Actors who are most central to the network, such as those with higher node degrees, or those with more friends in our case study, are usually placed in the center of the sociogram and their ties are placed near them.
 
-The `plot()` function from R's built in {graphics} package can be used to make a wide range of graphs, including sociograms, but as you'll see it's a bit lacking and is limited limited in the level of customization allowed.
+In the code chunk below, use the `draw()` function with your `student_network` object to see what the basic plot function produces:
 
-In the code chunk below, use the `plot()` function with your `students_network` object to see what the basic plot function produces:
+```{python}
 
-```{r plot-network}
-plot(student_network)
+nx.draw(student_network)
+plt.show()
+
 ```
 
-Not super great. In fact, it's visualizations like these that give sociograms the unflattering nickname of "hair ball" plots!
+If this had been a smaller network it might have been a little more useful but one important insight is that we have already identified an "isolate" in our network, i.e., student 18 who neither named others as a friend or was named by others as a friend.
 
-If this had been a smaller network it might have been a little more useful but one important insight is that we have already identified an "isolate" in our network, i.e., student 19 who neither named others as a friend or was named by others as a friend.
+Fortunately, we can use the `.draw_kamada_kawai()` layout to improve the visual design of network graphs.
 
-Fortunately, the {ggraph} package includes a plethora of plotting parameters for graph [layouts](https://ggraph.data-imaginist.com/articles/Layouts.html), [edges](https://ggraph.data-imaginist.com/articles/Edges.html) and [nodes](https://ggraph.data-imaginist.com/articles/Nodes.html) to improve the visual design of network graphs.
+```{python}
 
-Let's first take a quick look the `auto_graph()` function for making quick and simple sociograms similar to the R base plotting function above:
+nx.draw_kamada_kawai(student_network, with_labels=True, font_weight='bold') 
+plt.show()
 
-```{r auto-graph}
-autograph(student_network)
 ```
 
-A little better, but also lacking in many important ways. Like the `plot()` function, it does allow some small degree of customization, but is still rather limited and best use for very quick sociograms to get a quick feel for the data.
+A little better, but also lacking in many important ways. It does allow some small degree of customization, but is still rather limited and best use for very quick sociograms to get a quick feel for the data.
 
-Run the following code chunk to see some additional arguments you can add to the `autograph()` function:
+Use the code chunk below to try out these simple sociogram functions on your `teacher_network` object you created above:
 
-```{r student-sociogram}
-autograph(student_network,
-          node_label = id,
-          node_colour = gender)
+```{python}
+
+nx.draw_kamada_kawai(teacher_network, with_labels=True, font_weight='bold') 
+plt.show()
+
 ```
 
 #### **👉 Your Turn** **⤵**
@@ -386,172 +410,163 @@ Use the code chunk below to try out these simple sociogram functions on your `te
 
 ```{r teacher-sociogram}
 # YOUR CODE HERE
-plot(teacher_network)
 
-autograph(teacher_network,
-          node_size = local_size(),
-          node_colour = local_size())
 ```
 
 Not exactly great graphs, but they already provided some insight into our research questions. Specifically, we can see visually that teacher and student reported peer networks are very different!
 
 ### 3b. Sophisticated Sociograms
 
-One thing to keep in mind when building a network viz with {ggraph}, is that just like it's `ggplot()` counterpart introduced in Foundation Labs, there is a minimal code template for producing a basic plot. Specifically, ggraph requires 3 main functions
+Not exactly great graphs, but they already provided some insight into our research questions. Specifically, we can see visually that teacher and student reported peer networks are very different!
 
--   [`ggraph()`](https://ggraph.data-imaginist.com/articles/Layouts.html) takes care of setting up the plot object along with creating the layout of the graph (default = "stress").
+Run the following code chunk to see some additional arguments were added into the new layout. We assign different colors for gender and adjust the size of nodes, font, width, and transparency of the arrows.
 
--   [`geom_node_*()`](https://ggraph.data-imaginist.com/articles/Layouts.html) functions and their associated arguments add and modify the nodes of the network plot.
+```{python}
+plt.figure(figsize=(50,35))
+pos = nx.kamada_kawai_layout(student_network)
 
--   [`geom_edge_*()`](https://ggraph.data-imaginist.com/articles/Edges.html) functions and their associated arguments add and modify the edgez of the network plot.
+node_colors = ["lightsteelblue" if student_attributes.loc[n].at['gender_num'] == 0 else "salmon" for n in range(student_attributes.shape[0])]
+#set nodes
+node_options={"node_color": node_colors,"node_size":100}
+#set edges
+edge_options = {"width":.50, "alpha":.5, "edge_color":"black"} #width of the lines and their transparency
 
-Let's first pass our `student_network` object to `ggraph()` and see what happens.
+#set labels
+node_label_options = {"font_size":7, "font_color":"black", "verticalalignment":"bottom", "horizontalalignment":"left"}
 
-```{r ggraph}
-ggraph(student_network)
+#draw nodes, edges, labels
+nx.draw_networkx_nodes(student_network, pos, **node_options)
+nx.draw_networkx_edges(student_network, pos, **edge_options)
+nx.draw_networkx_labels(student_network, pos, **node_label_options)
+plt.show()
 ```
 
-Wow, that was unimpressive. But don't worry, just like the `ggplot()` function, `ggraph()` doesn't produce much on it's own. All that the `ggraph()` function does is set up the network object based on our `student_network`, and creates a layout for our sociogram, in this case using the default "stress" layout as indicated by the output.
+#### ❓Question
 
-#### Add Nodes
+What do the colors of the nodes represent in the sociogram above?
 
-Very similar to how `ggplot()` uses the `+` operator to "layer" functions together to progressively build more sophisticated graphs, `ggraph()` uses the `+` operator progressively build a sociogram.
+-   YOUR RESPONSE HERE
 
-To add our nodes, we'll added the `geom_node_point()` function. Again, just like with {ggplot2}, the "geom" in the `geom_non_point()` functions stands for "Geometric elements", or geoms for short, and represents what you actually see in the plot.
+#### Add Node Sizes
 
-#### **👉 Your Turn** **⤵**
+We can also count the number of friendships for each student and visualize it on our graph with different sizes of nodes.
 
-Now "add" the `geom_node_point()` function to our code using the `+` operator:
+```{python}
+from collections import Counter
+friends = [edge[0] for edge in student_network.edges()]
 
-```{r add-nodes}
-ggraph(student_network) + 
-  geom_node_point() 
+# Counting the number of friends
+num_friends = Counter(friends)
+
+#store in a data frame
+friendships = pd.DataFrame(list(num_friends.items()), columns=['student', 'number of friends'])
+print(friendships)
 ```
 
-Well, at least we have our nodes now!
+We can see that our student 18 is missing from the list as it was not present in the edges.
 
-#### Add Layout
+That is why we need to add 18th student to our data frame and sort it so that the number of friendships is consistent with the number of students we have.
 
-One of the major advances in visualization since the first hand-drawn sociograms developed by Jacob Moreno (1934) to represent relations among children in school is the use of software and algorithms to automatically layout networks on a grid.
-
-There are may different [layout methods](https://en.wikipedia.org/wiki/Graph_drawing#Layout_methods), but we'll start with the Fruchterman-Reingold (FR) layout, which is one of the most widely used layout algorithms for network visualization. These types of force-directed algorithms generally work well with large networks and try to layout graphs in "an aesthetically-pleasing way" by making edges roughly equal in length and minimizing overlap.
-
-Let's go ahead and include the layout argument, which in addition to including its own unique layouts, can incorporate layouts form {igraph} package like `fr` for the Fruchterman-Reingold (FR) layout:
-
-```{r add-layout}
-ggraph(student_network, layout = "fr") +
-  geom_node_point()
+```{python}
+new_row = pd.DataFrame({'student': [18], 'number of friends': [0]})
+friendships = pd.concat([friendships, new_row], ignore_index=True)
+friendships = friendships.sort_values(by='student')
+print(friendships)
 ```
 
-That's not much better so let's stick with the "stress" layout for now. Feel free to try out some other [ggraph layout methods](https://ggraph.data-imaginist.com/articles/Layouts.html) if you like, however. There are also
+Now we can see our 18th student with 0 friends reported.
 
-#### Tweak Nodes
+Let's use these data to improve our graph:
 
-Also like {ggplot2}, geoms can include aesthetics, or aes for short, such as `alpha` for transparency, as well as `color`, `shape` and `size`.
+```{python}
 
-Let's now add some "aesthetics" to our points by including the `aes()` function and arguments such as `size =` and `color =`. We'll use our `gender` variable for color and set the size of the node using `local_size()` function, which will base the size of each node on the number of friends each student nominated.
+plt.figure()
+pos = nx.kamada_kawai_layout(student_network)
 
-```{r add-color}
-ggraph(student_network, layout = "stress") + 
-geom_node_point(aes(color = gender,
-                    size = local_size()))
+# Set node size based on number of friends
+node_sizes = [friendships['number of friends'].iloc[i]*40 for i in range(len(friendships))]
+
+# Set node colors based on gender
+node_colors = ["lightsteelblue" if student_attributes.loc[n].at['gender_num'] == 0 else "salmon" for n in student_network.nodes()]
+
+# Set node options
+node_options = {"node_color": node_colors, "node_size": [node_sizes[n] for n in student_network.nodes()]}
+
+# Set edge options
+edge_options = {"width": 0.5, "alpha": 0.5, "edge_color": "black"}
+
+# Set label options
+node_label_options = {"font_size": 7, "font_color": "black", "verticalalignment": "bottom", "horizontalalignment": "left"}
+
+# Draw nodes, edges, labels
+nx.draw_networkx_nodes(student_network, pos, **node_options)
+nx.draw_networkx_edges(student_network, pos, **edge_options)
+nx.draw_networkx_labels(student_network, pos, **node_label_options)
+plt.show()
+
 ```
 
-We can easily see that the number of friends ranges from 5 to 20, with the exception of one "isolated" student we identified earlier who is not connected to any other students in the network, and therefore is smaller in size on the graph.
+#### **👉 Your Turn** **⤵**
 
-Let's fix that by adding another layer with some node text and labels. Since node labels are a geometric element, we can apply aesthetics to them as well, like color and size. Let's also include the `repel =` argument that when set to `TRUE` will avoid overlapping text.
+Use the code chunk below to try out these more sophisticated sociogram functions on your `teacher_network` object you created above:
 
-```{r add-labels}
-ggraph(student_network, layout = "stress") + 
-  geom_node_point(aes(size = local_size(),
-                      color = gender)) +
-  geom_node_text(aes(label = id,
-                     size = local_size()),
-                 repel = TRUE)
+```{python}
+# YOUR CODE HERE
+
+
 ```
 
-#### Add Edges
+#### ❓Question
 
-Now, let's literally connect the dots and add some [edges](https://ggraph.data-imaginist.com/articles/Edges.html) using the `geom_edge_link()` function.
+Do the colors of the nodes in teachers' sociogram represent the same information as in the students' one? How do you know?
 
-```{r add-edges}
-ggraph(student_network, layout = "stress") + 
-  geom_node_point(aes(size = local_size(),
-                      color = gender)) +
-  geom_node_text(aes(label = id),
-                 repel=TRUE) +
-  geom_edge_link()
+-   YOUR RESPONSE HERE
+
+Let's change teachers' network graph to display different node sizes depending on the number of friendships reported:
+
+```{python}
+
+friends_teach = [edge[0] for edge in teacher_network.edges()]
+
+# Counting the number of friends
+num_friends = Counter(friends_teach)
+
+#store in a data frame
+friendships_teach = pd.DataFrame(list(num_friends.items()), columns=['student', 'number of friends'])
+
+print(friendships_teach)
+
 ```
 
-Ack! Without some adjustment, the edges make it really difficult to see the nodes. Fortunately, you can also adjust the edges just like we did to the nodes above: Let's now include the following arguments:
+It seems like teachers did not see any friendships between students 18, 19, and the rest of the class. So let's manually add them:
 
--   `arrow =` to include some arrows 1mm in length
-
--   `end_cap =` and `start_cap =` to keep arrows from overlapping the nodes, and to
-
--   `alpha = .2` set the transparency of our edges so our edges fade more into the background and help keep the focus on our nodes:
-
-```{r tweak-edges}
-ggraph(student_network, layout = "stress") + 
-  geom_node_point(aes(size = local_size(),
-                      color = gender)) +
-  geom_node_text(aes(label = id),
-                 repel=TRUE) +
-  geom_edge_link(arrow = arrow(length = unit(1, 'mm')), 
-                 end_cap = circle(3, 'mm'),
-                 start_cap = circle(3, 'mm'),
-                 alpha = .2)
+```{python}
+new_row_1 = pd.DataFrame({'student': [18], 'number of friends': [0]})
+new_row_2 = pd.DataFrame({'student': [19], 'number of friends': [0]})
+friendships_teach = pd.concat([friendships_teach, new_row_1], ignore_index=True)
+friendships_teach = pd.concat([friendships_teach, new_row_2], ignore_index=True)
+friendships_teach = friendships_teach.sort_values(by='student')
+print(friendships_teach)
 ```
 
-Note: There are many [different ways we can represent edges in a network](https://www.data-imaginist.com/2017/ggraph-introduction-edges/) beyond simple links. Try replacing `geom_edge_link` with `geom_edge_arc` and see what happens!
+#### **👉 Your Turn** **⤵**
 
-#### Add a Theme
+Now that you have a sense of how the **networkx** package works to build network graphs, use the code chunk below and try building a sophisticated sociogram for the `teacher_network` object that you created changing the node size parameter.
 
-Finally, let's add a **theme,** which controls the finer points of display, like the font size and background color. The `theme_graph()` function add a theme specially tuned for graph visualizations. This function removes redundant elements in order to put focus on the data and if you type `?theme_graph` in the console you will get a sense of the level of fine tuning you can do if desired.
+```{python}
+# YOUR CODE HERE
 
-Let's add `theme_graph()` to our sociogram, remove the legends since they are not especially useful, and call it good for now:
 
-```{r add-theme}
-ggraph(student_network, layout = "stress") + 
-  geom_edge_link(arrow = arrow(length = unit(1, 'mm')), 
-                 end_cap = circle(3, 'mm'),
-                 start_cap = circle(3, 'mm'),
-                 alpha = .1) +
-  geom_node_point(aes(size = local_size(),
-                      color = gender)) +
-  geom_node_text(aes(label = id),
-                 repel=TRUE) +
-  theme_graph()
+
 ```
 
-Much better! Notice also how we shifted the `geom_node_point()` layer of our graph to after the `geom_edge_link()` so the parts of nodes would not be hidden under the edges.
+**Note:** If you're having difficulty seeing the sociogram in the small code chunk, you can copy and paste the code in the console and it will show in the Viewer pan and then you can enlarge and even save as an image file.
 
-**Note:** If you're having difficulty seeing the sociogram in the small R Markdown code chunk, you can copy and paste the code in the console and it will show in the Viewer pan and then you can enlarge and even save as an image file.
-
-#### **👉 Your Turn** **⤵**
-
-Now that you have a sense of how the {ggraph} package works to build network graphs, use the code chunk below and try building sophisticated sociogram for the `teacher_network` object that you created above.
-
-There are no right or wrong answers, just have some fun trying out different options for graph [layouts](https://ggraph.data-imaginist.com/articles/Layouts.html), [edges](https://ggraph.data-imaginist.com/articles/Edges.html) and [nodes](https://ggraph.data-imaginist.com/articles/Nodes.html) and see if you can build something that is visually pleasing to you.
-
-```{r your-sociogram}
-ggraph(teacher_network, layout = "fr") + 
-  geom_edge_link(arrow = arrow(length = unit(1, 'mm')), 
-                 end_cap = circle(3, 'mm'),
-                 start_cap = circle(3, 'mm'),
-                 alpha = .2) +
-  geom_node_point(aes(size = local_size(),
-                      color = gender)) +
-  geom_node_text(aes(label = id),
-                 repel=TRUE) +
-  theme_graph()
-```
-
-Congrats, you made it to the end of the EXPLORE section and created your first sociogram in R!
+Congrats, you made it to the end of the EXPLORE section and created your first sociogram in Python!
 
 ## 4. MODEL
 
-As highlighted in [Chapter 3 of Data Science in Education Using R](https://datascienceineducation.com/c03.html), the **Model** step of the data science process entails "using statistical models, from simple to complex, to understand trends and patterns in the data." We will not explore the use of models for SNA until Lab 4, but recall from the PREPARE section that to assess agreement between perceived friendships by the teacher and students, [@pittinsky2008behavioral] note that:
+As highlighted in [Chapter 3 of Data Science in Education Using R](https://datascienceineducation.com/c03.html), the **Model** step of the data science process entails "using statistical models, from simple to complex, to understand trends and patterns in the data." We will not explore the use of models for SNA until Module 4, but recall from the PREPARE section that to assess agreement between perceived friendships by the teacher and students, [@pittinsky2008behavioral] note that:
 
 > **The QAP (quadratic assignment procedure)** \[is\] used to calculate the degree of association between two sets of relations and tests whether the probability of dyad overlap in the teacher matrix is correlated with the probability of dyad overlap in the student matrix. It does so by running a large number of simulations. These simulations generate random matrices with sizes and value distributions based on the original two matrices being tested.
 
@@ -559,24 +574,40 @@ We will learn more about the QAP and other models for statistical inference when
 
 ## 5. COMMUNICATE
 
-The final step in the workflow/process is sharing the results of your analysis with wider audience. For now, we will wrap up this case study by converting our work into a webpage that can be used to communicate your learning and demonstrate some of your new R skills. To do so, you will need to "knit" your document by clicking the ![](img/knit.png){width="10%"} button in the menu bar at that the top of this file. This will do two things; it will:
+The final step in the workflow/process is sharing the results of your analysis with wider audience. Krumm et al. @krumm2018 have outlined the following 3-step process for communicating with education stakeholders findings from an analysis:
 
-1.  check through all your code for any errors; and,
+1.  **Select.** Communicating what one has learned involves selecting among those analyses that are most important and most useful to an intended audience, as well as selecting a form for displaying that information, such as a graph or table in static or interactive form, i.e. a "data product."
 
-2.  create a file in your directory that you can use to share you work through [Posit Cloud](https://posit.cloud/learn/guide#publish-from-cloud) (see screenshot example below to publish), [RPubs](#0) , [GitHub Pages](#0), [Quarto Pub](#0), or [other methods](#0).
+2.  **Polish**. After creating initial versions of data products, research teams often spend time refining or polishing them, by adding or editing titles, labels, and notations and by working with colors and shapes to highlight key points.
 
-### Knit and Publish
+3.  **Narrate.** Writing a narrative to accompany the data products involves, at a minimum, pairing a data product with its related research question, describing how best to interpret the data product, and explaining the ways in which the data product helps answer the research question and might be used to inform new analyses or a "change idea" for improving student learning.
 
-Complete the following steps to knit and publish your work:
+### Render File
 
-1.  First, change the name of the `author:` in the [YAML header](https://bookdown.org/yihui/rmarkdown-cookbook/rmarkdown-anatomy.html#yaml-metadata) at the very top of this document to your name. The YAML header controls the style and feel for knitted document but doesn't actually display in the final output.
+For your SNA Badge, you will have an opportunity to create a simple "data product" designed to illustrate some insights gained from your analysis and ideally highlight an action step or change idea that can be used to improve learning or the contexts in which learning occurs.
 
-2.  Next, click the knit button in the toolbar above to "knit" your R Markdown document to a [HTML](https://bookdown.org/yihui/rmarkdown/html-document.html) file that will be saved in your R Project folder. You should see a formatted webpage appear in your Viewer tab in the lower right pan or in a new browser window. Let's us know if you run into any issues with knitting.
+For now, we will wrap up this case study by converting your work to an HTML file that can be published and used to communicate your learning and demonstrate some of your new R skills. To do so, you will need to "render" your document by clicking the ![](img/render.png){width="4%"} Render button in the menu bar at that the top of this file.
 
-3.  Finally, publish your webpage on Posit Cloud by clicking the "Publish" button located in the Viewer Pane after you knit your document. See screenshot below.
+Rendering a document does two important things:
 
-![](img/knit-publish.png){width="80%"}
+1.  checks through all your code for any errors; and,
 
-Congratulations, you've completed your first case study! You're now ready to dig into the essential readings and try out your first SNA LASER Badge!
+2.  creates a file in your directory that you can use to share you work .
+
+Now that you've finished your first case study, click the "Render" button in the toolbar at the top of your document to covert this Quarto document to a HTML web page, just one of [the many publishing formats you can create with Quarto](https://quarto.org/docs/output-formats/all-formats.html) documents.
+
+If the files rendered correctly, you should now see a new file named `sna-1-case-study-R.html` in the Files tab located in the bottom right corner of R Studio. If so, congratulations, you just completed the getting started activity! You're now ready for the unit Case Studies that we will complete during the third week of each unit.
+
+::: callout-important
+If you encounter errors when you try to render, first check the case study answer key located in the files pane and has the suggested code for the Your Turns. If you are still having difficulties, try copying and pasting the error into Google or ChatGPT to see if you can resolve the issue. Finally, contact your instructor to debug the code together if you're still having issues.
+:::
+
+### Publish File
+
+Rendered HTML files can be published online through a variety of ways including [Posit Cloud](https://posit.cloud/learn/guide#publish-from-cloud), [RPubs](#0) , [GitHub Pages](#0), [Quarto Pub](#0), or [other methods](#0). The easiest way to quickly publish your file online is to publish directly from RStudio. You can do so by clicking the "Publish" button located in the Viewer Pane after you render your document as illustrated in the screenshot below.
+
+![](img/publish.png)
+
+Congratulations, you've completed the case study! If you've already completed the Essential Readings, you're now ready to earn your first SNA LASER Badge!
 
 ### References

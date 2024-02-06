@@ -19,7 +19,6 @@ highlight-style: a11y
 resources:
   - demo.pdf
 bibliography: lit/references.bib
-
 editor: visual
 jupyter: python3
 ---
@@ -30,6 +29,8 @@ jupyter: python3
 
 ::: notes
 **Speaker Notes:**
+
+Just as a quick refresher from our Learning Analytics Workflow Module, the workflow pictured here outlines a basic process intended to support researchers, practitioners, and data scientists prepare for a data-intensive analysis and communication of one’s findings. Different processes in this workflow as they relate to specific LA technique are highlighted in our code-along and presented in much greater detail in each case study. If you're interested in learning more about this workflow, I highly recommend the excellent book, Learning Analytics Goes to School, by Andrew Krumm, Barbara Means, and Marie Bienkowski.
 :::
 
 # Prepare
@@ -113,11 +114,13 @@ The central question guiding this investigation was:
 ::: panel-tabset
 ### Python Libraries
 
-Let's start by creating a new Python script and loading the {tidyverse} package which we'll use to import our network data files:
+Let's start by creating a new Python script and loading some essential packages introduced in LA Workflows:
 
 ```{python}
 import networkx as nx
 import pandas as pd
+import scipy as sp
+import matplotlib.pyplot as plt
 ```
 
 ```{python}
@@ -126,8 +129,6 @@ import pandas as pd
 
 import pandas as pd
 ```
-
-**Note**: Tidyverse is actually a [collection of R packages](https://www.tidyverse.org/packages) that share an underlying design philosophy, grammar, and data structures commonly referred to as "tidy data principles." LASER uses the {tidyverse} extensively.
 
 ### NetworkX Package
 
@@ -283,7 +284,7 @@ Take a look at one of the network datasets in the data folder under the Files Ta
 ::: panel-tabset
 ### Read Data
 
-Let's start by importing two Excel files that contain data about the nodes and the edges in our student friendship network:
+Let's start by importing two CSV files that contain data about the nodes and the edges in our student-reported friendship network:
 
 ```{python}
 #| echo: true
@@ -409,7 +410,7 @@ nx.draw(student_network)
 
 <br>
 
-The `plot()` function is base R's simple but limited solution for plotting graphs.
+The `draw()` function is a simple function for quickly plotting graphs using the {networkx} package.
 :::
 
 ::: {.column width="50%"}
@@ -421,50 +422,25 @@ nx.draw(student_network)
 :::
 :::
 
-## autograph()
-
-::: columns
-::: {.column width="50%"}
-The `autograph()` function is ggraph's simple but limited solution for plotting sociograms.
-
-```{r}
-#| echo: true
-#| fig.show: hide
-autograph(student_network)
-```
-:::
-
-::: {.column width="50%"}
-```{r}
-#| echo: false
-#| fig.asp: .75
-autograph(student_network)
-```
-:::
-:::
-
 ## Arguments
 
 ::: columns
 ::: {.column width="50%"}
 Both functions allow a small degree of customization, but are still limited.
 
-```{r}
+```{python}
 #| echo: true
 #| fig.show: hide
-autograph(student_network,
-          node_label = id,
-          node_colour = gender)
+nx.draw(student_network, with_labels=True, font_weight='bold') 
 ```
 :::
 
 ::: {.column width="50%"}
-```{r}
+```{python}
 #| echo: false
 #| fig.asp: .75
-autograph(student_network,
-          node_label = id,
-          node_colour = gender)
+nx.draw(student_network, with_labels=True, font_weight='bold') 
+plt.show()
 ```
 :::
 :::
