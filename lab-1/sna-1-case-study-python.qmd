@@ -382,25 +382,38 @@ plt.show()
 
 If this had been a smaller network it might have been a little more useful but one important insight is that we have already identified an "isolate" in our network, i.e., student 18 who neither named others as a friend or was named by others as a friend.
 
-Fortunately, we can use the `.draw_kamada_kawai()` layout to improve the visual design of network graphs.
+Fortunately, the {networkx} package includes a range of [drawing](https://networkx.org/documentation/stable/reference/drawing.html) and functions for improving for improving the visual design of network graphs.
+
+Run the following code to try out the `kamada_kawai_layout()` layout and add some informative labels to our graph:
 
 ```{python}
 
-nx.draw_kamada_kawai(student_network, with_labels=True, font_weight='bold') 
+# Position the nodes using one of the layout algorithms
+pos = nx.spring_layout(student_network)
+
+# Draw the graph without node labels
+nx.draw(student_network, pos, with_labels=False)
+
+# Extract the 'name' attribute from each node to use as labels
+labels = nx.get_node_attributes(G, 'name')
+
+# Draw node labels using the 'name' attribute
+nx.draw_networkx_labels(G, pos, labels, font_size=8)
+
+# Display the graph
 plt.show()
 
 ```
 
-A little better, but also lacking in many important ways. It does allow some small degree of customization, but is still rather limited and best use for very quick sociograms to get a quick feel for the data.
+Much better. Now, let's unpack what's happening in this code:
 
-Use the code chunk below to try out these simple sociogram functions on your `teacher_network` object you created above:
+-   **`nx.kamada_kawai_layout(G)`** computes the position of nodes based on the Kamada-Kawai layout algorithm, which is designed to produce visually appealing layouts by considering the graph's structure.
 
-```{python}
+-   **`nx.draw()`** is used to draw the graph, with **`with_labels=True`** ensuring that the default node identifiers are used as labels.
 
-nx.draw_kamada_kawai(teacher_network, with_labels=True, font_weight='bold') 
-plt.show()
+-   The **`node_color`** and **`node_size`** parameters are set for visual customization, but you can adjust these according to your preference.
 
-```
+This generates a visualization of your network with nodes positioned according to the Kamada-Kawai layout and labeled with their default identifiers.
 
 #### **👉 Your Turn** **⤵**
 

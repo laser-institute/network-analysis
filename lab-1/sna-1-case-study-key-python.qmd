@@ -382,34 +382,53 @@ plt.show()
 
 ```
 
-If this had been a smaller network it might have been a little more useful but one important insight is that we have already identified an "isolate" in our network, i.e., student 18 who neither named others as a friend or was named by others as a friend.
+If this had been a smaller network it might have been a little more useful but one important insight is that we have already identified an "isolate" in our network, i.e., a student who neither named others as a friend or was named by others as a friend.
 
-Fortunately, we can use the `.draw_kamada_kawai()` layout to improve the visual design of network graphs.
+Fortunately, the {networkx} package includes a range of [drawing](https://networkx.org/documentation/stable/reference/drawing.html) and functions for improving for improving the visual design of network graphs.
+
+Run the following code to try out the `kamada_kawai_layout()` layout and add some informative labels to our graph:
 
 ```{python}
+# Create the layout for your nodes using kamada_kawai_layout
+pos = nx.kamada_kawai_layout(student_network)
 
-nx.draw_kamada_kawai(student_network, with_labels=True, font_weight='bold') 
+# Draw the graph with default labels (node identifiers)
+nx.draw(student_network, pos, with_labels=True, node_size=250)
+
+# Display the graph
 plt.show()
-
 ```
 
-A little better, but also lacking in many important ways. It does allow some small degree of customization, but is still rather limited and best use for very quick sociograms to get a quick feel for the data.
+Much better. Now, let's unpack what's happening in this code:
+
+-   **`nx.kamada_kawai_layout(G)`** computes the position of nodes based on the Kamada-Kawai layout algorithm, which is designed to produce visually appealing layouts by considering the graph's structure.
+
+-   **`nx.draw()`** is used to draw the graph, with **`with_labels=True`** ensuring that the default node identifiers are used as labels.
+
+-   The **`node_color`** and **`node_size`** parameters are set for visual customization, but you can adjust these according to your preference.
+
+This generates a visualization of your network with nodes positioned according to the Kamada-Kawai layout and labeled with their default identifiers.
+
+#### **👉 Your Turn** **⤵**
 
 Use the code chunk below to try out these simple sociogram functions on your `teacher_network` object you created above:
 
 ```{python}
+# Position the nodes using one of the layout algorithms
+pos = nx.kamada_kawai_layout(teacher_network)
 
-nx.draw_kamada_kawai(teacher_network, with_labels=True, font_weight='bold') 
+# Draw the graph without node labels
+nx.draw(teacher_network, pos, with_labels=False)
+
+# Extract the 'name' attribute from each node to use as labels
+labels = nx.get_node_attributes(teacher_network, 'name')
+
+# Draw node labels using the 'name' attribute
+nx.draw_networkx_labels(teacher_network, pos, labels, font_size=10)
+
+# Display the graph
 plt.show()
 
-```
-
-#### **👉 Your Turn** **⤵**
-
-Use the code chunk below to try out these simple sociogram functions on your `teacher_network` object you created above:
-
-```{r teacher-sociogram}
-# YOUR CODE HERE
 
 ```
 
@@ -417,27 +436,29 @@ Not exactly great graphs, but they already provided some insight into our resear
 
 ### 3b. Sophisticated Sociograms
 
-Not exactly great graphs, but they already provided some insight into our research questions. Specifically, we can see visually that teacher and student reported peer networks are very different!
+#### Node Attributes
 
 Run the following code chunk to see some additional arguments were added into the new layout. We assign different colors for gender and adjust the size of nodes, font, width, and transparency of the arrows.
 
 ```{python}
 plt.figure(figsize=(50,35))
+
+# Create the layout for your nodes using kamada_kawai_layout
 pos = nx.kamada_kawai_layout(student_network)
 
-node_colors = ["lightsteelblue" if student_attributes.loc[n].at['gender_num'] == 0 else "salmon" for n in range(student_attributes.shape[0])]
-#set nodes
-node_options={"node_color": node_colors,"node_size":100}
-#set edges
-edge_options = {"width":.50, "alpha":.5, "edge_color":"black"} #width of the lines and their transparency
+# Extract 'name' attributes to use as labels
+labels = nx.get_node_attributes(student_network, 'name')
 
-#set labels
-node_label_options = {"font_size":7, "font_color":"black", "verticalalignment":"bottom", "horizontalalignment":"left"}
+# Create a color map based on the 'gender' attribute
+gender_colors = {'male': 'blue', 'female': 'pink'}
 
-#draw nodes, edges, labels
-nx.draw_networkx_nodes(student_network, pos, **node_options)
-nx.draw_networkx_edges(student_network, pos, **edge_options)
-nx.draw_networkx_labels(student_network, pos, **node_label_options)
+# Create a color map based on the 'gender' attribute
+node_colors = [gender_colors[student_network.nodes[node]['gender']] for node in student_network]
+
+# Draw the graph with 'name' labels and colored by 'gender'
+nx.draw(student_network, pos, labels=labels, with_labels=True, node_color=node_colors, node_size=250)
+
+# Display the graph
 plt.show()
 ```
 

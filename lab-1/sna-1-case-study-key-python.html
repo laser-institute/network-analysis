@@ -148,7 +148,7 @@ div.csl-indent {
   <ul>
   <li><a href="#a.-simple-sociograms" id="toc-a.-simple-sociograms" class="nav-link" data-scroll-target="#a.-simple-sociograms">3a. Simple Sociograms</a>
   <ul class="collapse">
-  <li><a href="#your-turn-4" id="toc-your-turn-4" class="nav-link" data-scroll-target="#your-turn-4"><strong>👉 Your Turn</strong> <strong>⤵</strong></a></li>
+  <li><a href="#your-turn-4" id="toc-your-turn-4" class="nav-link" data-scroll-target="#your-turn-4"><strong>👉 Your Turn</strong>&nbsp;<strong>⤵</strong></a></li>
   </ul></li>
   <li><a href="#b.-sophisticated-sociograms" id="toc-b.-sophisticated-sociograms" class="nav-link" data-scroll-target="#b.-sophisticated-sociograms">3b. Sophisticated Sociograms</a>
   <ul class="collapse">
@@ -262,7 +262,7 @@ div.csl-indent {
 <p><img src="img/pandas.svg" class="img-fluid" style="width:30.0%"></p>
 <p>One package that we’ll be using extensively is {pandas}. <a href="https://pandas.pydata.org">Pandas</a> <span class="citation" data-cites="mckinney-proc-scipy-2010">(<a href="#ref-mckinney-proc-scipy-2010" role="doc-biblioref">McKinney 2010</a>)</span> is a powerful and flexible open source data analysis and wrangling tool for Python that is used widely by the data science community.</p>
 <p>Click the green arrow in the right corner of the “code chunk” that follows to load the {pandas} library introduced in LA Workflow labs.</p>
-<div id="3d182a8f" class="cell" data-execution_count="1">
+<div id="97a943b0" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -271,7 +271,7 @@ div.csl-indent {
 <p><img src="img/scipy.svg" class="img-fluid" style="width:20.0%"></p>
 <p>SciPy is a collection of mathematical algorithms and convenience functions built on NumPy. It adds significant power to Python by providing the user with high-level commands and classes for manipulating and visualizing data.</p>
 <p>Click the green arrow in the right corner of the “code chunk” that follows to load the {scipy} library:</p>
-<div id="9a6913cc" class="cell" data-execution_count="2">
+<div id="a6e182a9" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy <span class="im">as</span> sp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -280,7 +280,7 @@ div.csl-indent {
 <p><img src="img/matplotlib.png" class="img-fluid" style="width:20.0%"></p>
 <p>Pyplot is a module in the {matplotlib) package, a comprehensive library for creating static, animated, and interactive visualizations in Python. <strong><code>pyplot</code></strong> provides a MATLAB-like interface for making plots and is particularly suited for interactive plotting and simple cases of programmatic plot generation.</p>
 <p>Click the green arrow in the right corner of the “code chunk” that follows to load <strong><code>pyplot</code></strong>:</p>
-<div id="a0337cef" class="cell" data-execution_count="3">
+<div id="0d96a615" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -302,7 +302,7 @@ div.csl-indent {
 <section id="your-turn" class="level4">
 <h4 class="anchored" data-anchor-id="your-turn"><strong>👉 Your Turn</strong> <strong>⤵</strong></h4>
 <p>Use the code chunk below to import the networkx package as <code>nx</code>:</p>
-<div id="4e9bb5e1" class="cell" data-execution_count="4">
+<div id="6d636dc8" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># YOUR CODE HERE</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> networkx <span class="im">as</span> nx</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -330,18 +330,18 @@ div.csl-indent {
 <h4 class="anchored" data-anchor-id="import-student-reported-friendships">Import Student-Reported Friendships</h4>
 <p>Let’s use the&nbsp;<code>read_excel()</code>&nbsp;function from the {pandas} package to import the&nbsp;<code>student-reported-friends.xlsx</code>&nbsp;file. In our function, we’ll include an important “argument” called&nbsp;<code>header =</code>&nbsp;and set it to&nbsp;<code>None</code>. This tells Python that our file does not include column names and is important to include since our file is a simple matrix with no header or column names and by default this argument is set to true and would assign the first row which contains data about student friendships as names for each column.</p>
 <p>Finally, we need to make sure we can reference the matrix we import and use it later in our analysis. To do so, will save it to our “Environment” by assigning it to a variable which we will call&nbsp;<code>student_friends</code>.</p>
-<div id="afb80d2a" class="cell" data-execution_count="5">
+<div id="4957f4f0" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>student_friends <span class="op">=</span> pd.read_excel(<span class="st">"data/student-reported-friends.xlsx"</span>, header <span class="op">=</span> <span class="va">None</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="your-turn-1" class="level4">
 <h4 class="anchored" data-anchor-id="your-turn-1"><strong>👉 Your Turn</strong> <strong>⤵</strong></h4>
 <p>Before importing our teacher-reported friendship file, use the code chunk below to quickly inspect the <code>student_friends</code> data we just imported to see what we’ll be working with.</p>
-<div id="3696ae0b" class="cell" data-execution_count="6">
+<div id="58bda3bc" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># YOUR CODE HERE</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>student_friends</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="6">
+<div class="cell-output cell-output-display" data-execution_count="158">
 <div>
 
 
@@ -1044,11 +1044,11 @@ div.csl-indent {
 <p>Before importing our teacher-reported student friendships, we have another important file to import. As noted by <span class="citation" data-cites="carolan2014">Carolan (<a href="#ref-carolan2014" role="doc-biblioref">2014</a>)</span> , most social network analyses include variables that describe the attributes of actors in a network. These attribute variables can be either categorical (e.g., sex, race, etc.) or continuous in nature (e.g., test scores, number of times absent, etc.).</p>
 <p>Actor attributes are stored a rectangular array, or data frame, in which rows represent a social entity (e.g., students, staff, schools, etc.), columns represent variables, and cells consist of values on those variables. This file containing a list of actors, or nodes, along with their attributes is sometimes referred to as a <strong>node list</strong>.</p>
 <p>Let’s go ahead and read our node list into R and store as a new object called <code>student_attributes</code>:</p>
-<div id="c38e8c9b" class="cell" data-execution_count="7">
+<div id="c171ad6d" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>student_attributes <span class="op">=</span> pd.read_excel(<span class="st">"data/student-attributes.xlsx"</span>)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>student_attributes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="7">
+<div class="cell-output cell-output-display" data-execution_count="159">
 <div>
 
 
@@ -1319,7 +1319,7 @@ div.csl-indent {
 <section id="your-turn-2" class="level4">
 <h4 class="anchored" data-anchor-id="your-turn-2"><strong>👉 Your Turn</strong> <strong>⤵</strong></h4>
 <p>Complete the code chunk below to import the <code>teacher-reported-friends.xlsx</code>&nbsp;file and inspect your <code>teacher_friends</code> object.</p>
-<div id="7e41b228" class="cell" data-execution_count="8">
+<div id="5cc37eb6" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># YOUR CODE HERE</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>teacher_friends <span class="op">=</span> pd.read_excel(<span class="st">"data/teacher-reported-friends.xlsx"</span>, header <span class="op">=</span> <span class="va">None</span>)</span>
@@ -1329,7 +1329,7 @@ div.csl-indent {
 <pre><code>/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/openpyxl/worksheet/_reader.py:329: UserWarning: Unknown extension is not supported and will be removed
   warn(msg)</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="8">
+<div class="cell-output cell-output-display" data-execution_count="160">
 <div>
 
 
@@ -2025,7 +2025,7 @@ div.csl-indent {
 <h4 class="anchored" data-anchor-id="convert-to-graph-object"><strong>Convert to Graph Object</strong></h4>
 <p>The&nbsp;<code>from_pandas_adjacency()</code>&nbsp;function can easily convert pandas data frame to a graph.</p>
 <p>Run the following code to convert our adjacency matrix to directed network graph data structure, save as a new object called&nbsp;<code>student_network</code>, and <code>print()</code> some basic information about our network:</p>
-<div id="b545ca43" class="cell" data-execution_count="9">
+<div id="e9b9279d" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>student_network <span class="op">=</span> nx.from_pandas_adjacency(student_friends, create_using <span class="op">=</span> nx.DiGraph())</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(student_network)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2050,7 +2050,7 @@ div.csl-indent {
 </ol>
 <p>We will explore several of these use cases throughout the SNA modules, but for this case study, our focus will be to incoporate some student attribtues to enhance our visualizations.</p>
 <p>Run the following code to add the attributes in our <code>student_attributes</code> data frame to our network object <code>student_network</code> that we created earlier:</p>
-<div id="cf703eea" class="cell" data-execution_count="10">
+<div id="afaf0481" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> _, row <span class="kw">in</span> student_attributes.iterrows():</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    node_id <span class="op">=</span> row[<span class="st">'id'</span>]</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> node_id <span class="kw">in</span> student_network:</span>
@@ -2099,9 +2099,9 @@ div.csl-indent {
 </ul></li>
 </ol>
 <p>Before we move on, let’s take a quick look at each node’s attribute data to make sure our code above worked as intended:</p>
-<div id="08791a1f" class="cell" data-execution_count="11">
+<div id="c6f98a34" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="bu">list</span>(student_network.nodes(data<span class="op">=</span><span class="va">True</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="11">
+<div class="cell-output cell-output-display" data-execution_count="163">
 <pre><code>[(0, {}),
  (1,
   {'name': 'Katherine',
@@ -2266,7 +2266,7 @@ div.csl-indent {
 <section id="your-turn-3" class="level4">
 <h4 class="anchored" data-anchor-id="your-turn-3"><strong>👉 Your Turn</strong> <strong>⤵</strong></h4>
 <p>Complete the code chunk below to convert your <code>teacher_friends</code> object first to a matrix and then to a network object that contains information about both the teacher-reported student friendships and the attributes of students:</p>
-<div id="bd0d1e7f" class="cell" data-execution_count="12">
+<div id="a3d630a2" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># YOUR CODE HERE</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>teacher_friends <span class="op">=</span> pd.read_excel(<span class="st">"data/teacher-reported-friends.xlsx"</span>, header <span class="op">=</span> <span class="va">None</span>)</span>
@@ -2326,7 +2326,7 @@ div.csl-indent {
 <h3 class="anchored" data-anchor-id="a.-simple-sociograms">3a. Simple Sociograms</h3>
 <p>These visual representations of the actors and their relations, i.e.&nbsp;the network, are called a&nbsp;<strong>sociogram</strong>. Actors who are most central to the network, such as those with higher node degrees, or those with more friends in our case study, are usually placed in the center of the sociogram and their ties are placed near them.</p>
 <p>In the code chunk below, use the&nbsp;<code>draw()</code>&nbsp;function with your&nbsp;<code>student_network</code>&nbsp;object to see what the basic plot function produces:</p>
-<div id="984a93f3" class="cell" data-execution_count="13">
+<div id="7dc0cd44" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>nx.draw(student_network)</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -2337,11 +2337,18 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<p>If this had been a smaller network it might have been a little more useful but one important insight is that we have already identified an “isolate” in our network, i.e., student 18 who neither named others as a friend or was named by others as a friend.</p>
-<p>Fortunately, we can use the&nbsp;<code>.draw_kamada_kawai()</code>&nbsp;layout to improve the visual design of network graphs.</p>
-<div id="f0c04721" class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>nx.draw_kamada_kawai(student_network, with_labels<span class="op">=</span><span class="va">True</span>, font_weight<span class="op">=</span><span class="st">'bold'</span>) </span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If this had been a smaller network it might have been a little more useful but one important insight is that we have already identified an “isolate” in our network, i.e., a student who neither named others as a friend or was named by others as a friend.</p>
+<p>Fortunately, the {networkx} package includes a range of <a href="https://networkx.org/documentation/stable/reference/drawing.html">drawing</a> and functions for improving for improving the visual design of network graphs.</p>
+<p>Run the following code to try out the&nbsp;<code>kamada_kawai_layout()</code>&nbsp;layout and add some informative labels to our graph:</p>
+<div id="0d65e588" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the layout for your nodes using kamada_kawai_layout</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>pos <span class="op">=</span> nx.kamada_kawai_layout(student_network)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Draw the graph with default labels (node identifiers)</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>nx.draw(student_network, pos, with_labels<span class="op">=</span><span class="va">True</span>, node_size<span class="op">=</span><span class="dv">250</span>)</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the graph</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -2350,11 +2357,32 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<p>A little better, but also lacking in many important ways. It does allow some small degree of customization, but is still rather limited and best use for very quick sociograms to get a quick feel for the data.</p>
+<p>Much better. Now, let’s unpack what’s happening in this code:</p>
+<ul>
+<li><p><strong><code>nx.spring_layout()</code></strong> determines the position of each node using a force-directed algorithm, making the graph more aesthetically pleasing.</p></li>
+<li><p><strong><code>nx.draw()</code></strong> is used to draw the graph. The <strong><code>with_labels=False</code></strong> parameter is set because we’re adding custom labels next.</p></li>
+<li><p><strong><code>nx.get_node_attributes('name')</code></strong> creates a dictionary where node IDs are keys and their “name” attributes are values.</p></li>
+<li><p><strong><code>nx.draw_networkx_labels()</code></strong> is used to add the labels to the graph at the positions specified by <strong><code>pos</code></strong>, using the names extracted earlier.</p></li>
+</ul>
+<p>The result in a graph visualization where students are labeled with their respective “name” attributes. We can also adjust the <strong><code>font_size</code></strong> to best fit the graph’s size and complexity.</p>
+<section id="your-turn-4" class="level4">
+<h4 class="anchored" data-anchor-id="your-turn-4"><strong>👉 Your Turn</strong>&nbsp;<strong>⤵</strong></h4>
 <p>Use the code chunk below to try out these simple sociogram functions on your&nbsp;<code>teacher_network</code>&nbsp;object you created above:</p>
-<div id="1be83301" class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>nx.draw_kamada_kawai(teacher_network, with_labels<span class="op">=</span><span class="va">True</span>, font_weight<span class="op">=</span><span class="st">'bold'</span>) </span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="7b0f731c" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Position the nodes using one of the layout algorithms</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>pos <span class="op">=</span> nx.kamada_kawai_layout(teacher_network)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Draw the graph without node labels</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>nx.draw(teacher_network, pos, with_labels<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract the 'name' attribute from each node to use as labels</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> nx.get_node_attributes(teacher_network, <span class="st">'name'</span>)</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Draw node labels using the 'name' attribute</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>nx.draw_networkx_labels(teacher_network, pos, labels, font_size<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the graph</span></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -2363,11 +2391,6 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<section id="your-turn-4" class="level4">
-<h4 class="anchored" data-anchor-id="your-turn-4"><strong>👉 Your Turn</strong> <strong>⤵</strong></h4>
-<p>Use the code chunk below to try out these simple sociogram functions on your <code>teacher_network</code> object you created above:</p>
-<pre class="{r teacher-sociogram}"><code># YOUR CODE HERE
-</code></pre>
 <p>Not exactly great graphs, but they already provided some insight into our research questions. Specifically, we can see visually that teacher and student reported peer networks are very different!</p>
 </section>
 </section>
@@ -2375,24 +2398,24 @@ div.csl-indent {
 <h3 class="anchored" data-anchor-id="b.-sophisticated-sociograms">3b. Sophisticated Sociograms</h3>
 <p>Not exactly great graphs, but they already provided some insight into our research questions. Specifically, we can see visually that teacher and student reported peer networks are very different!</p>
 <p>Run the following code chunk to see some additional arguments were added into the new layout. We assign different colors for gender and adjust the size of nodes, font, width, and transparency of the arrows.</p>
-<div id="39863a80" class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">50</span>,<span class="dv">35</span>))</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>pos <span class="op">=</span> nx.kamada_kawai_layout(student_network)</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>node_colors <span class="op">=</span> [<span class="st">"lightsteelblue"</span> <span class="cf">if</span> student_attributes.loc[n].at[<span class="st">'gender_num'</span>] <span class="op">==</span> <span class="dv">0</span> <span class="cf">else</span> <span class="st">"salmon"</span> <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(student_attributes.shape[<span class="dv">0</span>])]</span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="co">#set nodes</span></span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>node_options<span class="op">=</span>{<span class="st">"node_color"</span>: node_colors,<span class="st">"node_size"</span>:<span class="dv">100</span>}</span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="co">#set edges</span></span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>edge_options <span class="op">=</span> {<span class="st">"width"</span>:<span class="fl">.50</span>, <span class="st">"alpha"</span>:<span class="fl">.5</span>, <span class="st">"edge_color"</span>:<span class="st">"black"</span>} <span class="co">#width of the lines and their transparency</span></span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="co">#set labels</span></span>
-<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>node_label_options <span class="op">=</span> {<span class="st">"font_size"</span>:<span class="dv">7</span>, <span class="st">"font_color"</span>:<span class="st">"black"</span>, <span class="st">"verticalalignment"</span>:<span class="st">"bottom"</span>, <span class="st">"horizontalalignment"</span>:<span class="st">"left"</span>}</span>
-<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a><span class="co">#draw nodes, edges, labels</span></span>
-<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>nx.draw_networkx_nodes(student_network, pos, <span class="op">**</span>node_options)</span>
-<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>nx.draw_networkx_edges(student_network, pos, <span class="op">**</span>edge_options)</span>
-<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>nx.draw_networkx_labels(student_network, pos, <span class="op">**</span>node_label_options)</span>
-<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="2a4ef140" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">50</span>,<span class="dv">35</span>))</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>pos <span class="op">=</span> nx.kamada_kawai_layout(student_network)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>node_colors <span class="op">=</span> [<span class="st">"lightsteelblue"</span> <span class="cf">if</span> student_attributes.loc[n].at[<span class="st">'gender_num'</span>] <span class="op">==</span> <span class="dv">0</span> <span class="cf">else</span> <span class="st">"salmon"</span> <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(student_attributes.shape[<span class="dv">0</span>])]</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="co">#set nodes</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>node_options<span class="op">=</span>{<span class="st">"node_color"</span>: node_colors,<span class="st">"node_size"</span>:<span class="dv">100</span>}</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="co">#set edges</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>edge_options <span class="op">=</span> {<span class="st">"width"</span>:<span class="fl">.50</span>, <span class="st">"alpha"</span>:<span class="fl">.5</span>, <span class="st">"edge_color"</span>:<span class="st">"black"</span>} <span class="co">#width of the lines and their transparency</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="co">#set labels</span></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>node_label_options <span class="op">=</span> {<span class="st">"font_size"</span>:<span class="dv">7</span>, <span class="st">"font_color"</span>:<span class="st">"black"</span>, <span class="st">"verticalalignment"</span>:<span class="st">"bottom"</span>, <span class="st">"horizontalalignment"</span>:<span class="st">"left"</span>}</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a><span class="co">#draw nodes, edges, labels</span></span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>nx.draw_networkx_nodes(student_network, pos, <span class="op">**</span>node_options)</span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>nx.draw_networkx_edges(student_network, pos, <span class="op">**</span>edge_options)</span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>nx.draw_networkx_labels(student_network, pos, <span class="op">**</span>node_label_options)</span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -2411,16 +2434,16 @@ div.csl-indent {
 <section id="add-node-sizes" class="level4">
 <h4 class="anchored" data-anchor-id="add-node-sizes">Add Node Sizes</h4>
 <p>We can also count the number of friendships for each student and visualize it on our graph with different sizes of nodes.</p>
-<div id="2bec6d5f" class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> collections <span class="im">import</span> Counter</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>friends <span class="op">=</span> [edge[<span class="dv">0</span>] <span class="cf">for</span> edge <span class="kw">in</span> student_network.edges()]</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Counting the number of friends</span></span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>num_friends <span class="op">=</span> Counter(friends)</span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="co">#store in a data frame</span></span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>friendships <span class="op">=</span> pd.DataFrame(<span class="bu">list</span>(num_friends.items()), columns<span class="op">=</span>[<span class="st">'student'</span>, <span class="st">'number of friends'</span>])</span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(friendships)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="824b5d22" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> collections <span class="im">import</span> Counter</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>friends <span class="op">=</span> [edge[<span class="dv">0</span>] <span class="cf">for</span> edge <span class="kw">in</span> student_network.edges()]</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Counting the number of friends</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>num_friends <span class="op">=</span> Counter(friends)</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="co">#store in a data frame</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>friendships <span class="op">=</span> pd.DataFrame(<span class="bu">list</span>(num_friends.items()), columns<span class="op">=</span>[<span class="st">'student'</span>, <span class="st">'number of friends'</span>])</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(friendships)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    student  number of friends
 0         0                 13
@@ -2453,11 +2476,11 @@ div.csl-indent {
 </div>
 <p>We can see that our student 18 is missing from the list as it was not present in the edges.</p>
 <p>That is why we need to add 18th student to our data frame and sort it so that the number of friendships is consistent with the number of students we have.</p>
-<div id="f750f30e" class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>new_row <span class="op">=</span> pd.DataFrame({<span class="st">'student'</span>: [<span class="dv">18</span>], <span class="st">'number of friends'</span>: [<span class="dv">0</span>]})</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>friendships <span class="op">=</span> pd.concat([friendships, new_row], ignore_index<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>friendships <span class="op">=</span> friendships.sort_values(by<span class="op">=</span><span class="st">'student'</span>)</span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(friendships)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="f6759717" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>new_row <span class="op">=</span> pd.DataFrame({<span class="st">'student'</span>: [<span class="dv">18</span>], <span class="st">'number of friends'</span>: [<span class="dv">0</span>]})</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>friendships <span class="op">=</span> pd.concat([friendships, new_row], ignore_index<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>friendships <span class="op">=</span> friendships.sort_values(by<span class="op">=</span><span class="st">'student'</span>)</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(friendships)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    student  number of friends
 0         0                 13
@@ -2491,30 +2514,30 @@ div.csl-indent {
 </div>
 <p>Now we can see our 18th student with 0 friends reported.</p>
 <p>Let’s use these data to improve our graph:</p>
-<div id="1cb90001" class="cell" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>plt.figure()</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>pos <span class="op">=</span> nx.kamada_kawai_layout(student_network)</span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Set node size based on number of friends</span></span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>node_sizes <span class="op">=</span> [friendships[<span class="st">'number of friends'</span>].iloc[i]<span class="op">*</span><span class="dv">40</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(friendships))]</span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Set node colors based on gender</span></span>
-<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>node_colors <span class="op">=</span> [<span class="st">"lightsteelblue"</span> <span class="cf">if</span> student_attributes.loc[n].at[<span class="st">'gender_num'</span>] <span class="op">==</span> <span class="dv">0</span> <span class="cf">else</span> <span class="st">"salmon"</span> <span class="cf">for</span> n <span class="kw">in</span> student_network.nodes()]</span>
-<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Set node options</span></span>
-<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>node_options <span class="op">=</span> {<span class="st">"node_color"</span>: node_colors, <span class="st">"node_size"</span>: [node_sizes[n] <span class="cf">for</span> n <span class="kw">in</span> student_network.nodes()]}</span>
-<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Set edge options</span></span>
-<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>edge_options <span class="op">=</span> {<span class="st">"width"</span>: <span class="fl">0.5</span>, <span class="st">"alpha"</span>: <span class="fl">0.5</span>, <span class="st">"edge_color"</span>: <span class="st">"black"</span>}</span>
-<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Set label options</span></span>
-<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a>node_label_options <span class="op">=</span> {<span class="st">"font_size"</span>: <span class="dv">7</span>, <span class="st">"font_color"</span>: <span class="st">"black"</span>, <span class="st">"verticalalignment"</span>: <span class="st">"bottom"</span>, <span class="st">"horizontalalignment"</span>: <span class="st">"left"</span>}</span>
-<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Draw nodes, edges, labels</span></span>
-<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a>nx.draw_networkx_nodes(student_network, pos, <span class="op">**</span>node_options)</span>
-<span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a>nx.draw_networkx_edges(student_network, pos, <span class="op">**</span>edge_options)</span>
-<span id="cb27-22"><a href="#cb27-22" aria-hidden="true" tabindex="-1"></a>nx.draw_networkx_labels(student_network, pos, <span class="op">**</span>node_label_options)</span>
-<span id="cb27-23"><a href="#cb27-23" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="8ffbb886" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>plt.figure()</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>pos <span class="op">=</span> nx.kamada_kawai_layout(student_network)</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Set node size based on number of friends</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>node_sizes <span class="op">=</span> [friendships[<span class="st">'number of friends'</span>].iloc[i]<span class="op">*</span><span class="dv">40</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(friendships))]</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Set node colors based on gender</span></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>node_colors <span class="op">=</span> [<span class="st">"lightsteelblue"</span> <span class="cf">if</span> student_attributes.loc[n].at[<span class="st">'gender_num'</span>] <span class="op">==</span> <span class="dv">0</span> <span class="cf">else</span> <span class="st">"salmon"</span> <span class="cf">for</span> n <span class="kw">in</span> student_network.nodes()]</span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Set node options</span></span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>node_options <span class="op">=</span> {<span class="st">"node_color"</span>: node_colors, <span class="st">"node_size"</span>: [node_sizes[n] <span class="cf">for</span> n <span class="kw">in</span> student_network.nodes()]}</span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Set edge options</span></span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>edge_options <span class="op">=</span> {<span class="st">"width"</span>: <span class="fl">0.5</span>, <span class="st">"alpha"</span>: <span class="fl">0.5</span>, <span class="st">"edge_color"</span>: <span class="st">"black"</span>}</span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Set label options</span></span>
+<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a>node_label_options <span class="op">=</span> {<span class="st">"font_size"</span>: <span class="dv">7</span>, <span class="st">"font_color"</span>: <span class="st">"black"</span>, <span class="st">"verticalalignment"</span>: <span class="st">"bottom"</span>, <span class="st">"horizontalalignment"</span>: <span class="st">"left"</span>}</span>
+<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Draw nodes, edges, labels</span></span>
+<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a>nx.draw_networkx_nodes(student_network, pos, <span class="op">**</span>node_options)</span>
+<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a>nx.draw_networkx_edges(student_network, pos, <span class="op">**</span>edge_options)</span>
+<span id="cb26-22"><a href="#cb26-22" aria-hidden="true" tabindex="-1"></a>nx.draw_networkx_labels(student_network, pos, <span class="op">**</span>node_label_options)</span>
+<span id="cb26-23"><a href="#cb26-23" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -2527,8 +2550,8 @@ div.csl-indent {
 <section id="your-turn-5" class="level4">
 <h4 class="anchored" data-anchor-id="your-turn-5"><strong>👉 Your Turn</strong>&nbsp;<strong>⤵</strong></h4>
 <p>Use the code chunk below to try out these more sophisticated sociogram functions on your&nbsp;<code>teacher_network</code>&nbsp;object you created above:</p>
-<div id="c7648d71" class="cell" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># YOUR CODE HERE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="9c0e37c1" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># YOUR CODE HERE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="question-4" class="level4">
@@ -2538,16 +2561,16 @@ div.csl-indent {
 <li>YOUR RESPONSE HERE</li>
 </ul>
 <p>Let’s change teachers’ network graph to display different node sizes depending on the number of friendships reported:</p>
-<div id="b63a90e3" class="cell" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>friends_teach <span class="op">=</span> [edge[<span class="dv">0</span>] <span class="cf">for</span> edge <span class="kw">in</span> teacher_network.edges()]</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Counting the number of friends</span></span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>num_friends <span class="op">=</span> Counter(friends_teach)</span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="co">#store in a data frame</span></span>
-<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>friendships_teach <span class="op">=</span> pd.DataFrame(<span class="bu">list</span>(num_friends.items()), columns<span class="op">=</span>[<span class="st">'student'</span>, <span class="st">'number of friends'</span>])</span>
-<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(friendships_teach)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="132f8f25" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>friends_teach <span class="op">=</span> [edge[<span class="dv">0</span>] <span class="cf">for</span> edge <span class="kw">in</span> teacher_network.edges()]</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Counting the number of friends</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>num_friends <span class="op">=</span> Counter(friends_teach)</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="co">#store in a data frame</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>friendships_teach <span class="op">=</span> pd.DataFrame(<span class="bu">list</span>(num_friends.items()), columns<span class="op">=</span>[<span class="st">'student'</span>, <span class="st">'number of friends'</span>])</span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(friendships_teach)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    student  number of friends
 0         0                  3
@@ -2578,13 +2601,13 @@ div.csl-indent {
 </div>
 </div>
 <p>It seems like teachers did not see any friendships between students 18, 19, and the rest of the class. So let’s manually add them:</p>
-<div id="4115dea4" class="cell" data-execution_count="22">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>new_row_1 <span class="op">=</span> pd.DataFrame({<span class="st">'student'</span>: [<span class="dv">18</span>], <span class="st">'number of friends'</span>: [<span class="dv">0</span>]})</span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>new_row_2 <span class="op">=</span> pd.DataFrame({<span class="st">'student'</span>: [<span class="dv">19</span>], <span class="st">'number of friends'</span>: [<span class="dv">0</span>]})</span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>friendships_teach <span class="op">=</span> pd.concat([friendships_teach, new_row_1], ignore_index<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>friendships_teach <span class="op">=</span> pd.concat([friendships_teach, new_row_2], ignore_index<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>friendships_teach <span class="op">=</span> friendships_teach.sort_values(by<span class="op">=</span><span class="st">'student'</span>)</span>
-<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(friendships_teach)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="c0ff8ab0" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>new_row_1 <span class="op">=</span> pd.DataFrame({<span class="st">'student'</span>: [<span class="dv">18</span>], <span class="st">'number of friends'</span>: [<span class="dv">0</span>]})</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>new_row_2 <span class="op">=</span> pd.DataFrame({<span class="st">'student'</span>: [<span class="dv">19</span>], <span class="st">'number of friends'</span>: [<span class="dv">0</span>]})</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>friendships_teach <span class="op">=</span> pd.concat([friendships_teach, new_row_1], ignore_index<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>friendships_teach <span class="op">=</span> pd.concat([friendships_teach, new_row_2], ignore_index<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>friendships_teach <span class="op">=</span> friendships_teach.sort_values(by<span class="op">=</span><span class="st">'student'</span>)</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(friendships_teach)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    student  number of friends
 0         0                  3
@@ -2620,8 +2643,8 @@ div.csl-indent {
 <section id="your-turn-6" class="level4">
 <h4 class="anchored" data-anchor-id="your-turn-6"><strong>👉 Your Turn</strong>&nbsp;<strong>⤵</strong></h4>
 <p>Now that you have a sense of how the <strong>networkx</strong> package works to build network graphs, use the code chunk below and try building a sophisticated sociogram for the&nbsp;<code>teacher_network</code>&nbsp;object that you created changing the node size parameter.</p>
-<div id="431a3636" class="cell" data-execution_count="23">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># YOUR CODE HERE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="e6bb7d82" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># YOUR CODE HERE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>Note:</strong>&nbsp;If you’re having difficulty seeing the sociogram in the small code chunk, you can copy and paste the code in the console and it will show in the Viewer pan and then you can enlarge and even save as an image file.</p>
 <p>Congrats, you made it to the end of the EXPLORE section and created your first sociogram in Python!</p>

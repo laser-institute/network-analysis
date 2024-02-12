@@ -334,7 +334,7 @@ Think about the questions below and be prepared to share your response:
 4.  What questions do you have?
 :::
 
-## A Tidy Network
+## A Network Object
 
 ::: panel-tabset
 ### from_pandas_edgelist( ) function
