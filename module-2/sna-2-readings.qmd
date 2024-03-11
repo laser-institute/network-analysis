@@ -1,0 +1,68 @@
+---
+title: 'Data Management & Network Measurement'
+subtitle: "SNA Module 2: Essential Readings"
+author: "LASER Institute"
+date: today 
+format:
+  html:
+    toc: true
+    toc-depth: 4
+    toc-location: right
+theme:
+  light: simplex
+  dark: cyborg
+editor: visual
+bibliography: lit/references.bib
+---
+
+## Overview
+
+Our essential readings for Lab 2 examine common approaches to data management and measurement in network analysis. The required and self-selected readings provide an introduction the collection and management of relational data, as well as how we can begin to describe what a complete network looks like, not just visually, but mathematically. A secondary goal of readings and discussion is to help you start generating ideas for independent application of network analysis. As part of our readings, for example, you'll learn how to specify a network "boundary" for your study based on different approaches.
+
+## Readings
+
+The following readings for this lab focus on issues related to the collection and measurement of these network variables, including issues related to boundary specification, sampling, storage, and methodologies. In addition, the readings introduce important concepts and measures used to describe static properties of social networks. The conceptual tools and precise measures help us move beyond basic visualization of networks, to analysis of networks quantitatively.
+
+1.  [Chapter 4: Collecting and Managing Network Data](https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-2/sna-chapter-4.pdf)
+
+2.  [Chapter 5: Structural Measures for Complete Networks](https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-2/sna-chapter-5.pdf)
+
+## Reflection
+
+To help guide your reflection on the readings, a set of guiding questions are provided below. After you have had a chance to work through one or more of the readings, **we encourage you to contribute to our learning community by creating a new post to our network-analysis channel on [Slack](http://laser-scholars.slack.com/)**. You post might contain a response to one or more of the guiding questions, questions you still have about the topics addressed, or insights gained into your own research.
+
+### Chapter 4: Basic Concepts
+
+Think about a network that you are a part of, or may be interested in studying, and consider the following questions:
+
+1.  Would your study employs a positional, relational, or event-based approach to specify the network's boundary.
+
+    -   
+
+2.  Would you collect data on the complete, ego, or partial network? Describe the sources of the network data you might collect.
+
+    -   
+
+3.  What relations would you measure and what instruments might you use to measure them?
+
+    -   
+
+4.  How would you help ensure the quality of these relational data in terms of validity, reliability, error, and patterns of missingness? 
+
+    -   
+
+### Chapter 5: Structural Measures for Complete Networks
+
+Assume you have complete network-level data on school leaders in a large urban district that is transitioning to a new teacher-evaluation system. You have relational data on the frequency with which ego discusses this new system with each alter (0 = never, 1 = sometimes, 2 = regularly, and 3 = frequently) and whether ego turns to alter for advice regarding general professional matters (1 = yes, 0 = no).
+
+1.  Which structural properties of the complete network might be of interest to you? Please explain why these properties might be of interest.
+
+    -   
+
+2.  Given the same network described above, what would high centralization scores on both relations indicate about this network's ability to successfully transition to a new evaluation system?
+
+    -   
+
+3.  How might your response to #2 differ if you knew that the networks also had high density scores? Given this new information, what would you predict about the transition to a new evaluation system?
+
+    -   

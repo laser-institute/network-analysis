@@ -24,7 +24,7 @@ editor: visual
 
 ## Data Intensive Research-Workflow
 
-![From Learning Analytics Goes to School [@krumm2018]](img/workflow.png){width="300"}
+![From Learning Analytics Goes to School [@krumm2018]](img/workflow.png){fig-align="center" width="40%"}
 
 ::: notes
 **Speaker Notes:**
