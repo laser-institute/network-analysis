@@ -1,0 +1,579 @@
+---
+title: "Data Structures & Sociograms"
+subtitle: "SNA Module 1: Code-Along"
+format:
+  revealjs: 
+    slide-number: c/t
+    progress: true
+    chalkboard: 
+      buttons: false
+    preview-links: auto
+    logo: img/LASERLogoB.png
+    #theme: Cosmo
+    theme: [default, css/laser.scss]
+    width: 1920
+    height: 1080
+    margin: 0.05
+    footer: <a href=https://www.go.ncsu.edu/laser-institute>go.ncsu.edu/laser-institute
+highlight-style: a11y
+resources:
+  - demo.pdf
+bibliography: lit/references.bib
+editor: visual
+---
+
+## Data Intensive Research-Workflow
+
+![From Learning Analytics Goes to School [@krumm2018]](img/workflow.png){width="300"}
+
+::: notes
+**Speaker Notes:**
+:::
+
+# Prepare
+
+Guiding Research & Network Packages
+
+```{r, echo=FALSE, results='hide', message=FALSE, warning=FALSE}
+
+pacman::p_load(pacman, knitr, tidyverse, readxl, tidygraph, ggraph)
+
+teacher_friends <- read_excel("data/teacher-reported-friends.xlsx", 
+                              col_names = FALSE)
+
+student_attributes <- read_excel("data/student-attributes.xlsx")
+
+# rownames(teacher_friends) <- 1:27
+
+# colnames(teacher_friends) <- 1:27
+
+# teacher_matrix <- as.matrix(teacher_friends)
+
+teacher_network <- as_tbl_graph(teacher_friends,
+                                directed = TRUE)
+
+teacher_edges <- teacher_network |>
+  activate(edges) |>
+  as_tibble()
+
+teacher_network <- tbl_graph(edges = teacher_edges, 
+                             nodes = student_attributes, 
+                             directed = TRUE)
+```
+
+## Guiding Study
+
+::: panel-tabset
+## Context
+
+::: columns
+::: {.column width="70%"}
+Revisiting early work in the field of sociometry, this study by @pittinsky2008behavioral **assesses the level of agreement between teacher perceptions and student reports of classroom friendships** among middle school students.
+:::
+
+::: {.column width="30%"}
+![Behavioral vs. Cognitive Classroom Friendships [@pittinsky2008behavioral]](img/pittinsky-carolan.png){width="70%"}
+:::
+:::
+
+## Questions
+
+The central question guiding this investigation was:
+
+> ***Do student reports agree with teacher perceptions*** when it comes to classroom friendship ties and with what consequences for commonly used social network measures?
+
+## Data
+
+-   1 teacher, 1 middle school, four classrooms
+
+-   Students given roster and asked to evaluate relationships with peers
+
+-   Choices included best friend, friend, know-like, know, know-dislike, strongly dislike, and do not know.
+
+-   Relations are ***valued*** (degrees of friendship, not just yes or no)
+
+-   Data are ***directed*** (friendship nominations were not presumed to be reciprocal).
+
+## Findings
+
+-   Teacher’s perceptions and students’ reports were statistically similar, 11–29% of possible ties did not match.
+
+-   Students reported significantly more reciprocated friendship ties than the teacher perceived.
+
+-   Observed level of agreement varied across classes and generally increased over time.
+:::
+
+::: notes
+**Speaker Notes:**
+:::
+
+## Load Packages
+
+::: panel-tabset
+## R Libraries
+
+Let's start by creating a new R script and loading the {tidyverse} package which we'll use to import our network data files:
+
+```{r}
+library(knitr)
+library(tidyverse)
+```
+
+```{r load-libraries, echo=TRUE, message=FALSE}
+library(tidyverse)
+
+# You may have to install this package if it is not listed in your packages pane.
+# install.packages(tidyverse) 
+```
+
+**Note**: Tidyverse is actually a [collection of R packages](https://www.tidyverse.org/packages) that share an underlying design philosophy, grammar, and data structures commonly referred to as "tidy data principles." LASER uses the {tidyverse} extensively.
+
+## Network Packages
+
+::: columns
+::: {.column width="50%"}
+Data Management\
+![](img/tidygraph.png){width="398"}\
+[tidygraph](https://tidygraph.data-imaginist.com/)
+:::
+
+::: {.column width="50%"}
+Data Visualization\
+![](img/ggraph.png){width="346"}\
+[ggraph](https://ggraph.data-imaginist.com/index.html)
+:::
+:::
+
+## Your Turn
+
+Load the {tidygraph} and {ggraph} packages.
+
+```{r, echo=TRUE}
+# YOUR CODE HERE
+#
+#
+```
+:::
+
+# Wrangle
+
+Intro to Network Data Structures
+
+## Network Data Structures
+
+::: panel-tabset
+### Node-List
+
+::: columns
+::: {.column width="50%"}
+Consistent with typical data storage, node-lists often include:
+
+-   identifiers lik name or **ID**
+
+-   demographic info (**gender**, age)
+
+-   socio-economic info (job, income)
+
+-   substantive info (**grades**, attendance)
+:::
+
+::: {.column width="50%"}
+```{r node-list, echo=FALSE, message=FALSE, warning=FALSE}
+
+
+student_attributes <- read_csv("data/student-attributes.csv")
+
+student_attributes |>
+  head() |>
+  select(id, gender, achievement) |>
+  kable()
+
+```
+:::
+:::
+
+### Edge-List
+
+::: columns
+::: {.column width="50%"}
+Radically different than typical data storage, edge-lists include:
+
+-   ego and an alter
+
+-   tie strength or frequency
+
+-   edge attributes (time, event, text)
+:::
+
+::: {.column width="50%"}
+```{r edge-list, echo=FALSE, message=FALSE, warning=FALSE}
+
+student_edges <- read_csv("data/student-edgelist.csv")
+
+student_edges |>
+  head() |>
+  kable()
+
+```
+:::
+:::
+
+### Adjacency Matrix
+
+::: columns
+::: {.column width="50%"}
+Also radically different, an adjacency matrix includes:
+
+-   column for each actor
+
+-   row for each actor
+
+-   a value indicating the presence/strength of a relation
+:::
+
+::: {.column width="50%"}
+```{r adjaency-matrix, echo=FALSE, message=FALSE, warning=FALSE}
+
+rownames(teacher_friends) <- 1:27
+
+colnames(teacher_friends) <- 1:27
+
+teacher_matrix <- as.matrix(teacher_friends)
+
+teacher_matrix[1:7, 1:7] |>
+  kable(row.names = TRUE)
+
+```
+:::
+:::
+
+### Discuss
+
+Take a look at one of the network datasets in the data folder under the Files Tab in RStudio and consider the following:
+
+-   What format is this data set stored as?
+
+-   If edge data, is it directed or undirected? Valued?
+
+-   If node data, does the file contain attribute data?
+
+-   What are some things you notice about this dataset?
+
+-   What questions do you have about this dataset?
+:::
+
+## Import Data
+
+::: panel-tabset
+### Read Data
+
+Let's start by importing two Excel files that contain data about the nodes and the edges in our student friendship network:
+
+```{r import-data, echo=TRUE, message=FALSE, eval=FALSE}
+student_nodes <- read_excel("lab-1/data/student-attributes.xlsx")
+
+student_edges <- read_excel("lab-1/data/student-edgelist.xlsx")
+
+```
+
+```{r real-data, echo=FALSE, message=FALSE, eval=TRUE}
+student_edges <- read_excel("data/student-edgelist.xlsx")
+
+student_nodes <- read_excel("data/student-attributes.xlsx")
+
+```
+
+### Inspect Data
+
+Now let's take a look at the data file we just imported using the `View()` function or another function of choice you may have learned previously:
+
+```{r inspect-data, echo=TRUE, eval=FALSE}
+View(student_edges)
+View(student_nodes)
+```
+
+### Discuss
+
+Think about the questions below and be prepared to share your response:
+
+1.  What do you think the rows and columns in each file represent?
+
+2.  What about the values in each cell represent?
+
+3.  What else do you notice about the data?
+
+4.  What questions do you have?
+:::
+
+## A Tidy Network
+
+::: panel-tabset
+### tbl_graph( ) function
+
+Run the following code in your R script:
+
+```{r wrangle-data}
+#| echo: true
+#| warning: false
+#| message: false
+student_network <- tbl_graph(edges = student_edges,
+                             nodes = student_nodes, 
+                             directed = TRUE) 
+
+```
+
+The `tbl_graph()` function creates a special network data structure called a "tidy graph" that combines our nodes and edges into a single R object.
+
+<br>
+
+The benefits of a "tidy graph" is that it opens up the entire suite of tidyverse tools for manipulating and constructing network data and variables noted earlier.
+
+### View Network
+
+Using your R script, type the name of network object we just created and run the code to produce the output on the next tab:
+
+```{r, echo=TRUE}
+# ADD CODE BELOW
+#
+#
+```
+
+### Output
+
+You should see an output that looks something like this:
+
+```{r, echo=FALSE}
+student_network
+
+```
+
+### Discuss
+
+Think about the questions below:
+
+What is size of the student-reported friendship network?
+
+What else do you notice about this network?
+
+What questions do have about this network summary?
+:::
+
+# Explore
+
+Making Simple and Sophisticated Sociograms
+
+## A Simple Sociogram
+
+::: panel-tabset
+## plot()
+
+::: columns
+::: {.column width="50%"}
+Run the following code to make a simple sociogram:
+
+```{r}
+#| echo: true
+#| fig.show: hide
+plot(student_network)
+```
+
+<br>
+
+The `plot()` function is base R's simple but limited solution for plotting graphs.
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+#| fig-asp: .75
+plot(student_network)
+```
+:::
+:::
+
+## autograph()
+
+::: columns
+::: {.column width="50%"}
+The `autograph()` function is ggraph's simple but limited solution for plotting sociograms.
+
+```{r}
+#| echo: true
+#| fig.show: hide
+autograph(student_network)
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+#| fig.asp: .75
+autograph(student_network)
+```
+:::
+:::
+
+## Arguments
+
+::: columns
+::: {.column width="50%"}
+Both functions allow a small degree of customization, but are still limited.
+
+```{r}
+#| echo: true
+#| fig.show: hide
+autograph(student_network,
+          node_label = id,
+          node_colour = gender)
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+#| fig.asp: .75
+autograph(student_network,
+          node_label = id,
+          node_colour = gender)
+```
+:::
+:::
+
+## Discuss
+
+1.  In what situations might these limited functions be useful?
+2.  When might they inappropriate to use?
+:::
+
+## A Sophisticated Sociogram
+
+::: panel-tabset
+### Set Graph
+
+The `ggraph()` function is the first function required to build a sociogram. Try running this function on out `student_network` and see what happens:
+
+```{r set-graph, echo=TRUE, fig.show='hide'}
+ggraph(student_network)
+```
+
+This function serves two critical roles:
+
+1.  It takes care of setting up the plot object for the network specified.
+
+2.  It creates the layout based on algorithm provided.
+
+### "Add" Nodes
+
+::: columns
+::: {.column width="50%"}
+Let's “add” nodes to our sociogram using the `+` operator and the `geom_node_point()` function:
+
+```{r}
+#| echo: true
+#| fig.show: hide
+#| message: false
+ggraph(student_network) + 
+  geom_node_point() 
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+#| fig.asp: .75
+ggraph(student_network) + 
+  geom_node_point() 
+```
+:::
+:::
+
+### "Add" Edges
+
+::: columns
+::: {.column width="50%"}
+Both functions allow a small degree of customization, but are still limited.
+
+```{r}
+#| echo: true
+#| fig.show: hide
+ggraph(student_network) + 
+  geom_node_point() + 
+  geom_edge_link()
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+#| fig.asp: .75
+ggraph(student_network) + 
+  geom_node_point() + 
+  geom_edge_link()
+```
+:::
+:::
+
+### Polish
+
+::: columns
+::: {.column width="50%"}
+<br> <br> The {ggraph} packages allows for some very fairly sophisticated sociograms...
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+#| fig.asp: .75
+ggraph(student_network, layout = "stress") + 
+  geom_edge_link(arrow = arrow(length = unit(1, 'mm')), 
+                 end_cap = circle(3, 'mm'),
+                 start_cap = circle(3, 'mm'),
+                 alpha = .1) +
+  geom_node_point(aes(size = local_size(),
+                      color = gender)) +
+  geom_node_text(aes(label = id),
+                 repel=TRUE) +
+  theme_graph()
+```
+:::
+:::
+
+### Code
+
+With a fair bit of coding:
+
+```{r}
+#| echo: true
+#| fig.show: hide
+ggraph(student_network, layout = "stress") + 
+  geom_edge_link(arrow = arrow(length = unit(1, 'mm')), 
+                 end_cap = circle(3, 'mm'),
+                 start_cap = circle(3, 'mm'),
+                 alpha = .1) +
+  geom_node_point(aes(size = local_size(),
+                      color = gender)) +
+  geom_node_text(aes(label = id),
+                 repel=TRUE) +
+  theme_graph()
+```
+:::
+
+## What's Next?
+
+-   SNA Case Study: [Who's Friends with Who in Middle School?](https://laser-institute.github.io/network-analysis/lab-1/sna-lab-1-case-study-key.html)
+
+-   Guiding Study: [Behavioral versus cognitive classroom friendship networks.](https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-1/pittinsky-class-friendships.pdf)
+
+## Acknowledgements
+
+::: columns
+::: {.column width="20%"}
+![](img/nsf.jpg){fig-align="center" width="80%"}
+:::
+
+::: {.column width="80%"}
+This work was supported by the National Science Foundation grants DRL-2025090 and DRL-2321128 (ECR:BCSER). Any opinions, findings, and conclusions expressed in this material are those of the authors and do not necessarily reflect the views of the National Science Foundation.
+:::
+:::
+
+## References
