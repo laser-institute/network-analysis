@@ -43,26 +43,38 @@ editor: visual
 ::: notes
 **Speaker Notes:**
 
-Brian Carolan's book SNA and Education is a major inspiration for these SNA modules and is featured prominently in our essential readings and conceptual overviews. I highly recommend purchasing this book or obtaining a copy from the library at your local institution.
+Recall that Social Network Theory rests on a few key assumptions that are fairly intuitive but also supported by ample research in education:
 
-This quote is from Chapter 2 and highlights three components of SNA we'll be exploring in these modules, namely: methods used in network analysis, connections with sociological theory, and the applications of both in educational context.
+1.  Social relations are often more important for understanding behaviors and attitudes than are such attributes related to one's background (e.g., age, gender, etc.). The complex patterns of relations among individuals, unlike their attributes, change from context to context, condition educators and students apart from their attributes, therefore offers a deeper and broader explanation for a wide range of educational opportunities and outcomes.
 
-SNA is unique among the learning analytics methods covered by the LASER Institute in that it is a set of analytical techniques for analyzing the structure of social relationships that is also tightly integrated with sociological theory.
+2.  The second assumption is what motivates a wide array of network studies in education and encourages researchers to uncover the mechanisms through which relations affect actors and to identify the conditions under which these mechanisms operate in specific contexts.
+
+3.  The last assumption is that relations are not static but rather occur as part of a dynamic process. For example, a study by Atteberry & Bryk (2010) demonstrated how the communication patterns between teachers and the their school's literacy coach affected the successful implementation of a school-level reform initiative. These relations, in turn, altered the flow of information among teachers and created further opportunities or constraints on future interactions and whether the intervention was ultimately a success.
+
+### Network Terms
+
+Networks are often depicted as a **sociogram**, or network graph, that consists of nodes and edges representing indiviudals, their relations, and structural properting of the entire network.
+
+-   **Node.** Nodes are frequently referred to as actors or vertices and typically illustrated by circles, but the shape, color and size can vary depening on what the researcher wants to illustrate abotu the data.
+
+-   **Edges.** are frequently referred to as relations or ties. The are usually depicted by lines that represent some kind of relationship between individuals and that often have arrows indicating directionality. For example, in a communication network, arrows may illustrate a reply to a discussion thread or an email sent.
 :::
 
-# The 4 Hallmarks of SNA
+# Data Collection Considerations
 
-Relationships, Empirical Data, Graphical Imagery, & Mathematically-Based
+Boundaries, Ties & Data Sources
 
 ::: notes
 **Speaker Notes**:
 
-This first section introduces what Carolan describes as the four defining freatures of social network analysis, namely: a unique emphasis on **structuralism** based on ties among actors, a firm grounding in **empirical data**, it's use of **graphical imagery** and a new set of **mathematical models** and descriptive measures.
+A key difference between data used in typical STEM Ed Research and data used for social network analysis is the focus on relationships between individual rather than the individual themselves. As a result, this presents some unique issues inherent in how we manage of social network data, as well as the measurements derived from this data.
+
+In this conceptual overview we focus on data management, including how to collect and store network data, as well as approaches to help ensure the quality of the data we collect.
 :::
 
-## Relationships
+## Boundary Specification
 
-SNA emphasizes structuralism based on **ties** connecting social **actors** and is motivated by our intuition that relationships matter:
+How do you determine **who's in the network** that you will collect data about?
 
 -   no individual is an island, independence is NOT assumed
 -   who we know, are friends with, or talk with matters
@@ -74,27 +86,38 @@ SNA emphasizes structuralism based on **ties** connecting social **actors** and 
 
 Social network analysis is also predicated on a few key assumptions:
 
-1.  social relations are often more important for understanding behaviors and attitudes than are such attributes related to one's background (e.g., age, gender, etc.).
-2.  social networks affect beliefs, perceptions, and behaviors through a variety of structural mechanisms
-3.  social relations are not static but rather occur as part of a dynamic process that is not adequately explained by conventional social theory; relations are continually changing as actors interact with others in shifting contexts.
+-   social relations are often more important for understanding behaviors and attitudes than are such attributes related to one's background (e.g., age, gender, etc.).
+-   social networks affect beliefs, perceptions, and behaviors through a variety of structural mechanisms
+-   social relations are not static but rather occur as part of a dynamic process that is not adequately explained by conventional social theory; relations are continually changing as actors interact with others in shifting contexts.
 
 Here's a concrete example of the distinction between SNA and traditional research. Imagine studying a topic such as teacher effectiveness as measured by student test scores. In trying to understand why some teachers are more "effective" than others, researchers tend to focus on the attributes of the teacher, for example their highest degree, use of technology, years of experience, or pathways toward licensure and certification. However, they typically neglect the relations among teachers and between teachers and students and how these relations shape their effectiveness as a teacher. SNA attempts to account for the web of relations in which actors are embedded, this **social structure**, that simultaneously may constrain or provide opportunities for their effectiveness.
 :::
 
-## Empirical Data
+## Defining Ties
 
 ::: columns
 ::: {.column width="60%"}
-SNA is firmly grounded in **systematic, empirical data collection** using methods refined over decades and still evolving, such as:
+### Relationship & Strength
 
--   observations of social context
--   surveys and questionnaires
--   historical and administrative records
--   digital learning tools and social media
+-   Friendships (friend, best friend)
+
+-   Co-Author/Presenter (# of pubs)
+
+-   Assignment Partner
+
+-   Committee Members
 :::
 
 ::: {.column width="40%"}
-![MOOC Network Dataset [@kellogg2015massively] and [@kellogg2014social]](img/mooc-forum.png){fig-align="left" width="80%"}
+### Interaction & Frequency
+
+-   Online Discussion (# of replies/DMs)
+
+-   Support Seeking (how often)
+
+-   Confidential Exchanges
+
+-   Communications
 :::
 :::
 
@@ -106,257 +129,163 @@ The image on the right is from a publication by LASER Institute PI Dr. Shaun Kel
 Access to social relations through online learning tools and social media platforms has helped to spark a renewed interest in SNA over the past two decades and has resulted in the exponential growth of publications featuring SNA.
 :::
 
-## Graphical Imagery
+## Data Sources
 
 ::: columns
 ::: {.column width="60%"}
-SNA makes freuqent use of **graphical imagery** to represent actors and their relations with one another.
+### Archival Records
 
-The **sociogram** to the right includes:
+-   Email Accounts
 
--   Shapes for actors (nodes, vertices)
--   Lines for relations (ties, edges)
+-   Discussion Forums
 
-**Discuss:** *What do you think the lines and shapes depict in this 2nd grade classroom?*
+-   Social Network Platforms
+
+-   School Records
 :::
 
 ::: {.column width="40%"}
-Lorem
+### Sociometric Instrument
+
+-   [Survey](https://ncsu.qualtrics.com/jfe/preview/SV_5w2Ayiu2UriAz3M?Q_CHL=preview&Q_SurveyVersionID=current) or Interview Protocol
+
+-   Nomination or Roster
+
+-   Binary or Ordinal
+
+-   Simple or Multiplex
 :::
 :::
 
 ::: notes
 **Speaker Notes:**
-
-This image is an early example of a sociogram (i.e. a network graph) from a book published in 1934 grimly titled: **Who Shall Survive: A New Approach to the Problem of Human Interrelations.** It's also an excellent example of the educational roots of SNA research. This foundational work in the field of SNA is also freely available through the Internet Archive and linked in the references slide at the end of this presentation.
-
-Answer to the question:
-
--   A circle represents a girl.
-
--   A triangle represents a boy.
-
--   The red line represents attraction, i.e. who they like in the class.
-:::
-
-## Mathematically-Based
-
-::: columns
-::: {.column width="50%"}
-**Network Stats (Describe)**
-
--   Size
--   Centrality
--   Reciprocity
--   Density
-:::
-
-::: {.column width="50%"}
-**Network Models (Test & Predict)**
-
--   CONCOR
-
--   QAP
-
--   ERGMS
-
--   Regression
-:::
-:::
-
-::: notes
-**Speaker Notes:**
-
-SNA like other research methods relies on the use of mathematical and/or computational models to succinctly represent the complexity of social relationships.
-
-Descriptive measures such as size, centrality, reciprocity, and density are used to describe characteristics of individuals or groups in a network and the network as a whole. We'll explore these measures in Module 2.
-
-SNA also has a wide range of statistical models tailored to working with relational data for hypothesis testing and building predictive models, which we'll explore Module 3.
-:::
-
-# Key Terms
-
-Actors, Ties, and Attributes
-
-::: notes
-**Speaker Notes:**
-
-In this section we introduce some very basic terms that are essential for being able to conceptualize and discuss social networks. These terms encompass those are a part of a social network (actors), relationships between them (ties), and information about both (attributes).
-:::
-
-## Actors
-
-::: columns
-::: {.column width="50%"}
-Also called **nodes** or **vertices**, actors can represent a range of social entities, like:
-
--   students in a classroom
-
--   teachers in a school district
-
--   parents in a community
-
--   school districts in a state
-
--   departments within a college
-:::
-
-::: {.column width="50%"}
-Lorem...
-:::
-:::
-
-::: notes
-**Speaker Notes:**
-
-The important thing to note on this slide is that actors in social networks as represented by points or shapes on a graph don't necessarily have to represent single individuals, but can also represent collections of individuals, i.e. social entities.
-
-This image is actual data that we'll be working with in this module. It comes from a study by Pittinsky and Carolan that examined the extent to which teachers' perceptions of student friendship networks agreed with those of their students and the implications for both researchers and practitioners.
-:::
-
-## Ties
-
-::: columns
-::: {.column width="50%"}
-Also called **relations, edges**, or **links,** ties connect actors to one another and might consist of:
-
--   a behavioral interaction
-
--   a physical connection
-
--   an association or affiliation
-
--   an evaluation of one person by another
-
--   formal relations
-:::
-
-::: {.column width="50%"}
-Lorem...
-:::
-:::
-
-::: notes
-**Speaker Notes:**
-
-Note that in the graph, these lines simply indicate whether a friendship does or does not exist according to the teacher. However, these links can also also capture the degree of relationship (e.g., friend, best friend) as well as the direction of a relationship, which would be indicated by arrows indicating who reported being friends with who.
-
-\[Use the Notes Canvas in the Slide Tools or a handy nearby whiteboard to draw arrows on explain the difference between line with and without arrows\]
-:::
-
-## Attributes
-
-::: columns
-Finally, actors, ties, and the network as a whole may also contain information, which may be incorporated into visualizations or network models:
-
-::: {.column width="50%"}
--   **Individual** attributes based on properties of individual actors (e.g., gender, academic achievement)
-
--   **Relational** attributes based on an actor's direct ties with others (e.g., degree, reciprocity, or tie strength)
-
--   **Structural** attributes based on the entire network of connections actors ties with others (e.g., density, centralization, or reciprocity)
-:::
-
-::: {.column width="50%"}
-Lorem...
-:::
-:::
-
-::: notes
-**Speaker Notes:**
-
-Ask participants to take a look at the sociogram to the right and describe how some of these attributes have been incorporated into the graph.
-
-Discuss how color has been used to indicate gender, how actors with more ties to each other are "clumped" in groups, how actors with more ties are larger as indicated by "local size," i.e. the number of students each student is connected to.
 :::
 
 ## Discussion
 
-Consider a small network you are a part of (\~ 5-10 individuals), or may be interested in studying, and think about the following questions:
+Consider the following quesions about a network you may be interested in studying:
 
-1.  *Who are the actors in this networks?*
-2.  *What types of ties might connect these actors?*
-3.  *What individual attributes might be important to capture for SNA?*
-4.  *Which actors may be more central (e.g. more ties) in this network?*
+-   What is the boundary of this network?
 
-# Applications of SNA
+-   What relations within this network might be of interest to your research?
 
-Social Capital, Selection & Influence, Network Diffusion
+-   What attributes about actors in this network might you want to capture?
+
+-   How might you collect data about these actors and their relations?
+
+# Data Quality
+
+Validity, Reliability, & Measurement Error
+
+::: notes
+**Speaker Notes**:
+
+Similar to data we might typically collect about individual participants in our research, the quality of relational data also depends on reliability, validity, accuracy, and measurement error.
+:::
+
+## Validity
+
+While research on construct validity is slim, and participant recall is suspect, **approaches to improve instrument validity** include:
+
+1.  Focus on more stable relations, as opposed to ones that are time specific;
+
+2.  Limit the number of alters one can nominate;
+
+3.  Ask respondents to try to answer what the others would say;
+
+4.  Consider observations or archival data (e.g. logs, student records).
+
+::: notes
+**Speaker Notes**
+
+Sadly, there has not been a lot of research on the validity of measures of network concepts. This issue is especially relevant to data collected by participant recall. For example, a research may ask students to list five classmates with whom they study, but actual observed behavior may indicate something totally different.
+
+Ways to improve validity include:
+
+-   Focusing on more stable relations, as opposed to ones that are time specific. For example, asking a respondent to identify who one regularly studies with as opposed to asking who one studied with this past month might be the better option.
+
+-   Limit the number of people one can nominate in order to counteract a tendency to under/overreport the number of relations one has
+
+-   Follow up on respondents’ reports, or explicitly asking respondents to try to answer what the others would say as well as what they themselves think and tell respondents that some information may be confirmed with others.
+
+-   Avoid self-report data altogether. If you sources like public records, email, participation in social networking platforms, and school transcripts, you don't need to directly ask respondents to report on their network. Instead, the network is reconstructed from these records and a number of different relations can be captured. For example, using the public Facebook profiles of a set of students in the same school, it is possible to construct a network of who bullies whom, so long as you can precisely define how bullying is measured.
+:::
+
+## Reliability
+
+Recall that reliability is the **extent to which an instrument yields a similar results** every time its applied to the same participant.
+
+-   A common approaches in SNA is **Test-Retest reliability**.
+
+-   Closer ties tend to be reported more reliably than weaker ones
+
+-   Reciprocated relations may be more trustworthy.
 
 ::: notes
 **Speaker Notes:**
 
-In this section we'll introduce a few broad research areas where that have benefitted from the theoretical and methodological advances made by social network analysis, as well as some specific examples within the context of education.
+-   Social network researchers can rely on several common reliability measures, including interobserver reliability, internal consistency reliability, and **test–retest reliability**. The latter, however, is the most commonly used. For example, we may ask a teacher nominates all those other teachers from whom he or she seeks advice about professional matters. The retest repeats the same (or similar) request at a later time. Highly correlated responses indicate high reliability.
+
+-   One thing to note when designing a network study or data collection instrument is that closer ties tend to be reported more reliably than weaker ones.
+
+-   Also, for self-reported ties, reciprocated ties are more trustworthy than non reciprocated. For example, one study asking college students to report whom they spend time with found that only 58% recalled spending time with each other.
 :::
 
-## Social Capital
+## Measurement Error
 
-Social capital is an intangible asset existing in the connections and shared values that people have. SNA provides a means to actually measure & model social capital and has be used to better understand:
+::: columns
+::: {.column width="50%"}
+### Measurement Issues
 
--   how social relations advantages some students [@maroulis2008does]
+1.  Recall vs. Recognition
 
--   dropout among Latino/a/ex students [@ream2008student]
+2.  Fixed- vs. Free-Choice (Quantity)
 
--   parental social closure and student math achievement [@morgan2009intergenerational]
+3.  Ratings vs. Rankings (Intensity)
 
-## Selection & Influence
+4.  Missing Data
+:::
 
-Educational researchers have used to better understand why people connect (**selection**) and how these connections shape their opportunities and outcomes. Examples include:
+::: {.column width="50%"}
+### Possible Solutions
 
--   who school leaders collaborate and confide in and why [@daly2010bridge]
+1.  Use a roster if network size \< 50
 
--   how the characteristics of friends shape students' aspirations and college attendance [@hallinan1990students]
+2.  No consensus, consider both
 
--   teachers' attitudes toward school and district reforms [@cole2010changes]
+3.  Ranking if network size \< 20
 
--   how friend influence and peer exposure widen the STEM gender gap [@raabe2019social]
-
--   development of peer networks and academic performance [@brouwer2022development]
-
-## Network Diffusion
-
-SNA has been used to explain how ideas and resources spread within and between networks of actors, such as:
-
--   attitudes and use of computers in classrooms over time [@frank2011focus]
-
--   how substance abuse diffuses across adolescent networks [@valente2004using]
-
--   diffusion of charter school policy and creation across states [@renzulli2005charter]
+4.  Avoid if possible ;)
+:::
+:::
 
 ::: notes
 **Speaker Notes:**
-
-Note that we've rushed through a a lot of examples of SNA applications in a short amount of time but several of these we'll be exploring in greater depth through our readings and our case studies.
-
-Also note that if you are interested in reading any of these articles, most are freely available online and linked on the references slide at the end of the presentation.
 :::
 
-## Closing Activity
+## Discussion
 
-Using the materials provided at your table or using a drawing tool on your personal laptop or device, create a simple sociogram of your network and think about the following questions:
+Consider the following questions about your network interest described earlier:
 
-1.  *How will you represent actors and their relationships?*
-2.  *Where will you position the actors in your sociogram?*
-3.  *How might you incorporate the attributes in your network?*
-4.  *How might someone's position in this network advantage or disadvantage these individuals?*
+-   What might be some threats to the quality of your data?
 
-::: notes
-**Speaker Notes:**
-
-If time is short, consider cutting this activity but do have a short discussion about how someones position in a network might be to their advantage or disadvantage.
-:::
+-   How might you address or avoid these threats?
 
 ## Essential Readings
 
 The following chapters in @carolan2014 cover the topics introduced in this conceptual overview in much greater depth:
 
--   [Chapter 1: The Social Network Perspective and Educational Research Introduction](https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-1/carolan-network-perspective.pdf)
+-   [Chapter 4: Collecting and Managing Network Data](https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-2/sna-chapter-4.pdf)
 
--   [Chapter 2: Historical, Theoretical, and Analytical Foundations](https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-1/carolan-history-theory.pdf)
+-   [Chapter 5: Structural Measures for Complete Networks](https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-2/sna-chapter-5.pdf)
 
--   [Chapter 3](https://methods.sagepub.com/book/social-network-analysis-and-education/n3.xml): [Basic Concepts](https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-1/carolan-basic-concepts.pdf)
+In preparation for the Module 2 Code-Along and Case Study, the research article by @kellogg2014social is also highly recommended.
 
-In preparation for the Module 1 Code-Along and Case Study, the research article by @pittinsky2008behavioral is also highly recommended.
+::: notes
+**Speaker Notes:**
+
+The Carolan chapter readings focus on issues related to the collection and measurement of these network variables, including issues related to boundary specification, sampling, data storage, and methodologies. In addition, the readings introduce important concepts and measures used to describe static properties of social networks. The conceptual tools and precise measures help us move beyond basic visualization of networks, to analysis of networks quantitatively.
+:::
 
 ## Acknowledgements
 

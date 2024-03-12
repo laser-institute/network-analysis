@@ -17,11 +17,11 @@ bibliography: lit/references.bib
 
 ## Overview
 
-Our essential readings for Lab 2 examine common approaches to data management and measurement in network analysis. The required and self-selected readings provide an introduction the collection and management of relational data, as well as how we can begin to describe what a complete network looks like, not just visually, but mathematically. A secondary goal of readings and discussion is to help you start generating ideas for independent application of network analysis. As part of our readings, for example, you'll learn how to specify a network "boundary" for your study based on different approaches.
+Our essential readings for Module 2 examine common approaches to data management and measurement in network analysis. The required and self-selected readings provide an introduction the collection and management of relational data, as well as how we can begin to describe what a complete network looks like, not just visually, but mathematically. A secondary goal of readings and discussion is to help you start generating ideas for independent application of network analysis. As part of our readings, for example, you'll learn how to specify a network "boundary" for your study based on different approaches.
 
 ## Readings
 
-The following readings for this lab focus on issues related to the collection and measurement of these network variables, including issues related to boundary specification, sampling, storage, and methodologies. In addition, the readings introduce important concepts and measures used to describe static properties of social networks. The conceptual tools and precise measures help us move beyond basic visualization of networks, to analysis of networks quantitatively.
+The following readings for this module focus on issues related to the collection and measurement of these network variables, including issues related to boundary specification, sampling, storage, and methodologies. In addition, the readings introduce important concepts and measures used to describe static properties of social networks. The conceptual tools and precise measures help us move beyond basic visualization of networks, to analysis of networks quantitatively.
 
 1.  [Chapter 4: Collecting and Managing Network Data](https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-2/sna-chapter-4.pdf)
 

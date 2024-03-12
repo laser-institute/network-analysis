@@ -371,9 +371,18 @@
 </div>
 <aside class="notes">
 <p><strong>Speaker Notes:</strong></p>
-<p>Brian Carolan’s book SNA and Education is a major inspiration for these SNA modules and is featured prominently in our essential readings and conceptual overviews. I highly recommend purchasing this book or obtaining a copy from the library at your local institution.</p>
-<p>This quote is from Chapter 2 and highlights three components of SNA we’ll be exploring in these modules, namely: methods used in network analysis, connections with sociological theory, and the applications of both in educational context.</p>
-<p>SNA is unique among the learning analytics methods covered by the LASER Institute in that it is a set of analytical techniques for analyzing the structure of social relationships that is also tightly integrated with sociological theory.</p>
+<p>Recall that Social Network Theory rests on a few key assumptions that are fairly intuitive but also supported by ample research in education:</p>
+<ol type="1">
+<li><p>Social relations are often more important for understanding behaviors and attitudes than are such attributes related to one’s background (e.g., age, gender, etc.). The complex patterns of relations among individuals, unlike their attributes, change from context to context, condition educators and students apart from their attributes, therefore offers a deeper and broader explanation for a wide range of educational opportunities and outcomes.</p></li>
+<li><p>The second assumption is what motivates a wide array of network studies in education and encourages researchers to uncover the mechanisms through which relations affect actors and to identify the conditions under which these mechanisms operate in specific contexts.</p></li>
+<li><p>The last assumption is that relations are not static but rather occur as part of a dynamic process. For example, a study by Atteberry &amp; Bryk (2010) demonstrated how the communication patterns between teachers and the their school’s literacy coach affected the successful implementation of a school-level reform initiative. These relations, in turn, altered the flow of information among teachers and created further opportunities or constraints on future interactions and whether the intervention was ultimately a success.</p></li>
+</ol>
+<h3 id="network-terms-1">Network Terms</h3>
+<p>Networks are often depicted as a <strong>sociogram</strong>, or network graph, that consists of nodes and edges representing indiviudals, their relations, and structural properting of the entire network.</p>
+<ul>
+<li><p><strong>Node.</strong> Nodes are frequently referred to as actors or vertices and typically illustrated by circles, but the shape, color and size can vary depening on what the researcher wants to illustrate abotu the data.</p></li>
+<li><p><strong>Edges.</strong> are frequently referred to as relations or ties. The are usually depicted by lines that represent some kind of relationship between individuals and that often have arrows indicating directionality. For example, in a communication network, arrows may illustrate a reply to a discussion thread or an email sent.</p></li>
+</ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -387,12 +396,13 @@
       }</style></aside>
 </section>
 <section>
-<section id="the-4-hallmarks-of-sna" class="title-slide slide level1 center">
-<h1>The 4 Hallmarks of SNA</h1>
-<p>Relationships, Empirical Data, Graphical Imagery, &amp; Mathematically-Based</p>
+<section id="data-collection-considerations" class="title-slide slide level1 center">
+<h1>Data Collection Considerations</h1>
+<p>Boundaries, Ties &amp; Data Sources</p>
 <aside class="notes">
 <p><strong>Speaker Notes</strong>:</p>
-<p>This first section introduces what Carolan describes as the four defining freatures of social network analysis, namely: a unique emphasis on <strong>structuralism</strong> based on ties among actors, a firm grounding in <strong>empirical data</strong>, it’s use of <strong>graphical imagery</strong> and a new set of <strong>mathematical models</strong> and descriptive measures.</p>
+<p>A key difference between data used in typical STEM Ed Research and data used for social network analysis is the focus on relationships between individual rather than the individual themselves. As a result, this presents some unique issues inherent in how we manage of social network data, as well as the measurements derived from this data.</p>
+<p>In this conceptual overview we focus on data management, including how to collect and store network data, as well as approaches to help ensure the quality of the data we collect.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -405,9 +415,9 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="relationships" class="slide level2">
-<h2>Relationships</h2>
-<p>SNA emphasizes structuralism based on <strong>ties</strong> connecting social <strong>actors</strong> and is motivated by our intuition that relationships matter:</p>
+<section id="boundary-specification" class="slide level2">
+<h2>Boundary Specification</h2>
+<p>How do you determine <strong>who’s in the network</strong> that you will collect data about?</p>
 <ul>
 <li>no individual is an island, independence is NOT assumed</li>
 <li>who we know, are friends with, or talk with matters</li>
@@ -417,11 +427,11 @@
 <aside class="notes">
 <p><strong>Speaker Notes:</strong></p>
 <p>Social network analysis is also predicated on a few key assumptions:</p>
-<ol type="1">
+<ul>
 <li>social relations are often more important for understanding behaviors and attitudes than are such attributes related to one’s background (e.g., age, gender, etc.).</li>
 <li>social networks affect beliefs, perceptions, and behaviors through a variety of structural mechanisms</li>
 <li>social relations are not static but rather occur as part of a dynamic process that is not adequately explained by conventional social theory; relations are continually changing as actors interact with others in shifting contexts.</li>
-</ol>
+</ul>
 <p>Here’s a concrete example of the distinction between SNA and traditional research. Imagine studying a topic such as teacher effectiveness as measured by student test scores. In trying to understand why some teachers are more “effective” than others, researchers tend to focus on the attributes of the teacher, for example their highest degree, use of technology, years of experience, or pathways toward licensure and certification. However, they typically neglect the relations among teachers and between teachers and students and how these relations shape their effectiveness as a teacher. SNA attempts to account for the web of relations in which actors are embedded, this <strong>social structure</strong>, that simultaneously may constrain or provide opportunities for their effectiveness.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -435,24 +445,25 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="empirical-data" class="slide level2">
-<h2>Empirical Data</h2>
+<section id="defining-ties" class="slide level2">
+<h2>Defining Ties</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
-<p>SNA is firmly grounded in <strong>systematic, empirical data collection</strong> using methods refined over decades and still evolving, such as:</p>
+<h3 id="relationship-strength">Relationship &amp; Strength</h3>
 <ul>
-<li>observations of social context</li>
-<li>surveys and questionnaires</li>
-<li>historical and administrative records</li>
-<li>digital learning tools and social media</li>
+<li><p>Friendships (friend, best friend)</p></li>
+<li><p>Co-Author/Presenter (# of pubs)</p></li>
+<li><p>Assignment Partner</p></li>
+<li><p>Committee Members</p></li>
 </ul>
 </div><div class="column" style="width:40%;">
-<div class="quarto-figure quarto-figure-left">
-<figure>
-<p><img data-src="img/mooc-forum.png" class="quarto-figure quarto-figure-left" style="width:80.0%"></p>
-<figcaption>MOOC Network Dataset <span class="citation" data-cites="kellogg2015massively">(<a href="#/references" role="doc-biblioref" onclick="">Kellogg and Edelmann 2015</a>)</span> and <span class="citation" data-cites="kellogg2014social">(<a href="#/references" role="doc-biblioref" onclick="">Kellogg, Booth, and Oliver 2014</a>)</span></figcaption>
-</figure>
-</div>
+<h3 id="interaction-frequency">Interaction &amp; Frequency</h3>
+<ul>
+<li><p>Online Discussion (# of replies/DMs)</p></li>
+<li><p>Support Seeking (how often)</p></li>
+<li><p>Confidential Exchanges</p></li>
+<li><p>Communications</p></li>
+</ul>
 </div>
 </div>
 <aside class="notes">
@@ -471,180 +482,29 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="graphical-imagery" class="slide level2">
-<h2>Graphical Imagery</h2>
+<section id="data-sources" class="slide level2">
+<h2>Data Sources</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
-<p>SNA makes freuqent use of <strong>graphical imagery</strong> to represent actors and their relations with one another.</p>
-<p>The <strong>sociogram</strong> to the right includes:</p>
+<h3 id="archival-records">Archival Records</h3>
 <ul>
-<li>Shapes for actors (nodes, vertices)</li>
-<li>Lines for relations (ties, edges)</li>
+<li><p>Email Accounts</p></li>
+<li><p>Discussion Forums</p></li>
+<li><p>Social Network Platforms</p></li>
+<li><p>School Records</p></li>
 </ul>
-<p><strong>Discuss:</strong> <em>What do you think the lines and shapes depict in this 2nd grade classroom?</em></p>
 </div><div class="column" style="width:40%;">
-<p>Lorem</p>
-</div>
-</div>
-<aside class="notes">
-<p><strong>Speaker Notes:</strong></p>
-<p>This image is an early example of a sociogram (i.e.&nbsp;a network graph) from a book published in 1934 grimly titled: <strong>Who Shall Survive: A New Approach to the Problem of Human Interrelations.</strong> It’s also an excellent example of the educational roots of SNA research. This foundational work in the field of SNA is also freely available through the Internet Archive and linked in the references slide at the end of this presentation.</p>
-<p>Answer to the question:</p>
+<h3 id="sociometric-instrument">Sociometric Instrument</h3>
 <ul>
-<li><p>A circle represents a girl.</p></li>
-<li><p>A triangle represents a boy.</p></li>
-<li><p>The red line represents attraction, i.e.&nbsp;who they like in the class.</p></li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="mathematically-based" class="slide level2">
-<h2>Mathematically-Based</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><strong>Network Stats (Describe)</strong></p>
-<ul>
-<li>Size</li>
-<li>Centrality</li>
-<li>Reciprocity</li>
-<li>Density</li>
-</ul>
-</div><div class="column" style="width:50%;">
-<p><strong>Network Models (Test &amp; Predict)</strong></p>
-<ul>
-<li><p>CONCOR</p></li>
-<li><p>QAP</p></li>
-<li><p>ERGMS</p></li>
-<li><p>Regression</p></li>
+<li><p><a href="https://ncsu.qualtrics.com/jfe/preview/SV_5w2Ayiu2UriAz3M?Q_CHL=preview&amp;Q_SurveyVersionID=current">Survey</a> or Interview Protocol</p></li>
+<li><p>Nomination or Roster</p></li>
+<li><p>Binary or Ordinal</p></li>
+<li><p>Simple or Multiplex</p></li>
 </ul>
 </div>
 </div>
 <aside class="notes">
 <p><strong>Speaker Notes:</strong></p>
-<p>SNA like other research methods relies on the use of mathematical and/or computational models to succinctly represent the complexity of social relationships.</p>
-<p>Descriptive measures such as size, centrality, reciprocity, and density are used to describe characteristics of individuals or groups in a network and the network as a whole. We’ll explore these measures in Module 2.</p>
-<p>SNA also has a wide range of statistical models tailored to working with relational data for hypothesis testing and building predictive models, which we’ll explore Module 3.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section></section>
-<section>
-<section id="key-terms" class="title-slide slide level1 center">
-<h1>Key Terms</h1>
-<p>Actors, Ties, and Attributes</p>
-<aside class="notes">
-<p><strong>Speaker Notes:</strong></p>
-<p>In this section we introduce some very basic terms that are essential for being able to conceptualize and discuss social networks. These terms encompass those are a part of a social network (actors), relationships between them (ties), and information about both (attributes).</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="actors" class="slide level2">
-<h2>Actors</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p>Also called <strong>nodes</strong> or <strong>vertices</strong>, actors can represent a range of social entities, like:</p>
-<ul>
-<li><p>students in a classroom</p></li>
-<li><p>teachers in a school district</p></li>
-<li><p>parents in a community</p></li>
-<li><p>school districts in a state</p></li>
-<li><p>departments within a college</p></li>
-</ul>
-</div><div class="column" style="width:50%;">
-<p>Lorem…</p>
-</div>
-</div>
-<aside class="notes">
-<p><strong>Speaker Notes:</strong></p>
-<p>The important thing to note on this slide is that actors in social networks as represented by points or shapes on a graph don’t necessarily have to represent single individuals, but can also represent collections of individuals, i.e.&nbsp;social entities.</p>
-<p>This image is actual data that we’ll be working with in this module. It comes from a study by Pittinsky and Carolan that examined the extent to which teachers’ perceptions of student friendship networks agreed with those of their students and the implications for both researchers and practitioners.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="ties" class="slide level2">
-<h2>Ties</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p>Also called <strong>relations, edges</strong>, or <strong>links,</strong> ties connect actors to one another and might consist of:</p>
-<ul>
-<li><p>a behavioral interaction</p></li>
-<li><p>a physical connection</p></li>
-<li><p>an association or affiliation</p></li>
-<li><p>an evaluation of one person by another</p></li>
-<li><p>formal relations</p></li>
-</ul>
-</div><div class="column" style="width:50%;">
-<p>Lorem…</p>
-</div>
-</div>
-<aside class="notes">
-<p><strong>Speaker Notes:</strong></p>
-<p>Note that in the graph, these lines simply indicate whether a friendship does or does not exist according to the teacher. However, these links can also also capture the degree of relationship (e.g., friend, best friend) as well as the direction of a relationship, which would be indicated by arrows indicating who reported being friends with who.</p>
-<p>[Use the Notes Canvas in the Slide Tools or a handy nearby whiteboard to draw arrows on explain the difference between line with and without arrows]</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="attributes" class="slide level2">
-<h2>Attributes</h2>
-<div class="columns">
-<p>Finally, actors, ties, and the network as a whole may also contain information, which may be incorporated into visualizations or network models:</p><div class="column" style="width:50%;">
-<ul>
-<li><p><strong>Individual</strong> attributes based on properties of individual actors (e.g., gender, academic achievement)</p></li>
-<li><p><strong>Relational</strong> attributes based on an actor’s direct ties with others (e.g., degree, reciprocity, or tie strength)</p></li>
-<li><p><strong>Structural</strong> attributes based on the entire network of connections actors ties with others (e.g., density, centralization, or reciprocity)</p></li>
-</ul>
-</div><div class="column" style="width:50%;">
-<p>Lorem…</p>
-</div>
-</div>
-<aside class="notes">
-<p><strong>Speaker Notes:</strong></p>
-<p>Ask participants to take a look at the sociogram to the right and describe how some of these attributes have been incorporated into the graph.</p>
-<p>Discuss how color has been used to indicate gender, how actors with more ties to each other are “clumped” in groups, how actors with more ties are larger as indicated by “local size,” i.e.&nbsp;the number of students each student is connected to.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -659,21 +519,21 @@
 </section>
 <section id="discussion" class="slide level2">
 <h2>Discussion</h2>
-<p>Consider a small network you are a part of (~ 5-10 individuals), or may be interested in studying, and think about the following questions:</p>
-<ol type="1">
-<li><em>Who are the actors in this networks?</em></li>
-<li><em>What types of ties might connect these actors?</em></li>
-<li><em>What individual attributes might be important to capture for SNA?</em></li>
-<li><em>Which actors may be more central (e.g.&nbsp;more ties) in this network?</em></li>
-</ol>
+<p>Consider the following quesions about a network you may be interested in studying:</p>
+<ul>
+<li><p>What is the boundary of this network?</p></li>
+<li><p>What relations within this network might be of interest to your research?</p></li>
+<li><p>What attributes about actors in this network might you want to capture?</p></li>
+<li><p>How might you collect data about these actors and their relations?</p></li>
+</ul>
 </section></section>
 <section>
-<section id="applications-of-sna" class="title-slide slide level1 center">
-<h1>Applications of SNA</h1>
-<p>Social Capital, Selection &amp; Influence, Network Diffusion</p>
+<section id="data-quality" class="title-slide slide level1 center">
+<h1>Data Quality</h1>
+<p>Validity, Reliability, &amp; Measurement Error</p>
 <aside class="notes">
-<p><strong>Speaker Notes:</strong></p>
-<p>In this section we’ll introduce a few broad research areas where that have benefitted from the theoretical and methodological advances made by social network analysis, as well as some specific examples within the context of education.</p>
+<p><strong>Speaker Notes</strong>:</p>
+<p>Similar to data we might typically collect about individual participants in our research, the quality of relational data also depends on reliability, validity, accuracy, and measurement error.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -686,62 +546,25 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="social-capital" class="slide level2">
-<h2>Social Capital</h2>
-<p>Social capital is an intangible asset existing in the connections and shared values that people have. SNA provides a means to actually measure &amp; model social capital and has be used to better understand:</p>
-<ul>
-<li><p>how social relations advantages some students <span class="citation" data-cites="maroulis2008does">(<a href="#/references" role="doc-biblioref" onclick="">Maroulis and Gomez 2008</a>)</span></p></li>
-<li><p>dropout among Latino/a/ex students <span class="citation" data-cites="ream2008student">(<a href="#/references" role="doc-biblioref" onclick="">Ream and Rumberger 2008</a>)</span></p></li>
-<li><p>parental social closure and student math achievement <span class="citation" data-cites="morgan2009intergenerational">(<a href="#/references" role="doc-biblioref" onclick="">Morgan and Todd 2009</a>)</span></p></li>
-</ul>
-</section>
-<section id="selection-influence" class="slide level2">
-<h2>Selection &amp; Influence</h2>
-<p>Educational researchers have used to better understand why people connect (<strong>selection</strong>) and how these connections shape their opportunities and outcomes. Examples include:</p>
-<ul>
-<li><p>who school leaders collaborate and confide in and why <span class="citation" data-cites="daly2010bridge">(<a href="#/references" role="doc-biblioref" onclick="">Daly and Finnigan 2010</a>)</span></p></li>
-<li><p>how the characteristics of friends shape students’ aspirations and college attendance <span class="citation" data-cites="hallinan1990students">(<a href="#/references" role="doc-biblioref" onclick="">Hallinan and Williams 1990</a>)</span></p></li>
-<li><p>teachers’ attitudes toward school and district reforms <span class="citation" data-cites="cole2010changes">(<a href="#/references" role="doc-biblioref" onclick="">Cole and Weinbaum 2010</a>)</span></p></li>
-<li><p>how friend influence and peer exposure widen the STEM gender gap <span class="citation" data-cites="raabe2019social">(<a href="#/references" role="doc-biblioref" onclick="">Raabe, Boda, and Stadtfeld 2019</a>)</span></p></li>
-<li><p>development of peer networks and academic performance <span class="citation" data-cites="brouwer2022development">(<a href="#/references" role="doc-biblioref" onclick="">Brouwer et al. 2022</a>)</span></p></li>
-</ul>
-</section>
-<section id="network-diffusion" class="slide level2">
-<h2>Network Diffusion</h2>
-<p>SNA has been used to explain how ideas and resources spread within and between networks of actors, such as:</p>
-<ul>
-<li><p>attitudes and use of computers in classrooms over time <span class="citation" data-cites="frank2011focus">(<a href="#/references" role="doc-biblioref" onclick="">Frank et al. 2011</a>)</span></p></li>
-<li><p>how substance abuse diffuses across adolescent networks <span class="citation" data-cites="valente2004using">(<a href="#/references" role="doc-biblioref" onclick="">Valente, Gallaher, and Mouttapa 2004</a>)</span></p></li>
-<li><p>diffusion of charter school policy and creation across states <span class="citation" data-cites="renzulli2005charter">(<a href="#/references" role="doc-biblioref" onclick="">Renzulli and Roscigno 2005</a>)</span></p></li>
-</ul>
-<aside class="notes">
-<p><strong>Speaker Notes:</strong></p>
-<p>Note that we’ve rushed through a a lot of examples of SNA applications in a short amount of time but several of these we’ll be exploring in greater depth through our readings and our case studies.</p>
-<p>Also note that if you are interested in reading any of these articles, most are freely available online and linked on the references slide at the end of the presentation.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="closing-activity" class="slide level2">
-<h2>Closing Activity</h2>
-<p>Using the materials provided at your table or using a drawing tool on your personal laptop or device, create a simple sociogram of your network and think about the following questions:</p>
+<section id="validity" class="slide level2">
+<h2>Validity</h2>
+<p>While research on construct validity is slim, and participant recall is suspect, <strong>approaches to improve instrument validity</strong> include:</p>
 <ol type="1">
-<li><em>How will you represent actors and their relationships?</em></li>
-<li><em>Where will you position the actors in your sociogram?</em></li>
-<li><em>How might you incorporate the attributes in your network?</em></li>
-<li><em>How might someone’s position in this network advantage or disadvantage these individuals?</em></li>
+<li><p>Focus on more stable relations, as opposed to ones that are time specific;</p></li>
+<li><p>Limit the number of alters one can nominate;</p></li>
+<li><p>Ask respondents to try to answer what the others would say;</p></li>
+<li><p>Consider observations or archival data (e.g.&nbsp;logs, student records).</p></li>
 </ol>
 <aside class="notes">
-<p><strong>Speaker Notes:</strong></p>
-<p>If time is short, consider cutting this activity but do have a short discussion about how someones position in a network might be to their advantage or disadvantage.</p>
+<p><strong>Speaker Notes</strong></p>
+<p>Sadly, there has not been a lot of research on the validity of measures of network concepts. This issue is especially relevant to data collected by participant recall. For example, a research may ask students to list five classmates with whom they study, but actual observed behavior may indicate something totally different.</p>
+<p>Ways to improve validity include:</p>
+<ul>
+<li><p>Focusing on more stable relations, as opposed to ones that are time specific. For example, asking a respondent to identify who one regularly studies with as opposed to asking who one studied with this past month might be the better option.</p></li>
+<li><p>Limit the number of people one can nominate in order to counteract a tendency to under/overreport the number of relations one has</p></li>
+<li><p>Follow up on respondents’ reports, or explicitly asking respondents to try to answer what the others would say as well as what they themselves think and tell respondents that some information may be confirmed with others.</p></li>
+<li><p>Avoid self-report data altogether. If you sources like public records, email, participation in social networking platforms, and school transcripts, you don’t need to directly ask respondents to report on their network. Instead, the network is reconstructed from these records and a number of different relations can be captured. For example, using the public Facebook profiles of a set of students in the same school, it is possible to construct a network of who bullies whom, so long as you can precisely define how bullying is measured.</p></li>
+</ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -753,16 +576,99 @@
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
+</section>
+<section id="reliability" class="slide level2">
+<h2>Reliability</h2>
+<p>Recall that reliability is the <strong>extent to which an instrument yields a similar results</strong> every time its applied to the same participant.</p>
+<ul>
+<li><p>A common approaches in SNA is <strong>Test-Retest reliability</strong>.</p></li>
+<li><p>Closer ties tend to be reported more reliably than weaker ones</p></li>
+<li><p>Reciprocated relations may be more trustworthy.</p></li>
+</ul>
+<aside class="notes">
+<p><strong>Speaker Notes:</strong></p>
+<ul>
+<li><p>Social network researchers can rely on several common reliability measures, including interobserver reliability, internal consistency reliability, and <strong>test–retest reliability</strong>. The latter, however, is the most commonly used. For example, we may ask a teacher nominates all those other teachers from whom he or she seeks advice about professional matters. The retest repeats the same (or similar) request at a later time. Highly correlated responses indicate high reliability.</p></li>
+<li><p>One thing to note when designing a network study or data collection instrument is that closer ties tend to be reported more reliably than weaker ones.</p></li>
+<li><p>Also, for self-reported ties, reciprocated ties are more trustworthy than non reciprocated. For example, one study asking college students to report whom they spend time with found that only 58% recalled spending time with each other.</p></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="measurement-error" class="slide level2">
+<h2>Measurement Error</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="measurement-issues">Measurement Issues</h3>
+<ol type="1">
+<li><p>Recall vs.&nbsp;Recognition</p></li>
+<li><p>Fixed- vs.&nbsp;Free-Choice (Quantity)</p></li>
+<li><p>Ratings vs.&nbsp;Rankings (Intensity)</p></li>
+<li><p>Missing Data</p></li>
+</ol>
+</div><div class="column" style="width:50%;">
+<h3 id="possible-solutions">Possible Solutions</h3>
+<ol type="1">
+<li><p>Use a roster if network size &lt; 50</p></li>
+<li><p>No consensus, consider both</p></li>
+<li><p>Ranking if network size &lt; 20</p></li>
+<li><p>Avoid if possible ;)</p></li>
+</ol>
+</div>
+</div>
+<aside class="notes">
+<p><strong>Speaker Notes:</strong></p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="discussion-1" class="slide level2">
+<h2>Discussion</h2>
+<p>Consider the following questions about your network interest described earlier:</p>
+<ul>
+<li><p>What might be some threats to the quality of your data?</p></li>
+<li><p>How might you address or avoid these threats?</p></li>
+</ul>
 </section>
 <section id="essential-readings" class="slide level2">
 <h2>Essential Readings</h2>
 <p>The following chapters in <span class="citation" data-cites="carolan2014">Carolan (<a href="#/references" role="doc-biblioref" onclick="">2014</a>)</span> cover the topics introduced in this conceptual overview in much greater depth:</p>
 <ul>
-<li><p><a href="https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-1/carolan-network-perspective.pdf">Chapter 1: The Social Network Perspective and Educational Research Introduction</a></p></li>
-<li><p><a href="https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-1/carolan-history-theory.pdf">Chapter 2: Historical, Theoretical, and Analytical Foundations</a></p></li>
-<li><p><a href="https://methods.sagepub.com/book/social-network-analysis-and-education/n3.xml">Chapter 3</a>: <a href="https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-1/carolan-basic-concepts.pdf">Basic Concepts</a></p></li>
+<li><p><a href="https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-2/sna-chapter-4.pdf">Chapter 4: Collecting and Managing Network Data</a></p></li>
+<li><p><a href="https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-2/sna-chapter-5.pdf">Chapter 5: Structural Measures for Complete Networks</a></p></li>
 </ul>
-<p>In preparation for the Module 1 Code-Along and Case Study, the research article by <span class="citation" data-cites="pittinsky2008behavioral">Pittinsky and Carolan (<a href="#/references" role="doc-biblioref" onclick="">2008</a>)</span> is also highly recommended.</p>
+<p>In preparation for the Module 2 Code-Along and Case Study, the research article by <span class="citation" data-cites="kellogg2014social">Kellogg, Booth, and Oliver (<a href="#/references" role="doc-biblioref" onclick="">2014</a>)</span> is also highly recommended.</p>
+<aside class="notes">
+<p><strong>Speaker Notes:</strong></p>
+<p>The Carolan chapter readings focus on issues related to the collection and measurement of these network variables, including issues related to boundary specification, sampling, data storage, and methodologies. In addition, the readings introduce important concepts and measures used to describe static properties of social networks. The conceptual tools and precise measures help us move beyond basic visualization of networks, to analysis of networks quantitatively.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="acknowledgements" class="slide level2">
 <h2>Acknowledgements</h2>
@@ -787,50 +693,11 @@
 </a></div><a href="https://www.go.ncsu.edu/laser-institute">
 </a></div><a href="https://www.go.ncsu.edu/laser-institute">
 </a><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list"><a href="https://www.go.ncsu.edu/laser-institute">
-</a><div id="ref-brouwer2022development" class="csl-entry" role="listitem"><a href="https://www.go.ncsu.edu/laser-institute">
-Brouwer, Jasperina, Carlos A De Matos Fernandes, Christian EG Steglich, Ellen PWA Jansen, WH Adriaan Hofman, and Andreas Flache. 2022. <span>“The Development of Peer Networks and Academic Performance in Learning Communities in Higher Education.”</span> <em>Learning and Instruction</em> 80: 101603. </a><a href="https://www.sciencedirect.com/science/article/pii/S095947522200024X">https://www.sciencedirect.com/science/article/pii/S095947522200024X</a>.
-</div>
-<div id="ref-carolan2014" class="csl-entry" role="listitem">
-Carolan, Brian. 2014. <span>“Social Network Analysis and Education: Theory, Methods &amp; Applications.”</span> <a href="https://doi.org/10.4135/9781452270104">https://doi.org/10.4135/9781452270104</a>.
-</div>
-<div id="ref-cole2010changes" class="csl-entry" role="listitem">
-Cole, Russell P, and Elliot H Weinbaum. 2010. <span>“Changes in Attitude: Peer Influence in High School Reform.”</span> <em>Social Network Theory and Educational Change</em>, 77–96.
-</div>
-<div id="ref-daly2010bridge" class="csl-entry" role="listitem">
-Daly, Alan J, and Kara S Finnigan. 2010. <span>“A Bridge Between Worlds: Understanding Network Structure to Understand Change Strategy.”</span> <em>Journal of Educational Change</em> 11: 111–38. <a href="https://link.springer.com/content/pdf/10.1007/s10833-009-9102-5.pdf">https://link.springer.com/content/pdf/10.1007/s10833-009-9102-5.pdf</a>.
-</div>
-<div id="ref-frank2011focus" class="csl-entry" role="listitem">
-Frank, Kenneth A, Yong Zhao, William R Penuel, Nicole Ellefson, and Susan Porter. 2011. <span>“Focus, Fiddle, and Friends: Experiences That Transform Knowledge for the Implementation of Innovations.”</span> <em>Sociology of Education</em> 84 (2): 137–56. <a href="https://journals.sagepub.com/doi/pdf/10.1177/0038040711401812">https://journals.sagepub.com/doi/pdf/10.1177/0038040711401812</a>.
-</div>
-<div id="ref-hallinan1990students" class="csl-entry" role="listitem">
-Hallinan, Maureen T, and Richard A Williams. 1990. <span>“Students’ Characteristics and the Peer-Influence Process.”</span> <em>Sociology of Education</em>, 122–32. <a href="https://www.jstor.org/stable/pdf/2112858.pdf">https://www.jstor.org/stable/pdf/2112858.pdf</a>.
+</a><div id="ref-carolan2014" class="csl-entry" role="listitem"><a href="https://www.go.ncsu.edu/laser-institute">
+Carolan, Brian. 2014. <span>“Social Network Analysis and Education: Theory, Methods &amp; Applications.”</span> </a><a href="https://doi.org/10.4135/9781452270104">https://doi.org/10.4135/9781452270104</a>.
 </div>
 <div id="ref-kellogg2014social" class="csl-entry" role="listitem">
 Kellogg, Shaun, Sherry Booth, and Kevin Oliver. 2014. <span>“A Social Network Perspective on Peer Supported Learning in MOOCs for Educators.”</span> <em>International Review of Research in Open and Distributed Learning</em> 15 (5): 263–89. <a href="https://www.erudit.org/en/journals/irrodl/2014-v15-n5-irrodl04945/1065545ar.pdf">https://www.erudit.org/en/journals/irrodl/2014-v15-n5-irrodl04945/1065545ar.pdf</a>.
-</div>
-<div id="ref-kellogg2015massively" class="csl-entry" role="listitem">
-Kellogg, Shaun, and Achim Edelmann. 2015. <span>“Massively Open Online Course for Educators (MOOC-Ed) Network Dataset.”</span> <em>British Journal of Educational Technology</em> 46 (5): 977–83. <a href="https://bera-journals.onlinelibrary.wiley.com/doi/abs/10.1111/bjet.12312">https://bera-journals.onlinelibrary.wiley.com/doi/abs/10.1111/bjet.12312</a>.
-</div>
-<div id="ref-maroulis2008does" class="csl-entry" role="listitem">
-Maroulis, Spiro, and Louis M Gomez. 2008. <span>“Does <span>‘Connectedness’</span> Matter? Evidence from a Social Network Analysis Within a Small-School Reform.”</span> <em>Teachers College Record</em> 110 (9): 1901–29.
-</div>
-<div id="ref-morgan2009intergenerational" class="csl-entry" role="listitem">
-Morgan, Stephen L, and Jennifer J Todd. 2009. <span>“Intergenerational Closure and Academic Achievement in High School: A New Evaluation of Coleman’s Conjecture.”</span> <em>Sociology of Education</em> 82 (3): 267–86. <a href="https://journals.sagepub.com/doi/pdf/10.1177/003804070908200304">https://journals.sagepub.com/doi/pdf/10.1177/003804070908200304</a>.
-</div>
-<div id="ref-pittinsky2008behavioral" class="csl-entry" role="listitem">
-Pittinsky, Matthew, and Brian V Carolan. 2008. <span>“Behavioral Versus Cognitive Classroom Friendship Networks: Do Teacher Perceptions Agree with Student Reports?”</span> <em>Social Psychology of Education</em> 11: 133–47. <a href="https://link.springer.com/content/pdf/10.1007/s11218-007-9046-7.pdf">https://link.springer.com/content/pdf/10.1007/s11218-007-9046-7.pdf</a>.
-</div>
-<div id="ref-raabe2019social" class="csl-entry" role="listitem">
-Raabe, Isabel J, Zsófia Boda, and Christoph Stadtfeld. 2019. <span>“The Social Pipeline: How Friend Influence and Peer Exposure Widen the STEM Gender Gap.”</span> <em>Sociology of Education</em> 92 (2): 105–23. <a href="https://journals.sagepub.com/doi/pdf/10.1177/0038040718824095">https://journals.sagepub.com/doi/pdf/10.1177/0038040718824095</a>.
-</div>
-<div id="ref-ream2008student" class="csl-entry" role="listitem">
-Ream, Robert K, and Russell W Rumberger. 2008. <span>“Student Engagement, Peer Social Capital, and School Dropout Among Mexican American and Non-Latino White Students.”</span> <em>Sociology of Education</em> 81 (2): 109–39.
-</div>
-<div id="ref-renzulli2005charter" class="csl-entry" role="listitem">
-Renzulli, Linda A, and Vincent J Roscigno. 2005. <span>“Charter School Policy, Implementation, and Diffusion Across the United States.”</span> <em>Sociology of Education</em> 78 (4): 344–66. <a href="https://journals.sagepub.com/doi/pdf/10.1177/003804070507800404">https://journals.sagepub.com/doi/pdf/10.1177/003804070507800404</a>.
-</div>
-<div id="ref-valente2004using" class="csl-entry" role="listitem">
-Valente, Thomas W, Peggy Gallaher, and Michele Mouttapa. 2004. <span>“Using Social Networks to Understand and Prevent Substance Use: A Transdisciplinary Perspective.”</span> <em>Substance Use &amp; Misuse</em> 39 (10-12): 1685–1712. <a href="https://citeseerx.ist.psu.edu/document?repid=rep1&amp;type=pdf&amp;doi=1c33ecbb377351fbc9a7a2725d10acbd4169ff3e">https://citeseerx.ist.psu.edu/document?repid=rep1&amp;type=pdf&amp;doi=1c33ecbb377351fbc9a7a2725d10acbd4169ff3e</a>.
 </div>
 </div>
 </section></section>

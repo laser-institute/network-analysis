@@ -1,6 +1,6 @@
 ---
-title: "Data Structures & Sociograms"
-subtitle: "SNA Module 1: Code-Along"
+title: "Density, Centrality, & Reciprocity"
+subtitle: "SNA Module 2: Code-Along"
 format:
   revealjs: 
     slide-number: c/t
