@@ -1,5 +1,5 @@
 ---
-title: "Group & Egocentric Analysis"
+title: "Groups, Positions, & Egocentric Analysis"
 subtitle: "SNA Module 3: Essential Readings"
 author: "LASER Institute"
 date: today 
