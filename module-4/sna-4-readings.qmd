@@ -1,5 +1,5 @@
 ---
-title: "Essential Readings: Network Modeling & Inference"
+title: "Network Modeling & Inference"
 subtitle: "SNA Module 4: Essential Readings"
 author: "LASER Institute"
 date: today 
