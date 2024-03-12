@@ -1,6 +1,6 @@
 ---
-title: "Intro to Social Network Analysis"
-subtitle: "SNA Module 1: A Conceptual Overview"
+title: "Data Collection & Quality"
+subtitle: "SNA Module 2: A Conceptual Overview"
 format:
   revealjs: 
     slide-number: c/t
@@ -20,17 +20,23 @@ bibliography: lit/references.bib
 editor: visual
 ---
 
-## Theory & Method Interdependency
+## A Quick Refresher
 
 ::: columns
-::: {.column width="30%"}
-![](img/carolan.jpeg){fig-align="left" width="100%"}
+::: {.column width="50%"}
+### Network Theory
+
+1.  Social relations are often more important than individual attributes.
+
+2.  Social networks affect individual beliefs, perceptions, and behaviors.
+
+3.  Relations are not static but rather occur as part of a dynamic process.
 :::
 
-::: {.column width="70%"}
-> From its earliest origins to it most recent applications to large-scale networks, social network analysis has reflected an *interdependency between theory and method*.
+::: {.column width="50%"}
+### Network Terms
 
-~\~ From SNA and Education by Bryan @carolan2014~
+![](img/nodes-edges.jpeg){width="100%"}
 :::
 :::
 
@@ -115,7 +121,7 @@ The **sociogram** to the right includes:
 :::
 
 ::: {.column width="40%"}
-![Sociogram from Who Shall Survive? [@moreno1934shall]](img/moreno-jennings.png){fig-align="center" width="100%"}
+Lorem
 :::
 :::
 
@@ -196,7 +202,7 @@ Also called **nodes** or **vertices**, actors can represent a range of social en
 :::
 
 ::: {.column width="50%"}
-![A classroom of middle school students [@pittinsky2008behavioral]](img/actors.png){fig-align="center"}
+Lorem...
 :::
 :::
 
@@ -226,7 +232,7 @@ Also called **relations, edges**, or **links,** ties connect actors to one anoth
 :::
 
 ::: {.column width="50%"}
-![The teacher's perception of student friendships as illustrated by lines (friendships) connecting dots (students).](img/ties.png){fig-align="center"}
+Lorem...
 :::
 :::
 
@@ -252,7 +258,7 @@ Finally, actors, ties, and the network as a whole may also contain information, 
 :::
 
 ::: {.column width="50%"}
-![A sociogram incorporating network attributes](img/attributes.png){fig-align="center"}
+Lorem...
 :::
 :::
 
