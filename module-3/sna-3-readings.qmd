@@ -1,0 +1,68 @@
+---
+title: "Group & Egocentric Analysis"
+subtitle: "SNA Module 3: Essential Readings"
+author: "LASER Institute"
+date: today 
+format:
+  html:
+    toc: true
+    toc-depth: 4
+    toc-location: right
+theme:
+  light: simplex
+  dark: cyborg
+editor: visual
+bibliography: lit/references.bib
+---
+
+## Overview
+
+In Lab 3 we examine the use of different algorithms to analyze a network's groups, positions and individual actors. The required and self-selected readings introduce both "top-down" and "bottom-up" approaches through which groups are identified, as well as ways in which properties of ego networks are conceptualized and measured. A secondary goal of readings and discussion is to help you start generating ideas for independent application of network analysis. As part of our readings, for example, you'll learn approaches to identifying groups appropriate to your own research area of interest.
+
+## Readings
+
+For Lab 3, you will read chapters 6 and 7 from [Social Network Analysis and Education](https://catalog.lib.ncsu.edu/catalog/NCSU2803782) [@carolan2014] and locate one additional research article, presentation, or informal study to help address our discussion questions for the week.
+
+### SNA and Education Part II: Methods and Measures
+
+The second half of Part II focuses on ways to partition a network into groups based on relations rather than on the attributes that one may share with others. In addition, we learn how a network can also be divided into distinct positions, i.e. actors who occupy similar positions have similar relations to others but need not be directly tied to each other.
+
+1.  [Chapter 6: Groups and Positions in Complete Networks](https://methods-sagepub-com.prox.lib.ncsu.edu/book/social-network-analysis-and-education/n6.xml)
+
+2.  [Chapter 7: Measures for Egocentric Network Analysis](https://methods-sagepub-com.prox.lib.ncsu.edu/book/social-network-analysis-and-education/n7.xml)
+
+## Reflection
+
+To help guide your reflection on the readings, a set of guiding questions are provided below. After you have had a chance to work through one or more of the readings, **we encourage you to contribute to our learning community by creating a new post to our [Social Network Analysis Team](https://github.com/orgs/laser-institute/teams/network-analysis) on GitHub**. in response to one or more of the guiding questions, to share your thoughts .
+
+#### Chapter 6: Groups and Positions in Complete Networks
+
+Consider a network of which you are a part or a network you might be interested in studying and answer the following questions:
+
+1.  What types of groups and/or unique positions do you think might be identified through relational data (e.g., friendships, advice seeking, co-authorship, communication, collaboration, etc.)?
+
+2.  How might membership in those groups, or occupying certain positions, "influence" attitudes, behaviors, or outcomes for those individuals?
+
+3.  How might characteristics or attributes differ between groups or positions?
+
+4.  What research question(s) could you explore for this network?
+
+As Carolan notes in Chapter 6, sometimes researchers use a cut-off value from valued data to identify whether a relationship between two nodes exists or not before analyzing the data. For example,
+
+1.  How did Daly and Finnagan @daly2011ebb use cut-off values in their study and what was the rationale?
+
+2.  What might be some advantages and disadvantages of using cut-off values in networks with valued ties?
+
+#### Chapter 7: Measures for Egocentric Network Analysis
+
+Draft a research question for an egocentric analysis of a population you may be interested in studying, or that would be of interest to educational researchers.
+
+Share your research question and then answer the following questions:
+
+1.  What methods might you employ to capture egocentric data to address this question?
+
+2.  What questions would you ask in order to identify ego's alters?
+
+3.  What other information about the alters might you collected?
+
+4.  What egocentric measures would you use to address your question(s)?If a measure of centrality, which might you choose and why?

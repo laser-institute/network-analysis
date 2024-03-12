@@ -1,5 +1,5 @@
 ---
-title: 'Intro to SNA Badge'
+title: 'Intro to SNA'
 subtitle: "SNA Module 1: Badge"
 author: "LASER Institute"
 date: today 
