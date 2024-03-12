@@ -15,10 +15,6 @@ editor: visual
 bibliography: lit/references.bib
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
 ## Overview
 
 The primary goal of our essential readings in Lab 1 is to build a basic understanding of social network analysis (SNA) as an approach to understand and improve learning processes and outcomes. The required and self-selected readings provide an introduction to SNA in the field of education, including the historical, theoretical, and analytical foundations of a social network perspective. A secondary goal of the readings and reflection questions is to help you start generating ideas for independent application of network analysis.

@@ -9,7 +9,7 @@
 <meta name="author" content="LASER Institute">
 <meta name="dcterms.date" content="2024-03-11">
 
-<title>Data Management &amp; Network Measurement</title>
+<title>Groups &amp; Egos Badge</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,21 +22,55 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="sna-2-readings_files/libs/clipboard/clipboard.min.js"></script>
-<script src="sna-2-readings_files/libs/quarto-html/quarto.js"></script>
-<script src="sna-2-readings_files/libs/quarto-html/popper.min.js"></script>
-<script src="sna-2-readings_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="sna-2-readings_files/libs/quarto-html/anchor.min.js"></script>
-<link href="sna-2-readings_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="sna-2-readings_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="sna-2-readings_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="sna-2-readings_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="sna-2-readings_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="sna-2-readings_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="sna-2-readings_files/libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="sna-3-badge-R_files/libs/clipboard/clipboard.min.js"></script>
+<script src="sna-3-badge-R_files/libs/quarto-html/quarto.js"></script>
+<script src="sna-3-badge-R_files/libs/quarto-html/popper.min.js"></script>
+<script src="sna-3-badge-R_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="sna-3-badge-R_files/libs/quarto-html/anchor.min.js"></script>
+<link href="sna-3-badge-R_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="sna-3-badge-R_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="sna-3-badge-R_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="sna-3-badge-R_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="sna-3-badge-R_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="sna-3-badge-R_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="sna-3-badge-R_files/libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 
 
 </head>
@@ -49,13 +83,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
-  <li><a href="#readings" id="toc-readings" class="nav-link" data-scroll-target="#readings">Readings</a></li>
-  <li><a href="#reflection" id="toc-reflection" class="nav-link" data-scroll-target="#reflection">Reflection</a>
-  <ul>
-  <li><a href="#chapter-4-basic-concepts" id="toc-chapter-4-basic-concepts" class="nav-link" data-scroll-target="#chapter-4-basic-concepts">Chapter 4: Basic Concepts</a></li>
-  <li><a href="#chapter-5-structural-measures-for-complete-networks" id="toc-chapter-5-structural-measures-for-complete-networks" class="nav-link" data-scroll-target="#chapter-5-structural-measures-for-complete-networks">Chapter 5: Structural Measures for Complete Networks</a></li>
-  </ul></li>
+  <li><a href="#part-i-reflect-and-plan" id="toc-part-i-reflect-and-plan" class="nav-link active" data-scroll-target="#part-i-reflect-and-plan">Part I: Reflect and Plan</a></li>
+  <li><a href="#part-ii-data-product" id="toc-part-ii-data-product" class="nav-link" data-scroll-target="#part-ii-data-product">Part II: Data Product</a></li>
   </ul>
 </nav>
 </div>
@@ -63,8 +92,8 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Data Management &amp; Network Measurement</h1>
-<p class="subtitle lead">SNA Module 2: Essential Readings</p>
+<h1 class="title">Groups &amp; Egos Badge</h1>
+<p class="subtitle lead">SNA Module 3: Badge</p>
 </div>
 
 
@@ -93,40 +122,73 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="overview" class="level2">
-<h2 class="anchored" data-anchor-id="overview">Overview</h2>
-<p>Our essential readings for Lab 2 examine common approaches to data management and measurement in network analysis. The required and self-selected readings provide an introduction the collection and management of relational data, as well as how we can begin to describe what a complete network looks like, not just visually, but mathematically. A secondary goal of readings and discussion is to help you start generating ideas for independent application of network analysis. As part of our readings, for example, you’ll learn how to specify a network “boundary” for your study based on different approaches.</p>
-</section>
-<section id="readings" class="level2">
-<h2 class="anchored" data-anchor-id="readings">Readings</h2>
-<p>The following readings for this lab focus on issues related to the collection and measurement of these network variables, including issues related to boundary specification, sampling, storage, and methodologies. In addition, the readings introduce important concepts and measures used to describe static properties of social networks. The conceptual tools and precise measures help us move beyond basic visualization of networks, to analysis of networks quantitatively.</p>
+<p><img src="img/SNA_GroupEgos_HX.png" class="img-fluid" style="width:40.0%"></p>
+<p>The final activity for each learning lab provides space to work with data and to reflect on how the concepts and techniques introduced in each lab might apply to your own research.</p>
+<p>To earn a badge for each lab, you are required to respond to a set of prompts for two parts:&nbsp;</p>
+<ul>
+<li><p>In Part I, you will reflect on your understanding of key concepts addressed in the case study and essential readings and begin to think about potential next steps for your own study.</p></li>
+<li><p>In Part II, you will create a simple data product in R that demonstrates your ability to apply a data analysis technique introduced in this learning lab.</p></li>
+</ul>
+<section id="part-i-reflect-and-plan" class="level3">
+<h3 class="anchored" data-anchor-id="part-i-reflect-and-plan">Part I: Reflect and Plan</h3>
+<p>Use your institutional library, <a href="https://scholar.google.com/">Google Scholar</a>, or search engine of your choice to locate a research article, presentation, or resource that applies social network analysis to an educational context or topic of interest. More specifically, <strong>locate a network study that makes use of group, positional, or egocentric analysis.</strong> You are also welcome to select one of the research papers listed in the <a href="https://github.com/laser-institute/essential-readings/tree/main/sna-labs">essential readings</a> that may have piqued your interest.</p>
 <ol type="1">
-<li><p><a href="https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-2/sna-chapter-4.pdf">Chapter 4: Collecting and Managing Network Data</a></p></li>
-<li><p><a href="https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-2/sna-chapter-5.pdf">Chapter 5: Structural Measures for Complete Networks</a></p></li>
+<li><p>Provide an APA citation for your selected study.</p>
+<ul>
+<li></li>
+</ul></li>
+<li><p>What research questions were the authors of this study trying to address and why did they consider these questions important?</p>
+<ul>
+<li></li>
+</ul></li>
+<li><p>How was group, positional, or egocentric analysis used in this study to address these research questions?</p>
+<ul>
+<li></li>
+</ul></li>
+<li><p>What were the results of these analyses?</p>
+<ul>
+<li></li>
+</ul></li>
+</ol>
+<p>Think about a network that you are a part of, or may be interested in studying, and answer the following questions:</p>
+<ol type="1">
+<li><p>What is a research question that you might ask about this network that would require group, positional, or egocentric analysis?</p>
+<ul>
+<li></li>
+</ul></li>
+<li><p>Which approach or approaches would you use to answer this question?</p>
+<ul>
+<li></li>
+</ul></li>
+<li><p>What measures would you collected as part of your analysis? Why?</p>
+<ul>
+<li></li>
+</ul></li>
 </ol>
 </section>
-<section id="reflection" class="level2">
-<h2 class="anchored" data-anchor-id="reflection">Reflection</h2>
-<p>To help guide your reflection on the readings, a set of guiding questions are provided below. After you have had a chance to work through one or more of the readings, <strong>we encourage you to contribute to our learning community by creating a new post to our network-analysis channel on <a href="http://laser-scholars.slack.com/">Slack</a></strong>. You post might contain a response to one or more of the guiding questions, questions you still have about the topics addressed, or insights gained into your own research.</p>
-<section id="chapter-4-basic-concepts" class="level3">
-<h3 class="anchored" data-anchor-id="chapter-4-basic-concepts">Chapter 4: Basic Concepts</h3>
-<p>Think about a network that you are a part of, or may be interested in studying, and consider the following questions:</p>
+<section id="part-ii-data-product" class="level3">
+<h3 class="anchored" data-anchor-id="part-ii-data-product">Part II: Data Product</h3>
+<p>Using one of the datasets provided in the data folder, <strong>create a polished table, chart, and/or sociogram that highlights a network’s groups and/or key actors.</strong> For example, you may be interested in examining the characteristics of central actors that emerged in the Massively Open Online Courses for Educators (MOOC-Eds) using <code>dlt1-edges</code> and <code>dlt1-nodes</code> datasets that were introduced in Learning Lab 2.</p>
+<p><strong>Alternatively, you may use your own data set to explore groups or central actors using the techniques demonstrated in the guided practice.</strong>&nbsp;</p>
+<p>I highly recommend creating a new R script in your lab-3 folder to complete this task. When your code is ready to share, use the code chunk below to share only the code and comments necessary to run and undestand your analysis, then answer the questions that follow.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># YOUR FINAL CODE HERE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <ol type="1">
-<li><p>Would your study employs a positional, relational, or event-based approach to specify the network’s boundary.</p></li>
-<li><p>Would you collect data on the complete, ego, or partial network? Describe the sources of the network data you might collect.</p></li>
-<li><p>What relations would you measure and what instruments might you use to measure them?</p></li>
-<li><p>How would you help ensure the quality of these relational data in terms of validity, reliability, error, and patterns of missingness?&nbsp;</p></li>
+<li><p>How would you frame a research question that this analysis helps to answer?</p>
+<ul>
+<li></li>
+</ul></li>
+<li><p>What groups and/or central actors were identified in your analysis?</p>
+<ul>
+<li></li>
+</ul></li>
+<li><p>How, if at all, might this information be useful for understanding or improving the learning context from which the data was collected?</p>
+<ul>
+<li></li>
+</ul></li>
 </ol>
-</section>
-<section id="chapter-5-structural-measures-for-complete-networks" class="level3">
-<h3 class="anchored" data-anchor-id="chapter-5-structural-measures-for-complete-networks">Chapter 5: Structural Measures for Complete Networks</h3>
-<p>Assume you have complete network-level data on school leaders in a large urban district that is transitioning to a new teacher-evaluation system. You have relational data on the frequency with which ego discusses this new system with each alter (0 = never, 1 = sometimes, 2 = regularly, and 3 = frequently) and whether ego turns to alter for advice regarding general professional matters (1 = yes, 0 = no).</p>
-<ol type="1">
-<li><p>Which structural properties of the complete network might be of interest to you? Please explain why these properties might be of interest.</p></li>
-<li><p>Given the same network described above, what would high centralization scores on both relations indicate about this network’s ability to successfully transition to a new evaluation system?</p></li>
-<li><p>How might your response to #2 differ if you knew that the networks also had high density scores? Given this new information, what would you predict about the transition to a new evaluation system?</p></li>
-</ol>
-</section>
+<p>To receive credit for this assignment and earn your SNA LASER Badge, you will need to render this document and publish via a method designated by your instructor such as: <a href="https://posit.cloud/learn/guide#publish-from-cloud">Posit Cloud</a>, <a href="#0">RPubs</a> , <a href="#0">GitHub Pages</a>, <a href="#0">Quarto Pub</a>, or <a href="#0">other methods</a>. Once you have shared a link to you published document with your instructor and they have reviewed your work, you will be provided a physical or digital version of the badge pictured at the top of this document!</p>
 </section>
 
 </main>

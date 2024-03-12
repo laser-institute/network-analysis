@@ -37,19 +37,11 @@ Think about a network that you are a part of, or may be interested in studying, 
 
 1.  Would your study employs a positional, relational, or event-based approach to specify the network's boundary.
 
-    -   
-
 2.  Would you collect data on the complete, ego, or partial network? Describe the sources of the network data you might collect.
-
-    -   
 
 3.  What relations would you measure and what instruments might you use to measure them?
 
-    -   
-
 4.  How would you help ensure the quality of these relational data in terms of validity, reliability, error, and patterns of missingness? 
-
-    -   
 
 ### Chapter 5: Structural Measures for Complete Networks
 
@@ -57,12 +49,6 @@ Assume you have complete network-level data on school leaders in a large urban d
 
 1.  Which structural properties of the complete network might be of interest to you? Please explain why these properties might be of interest.
 
-    -   
-
 2.  Given the same network described above, what would high centralization scores on both relations indicate about this network's ability to successfully transition to a new evaluation system?
 
-    -   
-
 3.  How might your response to #2 differ if you knew that the networks also had high density scores? Given this new information, what would you predict about the transition to a new evaluation system?
-
-    -   
