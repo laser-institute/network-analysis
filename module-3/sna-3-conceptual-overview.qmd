@@ -74,6 +74,8 @@ Components, Bi-Components, & Factions
 The “top-down” approach focuses on how larger network structures are built from smaller ones. Or stated more clearly:
 
 > ...this approach takes the complete network and considers parts of it that are dense and somewhat distinct from the rest of the network.
+
+Some of these approaches are very intuitive, others use more sophisticated "community detection" algorithms to identify groups.
 :::
 
 ## Components
