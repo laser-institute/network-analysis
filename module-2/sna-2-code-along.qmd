@@ -96,7 +96,7 @@ This study involves **quantifying and visualizing the ties and overall structure
 ## Load Packages
 
 ::: panel-tabset
-## R Libraries
+### R Libraries
 
 Let's start by creating a new R script and loading the following packages introduced in the previous module:
 
@@ -105,6 +105,7 @@ library(janitor)
 library(tidyverse)
 library(tidygraph)
 library(ggraph)
+library(igraph)
 ```
 
 ```{r load-libraries, echo=TRUE, message=FALSE}
@@ -117,7 +118,7 @@ library(ggraph)
 # install.packages(tidyverse) 
 ```
 
-## Network Packages
+### Network Packages
 
 ::: columns
 ::: {.column width="80%"}
@@ -135,7 +136,7 @@ Both {tidygraph} and {ggraph} used in the previous lab depend heavily on the {ig
 :::
 :::
 
-## Your Turn
+### Your Turn
 
 Load the {igraph} package.
 
@@ -153,7 +154,7 @@ Intro to Network Data Structures
 ## Import Data
 
 ::: panel-tabset
-## read_csv
+### read_csv
 
 Let's import two .csv files from our data folder named `dlt1-edges.csv` and `dlt1-nodes.csv` using the `read_csv()` function from the {readr} package:
 
@@ -178,7 +179,7 @@ dlt1_actors <- read_csv("data/dlt1-nodes.csv",
   clean_names()
 ```
 
-## Inspect Data
+### Inspect Data
 
 Using your R script or the console or another prefered means, take a look at the data file we just imported:
 
@@ -188,7 +189,7 @@ Using your R script or the console or another prefered means, take a look at the
 #
 ```
 
-## Discuss
+### Discuss
 
 Think about the questions below and be prepared to share your response:
 
@@ -202,7 +203,7 @@ Think about the questions below and be prepared to share your response:
 ## Create Network Object
 
 ::: panel-tabset
-## Convert Edgelist
+### Convert Edgelist
 
 Before we can begin analyzing our network data in R, we need to convert to a network class R object. Run the following code in your R script:
 
@@ -214,17 +215,39 @@ dlt1_network <- tbl_graph(edges = dlt1_ties,
                           directed = TRUE)
 ```
 
-## View Network
+### View Network
 
-In the corresponding line of your R script, type the name of network object we just created and run the code:
+::: columns
+::: {.column width="50%"}
+In your R script, use the `autograph()` function that we learned about in the previous module to take a quick look at our `dlt1_network`.
 
 ``` r
-# ADD CODE BELOW
+# YOUR TURN
+#
+#
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+autograph(dlt1_network)
+```
+
+You should see something like this.
+:::
+:::
+
+### View Stats
+
+Now type the name of network object, `dlt1_network` and run the code:
+
+``` r
+# YOUR TURN
 # 
 #
 ```
 
-## Discuss
+### Discuss
 
 Think about the questions below:
 
@@ -235,15 +258,208 @@ Think about the questions below:
 3.  What questions, if any, do have about this network?
 :::
 
+::: notes
+**Speaker Notes:**
+:::
+
 # Explore
 
 Network Density, Centrality, & Reciprocity
 
+::: notes
+**Speaker Notes:**
+:::
+
+## Network Density
+
+::: panel-tabset
+### Definition
+
+::: columns
+::: {.column width="50%"}
+In its simplest form, network density is **the ratio of existing ties in a network to all possible ties** that could potentially exist, regardless of whether they do.
+:::
+
+::: {.column width="50%"}
+![Which of these two networks has a higher density?](img/density.jpeg)
+:::
+:::
+
+### Significance
+
+In education, dense networks have been associated with:
+
+-   community health
+
+-   flow of resources within a network
+
+-   student achievement
+
+For better or worse, **dense networks reinforce prevailing norms** and behaviors and insulate one from outside influences [@carolan2014].
+
+### Implementation
+
+The {igraph} package has a simple `edge_density()` function for calculating network density.
+
+<br>
+
+Let's apply to our `dlt1_network`:
+
+```{r}
+#| echo: true 
+edge_density(dlt1_network)
+```
+
+How would you interpret this measure?
+
+### Discuss
+
+::: columns
+::: {.column width="50%"}
+We know there 2529 edges in the DLT 1 network (pictured right), but **how many possible edges** could there be?
+
+<br>
+
+**Hint**: The number of all possible edges in a directed network is V(V-1) where V is the \# of vertices.
+:::
+
+::: {.column width="50%"}
+```{r, examine-density, strip.white=TRUE, echo=FALSE}
+autograph(dlt1_network) +
+  theme_graph()
+```
+:::
+:::
+:::
+
+::: notes
+**Speaker Notes:**
+:::
+
+## Reciprocity
+
+::: panel-tabset
+### Definition
+
+::: columns
+::: {.column width="50%"}
+Reciprocity is the **degree to which actors in a directed network select one another** or the mutuality of the network's ties
+
+<br>
+
+1.  Which of these two networks is directed?
+
+2.  Which ties are reciprocated?
+:::
+
+::: {.column width="50%"}
+![](img/reciprocated-ties.png)
+:::
+:::
+
+### Significance
+
+-   This property is important because it reveals the direction through which resources such as help, advice, and support flow.
+
+-   It also indicates the network's stability, as reciprocated ties tend to be more stable over time.
+
+-   Networks with high reciprocity may be more “equal,” while those with lower reciprocity may be more hierarchical.
+
+-   In educational contexts, reciprocity has been associated with problem solving, knowledge exchange, risky behavior and drug use.
+
+### Implementation
+
+::: columns
+::: {.column width="50%"}
+At the network-level, reciprocity is a measure of the likelihood of vertices in a directed network to be mutually linked.
+
+The {igraph} package has a simple `reciprocity()` function for calculating network density.
+:::
+
+::: {.column width="50%"}
+Let's apply to our `dlt1_network`:
+
+<br>
+
+```{r}
+#| echo: true
+reciprocity(dlt1_network)
+```
+
+<br>
+
+How would you interpret this measure?
+:::
+:::
+:::
+
+::: notes
+**Speaker Notes:**
+:::
+
+## Network Centraliztion
+
+::: panel-tabset
+### Definition
+
+::: columns
+::: {.column width="50%"}
+A key structural property of complete networks is the concept of centralization, or **the extent to which relations are focused on one or a small set of actors**.
+:::
+
+::: {.column width="50%"}
+![Which of these two networks is more centralized?](img/density.jpeg)
+:::
+:::
+
+### Significance
+
+-   A network's centralization affects the process through which resources flow through the network.
+
+-   Central actors likely wield a disproportionate amount of influence on the network.
+
+-   High centralization provides fewer actors with more power and control.
+
+### Implementation
+
+::: columns
+::: {.column width="50%"}
+The {igraph} package has a simple `centr_degree()` function for calculating degree centrality.
+
+**Degree** is the most common measure of centrality and is simply the total number of edges connected to a particular node.
+:::
+
+::: {.column width="50%"}
+Let's apply to our dlt1_network:
+
+<br>
+
+```{r}
+#| echo: true
+#| eval: false
+centr_degree(dlt1_network)
+```
+:::
+:::
+
+### Output
+
+Let's interpret this output!
+
+```{r}
+centr_degree(dlt1_network)
+```
+:::
+
+::: notes
+**Speaker Notes:**
+:::
+
 ## What's Next?
 
--   SNA Case Study: [Who's Friends with Who in Middle School?](https://laser-institute.github.io/network-analysis/lab-1/sna-lab-1-case-study-key.html)
+-   SNA Case Study: A Tale of Two MOOCs
 
--   Guiding Study: [Behavioral versus cognitive classroom friendship networks.](https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-1/pittinsky-class-friendships.pdf)
+-   Guiding Study: A Social Network Perspective on PEER Supported Learning in MOOC-Eds [@kellogg2014social]
 
 ## Acknowledgements
 

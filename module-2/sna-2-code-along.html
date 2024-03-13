@@ -596,7 +596,7 @@
 <section id="create-network-object" class="slide level2">
 <h2>Create Network Object</h2>
 <div class="panel-tabset">
-<ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">Convert Edgelist</a></li><li><a href="#tabset-4-2">View Network</a></li><li><a href="#tabset-4-3">Discuss</a></li></ul>
+<ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">Convert Edgelist</a></li><li><a href="#tabset-4-2">View Network</a></li><li><a href="#tabset-4-3">View Stats</a></li><li><a href="#tabset-4-4">Discuss</a></li></ul>
 <div class="tab-content">
 <div id="tabset-4-1">
 <p>Before we can begin analyzing our network data in R, we need to convert to a network class R object. Run the following code in your R script:</p>
@@ -608,12 +608,33 @@
 </div>
 </div>
 <div id="tabset-4-2">
-<p>In the corresponding line of your R script, type the name of network object we just created and run the code:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="co"># ADD CODE BELOW</span></span>
-<span id="cb6-2"><a href=""></a><span class="co"># </span></span>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>In your R script, use the <code>autograph()</code> function that we learned about in the previous module to take a quick look at our <code>dlt1_network</code>.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="co"># YOUR TURN</span></span>
+<span id="cb6-2"><a href=""></a><span class="co">#</span></span>
 <span id="cb6-3"><a href=""></a><span class="co">#</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="sna-2-code-along_files/figure-revealjs/unnamed-chunk-6-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>You should see something like this.</p>
+</div>
+</div>
 </div>
 <div id="tabset-4-3">
+<p>Now type the name of network object, <code>dlt1_network</code> and run the code:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="co"># YOUR TURN</span></span>
+<span id="cb7-2"><a href=""></a><span class="co"># </span></span>
+<span id="cb7-3"><a href=""></a><span class="co">#</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-4-4">
 <p>Think about the questions below:</p>
 <ol type="1">
 <li><p>What size of the DLT 1 MOOC-ED network?</p></li>
@@ -623,17 +644,275 @@
 </div>
 </div>
 </div>
+<aside class="notes">
+<p><strong>Speaker Notes:</strong></p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section></section>
 <section>
 <section id="explore" class="title-slide slide level1 center">
 <h1>Explore</h1>
 <p>Network Density, Centrality, &amp; Reciprocity</p>
+<aside class="notes">
+<p><strong>Speaker Notes:</strong></p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="network-density" class="slide level2">
+<h2>Network Density</h2>
+<div class="panel-tabset">
+<ul id="tabset-5" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-5-1">Definition</a></li><li><a href="#tabset-5-2">Significance</a></li><li><a href="#tabset-5-3">Implementation</a></li><li><a href="#tabset-5-4">Discuss</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1">
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>In its simplest form, network density is <strong>the ratio of existing ties in a network to all possible ties</strong> that could potentially exist, regardless of whether they do.</p>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/density.jpeg"></p>
+<figcaption>Which of these two networks has a higher density?</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-5-2">
+<p>In education, dense networks have been associated with:</p>
+<ul>
+<li><p>community health</p></li>
+<li><p>flow of resources within a network</p></li>
+<li><p>student achievement</p></li>
+</ul>
+<p>For better or worse, <strong>dense networks reinforce prevailing norms</strong> and behaviors and insulate one from outside influences <span class="citation" data-cites="carolan2014">(<a href="#/references" role="doc-biblioref" onclick="">Carolan 2014</a>)</span>.</p>
+</div>
+<div id="tabset-5-3">
+<p>The {igraph} package has a simple <code>edge_density()</code> function for calculating network density.</p>
+<p><br></p>
+<p>Let’s apply to our <code>dlt1_network</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a><span class="fu">edge_density</span>(dlt1_network)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.01279988</code></pre>
+</div>
+</div>
+<p>How would you interpret this measure?</p>
+</div>
+<div id="tabset-5-4">
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>We know there 2529 edges in the DLT 1 network (pictured right), but <strong>how many possible edges</strong> could there be?</p>
+<p><br></p>
+<p><strong>Hint</strong>: The number of all possible edges in a directed network is V(V-1) where V is the # of vertices.</p>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="sna-2-code-along_files/figure-revealjs/examine-density-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p><strong>Speaker Notes:</strong></p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="reciprocity" class="slide level2">
+<h2>Reciprocity</h2>
+<div class="panel-tabset">
+<ul id="tabset-6" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-6-1">Definition</a></li><li><a href="#tabset-6-2">Significance</a></li><li><a href="#tabset-6-3">Implementation</a></li></ul>
+<div class="tab-content">
+<div id="tabset-6-1">
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Reciprocity is the <strong>degree to which actors in a directed network select one another</strong> or the mutuality of the network’s ties</p>
+<p><br></p>
+<ol type="1">
+<li><p>Which of these two networks is directed?</p></li>
+<li><p>Which ties are reciprocated?</p></li>
+</ol>
+</div><div class="column" style="width:50%;">
+<p><img data-src="img/reciprocated-ties.png"></p>
+</div>
+</div>
+</div>
+<div id="tabset-6-2">
+<ul>
+<li><p>This property is important because it reveals the direction through which resources such as help, advice, and support flow.</p></li>
+<li><p>It also indicates the network’s stability, as reciprocated ties tend to be more stable over time.</p></li>
+<li><p>Networks with high reciprocity may be more “equal,” while those with lower reciprocity may be more hierarchical.</p></li>
+<li><p>In educational contexts, reciprocity has been associated with problem solving, knowledge exchange, risky behavior and drug use.</p></li>
+</ul>
+</div>
+<div id="tabset-6-3">
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>At the network-level, reciprocity is a measure of the likelihood of vertices in a directed network to be mutually linked.</p>
+<p>The {igraph} package has a simple <code>reciprocity()</code> function for calculating network density.</p>
+</div><div class="column" style="width:50%;">
+<p>Let’s apply to our <code>dlt1_network</code>:</p>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="fu">reciprocity</span>(dlt1_network)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.1997544</code></pre>
+</div>
+</div>
+<p><br></p>
+<p>How would you interpret this measure?</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p><strong>Speaker Notes:</strong></p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="network-centraliztion" class="slide level2">
+<h2>Network Centraliztion</h2>
+<div class="panel-tabset">
+<ul id="tabset-7" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-7-1">Definition</a></li><li><a href="#tabset-7-2">Significance</a></li><li><a href="#tabset-7-3">Implementation</a></li><li><a href="#tabset-7-4">Output</a></li></ul>
+<div class="tab-content">
+<div id="tabset-7-1">
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>A key structural property of complete networks is the concept of centralization, or <strong>the extent to which relations are focused on one or a small set of actors</strong>.</p>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/density.jpeg"></p>
+<figcaption>Which of these two networks is more centralized?</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-7-2">
+<ul>
+<li><p>A network’s centralization affects the process through which resources flow through the network.</p></li>
+<li><p>Central actors likely wield a disproportionate amount of influence on the network.</p></li>
+<li><p>High centralization provides fewer actors with more power and control.</p></li>
+</ul>
+</div>
+<div id="tabset-7-3">
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>The {igraph} package has a simple <code>centr_degree()</code> function for calculating degree centrality.</p>
+<p><strong>Degree</strong> is the most common measure of centrality and is simply the total number of edges connected to a particular node.</p>
+</div><div class="column" style="width:50%;">
+<p>Let’s apply to our dlt1_network:</p>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a><span class="fu">centr_degree</span>(dlt1_network)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-7-4">
+<p>Let’s interpret this output!</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>$res
+  [1]  53   7   6  16  33  33  58  31  14  20 121  24  35  25  31   3  24  19
+ [19]  79   3   2  23   6  57  12  34  31   1  35  90   1  15  23  39  34  47
+ [37]  11   9  18   1  35  19   8 117   3  11   5   6  42  30  19  17  35  42
+ [55]   4  24  11  39  21  65  53  33  36  45   3   8  30  61  10   4  13   6
+ [73]   2  16  10   5  11   6   4   7   9   7  14   5   7   1  12  30   1   4
+ [91]  18  33   3   7   7  12   5  28   6  29  12   6  14  21   5   6  19   4
+[109]  22   4   1   5  10  11  26  35   6   6   7   3  11   3   5   2   1   3
+[127]   2  24  14   1   5   6   9   2   2  25  30   9   4   3   5  14   6  21
+[145]   2   3  13   8   1   4   2   5   3  10  18   3  11  15   5   3  18   7
+[163]  12   1   8   6  14   2   5   9   7   8   9   2   5  14  15   8   6   1
+[181]   3  10  12  12  14   2   3   4   3   5   4  18  22   6  12   5   7  36
+[199]  14   5  22  13  12   2  17   3  16   7   3   2  10  12   1   2   5   7
+[217]  13   5  30   1  10   2  39   2   1  15   2   2   1   3   7   3   1  37
+[235]   4   3   1   2   3   2   3   4   8   1   3   6   8   9  12   4   5   3
+[253]   3   2   2   5   4   5   3   1   2   4   1   2   4   5   2   9   3   2
+[271]   4   2   4   1   5   5   6   5  12   3   8   1   1   2   6   2   4   2
+[289]   3   1   1   2   3   1   5   1   2   3   2  15  14   5   7   2   2   4
+[307]   6   8   1  30   1   1   1   2   2   1   6   4   4   3   2   5   3   4
+[325]   2   3   1   1   9   3   6   1   2   2   6  12   4   4   2   3  11   4
+[343]   2   2   3   3   5   1   1   6   6   1   2   3   4   5   2   2   1   4
+[361]  21   1   1   1   1   2   1   1   1   1   1   1   1   1   1   3   2   2
+[379]   2   1   1   2   1   1   1   1   1   2   1   1   1   1   1   1   1   1
+[397]   3   1   2   1   1   1   2   1   1   3   1   1   2   3   1   1   2   1
+[415]   2   1   1   1   1   1   1   4   1   1   1   1   1   1   1   1   1  43
+[433]   2   3   1   1   2   2   2   1   0   0   0 581 332
+
+$centralization
+[1] 0.6429242
+
+$theoretical_max
+[1] 394272</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p><strong>Speaker Notes:</strong></p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="whats-next" class="slide level2">
 <h2>What’s Next?</h2>
 <ul>
-<li><p>SNA Case Study: <a href="https://laser-institute.github.io/network-analysis/lab-1/sna-lab-1-case-study-key.html">Who’s Friends with Who in Middle School?</a></p></li>
-<li><p>Guiding Study: <a href="https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-1/pittinsky-class-friendships.pdf">Behavioral versus cognitive classroom friendship networks.</a></p></li>
+<li><p>SNA Case Study: A Tale of Two MOOCs</p></li>
+<li><p>Guiding Study: A Social Network Perspective on PEER Supported Learning in MOOC-Eds <span class="citation" data-cites="kellogg2014social">(<a href="#/references" role="doc-biblioref" onclick="">Kellogg, Booth, and Oliver 2014</a>)</span></p></li>
 </ul>
 </section>
 <section id="acknowledgements" class="slide level2">
@@ -659,8 +938,11 @@
 </a></div><a href="https://www.go.ncsu.edu/laser-institute">
 </a></div><a href="https://www.go.ncsu.edu/laser-institute">
 </a><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list"><a href="https://www.go.ncsu.edu/laser-institute">
-</a><div id="ref-kellogg2014social" class="csl-entry" role="listitem"><a href="https://www.go.ncsu.edu/laser-institute">
-Kellogg, Shaun, Sherry Booth, and Kevin Oliver. 2014. <span>“A Social Network Perspective on Peer Supported Learning in MOOCs for Educators.”</span> <em>International Review of Research in Open and Distributed Learning</em> 15 (5): 263–89. </a><a href="https://www.erudit.org/en/journals/irrodl/2014-v15-n5-irrodl04945/1065545ar.pdf">https://www.erudit.org/en/journals/irrodl/2014-v15-n5-irrodl04945/1065545ar.pdf</a>.
+</a><div id="ref-carolan2014" class="csl-entry" role="listitem"><a href="https://www.go.ncsu.edu/laser-institute">
+Carolan, Brian. 2014. <span>“Social Network Analysis and Education: Theory, Methods &amp; Applications.”</span> </a><a href="https://doi.org/10.4135/9781452270104">https://doi.org/10.4135/9781452270104</a>.
+</div>
+<div id="ref-kellogg2014social" class="csl-entry" role="listitem">
+Kellogg, Shaun, Sherry Booth, and Kevin Oliver. 2014. <span>“A Social Network Perspective on Peer Supported Learning in MOOCs for Educators.”</span> <em>International Review of Research in Open and Distributed Learning</em> 15 (5): 263–89. <a href="https://www.erudit.org/en/journals/irrodl/2014-v15-n5-irrodl04945/1065545ar.pdf">https://www.erudit.org/en/journals/irrodl/2014-v15-n5-irrodl04945/1065545ar.pdf</a>.
 </div>
 </div>
 </section></section>
