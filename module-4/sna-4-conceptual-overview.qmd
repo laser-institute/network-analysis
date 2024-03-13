@@ -1,6 +1,6 @@
 ---
-title: "Group Identification in Networks"
-subtitle: "SNA Module 3: A Conceptual Overview"
+title: "Network Modeling & Applications"
+subtitle: "SNA Module 4: A Conceptual Overview"
 format:
   revealjs: 
     slide-number: c/t
@@ -60,7 +60,7 @@ In this module we move beyond these static snapshots and provides an introductio
 
 ::: columns
 ::: {.column width="50%"}
-### Aim of Inference 
+### Aim of Inference
 
 1.  Examine "relationships"
 
