@@ -226,7 +226,7 @@ The following chapters in @carolan2014 cover the topics introduced in this conce
 
 -   [Chapter 7: Measures for Egocentric Network Analysis](https://methods-sagepub-com.prox.lib.ncsu.edu/book/social-network-analysis-and-education/n7.xml)
 
-In preparation for the Module 2 Code-Along and Case Study, take a look at the #COMMONCORE project by @supovitz2017commoncore.
+In preparation for the Module 3 Code-Along and Case Study, take a look at the #COMMONCORE project by @supovitz2017commoncore.
 
 ::: notes
 **Speaker Notes:**

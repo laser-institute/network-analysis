@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="sna-3-conceptual-overview_files/libs/clipboard/clipboard.min.js"></script>
-<script src="sna-3-conceptual-overview_files/libs/quarto-html/tabby.min.js"></script>
-<script src="sna-3-conceptual-overview_files/libs/quarto-html/popper.min.js"></script>
-<script src="sna-3-conceptual-overview_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="sna-3-conceptual-overview_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="sna-3-conceptual-overview_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="sna-3-conceptual-overview_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="sna-3-conceptual-overview_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="sna-4-conceptual-overview_files/libs/clipboard/clipboard.min.js"></script>
+<script src="sna-4-conceptual-overview_files/libs/quarto-html/tabby.min.js"></script>
+<script src="sna-4-conceptual-overview_files/libs/quarto-html/popper.min.js"></script>
+<script src="sna-4-conceptual-overview_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="sna-4-conceptual-overview_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="sna-4-conceptual-overview_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="sna-4-conceptual-overview_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="sna-4-conceptual-overview_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.4.550">
 
   <title>Group Identification in Networks</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="sna-3-conceptual-overview_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="sna-3-conceptual-overview_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="sna-4-conceptual-overview_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="sna-4-conceptual-overview_files/libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -49,13 +49,13 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="sna-3-conceptual-overview_files/libs/revealjs/dist/theme/quarto.css">
-  <link href="sna-3-conceptual-overview_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="sna-3-conceptual-overview_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="sna-3-conceptual-overview_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="sna-3-conceptual-overview_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
-  <link href="sna-3-conceptual-overview_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
-  <link href="sna-3-conceptual-overview_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link rel="stylesheet" href="sna-4-conceptual-overview_files/libs/revealjs/dist/theme/quarto.css">
+  <link href="sna-4-conceptual-overview_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="sna-4-conceptual-overview_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="sna-4-conceptual-overview_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="sna-4-conceptual-overview_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="sna-4-conceptual-overview_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="sna-4-conceptual-overview_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
   .callout {
@@ -358,46 +358,17 @@
 <h2>A Quick Refresher</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<h3 id="data-management">Data Management</h3>
-<ul>
-<li><p>Collection</p></li>
-<li><p>Quality</p></li>
-<li><p>Edge List Creation</p></li>
-</ul>
+<h3 id="network-visualization">Network Visualization</h3>
+<p><img data-src="img/visualization.png"></p>
 </div><div class="column" style="width:50%;">
-<h3 id="network-terms">Network Terms</h3>
+<h3 id="network-measurement">Network Measurement</h3>
 <ul>
-<li><p>Centrality</p></li>
-<li><p>Density</p></li>
-<li><p>Reciprocity</p></li>
+<li><p>degree and betweenness <strong>Centrality</strong></p></li>
+<li><p><strong>Reciprocity</strong> in directed networks</p></li>
+<li><p>complete network, group, or neighborhood <strong>Density</strong></p></li>
 </ul>
 </div>
 </div>
-<aside class="notes">
-<p><strong>Speaker Notes:</strong></p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="overview" class="slide level2">
-<h2>Overview</h2>
-<blockquote>
-<p>Unlike most social science, network analysts identify groups through their relational data, not an exogenous attribute such as grade level, departmental affiliation, or years of experience. <span class="citation" data-cites="carolan2014">(<a href="#/references" role="doc-biblioref" onclick="">Carolan 2014</a>)</span></p>
-</blockquote>
-<p><br></p>
-<p>There are two main approaches to group identification in networks:</p>
-<ol type="1">
-<li><p>Top Down (e.g., components &amp; communities)</p></li>
-<li><p>Bottom Up (e.g, cliques, cores, &amp; clans)</p></li>
-</ol>
 <aside class="notes">
 <p><strong>Speaker Notes:</strong></p>
 <style type="text/css">
@@ -413,16 +384,13 @@
       }</style></aside>
 </section>
 <section>
-<section id="top-down-approaches" class="title-slide slide level1 center">
-<h1>Top Down Approaches</h1>
-<p>Components, Bi-Components, &amp; Factions</p>
+<section id="inference-in-networks" class="title-slide slide level1 center">
+<h1>Inference in Networks</h1>
+<p>Evolution, Permutations, &amp; Applications</p>
 <aside class="notes">
 <p><strong>Speaker Notes</strong>:</p>
-<p>The “top-down” approach focuses on how larger network structures are built from smaller ones. Or stated more clearly:</p>
-<blockquote>
-<p>…this approach takes the complete network and considers parts of it that are dense and somewhat distinct from the rest of the network.</p>
-</blockquote>
-<p>Some of these approaches are very intuitive, others use more sophisticated “community detection” algorithms to identify groups.</p>
+<p>In previous modules we focused on ways in which different algorithms can be used to describe properties related to ego or complete networks.</p>
+<p>In this module we move beyond these static snapshots and provides an introduction to the ways in which recent advances in inferential statistics can be used to make predictions from social network data and address the questions and test hypotheses we may have about networks.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -435,15 +403,23 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="components" class="slide level2">
-<h2>Components</h2>
+<section id="evolution" class="slide level2">
+<h2>Evolution</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<p>A <strong>component</strong> is a connected subgraph in which there is a path between all pairs of nodes.</p>
-<p><br></p>
-<p>How many “components” do you see in the network to the right?</p>
+<h3 id="aim-of-inference">Aim of Inference</h3>
+<ol type="1">
+<li><p>Examine “relationships”</p></li>
+<li><p>Test hypotheses</p></li>
+<li><p>Analyze change</p></li>
+</ol>
 </div><div class="column" style="width:50%;">
-<p><img data-src="img/components.png"></p>
+<h3 id="obstacles-to-overcome">Obstacles to Overcome</h3>
+<ol type="1">
+<li><p>Violation of assumptions</p></li>
+<li><p>Conventional formulas</p></li>
+<li><p>Network dynamism</p></li>
+</ol>
 </div>
 </div>
 <aside class="notes">
@@ -460,15 +436,17 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="bi-components" class="slide level2">
-<h2>Bi-Components</h2>
+<section id="permutations" class="slide level2">
+<h2>Permutations</h2>
 <div class="columns">
-<div class="column" style="width:60%;">
-<p><strong>Bi-components</strong> help to identify the important “weak” spots and ask what would happen to the network if an actor were removed.</p>
-<p><br></p>
-<p>Nodes that result in new components are referred to as “cutpoints” and are often important actors.</p>
-</div><div class="column" style="width:40%;">
-<p><img data-src="img/bi-components.png"></p>
+<div class="column" style="width:50%;">
+<ul>
+<li><p>Matrices are rearranged over and over (even thousands of times!)</p></li>
+<li><p>Permutations are then compared to your observed data</p></li>
+<li><p>If network properties of interest occur often, likely due to chance.</p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><img data-src="img/matrix.png"></p>
 </div>
 </div>
 <aside class="notes">
@@ -485,17 +463,15 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="factions" class="slide level2">
-<h2>Factions</h2>
-<div class="columns">
-<div class="column" style="width:60%;">
-<p>A <strong>faction</strong> is a group with more ties within than across group even those group boundaries are somewhat porous.</p>
-<p>Factions are identified by various <a href="https://tidygraph.data-imaginist.com/reference/index.html#section-community-detection">community detection algorithms</a> to represent these structural sub-communities.</p>
-</div><div class="column" style="width:40%;">
-<p><img data-src="img/factions.png"></p>
-<p><a href="https://www.hashtagcommoncore.com/#2-2">#commoncore factions</a></p>
-</div>
-</div>
+<section id="applications" class="slide level2">
+<h2>Applications</h2>
+<ol type="1">
+<li><p><strong>Tie A -&gt; Tie B</strong>. Is there a relationship between the frequency of collaboration between school leaders and their discussion of confidential issues?</p></li>
+<li><p><strong>Tie A or B -&gt;Tie C</strong>. Do school leaders prefer to collaborate with those with whom they have collaborated in the past?</p></li>
+<li><p><strong>Attributes -&gt;Ties.</strong> Does gender or some other individual attribute predicts confidential exchanges between school leaders, or does some previous relation have a stronger effect?</p></li>
+<li><p><strong>Ties -&gt; Attributes</strong>. Does collaboration between leaders explain one’s level of trust in colleagues?</p></li>
+<li><p><strong>Groups -&gt; Attributes</strong>. Can we distinguish among different groups of school leaders based on how frequently they collaborate, and if so, are these groupings related to the level at which they work (school versus district)?</p></li>
+</ol>
 <aside class="notes">
 <p><strong>Speaker Notes:</strong></p>
 <style type="text/css">
@@ -521,9 +497,9 @@
 </ul>
 </section></section>
 <section>
-<section id="bottom-up-approaches" class="title-slide slide level1 center">
-<h1>Bottom Up Approaches</h1>
-<p>Cores, Cliques, &amp; Clans</p>
+<section id="models-in-networks" class="title-slide slide level1 center">
+<h1>Models in Networks</h1>
+<p>QAP, P-Star, &amp; Regression</p>
 <aside class="notes">
 <p><strong>Speaker Notes</strong>:</p>
 <p>Like top-down methods, this approach is also concerned with how larger structures are composed of smaller groups of actors.</p>
@@ -540,42 +516,19 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="k-cores" class="slide level2">
-<h2>K-Cores</h2>
-<p>A <strong>K-core</strong> is a substructure (a subgraph) of the network in which each node within the K-core is connected to at least K other nodes. Therefore, a 2K-core would be a subset of actors in which a node is connected to two others.</p>
-
-<img data-src="img/k-core.png" class="r-stretch"><aside class="notes">
-<p><strong>Speaker Notes</strong></p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="cliques" class="slide level2">
-<h2>Cliques</h2>
+<section id="qap-tie-a--tie-b" class="slide level2">
+<h2>QAP (<strong>Tie A-&gt; Tie B)</strong></h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<p>A <strong>n-clique</strong> is a maximally connected subgraph of nodes (&gt; 2) in which all nodes are connected to each other.</p>
-<p><br></p>
-<p>Are there any cliques in the graph to the right? K-cores? Isolates?</p>
+<p><img data-src="img/year-1-collab.png" style="width:100.0%"></p>
 </div><div class="column" style="width:50%;">
-<p><img data-src="img/clique.png"></p>
+<p><img data-src="img/year-1-conf.png" style="width:100.0%"></p>
 </div>
 </div>
 <aside class="notes">
 <p><strong>Speaker Notes:</strong></p>
-<ul>
-<li><p>Social network researchers can rely on several common reliability measures, including interobserver reliability, internal consistency reliability, and <strong>test–retest reliability</strong>. The latter, however, is the most commonly used. For example, we may ask a teacher nominates all those other teachers from whom he or she seeks advice about professional matters. The retest repeats the same (or similar) request at a later time. Highly correlated responses indicate high reliability.</p></li>
-<li><p>One thing to note when designing a network study or data collection instrument is that closer ties tend to be reported more reliably than weaker ones.</p></li>
-<li><p>Also, for self-reported ties, reciprocated ties are more trustworthy than non reciprocated. For example, one study asking college students to report whom they spend time with found that only 58% recalled spending time with each other.</p></li>
-</ul>
+<p>The quadratic assignment procedure developed by Hubert (1987) and Krackhardt (1987b) tests the null hypothesis of no correlation between the two networks and adjusts for this dependence between networks by repeatedly permuting the order of rows and columns of one of the networks while keeping the other network intact.</p>
+<p>It is useful, for example, in determining whether there is a relationship between collaboration among school leaders in year 1 and how often they engage in confidential exchanges in year 3. Or you could examine the relationship between how frequently school leaders turn to each other to discuss issues of a confidential nature in year 1 and collaboration in year 3.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -588,11 +541,11 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="clans" class="slide level2">
-<h2>Clans</h2>
-<p>Actors in the same <strong>clan</strong> are all connected at n distance, n (or less), and all actors in between are also members of the same clan.</p>
+<section id="mr-qap-tie-a-or-b--tie-c" class="slide level2">
+<h2>MR-QAP (<strong>Tie A or B -&gt;Tie C)</strong></h2>
+<p>Do school leaders prefer to collaborate with those with whom they have collaborated in the past or with those that they have discussed confidential issues?</p>
 
-<img data-src="img/clan.png" width="368" class="r-stretch"><aside class="notes">
+<img data-src="img/qap-table.png" style="width:100.0%" class="r-stretch"><aside class="notes">
 <p><strong>Speaker Notes:</strong></p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -606,23 +559,57 @@
           display:block!important;
       }</style></aside>
 </section>
+<section id="p1-p-star-attributes---ties" class="slide level2">
+<h2>P1 &amp; P-Star (<strong>Attributes -&gt; Ties)</strong></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Does gender or some other individual attribute predicts confidential exchanges between school leaders, or does some previous relation have a stronger effect?</p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="img/p-star-table.png" style="width:100.0%"></p>
+</div>
+</div>
+<aside class="notes">
+<p><strong>Speaker Notes:</strong></p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="regression-ties---attributes" class="slide level2">
+<h2>Regression (Ties -&gt; Attributes)</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p><em>Does collaboration between leaders explain one’s level of trust in colleagues?</em></p>
+</div><div class="column" style="width:60%;">
+<p><img data-src="img/node-table.png"></p>
+</div>
+</div>
+</section>
 <section id="discussion-1" class="slide level2">
 <h2>Discussion</h2>
-<p>Think about a network you are a part of or may be interested in studying and consider the following questions:</p>
-<ol type="1">
-<li><p>What groups might exist in this network?</p></li>
-<li><p>How might you go about identifying them?</p></li>
-<li><p>How might this information be useful?</p></li>
-</ol>
+<p>Think about potential research questions we raised in the previous slide. What model might be appropriate for answering that question?</p>
+<p><strong>Hint</strong>: think about the what relationship is being tested:</p>
+<ul>
+<li><p><strong>ties-ties</strong>: QAP/MR-QAP</p></li>
+<li><p><strong>attributes-ties</strong>: P1 &amp; P-Star</p></li>
+<li><p><strong>network properties-attributes</strong>: t-tests, anova, regression</p></li>
+</ul>
 </section>
 <section id="essential-readings" class="slide level2">
 <h2>Essential Readings</h2>
 <p>The following chapters in <span class="citation" data-cites="carolan2014">Carolan (<a href="#/references" role="doc-biblioref" onclick="">2014</a>)</span> cover the topics introduced in this conceptual overview in much greater depth:</p>
 <ul>
-<li><p><a href="https://methods-sagepub-com.prox.lib.ncsu.edu/book/social-network-analysis-and-education/n6.xml">Chapter 6: Groups and Positions in Complete Networks</a></p></li>
-<li><p><a href="https://methods-sagepub-com.prox.lib.ncsu.edu/book/social-network-analysis-and-education/n7.xml">Chapter 7: Measures for Egocentric Network Analysis</a></p></li>
+<li><p><a href="https://methods-sagepub-com.prox.lib.ncsu.edu/book/social-network-analysis-and-education/n8.xml">Chapter 8: An Introduction to Statistical Inference With Network Data</a></p></li>
+<li><p><a href="https://methods-sagepub-com.prox.lib.ncsu.edu/book/social-network-analysis-and-education/n9.xml">Chapter 9: Network Data and Statistical Models</a></p></li>
 </ul>
-<p>In preparation for the Module 3 Code-Along and Case Study, take a look at the #COMMONCORE project by <span class="citation" data-cites="supovitz2017commoncore">Supovitz et al. (<a href="#/references" role="doc-biblioref" onclick="">2017</a>)</span>.</p>
+<p>In preparation for the Module 4 Code-Along and Case Study, take a look at the study by <span class="citation" data-cites="daly2011ebb">Daly and Finnigan (<a href="#/references" role="doc-biblioref" onclick="">2011</a>)</span>.</p>
 <aside class="notes">
 <p><strong>Speaker Notes:</strong></p>
 <style type="text/css">
@@ -663,8 +650,8 @@
 </a><div id="ref-carolan2014" class="csl-entry" role="listitem"><a href="https://www.go.ncsu.edu/laser-institute">
 Carolan, Brian. 2014. <span>“Social Network Analysis and Education: Theory, Methods &amp; Applications.”</span> </a><a href="https://doi.org/10.4135/9781452270104">https://doi.org/10.4135/9781452270104</a>.
 </div>
-<div id="ref-supovitz2017commoncore" class="csl-entry" role="listitem">
-Supovitz, Jonathan, Alan J Daly, Miguel del Fresno, and Christian Kolouch. 2017. <span>“Commoncore Project.”</span> <em>Retrieved April</em> 3: 2019. <a href="https://www.hashtagcommoncore.com">https://www.hashtagcommoncore.com</a>.
+<div id="ref-daly2011ebb" class="csl-entry" role="listitem">
+Daly, Alan J, and Kara S Finnigan. 2011. <span>“The Ebb and Flow of Social Network Ties Between District Leaders Under High-Stakes Accountability.”</span> <em>American Educational Research Journal</em> 48 (1): 39–79. <a href="https://www.jstor.org/stable/27975281">https://www.jstor.org/stable/27975281</a>.
 </div>
 </div>
 </section></section>
@@ -672,20 +659,20 @@ Supovitz, Jonathan, Alan J Daly, Miguel del Fresno, and Christian Kolouch. 2017.
   </div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="sna-3-conceptual-overview_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="sna-4-conceptual-overview_files/libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="sna-3-conceptual-overview_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="sna-3-conceptual-overview_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="sna-3-conceptual-overview_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="sna-3-conceptual-overview_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="sna-3-conceptual-overview_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
-  <script src="sna-3-conceptual-overview_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="sna-4-conceptual-overview_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="sna-4-conceptual-overview_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="sna-4-conceptual-overview_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="sna-4-conceptual-overview_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="sna-4-conceptual-overview_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="sna-4-conceptual-overview_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="sna-3-conceptual-overview_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="sna-3-conceptual-overview_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="sna-3-conceptual-overview_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="sna-3-conceptual-overview_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="sna-4-conceptual-overview_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="sna-4-conceptual-overview_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="sna-4-conceptual-overview_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="sna-4-conceptual-overview_files/libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>

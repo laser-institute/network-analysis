@@ -1,0 +1,243 @@
+---
+title: "Group Identification in Networks"
+subtitle: "SNA Module 3: A Conceptual Overview"
+format:
+  revealjs: 
+    slide-number: c/t
+    progress: true
+    chalkboard: 
+      buttons: false
+    preview-links: auto
+    logo: img/LASERLogoB.png
+    theme: [default, css/laser.scss]
+    width: 1920
+    height: 1080
+    margin: 0.05
+    footer: <a href=https://www.go.ncsu.edu/laser-institute>go.ncsu.edu/laser-institute
+resources:
+  - demo.pdf
+bibliography: lit/references.bib
+editor: visual
+---
+
+## A Quick Refresher
+
+::: columns
+::: {.column width="50%"}
+### Network Visualization
+
+![](img/visualization.png)
+:::
+
+::: {.column width="50%"}
+### Network Measurement
+
+-   degree and betweenness **Centrality**
+
+-   **Reciprocity** in directed networks
+
+-   complete network, group, or neighborhood **Density**
+:::
+:::
+
+::: notes
+**Speaker Notes:**
+:::
+
+# Inference in Networks
+
+Evolution, Permutations, & Applications
+
+::: notes
+**Speaker Notes**:
+
+In previous modules we focused on ways in which different algorithms can be used to describe properties related to ego or complete networks.
+
+In this module we move beyond these static snapshots and provides an introduction to the ways in which recent advances in inferential statistics can be used to make predictions from social network data and address the questions and test hypotheses we may have about networks.
+:::
+
+## Evolution
+
+::: columns
+::: {.column width="50%"}
+### Aim of Inference 
+
+1.  Examine "relationships"
+
+2.  Test hypotheses
+
+3.  Analyze change
+:::
+
+::: {.column width="50%"}
+### Obstacles to Overcome
+
+1.  Violation of assumptions
+
+2.  Conventional formulas
+
+3.  Network dynamism
+:::
+:::
+
+::: notes
+**Speaker Notes:**
+:::
+
+## Permutations
+
+::: columns
+::: {.column width="50%"}
+-   Matrices are rearranged over and over (even thousands of times!)
+
+-   Permutations are then compared to your observed data
+
+-   If network properties of interest occur often, likely due to chance.
+:::
+
+::: {.column width="50%"}
+![](img/matrix.png)
+:::
+:::
+
+::: notes
+**Speaker Notes:**
+:::
+
+## Applications
+
+1.  **Tie A -\> Tie B**. Is there a relationship between the frequency of collaboration between school leaders and their discussion of confidential issues?
+
+2.  **Tie A or B -\>Tie C**. Do school leaders prefer to collaborate with those with whom they have collaborated in the past?
+
+3.  **Attributes -\>Ties.** Does gender or some other individual attribute predicts confidential exchanges between school leaders, or does some previous relation have a stronger effect?
+
+4.  **Ties -\> Attributes**. Does collaboration between leaders explain one's level of trust in colleagues?
+
+5.  **Groups -\> Attributes**. Can we distinguish among different groups of school leaders based on how frequently they collaborate, and if so, are these groupings related to the level at which they work (school versus district)?
+
+::: notes
+**Speaker Notes:**
+:::
+
+## Discussion
+
+Consider the following questions about a network you may be interested in studying:
+
+-   What is the boundary of this network?
+
+-   What relations within this network might be of interest to your research?
+
+-   What attributes about actors in this network might you want to capture?
+
+-   How might you collect data about these actors and their relations?
+
+# Models in Networks
+
+QAP, P-Star, & Regression
+
+::: notes
+**Speaker Notes**:
+
+Like top-down methods, this approach is also concerned with how larger structures are composed of smaller groups of actors.
+
+However, bottom-up approaches identify groups that are **built up from simple dyads and triads** that extend into dense clusters that give the network its “clumpiness.”
+:::
+
+## QAP (**Tie A-\> Tie B)**
+
+::: columns
+::: {.column width="50%"}
+![](img/year-1-collab.png){width="100%"}
+:::
+
+::: {.column width="50%"}
+![](img/year-1-conf.png){width="100%"}
+:::
+:::
+
+::: notes
+**Speaker Notes:**
+
+The quadratic assignment procedure developed by Hubert (1987) and Krackhardt (1987b) tests the null hypothesis of no correlation between the two networks and adjusts for this dependence between networks by repeatedly permuting the order of rows and columns of one of the networks while keeping the other network intact.
+
+It is useful, for example, in determining whether there is a relationship between collaboration among school leaders in year 1 and how often they engage in confidential exchanges in year 3. Or you could examine the relationship between how frequently school leaders turn to each other to discuss issues of a confidential nature in year 1 and collaboration in year 3.
+:::
+
+## MR-QAP (**Tie A or B -\>Tie C)**
+
+Do school leaders prefer to collaborate with those with whom they have collaborated in the past or with those that they have discussed confidential issues?
+
+![](img/qap-table.png){width="100%"}
+
+::: notes
+**Speaker Notes:**
+:::
+
+## P1 & P-Star (**Attributes -\> Ties)**
+
+::: columns
+::: {.column width="50%"}
+Does gender or some other individual attribute predicts confidential exchanges between school leaders, or does some previous relation have a stronger effect?
+:::
+
+::: {.column width="50%"}
+![](img/p-star-table.png){width="100%"}
+:::
+:::
+
+::: notes
+**Speaker Notes:**
+:::
+
+## Regression (Ties -\> Attributes)
+
+::: columns
+::: {.column width="40%"}
+*Does collaboration between leaders explain one's level of trust in colleagues?*
+:::
+
+::: {.column width="60%"}
+![](img/node-table.png)
+:::
+:::
+
+## Discussion
+
+Think about potential research questions we raised in the previous slide. What model might be appropriate for answering that question?
+
+**Hint**: think about the what relationship is being tested:
+
+-   **ties-ties**: QAP/MR-QAP
+
+-   **attributes-ties**: P1 & P-Star
+
+-   **network properties-attributes**: t-tests, anova, regression
+
+## Essential Readings
+
+The following chapters in @carolan2014 cover the topics introduced in this conceptual overview in much greater depth:
+
+-   [Chapter 8: An Introduction to Statistical Inference With Network Data](https://methods-sagepub-com.prox.lib.ncsu.edu/book/social-network-analysis-and-education/n8.xml)
+
+-   [Chapter 9: Network Data and Statistical Models](https://methods-sagepub-com.prox.lib.ncsu.edu/book/social-network-analysis-and-education/n9.xml)
+
+In preparation for the Module 4 Code-Along and Case Study, take a look at the study by @daly2011ebb.
+
+::: notes
+**Speaker Notes:**
+:::
+
+## Acknowledgements
+
+::: columns
+::: {.column width="20%"}
+![](img/nsf.jpg){fig-align="center" width="80%"}
+:::
+
+::: {.column width="80%"}
+This work was supported by the National Science Foundation grants DRL-2025090 and DRL-2321128 (ECR:BCSER). Any opinions, findings, and conclusions expressed in this material are those of the authors and do not necessarily reflect the views of the National Science Foundation.
+:::
+:::
+
+## References

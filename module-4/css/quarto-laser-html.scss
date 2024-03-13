@@ -1,0 +1,81 @@
+/*-- scss:defaults --*/
+
+/* core palette */
+$black:   #000000 !default;
+$white:   #FFFFFF !default;
+
+/* logo colors */
+
+$light-orange:     #e77225 !default;
+$medium-orange:    #dc5b26 !default;
+$dark-orange:      #d34126 !default;
+$red:              #cb2026 !default;
+$dark-red:         #8f303b !default;
+$burgundy:         #59334c !default;
+$navy:             #143156 !default;
+$innovation-blue:  #427E93 !default;
+
+/* greys */
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #aea79f !default;
+$gray-600: #868e96 !default;
+$gray-700: #495057 !default;
+$gray-800: #333 !default;
+$gray-900: #212529 !default;
+
+
+$primary:       $dark-orange !default;
+$secondary:     $burgundy !default;
+$success:       $medium-orange !default;
+$info:          $light-orange !default;
+$warning:       $red !default;
+$danger:        $red !default;
+$light:         $gray-200 !default;
+$dark:          $navy !default;
+
+$min-contrast-ratio:   1.8 !default;
+
+// Body
+
+$body-color:                $navy !default;
+$headings-color:            $innovation-blue !default;
+$toc-color:                 $dark-orange !default;
+
+// Links
+
+$link-color: $innovation-blue !default;
+
+// Fonts
+
+// stylelint-disable-next-line value-keyword-case
+$font-family-sans-serif:      'Open Sans','Roboto', ssans-serif !default;
+$headings-color: $navy !default;
+// Tables
+
+$table-dark-bg:               $dark !default;
+$table-dark-border-color:     darken($dark, 5%) !default;
+
+
+
+/*-- scss:rules --*/
+
+
+// Variables
+
+$web-font-path: "https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap" !default;
+@if $web-font-path {
+  @import url($web-font-path);
+}
+
+// Indicators
+
+.badge {
+  &.bg-light {
+    color: $body-color;
+  }
+}
+
+
