@@ -1,0 +1,245 @@
+---
+title: "Group Identification in Networks"
+subtitle: "SNA Module 3: A Conceptual Overview"
+format:
+  revealjs: 
+    slide-number: c/t
+    progress: true
+    chalkboard: 
+      buttons: false
+    preview-links: auto
+    logo: img/LASERLogoB.png
+    theme: [default, css/laser.scss]
+    width: 1920
+    height: 1080
+    margin: 0.05
+    footer: <a href=https://www.go.ncsu.edu/laser-institute>go.ncsu.edu/laser-institute
+resources:
+  - demo.pdf
+bibliography: lit/references.bib
+editor: visual
+---
+
+## A Quick Refresher
+
+::: columns
+::: {.column width="50%"}
+### Data Management
+
+-   Collection
+
+-   Quality
+
+-   Edge List Creation
+:::
+
+::: {.column width="50%"}
+### Network Terms
+
+-   Centrality
+
+-   Density
+
+-   Reciprocity
+:::
+:::
+
+::: notes
+**Speaker Notes:**
+:::
+
+## Overview
+
+> Unlike most social science, network analysts identify groups through their relational data, not an exogenous attribute such as grade level, departmental affiliation, or years of experience. [@carolan2014]
+
+<br>
+
+There are two main approaches to group identification in networks:
+
+1.  Top Down (e.g., components & communities)
+
+2.  Bottom Up (e.g, cliques, cores, & clans)
+
+::: notes
+**Speaker Notes:**
+:::
+
+# Top Down Approaches
+
+Components, Bi-Components, & Factions
+
+::: notes
+**Speaker Notes**:
+
+The “top-down” approach focuses on how larger network structures are built from smaller ones. Or stated more clearly:
+
+> ...this approach takes the complete network and considers parts of it that are dense and somewhat distinct from the rest of the network.
+:::
+
+## Components
+
+::: columns
+::: {.column width="50%"}
+A **component** is a connected subgraph in which there is a path between all pairs of nodes.
+
+<br>
+
+How many "components" do you see in the network to the right?
+:::
+
+::: {.column width="50%"}
+![](img/components.png)
+:::
+:::
+
+::: notes
+**Speaker Notes:**
+:::
+
+## Bi-Components
+
+::: columns
+::: {.column width="60%"}
+**Bi-components** help to identify the important “weak” spots and ask what would happen to the network if an actor were removed.
+
+<br>
+
+Nodes that result in new components are referred to as “cutpoints” and are often important actors.
+:::
+
+::: {.column width="40%"}
+![](img/bi-components.png)
+:::
+:::
+
+::: notes
+**Speaker Notes:**
+:::
+
+## Factions
+
+::: columns
+::: {.column width="60%"}
+A **faction** is a group with more ties within than across group even those group boundaries are somewhat porous.
+
+Factions are identified by various [community detection algorithms](https://tidygraph.data-imaginist.com/reference/index.html#section-community-detection) to represent these structural sub-communities.
+:::
+
+::: {.column width="40%"}
+![](img/factions.png)
+
+[#commoncore factions](https://www.hashtagcommoncore.com/#2-2)
+:::
+:::
+
+::: notes
+**Speaker Notes:**
+:::
+
+## Discussion
+
+Consider the following questions about a network you may be interested in studying:
+
+-   What is the boundary of this network?
+
+-   What relations within this network might be of interest to your research?
+
+-   What attributes about actors in this network might you want to capture?
+
+-   How might you collect data about these actors and their relations?
+
+# Bottom Up Approaches
+
+Cores, Cliques, & Clans
+
+::: notes
+**Speaker Notes**:
+
+Like top-down methods, this approach is also concerned with how larger structures are composed of smaller groups of actors.
+
+However, bottom-up approaches identify groups that are **built up from simple dyads and triads** that extend into dense clusters that give the network its “clumpiness.”
+:::
+
+## K-Cores
+
+A **K-core** is a substructure (a subgraph) of the network in which each node within the K-core is connected to at least K other nodes. Therefore, a 2K-core would be a subset of actors in which a node is connected to two others.
+
+![](img/k-core.png)
+
+::: notes
+**Speaker Notes**
+:::
+
+## Cliques
+
+::: columns
+::: {.column width="50%"}
+A **n-clique** is a maximally connected subgraph of nodes (\> 2) in which all nodes are connected to each other.
+
+<br>
+
+Are there any cliques in the graph to the right? K-cores? Isolates?
+:::
+
+::: {.column width="50%"}
+![](img/clique.png)
+:::
+:::
+
+::: notes
+**Speaker Notes:**
+
+-   Social network researchers can rely on several common reliability measures, including interobserver reliability, internal consistency reliability, and **test–retest reliability**. The latter, however, is the most commonly used. For example, we may ask a teacher nominates all those other teachers from whom he or she seeks advice about professional matters. The retest repeats the same (or similar) request at a later time. Highly correlated responses indicate high reliability.
+
+-   One thing to note when designing a network study or data collection instrument is that closer ties tend to be reported more reliably than weaker ones.
+
+-   Also, for self-reported ties, reciprocated ties are more trustworthy than non reciprocated. For example, one study asking college students to report whom they spend time with found that only 58% recalled spending time with each other.
+:::
+
+## Clans
+
+Actors in the same **clan** are all connected at n distance, n (or less), and all actors in between are also members of the same clan.
+
+![](img/clan.png){width="368"}
+
+::: notes
+**Speaker Notes:**
+:::
+
+## Discussion
+
+Think about a network you are a part of or may be interested in studying and consider the following questions:
+
+1.  What groups might exist in this network?
+
+2.  How might you go about identifying them?
+
+3.  How might this information be useful?
+
+## Essential Readings
+
+The following chapters in @carolan2014 cover the topics introduced in this conceptual overview in much greater depth:
+
+-   [Chapter 6: Groups and Positions in Complete Networks](https://methods-sagepub-com.prox.lib.ncsu.edu/book/social-network-analysis-and-education/n6.xml)
+
+-   [Chapter 7: Measures for Egocentric Network Analysis](https://methods-sagepub-com.prox.lib.ncsu.edu/book/social-network-analysis-and-education/n7.xml)
+
+In preparation for the Module 2 Code-Along and Case Study, take a look at the #COMMONCORE project by @supovitz2017commoncore.
+
+::: notes
+**Speaker Notes:**
+:::
+
+## Acknowledgements
+
+::: columns
+::: {.column width="20%"}
+![](img/nsf.jpg){fig-align="center" width="80%"}
+:::
+
+::: {.column width="80%"}
+This work was supported by the National Science Foundation grants DRL-2025090 and DRL-2321128 (ECR:BCSER). Any opinions, findings, and conclusions expressed in this material are those of the authors and do not necessarily reflect the views of the National Science Foundation.
+:::
+:::
+
+## References

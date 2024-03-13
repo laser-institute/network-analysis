@@ -1,5 +1,5 @@
 ---
-title: "Density, Centrality, & Reciprocity"
+title: "Density, Reciprocity, & Centrality"
 subtitle: "SNA Module 2: Code-Along"
 format:
   revealjs: 
