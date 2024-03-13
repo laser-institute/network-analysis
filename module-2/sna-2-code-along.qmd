@@ -22,9 +22,17 @@ bibliography: lit/references.bib
 editor: visual
 ---
 
-## Data Intensive Research-Workflow
+## Overview
 
-![From Learning Analytics Goes to School [@krumm2018]](img/workflow.png){width="300"}
+1.  **Prepare**: Introduce the guiding study and {igraph} package.
+
+2.  **Wrangle**: Revisit the {readr} and {tidygraph} packages to import and prepare edge and node lists.
+
+3.  **Explore**: Calculate a range of network-level measures to describe and compare collaboration networks over time.
+
+4.  **Model**: Introduce how modeling can was used to examine MOOC-Ed discussion networks.
+
+5.  **Communicate**: Briefly examine how these measure can be reported.
 
 ::: notes
 **Speaker Notes:**
@@ -36,29 +44,7 @@ Guiding Research & Network Packages
 
 ```{r, echo=FALSE, results='hide', message=FALSE, warning=FALSE}
 
-pacman::p_load(pacman, knitr, tidyverse, readxl, tidygraph, ggraph)
 
-teacher_friends <- read_excel("data/teacher-reported-friends.xlsx", 
-                              col_names = FALSE)
-
-student_attributes <- read_excel("data/student-attributes.xlsx")
-
-# rownames(teacher_friends) <- 1:27
-
-# colnames(teacher_friends) <- 1:27
-
-# teacher_matrix <- as.matrix(teacher_friends)
-
-teacher_network <- as_tbl_graph(teacher_friends,
-                                directed = TRUE)
-
-teacher_edges <- teacher_network |>
-  activate(edges) |>
-  as_tibble()
-
-teacher_network <- tbl_graph(edges = teacher_edges, 
-                             nodes = student_attributes, 
-                             directed = TRUE)
 ```
 
 ## Guiding Study
@@ -68,39 +54,39 @@ teacher_network <- tbl_graph(edges = teacher_edges,
 
 ::: columns
 ::: {.column width="70%"}
-Revisiting early work in the field of sociometry, this study by @pittinsky2008behavioral **assesses the level of agreement between teacher perceptions and student reports of classroom friendships** among middle school students.
+This mixed-methods case study used both SNA and qualitative methods to better understand peer support in MOOC-Eds through an examination of the characteristics, mechanisms, and outcomes of peer networks.
 :::
 
 ::: {.column width="30%"}
-![Behavioral vs. Cognitive Classroom Friendships [@pittinsky2008behavioral]](img/pittinsky-carolan.png){width="70%"}
+![Behavioral vs. Cognitive Classroom Friendships [@kellogg2014social]](img/irrodl-article.png){width="70%"}
 :::
 :::
 
 ## Questions
 
-The central question guiding this investigation was:
+This study involves **quantifying and visualizing the ties and overall structure** of informal networks to answer the following research questions:
 
-> ***Do student reports agree with teacher perceptions*** when it comes to classroom friendship ties and with what consequences for commonly used social network measures?
+1.  What are the patterns of peer interaction and the structure of peer networks that emerge over the course of a MOOC-Ed?
+
+2.  To what extent do participant and network attributes (e.g., homophily, reciprocity, transitivity) account for the structure of these networks?
+
+3.  To what extent do these networks result in the co-construction of new knowledge?
 
 ## Data
 
--   1 teacher, 1 middle school, four classrooms
+-   **MOOC-Ed registration form.** All participants completed a registration form for each MOOC-Ed course. The registration form consists of self-reported demographic data, including information related to their professional role and work setting, years of experience in education, and personal learning goals.
 
--   Students given roster and asked to evaluate relationships with peers
-
--   Choices included best friend, friend, know-like, know, know-dislike, strongly dislike, and do not know.
-
--   Relations are ***valued*** (degrees of friendship, not just yes or no)
-
--   Data are ***directed*** (friendship nominations were not presumed to be reciprocal).
+-   **MOOC-Ed discussion forums.** All peer interaction, including peer discussion, feedback, and reactions (e.g., likes), take place within the forum area of MOOC-Eds, which are powered by Vanilla Forums.
 
 ## Findings
 
--   Teacher’s perceptions and students’ reports were statistically similar, 11–29% of possible ties did not match.
+-   Most ties between educators consisted of a single communication and a general tendency for an individual’s responses to be distributed evenly among peers.
 
--   Students reported significantly more reciprocated friendship ties than the teacher perceived.
+-   Measures of network reciprocity were fairly similar across the two MOOC-Eds, despite the size and varied composition of educators in each network.
 
--   Observed level of agreement varied across classes and generally increased over time.
+-   Reciprocators made up the largest proportion of educators in both courses
+
+-   Significant effects were found for the relational mechanism of reciprocity, but not for a popularity effect.
 :::
 
 ::: notes
@@ -112,41 +98,46 @@ The central question guiding this investigation was:
 ::: panel-tabset
 ## R Libraries
 
-Let's start by creating a new R script and loading the {tidyverse} package which we'll use to import our network data files:
+Let's start by creating a new R script and loading the following packages introduced in the previous module:
 
 ```{r}
-library(knitr)
+library(janitor)
 library(tidyverse)
+library(tidygraph)
+library(ggraph)
 ```
 
 ```{r load-libraries, echo=TRUE, message=FALSE}
+library(janitor)
 library(tidyverse)
+library(tidygraph)
+library(ggraph)
 
 # You may have to install this package if it is not listed in your packages pane.
 # install.packages(tidyverse) 
 ```
 
-**Note**: Tidyverse is actually a [collection of R packages](https://www.tidyverse.org/packages) that share an underlying design philosophy, grammar, and data structures commonly referred to as "tidy data principles." LASER uses the {tidyverse} extensively.
-
 ## Network Packages
 
 ::: columns
-::: {.column width="50%"}
-Data Management\
-![](img/tidygraph.png){width="398"}\
-[tidygraph](https://tidygraph.data-imaginist.com/)
+::: {.column width="80%"}
+The {igraph} package and its collection of network analysis tools provide pain-free implementation of graph algorithms fast handling of large graphs, with millions of vertices and edges.
+
+<br>
+
+Both {tidygraph} and {ggraph} used in the previous lab depend heavily on the {igraph} package.\
 :::
 
-::: {.column width="50%"}
-Data Visualization\
-![](img/ggraph.png){width="346"}\
-[ggraph](https://ggraph.data-imaginist.com/index.html)
+::: {.column width="20%"}
+![](img/igraph.png)
+
+[igraph](https://igraph.org)
 :::
 :::
 
 ## Your Turn
 
-Load the {tidygraph} and {ggraph} packages.
+Load the {igraph} package.
 
 ```{r, echo=TRUE}
 # YOUR CODE HERE
@@ -159,404 +150,94 @@ Load the {tidygraph} and {ggraph} packages.
 
 Intro to Network Data Structures
 
-## Network Data Structures
-
-::: panel-tabset
-### Node-List
-
-::: columns
-::: {.column width="50%"}
-Consistent with typical data storage, node-lists often include:
-
--   identifiers lik name or **ID**
-
--   demographic info (**gender**, age)
-
--   socio-economic info (job, income)
-
--   substantive info (**grades**, attendance)
-:::
-
-::: {.column width="50%"}
-```{r node-list, echo=FALSE, message=FALSE, warning=FALSE}
-
-
-student_attributes <- read_csv("data/student-attributes.csv")
-
-student_attributes |>
-  head() |>
-  select(id, gender, achievement) |>
-  kable()
-
-```
-:::
-:::
-
-### Edge-List
-
-::: columns
-::: {.column width="50%"}
-Radically different than typical data storage, edge-lists include:
-
--   ego and an alter
-
--   tie strength or frequency
-
--   edge attributes (time, event, text)
-:::
-
-::: {.column width="50%"}
-```{r edge-list, echo=FALSE, message=FALSE, warning=FALSE}
-
-student_edges <- read_csv("data/student-edgelist.csv")
-
-student_edges |>
-  head() |>
-  kable()
-
-```
-:::
-:::
-
-### Adjacency Matrix
-
-::: columns
-::: {.column width="50%"}
-Also radically different, an adjacency matrix includes:
-
--   column for each actor
-
--   row for each actor
-
--   a value indicating the presence/strength of a relation
-:::
-
-::: {.column width="50%"}
-```{r adjaency-matrix, echo=FALSE, message=FALSE, warning=FALSE}
-
-rownames(teacher_friends) <- 1:27
-
-colnames(teacher_friends) <- 1:27
-
-teacher_matrix <- as.matrix(teacher_friends)
-
-teacher_matrix[1:7, 1:7] |>
-  kable(row.names = TRUE)
-
-```
-:::
-:::
-
-### Discuss
-
-Take a look at one of the network datasets in the data folder under the Files Tab in RStudio and consider the following:
-
--   What format is this data set stored as?
-
--   If edge data, is it directed or undirected? Valued?
-
--   If node data, does the file contain attribute data?
-
--   What are some things you notice about this dataset?
-
--   What questions do you have about this dataset?
-:::
-
 ## Import Data
 
 ::: panel-tabset
-### Read Data
+## read_csv
 
-Let's start by importing two Excel files that contain data about the nodes and the edges in our student friendship network:
+Let's import two .csv files from our data folder named `dlt1-edges.csv` and `dlt1-nodes.csv` using the `read_csv()` function from the {readr} package:
 
-```{r import-data, echo=TRUE, message=FALSE, eval=FALSE}
-student_nodes <- read_excel("lab-1/data/student-attributes.xlsx")
+```{r}
+#| echo: true
 
-student_edges <- read_excel("lab-1/data/student-edgelist.xlsx")
+dlt1_ties <- read_csv("data/dlt1-edges.csv", 
+                      col_types = cols(Sender = col_character(), 
+                                       Receiver = col_character(), 
+                                       `Category Text` = col_skip(), 
+                                       `Comment ID` = col_character(), 
+                                       `Discussion ID` = col_character()
+                                       )
+                      ) |>
+  clean_names()
 
+dlt1_actors <- read_csv("data/dlt1-nodes.csv", 
+                   col_types = cols(UID = col_character(), 
+                                    Facilitator = col_character(), 
+                                    expert = col_character(), 
+                                    connect = col_character())) |>
+  clean_names()
 ```
 
-```{r real-data, echo=FALSE, message=FALSE, eval=TRUE}
-student_edges <- read_excel("data/student-edgelist.xlsx")
+## Inspect Data
 
-student_nodes <- read_excel("data/student-attributes.xlsx")
+Using your R script or the console or another prefered means, take a look at the data file we just imported:
 
+``` r
+# ADD CODE BELOW
+# 
+#
 ```
 
-### Inspect Data
-
-Now let's take a look at the data file we just imported using the `View()` function or another function of choice you may have learned previously:
-
-```{r inspect-data, echo=TRUE, eval=FALSE}
-View(student_edges)
-View(student_nodes)
-```
-
-### Discuss
+## Discuss
 
 Think about the questions below and be prepared to share your response:
 
-1.  What do you think the rows and columns in each file represent?
+1.  What type of data structure is used to store this network data?
 
-2.  What about the values in each cell represent?
+2.  What do you think the rows and columns represent?
 
-3.  What else do you notice about the data?
-
-4.  What questions do you have?
+3.  What do the values in each cell represent?
 :::
 
-## A Tidy Network
+## Create Network Object
 
 ::: panel-tabset
-### tbl_graph( ) function
+## Convert Edgelist
 
-Run the following code in your R script:
+Before we can begin analyzing our network data in R, we need to convert to a network class R object. Run the following code in your R script:
 
-```{r wrangle-data}
+```{r}
 #| echo: true
-#| warning: false
-#| message: false
-student_network <- tbl_graph(edges = student_edges,
-                             nodes = student_nodes, 
-                             directed = TRUE) 
-
+dlt1_network <- tbl_graph(edges = dlt1_ties,
+                          nodes = dlt1_actors,
+                          node_key = "uid",
+                          directed = TRUE)
 ```
 
-The `tbl_graph()` function creates a special network data structure called a "tidy graph" that combines our nodes and edges into a single R object.
+## View Network
 
-<br>
+In the corresponding line of your R script, type the name of network object we just created and run the code:
 
-The benefits of a "tidy graph" is that it opens up the entire suite of tidyverse tools for manipulating and constructing network data and variables noted earlier.
-
-### View Network
-
-Using your R script, type the name of network object we just created and run the code to produce the output on the next tab:
-
-```{r, echo=TRUE}
+``` r
 # ADD CODE BELOW
-#
+# 
 #
 ```
 
-### Output
-
-You should see an output that looks something like this:
-
-```{r, echo=FALSE}
-student_network
-
-```
-
-### Discuss
+## Discuss
 
 Think about the questions below:
 
-What is size of the student-reported friendship network?
+1.  What size of the DLT 1 MOOC-ED network?
 
-What else do you notice about this network?
+2.  What else do you notice about this network?
 
-What questions do have about this network summary?
+3.  What questions, if any, do have about this network?
 :::
 
 # Explore
 
-Making Simple and Sophisticated Sociograms
-
-## A Simple Sociogram
-
-::: panel-tabset
-## plot()
-
-::: columns
-::: {.column width="50%"}
-Run the following code to make a simple sociogram:
-
-```{r}
-#| echo: true
-#| fig.show: hide
-plot(student_network)
-```
-
-<br>
-
-The `plot()` function is base R's simple but limited solution for plotting graphs.
-:::
-
-::: {.column width="50%"}
-```{r}
-#| echo: false
-#| fig-asp: .75
-plot(student_network)
-```
-:::
-:::
-
-## autograph()
-
-::: columns
-::: {.column width="50%"}
-The `autograph()` function is ggraph's simple but limited solution for plotting sociograms.
-
-```{r}
-#| echo: true
-#| fig.show: hide
-autograph(student_network)
-```
-:::
-
-::: {.column width="50%"}
-```{r}
-#| echo: false
-#| fig.asp: .75
-autograph(student_network)
-```
-:::
-:::
-
-## Arguments
-
-::: columns
-::: {.column width="50%"}
-Both functions allow a small degree of customization, but are still limited.
-
-```{r}
-#| echo: true
-#| fig.show: hide
-autograph(student_network,
-          node_label = id,
-          node_colour = gender)
-```
-:::
-
-::: {.column width="50%"}
-```{r}
-#| echo: false
-#| fig.asp: .75
-autograph(student_network,
-          node_label = id,
-          node_colour = gender)
-```
-:::
-:::
-
-## Discuss
-
-1.  In what situations might these limited functions be useful?
-2.  When might they inappropriate to use?
-:::
-
-## A Sophisticated Sociogram
-
-::: panel-tabset
-### Set Graph
-
-The `ggraph()` function is the first function required to build a sociogram. Try running this function on out `student_network` and see what happens:
-
-```{r set-graph, echo=TRUE, fig.show='hide'}
-ggraph(student_network)
-```
-
-This function serves two critical roles:
-
-1.  It takes care of setting up the plot object for the network specified.
-
-2.  It creates the layout based on algorithm provided.
-
-### "Add" Nodes
-
-::: columns
-::: {.column width="50%"}
-Let's “add” nodes to our sociogram using the `+` operator and the `geom_node_point()` function:
-
-```{r}
-#| echo: true
-#| fig.show: hide
-#| message: false
-ggraph(student_network) + 
-  geom_node_point() 
-```
-:::
-
-::: {.column width="50%"}
-```{r}
-#| echo: false
-#| fig.asp: .75
-ggraph(student_network) + 
-  geom_node_point() 
-```
-:::
-:::
-
-### "Add" Edges
-
-::: columns
-::: {.column width="50%"}
-Both functions allow a small degree of customization, but are still limited.
-
-```{r}
-#| echo: true
-#| fig.show: hide
-ggraph(student_network) + 
-  geom_node_point() + 
-  geom_edge_link()
-```
-:::
-
-::: {.column width="50%"}
-```{r}
-#| echo: false
-#| fig.asp: .75
-ggraph(student_network) + 
-  geom_node_point() + 
-  geom_edge_link()
-```
-:::
-:::
-
-### Polish
-
-::: columns
-::: {.column width="50%"}
-<br> <br> The {ggraph} packages allows for some very fairly sophisticated sociograms...
-:::
-
-::: {.column width="50%"}
-```{r}
-#| echo: false
-#| fig.asp: .75
-ggraph(student_network, layout = "stress") + 
-  geom_edge_link(arrow = arrow(length = unit(1, 'mm')), 
-                 end_cap = circle(3, 'mm'),
-                 start_cap = circle(3, 'mm'),
-                 alpha = .1) +
-  geom_node_point(aes(size = local_size(),
-                      color = gender)) +
-  geom_node_text(aes(label = id),
-                 repel=TRUE) +
-  theme_graph()
-```
-:::
-:::
-
-### Code
-
-With a fair bit of coding:
-
-```{r}
-#| echo: true
-#| fig.show: hide
-ggraph(student_network, layout = "stress") + 
-  geom_edge_link(arrow = arrow(length = unit(1, 'mm')), 
-                 end_cap = circle(3, 'mm'),
-                 start_cap = circle(3, 'mm'),
-                 alpha = .1) +
-  geom_node_point(aes(size = local_size(),
-                      color = gender)) +
-  geom_node_text(aes(label = id),
-                 repel=TRUE) +
-  theme_graph()
-```
-:::
+Network Density, Centrality, & Reciprocity
 
 ## What's Next?
 
