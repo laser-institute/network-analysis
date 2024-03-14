@@ -15,6 +15,11 @@ format:
     height: 1080
     margin: 0.05
     footer: <a href=https://www.go.ncsu.edu/laser-institute>go.ncsu.edu/laser-institute
+knitr:
+  opts_chunk:
+    out.width: "90%"
+    out.height: "90%"
+    fig-align: center
 highlight-style: a11y
 resources:
   - demo.pdf
