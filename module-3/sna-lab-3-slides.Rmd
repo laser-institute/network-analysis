@@ -352,7 +352,7 @@ Our third SNA learning lab is inspired by the [#commoncore Project](https://www.
 
 .panel[.panel-name[Questions]
 
-the central question guiding the #COMMONCORE Project was:
+The central question guiding the #COMMONCORE Project was:
 
 > How are social media-enabled social networks changing the discourse in American politics that produces and sustains education policy?
 

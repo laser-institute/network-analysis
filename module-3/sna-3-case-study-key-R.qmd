@@ -1,5 +1,5 @@
 ---
-title: 'Components, Cliques, & Key Actors'
+title: 'Hashtag Common Core'
 subtitle: "SNA Module 3: Case Study Key"
 author: "LASER Institute"
 date: today 

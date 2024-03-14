@@ -1,0 +1,476 @@
+---
+title: "Density, Reciprocity, & Centrality"
+subtitle: "SNA Module 2: Code-Along"
+format:
+  revealjs: 
+    slide-number: c/t
+    progress: true
+    chalkboard: 
+      buttons: false
+    preview-links: auto
+    logo: img/LASERLogoB.png
+    #theme: Cosmo
+    theme: [default, css/laser.scss]
+    width: 1920
+    height: 1080
+    margin: 0.05
+    footer: <a href=https://www.go.ncsu.edu/laser-institute>go.ncsu.edu/laser-institute
+highlight-style: a11y
+resources:
+  - demo.pdf
+bibliography: lit/references.bib
+editor: visual
+---
+
+## Overview
+
+1.  **Prepare**: Introduce the guiding study and {igraph} package.
+
+2.  **Wrangle**: Revisit the {readr} and {tidygraph} packages to import and prepare edge and node lists.
+
+3.  **Explore**: Calculate a range of network-level measures to describe and compare collaboration networks over time.
+
+4.  **Model**: Introduce how modeling can was used to examine MOOC-Ed discussion networks.
+
+5.  **Communicate**: Briefly examine how these measure can be reported.
+
+::: notes
+**Speaker Notes:**
+:::
+
+# Prepare
+
+Guiding Research & Network Packages
+
+```{r, echo=FALSE, results='hide', message=FALSE, warning=FALSE}
+
+
+```
+
+## Guiding Study
+
+::: panel-tabset
+## Context
+
+::: columns
+::: {.column width="70%"}
+This mixed-methods case study used both SNA and qualitative methods to better understand peer support in MOOC-Eds through an examination of the characteristics, mechanisms, and outcomes of peer networks.
+:::
+
+::: {.column width="30%"}
+![Behavioral vs. Cognitive Classroom Friendships [@kellogg2014social]](img/irrodl-article.png){width="70%"}
+:::
+:::
+
+## Questions
+
+This study involves **quantifying and visualizing the ties and overall structure** of informal networks to answer the following research questions:
+
+1.  What are the patterns of peer interaction and the structure of peer networks that emerge over the course of a MOOC-Ed?
+
+2.  To what extent do participant and network attributes (e.g., homophily, reciprocity, transitivity) account for the structure of these networks?
+
+3.  To what extent do these networks result in the co-construction of new knowledge?
+
+## Data
+
+-   **MOOC-Ed registration form.** All participants completed a registration form for each MOOC-Ed course. The registration form consists of self-reported demographic data, including information related to their professional role and work setting, years of experience in education, and personal learning goals.
+
+-   **MOOC-Ed discussion forums.** All peer interaction, including peer discussion, feedback, and reactions (e.g., likes), take place within the forum area of MOOC-Eds, which are powered by Vanilla Forums.
+
+## Findings
+
+-   Most ties between educators consisted of a single communication and a general tendency for an individual’s responses to be distributed evenly among peers.
+
+-   Measures of network reciprocity were fairly similar across the two MOOC-Eds, despite the size and varied composition of educators in each network.
+
+-   Reciprocators made up the largest proportion of educators in both courses
+
+-   Significant effects were found for the relational mechanism of reciprocity, but not for a popularity effect.
+:::
+
+::: notes
+**Speaker Notes:**
+:::
+
+## Load Packages
+
+::: panel-tabset
+### R Libraries
+
+Let's start by creating a new R script and loading the following packages introduced in the previous module:
+
+```{r}
+library(janitor)
+library(tidyverse)
+library(tidygraph)
+library(ggraph)
+library(igraph)
+```
+
+```{r load-libraries, echo=TRUE, message=FALSE}
+library(janitor)
+library(tidyverse)
+library(tidygraph)
+library(ggraph)
+
+# You may have to install this package if it is not listed in your packages pane.
+# install.packages(tidyverse) 
+```
+
+### Network Packages
+
+::: columns
+::: {.column width="80%"}
+The {igraph} package and its collection of network analysis tools provide pain-free implementation of graph algorithms fast handling of large graphs, with millions of vertices and edges.
+
+<br>
+
+Both {tidygraph} and {ggraph} used in the previous lab depend heavily on the {igraph} package.\
+:::
+
+::: {.column width="20%"}
+![](img/igraph.png)
+
+[igraph](https://igraph.org)
+:::
+:::
+
+### Your Turn
+
+Load the {igraph} package.
+
+```{r, echo=TRUE}
+# YOUR CODE HERE
+#
+#
+```
+:::
+
+# Wrangle
+
+Intro to Network Data Structures
+
+## Import Data
+
+::: panel-tabset
+### read_csv
+
+Let's import two .csv files from our data folder named `dlt1-edges.csv` and `dlt1-nodes.csv` using the `read_csv()` function from the {readr} package:
+
+```{r}
+#| echo: true
+
+dlt1_ties <- read_csv("data/dlt1-edges.csv", 
+                      col_types = cols(Sender = col_character(), 
+                                       Receiver = col_character(), 
+                                       `Category Text` = col_skip(), 
+                                       `Comment ID` = col_character(), 
+                                       `Discussion ID` = col_character()
+                                       )
+                      ) |>
+  clean_names()
+
+dlt1_actors <- read_csv("data/dlt1-nodes.csv", 
+                   col_types = cols(UID = col_character(), 
+                                    Facilitator = col_character(), 
+                                    expert = col_character(), 
+                                    connect = col_character())) |>
+  clean_names()
+```
+
+### Inspect Data
+
+Using your R script or the console or another prefered means, take a look at the data file we just imported:
+
+``` r
+# ADD CODE BELOW
+# 
+#
+```
+
+### Discuss
+
+Think about the questions below and be prepared to share your response:
+
+1.  What type of data structure is used to store this network data?
+
+2.  What do you think the rows and columns represent?
+
+3.  What do the values in each cell represent?
+:::
+
+## Create Network Object
+
+::: panel-tabset
+### Convert Edgelist
+
+Before we can begin analyzing our network data in R, we need to convert to a network class R object. Run the following code in your R script:
+
+```{r}
+#| echo: true
+dlt1_network <- tbl_graph(edges = dlt1_ties,
+                          nodes = dlt1_actors,
+                          node_key = "uid",
+                          directed = TRUE)
+```
+
+### View Network
+
+::: columns
+::: {.column width="50%"}
+In your R script, use the `autograph()` function that we learned about in the previous module to take a quick look at our `dlt1_network`.
+
+``` r
+# YOUR TURN
+#
+#
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+autograph(dlt1_network)
+```
+
+You should see something like this.
+:::
+:::
+
+### View Stats
+
+Now type the name of network object, `dlt1_network` and run the code:
+
+``` r
+# YOUR TURN
+# 
+#
+```
+
+### Discuss
+
+Think about the questions below:
+
+1.  What size of the DLT 1 MOOC-ED network?
+
+2.  What else do you notice about this network?
+
+3.  What questions, if any, do have about this network?
+:::
+
+::: notes
+**Speaker Notes:**
+:::
+
+# Explore
+
+Network Density, Centrality, & Reciprocity
+
+::: notes
+**Speaker Notes:**
+:::
+
+## Network Density
+
+::: panel-tabset
+### Definition
+
+::: columns
+::: {.column width="50%"}
+In its simplest form, network density is **the ratio of existing ties in a network to all possible ties** that could potentially exist, regardless of whether they do.
+:::
+
+::: {.column width="50%"}
+![Which of these two networks has a higher density?](img/density.jpeg)
+:::
+:::
+
+### Significance
+
+In education, dense networks have been associated with:
+
+-   community health
+
+-   flow of resources within a network
+
+-   student achievement
+
+For better or worse, **dense networks reinforce prevailing norms** and behaviors and insulate one from outside influences [@carolan2014].
+
+### Implementation
+
+The {igraph} package has a simple `edge_density()` function for calculating network density.
+
+<br>
+
+Let's apply to our `dlt1_network`:
+
+```{r}
+#| echo: true 
+edge_density(dlt1_network)
+```
+
+How would you interpret this measure?
+
+### Discuss
+
+::: columns
+::: {.column width="50%"}
+We know there 2529 edges in the DLT 1 network (pictured right), but **how many possible edges** could there be?
+
+<br>
+
+**Hint**: The number of all possible edges in a directed network is V(V-1) where V is the \# of vertices.
+:::
+
+::: {.column width="50%"}
+```{r, examine-density, strip.white=TRUE, echo=FALSE}
+autograph(dlt1_network) +
+  theme_graph()
+```
+:::
+:::
+:::
+
+::: notes
+**Speaker Notes:**
+:::
+
+## Reciprocity
+
+::: panel-tabset
+### Definition
+
+::: columns
+::: {.column width="50%"}
+Reciprocity is the **degree to which actors in a directed network select one another** or the mutuality of the network's ties
+
+<br>
+
+1.  Which of these two networks is directed?
+
+2.  Which ties are reciprocated?
+:::
+
+::: {.column width="50%"}
+![](img/reciprocated-ties.png)
+:::
+:::
+
+### Significance
+
+-   This property is important because it reveals the direction through which resources such as help, advice, and support flow.
+
+-   It also indicates the network's stability, as reciprocated ties tend to be more stable over time.
+
+-   Networks with high reciprocity may be more “equal,” while those with lower reciprocity may be more hierarchical.
+
+-   In educational contexts, reciprocity has been associated with problem solving, knowledge exchange, risky behavior and drug use.
+
+### Implementation
+
+::: columns
+::: {.column width="50%"}
+At the network-level, reciprocity is a measure of the likelihood of vertices in a directed network to be mutually linked.
+
+The {igraph} package has a simple `reciprocity()` function for calculating network density.
+:::
+
+::: {.column width="50%"}
+Let's apply to our `dlt1_network`:
+
+<br>
+
+```{r}
+#| echo: true
+reciprocity(dlt1_network)
+```
+
+<br>
+
+How would you interpret this measure?
+:::
+:::
+:::
+
+::: notes
+**Speaker Notes:**
+:::
+
+## Network Centraliztion
+
+::: panel-tabset
+### Definition
+
+::: columns
+::: {.column width="50%"}
+A key structural property of complete networks is the concept of centralization, or **the extent to which relations are focused on one or a small set of actors**.
+:::
+
+::: {.column width="50%"}
+![Which of these two networks is more centralized?](img/density.jpeg)
+:::
+:::
+
+### Significance
+
+-   A network's centralization affects the process through which resources flow through the network.
+
+-   Central actors likely wield a disproportionate amount of influence on the network.
+
+-   High centralization provides fewer actors with more power and control.
+
+### Implementation
+
+::: columns
+::: {.column width="50%"}
+The {igraph} package has a simple `centr_degree()` function for calculating degree centrality.
+
+**Degree** is the most common measure of centrality and is simply the total number of edges connected to a particular node.
+:::
+
+::: {.column width="50%"}
+Let's apply to our dlt1_network:
+
+<br>
+
+```{r}
+#| echo: true
+#| eval: false
+centr_degree(dlt1_network)
+```
+:::
+:::
+
+### Output
+
+Let's interpret this output!
+
+```{r}
+centr_degree(dlt1_network)
+```
+:::
+
+::: notes
+**Speaker Notes:**
+:::
+
+## What's Next?
+
+-   SNA Case Study: A Tale of Two MOOCs
+
+-   Guiding Study: A Social Network Perspective on PEER Supported Learning in MOOC-Eds [@kellogg2014social]
+
+## Acknowledgements
+
+::: columns
+::: {.column width="20%"}
+![](img/nsf.jpg){fig-align="center" width="80%"}
+:::
+
+::: {.column width="80%"}
+This work was supported by the National Science Foundation grants DRL-2025090 and DRL-2321128 (ECR:BCSER). Any opinions, findings, and conclusions expressed in this material are those of the authors and do not necessarily reflect the views of the National Science Foundation.
+:::
+:::
+
+## References
