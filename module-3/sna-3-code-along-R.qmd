@@ -1,5 +1,5 @@
 ---
-title: "Components, Cliques, & Key-Actors"
+title: "Components, Cliques, and Key-Actors"
 subtitle: "SNA Module 3: Code-Along"
 format:
   revealjs: 
@@ -24,15 +24,15 @@ editor: visual
 
 ## Overview
 
-1.  **Prepare**: Introduce the guiding study and {igraph} package.
+1.  **Prepare**: Review the [#COMMONCORE](https://www.hashtagcommoncore.com) project including questions, data, and key findings.
 
-2.  **Wrangle**: Revisit the {readr} and {tidygraph} packages to import and prepare edge and node lists.
+2.  **Wrangle**: Revisit basic techniques for manipulating, cleaning, transforming, and merging network data.
 
-3.  **Explore**: Calculate a range of network-level measures to describe and compare collaboration networks over time.
+3.  **Explore**: Calculate some key measures for individuals in our network and illustrate key actors through network visualization.
 
-4.  **Model**: Introduce how modeling can was used to examine MOOC-Ed discussion networks.
+4.  **Model**: Introduce community detection algorithms for identifying groups.
 
-5.  **Communicate**: Briefly examine how these measure can be reported.
+5.  **Communicate**: Discuss website as a format for sharing findings.
 
 ::: notes
 **Speaker Notes:**
@@ -40,7 +40,7 @@ editor: visual
 
 # Prepare
 
-Guiding Research & Inspect Network
+Introduction to #COMMONCORE
 
 ```{r, echo=FALSE, results='hide', message=FALSE, warning=FALSE}
 
@@ -50,7 +50,7 @@ Guiding Research & Inspect Network
 ## Guiding Study
 
 ::: panel-tabset
-## Context
+### Context
 
 ::: columns
 ::: {.column width="70%"}
@@ -62,19 +62,19 @@ Our third SNA learning lab is inspired by the [#commoncore Project](https://www.
 :::
 :::
 
-## Questions
+### Questions
 
 The central question guiding the #COMMONCORE Project was:
 
 > How are social media-enabled social networks changing the discourse in American politics that produces and sustains education policy?
 
-## Data
+### Data
 
 -   The authors used Twitter's (now X's, now sadly defunct) Application Programming Interface (API) based on tweets using specified keywords, keyphrases, or hashtags and then restricted their analysis to the following terms: commoncore, ccss and stopcommoncore.
 
 -   They also captured Twitter profile names, or user names, as well as the tweets, retweets, and mentions posted.
 
-## Findings
+### Findings
 
 -   In Act 1, The Giant Network, the authors **identified five major sub-communities**, or factions, including: (1) supporters, (2) opponents inside education, and (3) opponents outside of education.
 
@@ -85,15 +85,18 @@ The central question guiding the #COMMONCORE Project was:
 **Speaker Notes:**
 :::
 
-## Load Packages
+# Wrangle
+
+Import, Inspect, and Tidy Network Data
+
+## Inspect Data
 
 ::: panel-tabset
-### R Libraries
+### Load Libraries
 
 Let's start by creating a new R script and loading the following packages introduced in previous modules:
 
 ```{r}
-library(janitor)
 library(tidyverse)
 library(tidygraph)
 library(ggraph)
@@ -101,351 +104,56 @@ library(igraph)
 ```
 
 ```{r load-libraries, echo=TRUE, message=FALSE}
-library(janitor)
 library(tidyverse)
 library(tidygraph)
 library(ggraph)
+library(igraph)
 
 # You may have to install this package if it is not listed in your packages pane.
 # install.packages(tidyverse) 
 ```
 
-### Network Packages
+### Import Data
 
-::: columns
-::: {.column width="80%"}
-The {igraph} package and its collection of network analysis tools provide pain-free implementation of graph algorithms fast handling of large graphs, with millions of vertices and edges.
-
-<br>
-
-Both {tidygraph} and {ggraph} used in the previous lab depend heavily on the {igraph} package.\
-:::
-
-::: {.column width="20%"}
-![](img/igraph.png)
-
-[igraph](https://igraph.org)
-:::
-:::
-
-### Your Turn
-
-Load the {igraph} package.
-
-```{r, echo=TRUE}
-# YOUR CODE HERE
-#
-#
-```
-:::
-
-# Wrangle
-
-Intro to Network Data Structures
-
-## Import Data
-
-::: panel-tabset
-### read_csv
-
-Let's import two .csv files from our data folder named `dlt1-edges.csv` and `dlt1-nodes.csv` using the `read_csv()` function from the {readr} package:
+Run the following code to use the `read_csv()` function from the {readr} package to read the `ccss-tweets-fresh.csv` file from the data folder and assign to a new data frame named `ccss_tweets`:
 
 ```{r}
-#| echo: true
+ccss_ties <- read_csv("data/ccss-edgelist.csv")
+ccss_nodes <- read_csv("data/ccss-nodelist.csv")
+```
 
-dlt1_ties <- read_csv("data/dlt1-edges.csv", 
-                      col_types = cols(Sender = col_character(), 
-                                       Receiver = col_character(), 
-                                       `Category Text` = col_skip(), 
-                                       `Comment ID` = col_character(), 
-                                       `Discussion ID` = col_character()
-                                       )
-                      ) |>
-  clean_names()
-
-dlt1_actors <- read_csv("data/dlt1-nodes.csv", 
-                   col_types = cols(UID = col_character(), 
-                                    Facilitator = col_character(), 
-                                    expert = col_character(), 
-                                    connect = col_character())) |>
-  clean_names()
+``` r
+ccss_ties <- read_csv("module-1/data/ccss-edgelist.csv")
+ccss_nodes <- read_csv("module-1/data/ccss-nodelist.csv")
 ```
 
 ### Inspect Data
 
-Using your R script or the console or another prefered means, take a look at the data file we just imported:
+Now let's take a look at the data file we just imported using the View() function or another function of choice you may have learned in the Foundations Labs:
+
+<br>
 
 ``` r
-# ADD CODE BELOW
-# 
-#
+view(ccss_ties)
+view(ccss_nodes)
 ```
 
 ### Discuss
 
 Think about the questions below and be prepared to share your response:
 
-1.  What type of data structure is used to store this network data?
+1.  What do you think the rows and columns in each file represent?
 
-2.  What do you think the rows and columns represent?
+2.  What about the values in each cell represent?
 
-3.  What do the values in each cell represent?
+3.  What else do you notice about the data?
+
+4.  What questions do you have?
 :::
 
-## Create Network Object
-
-::: panel-tabset
-### Convert Edgelist
-
-Before we can begin analyzing our network data in R, we need to convert to a network class R object. Run the following code in your R script:
-
-```{r}
-#| echo: true
-dlt1_network <- tbl_graph(edges = dlt1_ties,
-                          nodes = dlt1_actors,
-                          node_key = "uid",
-                          directed = TRUE)
-```
-
-### View Network
-
-::: columns
-::: {.column width="50%"}
-In your R script, use the `autograph()` function that we learned about in the previous module to take a quick look at our `dlt1_network`.
-
-``` r
-# YOUR TURN
-#
-#
-```
-:::
-
-::: {.column width="50%"}
-```{r}
-autograph(dlt1_network)
-```
-
-You should see something like this.
-:::
-:::
-
-### View Stats
-
-Now type the name of network object, `dlt1_network` and run the code:
-
-``` r
-# YOUR TURN
-# 
-#
-```
-
-### Discuss
-
-Think about the questions below:
-
-1.  What size of the DLT 1 MOOC-ED network?
-
-2.  What else do you notice about this network?
-
-3.  What questions, if any, do have about this network?
-:::
-
-::: notes
-**Speaker Notes:**
-:::
+## Tidy Data
 
 # Explore
-
-Network Density, Centrality, & Reciprocity
-
-::: notes
-**Speaker Notes:**
-:::
-
-## Network Density
-
-::: panel-tabset
-### Definition
-
-::: columns
-::: {.column width="50%"}
-In its simplest form, network density is **the ratio of existing ties in a network to all possible ties** that could potentially exist, regardless of whether they do.
-:::
-
-::: {.column width="50%"}
-![Which of these two networks has a higher density?](img/density.jpeg)
-:::
-:::
-
-### Significance
-
-In education, dense networks have been associated with:
-
--   community health
-
--   flow of resources within a network
-
--   student achievement
-
-For better or worse, **dense networks reinforce prevailing norms** and behaviors and insulate one from outside influences [@carolan2014].
-
-### Implementation
-
-The {igraph} package has a simple `edge_density()` function for calculating network density.
-
-<br>
-
-Let's apply to our `dlt1_network`:
-
-```{r}
-#| echo: true 
-edge_density(dlt1_network)
-```
-
-How would you interpret this measure?
-
-### Discuss
-
-::: columns
-::: {.column width="50%"}
-We know there 2529 edges in the DLT 1 network (pictured right), but **how many possible edges** could there be?
-
-<br>
-
-**Hint**: The number of all possible edges in a directed network is V(V-1) where V is the \# of vertices.
-:::
-
-::: {.column width="50%"}
-```{r, examine-density, strip.white=TRUE, echo=FALSE}
-autograph(dlt1_network) +
-  theme_graph()
-```
-:::
-:::
-:::
-
-::: notes
-**Speaker Notes:**
-:::
-
-## Reciprocity
-
-::: panel-tabset
-### Definition
-
-::: columns
-::: {.column width="50%"}
-Reciprocity is the **degree to which actors in a directed network select one another** or the mutuality of the network's ties
-
-<br>
-
-1.  Which of these two networks is directed?
-
-2.  Which ties are reciprocated?
-:::
-
-::: {.column width="50%"}
-![](img/reciprocated-ties.png)
-:::
-:::
-
-### Significance
-
--   This property is important because it reveals the direction through which resources such as help, advice, and support flow.
-
--   It also indicates the network's stability, as reciprocated ties tend to be more stable over time.
-
--   Networks with high reciprocity may be more “equal,” while those with lower reciprocity may be more hierarchical.
-
--   In educational contexts, reciprocity has been associated with problem solving, knowledge exchange, risky behavior and drug use.
-
-### Implementation
-
-::: columns
-::: {.column width="50%"}
-At the network-level, reciprocity is a measure of the likelihood of vertices in a directed network to be mutually linked.
-
-The {igraph} package has a simple `reciprocity()` function for calculating network density.
-:::
-
-::: {.column width="50%"}
-Let's apply to our `dlt1_network`:
-
-<br>
-
-```{r}
-#| echo: true
-reciprocity(dlt1_network)
-```
-
-<br>
-
-How would you interpret this measure?
-:::
-:::
-:::
-
-::: notes
-**Speaker Notes:**
-:::
-
-## Network Centraliztion
-
-::: panel-tabset
-### Definition
-
-::: columns
-::: {.column width="50%"}
-A key structural property of complete networks is the concept of centralization, or **the extent to which relations are focused on one or a small set of actors**.
-:::
-
-::: {.column width="50%"}
-![Which of these two networks is more centralized?](img/density.jpeg)
-:::
-:::
-
-### Significance
-
--   A network's centralization affects the process through which resources flow through the network.
-
--   Central actors likely wield a disproportionate amount of influence on the network.
-
--   High centralization provides fewer actors with more power and control.
-
-### Implementation
-
-::: columns
-::: {.column width="50%"}
-The {igraph} package has a simple `centr_degree()` function for calculating degree centrality.
-
-**Degree** is the most common measure of centrality and is simply the total number of edges connected to a particular node.
-:::
-
-::: {.column width="50%"}
-Let's apply to our dlt1_network:
-
-<br>
-
-```{r}
-#| echo: true
-#| eval: false
-centr_degree(dlt1_network)
-```
-:::
-:::
-
-### Output
-
-Let's interpret this output!
-
-```{r}
-centr_degree(dlt1_network)
-```
-:::
-
-::: notes
-**Speaker Notes:**
-:::
 
 ## What's Next?
 
