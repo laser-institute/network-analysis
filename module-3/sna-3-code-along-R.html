@@ -504,19 +504,32 @@
 <section id="wrangle" class="title-slide slide level1 center">
 <h1>Wrangle</h1>
 <p>Import, Inspect, and Tidy Network Data</p>
+<aside class="notes">
+<p><strong>Speaker Notes:</strong></p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="inspect-data" class="slide level2">
 <h2>Inspect Data</h2>
 <div class="panel-tabset">
-<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Load Libraries</a></li><li><a href="#tabset-2-2">Import Data</a></li><li><a href="#tabset-2-3">Inspect Data</a></li><li><a href="#tabset-2-4">Inspect Data</a></li><li><a href="#tabset-2-5">Discuss</a></li></ul>
+<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Load Libraries</a></li><li><a href="#tabset-2-2">Import Data</a></li><li><a href="#tabset-2-3">Inspect Data</a></li><li><a href="#tabset-2-4">Discuss</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1">
 <p>Let’s start by creating a new R script and loading the following packages introduced in previous modules:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href=""></a><span class="fu">library</span>(tidygraph)</span>
-<span id="cb1-3"><a href=""></a><span class="fu">library</span>(ggraph)</span>
-<span id="cb1-4"><a href=""></a><span class="fu">library</span>(igraph)</span>
+<span id="cb1-2"><a href=""></a><span class="fu">library</span>(igraph)</span>
+<span id="cb1-3"><a href=""></a><span class="fu">library</span>(tidygraph)</span>
+<span id="cb1-4"><a href=""></a><span class="fu">library</span>(ggraph)</span>
 <span id="cb1-5"><a href=""></a></span>
 <span id="cb1-6"><a href=""></a><span class="co"># You may have to install this package if it is not listed in your packages pane.</span></span>
 <span id="cb1-7"><a href=""></a><span class="co"># install.packages(tidyverse) </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -534,11 +547,74 @@
 <span id="cb3-2"><a href=""></a><span class="fu">view</span>(ccss_nodes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="tabset-2-4">
-<p>Type the name of of</p>
-</div>
-<div id="tabset-2-5">
+<p>Think about the questions below and be prepared to share your response:</p>
 <ol type="1">
-<li></li>
+<li><p>What do you think the rows and columns in each file represent?</p></li>
+<li><p>What about the values in each cell represent?</p></li>
+<li><p>What else do you notice about the data?</p></li>
+<li><p>What questions do you have?</p></li>
+</ol>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p><strong>Speaker Notes:</strong></p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="tidy-data" class="slide level2">
+<h2>Tidy Data</h2>
+<div class="panel-tabset">
+<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">tbl_graph() function</a></li><li><a href="#tabset-3-2">Inspect Graph</a></li><li><a href="#tabset-3-3">View Sociogram</a></li><li><a href="#tabset-3-4">Output</a></li><li><a href="#tabset-3-5">Discuss</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1">
+<p>The tbl_graph() function creates a special network data structure called a “tidy graph” that combines our nodes and edges into a single R object. Run the following code in your R script:</p>
+</div>
+<div id="tabset-3-2">
+<p>Using your R script, type the name of network object we just created and run the code to produce the output on the next tab:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="co"># YOUR TURN</span></span>
+<span id="cb4-2"><a href=""></a><span class="co">#</span></span>
+<span id="cb4-3"><a href=""></a><span class="co">#</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-3-3">
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a><span class="fu">ggraph</span>(ccss_network, <span class="at">layout =</span> <span class="st">"fr"</span>) <span class="sc">+</span> </span>
+<span id="cb5-2"><a href=""></a>  <span class="fu">geom_edge_link</span>(<span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">length =</span> <span class="fu">unit</span>(<span class="dv">1</span>, <span class="st">'mm'</span>)), </span>
+<span id="cb5-3"><a href=""></a>                 <span class="at">end_cap =</span> <span class="fu">circle</span>(<span class="dv">3</span>, <span class="st">'mm'</span>),</span>
+<span id="cb5-4"><a href=""></a>                 <span class="at">start_cap =</span> <span class="fu">circle</span>(<span class="dv">3</span>, <span class="st">'mm'</span>),</span>
+<span id="cb5-5"><a href=""></a>                 <span class="at">alpha =</span> .<span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb5-6"><a href=""></a>  <span class="fu">geom_node_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> <span class="fu">local_size</span>())) <span class="sc">+</span></span>
+<span id="cb5-7"><a href=""></a>  <span class="fu">geom_node_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> actors,</span>
+<span id="cb5-8"><a href=""></a>                     <span class="at">size =</span> <span class="fu">local_size</span>()),</span>
+<span id="cb5-9"><a href=""></a>                 <span class="at">repel=</span><span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb5-10"><a href=""></a>  <span class="fu">theme_graph</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-3-4">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="sna-3-code-along-R_files/figure-revealjs/unnamed-chunk-5-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-3-5">
+<p>Think about the questions below:</p>
+<ol type="1">
+<li><p>What is size of our CSSS twitter network?</p></li>
+<li><p>Does our network contain any obvious groups?</p></li>
+<li><p>What insights have gained about out network so far?</p></li>
+<li><p>What questions do have about have about out network so far?</p></li>
 </ol>
 </div>
 </div>
@@ -547,13 +623,244 @@
 <section>
 <section id="explore" class="title-slide slide level1 center">
 <h1>Explore</h1>
+<p>Components, Cliques, &amp; Key Actors</p>
+<aside class="notes">
+<p><strong>Speaker Notes:</strong></p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="components" class="slide level2">
+<h2>Components</h2>
+<div class="panel-tabset">
+<ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">Definition</a></li><li><a href="#tabset-4-2">Quick Look</a></li><li><a href="#tabset-4-3">Output</a></li><li><a href="#tabset-4-4">Implementation</a></li><li><a href="#tabset-4-5">Interpret</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1">
+<p>One of the most basic ways researchers can characterize a network’s substructure is to identify its components.</p>
+<p><br></p>
+<blockquote>
+<p>A <strong>component</strong> is a connected subgraph in which there is a path between all pairs of nodes.</p>
+</blockquote>
+<p><br></p>
+<p>Recall from our output above that our directed “multigraph” had 13 components.</p>
+</div>
+<div id="tabset-4-2">
+<p>A weak component, as illustrated by the graph generated by the code below, ignores the direction of a tie:</p>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="fu">autograph</span>(ccss_network)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<p>Strong components do not. In other words:</p>
+<blockquote>
+<p><strong>Strong components</strong> consist of nodes that are connected to one another via both directions along the path that connects them.</p>
+</blockquote>
+</div>
+<div id="tabset-4-3">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="sna-3-code-along-R_files/figure-revealjs/unnamed-chunk-6-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-4-4">
+<p>The {igraph} package has a simple <code>components()</code> function for identifying the number of components in a network, the size of each component, and which actors belong to each.</p>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="fu">components</span>(ccss_network, <span class="at">mode =</span> <span class="fu">c</span>(<span class="st">"strong"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<p>How many “strong” components are in our network?</p>
+</div>
+<div id="tabset-4-5">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>$membership
+ [1] 91 92 86 87 90 89 88 84 85 81 83 82 73 80 79 78 77 76 75 74 71 72 70 69 67
+[26] 68 62 66 65 64 63 59 61 60 56 57 58  5 55 54 53 52 51 50 49 48 47 46 45 44
+[51] 43 42 41 40 39 38 37 36 35 34 33 32 31 30 29 28 27 26 25 24 23 22 21 20 19
+[76] 18 17 16 15 14 13 12 11 10  9  8  7  6  3  4  1  2
 
+$csize
+ [1] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+[39] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+[77] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+
+$no
+[1] 92</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="cliques" class="slide level2">
+<h2>Cliques</h2>
+<div class="panel-tabset">
+<ul id="tabset-5" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-5-1">Definition</a></li><li><a href="#tabset-5-2">Clique Number</a></li><li><a href="#tabset-5-3">Implementation</a></li><li><a href="#tabset-5-4">Interpret</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1">
+<p>Examining cliques is one bottom-up approach that reveals how groups are distributed in the network and which actors belong to which groups.</p>
+<p><br></p>
+<blockquote>
+<p>A clique is a maximally connected subgraph of nodes (&gt; 2) in which all nodes are connected to each other.</p>
+</blockquote>
+</div>
+<div id="tabset-5-2">
+<p>Similar to our component analysis, the {igraph} function has a super simple <code>clique_num()</code> function for identifying number of completely connected subgroups in a network:</p>
+<p><br></p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a><span class="fu">clique_num</span>(ccss_network)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><br></p>
+<p>As you probably saw above, the <code>clique_num()</code> function does not take into account directionality of our ties. It looks like we have 3 clusters of at least 3 actors that all have ties to one another.</p>
+</div>
+<div id="tabset-5-3">
+<p>The {igraph} function also has a simple <code>cliques()</code> function for identifying members who belong to the same group.</p>
+<p><br></p>
+<p>Let’s see if there are any cliques that contain a minimum of 3 nodes?</p>
+<p><br></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="fu">cliques</span>(ccss_network, <span class="at">min =</span> <span class="dv">3</span>, <span class="at">max =</span> <span class="cn">NULL</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-5-4">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1]]
++ 3/92 vertices, from 48946af:
+[1] 35 36 37
+
+[[2]]
++ 3/92 vertices, from 48946af:
+[1] 3 4 7
+
+[[3]]
++ 3/92 vertices, from 48946af:
+[1] 3 4 6
+
+[[4]]
++ 3/92 vertices, from 48946af:
+[1] 3 4 5</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="key-actors" class="slide level2">
+<h2>Key Actors</h2>
+<div class="panel-tabset">
+<ul id="tabset-6" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-6-1">Degree</a></li><li><a href="#tabset-6-2">Activate Nodes</a></li><li><a href="#tabset-6-3">View Network</a></li><li><a href="#tabset-6-4">Your Turn</a></li><li><a href="#tabset-6-5">Answer</a></li></ul>
+<div class="tab-content">
+<div id="tabset-6-1">
+<p>As we learned in our previous lab, a key structural property of networks is the concept of centralization.</p>
+<p><br></p>
+<p>One of the most common descriptives reported in network studies and a primary measure of centralization is <strong>degree</strong>.</p>
+<p><br></p>
+<blockquote>
+<p><strong>Degree</strong> is the number of ties to and from an ego. In a directed network, in-degree is the number of ties received, whereas out-degree is the number of ties sent.</p>
+</blockquote>
+</div>
+<div id="tabset-6-2">
+<p>The {tidygraph} package has an aptly named function <code>centrality_degree()</code> for calculating degree, in-degree, and out-degree for all actors in a network.</p>
+<p><br></p>
+<p>To use it, we’ll need to <code>activate()</code> our <code>nodes</code> and create a new node-level variable using <code>mutate()</code> from the {dplyr} package:</p>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a>ccss_network <span class="ot">&lt;-</span> ccss_network <span class="sc">|&gt;</span></span>
+<span id="cb12-2"><a href=""></a>  <span class="fu">activate</span>(nodes) <span class="sc">|&gt;</span></span>
+<span id="cb12-3"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">in_degree =</span> <span class="fu">centrality_degree</span>(<span class="at">mode =</span> <span class="st">"in"</span>),</span>
+<span id="cb12-4"><a href=""></a>         <span class="at">out_degree =</span> <span class="fu">centrality_degree</span>(<span class="at">mode =</span> <span class="st">"out"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-6-3">
+<p>Let’s take a look at our network now.</p>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a>ccss_network</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tbl_graph: 92 nodes and 289 edges
+#
+# A directed multigraph with 13 components
+#
+# A tibble: 92 × 3
+  actors          in_degree out_degree
+  &lt;chr&gt;               &lt;dbl&gt;      &lt;dbl&gt;
+1 AlexiosAsText           0          1
+2 MaggieEThornton         1          0
+3 tx_granny               0          4
+4 BanjoTanJoe             1          3
+5 MillennialOther         2          0
+6 Richard_Harambe         2          0
+# ℹ 86 more rows
+#
+# A tibble: 289 × 4
+   from    to created_at          text                                          
+  &lt;int&gt; &lt;int&gt; &lt;dttm&gt;              &lt;chr&gt;                                         
+1     1     2 2021-11-07 15:22:14 @MaggieEThornton If enough were gathered coul…
+2     3     4 2021-11-06 19:29:41 @MillennialOther @Richard_Harambe @RepMikeJoh…
+3     3     5 2021-11-06 19:29:41 @MillennialOther @Richard_Harambe @RepMikeJoh…
+# ℹ 286 more rows</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-6-4">
+<p>Using your R script, see if you can figure out which twitter user received the most replies/mentions (transceivers) and which user replied/mentioned to the most users (transmitters):</p>
+<p><br></p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a><span class="co"># YOUR TURN</span></span>
+<span id="cb15-2"><a href=""></a><span class="co">#</span></span>
+<span id="cb15-3"><a href=""></a><span class="co">#</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><br></p>
+<p>💡<strong>Hint</strong>: Consider using the activate() function again along with standard {dpylr} functions for arranging columns by order.</p>
+</div>
+<div id="tabset-6-5">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a>ccss_network <span class="sc">|&gt;</span></span>
+<span id="cb16-2"><a href=""></a>  <span class="fu">activate</span>(nodes) <span class="sc">|&gt;</span></span>
+<span id="cb16-3"><a href=""></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(out_degree))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tbl_graph: 92 nodes and 289 edges
+#
+# A directed multigraph with 13 components
+#
+# A tibble: 92 × 3
+  actors          in_degree out_degree
+  &lt;chr&gt;               &lt;dbl&gt;      &lt;dbl&gt;
+1 rdsathene               0        246
+2 waltduro                0          7
+3 mindfuldesserts         0          6
+4 tx_granny               0          4
+5 namaikatikura           0          4
+6 BanjoTanJoe             1          3
+# ℹ 86 more rows
+#
+# A tibble: 289 × 4
+   from    to created_at          text                                          
+  &lt;int&gt; &lt;int&gt; &lt;dttm&gt;              &lt;chr&gt;                                         
+1    13    18 2021-11-07 15:22:14 @MaggieEThornton If enough were gathered coul…
+2     4     6 2021-11-06 19:29:41 @MillennialOther @Richard_Harambe @RepMikeJoh…
+3     4    19 2021-11-06 19:29:41 @MillennialOther @Richard_Harambe @RepMikeJoh…
+# ℹ 286 more rows</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="whats-next" class="slide level2">
 <h2>What’s Next?</h2>
 <ul>
-<li><p>SNA Case Study: A Tale of Two MOOCs</p></li>
-<li><p>Guiding Study: A Social Network Perspective on PEER Supported Learning in MOOC-Eds <span class="citation" data-cites="kellogg2014social">(<a href="#/references" role="doc-biblioref" onclick="">Kellogg, Booth, and Oliver 2014</a>)</span></p></li>
+<li><p><strong>SNA Case Study</strong>: Hashtag Common Core</p></li>
+<li><p><strong>Guiding Study</strong>: <a href="https://www.hashtagcommoncore.com">The #COMMOCORE Project</a> <span class="citation" data-cites="supovitz2017commoncore">(<a href="#/references" role="doc-biblioref" onclick="">Supovitz et al. 2017</a>)</span></p></li>
 </ul>
 </section>
 <section id="acknowledgements" class="slide level2">
@@ -579,11 +886,8 @@
 </a></div><a href="https://www.go.ncsu.edu/laser-institute">
 </a></div><a href="https://www.go.ncsu.edu/laser-institute">
 </a><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list"><a href="https://www.go.ncsu.edu/laser-institute">
-</a><div id="ref-kellogg2014social" class="csl-entry" role="listitem"><a href="https://www.go.ncsu.edu/laser-institute">
-Kellogg, Shaun, Sherry Booth, and Kevin Oliver. 2014. <span>“A Social Network Perspective on Peer Supported Learning in MOOCs for Educators.”</span> <em>International Review of Research in Open and Distributed Learning</em> 15 (5): 263–89. </a><a href="https://www.erudit.org/en/journals/irrodl/2014-v15-n5-irrodl04945/1065545ar.pdf">https://www.erudit.org/en/journals/irrodl/2014-v15-n5-irrodl04945/1065545ar.pdf</a>.
-</div>
-<div id="ref-supovitz2017commoncore" class="csl-entry" role="listitem">
-Supovitz, Jonathan, Alan J Daly, Miguel del Fresno, and Christian Kolouch. 2017. <span>“Commoncore Project.”</span> <em>Retrieved April</em> 3: 2019. <a href="https://www.hashtagcommoncore.com">https://www.hashtagcommoncore.com</a>.
+</a><div id="ref-supovitz2017commoncore" class="csl-entry" role="listitem"><a href="https://www.go.ncsu.edu/laser-institute">
+Supovitz, Jonathan, Alan J Daly, Miguel del Fresno, and Christian Kolouch. 2017. <span>“Commoncore Project.”</span> <em>Retrieved April</em> 3: 2019. </a><a href="https://www.hashtagcommoncore.com">https://www.hashtagcommoncore.com</a>.
 </div>
 </div>
 </section></section>
