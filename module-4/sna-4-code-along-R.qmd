@@ -1,6 +1,6 @@
 ---
-title: "Density, Reciprocity, & Centrality"
-subtitle: "SNA Module 2: Code-Along"
+title: "Intro to ERGMs"
+subtitle: "SNA Module 4: Code-Along"
 format:
   revealjs: 
     slide-number: c/t
@@ -16,6 +16,10 @@ format:
     margin: 0.05
     footer: <a href=https://www.go.ncsu.edu/laser-institute>go.ncsu.edu/laser-institute
 highlight-style: a11y
+knitr:
+  opts_chunk:
+    out.width: "90%"
+    fig-align: center
 resources:
   - demo.pdf
 bibliography: lit/references.bib
@@ -24,15 +28,15 @@ editor: visual
 
 ## Overview
 
-1.  **Prepare**: Introduce the guiding study and {igraph} package.
+1.  **Prepare**: A quick look at the study by Daly and Finnigan from whence our data was derived.
 
-2.  **Wrangle**: Revisit the {readr} and {tidygraph} packages to import and prepare edge and node lists.
+2.  **Wrangle**: Learn how to convert matrices into more workable formats like a familiar edge-list.
 
-3.  **Explore**: Calculate a range of network-level measures to describe and compare collaboration networks over time.
+3.  **Explore**: View some basic network stats and make a quick sociogram.
 
-4.  **Model**: Introduce how modeling can was used to examine MOOC-Ed discussion networks.
+4.  **Model**: Learn to fit and interpret a very basic ERGM.
 
-5.  **Communicate**: Briefly examine how these measure can be reported.
+5.  **Communicate**: Reflect on what we learned.
 
 ::: notes
 **Speaker Notes:**
@@ -40,152 +44,146 @@ editor: visual
 
 # Prepare
 
-Guiding Research & Network Packages
-
-```{r, echo=FALSE, results='hide', message=FALSE, warning=FALSE}
-
-
-```
+Guiding Research & the ERGM Package
 
 ## Guiding Study
 
 ::: panel-tabset
-## Context
+### Context
 
 ::: columns
 ::: {.column width="70%"}
-This mixed-methods case study used both SNA and qualitative methods to better understand peer support in MOOC-Eds through an examination of the characteristics, mechanisms, and outcomes of peer networks.
+This longitudinal case study **examines reform-related knowledge, advice, and innovation network structures** among administrators in a district under sanction for under-performance and engaging in district-wide reform efforts.
 :::
 
 ::: {.column width="30%"}
-![Behavioral vs. Cognitive Classroom Friendships [@kellogg2014social]](img/irrodl-article.png){width="70%"}
+![Ebb and Flow of Social Network Ties [@daly2011ebb]](img/daly-net.jpeg)
 :::
 :::
 
-## Questions
+### Questions
 
-This study involves **quantifying and visualizing the ties and overall structure** of informal networks to answer the following research questions:
+This study involves quantifying and visualizing the ties and overall structure of informal networks to answer the following research questions:
 
-1.  What are the patterns of peer interaction and the structure of peer networks that emerge over the course of a MOOC-Ed?
+1.  In what ways have reform-related social networks between district and site leaders evolved over a 2-year period?
 
-2.  To what extent do participant and network attributes (e.g., homophily, reciprocity, transitivity) account for the structure of these networks?
+2.  How do district and school leaders perceive the evolution of the social networks and its effect on the exchange of reform-related resources within the district?
 
-3.  To what extent do these networks result in the co-construction of new knowledge?
+### Data
 
-## Data
+To answer RQ1, Daly and Finnigan administered **online survey consisting of network relations and demographic questions** asking participants to:
 
--   **MOOC-Ed registration form.** All participants completed a registration form for each MOOC-Ed course. The registration form consists of self-reported demographic data, including information related to their professional role and work setting, years of experience in education, and personal learning goals.
+-   select the administrators in the La Estasis network that they interact with for the purpose of **advice seeking, collaboration, knowledge exchanges**,
 
--   **MOOC-Ed discussion forums.** All peer interaction, including peer discussion, feedback, and reactions (e.g., likes), take place within the forum area of MOOC-Eds, which are powered by Vanilla Forums.
+-   assess their relationships on a **5-point interaction scale** ranging from 1 (no interaction) to 5 (1 to 2 times a week).
 
-## Findings
+### Findings
 
--   Most ties between educators consisted of a single communication and a general tendency for an individual’s responses to be distributed evenly among peers.
+::: columns
+::: {.column width="50%"}
+### QAP
 
--   Measures of network reciprocity were fairly similar across the two MOOC-Eds, despite the size and varied composition of educators in each network.
+-   weak correlation between knowledge and innovation and advice and innovation
 
--   Reciprocators made up the largest proportion of educators in both courses
+-   leaders with knowledge ties also likely to have advice relations
+:::
 
--   Significant effects were found for the relational mechanism of reciprocity, but not for a popularity effect.
+::: {.column width="50%"}
+### P-Star (SIENA)
+
+-   Leaders with more experience more likely to be selected for reform-related advice
+
+-   over time, leaders tended to create ties with those frequently identified as resources for innovative practices
+:::
+:::
+
+### Takeaways
+
+Overall, the findings from SNA and qualitative interviews indicate that over time:
+
+1.  Networks increased the number of superficial interactions.
+
+2.  More frequent exchanges, however, remained unchanged.
+
+3.  The result was a centralized network structure.
 :::
 
 ::: notes
 **Speaker Notes:**
 :::
 
-## Load Packages
+## Guiding Question
 
 ::: panel-tabset
-### R Libraries
-
-Let's start by creating a new R script and loading the following packages introduced in the previous module:
-
-```{r}
-library(janitor)
-library(tidyverse)
-library(tidygraph)
-library(ggraph)
-library(igraph)
-```
-
-```{r load-libraries, echo=TRUE, message=FALSE}
-library(janitor)
-library(tidyverse)
-library(tidygraph)
-library(ggraph)
-
-# You may have to install this package if it is not listed in your packages pane.
-# install.packages(tidyverse) 
-```
-
-### Network Packages
-
-::: columns
-::: {.column width="80%"}
-The {igraph} package and its collection of network analysis tools provide pain-free implementation of graph algorithms fast handling of large graphs, with millions of vertices and edges.
+### Research Question
 
 <br>
 
-Both {tidygraph} and {ggraph} used in the previous lab depend heavily on the {igraph} package.\
-:::
+*Does gender or some other individual attribute predict confidential exchanges between school leaders?*
 
-::: {.column width="20%"}
-![](img/igraph.png)
+### ergm 📦
 
-[igraph](https://igraph.org)
-:::
-:::
+-   ERGMs are the primary building blocks of statistically testing network structural effects.
+
+-   Uses simulation to determine the probability of network feature (e.g., reciprocity, clique, homophily)
+
+-   Evolved to allow actor attributes for covariates
+
+-   The {ergm} package is used to fit exponential-family random graph models (ERGMs) in R
 
 ### Your Turn
 
-Load the {igraph} package.
+Let's start by creating a new R script and loading the following packages:
 
-```{r, echo=TRUE}
+-   tidyverse
+
+-   ergm
+
+-   statnet
+
+-   tidygraph
+
+-   ggraph
+
+``` r
 # YOUR CODE HERE
 #
 #
+```
+
+```{r}
+library(tidyverse)
+library(ergm)
+library(statnet)
+library(tidygraph)
+library(ggraph)
 ```
 :::
 
 # Wrangle
 
-Intro to Network Data Structures
+Import Data & Tidy Graph
 
 ## Import Data
 
 ::: panel-tabset
-### read_csv
+### Import Data
 
-Let's import two .csv files from our data folder named `dlt1-edges.csv` and `dlt1-nodes.csv` using the `read_csv()` function from the {readr} package:
+Let's import two Excel files from the Social Network Analysis and Education companion site. year_1_collaboration.xlsx
 
 ```{r}
 #| echo: true
-
-dlt1_ties <- read_csv("data/dlt1-edges.csv", 
-                      col_types = cols(Sender = col_character(), 
-                                       Receiver = col_character(), 
-                                       `Category Text` = col_skip(), 
-                                       `Comment ID` = col_character(), 
-                                       `Discussion ID` = col_character()
-                                       )
-                      ) |>
-  clean_names()
-
-dlt1_actors <- read_csv("data/dlt1-nodes.csv", 
-                   col_types = cols(UID = col_character(), 
-                                    Facilitator = col_character(), 
-                                    expert = col_character(), 
-                                    connect = col_character())) |>
-  clean_names()
+leader_nodes <- read_csv("data/school-leader-nodes.csv")
+leader_edges <- read_csv("data/school-leader-edges.csv")
 ```
 
 ### Inspect Data
 
-Using your R script or the console or another prefered means, take a look at the data file we just imported:
+Using your R script, take a look at the node and edge lists we just imported:
 
 ``` r
 # ADD CODE BELOW
-# 
+#
 #
 ```
 
@@ -193,273 +191,200 @@ Using your R script or the console or another prefered means, take a look at the
 
 Think about the questions below and be prepared to share your response:
 
-1.  What type of data structure is used to store this network data?
+1.  What do you think the values for each tie represent?
 
-2.  What do you think the rows and columns represent?
+2.  What do you think the "trust" and "efficacy" variables represent?
 
-3.  What do the values in each cell represent?
+3.  What else do you notice about this data?
+
+4.  What else do you wonder about this data?
+
+**Hint**: Take a look at the SNA in Ed [companion site](https://studysites-sagepub-com.prox.lib.ncsu.edu/carolan/study/resources.htm)
+
+### Answer
+
+-   Edge values indicate the frequency of interactions leaders have with nominated individuals on a four-point frequency scale ranging from 1 (the least frequent) to 4 (1–2 times a week).
+
+-   `efficacy` measures a belief in their ability to have an effect derived from a scale that includes 18 items rated on a 9-point Likert scale ranging from 1 (None at all) to 9 (A great deal).
+
+-   `trust` measures perceptions of the level of trust their school and district is a composite score based on scale contains eight items rated on a 7-point Likert scale ranging from 1 (Strongly disagree) to 7 (Strongly agree).
 :::
 
-## Create Network Object
+## Convert to "Network"
 
 ::: panel-tabset
-### Convert Edgelist
+### as.network() function
 
-Before we can begin analyzing our network data in R, we need to convert to a network class R object. Run the following code in your R script:
+The {ergm} package requires an object of the class "network" — the format that {statnet} uses to store and work with network data.
+
+The `as.network()` function does just that. Run the following code in your console to pull up the help page for the `as.network()` function and let's take a look:
+
+``` r
+?as.network
+```
+
+### Convert to Network
+
+Run the following code in your R script to combine our edge and node lists into a single "network" object:
 
 ```{r}
 #| echo: true
-dlt1_network <- tbl_graph(edges = dlt1_ties,
-                          nodes = dlt1_actors,
-                          node_key = "uid",
-                          directed = TRUE)
+
+leader_network <- as.network(leader_edges,
+                             vertices = leader_nodes)
+
 ```
 
-### View Network
+### Check Class
 
-::: columns
-::: {.column width="50%"}
-In your R script, use the `autograph()` function that we learned about in the previous module to take a quick look at our `dlt1_network`.
+Now let's use the `class()` function to verify that it is indeed a network object/data structure:
 
-``` r
-# YOUR TURN
-#
-#
-```
-:::
-
-::: {.column width="50%"}
 ```{r}
-autograph(dlt1_network)
+#| echo: true
+class(leader_network)
+
+
 ```
-
-You should see something like this.
-:::
-:::
-
-### View Stats
-
-Now type the name of network object, `dlt1_network` and run the code:
-
-``` r
-# YOUR TURN
-# 
-#
-```
-
-### Discuss
-
-Think about the questions below:
-
-1.  What size of the DLT 1 MOOC-ED network?
-
-2.  What else do you notice about this network?
-
-3.  What questions, if any, do have about this network?
-:::
-
-::: notes
-**Speaker Notes:**
 :::
 
 # Explore
 
-Network Density, Centrality, & Reciprocity
+Network Stats & A Quick Sociogram
 
-::: notes
-**Speaker Notes:**
-:::
-
-## Network Density
+## View Network
 
 ::: panel-tabset
-### Definition
+### Inspect Network
 
-::: columns
-::: {.column width="50%"}
-In its simplest form, network density is **the ratio of existing ties in a network to all possible ties** that could potentially exist, regardless of whether they do.
-:::
-
-::: {.column width="50%"}
-![Which of these two networks has a higher density?](img/density.jpeg)
-:::
-:::
-
-### Significance
-
-In education, dense networks have been associated with:
-
--   community health
-
--   flow of resources within a network
-
--   student achievement
-
-For better or worse, **dense networks reinforce prevailing norms** and behaviors and insulate one from outside influences [@carolan2014].
-
-### Implementation
-
-The {igraph} package has a simple `edge_density()` function for calculating network density.
-
-<br>
-
-Let's apply to our `dlt1_network`:
+First, let's take a quick look at our network by printing
 
 ```{r}
-#| echo: true 
-edge_density(dlt1_network)
+#| echo: True
+
+leader_network
 ```
 
-How would you interpret this measure?
+### Visualize Network
 
-### Discuss
+Now use the `plot()` or `autograph()` function to create a quick sociogram
 
-::: columns
-::: {.column width="50%"}
-We know there 2529 edges in the DLT 1 network (pictured right), but **how many possible edges** could there be?
-
-<br>
-
-**Hint**: The number of all possible edges in a directed network is V(V-1) where V is the \# of vertices.
-:::
-
-::: {.column width="50%"}
-```{r, examine-density, strip.white=TRUE, echo=FALSE}
-autograph(dlt1_network) +
-  theme_graph()
+``` r
+# YOUR CODE HERE
+#
+#
 ```
-:::
-:::
-:::
-
-::: notes
-**Speaker Notes:**
-:::
-
-## Reciprocity
-
-::: panel-tabset
-### Definition
-
-::: columns
-::: {.column width="50%"}
-Reciprocity is the **degree to which actors in a directed network select one another** or the mutuality of the network's ties
-
-<br>
-
-1.  Which of these two networks is directed?
-
-2.  Which ties are reciprocated?
-:::
-
-::: {.column width="50%"}
-![](img/reciprocated-ties.png)
-:::
-:::
-
-### Significance
-
--   This property is important because it reveals the direction through which resources such as help, advice, and support flow.
-
--   It also indicates the network's stability, as reciprocated ties tend to be more stable over time.
-
--   Networks with high reciprocity may be more “equal,” while those with lower reciprocity may be more hierarchical.
-
--   In educational contexts, reciprocity has been associated with problem solving, knowledge exchange, risky behavior and drug use.
-
-### Implementation
-
-::: columns
-::: {.column width="50%"}
-At the network-level, reciprocity is a measure of the likelihood of vertices in a directed network to be mutually linked.
-
-The {igraph} package has a simple `reciprocity()` function for calculating network density.
-:::
-
-::: {.column width="50%"}
-Let's apply to our `dlt1_network`:
-
-<br>
-
-```{r}
-#| echo: true
-reciprocity(dlt1_network)
-```
-
-<br>
-
-How would you interpret this measure?
-:::
-:::
-:::
-
-::: notes
-**Speaker Notes:**
-:::
-
-## Network Centraliztion
-
-::: panel-tabset
-### Definition
-
-::: columns
-::: {.column width="50%"}
-A key structural property of complete networks is the concept of centralization, or **the extent to which relations are focused on one or a small set of actors**.
-:::
-
-::: {.column width="50%"}
-![Which of these two networks is more centralized?](img/density.jpeg)
-:::
-:::
-
-### Significance
-
--   A network's centralization affects the process through which resources flow through the network.
-
--   Central actors likely wield a disproportionate amount of influence on the network.
-
--   High centralization provides fewer actors with more power and control.
-
-### Implementation
-
-::: columns
-::: {.column width="50%"}
-The {igraph} package has a simple `centr_degree()` function for calculating degree centrality.
-
-**Degree** is the most common measure of centrality and is simply the total number of edges connected to a particular node.
-:::
-
-::: {.column width="50%"}
-Let's apply to our dlt1_network:
-
-<br>
-
-```{r}
-#| echo: true
-#| eval: false
-centr_degree(dlt1_network)
-```
-:::
-:::
 
 ### Output
 
-Let's interpret this output!
-
 ```{r}
-centr_degree(dlt1_network)
+autograph(leader_network)
 ```
 :::
 
-::: notes
-**Speaker Notes:**
+# Model
+
+Model Specification & ERGM Parameters
+
+## Base ERGM 
+
+::: panel-tabset
+### Model Specification
+
+The syntax for specifying a model in the `ergm` package follows **R**'s formula convention: `my_network ~ ergm_term_1 + ergm_term_2 + ergm_term_3` and so forth.
+
+In the Help tab, search for "ergm-terms" and select the `ergm::ergm-terms` help page to take a quick peek at the plethora of parameters you can include in your model.
+
+### ERGM 1
+
+Let's start with with a simple model that contains the following ergm-terms
+
+-   **`edges`** a required term that represents the total number of edges in the network
+
+-   **`mutual`** examines the tendency for ties to be reciprocated, i.e. "mutuality".
+
+``` r
+# ensure reproducibility of our model
+set.seed(589) 
+
+# fit our ergm model 
+ergm_mod_1 <-ergm(leader_network ~ edges + mutual) 
+
+# get summary statistics for our model
+summary(ergm_mod_1)
+```
+
+### Interpret
+
+```{r}
+# ensure reproducibility of our model
+set.seed(589) 
+
+# fit our ergm model 
+ergm_mod_1 <-ergm(leader_network ~ edges + mutual) 
+
+# get summary statistics for our model
+summary(ergm_mod_1)
+```
+:::
+
+## ERGM 2 
+
+::: panel-tabset
+### Confidential Ties
+
+Let's now test for homophily -- or the "birds of a feather" phenomenon -- in our network. The `ergm()` function now includes a `nodematch()` term to answer the following question:
+
+*Are school leaders more likely to confide in colleagues of their own gender or who work at the same site level (e.g., school vs. central office)?*
+
+``` r
+# fit our ergm model 
+ergm_mod_2 <-ergm(leader_network ~ edges + mutual + nodematch('male') + nodematch('district_site')) 
+
+# get summary statistics for our model
+summary(ergm_mod_2)
+```
+
+### Interpret
+
+```{r}
+# fit our ergm model 
+ergm_mod_2 <-ergm(leader_network ~ edges + mutual + nodematch('male') + nodematch('district_site')) 
+# get summary statistics for our model
+summary(ergm_mod_2)
+```
+:::
+
+## ERGM 3 
+
+::: panel-tabset
+### Trust Ties
+
+*Are school leaders with higher levels of trust more likely to have confidential exchanges?*
+
+``` r
+# fit our ergm model 
+ergm_mod_3 <-ergm(leader_network ~ edges + mutual + nodematch('male') + nodematch('district_site') + nodecov('trust')) 
+
+# get summary statistics for our model
+summary(ergm_mod_3)
+```
+
+### Interpret
+
+```{r}
+# fit our ergm model 
+ergm_mod_3 <-ergm(leader_network ~ edges + mutual + nodematch('male') + nodematch('district_site') + nodecov('trust')) 
+
+# get summary statistics for our model
+summary(ergm_mod_3)
+```
 :::
 
 ## What's Next?
 
--   SNA Case Study: A Tale of Two MOOCs
+-   **SNA Case Study**: Birds of Feather Lead Together
 
--   Guiding Study: A Social Network Perspective on PEER Supported Learning in MOOC-Eds [@kellogg2014social]
+-   **Guiding Study**: Ebb and Flow of Social Network Ties Between District Leaders [@daly2011ebb]
 
 ## Acknowledgements
 

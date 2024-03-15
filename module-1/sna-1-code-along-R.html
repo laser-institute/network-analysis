@@ -846,18 +846,22 @@
 #
 # A directed simple graph with 2 components
 #
-# A tibble: 27 × 6
-     id name      gender achievement gender_num achievement_num
-  &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;  &lt;chr&gt;            &lt;dbl&gt;           &lt;dbl&gt;
-1     1 Katherine female high                 1               1
-2     2 James     male   average              0               2
-3     3 Angela    female average              1               2
-4     4 Joseph    male   high                 0               1
-5     5 Samantha  female average              1               2
-6     6 Susan     female average              1               2
-# ℹ 21 more rows
+# Node Data: 27 × 6 (active)
+      id name      gender achievement gender_num achievement_num
+   &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;  &lt;chr&gt;            &lt;dbl&gt;           &lt;dbl&gt;
+ 1     1 Katherine female high                 1               1
+ 2     2 James     male   average              0               2
+ 3     3 Angela    female average              1               2
+ 4     4 Joseph    male   high                 0               1
+ 5     5 Samantha  female average              1               2
+ 6     6 Susan     female average              1               2
+ 7     7 Anna      female high                 1               1
+ 8     8 Kimberly  female average              1               2
+ 9     9 Helen     female high                 1               1
+10    10 Samuel    male   low                  0               3
+# ℹ 17 more rows
 #
-# A tibble: 203 × 3
+# Edge Data: 203 × 3
    from    to weight
   &lt;int&gt; &lt;int&gt;  &lt;dbl&gt;
 1     1     2      1
