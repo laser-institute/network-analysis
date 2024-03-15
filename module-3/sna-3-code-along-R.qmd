@@ -18,7 +18,7 @@ format:
 knitr:
   opts_chunk:
     out.width: "90%"
-    out.height: "90%"
+    out.height: "90%" x
     fig-align: center
 highlight-style: a11y
 resources:

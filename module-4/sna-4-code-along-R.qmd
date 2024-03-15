@@ -285,7 +285,7 @@ autograph(leader_network)
 
 Model Specification & ERGM Parameters
 
-## Base ERGM 
+## Base ERGM
 
 ::: panel-tabset
 ### Model Specification
@@ -327,7 +327,7 @@ summary(ergm_mod_1)
 ```
 :::
 
-## ERGM 2 
+## ERGM 2
 
 ::: panel-tabset
 ### Confidential Ties
@@ -354,7 +354,7 @@ summary(ergm_mod_2)
 ```
 :::
 
-## ERGM 3 
+## ERGM 3
 
 ::: panel-tabset
 ### Trust Ties
