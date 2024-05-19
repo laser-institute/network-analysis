@@ -1,4 +1,4 @@
-![](img/SNA_Intro_HX.png){width="30%"}
+![](img/SNA_Primary_SQ.png){width="30%"}
 
 # Social Network Analysis in STEM Education Research
 
