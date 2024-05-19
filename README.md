@@ -1,4 +1,4 @@
-![](img/SNA_Primary_SQ.png){width="210"}
+<img src="img/SNA_Primary_SQ.png" width="200"/>
 
 # Social Network Analysis in STEM Education Research
 
