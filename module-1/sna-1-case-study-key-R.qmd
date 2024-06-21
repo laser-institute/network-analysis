@@ -203,6 +203,7 @@ You may have seen a warning stating: `Setting row names on a tibble is deprecat
 Again, let quickly inspect our `student_friends` data table to see if this worked:
 
 ```{r view-students}
+
 student_friends
 ```
 
@@ -245,9 +246,12 @@ Complete the code chunk below to import the `teacher-reported-friends.xlsx` fil
 # YOUR CODE HERE
 teacher_friends <- read_excel("data/teacher-reported-friends.xlsx", 
                               col_names = FALSE)
+
 rownames(teacher_friends) <- 1:27
 
 colnames(teacher_friends) <- 1:27
+
+teacher_friends <- as.matrix(teacher_friends)
 
 teacher_friends
 ```
@@ -264,7 +268,31 @@ If you want to give this a try, be sure to pay attention to the default settings
 
 ### 2b. Make a Tidy Graph
 
-Before we can begin exploring our data through through network visualization, we must first restructure our "tibble" into a formal matrix object recognized by r, and then convert our matrix to a network class R object required by the {tidygraph} and {ggraph} packages.
+Before we can begin exploring our data through through network visualization, we must first restructure our student friendship and attribute data into a single network data structure that contains information about both the nodes and edges in our two data frames. These network data structures can be stored in a several different ways, but we'll focus on a fairly standard data structures that are used by popular packages such as {igraph}, {tidygraph}, and {ggraph}.
+
+#### Convert Table to Matrix
+
+You may have noticed in the ouptut above that even though our data is stored in a matrix format in the original file, it was imported as a "tidy" data table, or **tibble**, which a modern version of a data frame in R. It is designed to be a more user-friendly and efficient alternative to traditional data frames and is the default format used among {tidyverse} packages.
+
+Converting this to a formal matrix is necessary because many graph-related functions in R, particularly those in the igraph and tidygraph packages, require the input data to be in matrix form to properly construct the graph.
+
+Run the following code to convert the `student_friends` data frame into a matrix and display it below:
+
+```{r convert-matrix}
+student_friends <- as.matrix(student_friends)
+
+student_friends
+```
+
+Matrices are often necessary for graph-related functions that require formal matrix input, as we'll see in just a bit.
+
+Before moving on, let's quickly check the **`class`** of our data object just to be sure it is now stored as true matrix:
+
+```{r}
+class(student_friends)
+```
+
+Excellent! We're now ready to start creating a network graph object, which will eventually contain data from both our student friends file as well as the individual attributes of each student.
 
 #### **Convert to Graph Object**
 

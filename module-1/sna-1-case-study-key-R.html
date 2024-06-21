@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="LASER Institute">
-<meta name="dcterms.date" content="2024-03-18">
+<meta name="dcterms.date" content="2024-06-21">
 
 <title>Who’s Friends with Who in Middle School</title>
 <style>
@@ -137,6 +137,7 @@ div.csl-indent {
   </ul></li>
   <li><a href="#b.-make-a-tidy-graph" id="toc-b.-make-a-tidy-graph" class="nav-link" data-scroll-target="#b.-make-a-tidy-graph">2b. Make a Tidy Graph</a>
   <ul class="collapse">
+  <li><a href="#convert-table-to-matrix" id="toc-convert-table-to-matrix" class="nav-link" data-scroll-target="#convert-table-to-matrix">Convert Table to Matrix</a></li>
   <li><a href="#convert-to-graph-object" id="toc-convert-to-graph-object" class="nav-link" data-scroll-target="#convert-to-graph-object"><strong>Convert to Graph Object</strong></a></li>
   <li><a href="#what-is-an-edge-list" id="toc-what-is-an-edge-list" class="nav-link" data-scroll-target="#what-is-an-edge-list">What is an edge list?</a></li>
   <li><a href="#your-turn-3" id="toc-your-turn-3" class="nav-link" data-scroll-target="#your-turn-3"><strong>👉 Your Turn</strong> <strong>⤵</strong></a></li>
@@ -192,7 +193,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">March 18, 2024</p>
+      <p class="date">June 21, 2024</p>
     </div>
   </div>
   
@@ -274,8 +275,8 @@ div.csl-indent {
 <pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 ✔ dplyr     1.1.4     ✔ readr     2.1.5
 ✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.0     ✔ tibble    3.2.1
-✔ lubridate 1.9.2     ✔ tidyr     1.3.1
+✔ ggplot2   3.5.1     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.1
 ✔ purrr     1.0.2     
 ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ✖ dplyr::filter() masks stats::filter()
@@ -306,7 +307,7 @@ div.csl-indent {
 <p><img src="img/readxl.png" class="img-fluid" style="width:20.0%"></p>
 <p>The&nbsp;<a href="https://readxl.tidyverse.org/">{readxl}</a>&nbsp;package makes it easy to get data out of Excel and into R. Compared to many of the existing packages (e.g.&nbsp;gdata, xlsx, xlsReadWrite) readxl has no external dependencies, so it’s easy to install and use on all operating systems. It is designed to work with <em>tabular</em> data.</p>
 <p>Since one of our data wrangling steps in the next section is importing network matrices stored in excel files, this package will come in handy.</p>
-<p><strong>R Studio Tip:</strong>&nbsp;Type&nbsp;<code>??read_excel</code>&nbsp;into the console and check the arguments section to examine the different arguments that can be used with this function.</p>
+<p><strong>R Studio Tip:</strong>&nbsp;Type&nbsp;<code>??read_excel</code> into the console and check the arguments section to examine the different arguments that can be used with this function.</p>
 </section>
 <section id="your-turn" class="level4">
 <h4 class="anchored" data-anchor-id="your-turn"><strong>👉 Your Turn</strong> <strong>⤵</strong></h4>
@@ -539,25 +540,38 @@ Attaching package: 'tidygraph'</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(teacher_friends) <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">27</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>teacher_friends</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>teacher_friends <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(teacher_friends)</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>teacher_friends</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 27 × 27
-     `1`   `2`   `3`   `4`   `5`   `6`   `7`   `8`   `9`  `10`  `11`  `12`  `13`
- * &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
- 1     0     0     0     1     0     0     0     0     0     0     0     1     0
- 2     0     0     1     0     0     0     0     1     0     1     0     0     0
- 3     0     1     0     0     0     0     0     1     0     1     0     0     0
- 4     0     0     0     0     0     0     0     0     0     0     0     0     0
- 5     1     0     0     0     0     0     0     0     0     0     0     1     1
- 6     0     0     0     0     0     0     0     0     0     0     0     0     1
- 7     0     0     0     0     0     0     0     0     0     0     0     0     1
- 8     0     1     1     0     0     0     0     0     0     1     0     0     0
- 9     0     0     0     0     0     0     0     0     0     0     1     0     0
-10     0     1     1     0     0     0     0     1     0     0     0     0     0
-# ℹ 17 more rows
-# ℹ 14 more variables: `14` &lt;dbl&gt;, `15` &lt;dbl&gt;, `16` &lt;dbl&gt;, `17` &lt;dbl&gt;,
-#   `18` &lt;dbl&gt;, `19` &lt;dbl&gt;, `20` &lt;dbl&gt;, `21` &lt;dbl&gt;, `22` &lt;dbl&gt;, `23` &lt;dbl&gt;,
-#   `24` &lt;dbl&gt;, `25` &lt;dbl&gt;, `26` &lt;dbl&gt;, `27` &lt;dbl&gt;</code></pre>
+<pre><code>   1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27
+1  0 0 0 1 0 0 0 0 0  0  0  1  0  0  0  0  0  0  0  0  0  0  0  0  0  0  1
+2  0 0 1 0 0 0 0 1 0  1  0  0  0  0  0  1  0  0  0  0  0  1  0  0  0  0  0
+3  0 1 0 0 0 0 0 1 0  1  0  0  0  0  0  1  0  0  0  0  0  1  0  0  0  0  0
+4  0 0 0 0 0 0 0 0 0  0  0  0  0  0  0  1  0  0  0  0  0  0  0  0  0  1  0
+5  1 0 0 0 0 0 0 0 0  0  0  1  1  0  0  0  0  0  0  0  0  0  0  0  0  0  1
+6  0 0 0 0 0 0 0 0 0  0  0  0  1  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+7  0 0 0 0 0 0 0 0 0  0  0  0  1  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+8  0 1 1 0 0 0 0 0 0  1  0  0  0  0  0  1  0  0  0  0  0  1  0  0  0  0  0
+9  0 0 0 0 0 0 0 0 0  0  1  0  0  0  0  0  0  0  0  0  0  0  1  0  0  0  0
+10 0 1 1 0 0 0 0 1 0  0  0  0  0  0  0  1  0  0  0  0  0  1  0  0  0  0  0
+11 0 0 0 0 0 0 0 0 1  0  0  0  0  0  0  0  0  0  0  0  0  0  1  0  0  0  0
+12 1 0 0 0 1 0 0 0 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  1
+13 1 0 0 0 1 0 1 0 0  0  0  1  0  0  0  0  0  0  0  0  0  0  0  0  0  0  1
+14 0 0 0 0 0 0 0 0 0  0  0  0  0  0  0  0  1  0  0  0  0  0  0  0  0  0  0
+15 0 0 0 0 0 0 0 0 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  1  0  0  0
+16 0 1 1 1 0 0 0 1 0  1  0  0  0  0  0  0  0  0  0  0  0  1  0  0  0  0  0
+17 0 0 0 0 0 0 0 0 0  0  0  0  0  1  0  0  0  0  0  0  0  0  0  0  0  0  0
+18 0 0 0 0 0 0 0 0 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  1  0  0
+19 0 0 0 0 0 0 0 0 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+20 0 0 0 0 0 0 0 0 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+21 0 0 0 0 0 0 0 0 1  0  0  0  0  0  0  0  0  0  0  0  0  0  1  0  0  0  0
+22 0 1 1 0 0 0 0 1 0  1  0  0  0  0  0  1  0  0  0  0  0  0  0  0  0  0  0
+23 0 0 0 0 0 0 0 0 1  0  1  0  1  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+24 0 0 0 0 0 0 0 0 0  0  0  0  0  0  1  0  0  0  0  0  0  0  0  0  0  0  0
+25 0 0 0 0 0 0 0 0 0  0  0  0  0  0  0  0  0  1  0  0  0  0  0  0  0  0  0
+26 0 0 0 1 0 0 0 0 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+27 1 0 0 0 1 0 0 0 0  0  0  1  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0</code></pre>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -580,33 +594,96 @@ Tip
 </section>
 <section id="b.-make-a-tidy-graph" class="level3">
 <h3 class="anchored" data-anchor-id="b.-make-a-tidy-graph">2b. Make a Tidy Graph</h3>
-<p>Before we can begin exploring our data through through network visualization, we must first restructure our “tibble” into a formal matrix object recognized by r, and then convert our matrix to a network class R object required by the {tidygraph} and {ggraph} packages.</p>
+<p>Before we can begin exploring our data through through network visualization, we must first restructure our student friendship and attribute data into a single network data structure that contains information about both the nodes and edges in our two data frames. These network data structures can be stored in a several different ways, but we’ll focus on a fairly standard data structures that are used by popular packages such as {igraph}, {tidygraph}, and {ggraph}.</p>
+<section id="convert-table-to-matrix" class="level4">
+<h4 class="anchored" data-anchor-id="convert-table-to-matrix">Convert Table to Matrix</h4>
+<p>You may have noticed in the ouptut above that even though our data is stored in a matrix format in the original file, it was imported as a “tidy” data table, or <strong>tibble</strong>, which a modern version of a data frame in R. It is designed to be a more user-friendly and efficient alternative to traditional data frames and is the default format used among {tidyverse} packages.</p>
+<p>Converting this to a formal matrix is necessary because many graph-related functions in R, particularly those in the igraph and tidygraph packages, require the input data to be in matrix form to properly construct the graph.</p>
+<p>Run the following code to convert the <code>student_friends</code> data frame into a matrix and display it below:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>student_friends <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(student_friends)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>student_friends</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27
+1  0 1 0 1 1 1 1 1 1  0  0  1  0  0  0  0  1  0  0  0  1  0  1  0  1  0  1
+2  1 0 0 0 1 0 0 0 0  1  1  0  0  0  0  0  1  0  0  0  1  0  0  0  0  0  0
+3  1 0 0 1 0 0 0 1 0  1  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+4  1 0 0 0 0 0 0 0 0  0  0  1  0  0  0  1  0  0  0  0  1  0  0  0  0  1  0
+5  1 1 0 1 0 1 1 1 1  0  1  1  1  1  0  0  1  1  0  0  1  1  0  0  1  0  1
+6  1 0 0 0 1 0 0 0 1  0  1  1  1  1  0  0  0  0  0  0  0  0  0  0  0  0  0
+7  1 0 1 1 0 0 0 0 1  0  0  0  1  0  0  0  0  0  0  0  0  0  1  0  0  0  0
+8  1 0 1 1 1 0 1 0 1  1  1  0  1  0  0  0  0  0  0  0  1  0  0  1  1  1  1
+9  1 0 0 0 0 1 1 0 0  0  1  0  1  0  0  0  0  1  0  1  1  0  1  1  1  1  1
+10 1 1 1 1 1 0 1 1 0  0  1  1  1  0  0  0  1  0  0  0  1  1  0  0  0  0  1
+11 1 1 1 1 1 1 1 1 1  1  0  1  1  1  0  0  0  1  0  1  1  0  1  0  1  0  1
+12 1 1 0 1 1 1 0 0 0  0  0  0  0  0  0  0  0  0  0  0  1  0  0  0  1  0  1
+13 0 0 0 0 1 1 1 1 1  0  0  0  0  0  0  0  0  0  0  0  0  0  1  0  0  0  1
+14 0 0 0 1 0 1 1 0 0  0  1  0  0  0  0  0  1  0  0  0  0  1  0  0  0  0  0
+15 0 0 0 0 0 0 0 1 0  0  0  0  0  0  0  1  0  0  0  0  0  0  0  0  0  0  0
+16 0 0 0 0 0 0 0 1 0  1  0  0  0  0  1  0  0  0  0  1  0  0  0  0  0  0  0
+17 1 0 0 1 1 0 0 0 0  0  0  0  0  1  0  0  0  0  0  0  0  1  0  0  0  0  0
+18 0 0 0 0 1 0 0 0 1  0  0  0  0  0  0  0  0  0  0  0  0  0  1  0  1  0  0
+19 0 0 0 0 0 0 0 0 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+20 0 0 0 0 0 0 0 0 0  0  1  0  0  0  0  0  0  0  0  0  0  0  1  0  0  0  0
+21 1 1 0 1 1 0 1 0 1  0  0  0  0  1  0  0  0  1  0  0  0  0  1  0  1  1  1
+22 0 1 0 0 0 0 0 0 0  0  0  0  0  1  0  0  1  0  0  0  1  0  0  0  1  1  0
+23 1 0 0 0 0 0 0 0 1  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  1  0  0
+24 0 0 0 0 0 0 0 0 0  0  0  0  0  0  0  0  0  0  0  0  0  0  1  0  0  0  0
+25 1 0 0 0 1 0 0 0 1  0  1  1  0  0  0  0  0  1  0  0  1  1  1  0  0  0  1
+26 0 0 0 1 0 0 0 0 0  0  0  0  0  0  0  0  0  0  0  0  1  1  0  0  0  0  0
+27 1 0 0 1 1 0 1 0 1  0  1  1  1  1  0  0  0  0  0  1  0  0  1  0  1  0  0</code></pre>
+</div>
+</div>
+<p>Matrices are often necessary for graph-related functions that require formal matrix input, as we’ll see in just a bit.</p>
+<p>Before moving on, let’s quickly check the <strong><code>class</code></strong> of our data object just to be sure it is now stored as true matrix:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(student_friends)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "matrix" "array" </code></pre>
+</div>
+</div>
+<p>Excellent! We’re now ready to start creating a network graph object, which will eventually contain data from both our student friends file as well as the individual attributes of each student.</p>
+</section>
 <section id="convert-to-graph-object" class="level4">
 <h4 class="anchored" data-anchor-id="convert-to-graph-object"><strong>Convert to Graph Object</strong></h4>
 <p>Our final step before we’re able to begin exploring our data is to convert our matrix to a network object recognized by the {tidygraph} and {ggraph} packages.</p>
 <p>The&nbsp;<a href="https://tidygraph.data-imaginist.com/reference/tbl_graph.html"><code>as_tbl_graph()</code></a>&nbsp;general function can easily convert relational data from all common network data formats such as matrices, <code>network</code>, <code>phylo</code>, <code>dendrogram</code>, <code>data.tree</code>, <code>graph</code>, etc.&nbsp;</p>
 <p>Let’s run the following code to convert our matrix to directed network graph and save as a new object called&nbsp;<code>student_network</code>. We’ll also include the argument <code>directed = TRUE</code> in our <code>as_tbl_graph()</code> function to indicate that our network is directed.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>student_network <span class="ot">&lt;-</span> <span class="fu">as_tbl_graph</span>(student_friends, </span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>                                <span class="at">directed =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>student_network <span class="ot">&lt;-</span> <span class="fu">as_tbl_graph</span>(student_friends, </span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>                                <span class="at">directed =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now let’s take a quick look at our new <code>student_network</code> object:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>student_network</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>student_network</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tbl_graph: 27 nodes and 287 edges
+<pre><code># A tbl_graph: 27 nodes and 203 edges
 #
-# An undirected multigraph with 2 components
+# A directed simple graph with 2 components
 #
-# Node Data: 27 × 0 (active)
+# Node Data: 27 × 1 (active)
+   name 
+   &lt;chr&gt;
+ 1 1    
+ 2 2    
+ 3 3    
+ 4 4    
+ 5 5    
+ 6 6    
+ 7 7    
+ 8 8    
+ 9 9    
+10 10   
+# ℹ 17 more rows
 #
-# Edge Data: 287 × 3
+# Edge Data: 203 × 3
    from    to weight
   &lt;int&gt; &lt;int&gt;  &lt;dbl&gt;
-1     1     1     13
-2     1     2      3
-3     1     3      2
-# ℹ 284 more rows</code></pre>
+1     1     2      1
+2     1     4      1
+3     1     5      1
+# ℹ 200 more rows</code></pre>
 </div>
 </div>
 <p>As you can see, our&nbsp;<code>student_network</code> object provides a range of information about out network including network size, type, number of components, and a preview of the node and edge lists that it created. The node and edge lists are treated just like a typical data frame and can now be used with other tidyverse packages and functions to create new actor-level network variables like degree, reciprocity, and centrality measures.</p>
@@ -624,33 +701,33 @@ Tip
 <p>We’ll also use a very powerful <code>|&gt;</code> operator called a <strong>pipe</strong>. Pipes are a powerful tool for combining a sequence of functions or processes. The original pipe operator,&nbsp;<code>%&gt;%</code>, comes from the {<strong>magrittr</strong>} package but all packages in the tidyverse load&nbsp;<code>%&gt;%</code>&nbsp;for you automatically, so you don’t usually load magrittr explicitly.</p>
 <p>The pipe has become such a useful and much used operator in R that it is now baked into R using the new and simpler version of the pipe <code>|&gt;</code> operator demonstrated in the following code chunk:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>student_edges <span class="ot">&lt;-</span> student_network <span class="sc">|&gt;</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">activate</span>(edges) <span class="sc">|&gt;</span></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>()</span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>student_edges</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>student_edges <span class="ot">&lt;-</span> student_network <span class="sc">|&gt;</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">activate</span>(edges) <span class="sc">|&gt;</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>()</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>student_edges</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 287 × 3
+<pre><code># A tibble: 203 × 3
     from    to weight
    &lt;int&gt; &lt;int&gt;  &lt;dbl&gt;
- 1     1     1     13
- 2     1     2      3
- 3     1     3      2
- 4     1     4      2
- 5     1     5     11
- 6     1     6      3
- 7     1     7      3
- 8     1     8      7
- 9     1     9      6
-10     1    10      9
-# ℹ 277 more rows</code></pre>
+ 1     1     2      1
+ 2     1     4      1
+ 3     1     5      1
+ 4     1     6      1
+ 5     1     7      1
+ 6     1     8      1
+ 7     1     9      1
+ 8     1    12      1
+ 9     1    17      1
+10     1    21      1
+# ℹ 193 more rows</code></pre>
 </div>
 </div>
 <p>Great! Now we can see the full list of edges in our network ordered by student ids.</p>
 <p>More importantly, however, is now that we have our edges stored in a standard format, we can combine our <code>student_edges</code> and <code>student_attributes</code> data frames into a single network object that contains the information from both!!</p>
 <p>To do so, we’ll use the more standard <code>tbl_graph()</code> function from the {tidygraph}. First, run the following code to take a look at the help documentation for this function:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>?tbl_graph</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>?tbl_graph</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You probably saw that this particular function takes the following three arguments, two of which are data frames:</p>
 <ul>
@@ -661,15 +738,15 @@ Tip
 </ul>
 <p>Now let’s run the following code to specify our <code>ties</code> data frame as the edges of our network, our <code>actors</code> data frame for the vertices of our network and their attributes, and indicate that this is indeed a directed network.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>student_network <span class="ot">&lt;-</span> <span class="fu">tbl_graph</span>(<span class="at">edges =</span> student_edges, <span class="co"># specifies edges</span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>                             <span class="at">nodes =</span> student_attributes, <span class="co"># specifies nodes</span></span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>                             <span class="at">directed =</span> <span class="cn">TRUE</span>) <span class="co"># specifies directionality</span></span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>student_network</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>student_network <span class="ot">&lt;-</span> <span class="fu">tbl_graph</span>(<span class="at">edges =</span> student_edges, <span class="co"># specifies edges</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>                             <span class="at">nodes =</span> student_attributes, <span class="co"># specifies nodes</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>                             <span class="at">directed =</span> <span class="cn">TRUE</span>) <span class="co"># specifies directionality</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>student_network</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tbl_graph: 27 nodes and 287 edges
+<pre><code># A tbl_graph: 27 nodes and 203 edges
 #
-# A directed multigraph with 2 components
+# A directed simple graph with 2 components
 #
 # Node Data: 27 × 6 (active)
       id name      gender achievement gender_num achievement_num
@@ -686,13 +763,13 @@ Tip
 10    10 Samuel    male   low                  0               3
 # ℹ 17 more rows
 #
-# Edge Data: 287 × 3
+# Edge Data: 203 × 3
    from    to weight
   &lt;int&gt; &lt;int&gt;  &lt;dbl&gt;
-1     1     1     13
-2     1     2      3
-3     1     3      2
-# ℹ 284 more rows</code></pre>
+1     1     2      1
+2     1     4      1
+3     1     5      1
+# ℹ 200 more rows</code></pre>
 </div>
 </div>
 <p>Much better!! Now we can see that in addition to the edges in our network, our network object now contains information about students’ gender and achievement levels in text and numerical format.</p>
@@ -701,24 +778,24 @@ Tip
 <h4 class="anchored" data-anchor-id="your-turn-3"><strong>👉 Your Turn</strong> <strong>⤵</strong></h4>
 <p>Complete the code chunk below to convert your <code>teacher_friends</code> object first to a matrix and then to a network object that contains information about both the teacher-reported student friendships and the attributes of students:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># YOUR CODE HERE</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>teacher_network <span class="ot">&lt;-</span> <span class="fu">as_tbl_graph</span>(teacher_friends,</span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>                                <span class="at">directed =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>teacher_edges <span class="ot">&lt;-</span> teacher_network <span class="sc">|&gt;</span></span>
-<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">activate</span>(edges) <span class="sc">|&gt;</span></span>
-<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>()</span>
-<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>teacher_network <span class="ot">&lt;-</span> <span class="fu">tbl_graph</span>(<span class="at">edges =</span> teacher_edges, </span>
-<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>                             <span class="at">nodes =</span> student_attributes, </span>
-<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>                             <span class="at">directed =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>teacher_network</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># YOUR CODE HERE</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>teacher_network <span class="ot">&lt;-</span> <span class="fu">as_tbl_graph</span>(teacher_friends,</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>                                <span class="at">directed =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>teacher_edges <span class="ot">&lt;-</span> teacher_network <span class="sc">|&gt;</span></span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">activate</span>(edges) <span class="sc">|&gt;</span></span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>()</span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a>teacher_network <span class="ot">&lt;-</span> <span class="fu">tbl_graph</span>(<span class="at">edges =</span> teacher_edges, </span>
+<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a>                             <span class="at">nodes =</span> student_attributes, </span>
+<span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a>                             <span class="at">directed =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-14"><a href="#cb36-14" aria-hidden="true" tabindex="-1"></a>teacher_network</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tbl_graph: 27 nodes and 70 edges
+<pre><code># A tbl_graph: 27 nodes and 69 edges
 #
-# A directed multigraph with 9 components
+# A directed simple graph with 6 components
 #
 # Node Data: 27 × 6 (active)
       id name      gender achievement gender_num achievement_num
@@ -735,13 +812,13 @@ Tip
 10    10 Samuel    male   low                  0               3
 # ℹ 17 more rows
 #
-# Edge Data: 70 × 3
+# Edge Data: 69 × 3
    from    to weight
   &lt;int&gt; &lt;int&gt;  &lt;dbl&gt;
-1     1     1      3
-2     1     5      2
-3     1    12      1
-# ℹ 67 more rows</code></pre>
+1     1     4      1
+2     1    12      1
+3     1    27      1
+# ℹ 66 more rows</code></pre>
 </div>
 </div>
 </section>
@@ -781,7 +858,7 @@ Tip
 <p>The <code>plot()</code> function from R’s built in {graphics} package can be used to make a wide range of graphs, including sociograms, but as you’ll see it’s a bit lacking and is limited limited in the level of customization allowed.</p>
 <p>In the code chunk below, use the <code>plot()</code> function with your <code>student_network</code> object to see what the basic plot function produces:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(student_network)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(student_network)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -795,7 +872,7 @@ Tip
 <p>Fortunately, the {ggraph} package includes a plethora of plotting parameters for graph <a href="https://ggraph.data-imaginist.com/articles/Layouts.html">layouts</a>, <a href="https://ggraph.data-imaginist.com/articles/Edges.html">edges</a> and <a href="https://ggraph.data-imaginist.com/articles/Nodes.html">nodes</a> to improve the visual design of network graphs.</p>
 <p>Let’s first take a quick look the <code>auto_graph()</code> function for making quick and simple sociograms similar to the R base plotting function above:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">autograph</span>(student_network)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">autograph</span>(student_network)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -807,9 +884,9 @@ Tip
 <p>A little better, but also lacking in many important ways. Like the <code>plot()</code> function, it does allow some small degree of customization, but is still rather limited and best use for very quick sociograms to get a quick feel for the data.</p>
 <p>Run the following code chunk to see some additional arguments you can add to the <code>autograph()</code> function:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">autograph</span>(student_network,</span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">node_label =</span> name,</span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">node_colour =</span> gender)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">autograph</span>(student_network,</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">node_label =</span> name,</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">node_colour =</span> gender)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -822,8 +899,8 @@ Tip
 <h4 class="anchored" data-anchor-id="your-turn-4"><strong>👉 Your Turn</strong> <strong>⤵</strong></h4>
 <p>Use the code chunk below to try out these simple sociogram functions on your <code>teacher_network</code> object you created above:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># YOUR CODE HERE</span></span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(teacher_network)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># YOUR CODE HERE</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(teacher_network)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -831,9 +908,9 @@ Tip
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">autograph</span>(teacher_network,</span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">node_size =</span> <span class="fu">local_size</span>(),</span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">node_colour =</span> <span class="fu">local_size</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">autograph</span>(teacher_network,</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">node_size =</span> <span class="fu">local_size</span>(),</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">node_colour =</span> <span class="fu">local_size</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -855,7 +932,7 @@ Tip
 </ul>
 <p>Let’s first pass our <code>student_network</code> object to <code>ggraph()</code> and see what happens.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggraph</span>(student_network)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggraph</span>(student_network)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Using "stress" as default layout</code></pre>
 </div>
@@ -877,8 +954,8 @@ Tip
 <h4 class="anchored" data-anchor-id="your-turn-5"><strong>👉 Your Turn</strong> <strong>⤵</strong></h4>
 <p>Now “add” the <code>geom_node_point()</code> function to our code using the <code>+</code> operator:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggraph</span>(student_network) <span class="sc">+</span> </span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_point</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggraph</span>(student_network) <span class="sc">+</span> </span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_point</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Using "stress" as default layout</code></pre>
 </div>
@@ -898,8 +975,8 @@ Tip
 <p>There are may different <a href="https://en.wikipedia.org/wiki/Graph_drawing#Layout_methods">layout methods</a>, but we’ll start with the Fruchterman-Reingold (FR) layout, which is one of the most widely used layout algorithms for network visualization. These types of force-directed algorithms generally work well with large networks and try to layout graphs in “an aesthetically-pleasing way” by making edges roughly equal in length and minimizing overlap.</p>
 <p>Let’s go ahead and include the layout argument, which in addition to including its own unique layouts, can incorporate layouts form {igraph} package like <code>fr</code> for the Fruchterman-Reingold (FR) layout:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggraph</span>(student_network, <span class="at">layout =</span> <span class="st">"fr"</span>) <span class="sc">+</span></span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggraph</span>(student_network, <span class="at">layout =</span> <span class="st">"fr"</span>) <span class="sc">+</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -915,9 +992,9 @@ Tip
 <p>Also like {ggplot2}, geoms can include aesthetics, or aes for short, such as <code>alpha</code> for transparency, as well as <code>color</code>, <code>shape</code> and <code>size</code>.</p>
 <p>Let’s now add some “aesthetics” to our points by including the <code>aes()</code> function and arguments such as <code>size =</code> and <code>color =</code>. We’ll use our <code>gender</code> variable for color and set the size of the node using <code>local_size()</code> function, which will base the size of each node on the number of friends each student nominated.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggraph</span>(student_network, <span class="at">layout =</span> <span class="st">"stress"</span>) <span class="sc">+</span> </span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_node_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> gender,</span>
-<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">size =</span> <span class="fu">local_size</span>()))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggraph</span>(student_network, <span class="at">layout =</span> <span class="st">"stress"</span>) <span class="sc">+</span> </span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_node_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> gender,</span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">size =</span> <span class="fu">local_size</span>()))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -929,12 +1006,12 @@ Tip
 <p>We can easily see that the number of friends ranges from 5 to 20, with the exception of one “isolated” student we identified earlier who is not connected to any other students in the network, and therefore is smaller in size on the graph.</p>
 <p>Let’s fix that by adding another layer with some node text and labels. Since node labels are a geometric element, we can apply aesthetics to them as well, like color and size. Let’s also include the <code>repel =</code> argument that when set to&nbsp;<code>TRUE</code>&nbsp;will avoid overlapping text.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggraph</span>(student_network, <span class="at">layout =</span> <span class="st">"stress"</span>) <span class="sc">+</span> </span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> <span class="fu">local_size</span>(),</span>
-<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">color =</span> gender)) <span class="sc">+</span></span>
-<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> name,</span>
-<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>                     <span class="at">size =</span> <span class="fu">local_size</span>()),</span>
-<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>                 <span class="at">repel =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggraph</span>(student_network, <span class="at">layout =</span> <span class="st">"stress"</span>) <span class="sc">+</span> </span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> <span class="fu">local_size</span>(),</span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">color =</span> gender)) <span class="sc">+</span></span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> name,</span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>                     <span class="at">size =</span> <span class="fu">local_size</span>()),</span>
+<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a>                 <span class="at">repel =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -948,12 +1025,12 @@ Tip
 <h4 class="anchored" data-anchor-id="add-edges">Add Edges</h4>
 <p>Now, let’s literally connect the dots and add some <a href="https://ggraph.data-imaginist.com/articles/Edges.html">edges</a> using the <code>geom_edge_link()</code> function.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggraph</span>(student_network, <span class="at">layout =</span> <span class="st">"stress"</span>) <span class="sc">+</span> </span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> <span class="fu">local_size</span>(),</span>
-<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">color =</span> gender)) <span class="sc">+</span></span>
-<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> name),</span>
-<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">repel=</span><span class="cn">TRUE</span>) <span class="sc">+</span></span>
-<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_edge_link</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggraph</span>(student_network, <span class="at">layout =</span> <span class="st">"stress"</span>) <span class="sc">+</span> </span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> <span class="fu">local_size</span>(),</span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">color =</span> gender)) <span class="sc">+</span></span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> name),</span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">repel=</span><span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_edge_link</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -969,15 +1046,15 @@ Tip
 <li><p><code>alpha = .2</code> set the transparency of our edges so our edges fade more into the background and help keep the focus on our nodes:</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggraph</span>(student_network, <span class="at">layout =</span> <span class="st">"stress"</span>) <span class="sc">+</span> </span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> <span class="fu">local_size</span>(),</span>
-<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">color =</span> gender)) <span class="sc">+</span></span>
-<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> name),</span>
-<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">repel=</span><span class="cn">TRUE</span>) <span class="sc">+</span></span>
-<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_edge_link</span>(<span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">length =</span> <span class="fu">unit</span>(<span class="dv">1</span>, <span class="st">'mm'</span>)), </span>
-<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a>                 <span class="at">end_cap =</span> <span class="fu">circle</span>(<span class="dv">3</span>, <span class="st">'mm'</span>),</span>
-<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a>                 <span class="at">start_cap =</span> <span class="fu">circle</span>(<span class="dv">3</span>, <span class="st">'mm'</span>),</span>
-<span id="cb47-9"><a href="#cb47-9" aria-hidden="true" tabindex="-1"></a>                 <span class="at">alpha =</span> .<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggraph</span>(student_network, <span class="at">layout =</span> <span class="st">"stress"</span>) <span class="sc">+</span> </span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> <span class="fu">local_size</span>(),</span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">color =</span> gender)) <span class="sc">+</span></span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> name),</span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">repel=</span><span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_edge_link</span>(<span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">length =</span> <span class="fu">unit</span>(<span class="dv">1</span>, <span class="st">'mm'</span>)), </span>
+<span id="cb51-7"><a href="#cb51-7" aria-hidden="true" tabindex="-1"></a>                 <span class="at">end_cap =</span> <span class="fu">circle</span>(<span class="dv">3</span>, <span class="st">'mm'</span>),</span>
+<span id="cb51-8"><a href="#cb51-8" aria-hidden="true" tabindex="-1"></a>                 <span class="at">start_cap =</span> <span class="fu">circle</span>(<span class="dv">3</span>, <span class="st">'mm'</span>),</span>
+<span id="cb51-9"><a href="#cb51-9" aria-hidden="true" tabindex="-1"></a>                 <span class="at">alpha =</span> .<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -993,16 +1070,16 @@ Tip
 <p>Finally, let’s add a <strong>theme,</strong> which controls the finer points of display, like the font size and background color. The <code>theme_graph()</code> function add a theme specially tuned for graph visualizations. This function removes redundant elements in order to put focus on the data and if you type <code>?theme_graph</code> in the console you will get a sense of the level of fine tuning you can do if desired.</p>
 <p>Let’s add <code>theme_graph()</code> to our sociogram, remove the legends since they are not especially useful, and call it good for now:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggraph</span>(student_network, <span class="at">layout =</span> <span class="st">"stress"</span>) <span class="sc">+</span> </span>
-<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_edge_link</span>(<span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">length =</span> <span class="fu">unit</span>(<span class="dv">1</span>, <span class="st">'mm'</span>)), </span>
-<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">end_cap =</span> <span class="fu">circle</span>(<span class="dv">3</span>, <span class="st">'mm'</span>),</span>
-<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">start_cap =</span> <span class="fu">circle</span>(<span class="dv">3</span>, <span class="st">'mm'</span>),</span>
-<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">alpha =</span> .<span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> <span class="fu">local_size</span>(),</span>
-<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a>                      <span class="at">color =</span> gender)) <span class="sc">+</span></span>
-<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> name),</span>
-<span id="cb48-9"><a href="#cb48-9" aria-hidden="true" tabindex="-1"></a>                 <span class="at">repel=</span><span class="cn">TRUE</span>) <span class="sc">+</span></span>
-<span id="cb48-10"><a href="#cb48-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_graph</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggraph</span>(student_network, <span class="at">layout =</span> <span class="st">"stress"</span>) <span class="sc">+</span> </span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_edge_link</span>(<span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">length =</span> <span class="fu">unit</span>(<span class="dv">1</span>, <span class="st">'mm'</span>)), </span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">end_cap =</span> <span class="fu">circle</span>(<span class="dv">3</span>, <span class="st">'mm'</span>),</span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">start_cap =</span> <span class="fu">circle</span>(<span class="dv">3</span>, <span class="st">'mm'</span>),</span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">alpha =</span> .<span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> <span class="fu">local_size</span>(),</span>
+<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a>                      <span class="at">color =</span> gender)) <span class="sc">+</span></span>
+<span id="cb52-8"><a href="#cb52-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> name),</span>
+<span id="cb52-9"><a href="#cb52-9" aria-hidden="true" tabindex="-1"></a>                 <span class="at">repel=</span><span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb52-10"><a href="#cb52-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_graph</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1019,16 +1096,16 @@ Tip
 <p>Now that you have a sense of how the {ggraph} package works to build network graphs, use the code chunk below and try building sophisticated sociogram for the <code>teacher_network</code> object that you created above.</p>
 <p>There are no right or wrong answers, just have some fun trying out different options for graph <a href="https://ggraph.data-imaginist.com/articles/Layouts.html">layouts</a>, <a href="https://ggraph.data-imaginist.com/articles/Edges.html">edges</a> and <a href="https://ggraph.data-imaginist.com/articles/Nodes.html">nodes</a> and see if you can build something that is visually pleasing to you.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggraph</span>(teacher_network, <span class="at">layout =</span> <span class="st">"fr"</span>) <span class="sc">+</span> </span>
-<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_edge_link</span>(<span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">length =</span> <span class="fu">unit</span>(<span class="dv">1</span>, <span class="st">'mm'</span>)), </span>
-<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">end_cap =</span> <span class="fu">circle</span>(<span class="dv">3</span>, <span class="st">'mm'</span>),</span>
-<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">start_cap =</span> <span class="fu">circle</span>(<span class="dv">3</span>, <span class="st">'mm'</span>),</span>
-<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">alpha =</span> .<span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> <span class="fu">local_size</span>(),</span>
-<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a>                      <span class="at">color =</span> gender)) <span class="sc">+</span></span>
-<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> name),</span>
-<span id="cb49-9"><a href="#cb49-9" aria-hidden="true" tabindex="-1"></a>                 <span class="at">repel=</span><span class="cn">TRUE</span>) <span class="sc">+</span></span>
-<span id="cb49-10"><a href="#cb49-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_graph</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggraph</span>(teacher_network, <span class="at">layout =</span> <span class="st">"fr"</span>) <span class="sc">+</span> </span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_edge_link</span>(<span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">length =</span> <span class="fu">unit</span>(<span class="dv">1</span>, <span class="st">'mm'</span>)), </span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">end_cap =</span> <span class="fu">circle</span>(<span class="dv">3</span>, <span class="st">'mm'</span>),</span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">start_cap =</span> <span class="fu">circle</span>(<span class="dv">3</span>, <span class="st">'mm'</span>),</span>
+<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">alpha =</span> .<span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> <span class="fu">local_size</span>(),</span>
+<span id="cb53-7"><a href="#cb53-7" aria-hidden="true" tabindex="-1"></a>                      <span class="at">color =</span> gender)) <span class="sc">+</span></span>
+<span id="cb53-8"><a href="#cb53-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> name),</span>
+<span id="cb53-9"><a href="#cb53-9" aria-hidden="true" tabindex="-1"></a>                 <span class="at">repel=</span><span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb53-10"><a href="#cb53-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_graph</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
