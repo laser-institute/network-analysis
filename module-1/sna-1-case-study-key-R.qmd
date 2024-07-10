@@ -251,8 +251,6 @@ rownames(teacher_friends) <- 1:27
 
 colnames(teacher_friends) <- 1:27
 
-teacher_friends <- as.matrix(teacher_friends)
-
 teacher_friends
 ```
 
@@ -379,6 +377,8 @@ Complete the code chunk below to convert your `teacher_friends` object first to 
 
 ```{r teacher-network}
 # YOUR CODE HERE
+
+teacher_friends <- as.matrix(teacher_friends)
 
 teacher_network <- as_tbl_graph(teacher_friends,
                                 directed = TRUE)

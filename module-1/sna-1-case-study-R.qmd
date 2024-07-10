@@ -376,6 +376,8 @@ Complete the code chunk below to convert your `teacher_friends` object first to 
 ```{r teacher-network}
 # YOUR CODE HERE
 
+teacher_friends <- as.matrix()
+
 teacher_network <- as_tbl_graph()
 
 teacher_edges <- teacher_network |>
