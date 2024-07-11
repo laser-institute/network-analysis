@@ -10,7 +10,7 @@ format:
     preview-links: auto
     logo: img/LASERLogoB.png
     #theme: Cosmo
-    theme: [default, css/laser.scss]
+    #theme: [default, css/laser.scss]
     width: 1920
     height: 1080
     margin: 0.05
