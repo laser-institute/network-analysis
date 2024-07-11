@@ -509,7 +509,7 @@
 <div class="tab-content">
 <div id="tabset-2-1">
 <p>Let’s start by creating a new Python script and loading some essential packages introduced in LA Workflows:</p>
-<div id="9fbe7d7e" class="cell" data-message="false" data-execution_count="3">
+<div id="3f030df2" class="cell" data-message="false" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
@@ -524,7 +524,7 @@
 </div>
 <div id="tabset-2-3">
 <p>Use your Python script to import the {networkx} package <code>as nx</code>.</p>
-<div id="de1d65cc" class="cell" data-execution_count="4">
+<div id="ebd28a69" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a><span class="co"># YOUR CODE HERE</span></span>
 <span id="cb2-2"><a href=""></a><span class="co">#</span></span>
 <span id="cb2-3"><a href=""></a><span class="co">#</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -576,7 +576,7 @@
 <li><p>substantive info (<strong>grades</strong>, attendance)</p></li>
 </ul>
 </div><div class="column" style="width:50%;">
-<div id="a0c6dd4c" class="cell" data-message="false" data-execution_count="5">
+<div id="a529d038" class="cell" data-message="false" data-execution_count="5">
 <div class="cell-output cell-output-display" data-execution_count="5">
 <div>
 <div>
@@ -672,7 +672,7 @@
 <li><p>edge attributes (time, event, text)</p></li>
 </ul>
 </div><div class="column" style="width:50%;">
-<div id="9d194c0a" class="cell" data-message="false" data-execution_count="6">
+<div id="9414cb01" class="cell" data-message="false" data-execution_count="6">
 <div class="cell-output cell-output-display" data-execution_count="6">
 <div>
 <div>
@@ -750,7 +750,7 @@
 <li><p>a value indicating the presence/strength of a relation</p></li>
 </ul>
 </div><div class="column" style="width:50%;">
-<div id="75f6af3f" class="cell" data-message="false" data-execution_count="7">
+<div id="9b02fe8f" class="cell" data-message="false" data-execution_count="7">
 <div class="cell-output cell-output-display" data-execution_count="7">
 <div>
 <div>
@@ -850,7 +850,7 @@
 <div class="tab-content">
 <div id="tabset-4-1">
 <p>Let’s start by importing two CSV files that contain data about the nodes and the edges in our student-reported friendship network:</p>
-<div id="574ddec1" class="cell" data-message="false" data-execution_count="8">
+<div id="3533b56e" class="cell" data-message="false" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a>student_nodes <span class="op">=</span> pd.read_csv(<span class="st">"lab-1/data/student-attributes.xlsx"</span>)</span>
 <span id="cb3-2"><a href=""></a></span>
 <span id="cb3-3"><a href=""></a>student_edges <span class="op">=</span> pd.read_csv(<span class="st">"lab-1/data/student-edgelist.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -858,7 +858,7 @@
 </div>
 <div id="tabset-4-2">
 <p>Now let’s take a look at the data file we just imported using the <code>print()</code> function or another function of choice you may have learned previously:</p>
-<div id="402f59a5" class="cell" data-message="false" data-execution_count="10">
+<div id="a8889336" class="cell" data-message="false" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href=""></a><span class="bu">print</span>(student_edges)</span>
 <span id="cb4-2"><a href=""></a><span class="bu">print</span>(student_nodes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -882,7 +882,7 @@
 <div class="tab-content">
 <div id="tabset-5-1">
 <p>Run the following code in your R script:</p>
-<div id="e6da9bbf" class="cell" data-message="false" data-execution_count="11">
+<div id="1df4e5be" class="cell" data-message="false" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a>student_network <span class="op">=</span> nx.from_pandas_edgelist(student_edges, </span>
 <span id="cb5-2"><a href=""></a>                                          source<span class="op">=</span><span class="st">'from'</span>, </span>
 <span id="cb5-3"><a href=""></a>                                          target<span class="op">=</span><span class="st">'to'</span>, </span>
@@ -892,7 +892,7 @@
 </div>
 <div id="tabset-5-2">
 <p>Using your Python script, <code>print()</code> the network object we just created and run the code to produce the output on the next tab:</p>
-<div id="7c4a4a00" class="cell" data-execution_count="12">
+<div id="aecff29f" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a><span class="co"># ADD CODE BELOW</span></span>
 <span id="cb6-2"><a href=""></a><span class="co">#</span></span>
 <span id="cb6-3"><a href=""></a><span class="co">#</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -900,7 +900,7 @@
 </div>
 <div id="tabset-5-3">
 <p>You should see an output that looks something like this:</p>
-<div id="38ad1c95" class="cell" data-execution_count="13">
+<div id="9e1ebac0" class="cell" data-execution_count="13">
 <div class="cell-output cell-output-stdout">
 <pre><code>DiGraph with 26 nodes and 203 edges</code></pre>
 </div>
@@ -931,13 +931,13 @@
 <div class="columns">
 <div class="column" style="width:50%;">
 <p>Run the following code to make a simple sociogram:</p>
-<div id="10400391" class="cell" data-fig.show="hide" data-execution_count="14">
+<div id="b981e44c" class="cell" data-fig.show="hide" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href=""></a>nx.draw(student_network)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 <p>The <code>draw()</code> function is a simple function for quickly plotting graphs using the {networkx} package.</p>
 </div><div class="column" style="width:50%;">
-<div id="1d89a54f" class="cell" data-fig-asp="0.75" data-execution_count="15">
+<div id="c54923f3" class="cell" data-fig-asp="0.75" data-execution_count="15">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -953,7 +953,7 @@
 <div class="columns">
 <div class="column" style="width:50%;">
 <p>Both functions allow a small degree of customization, but are still limited.</p>
-<div id="8f7fc1a5" class="cell" data-fig.show="hide" data-execution_count="16">
+<div id="531ad27d" class="cell" data-fig.show="hide" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href=""></a>nx.draw(student_network, with_labels<span class="op">=</span><span class="va">True</span>, font_weight<span class="op">=</span><span class="st">'bold'</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -964,7 +964,7 @@
 </div>
 </div>
 </div><div class="column" style="width:50%;">
-<div id="a39e9036" class="cell" data-fig.asp="0.75" data-execution_count="17">
+<div id="ef49a54b" class="cell" data-fig.asp="0.75" data-execution_count="17">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
