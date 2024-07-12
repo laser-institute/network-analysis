@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="sna-1-code-along-python_files/libs/clipboard/clipboard.min.js"></script>
+<script src="sna-1-code-along-python_files/libs/clipboard/clipboard.min.js"></script>
 <script src="sna-1-code-along-python_files/libs/quarto-html/tabby.min.js"></script>
 <script src="sna-1-code-along-python_files/libs/quarto-html/popper.min.js"></script>
 <script src="sna-1-code-along-python_files/libs/quarto-html/tippy.umd.min.js"></script>
@@ -406,9 +406,6 @@
       margin-right: 0; 
     }
   </style>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
-  
-  <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -509,7 +506,7 @@
 <div class="tab-content">
 <div id="tabset-2-1">
 <p>Let’s start by creating a new Python script and loading some essential packages introduced in LA Workflows:</p>
-<div id="bc135053" class="cell" data-message="false" data-execution_count="3">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
@@ -524,7 +521,7 @@
 </div>
 <div id="tabset-2-3">
 <p>Use your Python script to import the {networkx} package <code>as nx</code>.</p>
-<div id="0544ea19" class="cell" data-execution_count="4">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a><span class="co"># YOUR CODE HERE</span></span>
 <span id="cb2-2"><a href=""></a><span class="co">#</span></span>
 <span id="cb2-3"><a href=""></a><span class="co">#</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -576,87 +573,14 @@
 <li><p>substantive info (<strong>grades</strong>, attendance)</p></li>
 </ul>
 </div><div class="column" style="width:50%;">
-<div id="c8a4f2a0" class="cell" data-message="false" data-execution_count="5">
-<div class="cell-output cell-output-display" data-execution_count="5">
-<div>
-<div>
-<style scoped="">
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-
-<table class="dataframe" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header" style="text-align: right;">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">id</th>
-<th data-quarto-table-cell-role="th">name</th>
-<th data-quarto-table-cell-role="th">gender</th>
-<th data-quarto-table-cell-role="th">achievement</th>
-<th data-quarto-table-cell-role="th">gender_num</th>
-<th data-quarto-table-cell-role="th">achievement_num</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>1</td>
-<td>Katherine</td>
-<td>female</td>
-<td>high</td>
-<td>1</td>
-<td>1</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>2</td>
-<td>James</td>
-<td>male</td>
-<td>average</td>
-<td>0</td>
-<td>2</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>3</td>
-<td>Angela</td>
-<td>female</td>
-<td>average</td>
-<td>1</td>
-<td>2</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>4</td>
-<td>Joseph</td>
-<td>male</td>
-<td>high</td>
-<td>0</td>
-<td>1</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>5</td>
-<td>Samantha</td>
-<td>female</td>
-<td>average</td>
-<td>1</td>
-<td>2</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>   id       name  gender achievement  gender_num  achievement_num
+0   1  Katherine  female        high           1                1
+1   2      James    male     average           0                2
+2   3     Angela  female     average           1                2
+3   4     Joseph    male        high           0                1
+4   5   Samantha  female     average           1                2</code></pre>
 </div>
 </div>
 </div>
@@ -672,69 +596,14 @@
 <li><p>edge attributes (time, event, text)</p></li>
 </ul>
 </div><div class="column" style="width:50%;">
-<div id="6be8e7f6" class="cell" data-message="false" data-execution_count="6">
-<div class="cell-output cell-output-display" data-execution_count="6">
-<div>
-<div>
-<style scoped="">
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-
-<table class="dataframe" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header" style="text-align: right;">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">from</th>
-<th data-quarto-table-cell-role="th">to</th>
-<th data-quarto-table-cell-role="th">weight</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>1</td>
-<td>2</td>
-<td>1</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>1</td>
-<td>4</td>
-<td>1</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>1</td>
-<td>5</td>
-<td>1</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>1</td>
-<td>6</td>
-<td>1</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>1</td>
-<td>7</td>
-<td>1</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>   from  to  weight
+0     1   2       1
+1     1   4       1
+2     1   5       1
+3     1   6       1
+4     1   7       1</code></pre>
 </div>
 </div>
 </div>
@@ -750,81 +619,14 @@
 <li><p>a value indicating the presence/strength of a relation</p></li>
 </ul>
 </div><div class="column" style="width:50%;">
-<div id="754ff0d3" class="cell" data-message="false" data-execution_count="7">
-<div class="cell-output cell-output-display" data-execution_count="7">
-<div>
-<div>
-<style scoped="">
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-
-<table class="dataframe" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header" style="text-align: right;">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">0</th>
-<th data-quarto-table-cell-role="th">1</th>
-<th data-quarto-table-cell-role="th">2</th>
-<th data-quarto-table-cell-role="th">3</th>
-<th data-quarto-table-cell-role="th">4</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>   0  1  2  3  4
+0  0  0  0  1  0
+1  0  0  1  0  0
+2  0  1  0  0  0
+3  0  0  0  0  0
+4  1  0  0  0  0</code></pre>
 </div>
 </div>
 </div>
@@ -850,17 +652,17 @@
 <div class="tab-content">
 <div id="tabset-4-1">
 <p>Let’s start by importing two CSV files that contain data about the nodes and the edges in our student-reported friendship network:</p>
-<div id="bc279b98" class="cell" data-message="false" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a>student_nodes <span class="op">=</span> pd.read_csv(<span class="st">"lab-1/data/student-attributes.xlsx"</span>)</span>
-<span id="cb3-2"><a href=""></a></span>
-<span id="cb3-3"><a href=""></a>student_edges <span class="op">=</span> pd.read_csv(<span class="st">"lab-1/data/student-edgelist.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a>student_nodes <span class="op">=</span> pd.read_csv(<span class="st">"lab-1/data/student-attributes.xlsx"</span>)</span>
+<span id="cb6-2"><a href=""></a></span>
+<span id="cb6-3"><a href=""></a>student_edges <span class="op">=</span> pd.read_csv(<span class="st">"lab-1/data/student-edgelist.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-4-2">
 <p>Now let’s take a look at the data file we just imported using the <code>print()</code> function or another function of choice you may have learned previously:</p>
-<div id="b260b894" class="cell" data-message="false" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href=""></a><span class="bu">print</span>(student_edges)</span>
-<span id="cb4-2"><a href=""></a><span class="bu">print</span>(student_nodes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href=""></a><span class="bu">print</span>(student_edges)</span>
+<span id="cb7-2"><a href=""></a><span class="bu">print</span>(student_nodes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-4-3">
@@ -882,25 +684,25 @@
 <div class="tab-content">
 <div id="tabset-5-1">
 <p>Run the following code in your R script:</p>
-<div id="87b6955e" class="cell" data-message="false" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a>student_network <span class="op">=</span> nx.from_pandas_edgelist(student_edges, </span>
-<span id="cb5-2"><a href=""></a>                                          source<span class="op">=</span><span class="st">'from'</span>, </span>
-<span id="cb5-3"><a href=""></a>                                          target<span class="op">=</span><span class="st">'to'</span>, </span>
-<span id="cb5-4"><a href=""></a>                                          create_using<span class="op">=</span>nx.DiGraph())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href=""></a>student_network <span class="op">=</span> nx.from_pandas_edgelist(student_edges, </span>
+<span id="cb8-2"><a href=""></a>                                          source<span class="op">=</span><span class="st">'from'</span>, </span>
+<span id="cb8-3"><a href=""></a>                                          target<span class="op">=</span><span class="st">'to'</span>, </span>
+<span id="cb8-4"><a href=""></a>                                          create_using<span class="op">=</span>nx.DiGraph())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The <code>from_pandas_edgelist()</code> function creates a special network data structure called a “tidy graph” that combines our nodes and edges into a single R object.</p>
 </div>
 <div id="tabset-5-2">
 <p>Using your Python script, <code>print()</code> the network object we just created and run the code to produce the output on the next tab:</p>
-<div id="d9338465" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a><span class="co"># ADD CODE BELOW</span></span>
-<span id="cb6-2"><a href=""></a><span class="co">#</span></span>
-<span id="cb6-3"><a href=""></a><span class="co">#</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href=""></a><span class="co"># ADD CODE BELOW</span></span>
+<span id="cb9-2"><a href=""></a><span class="co">#</span></span>
+<span id="cb9-3"><a href=""></a><span class="co">#</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-5-3">
 <p>You should see an output that looks something like this:</p>
-<div id="a65ae29f" class="cell" data-execution_count="13">
+<div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>DiGraph with 26 nodes and 203 edges</code></pre>
 </div>
@@ -931,17 +733,17 @@
 <div class="columns">
 <div class="column" style="width:50%;">
 <p>Run the following code to make a simple sociogram:</p>
-<div id="6df3735a" class="cell" data-fig.show="hide" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href=""></a>nx.draw(student_network)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href=""></a>nx.draw(student_network)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 <p>The <code>draw()</code> function is a simple function for quickly plotting graphs using the {networkx} package.</p>
 </div><div class="column" style="width:50%;">
-<div id="0ece652c" class="cell" data-fig-asp="0.75" data-execution_count="15">
-<div class="cell-output cell-output-display">
+<div class="cell">
+<div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="sna-1-code-along-python_files/figure-revealjs/cell-16-output-1.png" width="979" height="499"></p>
+<p><img data-src="sna-1-code-along-python_files/figure-revealjs/unnamed-chunk-15-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -953,22 +755,15 @@
 <div class="columns">
 <div class="column" style="width:50%;">
 <p>Both functions allow a small degree of customization, but are still limited.</p>
-<div id="e01437dc" class="cell" data-fig.show="hide" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href=""></a>nx.draw(student_network, with_labels<span class="op">=</span><span class="va">True</span>, font_weight<span class="op">=</span><span class="st">'bold'</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure>
-<p><img data-src="sna-1-code-along-python_files/figure-revealjs/cell-17-output-1.png" width="979" height="499"></p>
-</figure>
-</div>
-</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href=""></a>nx.draw(student_network, with_labels<span class="op">=</span><span class="va">True</span>, font_weight<span class="op">=</span><span class="st">'bold'</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:50%;">
-<div id="9e46e888" class="cell" data-fig.asp="0.75" data-execution_count="17">
-<div class="cell-output cell-output-display">
+<div class="cell">
+<div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="sna-1-code-along-python_files/figure-revealjs/cell-18-output-1.png" width="979" height="499"></p>
+<p><img data-src="sna-1-code-along-python_files/figure-revealjs/unnamed-chunk-17-4.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -992,7 +787,11 @@
 <div class="tab-content">
 <div id="tabset-7-1">
 <p>The <code>ggraph()</code> function is the first function required to build a sociogram. Try running this function on out <code>student_network</code> and see what happens:</p>
-<p><code>{r set-graph, echo=TRUE, fig.show='hide'} ggraph(student_network)</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a><span class="co">#library(tidygraph)</span></span>
+<span id="cb13-2"><a href=""></a></span>
+<span id="cb13-3"><a href=""></a><span class="co">#ggraph(student_network)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>This function serves two critical roles:</p>
 <ol type="1">
 <li><p>It takes care of setting up the plot object for the network specified.</p></li>
@@ -1003,16 +802,12 @@
 <div class="columns">
 <div class="column" style="width:50%;">
 <p>Let’s “add” nodes to our sociogram using the <code>+</code> operator and the <code>geom_node_point()</code> function:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource {r} number-lines code-with-copy"><code class="sourceCode"><span id="cb10-1"><a href=""></a>#| echo: true</span>
-<span id="cb10-2"><a href=""></a>#| fig.show: hide</span>
-<span id="cb10-3"><a href=""></a>#| message: false</span>
-<span id="cb10-4"><a href=""></a>ggraph(student_network) + </span>
-<span id="cb10-5"><a href=""></a>  geom_node_point() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a><span class="co">#ggraph(student_network) + </span></span>
+<span id="cb14-2"><a href=""></a> <span class="co"># geom_node_point() </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div><div class="column" style="width:50%;">
-<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource {r} number-lines code-with-copy"><code class="sourceCode"><span id="cb11-1"><a href=""></a>#| echo: false</span>
-<span id="cb11-2"><a href=""></a>#| fig.asp: .75</span>
-<span id="cb11-3"><a href=""></a>ggraph(student_network) + </span>
-<span id="cb11-4"><a href=""></a>  geom_node_point() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
 </div>
 </div>
 </div>
@@ -1020,17 +815,13 @@
 <div class="columns">
 <div class="column" style="width:50%;">
 <p>Both functions allow a small degree of customization, but are still limited.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource {r} number-lines code-with-copy"><code class="sourceCode"><span id="cb12-1"><a href=""></a>#| echo: true</span>
-<span id="cb12-2"><a href=""></a>#| fig.show: hide</span>
-<span id="cb12-3"><a href=""></a>ggraph(student_network) + </span>
-<span id="cb12-4"><a href=""></a>  geom_node_point() + </span>
-<span id="cb12-5"><a href=""></a>  geom_edge_link()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a><span class="co">#ggraph(student_network) + </span></span>
+<span id="cb15-2"><a href=""></a><span class="co">#  geom_node_point() + </span></span>
+<span id="cb15-3"><a href=""></a><span class="co">#  geom_edge_link()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div><div class="column" style="width:50%;">
-<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource {r} number-lines code-with-copy"><code class="sourceCode"><span id="cb13-1"><a href=""></a>#| echo: false</span>
-<span id="cb13-2"><a href=""></a>#| fig.asp: .75</span>
-<span id="cb13-3"><a href=""></a>ggraph(student_network) + </span>
-<span id="cb13-4"><a href=""></a>  geom_node_point() + </span>
-<span id="cb13-5"><a href=""></a>  geom_edge_link()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
 </div>
 </div>
 </div>
@@ -1039,35 +830,24 @@
 <div class="column" style="width:50%;">
 <p><br> <br> The {ggraph} packages allows for some very fairly sophisticated sociograms…</p>
 </div><div class="column" style="width:50%;">
-<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource {r} number-lines code-with-copy"><code class="sourceCode"><span id="cb14-1"><a href=""></a>#| echo: false</span>
-<span id="cb14-2"><a href=""></a>#| fig.asp: .75</span>
-<span id="cb14-3"><a href=""></a>ggraph(student_network, layout = "stress") + </span>
-<span id="cb14-4"><a href=""></a>  geom_edge_link(arrow = arrow(length = unit(1, 'mm')), </span>
-<span id="cb14-5"><a href=""></a>                 end_cap = circle(3, 'mm'),</span>
-<span id="cb14-6"><a href=""></a>                 start_cap = circle(3, 'mm'),</span>
-<span id="cb14-7"><a href=""></a>                 alpha = .1) +</span>
-<span id="cb14-8"><a href=""></a>  geom_node_point(aes(size = local_size(),</span>
-<span id="cb14-9"><a href=""></a>                      color = gender)) +</span>
-<span id="cb14-10"><a href=""></a>  geom_node_text(aes(label = id),</span>
-<span id="cb14-11"><a href=""></a>                 repel=TRUE) +</span>
-<span id="cb14-12"><a href=""></a>  theme_graph()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
 </div>
 </div>
 </div>
 <div id="tabset-7-5">
 <p>With a fair bit of coding:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource {r} number-lines code-with-copy"><code class="sourceCode"><span id="cb15-1"><a href=""></a>#| echo: true</span>
-<span id="cb15-2"><a href=""></a>#| fig.show: hide</span>
-<span id="cb15-3"><a href=""></a>ggraph(student_network, layout = "stress") + </span>
-<span id="cb15-4"><a href=""></a>  geom_edge_link(arrow = arrow(length = unit(1, 'mm')), </span>
-<span id="cb15-5"><a href=""></a>                 end_cap = circle(3, 'mm'),</span>
-<span id="cb15-6"><a href=""></a>                 start_cap = circle(3, 'mm'),</span>
-<span id="cb15-7"><a href=""></a>                 alpha = .1) +</span>
-<span id="cb15-8"><a href=""></a>  geom_node_point(aes(size = local_size(),</span>
-<span id="cb15-9"><a href=""></a>                      color = gender)) +</span>
-<span id="cb15-10"><a href=""></a>  geom_node_text(aes(label = id),</span>
-<span id="cb15-11"><a href=""></a>                 repel=TRUE) +</span>
-<span id="cb15-12"><a href=""></a>  theme_graph()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a><span class="co">#ggraph(student_network, layout = "stress") + </span></span>
+<span id="cb16-2"><a href=""></a><span class="co">#  geom_edge_link(arrow = arrow(length = unit(1, 'mm')), </span></span>
+<span id="cb16-3"><a href=""></a><span class="co">#                 end_cap = circle(3, 'mm'),</span></span>
+<span id="cb16-4"><a href=""></a><span class="co">#                 start_cap = circle(3, 'mm'),</span></span>
+<span id="cb16-5"><a href=""></a><span class="co">#                 alpha = .1) +</span></span>
+<span id="cb16-6"><a href=""></a><span class="co">#  geom_node_point(aes(size = local_size(),</span></span>
+<span id="cb16-7"><a href=""></a><span class="co">#                      color = gender)) +</span></span>
+<span id="cb16-8"><a href=""></a><span class="co">#  geom_node_text(aes(label = id),</span></span>
+<span id="cb16-9"><a href=""></a><span class="co">#                 repel=TRUE) +</span></span>
+<span id="cb16-10"><a href=""></a><span class="co">#  theme_graph()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -1322,6 +1102,44 @@ Pittinsky, Matthew, and Brian V Carolan. 2008. <span>“Behavioral Versus Cognit
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
