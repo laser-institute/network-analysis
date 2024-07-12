@@ -8,18 +8,18 @@ format:
     chalkboard: 
       buttons: false
     preview-links: auto
-    logo: img/LASERLogoB.png
+#    logo: img/LASERLogoB.png
     #theme: Cosmo
 #    theme: [default, css/laser.scss]
 #    width: 1920
 #    height: 1080
 #    margin: 0.05
-    footer: <a href=https://www.go.ncsu.edu/laser-institute>go.ncsu.edu/laser-institute
-highlight-style: a11y
+#    footer: <a href=https://www.go.ncsu.edu/laser-institute>go.ncsu.edu/laser-institute
+# highlight-style: a11y
 #resources:
 #  - demo.pdf
-bibliography: lit/references.bib
-editor: visual
+#bibliography: lit/references.bib
+# editor: visual
 ---
 
 ## Data Intensive Research-Workflow
@@ -457,7 +457,7 @@ plt.show()
 
 The `ggraph()` function is the first function required to build a sociogram. Try running this function on out `student_network` and see what happens:
 
-```{r set-graph, echo=TRUE, fig.show='hide'}
+```{python}
 #library(tidygraph)
 
 #ggraph(student_network)
@@ -475,7 +475,7 @@ This function serves two critical roles:
 ::: {.column width="50%"}
 Let's “add” nodes to our sociogram using the `+` operator and the `geom_node_point()` function:
 
-```{r}
+```{python}
 #| echo: true
 #| fig.show: hide
 #| message: false
@@ -485,7 +485,7 @@ Let's “add” nodes to our sociogram using the `+` operator and the `geom_node
 :::
 
 ::: {.column width="50%"}
-```{r}
+```{python}
 #| echo: false
 #| fig.asp: .75
 #ggraph(student_network) + 
@@ -500,7 +500,7 @@ Let's “add” nodes to our sociogram using the `+` operator and the `geom_node
 ::: {.column width="50%"}
 Both functions allow a small degree of customization, but are still limited.
 
-```{r}
+```{python}
 #| echo: true
 #| fig.show: hide
 #ggraph(student_network) + 
@@ -510,7 +510,7 @@ Both functions allow a small degree of customization, but are still limited.
 :::
 
 ::: {.column width="50%"}
-```{r}
+```{python}
 #| echo: false
 #| fig.asp: .75
 #ggraph(student_network) + 
@@ -528,7 +528,7 @@ Both functions allow a small degree of customization, but are still limited.
 :::
 
 ::: {.column width="50%"}
-```{r}
+```{python}
 #| echo: false
 #| fig.asp: .75
 #ggraph(student_network, layout = "stress") + 
@@ -549,7 +549,7 @@ Both functions allow a small degree of customization, but are still limited.
 
 With a fair bit of coding:
 
-```{r}
+```{python}
 #| echo: true
 #| fig.show: hide
 #ggraph(student_network, layout = "stress") + 
