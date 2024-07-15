@@ -55,45 +55,65 @@
         -khtml-user-select: none; -moz-user-select: none;
         -ms-user-select: none; user-select: none;
         padding: 0 4px; width: 4em;
-        color: #aaaaaa;
+        color: #767676;
       }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #767676;  padding-left: 4px; }
     div.sourceCode
-      { color: #003b4f; background-color: #f1f3f5; }
+      { color: #545454; background-color: #fefefe; }
     @media screen {
     pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
     }
-    code span { color: #003b4f; } /* Normal */
-    code span.al { color: #ad0000; } /* Alert */
-    code span.an { color: #5e5e5e; } /* Annotation */
-    code span.at { color: #657422; } /* Attribute */
-    code span.bn { color: #ad0000; } /* BaseN */
+    code span { color: #545454; } /* Normal */
+    code span.al { color: #7928a1; } /* Alert */
+    code span.an { color: #696969; } /* Annotation */
+    code span.at { color: #a55a00; } /* Attribute */
+    code span.bn { color: #7928a1; } /* BaseN */
     code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; } /* ControlFlow */
-    code span.ch { color: #20794d; } /* Char */
-    code span.cn { color: #8f5902; } /* Constant */
-    code span.co { color: #5e5e5e; } /* Comment */
-    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
-    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
-    code span.dt { color: #ad0000; } /* DataType */
-    code span.dv { color: #ad0000; } /* DecVal */
-    code span.er { color: #ad0000; } /* Error */
+    code span.cf { color: #d91e18; } /* ControlFlow */
+    code span.ch { color: #008000; } /* Char */
+    code span.cn { color: #d91e18; } /* Constant */
+    code span.co { color: #696969; } /* Comment */
+    code span.cv { color: #696969; font-style: italic; } /* CommentVar */
+    code span.do { color: #696969; font-style: italic; } /* Documentation */
+    code span.dt { color: #7928a1; } /* DataType */
+    code span.dv { color: #7928a1; } /* DecVal */
+    code span.er { color: #7928a1; } /* Error */
     code span.ex { } /* Extension */
-    code span.fl { color: #ad0000; } /* Float */
-    code span.fu { color: #4758ab; } /* Function */
-    code span.im { color: #00769e; } /* Import */
-    code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; } /* Keyword */
-    code span.op { color: #5e5e5e; } /* Operator */
-    code span.ot { color: #003b4f; } /* Other */
-    code span.pp { color: #ad0000; } /* Preprocessor */
-    code span.sc { color: #5e5e5e; } /* SpecialChar */
-    code span.ss { color: #20794d; } /* SpecialString */
-    code span.st { color: #20794d; } /* String */
-    code span.va { color: #111111; } /* Variable */
-    code span.vs { color: #20794d; } /* VerbatimString */
-    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
-  </style>
+    code span.fl { color: #a55a00; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #696969; } /* Information */
+    code span.kw { color: #d91e18; } /* Keyword */
+    code span.op { color: #00769e; } /* Operator */
+    code span.ot { color: #d91e18; } /* Other */
+    code span.pp { color: #7928a1; } /* Preprocessor */
+    code span.sc { color: #00769e; } /* SpecialChar */
+    code span.ss { color: #008000; } /* SpecialString */
+    code span.st { color: #008000; } /* String */
+    code span.va { color: #a55a00; } /* Variable */
+    code span.vs { color: #008000; } /* VerbatimString */
+    code span.wa { color: #696969; font-style: italic; } /* Warning */
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
   <link rel="stylesheet" href="sna-1-code-along-python_files/libs/revealjs/dist/theme/quarto.css">
   <link href="sna-1-code-along-python_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="sna-1-code-along-python_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -405,7 +425,7 @@
 <section id="data-intensive-research-workflow" class="slide level2">
 <h2>Data Intensive Research-Workflow</h2>
 
-<img data-src="img/workflow.png" width="300" class="r-stretch quarto-figure-center"><p class="caption">From Learning Analytics Goes to School <span class="citation" data-cites="krumm2018">[@krumm2018]</span></p><aside class="notes">
+<img data-src="img/workflow.png" width="300" class="r-stretch quarto-figure-center"><p class="caption">From Learning Analytics Goes to School <span class="citation" data-cites="krumm2018">(<a href="#/references" role="doc-biblioref" onclick="">Krumm, Means, and Bienkowski 2018</a>)</span></p><aside class="notes">
 <p><strong>Speaker Notes:</strong></p>
 <p>Just as a quick refresher from our Learning Analytics Workflow Module, the workflow pictured here outlines a basic process intended to support researchers, practitioners, and data scientists prepare for a data-intensive analysis and communication of one’s findings. Different processes in this workflow as they relate to specific LA technique are highlighted in our code-along and presented in much greater detail in each case study. If you’re interested in learning more about this workflow, I highly recommend the excellent book, Learning Analytics Goes to School, by Andrew Krumm, Barbara Means, and Marie Bienkowski.</p>
 <style type="text/css">
@@ -433,12 +453,12 @@
 <div id="tabset-1-1">
 <div class="columns">
 <div class="column" style="width:70%;">
-<p>Revisiting early work in the field of sociometry, this study by <span class="citation" data-cites="pittinsky2008behavioral">@pittinsky2008behavioral</span> <strong>assesses the level of agreement between teacher perceptions and student reports of classroom friendships</strong> among middle school students.</p>
+<p>Revisiting early work in the field of sociometry, this study by <span class="citation" data-cites="pittinsky2008behavioral">Pittinsky and Carolan (<a href="#/references" role="doc-biblioref" onclick="">2008</a>)</span> <strong>assesses the level of agreement between teacher perceptions and student reports of classroom friendships</strong> among middle school students.</p>
 </div><div class="column" style="width:30%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img/pittinsky-carolan.png" style="width:70.0%"></p>
-<figcaption>Behavioral vs.&nbsp;Cognitive Classroom Friendships <span class="citation" data-cites="pittinsky2008behavioral">[@pittinsky2008behavioral]</span></figcaption>
+<figcaption>Behavioral vs.&nbsp;Cognitive Classroom Friendships <span class="citation" data-cites="pittinsky2008behavioral">(<a href="#/references" role="doc-biblioref" onclick="">Pittinsky and Carolan 2008</a>)</span></figcaption>
 </figure>
 </div>
 </div>
@@ -489,7 +509,7 @@
 <div class="tab-content">
 <div id="tabset-2-1">
 <p>Let’s start by creating a new Python script and loading some essential packages introduced in LA Workflows:</p>
-<div id="3b9f1dde" class="cell" data-message="false" data-execution_count="3">
+<div id="3bfe6984" class="cell" data-message="false" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
@@ -504,7 +524,7 @@
 </div>
 <div id="tabset-2-3">
 <p>Use your Python script to import the {networkx} package <code>as nx</code>.</p>
-<div id="72580277" class="cell" data-execution_count="4">
+<div id="8fc43cff" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a><span class="co"># YOUR CODE HERE</span></span>
 <span id="cb2-2"><a href=""></a><span class="co">#</span></span>
 <span id="cb2-3"><a href=""></a><span class="co">#</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -556,8 +576,8 @@
 <li><p>substantive info (<strong>grades</strong>, attendance)</p></li>
 </ul>
 </div><div class="column" style="width:50%;">
-<div id="f067d9ad" class="cell" data-message="false" data-execution_count="5">
-<div class="cell-output cell-output-display" data-execution_count="5">
+<div id="49911a6f" class="cell" data-message="false" data-execution_count="5">
+<div class="cell-output cell-output-display" data-execution_count="26">
 <div>
 <div>
 <style scoped="">
@@ -652,8 +672,8 @@
 <li><p>edge attributes (time, event, text)</p></li>
 </ul>
 </div><div class="column" style="width:50%;">
-<div id="13ea1ad7" class="cell" data-message="false" data-execution_count="6">
-<div class="cell-output cell-output-display" data-execution_count="6">
+<div id="de5574d0" class="cell" data-message="false" data-execution_count="6">
+<div class="cell-output cell-output-display" data-execution_count="27">
 <div>
 <div>
 <style scoped="">
@@ -730,8 +750,8 @@
 <li><p>a value indicating the presence/strength of a relation</p></li>
 </ul>
 </div><div class="column" style="width:50%;">
-<div id="174bf046" class="cell" data-message="false" data-execution_count="7">
-<div class="cell-output cell-output-display" data-execution_count="7">
+<div id="b9f0ecc2" class="cell" data-message="false" data-execution_count="7">
+<div class="cell-output cell-output-display" data-execution_count="28">
 <div>
 <div>
 <style scoped="">
@@ -830,7 +850,7 @@
 <div class="tab-content">
 <div id="tabset-4-1">
 <p>Let’s start by importing two CSV files that contain data about the nodes and the edges in our student-reported friendship network:</p>
-<div id="34709d8f" class="cell" data-message="false" data-execution_count="8">
+<div id="f514675d" class="cell" data-message="false" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a>student_nodes <span class="op">=</span> pd.read_csv(<span class="st">"lab-1/data/student-attributes.xlsx"</span>)</span>
 <span id="cb3-2"><a href=""></a></span>
 <span id="cb3-3"><a href=""></a>student_edges <span class="op">=</span> pd.read_csv(<span class="st">"lab-1/data/student-edgelist.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -838,7 +858,7 @@
 </div>
 <div id="tabset-4-2">
 <p>Now let’s take a look at the data file we just imported using the <code>print()</code> function or another function of choice you may have learned previously:</p>
-<div id="7e36c2ed" class="cell" data-message="false" data-execution_count="10">
+<div id="8cea9b14" class="cell" data-message="false" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href=""></a><span class="bu">print</span>(student_edges)</span>
 <span id="cb4-2"><a href=""></a><span class="bu">print</span>(student_nodes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -862,7 +882,7 @@
 <div class="tab-content">
 <div id="tabset-5-1">
 <p>Run the following code in your R script:</p>
-<div id="bac5b111" class="cell" data-message="false" data-execution_count="11">
+<div id="739dc5b4" class="cell" data-message="false" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a>student_network <span class="op">=</span> nx.from_pandas_edgelist(student_edges, </span>
 <span id="cb5-2"><a href=""></a>                                          source<span class="op">=</span><span class="st">'from'</span>, </span>
 <span id="cb5-3"><a href=""></a>                                          target<span class="op">=</span><span class="st">'to'</span>, </span>
@@ -872,7 +892,7 @@
 </div>
 <div id="tabset-5-2">
 <p>Using your Python script, <code>print()</code> the network object we just created and run the code to produce the output on the next tab:</p>
-<div id="07dcdb53" class="cell" data-execution_count="12">
+<div id="128f4b74" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a><span class="co"># ADD CODE BELOW</span></span>
 <span id="cb6-2"><a href=""></a><span class="co">#</span></span>
 <span id="cb6-3"><a href=""></a><span class="co">#</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -880,7 +900,7 @@
 </div>
 <div id="tabset-5-3">
 <p>You should see an output that looks something like this:</p>
-<div id="c8e37814" class="cell" data-execution_count="13">
+<div id="b05720c4" class="cell" data-execution_count="13">
 <div class="cell-output cell-output-stdout">
 <pre><code>DiGraph with 26 nodes and 203 edges</code></pre>
 </div>
@@ -911,13 +931,13 @@
 <div class="columns">
 <div class="column" style="width:50%;">
 <p>Run the following code to make a simple sociogram:</p>
-<div id="53ad8823" class="cell" data-fig.show="hide" data-execution_count="14">
+<div id="122c4791" class="cell" data-fig.show="hide" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href=""></a>nx.draw(student_network)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 <p>The <code>draw()</code> function is a simple function for quickly plotting graphs using the {networkx} package.</p>
 </div><div class="column" style="width:50%;">
-<div id="d18f6d84" class="cell" data-fig-asp="0.75" data-execution_count="15">
+<div id="c4f2fc90" class="cell" data-fig-asp="0.75" data-execution_count="15">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -933,7 +953,7 @@
 <div class="columns">
 <div class="column" style="width:50%;">
 <p>Both functions allow a small degree of customization, but are still limited.</p>
-<div id="018595e6" class="cell" data-fig.show="hide" data-execution_count="16">
+<div id="391b6b22" class="cell" data-fig.show="hide" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href=""></a>nx.draw(student_network, with_labels<span class="op">=</span><span class="va">True</span>, font_weight<span class="op">=</span><span class="st">'bold'</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -944,7 +964,7 @@
 </div>
 </div>
 </div><div class="column" style="width:50%;">
-<div id="9252b8c9" class="cell" data-fig.asp="0.75" data-execution_count="17">
+<div id="d85d01af" class="cell" data-fig.asp="0.75" data-execution_count="17">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -982,7 +1002,7 @@
 <div class="columns">
 <div class="column" style="width:50%;">
 <p>Let’s “add” nodes to our sociogram using the <code>+</code> operator and the <code>geom_node_point()</code> function:</p>
-<div id="c228dfcb" class="cell" data-fig.show="hide" data-message="false" data-execution_count="19">
+<div id="98b2b639" class="cell" data-fig.show="hide" data-message="false" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href=""></a><span class="co">#ggraph(student_network) + </span></span>
 <span id="cb10-2"><a href=""></a> <span class="co"># geom_node_point() </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -995,7 +1015,7 @@
 <div class="columns">
 <div class="column" style="width:50%;">
 <p>Both functions allow a small degree of customization, but are still limited.</p>
-<div id="0bce0182" class="cell" data-fig.show="hide" data-execution_count="21">
+<div id="b77b08c0" class="cell" data-fig.show="hide" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href=""></a><span class="co">#ggraph(student_network) + </span></span>
 <span id="cb11-2"><a href=""></a><span class="co">#  geom_node_point() + </span></span>
 <span id="cb11-3"><a href=""></a><span class="co">#  geom_edge_link()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1016,7 +1036,7 @@
 </div>
 <div id="tabset-7-5">
 <p>With a fair bit of coding:</p>
-<div id="e818547d" class="cell" data-fig.show="hide" data-execution_count="24">
+<div id="b4914a5e" class="cell" data-fig.show="hide" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href=""></a><span class="co">#ggraph(student_network, layout = "stress") + </span></span>
 <span id="cb12-2"><a href=""></a><span class="co">#  geom_edge_link(arrow = arrow(length = unit(1, 'mm')), </span></span>
 <span id="cb12-3"><a href=""></a><span class="co">#                 end_cap = circle(3, 'mm'),</span></span>
@@ -1053,11 +1073,20 @@
 </div>
 </div>
 </section>
-<section id="references" class="slide level2">
+<section id="references" class="slide level2 smaller scrollable">
 <h2>References</h2>
 <div class="quarto-auto-generated-content">
+<p><img src="img/LASERLogoB.png" class="slide-logo"></p>
 <div class="footer footer-default">
-
+<p><a href="https://www.go.ncsu.edu/laser-institute">go.ncsu.edu/laser-institute</a></p><a href="https://www.go.ncsu.edu/laser-institute">
+</a></div><a href="https://www.go.ncsu.edu/laser-institute">
+</a></div><a href="https://www.go.ncsu.edu/laser-institute">
+</a><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list"><a href="https://www.go.ncsu.edu/laser-institute">
+</a><div id="ref-krumm2018" class="csl-entry" role="listitem"><a href="https://www.go.ncsu.edu/laser-institute">
+Krumm, Andrew, Barbara Means, and Marie Bienkowski. 2018. <em>Learning Analytics Goes to School</em>. Routledge. </a><a href="https://doi.org/10.4324/9781315650722">https://doi.org/10.4324/9781315650722</a>.
+</div>
+<div id="ref-pittinsky2008behavioral" class="csl-entry" role="listitem">
+Pittinsky, Matthew, and Brian V Carolan. 2008. <span>“Behavioral Versus Cognitive Classroom Friendship Networks: Do Teacher Perceptions Agree with Student Reports?”</span> <em>Social Psychology of Education</em> 11: 133–47. <a href="https://link.springer.com/content/pdf/10.1007/s11218-007-9046-7.pdf">https://link.springer.com/content/pdf/10.1007/s11218-007-9046-7.pdf</a>.
 </div>
 </div>
 </section></section>
@@ -1239,12 +1268,12 @@
         // The "normal" size of the presentation, aspect ratio will be preserved
         // when the presentation is scaled to fit different resolutions. Can be
         // specified using percentage units.
-        width: 1050,
+        width: 1920,
 
-        height: 700,
+        height: 1080,
 
         // Factor of the display size that should remain empty around the content
-        margin: 0.1,
+        margin: 5.0e-2,
 
         math: {
           mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
