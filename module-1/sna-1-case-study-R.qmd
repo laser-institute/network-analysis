@@ -125,7 +125,7 @@ Since one of our data wrangling steps in the next section is importing network m
 
 **R Studio Tip:** Type `??read_excel` into the console and check the arguments section to examine the different arguments that can be used with this function.
 
-#### **👉 Your Turn** **⤵**
+#### 👉 Your Turn ⤵
 
 Use the code chunk below load the {tidygraph}, {ggraph}, and {readxl} packages:
 
@@ -166,7 +166,7 @@ student_friends <- read_excel("data/student-reported-friends.xlsx",
                               col_names = FALSE)
 ```
 
-#### **👉 Your Turn** **⤵**
+#### 👉 Your Turn ⤵
 
 Before importing our teacher-reported friendship file, use the code chunk below to quickly inspect the `student_friends` data we just imported to see what we'll be working with.
 
@@ -237,7 +237,7 @@ Although an underlying assumption of social network analysis is that social rela
 
 We will explore several of these use cases throughout the SNA modules, but for this case study, our focus will be to incorporate some student attributes to enhance our visualizations.
 
-#### **👉 Your Turn** **⤵**
+#### 👉 Your Turn ⤵
 
 Complete the code chunk below to import the `teacher-reported-friends.xlsx` file, add row and column names, and inspect your `teacher_friends` object.
 
@@ -369,7 +369,7 @@ student_network
 
 Much better!! Now we can see that in addition to the edges in our network, our network object now contains information about students' gender and achievement levels in text and numerical format.
 
-#### **👉 Your Turn** **⤵**
+#### 👉 Your Turn ⤵
 
 Complete the code chunk below to convert your `teacher_friends` object first to a matrix and then to a network object that contains information about both the teacher-reported student friendships and the attributes of students:
 
@@ -455,7 +455,7 @@ autograph(student_network,
           node_colour = gender)
 ```
 
-#### **👉 Your Turn** **⤵**
+#### 👉 Your Turn ⤵
 
 Use the code chunk below to try out these simple sociogram functions on your `teacher_network` object you created above:
 
@@ -485,7 +485,7 @@ Very similar to how `ggplot()` uses the `+` operator to "layer" functions togeth
 
 To add our nodes, we'll added the `geom_node_point()` function. Again, just like with {ggplot2}, the "geom" in the `geom_non_point()` functions stands for "Geometric elements", or geoms for short, and represents what you actually see in the plot.
 
-#### **👉 Your Turn** **⤵**
+#### 👉 Your Turn ⤵
 
 Now "add" the `geom_node_point()` function to our code using the `+` operator:
 
@@ -594,7 +594,7 @@ Much better! Notice also how we shifted the `geom_node_point()` layer of our gra
 
 **Note:** If you're having difficulty seeing the sociogram in the small R Markdown code chunk, you can copy and paste the code in the console and it will show in the Viewer pan and then you can enlarge and even save as an image file.
 
-#### **👉 Your Turn** **⤵**
+#### 👉 Your Turn ⤵
 
 Now that you have a sense of how the {ggraph} package works to build network graphs, use the code chunk below and try building sophisticated sociogram for the `teacher_network` object that you created above.
 
