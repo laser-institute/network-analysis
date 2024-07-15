@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="LASER Institute">
-<meta name="dcterms.date" content="2024-03-11">
+<meta name="dcterms.date" content="2024-07-15">
 
 <title>A Tale of Two MOOCs</title>
 <style>
@@ -159,7 +159,16 @@ div.csl-indent {
   <li><a href="#model" id="toc-model" class="nav-link" data-scroll-target="#model">4. Model</a></li>
   <li><a href="#communicate" id="toc-communicate" class="nav-link" data-scroll-target="#communicate">5. Communicate</a>
   <ul>
-  <li><a href="#knit-and-publish" id="toc-knit-and-publish" class="nav-link" data-scroll-target="#knit-and-publish">Knit and Publish</a></li>
+  <li><a href="#render-file" id="toc-render-file" class="nav-link" data-scroll-target="#render-file">Render File</a>
+  <ul class="collapse">
+  <li><a href="#your-turn-8" id="toc-your-turn-8" class="nav-link" data-scroll-target="#your-turn-8">👉 Your Turn ⤵</a></li>
+  </ul></li>
+  <li><a href="#publish-file" id="toc-publish-file" class="nav-link" data-scroll-target="#publish-file">Publish File</a>
+  <ul class="collapse">
+  <li><a href="#your-turn-9" id="toc-your-turn-9" class="nav-link" data-scroll-target="#your-turn-9">👉 Your Turn ⤵</a></li>
+  <li><a href="#publishing-with-quarto-pub" id="toc-publishing-with-quarto-pub" class="nav-link" data-scroll-target="#publishing-with-quarto-pub">Publishing with Quarto Pub</a></li>
+  <li><a href="#publishing-with-r-pubs" id="toc-publishing-with-r-pubs" class="nav-link" data-scroll-target="#publishing-with-r-pubs">Publishing with R Pubs</a></li>
+  </ul></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul></li>
   </ul>
@@ -187,7 +196,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">March 11, 2024</p>
+      <p class="date">July 15, 2024</p>
     </div>
   </div>
   
@@ -316,10 +325,10 @@ Attaching package: 'janitor'</code></pre>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.4
+✔ dplyr     1.1.4     ✔ readr     2.1.5
 ✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.4.4     ✔ tibble    3.2.1
-✔ lubridate 1.9.2     ✔ tidyr     1.3.0
+✔ ggplot2   3.5.1     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.1
 ✔ purrr     1.0.2     </code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
@@ -551,19 +560,23 @@ The following object is masked from 'package:stats':
 #
 # A directed multigraph with 4 components
 #
-# A tibble: 445 × 13
-  uid   facilitator role1  experience experience2 grades location region country
-  &lt;chr&gt; &lt;chr&gt;       &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;  &lt;chr&gt;    &lt;chr&gt;  &lt;chr&gt;  
-1 1     0           libme…          1 6 to 10     secon… VA       South  US     
-2 2     0           class…          1 6 to 10     secon… FL       South  US     
-3 3     0           distr…          2 11 to 20    gener… PA       North… US     
-4 4     0           class…          2 11 to 20    middle NC       South  US     
-5 5     0           other…          3 20+         gener… AL       South  US     
-6 6     0           class…          1 4 to 5      gener… AL       South  US     
-# ℹ 439 more rows
+# Node Data: 445 × 13 (active)
+   uid   facilitator role1 experience experience2 grades location region country
+   &lt;chr&gt; &lt;chr&gt;       &lt;chr&gt;      &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;  &lt;chr&gt;    &lt;chr&gt;  &lt;chr&gt;  
+ 1 1     0           libm…          1 6 to 10     secon… VA       South  US     
+ 2 2     0           clas…          1 6 to 10     secon… FL       South  US     
+ 3 3     0           dist…          2 11 to 20    gener… PA       North… US     
+ 4 4     0           clas…          2 11 to 20    middle NC       South  US     
+ 5 5     0           othe…          3 20+         gener… AL       South  US     
+ 6 6     0           clas…          1 4 to 5      gener… AL       South  US     
+ 7 7     0           inst…          2 11 to 20    gener… SD       Midwe… US     
+ 8 8     0           spec…          1 6 to 10     secon… BE       Inter… BE     
+ 9 9     0           clas…          1 6 to 10     middle NC       South  US     
+10 10    0           scho…          2 11 to 20    middle NC       South  US     
+# ℹ 435 more rows
 # ℹ 4 more variables: group &lt;chr&gt;, gender &lt;chr&gt;, expert &lt;chr&gt;, connect &lt;chr&gt;
 #
-# A tibble: 2,529 × 9
+# Edge Data: 2,529 × 9
    from    to timestamp    discussion_title  discussion_category parent_category
   &lt;int&gt; &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;             &lt;chr&gt;               &lt;chr&gt;          
 1   360   444 4/4/13 16:32 Most important c… Group N             Units 1-3 Disc…
@@ -646,10 +659,6 @@ The following object is masked from 'package:stats':
 <div class="cell-output cell-output-stderr">
 <pre><code>Using "stress" as default layout</code></pre>
 </div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Using the `size` aesthetic in this geom was deprecated in ggplot2 3.4.0.
-ℹ Please use `linewidth` in the `default_aes` field and elsewhere instead.</code></pre>
-</div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -667,11 +676,11 @@ The following object is masked from 'package:stats':
 <li><p>Add the <code>theme_graph()</code> layer to remove the gray background.</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggraph</span>(dlt1_network, <span class="at">layout =</span> <span class="st">"fr"</span>) <span class="sc">+</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_edge_link</span>(<span class="at">alpha =</span> .<span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> role1,</span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">size =</span> <span class="fu">local_size</span>())) <span class="sc">+</span></span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_graph</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggraph</span>(dlt1_network, <span class="at">layout =</span> <span class="st">"fr"</span>) <span class="sc">+</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_edge_link</span>(<span class="at">alpha =</span> .<span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> role1,</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">size =</span> <span class="fu">local_size</span>())) <span class="sc">+</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_graph</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -687,39 +696,39 @@ The following object is masked from 'package:stats':
 <h4 class="anchored" data-anchor-id="your-turn-6">👉 Your Turn ⤵</h4>
 <p>Use the code chunk below created a sociogram for the DLT 2 MOOC network and answer the questions that follow:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co">#YOUR CODE HERE</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>dlt2_ties <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/dlt2-edges.csv"</span>, </span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">col_types =</span> <span class="fu">cols</span>(<span class="at">Sender =</span> <span class="fu">col_character</span>(), </span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>                                       <span class="at">Receiver =</span> <span class="fu">col_character</span>(), </span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>                                       <span class="st">`</span><span class="at">Category Text</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">col_skip</span>(), </span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>                                       <span class="st">`</span><span class="at">Comment ID</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">col_character</span>(), </span>
-<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>                                       <span class="st">`</span><span class="at">Discussion ID</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">col_character</span>())) <span class="sc">|&gt;</span></span>
-<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">#YOUR CODE HERE</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>dlt2_ties <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/dlt2-edges.csv"</span>, </span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">col_types =</span> <span class="fu">cols</span>(<span class="at">Sender =</span> <span class="fu">col_character</span>(), </span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>                                       <span class="at">Receiver =</span> <span class="fu">col_character</span>(), </span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>                                       <span class="st">`</span><span class="at">Category Text</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">col_skip</span>(), </span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>                                       <span class="st">`</span><span class="at">Comment ID</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">col_character</span>(), </span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>                                       <span class="st">`</span><span class="at">Discussion ID</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">col_character</span>())) <span class="sc">|&gt;</span></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: The following named parsers don't match the column names: Receiver,
 Category Text, Comment ID, Discussion ID</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>dlt2_actors <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/dlt2-nodes.csv"</span>, </span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>                   <span class="at">col_types =</span> <span class="fu">cols</span>(<span class="at">UID =</span> <span class="fu">col_character</span>(), </span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">Facilitator =</span> <span class="fu">col_character</span>(), </span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">expert =</span> <span class="fu">col_character</span>(), </span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">connect =</span> <span class="fu">col_character</span>())) <span class="sc">|&gt;</span></span>
-<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>dlt2_actors <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/dlt2-nodes.csv"</span>, </span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>                   <span class="at">col_types =</span> <span class="fu">cols</span>(<span class="at">UID =</span> <span class="fu">col_character</span>(), </span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">Facilitator =</span> <span class="fu">col_character</span>(), </span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">expert =</span> <span class="fu">col_character</span>(), </span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">connect =</span> <span class="fu">col_character</span>())) <span class="sc">|&gt;</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: The following named parsers don't match the column names: UID,
 Facilitator</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>dlt2_network <span class="ot">&lt;-</span> <span class="fu">tbl_graph</span>(<span class="at">edges =</span> dlt2_ties,</span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>                          <span class="at">nodes =</span> dlt2_actors,</span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>                          <span class="at">node_key =</span> <span class="st">"uid"</span>,</span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>                          <span class="at">directed =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggraph</span>(dlt2_network, <span class="at">layout =</span> <span class="st">"fr"</span>) <span class="sc">+</span></span>
-<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_edge_link</span>(<span class="at">alpha =</span> .<span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> role,</span>
-<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>                      <span class="at">size =</span> <span class="fu">local_size</span>())) <span class="sc">+</span></span>
-<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_graph</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>dlt2_network <span class="ot">&lt;-</span> <span class="fu">tbl_graph</span>(<span class="at">edges =</span> dlt2_ties,</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>                          <span class="at">nodes =</span> dlt2_actors,</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>                          <span class="at">node_key =</span> <span class="st">"uid"</span>,</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>                          <span class="at">directed =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggraph</span>(dlt2_network, <span class="at">layout =</span> <span class="st">"fr"</span>) <span class="sc">+</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_edge_link</span>(<span class="at">alpha =</span> .<span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> role,</span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>                      <span class="at">size =</span> <span class="fu">local_size</span>())) <span class="sc">+</span></span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_graph</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -756,11 +765,11 @@ Facilitator</code></pre>
 <p>As we saw in the previous section, the <code>dlt1_network</code> output provided us with basic information about our networks size, including the number of nodes and edges in our network. The {igraph} package also has some basic functions for retrieving the number of nodes and edges in a network.</p>
 <p>Run the following code chunk to use the <a href="https://igraph.org/r/html/latest/gorder.html"><code>gorder()</code></a> and <a href="https://igraph.org/r/html/latest/gsize.html"><code>gsize()</code></a> functions obtain the number of vertices and edges respectively:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gorder</span>(dlt1_network)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gorder</span>(dlt1_network)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 445</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gsize</span>(dlt1_network)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gsize</span>(dlt1_network)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2529</code></pre>
 </div>
@@ -775,7 +784,7 @@ Facilitator</code></pre>
 <p>Centralization can be based on a number of different measures, but degree is one of the most common. Degree refers to the number of ties an actor either sends (out-degree), receives (in-degree), or in the case of a non-directed network or both sent and received in a directed network, simply just “degree” for all actors to which one is connected.</p>
 <p>The <a href="https://igraph.org/r/html/latest/centr_degree.html"><code>centr_degree()</code></a> function in {igraph} provides a centralization score based on the metric selected, as well as the degree for each actors in the network. Let’s first take a look at the centralization measure based on number of actors individuals have ties with regardless of directionality:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">centr_degree</span>(dlt1_network, <span class="at">mode =</span> <span class="st">"all"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">centr_degree</span>(dlt1_network, <span class="at">mode =</span> <span class="st">"all"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$res
   [1]  53   7   6  16  33  33  58  31  14  20 121  24  35  25  31   3  24  19
@@ -814,7 +823,7 @@ $theoretical_max
 <p>The first variable <code>$res</code> provides node-level centrality scores. So for example, the first MOOC-Ed participant in our network is connected to 53 other actors in the network. The <code>$centralization</code> variable provides our actual centrality score, which at 0.64 indicates a rather centralized network as was apparent from our sociogram.</p>
 <p>Let’s also take a quick look at centralization scores for in-degree and out-degree:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">centr_degree</span>(dlt1_network, <span class="at">mode =</span> <span class="st">"out"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">centr_degree</span>(dlt1_network, <span class="at">mode =</span> <span class="st">"out"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$res
   [1]  33   5   4  14  17  24  26  18  12  12  74  18  15  20  18   1  22  19
@@ -849,7 +858,7 @@ $centralization
 $theoretical_max
 [1] 197580</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">centr_degree</span>(dlt1_network, <span class="at">mode =</span> <span class="st">"in"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">centr_degree</span>(dlt1_network, <span class="at">mode =</span> <span class="st">"in"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$res
   [1]  20   2   2   2  16   9  32  13   2   8  47   6  20   5  13   2   2   0
@@ -891,30 +900,34 @@ $theoretical_max
 <p>The latter function, <code>mutate()</code>, can be use to create new variables for node-level measures of degree, in-degree, and out-degree using the <code>centrality_degree()</code> function in the {tidygraph} package.</p>
 <p>Run the following code to add each actor’s <code>in-degree</code> (i.e.&nbsp;number of replies received) to our DLT 1 network and assign the output <code>dlt1_network</code> again so the results are saved:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>dlt1_network <span class="ot">&lt;-</span> dlt1_network <span class="sc">|&gt;</span></span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">activate</span>(nodes) <span class="sc">|&gt;</span></span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">in_degree =</span> <span class="fu">centrality_degree</span>(<span class="at">mode =</span> <span class="st">"in"</span>))</span>
-<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>dlt1_network</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>dlt1_network <span class="ot">&lt;-</span> dlt1_network <span class="sc">|&gt;</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">activate</span>(nodes) <span class="sc">|&gt;</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">in_degree =</span> <span class="fu">centrality_degree</span>(<span class="at">mode =</span> <span class="st">"in"</span>))</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>dlt1_network</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tbl_graph: 445 nodes and 2529 edges
 #
 # A directed multigraph with 4 components
 #
-# A tibble: 445 × 14
-  uid   facilitator role1  experience experience2 grades location region country
-  &lt;chr&gt; &lt;chr&gt;       &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;  &lt;chr&gt;    &lt;chr&gt;  &lt;chr&gt;  
-1 1     0           libme…          1 6 to 10     secon… VA       South  US     
-2 2     0           class…          1 6 to 10     secon… FL       South  US     
-3 3     0           distr…          2 11 to 20    gener… PA       North… US     
-4 4     0           class…          2 11 to 20    middle NC       South  US     
-5 5     0           other…          3 20+         gener… AL       South  US     
-6 6     0           class…          1 4 to 5      gener… AL       South  US     
-# ℹ 439 more rows
+# Node Data: 445 × 14 (active)
+   uid   facilitator role1 experience experience2 grades location region country
+   &lt;chr&gt; &lt;chr&gt;       &lt;chr&gt;      &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;  &lt;chr&gt;    &lt;chr&gt;  &lt;chr&gt;  
+ 1 1     0           libm…          1 6 to 10     secon… VA       South  US     
+ 2 2     0           clas…          1 6 to 10     secon… FL       South  US     
+ 3 3     0           dist…          2 11 to 20    gener… PA       North… US     
+ 4 4     0           clas…          2 11 to 20    middle NC       South  US     
+ 5 5     0           othe…          3 20+         gener… AL       South  US     
+ 6 6     0           clas…          1 4 to 5      gener… AL       South  US     
+ 7 7     0           inst…          2 11 to 20    gener… SD       Midwe… US     
+ 8 8     0           spec…          1 6 to 10     secon… BE       Inter… BE     
+ 9 9     0           clas…          1 6 to 10     middle NC       South  US     
+10 10    0           scho…          2 11 to 20    middle NC       South  US     
+# ℹ 435 more rows
 # ℹ 5 more variables: group &lt;chr&gt;, gender &lt;chr&gt;, expert &lt;chr&gt;, connect &lt;chr&gt;,
 #   in_degree &lt;dbl&gt;
 #
-# A tibble: 2,529 × 9
+# Edge Data: 2,529 × 9
    from    to timestamp    discussion_title  discussion_category parent_category
   &lt;int&gt; &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;             &lt;chr&gt;               &lt;chr&gt;          
 1   360   444 4/4/13 16:32 Most important c… Group N             Units 1-3 Disc…
@@ -927,8 +940,8 @@ $theoretical_max
 </div>
 <p>Let’s temporarily convert to a data frame so we can get a better look at our nodes and the measure of <code>degree</code> instead of <code>local_size()</code> that we just created.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>dlt1_network <span class="sc">|&gt;</span></span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>dlt1_network <span class="sc">|&gt;</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 445 × 14
    uid   facilitator role1 experience experience2 grades location region country
@@ -950,10 +963,10 @@ $theoretical_max
 </div>
 <p>Now we can also adjust the size of more central actors in our sociogram from above using <code>in_degree</code> instead of <code>local_size()</code> to highlight those actors who are receiving and outsized share of replies:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggraph</span>(dlt1_network) <span class="sc">+</span></span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_edge_link</span>(<span class="at">alpha =</span> .<span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> in_degree, <span class="at">color =</span> role1)) <span class="sc">+</span></span>
-<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_graph</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggraph</span>(dlt1_network) <span class="sc">+</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_edge_link</span>(<span class="at">alpha =</span> .<span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> in_degree, <span class="at">color =</span> role1)) <span class="sc">+</span></span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_graph</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Using "stress" as default layout</code></pre>
 </div>
@@ -974,11 +987,15 @@ $theoretical_max
 </blockquote>
 <p>The igraph packages has two different function for calculating the density of a network, <a href="https://igraph.org/r/html/latest/edge_density.html"><code>edge_density()</code></a> and <a href="https://igraph.org/r/html/latest/edge_density.html"><code>graph.density()</code></a>, but both yield the exact same result. The <code>edge_density()</code> function is the more recent function and should be used, but let’s try them both out:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">edge_density</span>(dlt1_network)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">edge_density</span>(dlt1_network)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.01279988</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">graph.density</span>(dlt1_network)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">graph.density</span>(dlt1_network)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: `graph.density()` was deprecated in igraph 2.0.0.
+ℹ Please use `edge_density()` instead.</code></pre>
+</div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.01279988</code></pre>
 </div>
@@ -1011,20 +1028,24 @@ $theoretical_max
 #
 # A directed multigraph with 4 components
 #
-# A tibble: 2,529 × 10
-   from    to timestamp    discussion_title  discussion_category parent_category
-  &lt;int&gt; &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;             &lt;chr&gt;               &lt;chr&gt;          
-1   360   444 4/4/13 16:32 Most important c… Group N             Units 1-3 Disc…
-2   356   444 4/4/13 18:45 Most important c… Group D-L           Units 1-3 Disc…
-3   356   444 4/4/13 18:47 DLT Resources—Co… Group D-L           Units 1-3 Disc…
-4   344   444 4/4/13 18:55 Most important c… Group O-T           Units 1-3 Disc…
-5   392   444 4/4/13 19:13 Most important c… Group U-Z           Units 1-3 Disc…
-6   219   444 4/4/13 19:16 Most important c… Group M             Units 1-3 Disc…
-# ℹ 2,523 more rows
+# Edge Data: 2,529 × 10 (active)
+    from    to timestamp    discussion_title discussion_category parent_category
+   &lt;int&gt; &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;            &lt;chr&gt;               &lt;chr&gt;          
+ 1   360   444 4/4/13 16:32 Most important … Group N             Units 1-3 Disc…
+ 2   356   444 4/4/13 18:45 Most important … Group D-L           Units 1-3 Disc…
+ 3   356   444 4/4/13 18:47 DLT Resources—C… Group D-L           Units 1-3 Disc…
+ 4   344   444 4/4/13 18:55 Most important … Group O-T           Units 1-3 Disc…
+ 5   392   444 4/4/13 19:13 Most important … Group U-Z           Units 1-3 Disc…
+ 6   219   444 4/4/13 19:16 Most important … Group M             Units 1-3 Disc…
+ 7   318   444 4/4/13 19:26 Most important … Group M             Units 1-3 Disc…
+ 8     4   444 4/4/13 19:44 Most important … Group N             Units 1-3 Disc…
+ 9   355   356 4/4/13 20:12 DLT Resources—C… Group D-L           Units 1-3 Disc…
+10   355   444 4/4/13 20:13 Most important … Group D-L           Units 1-3 Disc…
+# ℹ 2,519 more rows
 # ℹ 4 more variables: discussion_identifier &lt;chr&gt;, comment_id &lt;chr&gt;,
 #   discussion_id &lt;chr&gt;, reciprocated &lt;lgl&gt;
 #
-# A tibble: 445 × 14
+# Node Data: 445 × 14
   uid   facilitator role1  experience experience2 grades location region country
   &lt;chr&gt; &lt;chr&gt;       &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;  &lt;chr&gt;    &lt;chr&gt;  &lt;chr&gt;  
 1 1     0           libme…          1 6 to 10     secon… VA       South  US     
@@ -1201,21 +1222,90 @@ $theoretical_max
 </section>
 <section id="communicate" class="level2">
 <h2 class="anchored" data-anchor-id="communicate">5. Communicate</h2>
-<p>The final step in the workflow/process is sharing the results of your analysis with wider audience. For now, we will wrap up this case study by converting our work into a webpage that can be used to communicate your learning and demonstrate some of your new R skills. To do so, you will need to “knit” your document by clicking the <img src="img/knit.png" class="img-fluid" style="width:10.0%"> button in the menu bar at that the top of this file. This will do two things; it will:</p>
+<p>The final step in the workflow/process is sharing the results of your analysis with wider audience. Krumm et al. <span class="citation" data-cites="krumm2018">Krumm, Means, and Bienkowski (<a href="#ref-krumm2018" role="doc-biblioref">2018</a>)</span> have outlined the following 3-step process for communicating with education stakeholders findings from an analysis:</p>
 <ol type="1">
-<li><p>check through all your code for any errors; and,</p></li>
-<li><p>create a file in your directory that you can use to share you work through <a href="https://posit.cloud/learn/guide#publish-from-cloud">Posit Cloud</a> (see screenshot example below to publish), <a href="#0">RPubs</a> , <a href="#0">GitHub Pages</a>, <a href="#0">Quarto Pub</a>, or <a href="#0">other methods</a>.</p></li>
+<li><p><strong>Select.</strong> Communicating what one has learned involves selecting among those analyses that are most important and most useful to an intended audience, as well as selecting a form for displaying that information, such as a graph or table in static or interactive form, i.e.&nbsp;a “data product.”</p></li>
+<li><p><strong>Polish</strong>. After creating initial versions of data products, research teams often spend time refining or polishing them, by adding or editing titles, labels, and notations and by working with colors and shapes to highlight key points.</p></li>
+<li><p><strong>Narrate.</strong> Writing a narrative to accompany the data products involves, at a minimum, pairing a data product with its related research question, describing how best to interpret the data product, and explaining the ways in which the data product helps answer the research question and might be used to inform new analyses or a “change idea” for improving student learning.</p></li>
 </ol>
-<section id="knit-and-publish" class="level3">
-<h3 class="anchored" data-anchor-id="knit-and-publish">Knit and Publish</h3>
-<p>Complete the following steps to knit and publish your work:</p>
+<section id="render-file" class="level3">
+<h3 class="anchored" data-anchor-id="render-file">Render File</h3>
+<p>For your SNA Badge, you will have an opportunity to create a simple “data product” designed to illustrate some insights gained from your analysis and ideally highlight an action step or change idea that can be used to improve learning or the contexts in which learning occurs.</p>
+<p>For now, we will wrap up this case study by converting your work to an HTML file that can be published and used to communicate your learning and demonstrate some of your new R skills. To do so, you will need to “render” your document by clicking the <img src="img/render.png" class="img-fluid" style="width:4.0%"> Render button in the menu bar at that the top of this file.</p>
+<p>Rendering a document does two important things:</p>
 <ol type="1">
-<li><p>First, change the name of the <code>author:</code> in the <a href="https://bookdown.org/yihui/rmarkdown-cookbook/rmarkdown-anatomy.html#yaml-metadata">YAML header</a> at the very top of this document to your name. The YAML header controls the style and feel for knitted document but doesn’t actually display in the final output.</p></li>
-<li><p>Next, click the knit button in the toolbar above to “knit” your R Markdown document to a <a href="https://bookdown.org/yihui/rmarkdown/html-document.html">HTML</a> file that will be saved in your R Project folder. You should see a formatted webpage appear in your Viewer tab in the lower right pan or in a new browser window. Let’s us know if you run into any issues with knitting.</p></li>
-<li><p>Finally, publish your webpage on Posit Cloud by clicking the “Publish” button located in the Viewer Pane after you knit your document. See screenshot below.</p></li>
+<li><p>checks through all your code for any errors; and,</p></li>
+<li><p>creates a file in your directory that you can use to share you work .</p></li>
 </ol>
-<p><img src="img/knit-publish.png" class="img-fluid" style="width:80.0%"></p>
+<section id="your-turn-8" class="level4">
+<h4 class="anchored" data-anchor-id="your-turn-8">👉 Your Turn ⤵</h4>
+<p>Now that you’ve finished your first case study, click the “Render” button in the toolbar at the top of your document to covert this Quarto document to a HTML web page, just one of <a href="https://quarto.org/docs/output-formats/all-formats.html">the many publishing formats you can create with Quarto</a> documents.</p>
+<p>If the files rendered correctly, you should now see a new file named <code>sna-2-case-study-R.html</code> in the Files tab located in the bottom right corner of R Studio. If so, congratulations, you just completed the getting started activity! You’re now ready for the unit Case Studies that we will complete during the third week of each unit.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you encounter errors when you try to render, first check the case study answer key located in the files pane and has the suggested code for the Your Turns. If you are still having difficulties, try copying and pasting the error into Google or ChatGPT to see if you can resolve the issue. Finally, contact your instructor to debug the code together if you’re still having issues.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="publish-file" class="level3">
+<h3 class="anchored" data-anchor-id="publish-file">Publish File</h3>
+<p>There are a wide variety of ways to publish documents, presentations, and websites created using Quarto. Since content rendered with Quarto uses standard formats (HTML, PDFs, MS Word, etc.) it can be published anywhere. Additionally, there is a <code>quarto publish</code> command available for easy publishing to various popular services such as <a href="#0">Quarto Pub</a>, <a href="#0">Posit Cloud</a>, <a href="#0">RPubs</a> , <a href="#0">GitHub Pages</a>, or <a href="#0">other services</a>.</p>
+<section id="your-turn-9" class="level4">
+<h4 class="anchored" data-anchor-id="your-turn-9">👉 Your Turn ⤵</h4>
+<p>Choose of of the following methods described below for publishing your completed case study.</p>
+</section>
+<section id="publishing-with-quarto-pub" class="level4">
+<h4 class="anchored" data-anchor-id="publishing-with-quarto-pub">Publishing with Quarto Pub</h4>
+<p>Quarto Pub is a free publishing service for content created with Quarto. Quarto Pub is ideal for blogs, course or project websites, books, reports, presentations, and personal hobby sites.</p>
+<p>It’s important to note that all documents and sites published to Quarto Pub are <strong>publicly visible</strong>. You should only publish content you wish to share publicly.</p>
+<p>To publish to Quarto Pub, you will use the&nbsp;<code>quarto publish</code>&nbsp;command to publish content rendered on your local machine or via Posit Cloud.</p>
+<p>Before attempting your first publish, be sure that you have created a free&nbsp;<a href="https://quartopub.com/">Quarto Pub</a>&nbsp;account.</p>
+<p>The <code>quarto publish</code>&nbsp;command provides a very straightforward way to publish documents to Quarto Pub.</p>
+<p>For example, here is the Terminal command to publish a generic Quarto <code>document.qmd</code> to each of this service:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Terminal</strong></pre>
+</div>
+<div class="sourceCode" id="cb80" data-filename="Terminal"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> publish quarto-pub document.qmd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You can access your the terminal from directly <strong>Terminal Pane</strong> in the lower left corner as shown below:</p>
+<p><img src="img/terminal.png" class="img-fluid" style="width:100.0%"></p>
+<p>The actual command you will enter into your terminal to publish your orientation case study is:</p>
+<p><code>quarto publish quarto-pub sna-2-case-study-R.qmd</code></p>
+<p>When you publish to Quarto Pub using <code>quarto publish</code> an access token is used to grant permission for publishing to your account. The first time you publish to Quarto Pub the Quarto CLI will automatically launch a browser to authorize one as shown below.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Terminal</strong></pre>
+</div>
+<div class="sourceCode" id="cb81" data-filename="Terminal"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> quarto publish quarto-pub</span>
+<span id="cb81-2"><a href="#cb81-2" aria-hidden="true" tabindex="-1"></a><span class="ex">?</span> Authorize <span class="er">(</span><span class="ex">Y/n</span><span class="kw">)</span> <span class="ex">›</span> </span>
+<span id="cb81-3"><a href="#cb81-3" aria-hidden="true" tabindex="-1"></a><span class="ex">❯</span> In order to publish to Quarto Pub you need to</span>
+<span id="cb81-4"><a href="#cb81-4" aria-hidden="true" tabindex="-1"></a>  <span class="ex">authorize</span> your account. Please be sure you are</span>
+<span id="cb81-5"><a href="#cb81-5" aria-hidden="true" tabindex="-1"></a>  <span class="ex">logged</span> into the correct Quarto Pub account in </span>
+<span id="cb81-6"><a href="#cb81-6" aria-hidden="true" tabindex="-1"></a>  <span class="ex">your</span> default web browser, then press Enter or </span>
+<span id="cb81-7"><a href="#cb81-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">'Y'</span> to authorize.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Authorization will launch your default web browser to confirm that you want to allow publishing from Quarto CLI. An access token will be generated and saved locally by the Quarto CLI.</p>
+<p>Once you’ve authorized Quarto Pub and published your case study, it should take you immediately to the published document. See my example Orientation Case Study complete with answer key here: <a href="https://sbkellogg.quarto.pub/laser-orientation-case-study-key/">https://sbkellogg.quarto.pub/laser-orientation-case-study-key</a>.</p>
+<p>After you’ve published your first document, you can continue adding more documents, slides, books and even publish entire websites!</p>
+<p><img src="img/quarto-pub.png" class="img-fluid"></p>
+</section>
+<section id="publishing-with-r-pubs" class="level4">
+<h4 class="anchored" data-anchor-id="publishing-with-r-pubs">Publishing with R Pubs</h4>
+<p>An alternative, and perhaps the easiest way to quickly publish your file online is to publish directly from RStudio using Posit Cloud or RPubs. You can do so by clicking the “Publish” button located in the Viewer Pane after you render your document and as illustrated in the screenshot below.</p>
+<p><img src="img/publish.png" class="img-fluid" style="width:100.0%"></p>
+<p>Similar to Quarto Pub, be sure that you have created a free Posit Cloud or R Pub account before attempting your first publish. You may also need to add your Posit Cloud or R Pub account before being able to publish.</p>
 <p>Congratulations, you’ve completed the case study! You’re now ready to dig into the essential readings and try out your next SNA LASER Badge!</p>
+</section>
 </section>
 <section id="references" class="level3 unnumbered">
 
@@ -1235,6 +1325,9 @@ Kellogg, Shaun, Sherry Booth, and Kevin Oliver. 2014. <span>“A Social Network 
 </div>
 <div id="ref-kellogg2015massively" class="csl-entry" role="listitem">
 Kellogg, Shaun, and Achim Edelmann. 2015. <span>“Massively Open Online Course for Educators (MOOC-Ed) Network Dataset.”</span> <em>British Journal of Educational Technology</em> 46 (5): 977–83. <a href="https://bera-journals.onlinelibrary.wiley.com/doi/abs/10.1111/bjet.12312">https://bera-journals.onlinelibrary.wiley.com/doi/abs/10.1111/bjet.12312</a>.
+</div>
+<div id="ref-krumm2018" class="csl-entry" role="listitem">
+Krumm, Andrew, Barbara Means, and Marie Bienkowski. 2018. <em>Learning Analytics Goes to School</em>. Routledge. <a href="https://doi.org/10.4324/9781315650722">https://doi.org/10.4324/9781315650722</a>.
 </div>
 <div id="ref-wickham2016r" class="csl-entry" role="listitem">
 Wickham, Hadley, and Garrett Grolemund. 2016. <em>R for Data Science: Import, Tidy, Transform, Visualize, and Model Data</em>. " O’Reilly Media, Inc.". <a href="https://r4ds.had.co.nz">https://r4ds.had.co.nz</a>.

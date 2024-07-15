@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="LASER Institute">
-<meta name="dcterms.date" content="2024-07-10">
+<meta name="dcterms.date" content="2024-07-15">
 
 <title>Who’s Friends with Who in Middle School</title>
 <style>
@@ -164,8 +164,16 @@ div.csl-indent {
   <li><a href="#model" id="toc-model" class="nav-link" data-scroll-target="#model">4. MODEL</a></li>
   <li><a href="#communicate" id="toc-communicate" class="nav-link" data-scroll-target="#communicate">5. COMMUNICATE</a>
   <ul>
-  <li><a href="#render-file" id="toc-render-file" class="nav-link" data-scroll-target="#render-file">Render File</a></li>
-  <li><a href="#publish-file" id="toc-publish-file" class="nav-link" data-scroll-target="#publish-file">Publish File</a></li>
+  <li><a href="#render-file" id="toc-render-file" class="nav-link" data-scroll-target="#render-file">Render File</a>
+  <ul class="collapse">
+  <li><a href="#your-turn-7" id="toc-your-turn-7" class="nav-link" data-scroll-target="#your-turn-7">👉 Your Turn ⤵</a></li>
+  </ul></li>
+  <li><a href="#publish-file" id="toc-publish-file" class="nav-link" data-scroll-target="#publish-file">Publish File</a>
+  <ul class="collapse">
+  <li><a href="#your-turn-8" id="toc-your-turn-8" class="nav-link" data-scroll-target="#your-turn-8">👉 Your Turn ⤵</a></li>
+  <li><a href="#publishing-with-quarto-pub" id="toc-publishing-with-quarto-pub" class="nav-link" data-scroll-target="#publishing-with-quarto-pub">Publishing with Quarto Pub</a></li>
+  <li><a href="#publishing-with-r-pubs" id="toc-publishing-with-r-pubs" class="nav-link" data-scroll-target="#publishing-with-r-pubs">Publishing with R Pubs</a></li>
+  </ul></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul></li>
   </ul>
@@ -193,7 +201,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">July 10, 2024</p>
+      <p class="date">July 15, 2024</p>
     </div>
   </div>
   
@@ -1132,6 +1140,8 @@ Tip
 <li><p>checks through all your code for any errors; and,</p></li>
 <li><p>creates a file in your directory that you can use to share you work .</p></li>
 </ol>
+<section id="your-turn-7" class="level4">
+<h4 class="anchored" data-anchor-id="your-turn-7">👉 Your Turn ⤵</h4>
 <p>Now that you’ve finished your first case study, click the “Render” button in the toolbar at the top of your document to covert this Quarto document to a HTML web page, just one of <a href="https://quarto.org/docs/output-formats/all-formats.html">the many publishing formats you can create with Quarto</a> documents.</p>
 <p>If the files rendered correctly, you should now see a new file named <code>sna-1-case-study-R.html</code> in the Files tab located in the bottom right corner of R Studio. If so, congratulations, you just completed the getting started activity! You’re now ready for the unit Case Studies that we will complete during the third week of each unit.</p>
 <div class="callout callout-style-default callout-important callout-titled">
@@ -1148,11 +1158,57 @@ Important
 </div>
 </div>
 </section>
+</section>
 <section id="publish-file" class="level3">
 <h3 class="anchored" data-anchor-id="publish-file">Publish File</h3>
-<p>Rendered HTML files can be published online through a variety of ways including <a href="https://posit.cloud/learn/guide#publish-from-cloud">Posit Cloud</a>, <a href="#0">RPubs</a> , <a href="#0">GitHub Pages</a>, <a href="#0">Quarto Pub</a>, or <a href="#0">other methods</a>. The easiest way to quickly publish your file online is to publish directly from RStudio. You can do so by clicking the “Publish” button located in the Viewer Pane after you render your document as illustrated in the screenshot below.</p>
-<p><img src="img/publish.png" class="img-fluid"></p>
+<p>There are a wide variety of ways to publish documents, presentations, and websites created using Quarto. Since content rendered with Quarto uses standard formats (HTML, PDFs, MS Word, etc.) it can be published anywhere. Additionally, there is a <code>quarto publish</code> command available for easy publishing to various popular services such as <a href="#0">Quarto Pub</a>, <a href="#0">Posit Cloud</a>, <a href="#0">RPubs</a> , <a href="#0">GitHub Pages</a>, or <a href="#0">other services</a>.</p>
+<section id="your-turn-8" class="level4">
+<h4 class="anchored" data-anchor-id="your-turn-8">👉 Your Turn ⤵</h4>
+<p>Choose of of the following methods described below for publishing your completed case study.</p>
+</section>
+<section id="publishing-with-quarto-pub" class="level4">
+<h4 class="anchored" data-anchor-id="publishing-with-quarto-pub">Publishing with Quarto Pub</h4>
+<p>Quarto Pub is a free publishing service for content created with Quarto. Quarto Pub is ideal for blogs, course or project websites, books, reports, presentations, and personal hobby sites.</p>
+<p>It’s important to note that all documents and sites published to Quarto Pub are <strong>publicly visible</strong>. You should only publish content you wish to share publicly.</p>
+<p>To publish to Quarto Pub, you will use the&nbsp;<code>quarto publish</code>&nbsp;command to publish content rendered on your local machine or via Posit Cloud.</p>
+<p>Before attempting your first publish, be sure that you have created a free&nbsp;<a href="https://quartopub.com/">Quarto Pub</a>&nbsp;account.</p>
+<p>The <code>quarto publish</code>&nbsp;command provides a very straightforward way to publish documents to Quarto Pub.</p>
+<p>For example, here is the Terminal command to publish a generic Quarto <code>document.qmd</code> to each of this service:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Terminal</strong></pre>
+</div>
+<div class="sourceCode" id="cb54" data-filename="Terminal"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> publish quarto-pub document.qmd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You can access your the terminal from directly <strong>Terminal Pane</strong> in the lower left corner as shown below:</p>
+<p><img src="img/terminal.png" class="img-fluid" style="width:100.0%"></p>
+<p>The actual command you will enter into your terminal to publish your orientation case study is:</p>
+<p><code>quarto publish quarto-pub sna-case-study-R.qmd</code></p>
+<p>When you publish to Quarto Pub using <code>quarto publish</code> an access token is used to grant permission for publishing to your account. The first time you publish to Quarto Pub the Quarto CLI will automatically launch a browser to authorize one as shown below.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Terminal</strong></pre>
+</div>
+<div class="sourceCode" id="cb55" data-filename="Terminal"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> quarto publish quarto-pub</span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="ex">?</span> Authorize <span class="er">(</span><span class="ex">Y/n</span><span class="kw">)</span> <span class="ex">›</span> </span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a><span class="ex">❯</span> In order to publish to Quarto Pub you need to</span>
+<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a>  <span class="ex">authorize</span> your account. Please be sure you are</span>
+<span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a>  <span class="ex">logged</span> into the correct Quarto Pub account in </span>
+<span id="cb55-6"><a href="#cb55-6" aria-hidden="true" tabindex="-1"></a>  <span class="ex">your</span> default web browser, then press Enter or </span>
+<span id="cb55-7"><a href="#cb55-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">'Y'</span> to authorize.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Authorization will launch your default web browser to confirm that you want to allow publishing from Quarto CLI. An access token will be generated and saved locally by the Quarto CLI.</p>
+<p>Once you’ve authorized Quarto Pub and published your case study, it should take you immediately to the published document. See my example Orientation Case Study complete with answer key here: <a href="https://sbkellogg.quarto.pub/laser-orientation-case-study-key/">https://sbkellogg.quarto.pub/laser-orientation-case-study-key</a>.</p>
+<p>After you’ve published your first document, you can continue adding more documents, slides, books and even publish entire websites!</p>
+<p><img src="img/quarto-pub.png" class="img-fluid"></p>
+</section>
+<section id="publishing-with-r-pubs" class="level4">
+<h4 class="anchored" data-anchor-id="publishing-with-r-pubs">Publishing with R Pubs</h4>
+<p>An alternative, and perhaps the easiest way to quickly publish your file online is to publish directly from RStudio using Posit Cloud or RPubs. You can do so by clicking the “Publish” button located in the Viewer Pane after you render your document and as illustrated in the screenshot below.</p>
+<p><img src="img/publish.png" class="img-fluid" style="width:100.0%"></p>
+<p>Similar to Quarto Pub, be sure that you have created a free Posit Cloud or R Pub account before attempting your first publish. You may also need to add your Posit Cloud or R Pub account before being able to publish.</p>
 <p>Congratulations, you’ve completed the case study! If you’ve already completed the Essential Readings, you’re now ready to earn your first SNA LASER Badge!</p>
+</section>
 </section>
 <section id="references" class="level3 unnumbered">
 

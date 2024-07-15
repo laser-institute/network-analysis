@@ -169,8 +169,6 @@ library(janitor)
 library(statnet)
 ```
 
-------------------------------------------------------------------------
-
 ## 2. WRANGLE
 
 For our data wrangling this week, we'll focus on working with network data stored as an adjacency matrix. Our primary goals for this section are learning how to:
@@ -340,8 +338,6 @@ leader_graph
 
 Congrats! You made it to the end of data wrangling section and are ready to start analysis!
 
-------------------------------------------------------------------------
-
 ## 3. EXPLORE
 
 In Section 3, we use the {tidygraph} package for retrieving network descriptives and the {ggraph} package to create a network visualization to help illustrate these metrics. Specifically, in this section we will:
@@ -489,8 +485,6 @@ After you are satisfied with your sociogram, answer the following questions?
     -   YOUR RESPONSE HERE
 
 Congrats! You made it to the end of the Explore section and are ready to learn a little ab out modeling network selection processes using ERGMs! Before proceeding further, knit your document and check to see if you encounter any errors.
-
-------------------------------------------------------------------------
 
 ## 4. MODEL
 
@@ -708,27 +702,99 @@ plot(ergm_4_gof)
 mcmc.diagnostics(ergm_4)
 ```
 
-------------------------------------------------------------------------
-
 ## 5. COMMUNICATE
 
-The final step in the workflow/process is sharing the results of your analysis with wider audience. For now, we will wrap up this case study by converting our work into a webpage that can be used to communicate your learning and demonstrate some of your new R skills. To do so, you will need to "knit" your document by clicking the ![](img/knit.png){width="10%"} button in the menu bar at that the top of this file. This will do two things; it will:
+The final step in the workflow/process is sharing the results of your analysis with wider audience. Krumm et al. @krumm2018 have outlined the following 3-step process for communicating with education stakeholders findings from an analysis:
 
-1.  check through all your code for any errors; and,
+1.  **Select.** Communicating what one has learned involves selecting among those analyses that are most important and most useful to an intended audience, as well as selecting a form for displaying that information, such as a graph or table in static or interactive form, i.e. a "data product."
 
-2.  create a file in your directory that you can use to share you work through [Posit Cloud](https://posit.cloud/learn/guide#publish-from-cloud) (see screenshot example below to publish), [RPubs](#0) , [GitHub Pages](#0), [Quarto Pub](#0), or [other methods](#0).
+2.  **Polish**. After creating initial versions of data products, research teams often spend time refining or polishing them, by adding or editing titles, labels, and notations and by working with colors and shapes to highlight key points.
 
-### Knit and Publish
+3.  **Narrate.** Writing a narrative to accompany the data products involves, at a minimum, pairing a data product with its related research question, describing how best to interpret the data product, and explaining the ways in which the data product helps answer the research question and might be used to inform new analyses or a "change idea" for improving student learning.
 
-Complete the following steps to knit and publish your work:
+### Render File
 
-1.  First, change the name of the `author:` in the [YAML header](https://bookdown.org/yihui/rmarkdown-cookbook/rmarkdown-anatomy.html#yaml-metadata) at the very top of this document to your name. The YAML header controls the style and feel for knitted document but doesn't actually display in the final output.
+For your SNA Badge, you will have an opportunity to create a simple "data product" designed to illustrate some insights gained from your analysis and ideally highlight an action step or change idea that can be used to improve learning or the contexts in which learning occurs.
 
-2.  Next, click the knit button in the toolbar above to "knit" your R Markdown document to a [HTML](https://bookdown.org/yihui/rmarkdown/html-document.html) file that will be saved in your R Project folder. You should see a formatted webpage appear in your Viewer tab in the lower right pan or in a new browser window. Let's us know if you run into any issues with knitting.
+For now, we will wrap up this case study by converting your work to an HTML file that can be published and used to communicate your learning and demonstrate some of your new R skills. To do so, you will need to "render" your document by clicking the ![](img/render.png){width="4%"} Render button in the menu bar at that the top of this file.
 
-3.  Finally, publish your webpage on Posit Cloud by clicking the "Publish" button located in the Viewer Pane after you knit your document. See screenshot below.
+Rendering a document does two important things:
 
-![](img/knit-publish.png){width="80%"}
+1.  checks through all your code for any errors; and,
+
+2.  creates a file in your directory that you can use to share you work .
+
+#### 👉 Your Turn ⤵
+
+Now that you've finished your first case study, click the "Render" button in the toolbar at the top of your document to covert this Quarto document to a HTML web page, just one of [the many publishing formats you can create with Quarto](https://quarto.org/docs/output-formats/all-formats.html) documents.
+
+If the files rendered correctly, you should now see a new file named `sna-4-case-study-R.html` in the Files tab located in the bottom right corner of R Studio. If so, congratulations, you just completed the getting started activity! You're now ready for the unit Case Studies that we will complete during the third week of each unit.
+
+::: callout-important
+If you encounter errors when you try to render, first check the case study answer key located in the files pane and has the suggested code for the Your Turns. If you are still having difficulties, try copying and pasting the error into Google or ChatGPT to see if you can resolve the issue. Finally, contact your instructor to debug the code together if you're still having issues.
+:::
+
+### Publish File
+
+There are a wide variety of ways to publish documents, presentations, and websites created using Quarto. Since content rendered with Quarto uses standard formats (HTML, PDFs, MS Word, etc.) it can be published anywhere. Additionally, there is a `quarto publish` command available for easy publishing to various popular services such as [Quarto Pub](#0), [Posit Cloud](#0), [RPubs](#0) , [GitHub Pages](#0), or [other services](#0).
+
+#### 👉 Your Turn ⤵
+
+Choose of of the following methods described below for publishing your completed case study.
+
+#### Publishing with Quarto Pub
+
+Quarto Pub is a free publishing service for content created with Quarto. Quarto Pub is ideal for blogs, course or project websites, books, reports, presentations, and personal hobby sites.
+
+It’s important to note that all documents and sites published to Quarto Pub are **publicly visible**. You should only publish content you wish to share publicly.
+
+To publish to Quarto Pub, you will use the `quarto publish` command to publish content rendered on your local machine or via Posit Cloud.
+
+Before attempting your first publish, be sure that you have created a free [Quarto Pub](https://quartopub.com/) account.
+
+The `quarto publish` command provides a very straightforward way to publish documents to Quarto Pub.
+
+For example, here is the Terminal command to publish a generic Quarto `document.qmd` to each of this service:
+
+``` {.bash filename="Terminal"}
+quarto publish quarto-pub document.qmd
+```
+
+You can access your the terminal from directly **Terminal Pane** in the lower left corner as shown below:
+
+![](img/terminal.png){width="100%"}
+
+The actual command you will enter into your terminal to publish your orientation case study is:
+
+`quarto publish quarto-pub sna-4-case-study-R.qmd`
+
+When you publish to Quarto Pub using `quarto publish` an access token is used to grant permission for publishing to your account. The first time you publish to Quarto Pub the Quarto CLI will automatically launch a browser to authorize one as shown below.
+
+``` {.bash filename="Terminal"}
+$ quarto publish quarto-pub
+? Authorize (Y/n) › 
+❯ In order to publish to Quarto Pub you need to
+  authorize your account. Please be sure you are
+  logged into the correct Quarto Pub account in 
+  your default web browser, then press Enter or 
+  'Y' to authorize.
+```
+
+Authorization will launch your default web browser to confirm that you want to allow publishing from Quarto CLI. An access token will be generated and saved locally by the Quarto CLI.
+
+Once you've authorized Quarto Pub and published your case study, it should take you immediately to the published document. See my example Orientation Case Study complete with answer key here: [https://sbkellogg.quarto.pub/laser-orientation-case-study-key](https://sbkellogg.quarto.pub/laser-orientation-case-study-key/).
+
+After you've published your first document, you can continue adding more documents, slides, books and even publish entire websites!
+
+![](img/quarto-pub.png)
+
+#### Publishing with R Pubs
+
+An alternative, and perhaps the easiest way to quickly publish your file online is to publish directly from RStudio using Posit Cloud or RPubs. You can do so by clicking the "Publish" button located in the Viewer Pane after you render your document and as illustrated in the screenshot below.
+
+![](img/publish.png){width="100%"}
+
+Similar to Quarto Pub, be sure that you have created a free Posit Cloud or R Pub account before attempting your first publish. You may also need to add your Posit Cloud or R Pub account before being able to publish.
 
 Congratulations, you've completed the case study! You're now ready to dig into the essential readings and try out your next SNA LASER Badge!
 
