@@ -67,24 +67,24 @@ Using one of the data sets provided in the data folder, **your goal for this lab
 
 **Alternatively, you may use your own data set to estimate models akin to those we estimated in the guided practice.** 
 
-I highly recommend creating a new R script in your lab-4 folder to complete this task. When your code is ready to share, use the code chunk below to share only the code and comments necessary to run and undestand your analysis, then answer the questions that follow.
+I highly recommend creating a new R or Python script to complete this task. When your code is ready to share, use the appropriate code chunk below to share the all the code necessary to reproduce your analysis and create your data product.
 
-```{r, my-data-product}
-# YOUR FINAL CODE HERE
+```{r}
+# YOUR FINAL R CODE HERE
 
 
 ```
 
-1.  What did you predict would be the results of this model?
+```{python}
+# YOUR FINAL Python CODE HERE
 
-    -   
 
-2.  What were the actual results of your new model?
+```
 
-    -   
+#### Narrative
 
-3.  How would you frame a research question that this model helps address?
+-   WRITE A BRIEF NARRATIVE OF YOUR ANALYSIS HERE
 
-    -   
+To receive your SNA Badge, you will need to render this document and publish via a method designated by your instructor such as: [Quarto Pub](https://quarto.org/docs/publishing/quarto-pub.html), [Posit Cloud](https://posit.cloud/learn/guide#publish-from-cloud), [RPubs](https://rpubs.com) , [GitHub Pages](https://quarto.org/docs/publishing/github-pages.html), or [other methods](https://quarto.org/docs/publishing/other.html). Once you have shared a link to you published document with your instructor and they have reviewed your work, you will be provided a physical or digital version of the badge pictured at the top of this document!
 
-To receive credit for this assignment and earn your first SNA LASER Badge, you will first need to knit and publish this page to Posit Cloud. Next, share the link to published webpage under one of the **Badge Artifact** columns on the 2023 LASER Scholar Information and Documents spreadsheet: <https://go.ncsu.edu/laser-sheet>. Once your instructor has checked your link, you will be provided a physical version of the badge pictured at the top of this document!
+If you have any questions about this badge, or run into any technical issues, don't hesitate to contact your instructor.

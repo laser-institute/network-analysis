@@ -1,6 +1,6 @@
 ---
-title: 'Network Measurement'
-subtitle: "SNA Module 2: Badge"
+title: 'Groups & Egos Badge'
+subtitle: "SNA Module 3: Badge"
 author: "LASER Institute"
 date: today 
 format:
@@ -15,7 +15,7 @@ editor: visual
 bibliography: lit/references.bib
 ---
 
-![](img/SNA_NetworkM_HX.png){width="40%"}
+![](img/SNA_GroupEgos_HX.png){width="40%"}
 
 The final activity for each learning module provides space to work with data and to reflect on how the concepts and techniques introduced in each module might apply to your own research.
 
@@ -27,43 +27,43 @@ To earn a badge for each module, you are required to respond to a set of prompts
 
 ### Part I: Reflect and Plan
 
-Use your institutional library, [Google Scholar](https://scholar.google.com/), or search engine of your choice to locate a research article, presentation, or resource that applies social network analysis to an educational context or topic of interest. More specifically, **locate a network study that makes use of network-level structural measures to describe mathematically the network being studied.** You are also welcome to select one of the research papers listed in the [essential readings](https://github.com/laser-institute/essential-readings/tree/main/sna-labs) that may have piqued your interest.
+Use your institutional library, [Google Scholar](https://scholar.google.com/), or search engine of your choice to locate a research article, presentation, or resource that applies social network analysis to an educational context or topic of interest. More specifically, **locate a network study that makes use of group, positional, or egocentric analysis.** You are also welcome to select one of the research papers listed in the essential readings that may have piqued your interest.
 
 1.  Provide an APA citation for your selected study.
 
     -   
 
-2.  Were the data collected on the complete, ego, or partial network? Describe the sources of these network data.
+2.  What research questions were the authors of this study trying to address and why did they consider these questions important?
 
     -   
 
-3.  What relations were measured and what instruments were used to measure them?
+3.  How was group, positional, or egocentric analysis used in this study to address these research questions?
 
     -   
 
-Think about a network that you may be interested in studying, and answer the following questions:
-
-4.  Would your study employ a positional, relational, or event-based approach to specify the network's boundary?
+4.  What were the results of these analyses?
 
     -   
 
-5.  What data would you want to collect for this study and how might you go about doing it?
+Think about a network that you are a part of, or may be interested in studying, and answer the following questions:
+
+1.  What is a research question that you might ask about this network that would require group, positional, or egocentric analysis?
 
     -   
 
-6.  What relations would you measure and what individual attribute information might you collect?
+2.  Which approach or approaches would you use to answer this question?
 
     -   
 
-7.  How might you approach collecting this data for your study? 
+3.  What measures would you collected as part of your analysis? Why?
 
     -   
 
 ### Part II: Data Product
 
-Using the data from our case study or one of the data sets provided in the data folder, **your goal for this module is to create a polished sociogram and write a brief narrative including some network measures to help describe your network.** For example, you may be interested in comparing size, density and level of reciprocity of two networks.
+Using one of the datasets provided in the data folder, **create a polished table, chart, and/or sociogram that highlights a network's groups and/or key actors.** For example, you may be interested in examining the characteristics of central actors that emerged in the Massively Open Online Courses for Educators (MOOC-Eds) using `dlt1-edges` and `dlt1-nodes` datasets that were introduced in Module 2.
 
-**Alternatively, you may use your own data set to create a sociogram and calculate network-level measures to describe it.** 
+**Alternatively, you may use your own data set to explore groups or central actors using the techniques demonstrated in the guided practice.**
 
 I highly recommend creating a new R or Python script to complete this task. When your code is ready to share, use the appropriate code chunk below to share the all the code necessary to reproduce your analysis and create your data product.
 
