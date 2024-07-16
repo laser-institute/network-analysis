@@ -800,7 +800,7 @@ To achieve similar graph aesthetics as intended by `theme_graph()` in ggplot2, y
 
 ```{python}
 # Compute node positions (layout) using a stress layout
-pos = nx.kamada_kawai_layout()(student_network, weight=None, iterations=50)
+pos = nx.kamada_kawai_layout(student_network, weight=None, iterations=50)
 
 # Draw nodes with colors based on gender and sizes based on degree
 nx.draw_networkx_nodes(student_network, pos=pos, node_size=node_sizes, node_color=node_colors)
