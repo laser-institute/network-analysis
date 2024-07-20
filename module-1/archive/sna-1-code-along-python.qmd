@@ -3,7 +3,7 @@ title: "Data Structures & Sociograms"
 subtitle: "SNA Module 1: Code-Along"
 format:
   revealjs: 
-    #slide-number: c/t
+    slide-number: c/t
     progress: true
     chalkboard: 
       buttons: false
@@ -16,11 +16,10 @@ format:
     margin: 0.05
     footer: <a href=https://www.go.ncsu.edu/laser-institute>go.ncsu.edu/laser-institute
 highlight-style: a11y
-resources:
-  - demo.pdf
+#resources:
+#  - demo.pdf
 bibliography: lit/references.bib
 editor: visual
-jupyter: python3
 ---
 
 ## Data Intensive Research-Workflow
@@ -46,8 +45,6 @@ Guiding Research & Network Packages
 import networkx as nx
 import pandas as pd
 import matplotlib.pyplot as plt
-
-import scipy as sp
 
 student_friends = pd.read_excel("data/student-reported-friends.xlsx", header=None)
 
@@ -460,8 +457,10 @@ plt.show()
 
 The `ggraph()` function is the first function required to build a sociogram. Try running this function on out `student_network` and see what happens:
 
-```{r set-graph, echo=TRUE, fig.show='hide'}
-ggraph(student_network)
+```{python}
+#library(tidygraph)
+
+#ggraph(student_network)
 ```
 
 This function serves two critical roles:
@@ -476,21 +475,21 @@ This function serves two critical roles:
 ::: {.column width="50%"}
 Let's “add” nodes to our sociogram using the `+` operator and the `geom_node_point()` function:
 
-```{r}
+```{python}
 #| echo: true
 #| fig.show: hide
 #| message: false
-ggraph(student_network) + 
-  geom_node_point() 
+#ggraph(student_network) + 
+ # geom_node_point() 
 ```
 :::
 
 ::: {.column width="50%"}
-```{r}
+```{python}
 #| echo: false
 #| fig.asp: .75
-ggraph(student_network) + 
-  geom_node_point() 
+#ggraph(student_network) + 
+#  geom_node_point() 
 ```
 :::
 :::
@@ -501,22 +500,22 @@ ggraph(student_network) +
 ::: {.column width="50%"}
 Both functions allow a small degree of customization, but are still limited.
 
-```{r}
+```{python}
 #| echo: true
 #| fig.show: hide
-ggraph(student_network) + 
-  geom_node_point() + 
-  geom_edge_link()
+#ggraph(student_network) + 
+#  geom_node_point() + 
+#  geom_edge_link()
 ```
 :::
 
 ::: {.column width="50%"}
-```{r}
+```{python}
 #| echo: false
 #| fig.asp: .75
-ggraph(student_network) + 
-  geom_node_point() + 
-  geom_edge_link()
+#ggraph(student_network) + 
+#  geom_node_point() + 
+#  geom_edge_link()
 ```
 :::
 :::
@@ -529,19 +528,19 @@ ggraph(student_network) +
 :::
 
 ::: {.column width="50%"}
-```{r}
+```{python}
 #| echo: false
 #| fig.asp: .75
-ggraph(student_network, layout = "stress") + 
-  geom_edge_link(arrow = arrow(length = unit(1, 'mm')), 
-                 end_cap = circle(3, 'mm'),
-                 start_cap = circle(3, 'mm'),
-                 alpha = .1) +
-  geom_node_point(aes(size = local_size(),
-                      color = gender)) +
-  geom_node_text(aes(label = id),
-                 repel=TRUE) +
-  theme_graph()
+#ggraph(student_network, layout = "stress") + 
+#  geom_edge_link(arrow = arrow(length = unit(1, 'mm')), 
+#                 end_cap = circle(3, 'mm'),
+#                 start_cap = circle(3, 'mm'),
+#                 alpha = .1) +
+#  geom_node_point(aes(size = local_size(),
+#                      color = gender)) +
+#  geom_node_text(aes(label = id),
+#                 repel=TRUE) +
+#  theme_graph()
 ```
 :::
 :::
@@ -550,19 +549,19 @@ ggraph(student_network, layout = "stress") +
 
 With a fair bit of coding:
 
-```{r}
+```{python}
 #| echo: true
 #| fig.show: hide
-ggraph(student_network, layout = "stress") + 
-  geom_edge_link(arrow = arrow(length = unit(1, 'mm')), 
-                 end_cap = circle(3, 'mm'),
-                 start_cap = circle(3, 'mm'),
-                 alpha = .1) +
-  geom_node_point(aes(size = local_size(),
-                      color = gender)) +
-  geom_node_text(aes(label = id),
-                 repel=TRUE) +
-  theme_graph()
+#ggraph(student_network, layout = "stress") + 
+#  geom_edge_link(arrow = arrow(length = unit(1, 'mm')), 
+#                 end_cap = circle(3, 'mm'),
+#                 start_cap = circle(3, 'mm'),
+#                 alpha = .1) +
+#  geom_node_point(aes(size = local_size(),
+#                      color = gender)) +
+#  geom_node_text(aes(label = id),
+#                 repel=TRUE) +
+#  theme_graph()
 ```
 :::
 

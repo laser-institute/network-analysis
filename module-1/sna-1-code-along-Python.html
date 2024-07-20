@@ -509,7 +509,7 @@
 <div class="tab-content">
 <div id="tabset-2-1">
 <p>Let’s start by creating a new Python script and loading some essential packages introduced in LA Workflows:</p>
-<div id="3bfe6984" class="cell" data-message="false" data-execution_count="3">
+<div id="e59c508a" class="cell" data-message="false" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
@@ -524,7 +524,7 @@
 </div>
 <div id="tabset-2-3">
 <p>Use your Python script to import the {networkx} package <code>as nx</code>.</p>
-<div id="8fc43cff" class="cell" data-execution_count="4">
+<div id="7ad6c0a2" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a><span class="co"># YOUR CODE HERE</span></span>
 <span id="cb2-2"><a href=""></a><span class="co">#</span></span>
 <span id="cb2-3"><a href=""></a><span class="co">#</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -576,8 +576,8 @@
 <li><p>substantive info (<strong>grades</strong>, attendance)</p></li>
 </ul>
 </div><div class="column" style="width:50%;">
-<div id="49911a6f" class="cell" data-message="false" data-execution_count="5">
-<div class="cell-output cell-output-display" data-execution_count="26">
+<div id="081c7dbf" class="cell" data-message="false" data-execution_count="5">
+<div class="cell-output cell-output-display" data-execution_count="5">
 <div>
 <div>
 <style scoped="">
@@ -672,8 +672,8 @@
 <li><p>edge attributes (time, event, text)</p></li>
 </ul>
 </div><div class="column" style="width:50%;">
-<div id="de5574d0" class="cell" data-message="false" data-execution_count="6">
-<div class="cell-output cell-output-display" data-execution_count="27">
+<div id="ee16d87f" class="cell" data-message="false" data-execution_count="6">
+<div class="cell-output cell-output-display" data-execution_count="6">
 <div>
 <div>
 <style scoped="">
@@ -750,8 +750,8 @@
 <li><p>a value indicating the presence/strength of a relation</p></li>
 </ul>
 </div><div class="column" style="width:50%;">
-<div id="b9f0ecc2" class="cell" data-message="false" data-execution_count="7">
-<div class="cell-output cell-output-display" data-execution_count="28">
+<div id="c0b7e981" class="cell" data-message="false" data-execution_count="7">
+<div class="cell-output cell-output-display" data-execution_count="7">
 <div>
 <div>
 <style scoped="">
@@ -850,7 +850,7 @@
 <div class="tab-content">
 <div id="tabset-4-1">
 <p>Let’s start by importing two CSV files that contain data about the nodes and the edges in our student-reported friendship network:</p>
-<div id="f514675d" class="cell" data-message="false" data-execution_count="8">
+<div id="9a5a8ae9" class="cell" data-message="false" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a>student_nodes <span class="op">=</span> pd.read_csv(<span class="st">"lab-1/data/student-attributes.xlsx"</span>)</span>
 <span id="cb3-2"><a href=""></a></span>
 <span id="cb3-3"><a href=""></a>student_edges <span class="op">=</span> pd.read_csv(<span class="st">"lab-1/data/student-edgelist.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -858,7 +858,7 @@
 </div>
 <div id="tabset-4-2">
 <p>Now let’s take a look at the data file we just imported using the <code>print()</code> function or another function of choice you may have learned previously:</p>
-<div id="8cea9b14" class="cell" data-message="false" data-execution_count="10">
+<div id="b88a7201" class="cell" data-message="false" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href=""></a><span class="bu">print</span>(student_edges)</span>
 <span id="cb4-2"><a href=""></a><span class="bu">print</span>(student_nodes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -882,7 +882,7 @@
 <div class="tab-content">
 <div id="tabset-5-1">
 <p>Run the following code in your R script:</p>
-<div id="739dc5b4" class="cell" data-message="false" data-execution_count="11">
+<div id="98f0bb4f" class="cell" data-message="false" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a>student_network <span class="op">=</span> nx.from_pandas_edgelist(student_edges, </span>
 <span id="cb5-2"><a href=""></a>                                          source<span class="op">=</span><span class="st">'from'</span>, </span>
 <span id="cb5-3"><a href=""></a>                                          target<span class="op">=</span><span class="st">'to'</span>, </span>
@@ -892,7 +892,7 @@
 </div>
 <div id="tabset-5-2">
 <p>Using your Python script, <code>print()</code> the network object we just created and run the code to produce the output on the next tab:</p>
-<div id="128f4b74" class="cell" data-execution_count="12">
+<div id="237e532a" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a><span class="co"># ADD CODE BELOW</span></span>
 <span id="cb6-2"><a href=""></a><span class="co">#</span></span>
 <span id="cb6-3"><a href=""></a><span class="co">#</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -900,7 +900,7 @@
 </div>
 <div id="tabset-5-3">
 <p>You should see an output that looks something like this:</p>
-<div id="b05720c4" class="cell" data-execution_count="13">
+<div id="43f1368e" class="cell" data-execution_count="13">
 <div class="cell-output cell-output-stdout">
 <pre><code>DiGraph with 26 nodes and 203 edges</code></pre>
 </div>
@@ -931,13 +931,13 @@
 <div class="columns">
 <div class="column" style="width:50%;">
 <p>Run the following code to make a simple sociogram:</p>
-<div id="122c4791" class="cell" data-fig.show="hide" data-execution_count="14">
+<div id="6f1f9329" class="cell" data-fig.show="hide" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href=""></a>nx.draw(student_network)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 <p>The <code>draw()</code> function is a simple function for quickly plotting graphs using the {networkx} package.</p>
 </div><div class="column" style="width:50%;">
-<div id="c4f2fc90" class="cell" data-fig-asp="0.75" data-execution_count="15">
+<div id="96b33b58" class="cell" data-fig-asp="0.75" data-execution_count="15">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -953,7 +953,7 @@
 <div class="columns">
 <div class="column" style="width:50%;">
 <p>Both functions allow a small degree of customization, but are still limited.</p>
-<div id="391b6b22" class="cell" data-fig.show="hide" data-execution_count="16">
+<div id="9f331384" class="cell" data-fig.show="hide" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href=""></a>nx.draw(student_network, with_labels<span class="op">=</span><span class="va">True</span>, font_weight<span class="op">=</span><span class="st">'bold'</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -964,7 +964,7 @@
 </div>
 </div>
 </div><div class="column" style="width:50%;">
-<div id="d85d01af" class="cell" data-fig.asp="0.75" data-execution_count="17">
+<div id="1af82f8a" class="cell" data-fig.asp="0.75" data-execution_count="17">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -992,6 +992,7 @@
 <div class="tab-content">
 <div id="tabset-7-1">
 <p>The <code>ggraph()</code> function is the first function required to build a sociogram. Try running this function on out <code>student_network</code> and see what happens:</p>
+<p><code>{r set-graph, echo=TRUE, fig.show='hide'} ggraph(student_network)</code></p>
 <p>This function serves two critical roles:</p>
 <ol type="1">
 <li><p>It takes care of setting up the plot object for the network specified.</p></li>
@@ -1002,12 +1003,16 @@
 <div class="columns">
 <div class="column" style="width:50%;">
 <p>Let’s “add” nodes to our sociogram using the <code>+</code> operator and the <code>geom_node_point()</code> function:</p>
-<div id="98b2b639" class="cell" data-fig.show="hide" data-message="false" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href=""></a><span class="co">#ggraph(student_network) + </span></span>
-<span id="cb10-2"><a href=""></a> <span class="co"># geom_node_point() </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource {r} number-lines code-with-copy"><code class="sourceCode"><span id="cb10-1"><a href=""></a>#| echo: true</span>
+<span id="cb10-2"><a href=""></a>#| fig.show: hide</span>
+<span id="cb10-3"><a href=""></a>#| message: false</span>
+<span id="cb10-4"><a href=""></a>ggraph(student_network) + </span>
+<span id="cb10-5"><a href=""></a>  geom_node_point() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" style="width:50%;">
-
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource {r} number-lines code-with-copy"><code class="sourceCode"><span id="cb11-1"><a href=""></a>#| echo: false</span>
+<span id="cb11-2"><a href=""></a>#| fig.asp: .75</span>
+<span id="cb11-3"><a href=""></a>ggraph(student_network) + </span>
+<span id="cb11-4"><a href=""></a>  geom_node_point() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1015,13 +1020,17 @@
 <div class="columns">
 <div class="column" style="width:50%;">
 <p>Both functions allow a small degree of customization, but are still limited.</p>
-<div id="b77b08c0" class="cell" data-fig.show="hide" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href=""></a><span class="co">#ggraph(student_network) + </span></span>
-<span id="cb11-2"><a href=""></a><span class="co">#  geom_node_point() + </span></span>
-<span id="cb11-3"><a href=""></a><span class="co">#  geom_edge_link()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource {r} number-lines code-with-copy"><code class="sourceCode"><span id="cb12-1"><a href=""></a>#| echo: true</span>
+<span id="cb12-2"><a href=""></a>#| fig.show: hide</span>
+<span id="cb12-3"><a href=""></a>ggraph(student_network) + </span>
+<span id="cb12-4"><a href=""></a>  geom_node_point() + </span>
+<span id="cb12-5"><a href=""></a>  geom_edge_link()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" style="width:50%;">
-
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource {r} number-lines code-with-copy"><code class="sourceCode"><span id="cb13-1"><a href=""></a>#| echo: false</span>
+<span id="cb13-2"><a href=""></a>#| fig.asp: .75</span>
+<span id="cb13-3"><a href=""></a>ggraph(student_network) + </span>
+<span id="cb13-4"><a href=""></a>  geom_node_point() + </span>
+<span id="cb13-5"><a href=""></a>  geom_edge_link()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1030,24 +1039,35 @@
 <div class="column" style="width:50%;">
 <p><br> <br> The {ggraph} packages allows for some very fairly sophisticated sociograms…</p>
 </div><div class="column" style="width:50%;">
-
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource {r} number-lines code-with-copy"><code class="sourceCode"><span id="cb14-1"><a href=""></a>#| echo: false</span>
+<span id="cb14-2"><a href=""></a>#| fig.asp: .75</span>
+<span id="cb14-3"><a href=""></a>ggraph(student_network, layout = "stress") + </span>
+<span id="cb14-4"><a href=""></a>  geom_edge_link(arrow = arrow(length = unit(1, 'mm')), </span>
+<span id="cb14-5"><a href=""></a>                 end_cap = circle(3, 'mm'),</span>
+<span id="cb14-6"><a href=""></a>                 start_cap = circle(3, 'mm'),</span>
+<span id="cb14-7"><a href=""></a>                 alpha = .1) +</span>
+<span id="cb14-8"><a href=""></a>  geom_node_point(aes(size = local_size(),</span>
+<span id="cb14-9"><a href=""></a>                      color = gender)) +</span>
+<span id="cb14-10"><a href=""></a>  geom_node_text(aes(label = id),</span>
+<span id="cb14-11"><a href=""></a>                 repel=TRUE) +</span>
+<span id="cb14-12"><a href=""></a>  theme_graph()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
 <div id="tabset-7-5">
 <p>With a fair bit of coding:</p>
-<div id="b4914a5e" class="cell" data-fig.show="hide" data-execution_count="24">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href=""></a><span class="co">#ggraph(student_network, layout = "stress") + </span></span>
-<span id="cb12-2"><a href=""></a><span class="co">#  geom_edge_link(arrow = arrow(length = unit(1, 'mm')), </span></span>
-<span id="cb12-3"><a href=""></a><span class="co">#                 end_cap = circle(3, 'mm'),</span></span>
-<span id="cb12-4"><a href=""></a><span class="co">#                 start_cap = circle(3, 'mm'),</span></span>
-<span id="cb12-5"><a href=""></a><span class="co">#                 alpha = .1) +</span></span>
-<span id="cb12-6"><a href=""></a><span class="co">#  geom_node_point(aes(size = local_size(),</span></span>
-<span id="cb12-7"><a href=""></a><span class="co">#                      color = gender)) +</span></span>
-<span id="cb12-8"><a href=""></a><span class="co">#  geom_node_text(aes(label = id),</span></span>
-<span id="cb12-9"><a href=""></a><span class="co">#                 repel=TRUE) +</span></span>
-<span id="cb12-10"><a href=""></a><span class="co">#  theme_graph()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource {r} number-lines code-with-copy"><code class="sourceCode"><span id="cb15-1"><a href=""></a>#| echo: true</span>
+<span id="cb15-2"><a href=""></a>#| fig.show: hide</span>
+<span id="cb15-3"><a href=""></a>ggraph(student_network, layout = "stress") + </span>
+<span id="cb15-4"><a href=""></a>  geom_edge_link(arrow = arrow(length = unit(1, 'mm')), </span>
+<span id="cb15-5"><a href=""></a>                 end_cap = circle(3, 'mm'),</span>
+<span id="cb15-6"><a href=""></a>                 start_cap = circle(3, 'mm'),</span>
+<span id="cb15-7"><a href=""></a>                 alpha = .1) +</span>
+<span id="cb15-8"><a href=""></a>  geom_node_point(aes(size = local_size(),</span>
+<span id="cb15-9"><a href=""></a>                      color = gender)) +</span>
+<span id="cb15-10"><a href=""></a>  geom_node_text(aes(label = id),</span>
+<span id="cb15-11"><a href=""></a>                 repel=TRUE) +</span>
+<span id="cb15-12"><a href=""></a>  theme_graph()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1143,7 +1163,7 @@ Pittinsky, Matthew, and Brian V Carolan. 2008. <span>“Behavioral Versus Cognit
         progress: true,
 
         // Display the page number of the current slide
-        slideNumber: 'c/t',
+        slideNumber: false,
 
         // 'all', 'print', or 'speaker'
         showSlideNumber: 'all',
