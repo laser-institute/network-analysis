@@ -1,0 +1,954 @@
+---
+title: "Who's Friends with Who in Middle School"
+subtitle: "SNA Module 1: Case Study Key"
+author: "LASER Institute"
+date: today 
+format:
+  html:
+    toc: true
+    toc-depth: 4
+    toc-location: right
+theme:
+  light: simplex
+  dark: cyborg
+editor: visual
+jupyter: python3
+bibliography: lit/references.bib
+---
+
+## 1. PREPARE
+
+Our first SNA case study is guided by the work of Matthew Pittinsky and Brian V. Carolan (2008), which employed a social network perspective to examine teachers' perceptions of student friendships agreed with their own. Sadly, this excellent study did not include any visual depictions comparing student and teacher perceived friendship networks, but we are going to fix that!
+
+Our primary aim for this case study is to gain some hands-on experience with essential Python packages and functions for SNA. We learn how to preparing network data for analysis and creating a simple network sociogram to help describe visually what our network "looks like." Specifically, this case study will cover the following topics pertaining to each data-intensive workflow process [@krumm2018]:
+
+1.  **Prepare**: Prior to analysis, we'll look at the context from which our data came, formulate some research questions, and get introduced the {pandas} and {networkx} packages for analyzing and visualizing relational data.
+
+2.  **Wrangle**: In the wrangling section of our case study, we will learn some basic techniques for manipulating, cleaning, transforming, and merging network data.
+
+3.  **Explore**: With our network data tidied, we learn to calculate some key network measures and to illustrate some of these stats through network visualization.
+
+4.  **Model**: We conclude our analysis by introducing community detection algorithms for identifying groups and revisiting sentiment about the common core.
+
+5.  **Communicate**: We develop a polished sociogram to highlight key findings.
+
+### 1a. Review the Research
+
+![](img/pittinsky-carolan.png){width="50%"}
+
+Pittinsky, M., & Carolan, B. V. (2008). Behavioral versus cognitive classroom friendship networks. *Social Psychology of Education*, *11*(2), 133-147.
+
+#### Abstract
+
+Researchers of social networks commonly distinguish between "behavioral" and "cognitive" social structure. In a school context, for example, a teacher's perceptions of student friendship ties, not necessarily actual friendship relations, may influence teacher behavior. Revisiting early work in the field of sociometry, this study assesses the level of agreement between teacher perceptions and student reports of within-classroom friendship ties. Using data from one middle school teacher and four classes of students, the study explores new ground by assessing agreement over time and across classroom social contexts, with the teacher-perceiver held constant. While the teacher's perceptions and students' reports were statistically similar, 11--29% of possible ties did not match. In particular, students reported significantly more reciprocated friendship ties than the teacher perceived. Interestingly, the observed level of agreement varied across classes and generally increased over time. This study further demonstrates that significant error can be introduced by conflating teacher perceptions and student reports. Findings reinforce the importance of treating behavioral and cognitive classroom friendship networks as distinct, and analyzing social structure data that are carefully aligned with the social process hypothesized.
+
+#### Research Questions
+
+The central question guiding this investigation was:
+
+> Do student reports agree with teacher perceptions when it comes to classroom friendship ties and with what consequences for commonly used social network measures?
+
+We will be using this question to guide our own analysis of the classroom friendships reported by teachers. Specifically, we will use the first part of this question to guide our analysis and develop two sociograms to help visually compare similarities and differences between teacher and student reported classroom friendships.
+
+#### Data Collection
+
+To measure the level of agreement between student and teacher reports of classroom student friendships, sociometric data were collected from each student in all four classes and the teacher provided similar reports on all students. To collect student reports of friendships, students were given a class roster and asked to describe their relationship with each student in the class. Choices included best friend, friend, know-like, know, know-dislike, strongly dislike, and do not know. In the terminology of network analysis, these sociometric data are "valued" (degrees of friendship, not just yes or no) and "directed" (friendship nominations were not presumed to be reciprocal). Data were collected in the autumn and spring. All "best friend" and "friend" choices are coded as '1' (friend), while all other choices are coded as '0' (not friend). The teacher's reports of students' friendships were generated in a similar manner.
+
+#### Analyses
+
+To assess agreement between perceived friendship by the teacher and students, QAP (quadratic assignment procedure) correlations for each class's two matrices (teacher and student generated) were analyzed in the autumn and spring. A QAP correlation is used to calculate the degree of association between two sets of relations; it tests whether the probability of dyad overlap in the teacher matrix is correlated with the probability of dyad overlap in the student matrix. It does so by running a large number of simulations. These simulations generate random matrices with sizes and value distributions based on the original two matrices being tested. It then computes an average level of correlation between the matrices that would be expected at random. Similarly, it calculates the probability that the observed degree of correlation between two matrices would be as large or as small as that observed based on the range of correlations generated in the random permutations, with an associated significance statistic.
+
+#### Key Findings
+
+As reported by @pittinsky2008behavioral in their findings section:
+
+> While the teacher's perceptions and students' reports were statistically similar, 11--29% of possible ties did not match. In particular, students reported significantly more reciprocated friendship ties than the teacher perceived.
+
+#### ❓Question
+
+Based on what you know about networks and the context so far, what other research question(s) might ask we ask in this context that a social network perspective might be able to answer?
+
+Type a brief response in the space below:
+
+-   YOUR RESPONSE HERE
+
+### 1b. Load Packages
+
+A Python package or library is a collection of modules that offer a set of functions, classes, and variables that enable developers and data analysts to perform many tasks without writing their code from scratch. These can include everything from performing mathematical operations to handling network communications, manipulating images, and more.
+
+#### pandas 📦
+
+![](img/pandas.svg){width="30%"}
+
+One package that we'll be using extensively is {pandas}. [Pandas](https://pandas.pydata.org) [@mckinney-proc-scipy-2010] is a powerful and flexible open source data analysis and wrangling tool for Python that is used widely by the data science community.
+
+Click the green arrow in the right corner of the "code chunk" that follows to load the {pandas} library introduced in LA Workflow labs.
+
+```{python}
+
+import pandas as pd
+
+```
+
+#### SciPy 📦
+
+![](img/scipy.svg){width="20%"}
+
+SciPy is a collection of mathematical algorithms and convenience functions built on NumPy. It adds significant power to Python by providing the user with high-level commands and classes for manipulating and visualizing data.
+
+Click the green arrow in the right corner of the "code chunk" that follows to load the {scipy} library:
+
+```{python}
+
+import scipy as sp
+
+```
+
+#### Pyplot 📦
+
+![](img/matplotlib.png){width="20%"}
+
+Pyplot is a module in the {matplotlib) package, a comprehensive library for creating static, animated, and interactive visualizations in Python. **`pyplot`** provides a MATLAB-like interface for making plots and is particularly suited for interactive plotting and simple cases of programmatic plot generation.
+
+Click the green arrow in the right corner of the "code chunk" that follows to load **`pyplot`**:
+
+```{python}
+
+import matplotlib.pyplot as plt
+
+```
+
+#### Pyplot 📦
+
+![](img/matplotlib.png){width="20%"}
+
+Pyplot is a module in the {matplotlib) package, a comprehensive library for creating static, animated, and interactive visualizations in Python. **`pyplot`** provides a MATLAB-like interface for making plots and is particularly suited for interactive plotting and simple cases of programmatic plot generation.
+
+Click the green arrow in the right corner of the "code chunk" that follows to load **`pyplot`**:
+
+```{python}
+
+import matplotlib.pyplot as plt
+
+```
+
+#### 
+
+#### NetworkX 📦
+
+![](img/networkx.png){width="20%"}
+
+[NetworkX](https://networkx.org/documentation/stable/) [@SciPyProceedings_11] is a Python package for the creation, manipulation, and study of the structure, dynamics, and functions of complex networks. It provides tools for the study of the structure and dynamics of social, biological, and infrastructure networks, including:
+
+-   Data structures for graphs, digraphs, and multigraphs
+
+-   Many standard graph algorithms
+
+-   Network structure and analysis measures
+
+-   Generators for classic graphs, random graphs, and synthetic networks
+
+-   Nodes that can be "anything" (e.g., text, images, XML records)
+
+-   Edges that can hold arbitrary data (e.g., weights, time-series)
+
+-   Ability to work with large nonstandard data sets.
+
+With NetworkX you can load and store networks in standard and nonstandard data formats, generate many types of random and classic networks, analyze network structure, build network models, design new network algorithms, draw networks, and much more.
+
+#### **👉 Your Turn** **⤵**
+
+Use the code chunk below to import the networkx package as `nx`:
+
+```{python}
+# YOUR CODE HERE
+
+import networkx as nx
+
+```
+
+## 2. WRANGLE
+
+In general, data wrangling involves some combination of cleaning, reshaping, transforming, and merging data [@wickham2016r]. As highlighted in @estrellado2020e, wrangling network data can be even more challenging than other data sources since network data often includes variables about both individuals and their relationships.
+
+For our data wrangling in module 1, we're keeping it relatively simple since working with relational data is a bit of a departure from working with rectangular data frames. Our primary goals for Lab 1 is learning how to:
+
+a.  **Import Data from Excel**. In this section, we learn about the `read_xlsx()` function for importing network data stored in two common formats: matrices and nodelists.
+
+b.  **Convert to Network Data Structure**. Before we can create our sociogram, we'll first need to convert our data frames into special data structure for storing graphs.
+
+### 2a. Import Data
+
+One of our primary goals for this case study to is create network graph called a sociogram that visually describes what a network "looks like" from the perspective of both students and their teacher. To do so, we'll need to import two Excel files originally obtained from the [Social Network Analysis and Education companion site](#0). Both files contain edges stored as a matrix and are included in the lab-1 data folder of your R Studio project. A description of each file from the companion website is copied below along with a link to the original file:
+
+1.  [**99472_ds3.xlsx**](https://studysites.sagepub.com/carolan/study/materials/datasets/99472_ds3.xlsx) This adjacency matrix consists of **student-reported** friendship relations among 27 students in one class in the fall semester. These data are directed and unweighted; a friendship tie is present if the student reported that another was either a best friend or friend.
+
+2.  [**99472_ds5.xlsx**](https://studysites.sagepub.com/carolan/study/materials/datasets/99472_ds5.xlsx) This adjacency matrix consists of the **teacher-reported** friendship relations among 27 students in one class in the fall semester. These data are directed and unweighted; a friendship tie is present if the teacher reported that students were either a best friend or friend.
+
+Relational data (i.e., information about the relationships among individuals in a network) are sometimes stored as an [adjacency matrix](https://en.wikipedia.org/wiki/Adjacency_matrix). Network data stored as a matrix includes a column and row for each actor in our network and each cell contains information about the **tie** between each pair of actors, often referred to as **edges**. In our case, each tie is **directed,** meaning that relationships between actors may not necessarily be reciprocated. For example, student 1 may report student 2 as a friend, but student 2 may or may not report student 1 as friend. If both student 2 and student 2 indicate each other as friends, then this tie, or edge, is considered **reciprocal** or **mutual**.
+
+#### Import Student-Reported Friendships
+
+Let's use the `read_excel()` function from the {pandas} package to import the `student-reported-friends.xlsx` file. In our function, we'll include an important "argument" called `header =` and set it to `None`. This tells Python that our file does not include column names and is important to include since our file is a simple matrix with no header or column names and by default this argument is set to true and would assign the first row which contains data about student friendships as names for each column.
+
+Finally, we need to make sure we can reference the matrix we import and use it later in our analysis. To do so, will save it to our "Environment" by assigning it to a variable which we will call `student_friends`.
+
+```{python}
+
+student_friends = pd.read_excel("data/student-reported-friends.xlsx", header = None)
+
+```
+
+#### **👉 Your Turn** **⤵**
+
+Before importing our teacher-reported friendship file, use the code chunk below to quickly inspect the `student_friends` data we just imported to see what we'll be working with.
+
+```{python}
+# YOUR CODE HERE
+
+student_friends
+
+```
+
+You should now see a 27 x 27 data table that represents student-reported friendships stored as an adjacency matrix. As noted on pg. 140 of @pittinsky2008behavioral, students were given a class roster and asked to describe their relationship with each student using the following choices: best friend, friend, know-like, know, know-dislike, strongly dislike, and do not know. In the terminology of network analysis, these sociometric data are **valued** (degrees of friendship, not just yes or no).
+
+For the purpose of the their study, and for this case study as well, all “best friend” and “friend” choices are coded as ‘1’ (friend), while all other choices are coded as ‘0’ (not friend). This process of taking a valued relationship or tie (i.e., degrees of friendship, not just yes or no) and simplifying into a binary yes/no relationship is referred to as **dichotomization** and we'll explore the benefits and drawbacks of this process in Module 4.
+
+In addition to ties being valued or binary, they can also be undirected or directed. For example, in an **undirected** network**,** a friendship either exists between two actors or it does not. In a **directed** network, one actor or **ego** may indicate a relationship (e.g., friend or best friend), but the other actor or **alter** may indicate there is no friendship. If the relationship is present between both actors, however, the tie or edge is considered **reciprocated**.
+
+#### ❓Question
+
+Provide a brief response in the space below to the following questions: Do the data we just imported indicate that these friendship ties are directed or undirected? How can you tell?
+
+1.  Directed. For example, Student 1 did not indicate that they are friends with Student 3, but Student 3 indicated they are friends with Student 1.
+
+#### Add Names
+
+Python has packages for creating random names to help anonymize data, but to keep things simple, we'll just assign the numbers 1 through 27 as names for our rows and columns.
+
+```{python assign-names}
+
+
+# Set row and column names from 1 to 27
+student_friends.index = range(1, 28)
+student_friends.columns = range(1, 28)
+
+```
+
+Again, let quickly inspect our `student_friends` data table to see if this worked:
+
+```{python view-student-friends}
+
+student_friends
+```
+
+Much better! Now we can see that student 1 indicated that student 2 is their friend, and student 2 indicated that student 1 is their friend, so we can say that this friendship is "reciprocated" or "mutual." As we'll see in Lab 2, reciprocity is an import network-level measure in SNA.
+
+#### Import Student Attributes
+
+Before importing our teacher-reported student friendships, we have another important file to import. As noted by @carolan2014 , most social network analyses include variables that describe the attributes of actors in a network. These attribute variables can be either categorical (e.g., sex, race, etc.) or continuous in nature (e.g., test scores, number of times absent, etc.).
+
+Actor attributes are stored a rectangular array, or data frame, in which rows represent a social entity (e.g., students, staff, schools, etc.), columns represent variables, and cells consist of values on those variables. This file containing a list of actors, or nodes, along with their attributes is sometimes referred to as a **node list**.
+
+Let's go ahead and read our node list into python and store as a new object called `student_attributes`:
+
+```{python}
+
+student_attributes = pd.read_excel("data/student-attributes.xlsx")
+
+student_attributes
+```
+
+Note that when we imported this time, we left out the `header = None` argument. As mentioned earlier, by default this argument is set to TRUE and assumes the first row of your data frame will contain names of the variables. Since this was indeed the case, we didn't need to include this argument. We could, however, have included this argument and set it to `TRUE` and our resulting output would still be the same.
+
+#### **👉 Your Turn** **⤵**
+
+Complete the code chunk below to import the `teacher-reported-friends.xlsx` file and inspect your `teacher_friends` object.
+
+```{python import-teacher}
+# YOUR CODE HERE
+
+teacher_friends = pd.read_excel("data/teacher-reported-friends.xlsx", header = None)
+
+teacher_friends
+```
+
+### 2b. Make a Network Data Structure
+
+Before we can begin exploring our data through through network visualization, we must first convert our `student_friends` object to a network using {networkx}.
+
+#### **Convert to Graph Object**
+
+The `from_pandas_adjacency()` function can easily convert pandas data frame to a graph.
+
+Run the following code to convert our adjacency matrix to directed network graph data structure, save as a new object called `student_network`, and use nx.to_pandas_edgelist() to view the basic information about our network:
+
+```{python}
+# Create a directed graph (DiGraph) from pandas adjacency matrix
+student_network = nx.from_pandas_adjacency(student_friends, create_using = nx.DiGraph())
+
+#Convert the graph edges to a pandas DataFrame and print(student_network)
+print(nx.to_pandas_edgelist(student_network))
+```
+
+Note that the **`create_using`** argument is used to specify the type of graph you want to create when using graph creation functions, such as **`nx.from_pandas_edgelist`**, **`nx.from_numpy_matrix`**, or in our case **`nx.from_pandas_adjacency`**. This argument allows you to define the graph class (e.g., undirected, directed, multigraph, etc.) that should be used for constructing the graph.
+
+By default, many NetworkX functions create an undirected graph. If you want to create a different type of graph, such as a directed graph (**`DiGraph`**), a multi-graph (**`MultiGraph`**) with multiple types of ties, or a directed multi-graph (**`MultiDiGraph`**), you can pass the corresponding class to the **`create_using =`** parameter. This is particularly useful when the nature of your data or the analysis you intend to perform requires a specific type of graph.
+
+```{python}
+
+# Extract the edges from the NetworkX graph
+
+student_edges = nx.to_pandas_edgelist(student_network)
+pd.set_option('display.max_rows', student_edges.shape[0] + 1)
+print(student_edges)
+```
+
+#### Add Node Attributes
+
+Although an underlying assumption of social network analysis is that social relations are often more important for understanding behaviors and attitudes than attributes related to one's background (e.g., age, gender, etc.), these attributes often still play an important role in SNA. Specifcially attributes can enrich our understanding of networks by adding contextual information about actors and their relations. For example, actor attributes can be used to for:
+
+1.  **Community Detection**: Identifying groups with shared attributes, revealing substructures within the network.
+2.  **Homophily Analysis**: Examining the tendency for similar individuals to connect, shedding light on social cohesion.
+3.  **Influence and Diffusion**: Understanding how characteristics of individuals affect the spread of information or behaviors.
+4.  **Centrality Analysis**: Correlating attributes with centrality measures to assess individuals' influence based on their traits.
+5.  **Network Dynamics**: Investigating how changes in attributes correspond to the evolution of network structures.
+6.  **Statistical Modeling**: Incorporating attributes in models to explore the interplay between individual traits and network formation.
+7.  **Visualization**: Enhancing network visualizations by using attributes to differentiate nodes, making patterns more discernible.
+
+We will explore several of these use cases throughout the SNA modules, but for this case study, our focus will be to incoporate some student attribtues to enhance our visualizations.
+
+Run the following code to add the attributes in our `student_attributes` data frame to our network object `student_network` that we created earlier:
+
+```{python}
+
+# Create a directed graph from edge DataFrame (student_edges)
+student_network = nx.from_pandas_edgelist(student_edges, source='source', target='target', create_using=nx.DiGraph())
+
+
+# Add node attributes from node DataFrame (student_attributes)
+
+student_network.add_nodes_from(student_attributes.set_index('id').to_dict(orient='index').items())
+
+```
+
+Before we move on, let's take a quick look at each node's attribute data to make sure our code above worked as intended:
+
+```{python}
+
+print("Nodes:", student_network.nodes(data=True))
+print("Edges:", student_network.edges())
+
+
+
+```
+
+Excellent, each node in our network object now
+
+#### **👉 Your Turn** **⤵**
+
+Complete the code chunk below to convert your `teacher_friends` object first to a matrix and then to a network object that contains information about both the teacher-reported student friendships and the attributes of students:
+
+```{python}
+
+# YOUR CODE HERE
+
+#first method to creating the teacher_network from an adjacency matrix
+
+teacher_friends = pd.read_excel("data/teacher-reported-friends.xlsx", header = None)
+
+teacher_network = nx.from_pandas_adjacency(teacher_friends, create_using = nx.DiGraph())
+
+#second method approach to creating the teacher_network from edge list
+
+#extract edges from teacher network
+
+teacher_edges = nx.to_pandas_edgelist(teacher_network)
+
+# Create a directed graph from edge DataFrame - student_edges
+teacher_network = nx.from_pandas_edgelist(teacher_edges, source='source', target='target', create_using=nx.DiGraph())
+
+
+# Add node attributes from node DataFrame (student_attributes)
+
+teacher_network.add_nodes_from(student_attributes.set_index('id').to_dict(orient='index').items())
+
+
+#print(teacher_network)
+print("Nodes:", teacher_network.nodes(data=True))
+print("Edges:", teacher_network.edges())
+
+```
+
+#### ❓Question
+
+Now answer the following questions:
+
+1.  How many students are in our network?
+
+    -   YOUR RESPONSE HERE
+
+2.  Who reported more friendships, teachers or students? How do you know?
+
+    -   YOUR RESPONSE HERE
+
+## 3. EXPLORE
+
+As noted in our course readings, one of the defining characteristics of the social network perspective is its use of graphic imagery to represent actors and their relations with one another. To emphasize this point, @carolan2014 reported that:
+
+> The visualization of social networks has been a core practice since its foundation more than 100 years ago and remains a hallmark of contemporary social network analysis. 
+
+Network visualization can be used for a variety of purposes, ranging from highlighting key actors to even serving as works of art.
+
+This excellent figure from Katya Ognyanova's also excellent tutorial on [Static and Dynamic Network Visualization with R](https://kateto.net/network-visualization/) helps illustrate the variety of goals a good network visualization can accomplish:
+
+![](img/viz-goals.jpeg){width="80%"}
+
+In Section 3 work focus on just visualization, and will use the {tidygraph} package to create a network sociogram to help visually describe our network and compare teacher and student reported friendships. Specifically, in this section we'll learn to make a:
+
+a.  **Simple Sociogram**. We learn about the basic `draw()` function for creating a very quick network plot when just a quick visual inspection is needed.
+
+b.  **Sophisticated Sociogram**. We then dive deeper in to the `draw_kamada_kawai()` function with various parameters and learn to plot nodes and edges in our network and tweak key elements like the size, shape, and position of nodes and edges to better at communicating key findings.
+
+### 3a. Simple Sociograms
+
+These visual representations of the actors and their relations, i.e. the network, are called a **sociogram**. Actors who are most central to the network, such as those with higher node degrees, or those with more friends in our case study, are usually placed in the center of the sociogram and their ties are placed near them.
+
+In the code chunk below, use the `draw()` function with your `student_network` object to see what the basic plot function produces:
+
+```{python}
+
+nx.draw(student_network)
+plt.show()
+plt.clf()
+
+```
+
+```{python}
+
+# Extract the 'name' attributes
+node_labels = nx.get_node_attributes(student_network, 'name')
+print(node_labels)
+
+nx.draw(student_network, labels=node_labels, with_labels=True)
+
+plt.show()
+plt.clf()
+
+
+```
+
+If this had been a smaller network it might have been a little more useful but one important insight is that we have already identified an "isolate" in our network, i.e., a student who neither named others as a friend or was named by others as a friend.
+
+Fortunately, the {networkx} package includes a range of [drawing](https://networkx.org/documentation/stable/reference/drawing.html) and functions for improving for improving the visual design of network graphs.
+
+Run the following code to try out the `kamada_kawai_layout()` layout and add some informative labels to our graph:
+
+```{python}
+plt.figure(figsize=(30, 12))
+
+# Create the layout for your nodes using kamada_kawai_layout
+pos = nx.kamada_kawai_layout(student_network)
+
+# Extract the 'gender' attribute
+node_gender = nx.get_node_attributes(student_network, 'gender')
+
+# Define colors for each gender
+gender_colors = {"male": "blue", "female": "pink"}
+
+node_colors = [gender_colors[node_gender[node]] for node in student_network.nodes()]
+
+nx.draw(student_network,  with_labels=True, pos=pos, labels=node_labels,node_color=node_colors)
+
+
+# Create a legend for gender colors
+from matplotlib.lines import Line2D
+
+legend_elements = [Line2D([0], [0], marker='o', color='w', label='Male', markersize=10, markerfacecolor='blue'),
+                   Line2D([0], [0], marker='o', color='w', label='Female', markersize=10, markerfacecolor='pink')]
+
+plt.legend(handles=legend_elements, loc='best')
+
+
+# Display the graph
+plt.show()
+plt.clf()
+```
+
+Much better. Now, let's unpack what's happening in this code:
+
+-   **`nx.kamada_kawai_layout(G)`** computes the position of nodes based on the Kamada-Kawai layout algorithm, which is designed to produce visually appealing layouts by considering the graph's structure.
+
+-   **`nx.draw()`** is used to draw the graph, with **`with_labels=True`** ensuring that the default node identifiers are used as labels.
+
+-   The **`node_color`** and **`node_size`** parameters are set for visual customization, but you can adjust these according to your preference.
+
+This generates a visualization of your network with nodes positioned according to the Kamada-Kawai layout and labeled with their default identifiers.
+
+There are other popular data visualization libraries in Python - Seaborn and Plotnine
+
+### Seaborn
+
+Seaborn is a Python data visualization library based on Matplotlib that provides a high-level interface for creating attractive statistical graphics. It integrates seamlessly with Pandas DataFrames and offers built-in functions for various types of plots. Seaborn excels in visualizing relationships between multiple variables and customizing plot aesthetics.
+
+### Plotnine
+
+Plotnine is a Python data visualization library based on the grammar of graphics, similar to R's ggplot2. It allows users to build complex plots incrementally by adding layers and defining aesthetics. Plotnine supports faceting and offers extensive customization options for every plot component.
+
+```{python}
+import seaborn as sns
+
+# Set seaborn theme
+sns.set_theme(style="whitegrid")
+
+plt.figure(figsize=(50, 35))
+
+# Create the layout for your nodes using kamada_kawai_layout
+pos = nx.kamada_kawai_layout(student_network)
+
+# Draw the graph without node labels
+nx.draw(student_network, pos, with_labels=False)
+
+# Extract the 'name' attributes
+labels = nx.get_node_attributes(student_network, 'name')
+
+# Draw the graph with default labels (node identifiers)
+nx.draw_networkx_labels(student_network, pos, labels, font_size=10)
+
+# Display the graph
+plt.show()
+plt.clf()
+```
+
+```{python}
+from plotnine import ggplot, aes, geom_segment, geom_point, theme, element_text
+
+# Assuming 'student_network' is your NetworkX graph
+# Create the layout for your nodes using kamada_kawai_layout
+pos = nx.kamada_kawai_layout(student_network)
+
+# Convert positions to a DataFrame
+pos_df = pd.DataFrame(pos).T.reset_index()
+pos_df.columns = ['name', 'x', 'y']
+
+# Create edges DataFrame
+edges = nx.to_pandas_edgelist(student_network)
+edges = edges.merge(pos_df, left_on='source', right_on='name')
+edges = edges.merge(pos_df, left_on='target', right_on='name', suffixes=('_source', '_target'))
+
+# Plot using plotnine
+p = (ggplot(edges) +
+     geom_segment(aes(x='x_source', y='y_source', xend='x_target', yend='y_target'), color='grey') +
+     geom_point(aes(x='x', y='y'), pos_df, size=4) +
+     theme(figure_size=(10, 8),
+           axis_text_x=element_text(size=10),
+           axis_text_y=element_text(size=10),
+           axis_title_x=element_text(size=12),
+           axis_title_y=element_text(size=12)))
+
+print(p)
+plt.clf()
+```
+
+#### **👉 Your Turn** **⤵**
+
+Use the code chunk below to try out these simple sociogram functions on your `teacher_network` object you created above:
+
+```{python}
+
+plt.figure(figsize=(30, 12))
+
+# Position the nodes using one of the layout algorithms
+pos = nx.kamada_kawai_layout(teacher_network)
+
+# Draw the graph without node labels
+nx.draw(teacher_network, pos, with_labels=False)
+
+# Extract the 'name' attribute from each node to use as labels
+labels = nx.get_node_attributes(teacher_network, 'name')
+
+
+# Draw node labels using the 'name' attribute
+nx.draw_networkx_labels(teacher_network, pos, labels, font_size=10)
+
+# Display the graph
+plt.show()
+plt.clf()
+
+
+```
+
+Not exactly great graphs, but they already provided some insight into our research questions. Specifically, we can see visually that teacher and student reported peer networks are very different!
+
+### 3b. Sophisticated Sociograms
+
+#### Node Attributes
+
+Run the following code chunk to see some additional arguments were added into the new layout. We assign different colors for gender and adjust the size of nodes, font, width, and transparency of the arrows.
+
+```{python}
+
+plt.figure(figsize=(15, 10))
+
+```
+
+#### ❓Question
+
+What do the colors of the nodes represent in the sociogram above?
+
+-   YOUR RESPONSE HERE
+
+#### Add Nodes
+
+In Python, to add nodes, we use the `nx.draw_networkx_nodes()` function. This function draws nodes onto the plot. In contrast to {ggplot2}, where "geom" in `geom_non_point()` signifies "geometric elements", in NetworkX, drawing nodes directly with `nx.draw_networkx_nodes()` achieves a similar purpose, visually representing nodes in the plot.
+
+Now "add" the `nx.draw_networkx_nodes()` function to our code
+
+#### **👉 Your Turn** **⤵**
+
+```{python}
+#plt.figure(figsize=(15, 10))
+
+# Compute node positions (layout)
+pos = nx.spring_layout(student_network)
+
+# Draw only nodes as black spots
+nx.draw_networkx_nodes(student_network, pos=pos, node_color='black')
+plt.axis('off')
+
+plt.show()
+plt.clf()
+```
+
+Well, at least we have our nodes now!
+
+#### Add Layout
+
+One of the major advances in visualization since the first hand-drawn sociograms developed by Jacob Moreno (1934) to represent relations among children in school is the use of software and algorithms to automatically layout networks on a grid.
+
+There are may different [layout methods](https://networkx.org/documentation/stable/reference/drawing.html). In NetworkX, the default layout used by functions like `nx.draw()` when you don't explicitly specify a layout algorithm is the **spring layout** (also known as the Fruchterman-Reingold layout). The spring layout algorithm attempts to position nodes such that connected nodes are closer together and disconnected nodes are farther apart.
+
+Other layouts include the circular_layout and the nx.kamada_kawai_layout. These types of force-directed algorithms generally work well with large networks and try to layout graphs in "an aesthetically-pleasing way" by making edges roughly equal in length and minimizing overlap.
+
+Let's go ahead and include the pos argument, a dictionary that maps each node to its position in the layout. This argument can be passed to functions to specify or retrieve node positions, usually computed using layout algorithms such as nx.kamada_kawai_layout`()`
+
+```{python}
+plt.figure(figsize=(15, 10))
+
+# Compute node positions (layout)
+pos = nx.kamada_kawai_layout(student_network)
+
+# Draw only nodes as black spots
+nx.draw_networkx_nodes(student_network, pos=pos, node_color='black')
+
+plt.axis('off')
+
+plt.show()
+plt.clf()
+```
+
+That's not much better so let's stick with the "stress" layout for now. Feel free to try out some other [layout methods](https://networkx.org/documentation/stable/reference/drawing.html) if you like, however. There are also
+
+#### Tweak Nodes
+
+In NetworkX, graphical elements (`draw()` functions) can include visual attributes (`node_color`, `node_shape`, `node_size`) for color, shape, and size.
+
+Let's now add some "aesthetics" to our points by including the `aes()` function and arguments such as `size =` and `color =`. We'll use our `gender` variable for color and set the size of the node using `local_size()` function, which will base the size of each node on the number of friends each student nominated.
+
+Now, let's enhance our node visualization by including attributes such as color and size. We'll assign colors based on the gender variable and adjust node sizes using a function like `nx.set_node_attributes()` to reflect the number of friends each student nominated.
+
+```{python}
+
+# Calculate node sizes based on the number of neighbors (degree)
+node_sizes = [len(list(student_network.neighbors(node))) * 100 for node in student_network.nodes]
+
+plt.figure(figsize=(30, 15))
+
+# Compute node positions (layout)
+pos = nx.kamada_kawai_layout(student_network)
+
+node_gender = nx.get_node_attributes(student_network, 'gender')
+
+# Define colors for each gender
+gender_colors = {"male": "blue", "female": "pink"}
+
+node_colors = [gender_colors[node_gender[node]] for node in student_network.nodes()]
+
+# Draw network nodes
+nx.draw_networkx_nodes(student_network, node_size=node_sizes, pos=pos, node_color=node_colors)
+
+
+# Create a legend for gender colors
+from matplotlib.lines import Line2D
+
+gender_legend_elements = [Line2D([0], [0], marker='o', color='w', label='Male', markersize=10, markerfacecolor='blue'),
+                          Line2D([0], [0], marker='o', color='w', label='Female', markersize=10, markerfacecolor='pink')]
+
+# Add the gender legend to the plot
+ax = plt.gca()
+first_legend = ax.legend(handles=gender_legend_elements, loc='upper right', bbox_to_anchor=(1.05, 1), fontsize='small')
+ax.add_artist(first_legend)
+
+# Create legend for node sizes (degrees)
+legend_sizes = [5, 10, 15, 20, 25]  # Define specific node sizes for legend
+for size in legend_sizes:
+    plt.scatter([], [], s=size * 100, label=f'{size} connections', color='gray', edgecolors='black', linewidth=0.1)
+
+# Add the size legend
+size_legend = ax.legend(scatterpoints=1, frameon=False, labelspacing=1, title='Node Sizes', loc='lower right', bbox_to_anchor=(1.05, 0), fontsize='small')
+
+plt.axis('off')
+
+plt.show()
+plt.clf()
+
+
+```
+
+We can easily see that the number of friends ranges from 5 to 20, with the exception of one "isolated" student we identified earlier who is not connected to any other students in the network, and therefore is smaller in size on the graph.
+
+Let's fix that by adding another layer with some node text and labels. Since node labels are a geometric element, we can apply aesthetics to them as well, like color and size. Let's also include the `repel =` argument that when set to `TRUE` will avoid overlapping text.
+
+```{python}
+
+
+# Calculate node sizes based on the number of neighbors (degree)
+
+
+plt.figure(figsize=(25, 10))
+
+# Compute node positions (layout)
+pos = nx.kamada_kawai_layout(student_network)
+
+# Draw nodes with colors based on gender and sizes based on degree
+nx.draw_networkx_nodes(student_network, pos=pos, node_size=node_sizes, node_color=node_colors)
+
+# Draw node labels
+nx.draw_networkx_labels(student_network, pos=pos, labels=node_labels, font_size=10, font_color='black', font_family='sans-serif')
+
+# Create a legend for gender colors
+from matplotlib.lines import Line2D
+
+gender_legend_elements = [Line2D([0], [0], marker='o', color='w', label='Male', markersize=10, markerfacecolor='blue'),
+                          Line2D([0], [0], marker='o', color='w', label='Female', markersize=10, markerfacecolor='pink')]
+
+# Add the gender legend to the plot
+ax = plt.gca()
+first_legend = ax.legend(handles=gender_legend_elements, loc='upper right', bbox_to_anchor=(1.05, 1), fontsize='small')
+ax.add_artist(first_legend)
+
+# Create legend for node sizes (degrees)
+legend_sizes = [5, 10, 15, 20, 25]  # Define specific node sizes for legend
+for size in legend_sizes:
+    plt.scatter([], [], s=size * 100, label=f'{size} connections', color='gray', edgecolors='black', linewidth=0.1)
+
+# Add the size legend
+size_legend = ax.legend(scatterpoints=1, frameon=False, labelspacing=1, title='Node Sizes', loc='lower right', bbox_to_anchor=(1.05, 0), fontsize='small')
+
+plt.axis('off')
+
+plt.show()
+plt.clf()
+```
+
+#### Add Edges
+
+Now, let's literally connect the dots and add some [edges](https://ggraph.data-imaginist.com/articles/Edges.html) using the `geom_edge_link()` function.
+
+```{python}
+
+
+# Compute node positions (layout)
+pos = nx.kamada_kawai_layout(student_network)
+
+# Draw nodes with colors based on gender and sizes based on degree
+nx.draw_networkx_nodes(student_network, pos=pos, node_size=node_sizes, node_color=node_colors)
+
+# Draw node labels with repulsion to avoid overlap
+nx.draw_networkx_labels(student_network, pos=pos, labels=node_labels, font_size=10, font_color='black')
+
+# Draw edges without arrows
+nx.draw_networkx_edges(student_network, pos=pos, arrows=False)
+
+# Display the graph
+plt.axis('off')
+plt.show()
+plt.clf()
+```
+
+Ack! Without some adjustment, the edges make it really difficult to see the nodes. Fortunately, you can also adjust the edges just like we did to the nodes above: Let's now include the following arguments:
+
+-   `arrow =` to include some arrows 1mm in length
+
+-   `end_cap =` and `start_cap =` to keep arrows from overlapping the nodes, and to
+
+-   `alpha = .2` set the transparency of our edges so our edges fade more into the background and help keep the focus on our nodes:
+
+```{python tweak-edges}
+
+
+
+# Compute node positions (layout)
+pos = nx.kamada_kawai_layout(student_network)
+
+# Draw nodes with colors based on gender and sizes based on degree
+nx.draw_networkx_nodes(student_network, pos=pos, node_size=node_sizes, node_color=node_colors)
+
+# Draw node labels with repulsion to avoid overlap
+nx.draw_networkx_labels(student_network, pos=pos, labels=node_labels, font_size=10, font_color='black')
+
+
+# Draw edges with arrows, adjusting parameters for aesthetics
+nx.draw_networkx_edges(student_network, pos=pos, arrowsize=10,
+                       edge_color='gray', width=1.5, alpha=0.2, connectionstyle='arc3,rad=0.1')
+
+# Display the graph
+plt.axis('off')
+plt.show()
+plt.clf()
+```
+
+#### Add a Theme
+
+In NetworkX, there isn't a direct equivalent function like `theme_graph()` as found in ggplot2 for styling entire graphs. Instead, styling in NetworkX is typically done through individual function parameters and settings when drawing nodes, edges, and labels.
+
+To achieve similar graph aesthetics as intended by `theme_graph()` in ggplot2, you can manually adjust various visual aspects such as node colors, edge styles, and background settings in NetworkX. Here’s a basic example of setting up a graph with custom styles in NetworkX
+
+```{python}
+# Compute node positions (layout) using a stress layout
+pos = nx.kamada_kawai_layout(student_network, weight=None) #, iterations=50)
+
+# Draw nodes with colors based on gender and sizes based on degree
+nx.draw_networkx_nodes(student_network, pos=pos, node_size=node_sizes, node_color=node_colors)
+
+# Draw edges with arrows and adjust edge aesthetics
+nx.draw_networkx_edges(student_network, pos=pos, arrows=True, arrowstyle='-|>',
+                       edge_color='gray', width=1.0, alpha=0.1)
+
+# Draw node labels with repulsion to avoid overlap
+nx.draw_networkx_labels(student_network, pos=pos, labels=node_labels, font_size=10, font_color='black', font_family='sans-serif', font_weight='bold')
+
+# Display the graph
+plt.axis('off')
+plt.show()
+plt.clf()
+
+```
+
+Much better! Notice also how we shifted the `geom_node_point()` layer of our graph to after the `geom_edge_link()` so the parts of nodes would not be hidden under the edges.
+
+**Note:** If you're having difficulty seeing the sociogram in the small R Markdown code chunk, you can copy and paste the code in the console and it will show in the Viewer pan and then you can enlarge and even save as an image file.
+
+#### **👉 Your Turn** **⤵**
+
+Use the code chunk below to try out these more sophisticated sociogram functions on your `teacher_network` object you created above:
+
+```{python}
+
+
+# Calculate node sizes based on the number of neighbors (degree)
+node_sizes = [len(list(teacher_network.neighbors(node))) * 100 for node in teacher_network.nodes]
+node_labels = nx.get_node_attributes(teacher_network, 'name')
+node_gender = nx.get_node_attributes(teacher_network, 'gender')
+
+plt.figure(figsize=(30, 12))
+
+# Position the nodes using one of the layout algorithms
+pos = nx.kamada_kawai_layout(teacher_network)
+
+# Define colors for each gender
+gender_colors = {"male": "blue", "female": "pink"}
+node_colors = [gender_colors.get(node_gender.get(node, ''), 'gray') for node in teacher_network.nodes()]
+
+# Draw network nodes
+nx.draw_networkx_nodes(teacher_network, node_size=node_sizes, pos=pos, node_color=node_colors)
+# Draw edges without arrows
+nx.draw_networkx_edges(student_network, pos=pos)
+# Draw node labels
+nx.draw_networkx_labels(teacher_network, pos=pos, labels=node_labels, font_size=10, font_color='black', font_family='sans-serif')
+# Draw edges with arrows, adjusting parameters for aesthetics
+nx.draw_networkx_edges(student_network, pos=pos, arrowsize=10,
+                       edge_color='gray', width=1.5, alpha=0.2, connectionstyle='arc3,rad=0.1')
+
+
+
+# Create a legend for gender colors
+from matplotlib.lines import Line2D
+
+gender_legend_elements = [Line2D([0], [0], marker='o', color='w', label='Male', markersize=10, markerfacecolor='blue'),
+                          Line2D([0], [0], marker='o', color='w', label='Female', markersize=10, markerfacecolor='pink')]
+
+# Add the gender legend to the plot
+ax = plt.gca()
+first_legend = ax.legend(handles=gender_legend_elements, loc='upper right', bbox_to_anchor=(1.05, 1), fontsize='small')
+ax.add_artist(first_legend)
+
+# Create legend for node sizes (degrees)
+legend_sizes = [5, 10, 15, 20, 25]  # Define specific node sizes for legend
+for size in legend_sizes:
+    plt.scatter([], [], s=size * 100, label=f'{size} connections', color='gray', edgecolors='black', linewidth=0.1)
+
+# Add the size legend
+size_legend = ax.legend(scatterpoints=1, frameon=False, labelspacing=1, title='Node Sizes', loc='lower right', bbox_to_anchor=(1.05, 0), fontsize='small')
+
+
+
+# Display the graph
+plt.axis('off')
+plt.show()
+plt.clf()
+```
+
+Congrats, you made it to the end of the EXPLORE section and created your first sociogram in Python!
+
+**Note:** If you're having difficulty seeing the sociogram in the small code chunk, you can copy and paste the code in the console and it will show in the Viewer pan and then you can enlarge and even save as an image file.
+
+Congrats, you made it to the end of the EXPLORE section and created your first sociogram in Python!
+
+## 4. MODEL
+
+As highlighted in [Chapter 3 of Data Science in Education Using R](https://datascienceineducation.com/c03.html), the **Model** step of the data science process entails "using statistical models, from simple to complex, to understand trends and patterns in the data." We will not explore the use of models for SNA until Module 4, but recall from the PREPARE section that to assess agreement between perceived friendships by the teacher and students, [@pittinsky2008behavioral] note that:
+
+> **The QAP (quadratic assignment procedure)** \[is\] used to calculate the degree of association between two sets of relations and tests whether the probability of dyad overlap in the teacher matrix is correlated with the probability of dyad overlap in the student matrix. It does so by running a large number of simulations. These simulations generate random matrices with sizes and value distributions based on the original two matrices being tested.
+
+We will learn more about the QAP and other models for statistical inference when working with relational data in Learning Lab 4.
+
+## 5. COMMUNICATE
+
+The final step in the workflow/process is sharing the results of your analysis with wider audience. Krumm et al. @krumm2018 have outlined the following 3-step process for communicating with education stakeholders findings from an analysis:
+
+1.  **Select.** Communicating what one has learned involves selecting among those analyses that are most important and most useful to an intended audience, as well as selecting a form for displaying that information, such as a graph or table in static or interactive form, i.e. a "data product."
+
+2.  **Polish**. After creating initial versions of data products, research teams often spend time refining or polishing them, by adding or editing titles, labels, and notations and by working with colors and shapes to highlight key points.
+
+3.  **Narrate.** Writing a narrative to accompany the data products involves, at a minimum, pairing a data product with its related research question, describing how best to interpret the data product, and explaining the ways in which the data product helps answer the research question and might be used to inform new analyses or a "change idea" for improving student learning.
+
+### Render File
+
+For your SNA Badge, you will have an opportunity to create a simple "data product" designed to illustrate some insights gained from your analysis and ideally highlight an action step or change idea that can be used to improve learning or the contexts in which learning occurs.
+
+For now, we will wrap up this case study by converting your work to an HTML file that can be published and used to communicate your learning and demonstrate some of your new R skills. To do so, you will need to "render" your document by clicking the ![](img/render.png){width="4%"} Render button in the menu bar at that the top of this file.
+
+Rendering a document does two important things:
+
+1.  checks through all your code for any errors; and,
+
+2.  creates a file in your directory that you can use to share you work .
+
+Now that you've finished your first case study, click the "Render" button in the toolbar at the top of your document to covert this Quarto document to a HTML web page, just one of [the many publishing formats you can create with Quarto](https://quarto.org/docs/output-formats/all-formats.html) documents.
+
+If the files rendered correctly, you should now see a new file named `sna-1-case-study-R.html` in the Files tab located in the bottom right corner of R Studio. If so, congratulations, you just completed the getting started activity! You're now ready for the unit Case Studies that we will complete during the third week of each unit.
+
+::: callout-important
+If you encounter errors when you try to render, first check the case study answer key located in the files pane and has the suggested code for the Your Turns. If you are still having difficulties, try copying and pasting the error into Google or ChatGPT to see if you can resolve the issue. Finally, contact your instructor to debug the code together if you're still having issues.
+:::
+
+### Publish File
+
+Rendered HTML files can be published online through a variety of ways including [Posit Cloud](https://posit.cloud/learn/guide#publish-from-cloud), [RPubs](#0) , [GitHub Pages](#0), [Quarto Pub](#0), or [other methods](#0). The easiest way to quickly publish your file online is to publish directly from RStudio. You can do so by clicking the "Publish" button located in the Viewer Pane after you render your document as illustrated in the screenshot below.
+
+![](img/publish.png)
+
+Congratulations, you've completed the case study! If you've already completed the Essential Readings, you're now ready to earn your first SNA LASER Badge!
+
+### References
