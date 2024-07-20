@@ -3,7 +3,7 @@ title: "Data Structures & Sociograms"
 subtitle: "SNA Module 1: Code-Along"
 format:
   revealjs: 
-    slide-number: c/t
+    #slide-number: c/t
     progress: true
     chalkboard: 
       buttons: false
