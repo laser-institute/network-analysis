@@ -69,14 +69,6 @@ Draft a research question for a population you may be interested in studying, or
 
 ### Part II: Data Product
 
-The final step in the workflow/process is sharing the results of your analysis with wider audience. Krumm et al. @krumm2018 have outlined the following 3-step process for communicating with education stakeholders findings from an analysis:
-
-1.  **Select.** Communicating what one has learned involves selecting among those analyses that are most important and most useful to an intended audience, as well as selecting a form for displaying that information, such as a graph or table in static or interactive form, i.e. a "data product."
-
-2.  **Polish**. After creating initial versions of data products, research teams often spend time refining or polishing them, by adding or editing titles, labels, and notations and by working with colors and shapes to highlight key points.
-
-3.  **Narrate.** Writing a narrative to accompany the data products involves, at a minimum, pairing a data product with its related research question, describing how best to interpret the data product, and explaining the ways in which the data product helps answer the research question and might be used to inform new analyses or a "change idea" for improving student learning.
-
 For your first SNA badge, your goal is to distill the analysis from our case study into a simple "data product" designed to illustrate a key finding from our analysis. For the purposes of this task, imagine that your audience consists of teachers and school leaders who have limited background in SNA and adapt the following steps accordingly:
 
 1.  **Select.** Select the teacher and/or student sociogram we created in the case study, or create an entirely new sociogram if so motivated, to share with teacher and school leaders.
