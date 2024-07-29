@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Network Analysis for Newbies</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Dr. Shaun Kellogg" />
+    <script src="libs/header-attrs-2.27/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/panelset-0.3.0/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset-0.3.0/panelset.js"></script>
+    <script src="libs/clipboard-2.0.6/clipboard.min.js"></script>
+    <link href="libs/xaringanExtra-clipboard-0.2.6/xaringanExtra-clipboard.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-clipboard-0.2.6/xaringanExtra-clipboard.js"></script>
+    <script>window.xaringanExtraClipboard(null, {"button":"<i class=\"fa fa-clipboard\"><\/i>","success":"<i class=\"fa fa-check\" style=\"color: #90BE6D\"><\/i>","error":"Press Ctrl+C to Copy"})</script>
+    <link href="libs/font-awesome-6.4.2/css/all.min.css" rel="stylesheet" />
+    <link href="libs/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet" />
+    <link href="libs/tile-view-0.2.6/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view-0.2.6/tile-view.js"></script>
+    <link rel="stylesheet" href="css/laser.css" type="text/css" />
+    <link rel="stylesheet" href="css/laser-fonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+class: clear, title-slide, inverse, center, top, middle
+
+
+
+
+
+
+
+
+
+
+# Network Analysis for Newbies
+## SNA Learning Lab 1 Overview
+### Dr. Shaun Kellogg
+### July 25, 2024
+
+---
+# Agenda
+
+.pull-left[
+## Part 1: Core Concepts
+### Network Data
+- Basic Types of Data
+- Network Data Structures 
+- Guiding Study
+
+]
+
+.pull-right[
+
+## Part 2: R Code-Along
+#### Network Visualization
+- tidygraph &amp; ggraph Packages
+- graph manipulation in R
+- Simple Sociograms
+]
+
+
+???
+ 
+
+---
+# A Quick Refresher
+### The four hallmarks of social network analysis: 
+1. an emphasis on **structuralism** based on ties among actors;
+
+2. firmly grounded in **empirical data**; 
+
+3. the use of **graphical imagery**; 
+
+4. is **mathematically based**.
+
+
+???
+
+---
+class: clear, laser
+
+.quote[The **visualization of social networks** has been a core practice since its foundation more than 100 years ago and remains a hallmark of contemporary social network analysis.]
+
+.author[~ Brian Carolan]
+
+
+---
+class: clear, inverse, middle, center
+
+# Part 1: Core Concepts
+----
+
+Data Types, Data Structures, and Guiding Study
+
+
+---
+# Network Data Types
+
+.panelset[
+
+.panel[.panel-name[Actors]
+
+
+.pull-left[
+***Actors***, also called nodes or vertices, can be a range of social entities, like: 
+- students in a classroom
+- teachers in a school district
+- school districts in a state 
+- departments within a college
+- parents in a community
+]
+
+
+.center[
+.pull.right[
+&lt;img src="sna-lab-1-slides_files/figure-html/unnamed-chunk-2-1.png" width="35%" /&gt;
+
+
+]
+]
+
+]
+
+
+.panel[.panel-name[Ties]
+
+.pull-left[
+***Ties***, also called relations or edges, connect actors to one another, like: 
+- behavioral interaction
+- physical connection
+- association or affiliation
+- evaluation of one person by another
+- formal relations
+- moving between places or status 
+]
+
+.pull-right[
+.center[
+&lt;img src="sna-lab-1-slides_files/figure-html/unnamed-chunk-3-1.png" width="70%" /&gt;
+]
+
+
+]
+
+
+.panel[.panel-name[Variables]
+
+.pull-left[ 
+1. ***Structural*** data based on the entire network of connections actors ties with others (e.g., centrality)
+1. ***Relational*** data based on an actor's direct ties with others (e.g., degree or connectedness)
+1. ***Attribute*** data based on properties of individual actors (e.g., gender, achievement)
+
+]
+
+
+.pull-right[
+.center[
+&lt;img src="sna-lab-1-slides_files/figure-html/unnamed-chunk-4-1.png" width="70%" /&gt;
+]
+
+]
+
+]
+
+]
+
+.panel[.panel-name[Discuss]
+Consider a network you are interested in studying and think about the following questions: 
+
+- Who are the network's actors? 
+
+- What ties connect these actors? 
+
+- Are there any groups within this network? 
+
+- What research questions are you interested in investigating?
+
+]
+
+
+]
+
+???
+
+---
+# Network Data Structures
+
+.panelset[
+
+
+.panel[.panel-name[Node-List]
+
+.pull-left[
+
+Consistent with typical data storage, node-lists often include:
+- identifiers lik name or **ID**
+- demographic info (**gender**, age) 
+- socio-economic info (job, income)
+- substantive info (**grades**, attendance)
+
+]
+
+
+.pull-right[
+
+
+| id|gender |achievement |
+|--:|:------|:-----------|
+|  1|female |high        |
+|  2|male   |average     |
+|  3|female |average     |
+|  4|male   |high        |
+|  5|female |average     |
+|  6|female |average     |
+
+]
+
+
+]
+
+.panel[.panel-name[Edge-List]
+
+.pull-left[
+
+Radically different than typical data storage, edge-lists include:
+- **ego and an alter**
+- tie strength or frequency
+- edge attributes (time, event, text)
+
+]
+
+
+.pull-right[
+
+
+| from| to| weight|
+|----:|--:|------:|
+|    1|  2|      1|
+|    1|  4|      1|
+|    1|  5|      1|
+|    1|  6|      1|
+|    1|  7|      1|
+|    1|  8|      1|
+
+]
+
+
+]
+
+
+.panel[.panel-name[Adjacency Matrix]
+
+.pull-left[
+
+Also radically different, an adjacency matrix includes:
+- column for each actor
+- row for each actor
+- a value indicating the presence/strength of a relation 
+
+]
+
+
+.pull-right[
+
+
+```
+##   1 2 3 4 5 6 7 8 9
+## 1 0 0 0 1 0 0 0 0 0
+## 2 0 0 1 0 0 0 0 1 0
+## 3 0 1 0 0 0 0 0 1 0
+## 4 0 0 0 0 0 0 0 0 0
+## 5 1 0 0 0 0 0 0 0 0
+## 6 0 0 0 0 0 0 0 0 0
+## 7 0 0 0 0 0 0 0 0 0
+## 8 0 1 1 0 0 0 0 0 0
+## 9 0 0 0 0 0 0 0 0 0
+```
+
+]
+
+]
+
+.panel[.panel-name[Discuss]
+
+Take a look at one of the network datasets [here](https://github.com/laser-institute/network-analysis/tree/main/lab-1/data) and consider the following:
+
+- What format is this data set stored as? 
+
+- If edge data, is it directed or undirected? Valued?
+
+- If node data, does the file contain attribute data? 
+
+- What are some things you notice about this dataset? 
+
+- What questions do you have about this dataset? 
+
+]
+
+]
+
+???
+
+
+
+---
+# Guiding Study
+
+.panelset[
+
+.panel[.panel-name[Context]
+
+.pull-left-narrow[&lt;img src="img/pittinsky-carolan.png" height="350px"/&gt;]
+
+.pull-right-wide[Revisiting early work in the field of sociometry, this study ***assesses the level of agreement between teacher perceptions and student reports of classroom friendships*** among middle school students.]
+
+
+]
+
+.panel[.panel-name[Questions]
+
+The central question guiding this investigation was:
+
+&gt;***Do student reports agree with teacher perceptions*** when it comes to classroom friendship ties and with what consequences for commonly used social network measures?
+]
+
+.panel[.panel-name[Data]
+- 1 teacher, 1 middle school, four classrooms
+- Students  given roster and asked to evaluate relationships with peers
+- Choices included best friend, friend, know-like, know, know-dislike, strongly dislike, and do not know.
+- Relations are ***valued*** (degrees of friendship, not just yes or no)
+- Data are ***directed*** (friendship nominations were not presumed to be reciprocal). 
+
+]
+
+.panel[.panel-name[Key Findings]
+
+- Teacher’s perceptions and students’ reports were statistically similar, 11–29% of possible ties did not match.
+- Students reported significantly more reciprocated friendship ties than the teacher perceived.
+- Observed level of agreement varied across classes and generally increased over time. 
+]
+
+]
+
+
+.footnote[
+Pittinsky, M., &amp; Carolan, B. (2008). [Behavioral versus cognitive classroom friendship networks.](https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-1/pittinsky-class-friendships.pdf)
+]
+
+???
+
+
+---
+class: clear, inverse, middle, center
+
+# part_2(R, code_along)
+----
+Network Packages, Objects, and Sociograms
+
+
+---
+# Load Packages
+
+.panelset[
+
+.panel[.panel-name[Load Libraries]
+
+Let's start by creating a new R script and loading the {readxl} package which we'll use to import our network data files:          
+
+
+``` r
+# install.packages(readxl)
+library(readxl)
+```
+
+**Note:** You may have to install this package using the `install.packages()` function if it is not listed in your packages pane.  
+]
+
+.panel[.panel-name[network packages 📦]
+
+.pull-left[
+.center[Network Management
+&lt;br&gt;
+&lt;br&gt;
+&lt;img src="img/tidygraph.png" height="200px"/&gt; 
+&lt;br&gt;
+[tidygraph](https://tidygraph.data-imaginist.com/)
+]]
+
+.pull-right[
+.center[Network Visualization
+&lt;br&gt;
+&lt;br&gt;
+&lt;img src="img/ggraph.png" height="200px"/&gt; 
+&lt;br&gt;
+[ggraph](https://ggraph.data-imaginist.com/index.html)
+]
+]
+
+
+]
+
+
+.panel[.panel-name[Your Turn]
+
+Load the {tidygraph} and {ggraph} packages.
+
+
+
+
+``` r
+# YOUR CODE HERE
+#
+#
+```
+
+]
+
+]
+
+---
+
+# Import Data   
+
+.panelset[
+
+.panel[.panel-name[Import Data]
+
+Let's start by importing two Excel files that contain data about the nodes and the edges in our student friendship network:
+
+
+``` r
+student_nodes &lt;- read_excel("lab-1/data/student-attributes.xlsx")
+
+student_edges &lt;- read_excel("lab-1/data/student-edgelist.xlsx")
+```
+
+
+
+
+
+]
+
+.panel[.panel-name[Inspect Data]
+
+Now let's take a look at the data file we just imported using the `View()` function or another function of choice you may have learned in the Foundations Labs:
+
+
+``` r
+View(student_edges)
+
+View(student_nodes)
+```
+
+
+]
+
+.panel[.panel-name[Discuss]
+
+Think about the questions below and be prepared to share your response:              
+1. What do you think the rows and columns in each file represent? 
+
+1. What about the values in each cell represent?
+
+1. What else do you notice about the data? 
+
+1. What questions do you have? 
+
+]
+
+]
+
+---
+# Tidy Graph  
+
+.panelset[
+
+.panel[.panel-name[tbl_graph( ) function]
+
+The [`tbl_graph()`](https://tidygraph.data-imaginist.com/reference/tbl_graph.html) function creates a special network data structure called a "tidy graph" that combines our nodes and edges into a single R object. Run the following code in your R script:
+
+
+``` r
+student_network &lt;- tbl_graph(edges = student_edges,
+                             nodes = student_nodes, 
+                             directed = TRUE) 
+```
+The benefits of a "tidy graph" is that opens up the entire suite of tidyverse tools for manipulating and constructing network data and variables noted earlier. 
+
+]
+
+.panel[.panel-name[View Network]
+
+
+Using your R script, type the name of network object we just created and run the code to produce the output on the next tab:
+
+
+``` r
+# ADD CODE BELOW
+#
+#
+```
+]
+
+.panel[.panel-name[Output]
+
+
+
+```
+## # A tbl_graph: 27 nodes and 203 edges
+## #
+## # A directed simple graph with 2 components
+## #
+## # Node Data: 27 × 5 (active)
+##       id gender achievement gender_num achievement_num
+##    &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;            &lt;dbl&gt;           &lt;dbl&gt;
+##  1     1 female high                 1               1
+##  2     2 male   average              0               2
+##  3     3 female average              1               2
+##  4     4 male   high                 0               1
+##  5     5 female average              1               2
+##  6     6 female average              1               2
+##  7     7 female high                 1               1
+##  8     8 female average              1               2
+##  9     9 female high                 1               1
+## 10    10 male   low                  0               3
+## # ℹ 17 more rows
+## #
+## # Edge Data: 203 × 3
+##    from    to weight
+##   &lt;int&gt; &lt;int&gt;  &lt;dbl&gt;
+## 1     1     2      1
+## 2     1     4      1
+## 3     1     5      1
+## # ℹ 200 more rows
+```
+
+]
+
+.panel[.panel-name[Discuss]
+
+Think about the questions below:              
+
+1. What is size of the student-reported friendship network?
+
+1. What else do you notice about this network?
+
+1. What questions do have about this network summary?
+
+]
+
+
+]
+
+---
+
+# A Simple Sociogram
+
+.panelset[
+
+.panel[.panel-name[plot( )]
+
+.pull-left[ 
+The `plot()` function is base R's simple but limited solution for plotting graphs.
+
+
+``` r
+plot(student_network)
+```
+
+]
+
+.center[
+.pull-right[ 
+&lt;img src="sna-lab-1-slides_files/figure-html/unnamed-chunk-8-1.png" width="70%" /&gt;
+]
+]
+ 
+]
+
+
+.panel[.panel-name[autograph( )]
+.pull-left[ 
+The `autograph()` function is ggraph's simple but limited solution for plotting sociograms.
+
+
+``` r
+autograph(student_network)
+```
+
+]
+
+.center[
+.pull-right[ 
+&lt;img src="sna-lab-1-slides_files/figure-html/unnamed-chunk-10-1.png" width="70%" /&gt;
+]
+]
+]
+
+.panel[.panel-name[Arguments]
+.pull-left[ 
+Both functions allow a small degree of customization, but are still limited.
+
+
+``` r
+autograph(student_network,
+          node_label = id,
+          node_colour = gender)
+```
+
+]
+
+.center[
+.pull-right[ 
+&lt;img src="sna-lab-1-slides_files/figure-html/unnamed-chunk-12-1.png" width="100%" /&gt;
+]
+]
+]
+
+.panel[.panel-name[Discuss]
+1. In what situations might these limited functions be useful? 
+
+2. When might they inapropriate to use?
+
+]
+]
+
+
+
+---
+
+# Sophisticated Sociograms
+
+.panelset[
+
+.panel[.panel-name[Set Graph]
+
+The `ggraph()` function is the first function required to build a sociogram. Try running this function on out `student_network` and see what happens:
+
+``` r
+ggraph(student_network)
+```
+
+```
+## Using "stress" as default layout
+```
+This function serves two critical roles: 
+1. It takes care of setting up the plot object for the network specified.  
+1. It creates the layout based on algorithm provided.
+
+]
+ 
+
+.panel[.panel-name["Add" Nodes]
+
+.pull-left[
+Let's “add” nodes to our sociogram using the `+` operator and the `geom_node_point()` function:
+
+``` r
+ggraph(student_network) + 
+  geom_node_point() 
+```
+
+]
+
+.pull-right[
+&lt;img src="sna-lab-1-slides_files/figure-html/unnamed-chunk-14-1.png" width="85%" /&gt;
+
+How would you interpret this measure?
+]
+]
+
+
+.panel[.panel-name[Add Edges]
+
+.pull-left[
+Now let's “add” edges to our sociogram using the `+` operator and the `geom_node_point()` function:
+
+``` r
+ggraph(student_network) + 
+  geom_node_point() + 
+  geom_edge_link()
+```
+
+]
+
+.pull-right[
+&lt;img src="sna-lab-1-slides_files/figure-html/unnamed-chunk-16-1.png" width="85%" /&gt;
+
+How would you interpret this measure?
+]
+]
+
+.panel[.panel-name[Polish]
+
+.pull-left[
+&lt;br&gt;
+&lt;br&gt;
+The {ggraph} packages allows for some very fairly sophisticated sociograms...
+]
+
+.pull-right[
+.center[
+&lt;img src="sna-lab-1-slides_files/figure-html/unnamed-chunk-17-1.png" width="70%" /&gt;
+]
+]
+]
+
+.panel[.panel-name[Code]
+With a fair bit of coding: 
+
+``` r
+ggraph(student_network, layout = "stress") + 
+  geom_edge_link(arrow = arrow(length = unit(1, 'mm')), 
+                 end_cap = circle(3, 'mm'),
+                 start_cap = circle(3, 'mm'),
+                 alpha = .1) +
+  geom_node_point(aes(size = local_size(),
+                      color = gender)) +
+  geom_node_text(aes(label = id),
+                 repel=TRUE) +
+  theme_graph()
+```
+]
+
+]
+
+
+---
+# What's Next
+
+.pull-left[
+## Essential Readings
+
+- Reading 1: [The Social Network Perspective](https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-1/carolan-network-perspective.pdf)
+
+- Reading 2: [Historical, Theoretical, and Analytical Foundations](https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-1/carolan-history-theory.pdf)  
+
+- Reading 3: [Basic Concepts](https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-1/carolan-basic-concepts.pdf)  
+
+] 
+
+.pull-right[
+## Case Study
+
+- SNA Case Study: [Who's Friends with Who in Middle School?](https://laser-institute.github.io/network-analysis/lab-1/sna-lab-1-case-key.html)
+
+- Guiding Study: [Behavioral versus cognitive classroom friendship networks.](https://github.com/laser-institute/essential-readings/blob/main/sna-labs/sna-lab-1/pittinsky-class-friendships.pdf)
+
+]
+
+---
+class: clear, center
+
+## .font130[.center[**Thank you!**]]
+
+
+.center[&lt;img style="border-radius:50%;" src="img/kellogg.jpeg" height="200px"/&gt;&lt;br/&gt;**Shaun Kellogg**&lt;br/&gt;&lt;mailto:sbkellog@ncsu.edu&gt;]
+
+.pull-left-narrow[.center[&lt;img style="border-radius: 50%;" src="img/nsf.jpg" height="150px"/&gt; ]]
+
+.pull-right-wide[
+.left[.font70[
+
+This work was supported by the National Science Foundation grant DRL-2025090 (ECR:BCSER). Any opinions, findings, and conclusions expressed in this material are those of the authors and do not necessarily reflect the views of the National Science Foundation.
+]]]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "default",
+"highlightLines": true,
+"highlightLanguage": "r",
+"countIncrementalSlides": false,
+"ratio": "16:9",
+"slideNumberFormat": "<div class=\"progress-bar-container\">\n <div class=\"progress-bar\" style=\"width: calc(%current% / %total% * 100%);\">\n </div>\n</div>\n</div>"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

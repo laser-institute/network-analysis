@@ -1,0 +1,4 @@
+- source: scholar-network.qmd
+  quarto-pub:
+    - id: f71bb5a8-9307-400a-be40-bd64a68a9b96
+      url: 'https://sbkellogg.quarto.pub/laser-scholars-scavenger-hunt'
