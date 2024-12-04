@@ -22,7 +22,7 @@ editor: visual
 
 ## A Quick Refresher
 
-::: columns
+::::: columns
 ::: {.column width="50%"}
 ### Network Visualization
 
@@ -38,7 +38,7 @@ editor: visual
 
 -   complete network, group, or neighborhood **Density**
 :::
-:::
+:::::
 
 ::: notes
 **Speaker Notes:**
@@ -58,7 +58,7 @@ In this module we move beyond these static snapshots and provides an introductio
 
 ## Evolution
 
-::: columns
+::::: columns
 ::: {.column width="50%"}
 ### Aim of Inference
 
@@ -78,7 +78,7 @@ In this module we move beyond these static snapshots and provides an introductio
 
 3.  Network dynamism
 :::
-:::
+:::::
 
 ::: notes
 **Speaker Notes:**
@@ -86,7 +86,7 @@ In this module we move beyond these static snapshots and provides an introductio
 
 ## Permutations
 
-::: columns
+::::: columns
 ::: {.column width="50%"}
 -   Matrices are rearranged over and over (even thousands of times!)
 
@@ -98,7 +98,7 @@ In this module we move beyond these static snapshots and provides an introductio
 ::: {.column width="50%"}
 ![](img/matrix.png)
 :::
-:::
+:::::
 
 ::: notes
 **Speaker Notes:**
@@ -146,7 +146,7 @@ However, bottom-up approaches identify groups that are **built up from simple dy
 
 ## QAP (**Tie A-\> Tie B)**
 
-::: columns
+::::: columns
 ::: {.column width="50%"}
 ![](img/year-1-collab.png){width="100%"}
 :::
@@ -154,7 +154,7 @@ However, bottom-up approaches identify groups that are **built up from simple dy
 ::: {.column width="50%"}
 ![](img/year-1-conf.png){width="100%"}
 :::
-:::
+:::::
 
 ::: notes
 **Speaker Notes:**
@@ -176,7 +176,7 @@ Do school leaders prefer to collaborate with those with whom they have collabora
 
 ## P1 & P-Star (**Attributes -\> Ties)**
 
-::: columns
+::::: columns
 ::: {.column width="50%"}
 Does gender or some other individual attribute predicts confidential exchanges between school leaders, or does some previous relation have a stronger effect?
 :::
@@ -184,7 +184,7 @@ Does gender or some other individual attribute predicts confidential exchanges b
 ::: {.column width="50%"}
 ![](img/p-star-table.png){width="100%"}
 :::
-:::
+:::::
 
 ::: notes
 **Speaker Notes:**
@@ -192,7 +192,7 @@ Does gender or some other individual attribute predicts confidential exchanges b
 
 ## Regression (Ties -\> Attributes)
 
-::: columns
+::::: columns
 ::: {.column width="40%"}
 *Does collaboration between leaders explain one's level of trust in colleagues?*
 :::
@@ -200,7 +200,7 @@ Does gender or some other individual attribute predicts confidential exchanges b
 ::: {.column width="60%"}
 ![](img/node-table.png)
 :::
-:::
+:::::
 
 ## Discussion
 
@@ -230,7 +230,7 @@ In preparation for the Module 4 Code-Along and Case Study, take a look at the st
 
 ## Acknowledgements
 
-::: columns
+::::: columns
 ::: {.column width="20%"}
 ![](img/nsf.jpg){fig-align="center" width="80%"}
 :::
@@ -238,6 +238,6 @@ In preparation for the Module 4 Code-Along and Case Study, take a look at the st
 ::: {.column width="80%"}
 This work was supported by the National Science Foundation grants DRL-2025090 and DRL-2321128 (ECR:BCSER). Any opinions, findings, and conclusions expressed in this material are those of the authors and do not necessarily reflect the views of the National Science Foundation.
 :::
-:::
+:::::
 
 ## References
